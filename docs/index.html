@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rocky Mountain Finishes — Research & Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F5F1EA;
+    color: #1F1B17;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ── Layout ── */
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(31,27,23,0.12);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #f97316;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F1B17;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 16px;
+    color: #5A4F47;
+    line-height: 1.65;
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  .stats {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    border-right: 1px solid rgba(31,27,23,0.15);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F1B17;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8A7F6E;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(31,27,23,0.1);
+  }
+  .section-head {
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAF6EE; }
+
+  /* ── Fact Grid (Company Snapshot) ── */
+  .fact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 48px;
+  }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8A7F6E;
+    margin-bottom: 6px;
+  }
+  .fact-val {
+    font-size: 14px;
+    color: #1F1B17;
+    line-height: 1.6;
+  }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { border-bottom: 1px solid rgba(31,27,23,0.12); }
+  th {
+    text-align: left;
+    padding: 8px 12px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A7F6E;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(31,27,23,0.07); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr.highlight { background: rgba(239,68,68,0.05); }
+  td { padding: 12px; color: #5A4F47; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F1B17; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(29,78,216,0.1);  color: #1d4ed8; }
+
+  /* ── Position Cards ── */
+  .position-intro {
+    font-size: 14px;
+    color: #5A4F47;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .position-intro strong { color: #1F1B17; }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card {
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .pos-card-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .pos-card-text {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #5A4F47;
+  }
+
+  /* ── Audit Grid ── */
+  .audit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #EDE8E0;
+    border: 1px solid rgba(31,27,23,0.1);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .audit-channel {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1F1B17;
+  }
+  .grade {
+    font-size: 11px;
+    font-weight: 800;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .grade-a { background: #15803d; }
+  .grade-b { background: #1d4ed8; }
+  .grade-c { background: #b45309; }
+  .grade-d { background: #c2410c; }
+  .grade-f { background: #b91c1c; }
+  .audit-note { font-size: 12px; color: #5A4F47; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(185,28,28,0.06);
+    border: 1px solid rgba(185,28,28,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b91c1c;
+    margin-bottom: 8px;
+  }
+  .key-finding p {
+    font-size: 13px;
+    color: #5A4F47;
+    line-height: 1.65;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(31,27,23,0.1);
+    font-size: 11px;
+    color: #8A7F6E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Research &amp; Audit · April 2026 · Craig, Colorado</div>
+    <h1>Rocky Mountain Finishes</h1>
+    <p>Colorado's pre-finishing operation for siding, trim, mouldings, millwork, and doors. Founded 2021 by Jacob Shirar &amp; Ryan Hass.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">2021</div><div class="stat-label">Founded</div></div>
+      <div class="stat"><div class="stat-val">&lt;$5M</div><div class="stat-label">Revenue</div></div>
+      <div class="stat"><div class="stat-val">1–10</div><div class="stat-label">Employees</div></div>
+      <div class="stat"><div class="stat-val">5–10d</div><div class="stat-label">Turnaround</div></div>
+      <div class="stat"><div class="stat-val">2,000+</div><div class="stat-label">Colors (PPG)</div></div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Company Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#fff3e8;border-bottom:1px solid rgba(249,115,22,0.2)">
+      <span class="section-num" style="color:#f97316">01</span>
+      <span class="section-title" style="color:#f97316">Company Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">Founders</div>
+          <div class="fact-val">Jacob Shirar (Engineering, ex-Deimco Sales) + Ryan Hass (Agriculture, ex-Deimco Tech). Childhood friends from Iowa who launched the business in Craig, CO.</div>
+        </div>
+        <div>
+          <div class="fact-label">What They Do</div>
+          <div class="fact-val">Apply factory-grade stains, paints, sealers, and topcoats to building materials before job-site delivery — using a Deimco automated line for standard runs and manual spray booths for complex work.</div>
+        </div>
+        <div>
+          <div class="fact-label">Target Market</div>
+          <div class="fact-val">Colorado luxury resort corridor — Vail, Aspen, Steamboat. High-end properties that remodel every 5–10 years. Also serves contractors, distributors, lumber yards, and interior designers.</div>
+        </div>
+        <div>
+          <div class="fact-label">Products Finished</div>
+          <div class="fact-val">Siding &amp; trim (wood, fiber cement, engineered), mouldings &amp; millwork (MDF, Poplar, Alder, Cherry), natural wood (Cedar, Poplar), doors &amp; jambs (fiberglass, steel, stained).</div>
+        </div>
+        <div>
+          <div class="fact-label">Color Offering</div>
+          <div class="fact-val">2,000+ solid colors + 36 RealWood faux-stain combos via PPG partnership. Custom color matching and jobsite touch-up containers available.</div>
+        </div>
+        <div>
+          <div class="fact-label">Positioning</div>
+          <div class="fact-val">"Colorado's Premier Pre-Finishing Operation." Eco-friendly water-based coatings, factory-controlled quality, 5–10 day turnaround, orders from 1 board to thousands of units.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.2)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Geography</th>
+            <th>Key Differentiator</th>
+            <th>Threat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>Legacy Pre-Finishing</td>
+            <td class="geo">National (intl.)</td>
+            <td>Deepest product range, landmark projects, architect/designer focus. Most direct 1:1 competitor.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Metrie Complete</td>
+            <td class="geo">North America</td>
+            <td>Largest moulding manufacturer with in-house pre-finish facility since 1996. Industrial scale.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Hewn (Modern Mill)</td>
+            <td class="geo">National</td>
+            <td>One-stop-shop for pre-finished wood — commercial and residential. Direct-to-builder model.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Specialty Wood Products</td>
+            <td class="geo">Regional</td>
+            <td>Own pre-finished siding line + strong distributor relationships. Regional overlap with RMF.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Bayer Built Woodworks</td>
+            <td class="geo">Regional / National</td>
+            <td>Millwork supplier with add-on pre-finish option. Bundled offering vs. RMF's dedicated facility.</td>
+            <td><span class="badge badge-lowmed">Low-Medium</span></td>
+          </tr>
+          <tr>
+            <td>Builders FirstSource</td>
+            <td class="geo">National</td>
+            <td>Largest national distributor with pre-finished product lines. Different buyer relationship and scale.</td>
+            <td><span class="badge badge-low">Low</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Competitive Position -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.2)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Rank</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        RMF holds a <strong>niche regional position</strong> in a market dominated by national players. Their local Colorado footprint and 5–10 day turnaround is a genuine advantage over Legacy and Metrie for Mountain West builders — but they have not yet built the brand visibility to capture that demand.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(220,38,38,0.07);border:1px solid rgba(220,38,38,0.2)">
+          <div class="pos-card-label" style="color:#b91c1c">Strengths</div>
+          <div class="pos-card-text">Right geography. Deimco equipment. PPG partnership. Flexible order sizes (1 to thousands). Strong founding story and industry pedigree.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">Current Position</div>
+          <div class="pos-card-text">Regional niche leader in name only — claim not yet backed by brand recognition, online visibility, or social proof.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">No competitor owns "Mountain West pre-finishing." RMF could own that category outright with consistent SEO content and marketing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website Design</span><span class="grade grade-c">C+</span></div>
+          <div class="audit-note">Functional but generic. Nothing visual that reflects a premium finishing operation.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website Content</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Thin copy across 10 pages. Feature-focused, not benefit-focused. No portfolio or case studies.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">No blog, no indexed content beyond 10 core pages. Near-zero organic surface area.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Calls to Action</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Phone + email only. No quote form, no project gallery, no testimonials on-site.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Pricing Transparency</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Zero pricing info on the site. Buyers must call to learn anything — maximum friction.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social Proof</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No reviews, testimonials, or project photos on the website. Nothing to build trust.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Instagram</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">~445 followers, 14 posts in 3+ years of operation. Effectively dormant.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Facebook</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Page exists. No accessible engagement data. Likely low activity.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">LinkedIn</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No confirmed LinkedIn presence found in any search.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Yelp / Reviews</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Profile exists (last updated Nov 2025). Review count unavailable — likely sparse.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Press / Earned Media</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">One trade article from Finishing &amp; Coating magazine at founding (2022). Nothing since.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>The gap between their real capability and their online presence is the core problem. A contractor Googling "prefinished siding Colorado" or "pre-finished millwork Mountain West" will land on Legacy Pre-Finishing or Metrie — not RMF. They are effectively invisible to their own target market despite having the right product, equipment, and location.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Rocky Mountain Finishes — Research &amp; Audit</span>
+    <span>April 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
