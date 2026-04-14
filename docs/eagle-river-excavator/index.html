@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eagle River Valley Excavator — Research & Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F5F1EA;
+    color: #1F1B17;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ── Layout ── */
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(31,27,23,0.12);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #f97316;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F1B17;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #5A4F47;
+    line-height: 1.65;
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  .stats {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    border-right: 1px solid rgba(31,27,23,0.15);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F1B17;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8A7F6E;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(31,27,23,0.1);
+  }
+  .section-head {
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-num {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAF6EE; }
+
+  /* ── Fact Grid (Company Snapshot) ── */
+  .fact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 48px;
+  }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8A7F6E;
+    margin-bottom: 6px;
+  }
+  .fact-val {
+    font-size: 17px;
+    color: #1F1B17;
+    line-height: 1.6;
+  }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(31,27,23,0.12); }
+  th {
+    text-align: left;
+    padding: 8px 12px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A7F6E;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(31,27,23,0.07); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr.highlight { background: rgba(239,68,68,0.05); }
+  td { padding: 12px; color: #5A4F47; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F1B17; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(29,78,216,0.1);  color: #1d4ed8; }
+
+  /* ── Position Cards ── */
+  .position-intro {
+    font-size: 17px;
+    color: #5A4F47;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .position-intro strong { color: #1F1B17; }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card {
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .pos-card-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .pos-card-text {
+    font-size: 15px;
+    line-height: 1.55;
+    color: #5A4F47;
+  }
+
+  /* ── Audit Grid ── */
+  .audit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #EDE8E0;
+    border: 1px solid rgba(31,27,23,0.1);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .audit-channel {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1F1B17;
+  }
+  .grade {
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-c  { background: #b45309; }
+  .grade-cm { background: #9a4a10; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #5A4F47; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(185,28,28,0.06);
+    border: 1px solid rgba(185,28,28,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b91c1c;
+    margin-bottom: 8px;
+  }
+  .key-finding p {
+    font-size: 16px;
+    color: #5A4F47;
+    line-height: 1.65;
+  }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; border: 1px solid rgba(31,27,23,0.1); border-radius: 8px; overflow: hidden; }
+  .rec-item { padding: 20px 24px; background: #FAF6EE; border-bottom: 1px solid rgba(31,27,23,0.07); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #f97316; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F1B17; }
+  .rec-detail { font-size: 14px; color: #5A4F47; line-height: 1.65; padding-left: 30px; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(31,27,23,0.1);
+    font-size: 11px;
+    color: #8A7F6E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Research &amp; Audit · April 2026 · Eagle River Valley, Colorado</div>
+    <h1>Eagle River Valley<br>Excavator</h1>
+    <p>Family-owned excavation and trucking operation with 50+ years of continuous service in western Colorado. Core services include earthmoving, land clearing, trenching, septic installation, and demolition. Primarily serves residential, commercial, and municipal clients in Eagle and Garfield counties.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">~1973</div><div class="stat-label">Founded</div></div>
+      <div class="stat"><div class="stat-val">50+ yrs</div><div class="stat-label">In Operation</div></div>
+      <div class="stat"><div class="stat-val">2</div><div class="stat-label">Generations</div></div>
+      <div class="stat"><div class="stat-val">A+</div><div class="stat-label">BBB Rating</div></div>
+      <div class="stat"><div class="stat-val">2.4 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Company Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#fff3e8;border-bottom:1px solid rgba(249,115,22,0.2)">
+      <span class="section-num" style="color:#f97316">01</span>
+      <span class="section-title" style="color:#f97316">Company Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">Ownership</div>
+          <div class="fact-val">Multi-generational family ownership — founder and son. In continuous operation since the early 1970s in the Eagle River Valley.</div>
+        </div>
+        <div>
+          <div class="fact-label">What They Do</div>
+          <div class="fact-val">Full-service excavation and trucking: earthmoving, land clearing, trenching, demolition, and septic system installation. Serve residential, commercial, and municipal clients across Eagle and Garfield counties.</div>
+        </div>
+        <div>
+          <div class="fact-label">Service Area</div>
+          <div class="fact-val">Eagle River Valley and western Garfield County — well-positioned for construction and development activity along the I-70 mountain corridor.</div>
+        </div>
+        <div>
+          <div class="fact-label">Reputation</div>
+          <div class="fact-val">A+ BBB rating. 12 Facebook reviews with a 100% recommendation rate. Long-standing community presence — reputation built almost entirely on word-of-mouth and repeat referrals over five decades.</div>
+        </div>
+        <div>
+          <div class="fact-label">Website</div>
+          <div class="fact-val">Wix-built site, approximately 3 pages, last updated 2020. Contains a live typo on the homepage ("oour"). No blog, no project portfolio, no quote form.</div>
+        </div>
+        <div>
+          <div class="fact-label">Digital Presence</div>
+          <div class="fact-val">No Google Business Profile found. No Yelp or Angi listing. A Facebook page with 12 reviews is their only active online touchpoint.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.2)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Geography</th>
+            <th>Key Note</th>
+            <th>Threat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>Nottingham Excavating</td>
+            <td class="geo">Gypsum, CO</td>
+            <td>Direct local competitor — same geography, same services. Primary day-to-day rival for area bids.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr class="highlight">
+            <td>Schofield Excavation</td>
+            <td class="geo">Gypsum, CO</td>
+            <td>Another local operator. Competes directly for residential and light commercial excavation work.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>MCI Trucking &amp; Excavating</td>
+            <td class="geo">Rifle, CO</td>
+            <td>Nearby Garfield County operator with excavation and trucking services. Overlaps on trucking and larger grading jobs.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Alpine Excavation</td>
+            <td class="geo">New Castle, CO</td>
+            <td>Serves western Eagle County and Garfield County. Overlaps on residential site prep and septic installation.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Baseline Excavation</td>
+            <td class="geo">Basalt, CO</td>
+            <td>Serves the Roaring Fork Valley corridor. Mid-valley presence means overlap on larger Eagle County projects.</td>
+            <td><span class="badge badge-lowmed">Low-Medium</span></td>
+          </tr>
+          <tr>
+            <td>Groth Construction</td>
+            <td class="geo">Glenwood Springs, CO</td>
+            <td>Full-service contractor with excavation capability. Competes primarily on commercial and larger residential scopes.</td>
+            <td><span class="badge badge-lowmed">Low-Medium</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Competitive Position -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.2)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        This operator holds a <strong>strong local reputation built on 50+ years of word-of-mouth</strong> — but has zero online presence to capture new business. Their competitors are equally weak digitally, which means the first excavator in the area to claim a Google Business Profile and clean up their web presence will own local search for the next several years.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(220,38,38,0.07);border:1px solid rgba(220,38,38,0.2)">
+          <div class="pos-card-label" style="color:#b91c1c">Strengths</div>
+          <div class="pos-card-text">50+ year track record. A+ BBB rating. 100% Facebook recommendation rate. Multi-generational family ownership. Deep roots in the Eagle River Valley community.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">Current Position</div>
+          <div class="pos-card-text">Effectively invisible online. No Google presence, no Business Profile, no searchable reviews. Relying entirely on repeat business and personal referrals built over decades.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">The local competition is equally weak online. The first excavator in the area to build a proper digital presence will capture the majority of inbound search traffic — for years.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website Design</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Wix template, 3 pages, copyright dated 2020. Outdated and generic — no visual identity, no brand presence, no photos.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website Content</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Thin copy, live typo on the homepage. No portfolio, no project gallery, no testimonials, no contact form.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Near-zero organic surface area. No indexed content beyond the homepage. Will not appear in any service-related search.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No Google Business Profile found. This is the single biggest gap — they are invisible on Google Maps and local search entirely.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Calls to Action</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Phone number only. No contact form, no quote request, no email capture. Maximum friction for any new lead.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews / Social Proof</span><span class="grade grade-cm">C</span></div>
+          <div class="audit-note">A+ BBB rating and 12 Facebook reviews (100% recommended) — solid underlying reputation, zero online discoverability.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Facebook</span><span class="grade grade-cm">C−</span></div>
+          <div class="audit-note">Active presence with reviews and some posts. The only functioning online touchpoint. Needs consistent content and a path to Google reviews.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Yelp / Angi / HomeAdvisor</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No listings found on Yelp, Angi, or HomeAdvisor. Missing entirely from the platforms homeowners and contractors use to find and evaluate bids.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Instagram / LinkedIn</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No Instagram or LinkedIn presence found. Social footprint is Facebook-only with minimal reach beyond existing followers.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Local Directory Listings</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Inconsistent or missing across major local directories. Business name, address, and phone not verified across key platforms.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>This business has one of the strongest local reputations in the valley — 50 years of operation, an A+ BBB rating, 100% Facebook recommendations — and is essentially unfindable online. A homeowner Googling <em>"excavation Eagle County"</em> or <em>"septic installation western Colorado"</em> will find the competition first, despite this operator likely having the superior track record. The reputation exists. The visibility does not.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Top Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#f0fdf4;border-bottom:1px solid rgba(21,128,61,0.2)">
+      <span class="section-num" style="color:#15803d">05</span>
+      <span class="section-title" style="color:#15803d">Top 5 Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list" style="border:none;border-radius:0">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Claim &amp; Build a Google Business Profile</span>
+          </div>
+          <div class="rec-detail">This is the highest-leverage move available. A complete Google Business Profile with photos, services listed, and accurate hours will put this business on the map — literally — for local search queries like "excavation Eagle County" and "septic installation western Colorado." Free to set up, with immediate and durable impact on local visibility.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Fix the Website — Remove the Typo, Add a Contact Form</span>
+          </div>
+          <div class="rec-detail">The live typo on the homepage is the first thing a new prospect sees. Fix it immediately. Then add a simple contact or quote request form so inbound leads don't have to call cold — reducing friction dramatically increases conversion from organic and directory traffic.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Claim Yelp, Angi, and HomeAdvisor Listings</span>
+          </div>
+          <div class="rec-detail">These are the platforms homeowners and general contractors actively use to find and vet excavation bids. A verified listing with the A+ BBB reference and Facebook review record as seed content immediately places this business in the consideration set it is currently missing from entirely.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Move Facebook Reviewers to Google</span>
+          </div>
+          <div class="rec-detail">Ask current satisfied customers — starting with those 12 Facebook reviewers — to leave a Google review once the Business Profile is live. Five Google reviews will do more for local search visibility than 50 Facebook reviews. The social proof already exists; it just needs to be in the right place.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Build a Simple Project Photo Gallery</span>
+          </div>
+          <div class="rec-detail">Add 10–15 before-and-after photos to the website. Earthmoving, septic, site clearing — anything visual. Prospects evaluating contractors respond strongly to project evidence. This is inexpensive to execute and dramatically increases trust for anyone landing on the site from any source.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Eagle River Valley Excavator — Research &amp; Audit</span>
+    <span>April 2026 · Prepared by Doble AI</span>
+  </div>
+
+</div>
+</body>
+</html>
