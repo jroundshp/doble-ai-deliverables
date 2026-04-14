@@ -3,309 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vail Valley Real Estate — Research & Audit</title>
+<title>Vail Valley Luxury Broker — Research & Audit</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: #F5F1EA;
-    color: #1F1B17;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-  }
-
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #F5F1EA; color: #1F1B17; -webkit-font-smoothing: antialiased; min-height: 100vh; }
   .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
-
-  .hero {
-    padding: 72px 0 56px;
-    border-bottom: 1px solid rgba(31,27,23,0.12);
-  }
-  .tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #0369a1;
-    margin-bottom: 20px;
-  }
-  .tag::before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 1px;
-    background: #0369a1;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(36px, 6vw, 64px);
-    font-weight: 500;
-    color: #1F1B17;
-    line-height: 1.05;
-    margin-bottom: 16px;
-  }
-  .hero p {
-    font-size: 19px;
-    color: #5A4F47;
-    line-height: 1.65;
-    max-width: 640px;
-    margin-bottom: 40px;
-  }
-  .stats {
-    display: flex;
-    gap: 0;
-    flex-wrap: wrap;
-  }
-  .stat {
-    padding: 0 28px 0 0;
-    margin-right: 28px;
-    border-right: 1px solid rgba(31,27,23,0.15);
-  }
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid rgba(31,27,23,0.12); }
+  .tag { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #0369a1; margin-bottom: 20px; }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #0369a1; }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(36px, 6vw, 64px); font-weight: 500; color: #1F1B17; line-height: 1.05; margin-bottom: 16px; }
+  .hero p { font-size: 19px; color: #5A4F47; line-height: 1.65; max-width: 640px; margin-bottom: 40px; }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat { padding: 0 28px 0 0; margin-right: 28px; border-right: 1px solid rgba(31,27,23,0.15); }
   .stat:last-child { border-right: none; }
-  .stat-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 500;
-    color: #1F1B17;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .stat-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #8A7F6E;
-  }
-
-  .section {
-    margin-top: 48px;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid rgba(31,27,23,0.1);
-  }
-  .section-head {
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .section-num {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    opacity: 0.6;
-  }
-  .section-title {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
+  .stat-val { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; color: #1F1B17; line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7F6E; }
+  .section { margin-top: 48px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(31,27,23,0.1); }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; }
+  .section-title { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
   .section-body { padding: 28px 24px; background: #FAF6EE; }
-
-  .fact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px 48px;
-  }
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
   @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
-  .fact-label {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #8A7F6E;
-    margin-bottom: 6px;
-  }
-  .fact-val {
-    font-size: 17px;
-    color: #1F1B17;
-    line-height: 1.6;
-  }
-
+  .fact-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #8A7F6E; margin-bottom: 6px; }
+  .fact-val { font-size: 17px; color: #1F1B17; line-height: 1.6; }
   table { width: 100%; border-collapse: collapse; font-size: 15px; }
   thead tr { border-bottom: 1px solid rgba(31,27,23,0.12); }
-  th {
-    text-align: left;
-    padding: 8px 12px 12px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #8A7F6E;
-  }
-  th:first-child { padding-left: 0; }
-  th:last-child  { padding-right: 0; }
+  th { text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8A7F6E; }
+  th:first-child { padding-left: 0; } th:last-child { padding-right: 0; }
   tbody tr { border-bottom: 1px solid rgba(31,27,23,0.07); }
   tbody tr:last-child { border-bottom: none; }
   tbody tr.highlight { background: rgba(3,105,161,0.05); }
   td { padding: 12px; color: #5A4F47; vertical-align: top; line-height: 1.45; }
-  td:first-child { padding-left: 0; font-weight: 600; color: #1F1B17; white-space: nowrap; }
-  td:last-child  { padding-right: 0; }
-
-  .badge {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 20px;
-    white-space: nowrap;
-  }
-  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
-  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
-  .badge-low    { background: rgba(29,78,216,0.1);  color: #1d4ed8; }
-  .badge-oppty  { background: rgba(21,128,61,0.1);  color: #15803d; }
-
-  .position-intro {
-    font-size: 17px;
-    color: #5A4F47;
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F1B17; }
+  td:last-child { padding-right: 0; }
+  .badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge-high { background: rgba(185,28,28,0.1); color: #b91c1c; }
+  .badge-med  { background: rgba(180,83,9,0.1); color: #b45309; }
+  .badge-low  { background: rgba(29,78,216,0.1); color: #1d4ed8; }
+  .badge-oppty { background: rgba(21,128,61,0.1); color: #15803d; }
+  .position-intro { font-size: 17px; color: #5A4F47; line-height: 1.7; margin-bottom: 20px; }
   .position-intro strong { color: #1F1B17; }
-
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-  }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
-  .pos-card {
-    border-radius: 8px;
-    padding: 16px;
-  }
-  .pos-card-label {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-  }
-  .pos-card-text {
-    font-size: 15px;
-    line-height: 1.55;
-    color: #5A4F47;
-  }
-
-  .audit-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-  }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #5A4F47; }
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
   @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
-  .audit-card {
-    background: #EDE8E0;
-    border: 1px solid rgba(31,27,23,0.1);
-    border-radius: 8px;
-    padding: 14px 16px;
-  }
-  .audit-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 6px;
-  }
-  .audit-channel {
-    font-size: 15px;
-    font-weight: 600;
-    color: #1F1B17;
-  }
-  .grade {
-    font-size: 13px;
-    font-weight: 800;
-    color: #fff;
-    padding: 2px 8px;
-    border-radius: 4px;
-    flex-shrink: 0;
-  }
-  .grade-a { background: #15803d; }
-  .grade-b { background: #1d4ed8; }
-  .grade-c { background: #b45309; }
-  .grade-d { background: #c2410c; }
-  .grade-f { background: #b91c1c; }
+  .audit-card { background: #EDE8E0; border: 1px solid rgba(31,27,23,0.1); border-radius: 8px; padding: 14px 16px; }
+  .audit-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F1B17; }
+  .grade { font-size: 13px; font-weight: 800; color: #fff; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; }
+  .grade-a { background: #15803d; } .grade-b { background: #1d4ed8; } .grade-c { background: #b45309; } .grade-d { background: #c2410c; } .grade-f { background: #b91c1c; }
   .audit-note { font-size: 14px; color: #5A4F47; line-height: 1.5; }
-
-  .key-finding {
-    background: rgba(3,105,161,0.06);
-    border: 1px solid rgba(3,105,161,0.2);
-    border-radius: 8px;
-    padding: 16px 20px;
-  }
-  .key-finding-label {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #0369a1;
-    margin-bottom: 8px;
-  }
-  .key-finding p {
-    font-size: 16px;
-    color: #5A4F47;
-    line-height: 1.65;
-  }
-
-  .roadmap { display: flex; flex-direction: column; gap: 16px; }
-  .roadmap-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .roadmap-num {
-    flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #0369a1;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  .key-finding { background: rgba(3,105,161,0.06); border: 1px solid rgba(3,105,161,0.2); border-radius: 8px; padding: 16px 20px; }
+  .key-finding-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #0369a1; margin-bottom: 8px; }
+  .key-finding p { font-size: 16px; color: #5A4F47; line-height: 1.65; }
+  .roadmap { display: flex; flex-direction: column; gap: 20px; }
+  .roadmap-item { display: flex; gap: 16px; align-items: flex-start; }
+  .roadmap-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: #0369a1; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
   .roadmap-content h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
   .roadmap-content p { font-size: 15px; color: #5A4F47; line-height: 1.55; }
-
-  .footer {
-    margin-top: 72px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(31,27,23,0.1);
-    font-size: 13px;
-    color: #8A7F6E;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  .listing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  @media (max-width: 600px) { .listing-grid { grid-template-columns: 1fr; } }
+  .listing-card { background: #EDE8E0; border: 1px solid rgba(31,27,23,0.1); border-radius: 8px; padding: 14px 16px; }
+  .listing-price { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; color: #1F1B17; margin-bottom: 4px; }
+  .listing-addr { font-size: 14px; font-weight: 600; color: #1F1B17; margin-bottom: 4px; }
+  .listing-detail { font-size: 13px; color: #8A7F6E; }
+  .footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid rgba(31,27,23,0.1); font-size: 13px; color: #8A7F6E; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- HEADER -->
   <div class="hero">
     <div class="tag">Research &amp; Audit · April 2026 · Vail Valley, Colorado</div>
-    <h1>Vail Valley<br>Real Estate Group</h1>
-    <p>Established luxury real estate team serving the Vail Valley. 45+ years of family involvement, $850M+ career volume, top-10 producer at the valley's dominant brokerage.</p>
+    <h1>Vail Valley<br>Luxury Broker</h1>
+    <p>Third-generation Vail native. Branch Broker at the valley's dominant firm. $850M+ in career transactions — and almost none of it discoverable online.</p>
     <div class="stats">
       <div class="stat"><div class="stat-val">2004</div><div class="stat-label">Licensed</div></div>
       <div class="stat"><div class="stat-val">$850M+</div><div class="stat-label">Career Volume</div></div>
       <div class="stat"><div class="stat-val">Top 10</div><div class="stat-label">Firm Producer</div></div>
       <div class="stat"><div class="stat-val">45 yrs</div><div class="stat-label">Family Legacy</div></div>
+      <div class="stat"><div class="stat-val">6</div><div class="stat-label">Active Listings</div></div>
     </div>
   </div>
 
-  <!-- SECTION 1: Company Snapshot -->
+  <!-- SECTION 1: Snapshot -->
   <div class="section">
     <div class="section-head" style="background:#e0f0fb;border-bottom:1px solid rgba(3,105,161,0.2)">
       <span class="section-num" style="color:#0369a1">01</span>
@@ -315,171 +101,204 @@
       <div class="fact-grid">
         <div>
           <div class="fact-label">Market</div>
-          <div class="fact-val">Vail Valley, Colorado — luxury residential and mountain property</div>
+          <div class="fact-val">Vail, Beaver Creek, Avon — luxury mountain residential</div>
         </div>
         <div>
-          <div class="fact-label">Affiliation</div>
-          <div class="fact-val">Top firm by volume in the Vail Valley (~50% of valley transactions)</div>
+          <div class="fact-label">Firm</div>
+          <div class="fact-val">Branch Broker at the valley's dominant brokerage (~50% of all valley transactions)</div>
         </div>
         <div>
-          <div class="fact-label">Team Size</div>
-          <div class="fact-val">3–4 members</div>
+          <div class="fact-label">Team</div>
+          <div class="fact-val">3–4 members; multigenerational family practice with 100+ combined years of experience</div>
         </div>
         <div>
-          <div class="fact-label">Core Strength</div>
-          <div class="fact-val">Deep local knowledge, multigenerational network, trusted relationships</div>
+          <div class="fact-label">Credentials</div>
+          <div class="fact-val">GRI certified; worked with East West Partners, Wintergreen Homes, Summit Habitats</div>
         </div>
         <div>
-          <div class="fact-label">Current Digital Presence</div>
-          <div class="fact-val">Brokerage-hosted profile page; no independent owned platform</div>
+          <div class="fact-label">Current Digital Home</div>
+          <div class="fact-val">Brokerage-hosted profile page — no independent owned domain or website</div>
         </div>
         <div>
-          <div class="fact-label">Primary Gap</div>
-          <div class="fact-val">No owned website, no content engine, no independent lead capture</div>
+          <div class="fact-label">Critical Risk</div>
+          <div class="fact-val">All SEO, content, and leads are brokerage-controlled. If the broker relationship ends, the digital presence disappears.</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SECTION 2: Competitive Landscape -->
+  <!-- SECTION 2: Active Listings -->
   <div class="section">
     <div class="section-head" style="background:#e0f0fb;border-bottom:1px solid rgba(3,105,161,0.2)">
       <span class="section-num" style="color:#0369a1">02</span>
+      <span class="section-title" style="color:#0369a1">Current Portfolio</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro" style="margin-bottom:20px">Six active listings totaling over <strong>$27M in inventory</strong> — all currently hosted on brokerage pages with no owned digital presence to amplify them.</p>
+      <div class="listing-grid">
+        <div class="listing-card">
+          <div class="listing-price">$13,700,000</div>
+          <div class="listing-addr">780 Potato Patch Drive, Vail</div>
+          <div class="listing-detail">6,822 sq ft · 5 bed / 5.5 bath · Single Family</div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-price">$4,950,000</div>
+          <div class="listing-addr">103 Willow Place 301, Vail</div>
+          <div class="listing-detail">1,117 sq ft · 2 bed / 2 bath · Condo</div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-price">$2,875,000</div>
+          <div class="listing-addr">185 Willis Place 206, Avon</div>
+          <div class="listing-detail">2,137 sq ft · 3 bed / 3 bath · Townhouse</div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-price">$2,175,000</div>
+          <div class="listing-addr">51 Offerson Road 111, Beaver Creek</div>
+          <div class="listing-detail">1,327 sq ft · 2 bed / 3 bath · Condo</div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-price">$2,175,000</div>
+          <div class="listing-addr">185 Willis Place 187, Beaver Creek</div>
+          <div class="listing-detail">1,615 sq ft · 3 bed / 2 bath · Townhouse</div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-price">$2,095,000</div>
+          <div class="listing-addr">51 Offerson Road 112, Beaver Creek</div>
+          <div class="listing-detail">1,327 sq ft · 2 bed / 3 bath · Condo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Competitive Landscape -->
+  <div class="section">
+    <div class="section-head" style="background:#e0f0fb;border-bottom:1px solid rgba(3,105,161,0.2)">
+      <span class="section-num" style="color:#0369a1">03</span>
       <span class="section-title" style="color:#0369a1">Competitive Landscape</span>
     </div>
     <div class="section-body">
       <table>
         <thead>
           <tr>
-            <th>Competitor</th>
-            <th>Volume</th>
-            <th>Digital Presence</th>
-            <th>Social</th>
-            <th>Threat</th>
+            <th>Broker</th>
+            <th>Career Volume</th>
+            <th>Independent Site</th>
+            <th>Social / Content</th>
+            <th>Position</th>
           </tr>
         </thead>
         <tbody>
           <tr class="highlight">
             <td>This Client</td>
-            <td>$850M+ career</td>
-            <td>Brokerage profile only — no owned site</td>
-            <td>Minimal</td>
+            <td>$850M+</td>
+            <td>None — brokerage profile only</td>
+            <td>Minimal Instagram; no blog</td>
             <td><span class="badge badge-oppty">Opportunity</span></td>
           </tr>
           <tr>
-            <td>Top Valley Team</td>
-            <td>$1.8B+ career</td>
-            <td>Custom independent site; Forbes, WSJ contributor</td>
-            <td>4,100+ followers; monthly blog</td>
-            <td><span class="badge badge-high">High</span></td>
+            <td>Market Leader (Vail)</td>
+            <td>$1.8B+</td>
+            <td>Custom independent site</td>
+            <td>4,100+ followers; Forbes / WSJ / NYT contributor; monthly blog</td>
+            <td><span class="badge badge-high">Ceiling</span></td>
           </tr>
           <tr>
             <td>Solo Digital Operator</td>
             <td>~200 career deals</td>
             <td>Strong independent site; 150+ blog posts</td>
-            <td>13,000+ followers</td>
-            <td><span class="badge badge-med">Medium</span></td>
+            <td>13,000+ Instagram followers</td>
+            <td><span class="badge badge-med">Template</span></td>
           </tr>
         </tbody>
       </table>
       <div style="margin-top:20px">
         <div class="key-finding">
-          <div class="key-finding-label">Key Insight</div>
-          <p>A solo operator with a fraction of this client's transaction volume has built <strong>13,000+ Instagram followers</strong> and 150+ blog posts — proving that a strong digital platform wins on its own merits, independent of team size or career volume. The gap is not expertise. It's visibility.</p>
+          <div class="key-finding-label">The Proof Point</div>
+          <p>A solo operator with a fraction of this client's transaction history has built <strong>13,000+ Instagram followers</strong> and 150+ published blog posts — with zero team and zero national press. Digital presence wins independently of scale. The gap here is not expertise or track record. It is visibility.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SECTION 3: Positioning -->
+  <!-- SECTION 4: Positioning -->
   <div class="section">
     <div class="section-head" style="background:#e0f0fb;border-bottom:1px solid rgba(3,105,161,0.2)">
-      <span class="section-num" style="color:#0369a1">03</span>
+      <span class="section-num" style="color:#0369a1">04</span>
       <span class="section-title" style="color:#0369a1">Positioning Analysis</span>
     </div>
     <div class="section-body">
       <p class="position-intro">
-        This team has <strong>every credential a luxury buyer or seller could want</strong> — decades of experience, top-10 production, deep community roots. The problem is that none of it is findable. A prospect searching online will discover competitors before they discover this team.
+        This broker has <strong>every credential a luxury buyer or seller could want</strong> — a third-generation Vail family, $850M+ in closed volume, top-10 production at the firm that handles half the valley's transactions, and deep relationships with the valley's major developers. None of that knowledge is currently captured anywhere a buyer can find it on their own.
       </p>
       <div class="card-grid">
         <div class="pos-card" style="background:#e0f0fb">
           <div class="pos-card-label" style="color:#0369a1">Owned Strength</div>
-          <div class="pos-card-text">Multigenerational local knowledge and trusted relationships that competitors simply cannot replicate.</div>
+          <div class="pos-card-text">Multigenerational Vail knowledge and trusted relationships built over 45 years — impossible to replicate quickly.</div>
         </div>
         <div class="pos-card" style="background:#fef9c3">
           <div class="pos-card-label" style="color:#854d0e">Current Gap</div>
-          <div class="pos-card-text">No independent platform to tell that story. All digital presence is brokerage-controlled and non-portable.</div>
+          <div class="pos-card-text">No independent platform to tell that story. Brokerage profile is controlled by the firm — not portable, not owned.</div>
         </div>
         <div class="pos-card" style="background:#dcfce7">
           <div class="pos-card-label" style="color:#15803d">Opportunity</div>
-          <div class="pos-card-text">Own the "Vail Valley local expert" category online before a competitor claims it with content and SEO.</div>
+          <div class="pos-card-text">Own "Vail Valley local expert" online before a competitor claims the category with content and SEO.</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SECTION 4: Digital Presence Audit -->
+  <!-- SECTION 5: Digital Audit -->
   <div class="section">
     <div class="section-head" style="background:#e0f0fb;border-bottom:1px solid rgba(3,105,161,0.2)">
-      <span class="section-num" style="color:#0369a1">04</span>
+      <span class="section-num" style="color:#0369a1">05</span>
       <span class="section-title" style="color:#0369a1">Digital Presence Audit</span>
     </div>
     <div class="section-body">
       <div class="audit-grid">
         <div class="audit-card">
-          <div class="audit-card-top">
-            <span class="audit-channel">Independent Website</span>
-            <span class="grade grade-f">F</span>
-          </div>
-          <div class="audit-note">No owned website exists. All digital presence lives on brokerage platforms that the client doesn't control.</div>
+          <div class="audit-card-top"><span class="audit-channel">Independent Website</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No owned website. All presence lives on brokerage pages. If the brokerage relationship changes, the digital footprint disappears.</div>
         </div>
         <div class="audit-card">
-          <div class="audit-card-top">
-            <span class="audit-channel">Content / Blog</span>
-            <span class="grade grade-f">F</span>
-          </div>
-          <div class="audit-note">No published content. Competitors are actively publishing market reports, neighborhood guides, and lifestyle content.</div>
+          <div class="audit-card-top"><span class="audit-channel">Content / Blog</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No published content. Competitors are actively publishing market reports, neighborhood guides, and lifestyle pieces that drive organic search traffic.</div>
         </div>
         <div class="audit-card">
-          <div class="audit-card-top">
-            <span class="audit-channel">SEO / Search Visibility</span>
-            <span class="grade grade-d">D</span>
-          </div>
-          <div class="audit-note">Brokerage profile appears in search but lacks depth. No owned domain to build long-term SEO equity.</div>
+          <div class="audit-card-top"><span class="audit-channel">SEO / Search Visibility</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Brokerage profile appears in searches but has no depth. No owned domain means zero long-term SEO equity is being built.</div>
         </div>
         <div class="audit-card">
-          <div class="audit-card-top">
-            <span class="audit-channel">Social Media</span>
-            <span class="grade grade-d">D</span>
-          </div>
-          <div class="audit-note">Minimal social presence. No consistent publishing cadence. Competitors averaging 4,000–13,000 followers.</div>
+          <div class="audit-card-top"><span class="audit-channel">Social Media</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Instagram account exists (@onefast280) but has no consistent publishing cadence. Competitors average 4,000–13,000 followers with active content programs.</div>
         </div>
         <div class="audit-card">
-          <div class="audit-card-top">
-            <span class="audit-channel">Lead Capture</span>
-            <span class="grade grade-f">F</span>
-          </div>
-          <div class="audit-note">No independent lead capture. All inquiries flow through brokerage systems — data is not owned by the team.</div>
+          <div class="audit-card-top"><span class="audit-channel">Lead Capture</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No independent lead capture. All inquiries flow through brokerage systems — data is not owned by the broker. Email list: zero.</div>
         </div>
         <div class="audit-card">
-          <div class="audit-card-top">
-            <span class="audit-channel">Brand Identity</span>
-            <span class="grade grade-c">C</span>
-          </div>
-          <div class="audit-note">Strong personal reputation within the community but no visual brand system or independent identity.</div>
+          <div class="audit-card-top"><span class="audit-channel">Testimonials / Social Proof</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Testimonial section exists on brokerage profile but is sparsely populated. $850M+ in career volume has no corresponding proof visible to a prospective buyer.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">MLS / Listing Presentation</span><span class="grade grade-c">C+</span></div>
+          <div class="audit-note">Six active listings displayed clearly with pricing and details. No video tours, virtual walkthroughs, or narrative context to differentiate listings.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Brand Identity</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Strong personal reputation within the Vail community. No independent visual brand, logo system, or identity that travels with the broker.</div>
         </div>
       </div>
       <div class="key-finding">
         <div class="key-finding-label">Central Finding</div>
-        <p>This team's credentials and track record are exceptional. Their digital footprint is not. The gap between offline reputation and online presence represents the single largest growth opportunity available to them right now.</p>
+        <p>Affluent buyers research online through Google, ChatGPT, and social platforms before contacting an agent. Without owned digital content, a competitor's information fills that void. This broker's credentials are exceptional. Their discoverability is not.</p>
       </div>
     </div>
   </div>
 
-  <!-- SECTION 5: 90-Day Roadmap -->
+  <!-- SECTION 6: Roadmap -->
   <div class="section">
     <div class="section-head" style="background:#e0f0fb;border-bottom:1px solid rgba(3,105,161,0.2)">
-      <span class="section-num" style="color:#0369a1">05</span>
+      <span class="section-num" style="color:#0369a1">06</span>
       <span class="section-title" style="color:#0369a1">Recommended 90-Day Roadmap</span>
     </div>
     <div class="section-body">
@@ -488,28 +307,28 @@
           <div class="roadmap-num">1</div>
           <div class="roadmap-content">
             <h4>Month 1 — Foundation</h4>
-            <p>Domain registration, brand identity, site architecture, content strategy, competitive analysis, and professional email setup. Own your platform before building on it.</p>
+            <p>Domain registration and ownership, brand identity system (logo, colors, typography), site architecture, content strategy, competitive keyword research, professional email setup. Own the platform before building on it.</p>
           </div>
         </div>
         <div class="roadmap-item">
           <div class="roadmap-num">2</div>
           <div class="roadmap-content">
             <h4>Month 2 — Build &amp; Content</h4>
-            <p>Core website pages, live MLS/IDX listing integration, initial blog publishing (market reports, neighborhood guides, lifestyle content), lead capture forms, social profiles, and Google Business optimization.</p>
+            <p>Core website pages, live MLS/IDX listing integration, initial blog publishing (market reports, neighborhood guides, lifestyle and buyer resource content), independent lead capture forms, social channel buildout, Google Business optimization, SEO fundamentals.</p>
           </div>
         </div>
         <div class="roadmap-item">
           <div class="roadmap-num">3</div>
           <div class="roadmap-content">
             <h4>Month 3 — Launch &amp; Amplify</h4>
-            <p>Soft launch to network, publishing cadence established, analytics and Search Console live, SEO fundamentals complete, AI-powered content tools integrated.</p>
+            <p>Soft launch to network, consistent publishing cadence established (60+ foundational posts), Google Analytics and Search Console live, AI-powered content and discovery tools integrated, optimization complete. Client owns all assets at day 90 — no lock-in.</p>
           </div>
         </div>
       </div>
       <div style="margin-top:24px">
         <div class="key-finding">
-          <div class="key-finding-label">Philosophy</div>
-          <p>Phase 1 is the foundation. The measurable outcomes — traffic, leads, followers — follow from a well-built platform. Build it right once, then amplify.</p>
+          <div class="key-finding-label">Why Ownership Matters</div>
+          <p>The valley's top-producing broker (2018–2023) maintains both a brokerage profile and an independent website. When he switched firms, his brokerage presence vanished — but his independent site stayed intact with all of its SEO, content, and leads. <strong>An independent site travels with you.</strong></p>
         </div>
       </div>
     </div>
