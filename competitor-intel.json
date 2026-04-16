@@ -1,11 +1,186 @@
 {
-  "last_updated": null,
+  "last_updated": "2026-04-16",
   "colorado_watch": {
     "description": "AI consulting and marketing firms entering the Colorado mountain resort corridor",
-    "entries": []
+    "entries": [
+      {
+        "name": "AutomateNexus",
+        "url": "https://automatenexus.com",
+        "location": "Statewide (dedicated Vail & Aspen landing pages)",
+        "category": "agency",
+        "first_seen": "2026-04-16",
+        "signals": [
+          "Dedicated Vail landing page (automatenexus.com/digital-marketing/colorado/vail)",
+          "Dedicated Aspen landing page (automatenexus.com/digital-marketing/colorado/aspen)",
+          "AI automation agency positioning with BYOK pricing",
+          "One-time build fees from $2,500 — no recurring subscriptions",
+          "Free AI automation audit as lead magnet",
+          "Veteran-owned, listed on Clutch with verified reviews"
+        ],
+        "threat_level": "Medium"
+      },
+      {
+        "name": "Avid Online (Avid Design)",
+        "url": "https://avidonline.com",
+        "location": "Edwards, CO",
+        "category": "agency",
+        "first_seen": "2026-04-16",
+        "signals": [
+          "Based in Edwards — Eagle River Valley direct geographic overlap with Doble AI",
+          "Full-service: website design, SEO, branding, digital marketing",
+          "Established local presence serving Vail corridor businesses"
+        ],
+        "threat_level": "Medium"
+      },
+      {
+        "name": "Dot Zero Multimedia",
+        "url": "https://dotzeromultimedia.com",
+        "location": "Gypsum, CO (Eagle County)",
+        "category": "agency",
+        "first_seen": "2026-04-16",
+        "signals": [
+          "Eagle County local — Gypsum, CO",
+          "Digital marketing services since 2018",
+          "Appearing in Vail corridor search results for marketing queries"
+        ],
+        "threat_level": "Low-Medium"
+      },
+      {
+        "name": "CTA Digital Media",
+        "url": "https://members.vailvalleypartnership.com/vvpmemberdirectory/Details/cta-digital-media-formerly-capture-the-action-2637292",
+        "location": "Vail Valley, CO",
+        "category": "agency",
+        "first_seen": "2026-04-16",
+        "signals": [
+          "Eagle Chamber of Commerce member",
+          "Vail Valley Partnership member",
+          "Full-service digital marketing and video production",
+          "Strong local network — well embedded in valley business community"
+        ],
+        "threat_level": "Medium"
+      },
+      {
+        "name": "Project Seedling",
+        "url": "https://www.projectseedling.com",
+        "location": "Vail Valley, CO",
+        "category": "agency",
+        "first_seen": "2026-04-16",
+        "signals": [
+          "Design and marketing agency serving Vail Valley local businesses",
+          "Ranking in Google results for Vail marketing and design searches"
+        ],
+        "threat_level": "Low-Medium"
+      },
+      {
+        "name": "Voxe AI",
+        "url": "https://voxeai.com",
+        "location": "Colorado Springs, CO (advertising statewide)",
+        "category": "agency",
+        "first_seen": "2026-04-16",
+        "signals": [
+          "AI voice agents and AI-ready website builds",
+          "Automated 24/7 lead generation positioning",
+          "BBB A+ rated and accredited",
+          "Active Instagram (@voxeaimarketing)",
+          "Explicitly ranking for Colorado AI marketing searches statewide"
+        ],
+        "threat_level": "Low-Medium"
+      }
+    ]
   },
   "us_traction": {
-    "description": "US AI marketing agencies gaining significant traction \u2014 what they're doing and why it's working",
-    "entries": []
+    "description": "US AI marketing agencies gaining significant traction — what they're doing and why it's working",
+    "entries": [
+      {
+        "name": "Blaze AI",
+        "url": "https://www.blaze.ai",
+        "founded_approx": "2023",
+        "traffic_estimate": "~80K/mo",
+        "top_traffic_sources": [
+          {"source": "Organic Search", "pct": 55},
+          {"source": "Direct", "pct": 25},
+          {"source": "Social", "pct": 12}
+        ],
+        "what_theyre_doing_well": "Positioned as 'AI That Does Marketing For You,' Blaze automates content across blog, social, email, and ads — trusted by 15K+ startups, agencies, and Fortune 500 teams. Low friction onboarding pulls in SMBs and solo operators fast.",
+        "why_getting_traction": "Crystal-clear value prop with brand voice training, multi-channel output, and low monthly pricing. Strong word-of-mouth in solopreneur and agency communities where the 'replace your marketing VA with AI' pitch lands hard.",
+        "inspiration_score": 9,
+        "inspiration_notes": "Doble AI should steal the 'AI That Does Marketing For You' framing — position the whole agency around removing the owner from the marketing loop entirely. The deliverable is time-back and peace of mind, not just content."
+      },
+      {
+        "name": "C2 Agency",
+        "url": "https://www.c2.agency",
+        "founded_approx": "2023",
+        "traffic_estimate": "~15K/mo",
+        "top_traffic_sources": [
+          {"source": "Organic Search", "pct": 50},
+          {"source": "Direct", "pct": 30},
+          {"source": "Referral", "pct": 15}
+        ],
+        "what_theyre_doing_well": "Laser-focused on local service businesses — HVAC, restaurants, contractors — automating social media posts, blog content, email campaigns, and lead capture with AI. The offer is nearly identical to Doble AI's model, executed nationally.",
+        "why_getting_traction": "Named vertical targeting (HVAC, restaurants) makes the pitch land fast — local owners see themselves in the copy immediately. AI-powered + local SMB is a potent, underserved combination at the execution layer.",
+        "inspiration_score": 9,
+        "inspiration_notes": "Doble AI should build dedicated vertical pages now — 'AI Marketing for Eagle County Contractors', 'AI Social Media for Vail Restaurants' — same playbook C2 uses to own local-intent searches before a national player colonizes the geography."
+      },
+      {
+        "name": "SOCi",
+        "url": "https://www.soci.ai",
+        "founded_approx": "2012",
+        "traffic_estimate": "~200K/mo",
+        "top_traffic_sources": [
+          {"source": "Organic Search", "pct": 45},
+          {"source": "Direct", "pct": 35},
+          {"source": "Paid Search", "pct": 12}
+        ],
+        "what_theyre_doing_well": "SOCi's 'Genius Social Agent' automatically builds social content calendars, responds to reviews, and manages local listings — a full AI co-pilot for local marketing at scale across hundreds of locations simultaneously.",
+        "why_getting_traction": "Multi-location franchise brands desperately need consistent local presence at scale and SOCi owns that niche. Strong enterprise sales motion backed by hard ROI data and deep integrations.",
+        "inspiration_score": 7,
+        "inspiration_notes": "Borrow SOCi's 'always-on local presence' framing for Eagle County SMBs — sell the idea that a business never goes dark: automated posting, review responses, and Google listing updates running 24/7 with no owner effort."
+      },
+      {
+        "name": "Hibu",
+        "url": "https://hibu.com",
+        "founded_approx": "2012",
+        "traffic_estimate": "~500K/mo",
+        "top_traffic_sources": [
+          {"source": "Direct", "pct": 40},
+          {"source": "Organic Search", "pct": 35},
+          {"source": "Paid Search", "pct": 15}
+        ],
+        "what_theyre_doing_well": "All-in-one AI-enabled platform serving 70,000+ local businesses: websites, SEO, SEM, social, reviews, and CRM in a single bundle. Won Microsoft Advertising's 2024 Channel Partner of the Year. Revenue ~$5B.",
+        "why_getting_traction": "Done-for-you bundled model wins decisively with local owners who don't want multiple vendors. AI layer on a proven local marketing playbook creates strong retention and cross-sell.",
+        "inspiration_score": 6,
+        "inspiration_notes": "Hibu proves the all-in-one bundle wins for SMBs. Doble AI's counter-position: Hibu is impersonal and massive. Lean into being the high-touch, locally-embedded neighbor who also runs AI — that authenticity is a story Hibu can never tell."
+      },
+      {
+        "name": "Embarque",
+        "url": "https://www.embarque.io",
+        "founded_approx": "2021",
+        "traffic_estimate": "~60K/mo",
+        "top_traffic_sources": [
+          {"source": "Organic Search", "pct": 65},
+          {"source": "Direct", "pct": 20},
+          {"source": "Referral", "pct": 10}
+        ],
+        "what_theyre_doing_well": "Revenue-driven AI SEO agency now leading with GEO (Generative Engine Optimization) — getting clients cited in ChatGPT, Perplexity, and AI search results. Documented wins: 178% blog traffic growth, 6x organic in 6 months.",
+        "why_getting_traction": "First-mover on GEO/AIO — optimizing for AI search is the new SEO gold rush and Embarque is building authority fast. Attracts clients panicking about Google traffic being eaten by AI.",
+        "inspiration_score": 8,
+        "inspiration_notes": "Doble AI should add 'AI search visibility' to its local SEO pitch — help Eagle County businesses get cited when locals ask ChatGPT 'best landscaper in Avon CO.' This is a defensible edge; traditional local agencies don't even know GEO exists yet."
+      },
+      {
+        "name": "inBeat Agency",
+        "url": "https://inbeat.agency",
+        "founded_approx": "2020",
+        "traffic_estimate": "~120K/mo",
+        "top_traffic_sources": [
+          {"source": "Organic Search", "pct": 60},
+          {"source": "Direct", "pct": 22},
+          {"source": "Social", "pct": 10}
+        ],
+        "what_theyre_doing_well": "Pioneering AI-driven creative intelligence paired with micro-influencer marketing — uses AI to predict which creative content will perform before spending budget. Prolific content marketing machine drives massive organic reach and keeps them in every industry roundup.",
+        "why_getting_traction": "Micro-influencer + AI creative is a novel, high-ROI combo that outperforms traditional social spend. Their content engine constantly feeds the SEO flywheel, compounding authority month over month.",
+        "inspiration_score": 7,
+        "inspiration_notes": "Doble AI could pilot a local micro-influencer program in Eagle County — connecting restaurants and retailers with Vail/Beaver Creek lifestyle accounts. AI helps analyze performance. Small community, big flywheel potential."
+      }
+    ]
   }
 }
