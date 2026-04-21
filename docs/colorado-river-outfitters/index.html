@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorado River Outfitters — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F0F6FB;
+    color: #0D1E2B;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(3,105,161,0.15);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #0369a1;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #0369a1;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #0D1E2B;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #2E4D63;
+    line-height: 1.65;
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  .stats {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    border-right: 1px solid rgba(3,105,161,0.2);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #0D1E2B;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5C87A0;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #fff0f0;
+    border: 1px solid #fca5a5;
+    border-left: 4px solid #dc2626;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #dc2626;
+    margin-bottom: 6px;
+  }
+  .alert p {
+    font-size: 15px;
+    color: #7f1d1d;
+    line-height: 1.6;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(3,105,161,0.12);
+  }
+  .section-head {
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-num {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #F7FBFE; }
+
+  /* ── Fact Grid ── */
+  .fact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 48px;
+  }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #5C87A0;
+    margin-bottom: 6px;
+  }
+  .fact-val {
+    font-size: 16px;
+    color: #0D1E2B;
+    line-height: 1.6;
+  }
+
+  /* ── Award Banner ── */
+  .award-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(135deg, #0c2d45 0%, #0369a1 100%);
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin-bottom: 28px;
+  }
+  .award-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .award-text-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7ec8e3;
+    margin-bottom: 3px;
+  }
+  .award-text-val {
+    font-size: 17px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.3;
+  }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(3,105,161,0.15); }
+  th {
+    text-align: left;
+    padding: 8px 12px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #5C87A0;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(3,105,161,0.07); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr.highlight { background: rgba(220,38,38,0.04); }
+  td { padding: 12px; color: #2E4D63; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #0D1E2B; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(29,78,216,0.1);  color: #1d4ed8; }
+
+  /* ── Position Cards ── */
+  .position-intro {
+    font-size: 17px;
+    color: #2E4D63;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .position-intro strong { color: #0D1E2B; }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card {
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .pos-card-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .pos-card-text {
+    font-size: 15px;
+    line-height: 1.55;
+    color: #2E4D63;
+  }
+
+  /* ── Audit Grid ── */
+  .audit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E8F3FA;
+    border: 1px solid rgba(3,105,161,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .audit-channel {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0D1E2B;
+  }
+  .grade {
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-bp { background: #1a6e3c; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-c  { background: #b45309; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-cm { background: #9a4a10; }
+  .grade-d  { background: #c2410c; }
+  .grade-dp { background: #b45010; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #2E4D63; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(220,38,38,0.05);
+    border: 1px solid rgba(220,38,38,0.18);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b91c1c;
+    margin-bottom: 8px;
+  }
+  .key-finding p {
+    font-size: 16px;
+    color: #2E4D63;
+    line-height: 1.65;
+  }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; border: 1px solid rgba(3,105,161,0.12); border-radius: 8px; overflow: hidden; }
+  .rec-item { padding: 20px 24px; background: #F7FBFE; border-bottom: 1px solid rgba(3,105,161,0.08); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #0369a1; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #0D1E2B; }
+  .rec-detail { font-size: 14px; color: #2E4D63; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #0c2d45 0%, #0369a1 100%);
+    border-radius: 12px;
+    padding: 40px 36px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px;
+    color: #7ec8e3;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: #ffffff;
+    color: #0369a1;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #5a9ab8;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(3,105,161,0.12);
+    font-size: 11px;
+    color: #5C87A0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · April 2026 · Edwards, Colorado</div>
+    <h1>Colorado River<br>Outfitters</h1>
+    <p>Professional guided fly fishing on the Eagle River, Colorado River, Roaring Fork, Frying Pan, and Yampa rivers. Seven experienced guides, the largest permit portfolio in the region, and a freshly-earned Best of Vail Valley award. This is an audit of your current digital presence — where you stand, where the gaps are, and exactly what to do about them.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">7</div><div class="stat-label">Guides</div></div>
+      <div class="stat"><div class="stat-val">Lic. #493</div><div class="stat-label">CO Outfitter</div></div>
+      <div class="stat"><div class="stat-val">BOVV '25</div><div class="stat-label">Award Winner</div></div>
+      <div class="stat"><div class="stat-val">3.8 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">Critical Issue — Requires Immediate Action</div>
+      <p><strong>TripAdvisor currently shows your business as "Permanently Closed"</strong> — despite reviews from March 2026. Every prospect who finds you through TripAdvisor right now sees a closed business and books a competitor instead. Claiming your listing and correcting this status takes about 15 minutes.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Company Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e0f0fa;border-bottom:1px solid rgba(3,105,161,0.18)">
+      <span class="section-num" style="color:#0369a1">01</span>
+      <span class="section-title" style="color:#0369a1">Company Snapshot</span>
+    </div>
+    <div class="section-body">
+
+      <div class="award-banner">
+        <div class="award-icon">🏆</div>
+        <div>
+          <div class="award-text-label">Recognition</div>
+          <div class="award-text-val">2025 Best of Vail Valley Winner — Fly Fishing Category</div>
+        </div>
+      </div>
+
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">Services</div>
+          <div class="fact-val">Guided float trips, walk &amp; wade, overnight multi-day expeditions, guide training &amp; oar certification. Winter season on the Guadalupe River in New Braunfels, TX (November–March).</div>
+        </div>
+        <div>
+          <div class="fact-label">Rivers Covered</div>
+          <div class="fact-val">Eagle River, Colorado River, Roaring Fork River, Frying Pan River, Yampa River — plus the Guadalupe River (Texas) in winter. Access to the broadest permit portfolio in the region.</div>
+        </div>
+        <div>
+          <div class="fact-label">Guide Team</div>
+          <div class="fact-val">Seven professional guides including Brian Hilbert (Orvis-endorsed, Montana Fly Company signature designer), Matt Fletcher (20+ years), Paul Killino (25+ years), and four additional credentialed guides.</div>
+        </div>
+        <div>
+          <div class="fact-label">Pricing</div>
+          <div class="fact-val">Texas trips: Full-day $600/boat · Half-day $400/boat. Colorado trip pricing not currently listed on the website — a friction point for prospective clients. All gear, instruction, and full-day lunch included.</div>
+        </div>
+        <div>
+          <div class="fact-label">Credentials</div>
+          <div class="fact-val">Colorado Outfitter License #493 (low number signals long-standing, established operation). DORA Out. #00022753. Fully licensed, insured, and bonded. CRO Guide School for internal training.</div>
+        </div>
+        <div>
+          <div class="fact-label">Current Online Rating</div>
+          <div class="fact-val">4.8 / 5 on TripAdvisor (~10–11 reviews). Consistent praise for guide expertise, fish counts, equipment quality, and overall experience — particularly for Brian Hilbert and Matt Weldon.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Key Note</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>Trout Trickers</td>
+            <td class="geo">Gypsum, CO</td>
+            <td>Five-time Best of Vail Valley winner (2020–2024). Founder Pete Mott has logged 22,000+ guided river miles over 30 years. The dominant brand — and a 2025 BOVV co-winner alongside CRO. Strong SEO.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr class="highlight">
+            <td>Minturn Anglers</td>
+            <td class="geo">Minturn, CO</td>
+            <td>Continually named "Best of Vail Valley." In the valley since 2008. Year-round operation, strong online presence and content, 2025 BOVV co-winner.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr class="highlight">
+            <td>Vail Valley Anglers</td>
+            <td class="geo">Edwards, CO</td>
+            <td>Physical fly shop on the Eagle River — drives consistent walk-in and local traffic. Regular fishing reports give them a major content SEO advantage. Same town as CRO.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Eagle River Outfitter</td>
+            <td class="geo">Avon, CO</td>
+            <td>25+ years of guiding experience in the Vail Valley. Modern website with regular fishing reports. 2025 BOVV Finalist. Growing content presence year-round.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Colorado Angling Company</td>
+            <td class="geo">Wolcott, CO</td>
+            <td>2025 BOVV Finalist. Small-group, personalized approach. Building brand presence in the same Vail Valley market.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Fly Fishing Outfitters</td>
+            <td class="geo">Vail Valley</td>
+            <td>32+ years in the valley with strong domain authority. Publishes consistent fishing reports and dominates organic search for Eagle River–related queries.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Gore Creek Fly Fisherman</td>
+            <td class="geo">Vail, CO</td>
+            <td>Established local name with editorial coverage. Competes specifically for Vail Village clientele and hotel concierge referral traffic.</td>
+            <td><span class="badge badge-lowmed">Low–Medium</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where You Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where You Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        CRO has the <strong>best on-the-water product in the Vail Valley</strong> — a 4.8 TripAdvisor rating, an Orvis-endorsed guide, the largest permit portfolio in the region, and a freshly-won Best of Vail Valley award. The gap between that actual quality and your digital footprint is the widest we've seen. This is not a business problem. It is a visibility problem — and visibility problems are fixable.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(3,105,161,0.07);border:1px solid rgba(3,105,161,0.2)">
+          <div class="pos-card-label" style="color:#0369a1">Strengths</div>
+          <div class="pos-card-text">2025 Best of Vail Valley Winner. Orvis-endorsed guide. Largest permit portfolio in the region. Seven professional guides. 4.8 TripAdvisor rating. Year-round operation with Texas winter program. Low license number signals long-standing legitimacy.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">Current Position</div>
+          <div class="pos-card-text">Invisible in category search and AI queries. TripAdvisor incorrectly shows "Permanently Closed." Blog link is broken. No pricing for Colorado trips. Address inconsistency across platforms confuses Google. Review count far too thin for a 7-guide operation.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">Trout Trickers and Minturn Anglers built dominant brands on the BOVV award. CRO just won it — but hasn't promoted it anywhere. Correcting that gap, building a Google presence, and publishing fishing reports would put you in front of every competitor within 60–90 days.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website</span><span class="grade grade-cp">C+</span></div>
+          <div class="audit-note">Nine pages, online booking present, copyright 2025 — functional. But no pricing for Colorado trips, the Best of Vail Valley win isn't featured, and the blog link in the main navigation returns a 404 error.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Blog / Content</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Blog link in the main navigation returns a 404 error. A broken page hurts SEO, signals abandonment to Google, and eliminates your best content channel — fishing reports are the highest-traffic content in this category.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">No clearly verified, active GBP found in search. Address listed as "Bond, CO" on TripAdvisor vs. "Edwards, CO" on Yelp — inconsistency across platforms is a local SEO penalty that suppresses your Google Maps ranking.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">TripAdvisor</span><span class="grade grade-cm">C−</span></div>
+          <div class="audit-note">4.8/5 rating with ~10–11 reviews. <strong style="color:#b91c1c">Currently showing "Permanently Closed."</strong> Any prospect who finds you here sees a closed business. Rating and reviews are excellent — the listing status is catastrophic.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Yelp</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Listing exists (Edwards, CO), updated February 2026, 16 photos. Review volume appears thin and unmanaged — not being actively used as a conversion tool.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">Not appearing in searches for "best fly fishing guide Vail" or similar category queries. Trout Trickers, Vail Valley Anglers, and Minturn Anglers dominate — largely through fishing reports and blog content you could also be producing.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search (ChatGPT, Perplexity)</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Not appearing in AI-generated "best fly fishing guides in Vail" responses. AI engines cite businesses with structured content, active Google profiles, and consistent reviews — all correctable gaps for CRO.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Instagram</span><span class="grade grade-cm">C−</span></div>
+          <div class="audit-note">Account exists (@colorado.river.outfitters). Fly fishing is one of the most visually compelling categories on Instagram — 20-inch trout, float trips through Colorado canyons, guide personalities. The content opportunity is enormous and largely untapped.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">YouTube</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Channel exists with instructional fly tying content from Brian Hilbert. Strong asset — but videos are not optimized for search, and the channel's reach appears limited. This is a significant underutilized content engine.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Awards &amp; Credentials</span><span class="grade grade-bp">B+</span></div>
+          <div class="audit-note">2025 Best of Vail Valley Winner. Orvis-endorsed guide (Brian Hilbert). Low outfitter license number. Largest permit holder claim. These are powerful credentials — and almost entirely absent from your digital presence.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Review Volume (All Platforms)</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Estimated 15–25 total reviews across all platforms. For a 7-guide operation running hundreds of trips per year, this is critically thin. Google specifically rewards review velocity — consistent new reviews outperform a large static count.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-d">3.8</span></div>
+          <div class="audit-note">Score out of 10, based on website quality, search visibility, review presence, social activity, AI search citations, and leverage of existing credentials. The gap between product quality and digital presence is the widest we've observed in this category.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Colorado River Outfitters just won the 2025 Best of Vail Valley award — but a prospect searching <em>"best fly fishing guide Vail"</em> today will find Trout Trickers, Vail Valley Anglers, and Minturn Anglers before they ever reach CRO. TripAdvisor says you're closed. The blog is broken. The BOVV badge isn't on the homepage. The product is exceptional. The digital presence is a barrier between you and new clients who are actively looking for exactly what you offer.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#f0fdf4;border-bottom:1px solid rgba(21,128,61,0.2)">
+      <span class="section-num" style="color:#15803d">05</span>
+      <span class="section-title" style="color:#15803d">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list" style="border:none;border-radius:0">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Fix TripAdvisor "Permanently Closed" — Today</span>
+          </div>
+          <div class="rec-detail">Log into TripAdvisor, claim the business profile, and correct the status. This is the single most damaging item currently active against you — every prospect who finds CRO on TripAdvisor sees a closed business and books a competitor. Takes approximately 15 minutes to fix.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Claim and Build Your Google Business Profile</span>
+          </div>
+          <div class="rec-detail">Set up or claim the GBP with one consistent address (Edwards, CO). Complete every field — photos, services, hours, booking link. A fully-built GBP is the #1 driver of Google Maps visibility and AI search citations. It's free, and the impact compounds over time as reviews accumulate.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Put the 2025 Best of Vail Valley Win to Work</span>
+          </div>
+          <div class="rec-detail">The BOVV badge belongs on your website hero, your Instagram bio, your Facebook About section, your email signature, and every booking confirmation email — for the next 12 months at minimum. Trout Trickers built their brand on this award over five years. You just won it. Use it.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Fix the Blog 404 — Then Publish Eagle River Fishing Reports</span>
+          </div>
+          <div class="rec-detail">The blog link in your main navigation returns a 404 error — fix this first. Then start publishing regular fishing reports. Vail Valley Anglers and Fly Fishing Outfitters dominate organic and AI search largely because they publish these reports consistently. Your guides know the rivers better than anyone. That knowledge is content, and content is search presence.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Build a Post-Trip Review Request System</span>
+          </div>
+          <div class="rec-detail">After every trip, send a brief follow-up email to clients: "Hope you had a great day on the water — would you take two minutes to leave us a Google review?" Link directly to your GBP review page. Five intentional requests per guide per month would triple your review count within 90 days and directly improve your Google Maps ranking and AI search presence.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Add Pricing for Colorado Trips</span>
+          </div>
+          <div class="rec-detail">Your Texas pricing is listed on the site. Your Colorado pricing is not. Prospects who can't find pricing often don't inquire — they move to a competitor who shows rates. Add a simple Rates section: full-day and half-day per boat, what's included, and a direct booking link.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Unify Your Address Across All Platforms</span>
+          </div>
+          <div class="rec-detail">TripAdvisor shows Bond, CO. Yelp shows Edwards, CO. Your website references Vail Valley and Glenwood Springs. Pick one format (Edwards, CO is most accurate) and update it everywhere — website footer, Google, Yelp, TripAdvisor, Facebook. Google suppresses businesses with inconsistent NAP data across platforms.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Activate Instagram Consistently</span>
+          </div>
+          <div class="rec-detail">Fly fishing is one of the most visual categories on social media. Big trout, float trips through Colorado canyons, guide personalities, morning light on the Eagle River — this content is already happening on every trip. It just isn't being captured and posted. Three posts per week would put CRO in front of the exact audience that books guided trips, and the visual quality of your product sells itself.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>Ready to close the gap?</h2>
+    <p>These are fixable problems. Most of them cost nothing — they require time and the right execution. Doble AI helps businesses like Colorado River Outfitters turn an exceptional product into a visible one.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Colorado River Outfitters — Digital Presence Audit</span>
+    <span>April 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
