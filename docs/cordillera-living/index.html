@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cordillera Living — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F2F7F4;
+    color: #0D1E16;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(22,101,52,0.15);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #166534;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #166534;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #0D1E16;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #2E4D3A;
+    line-height: 1.65;
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  .stats {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    border-right: 1px solid rgba(22,101,52,0.2);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #0D1E16;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5C8770;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #fff0f0;
+    border: 1px solid #fca5a5;
+    border-left: 4px solid #dc2626;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #dc2626;
+    margin-bottom: 6px;
+  }
+  .alert p {
+    font-size: 15px;
+    color: #7f1d1d;
+    line-height: 1.6;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(22,101,52,0.12);
+  }
+  .section-head {
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-num {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #F8FCF9; }
+
+  /* ── Fact Grid ── */
+  .fact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 48px;
+  }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #5C8770;
+    margin-bottom: 6px;
+  }
+  .fact-val {
+    font-size: 16px;
+    color: #0D1E16;
+    line-height: 1.6;
+  }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(22,101,52,0.15); }
+  th {
+    text-align: left;
+    padding: 8px 12px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #5C8770;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(22,101,52,0.07); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr.highlight { background: rgba(220,38,38,0.04); }
+  td { padding: 12px; color: #2E4D3A; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #0D1E16; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(29,78,216,0.1);  color: #1d4ed8; }
+
+  /* ── Position Cards ── */
+  .position-intro {
+    font-size: 17px;
+    color: #2E4D3A;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .position-intro strong { color: #0D1E16; }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card {
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .pos-card-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .pos-card-text {
+    font-size: 15px;
+    line-height: 1.55;
+    color: #2E4D3A;
+  }
+
+  /* ── Audit Grid ── */
+  .audit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #EAF4EE;
+    border: 1px solid rgba(22,101,52,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .audit-channel {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0D1E16;
+  }
+  .grade {
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-bp { background: #1a6e3c; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-cm { background: #9a4a10; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #2E4D3A; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(220,38,38,0.05);
+    border: 1px solid rgba(220,38,38,0.18);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b91c1c;
+    margin-bottom: 8px;
+  }
+  .key-finding p {
+    font-size: 16px;
+    color: #2E4D3A;
+    line-height: 1.65;
+  }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; border: 1px solid rgba(22,101,52,0.12); border-radius: 8px; overflow: hidden; }
+  .rec-item { padding: 20px 24px; background: #F8FCF9; border-bottom: 1px solid rgba(22,101,52,0.08); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #166534; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #0D1E16; }
+  .rec-detail { font-size: 14px; color: #2E4D3A; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #0d3320 0%, #166534 100%);
+    border-radius: 12px;
+    padding: 40px 36px;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px;
+    color: #86efac;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: #ffffff;
+    color: #166534;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #4ade80;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(22,101,52,0.12);
+    font-size: 11px;
+    color: #5C8770;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · April 2026 · Edwards, Colorado</div>
+    <h1>Cordillera<br>Living</h1>
+    <p>Seven thousand acres of private mountain living in Colorado's Vail Valley. Three championship golf courses. Private Eagle River fly fishing. An equestrian center, 33 miles of trails, and homes ranging from $800K to $6M. This is an audit of the digital presence the community shows the world — and the world isn't seeing much.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">817</div><div class="stat-label">Homesites</div></div>
+      <div class="stat"><div class="stat-val">600+</div><div class="stat-label">Homes</div></div>
+      <div class="stat"><div class="stat-val">$800K–$6M</div><div class="stat-label">Home Values</div></div>
+      <div class="stat"><div class="stat-val">2.6 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">Critical Issue — Requires Immediate Attention</div>
+      <p>Search "Cordillera Edwards Colorado" on Yelp and one of the most visible results is <strong>"The Lodge &amp; Spa at Cordillera — Permanently Closed."</strong> That's the digital first impression for anyone researching a $1M+ home purchase. The community has no authoritative presence to counteract it — no Google Business Profile, no public content, no managed review strategy.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Community Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#dff0e6;border-bottom:1px solid rgba(22,101,52,0.18)">
+      <span class="section-num" style="color:#166534">01</span>
+      <span class="section-title" style="color:#166534">Community Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A private, gated mountain community spanning 7,000 acres in the heart of Colorado's Vail Valley. 817 homesites across five distinct neighborhoods, with 600+ developed homes. One of the most comprehensive private amenity packages in the Rocky Mountain West.</div>
+        </div>
+        <div>
+          <div class="fact-label">Location</div>
+          <div class="fact-val">Edwards, CO 81632 — 25 miles east of Vail along the I-70 corridor. Eagle County, Vail Valley. 140 miles west of Denver International Airport and 30 miles from Eagle County Regional Airport.</div>
+        </div>
+        <div>
+          <div class="fact-label">Signature Amenities</div>
+          <div class="fact-val">Three private championship golf courses designed by Jack Nicklaus, Hale Irwin, and Tom Fazio. Athletic Center with indoor saltwater pool. Equestrian Center. 33 miles of maintained hiking &amp; biking trails. Private fly fishing on 1.5 miles of Eagle River plus four stocked ponds. Cordillera Vail Gondola Club ski access.</div>
+        </div>
+        <div>
+          <div class="fact-label">Neighborhoods</div>
+          <div class="fact-val">Five distinct areas — Summit, Ranch, Divide, Territories, and Valley Club — ranging from 7,200 ft elevation at Valley Club to 9,000 ft at the Summit. Each neighborhood has its own character and relationship to the land.</div>
+        </div>
+        <div>
+          <div class="fact-label">Governing Bodies</div>
+          <div class="fact-val">Cordillera Property Owners Association (CPOA) — GM Crystal Wilson, (970) 688-8850. Cordillera Metro District (CMD) — GM Trevor Broersma, (970) 926-1923. CPOA manages amenities and programming; CMD handles roads, utilities, and public safety.</div>
+        </div>
+        <div>
+          <div class="fact-label">Property Values</div>
+          <div class="fact-val">Homes: $800,000–$6,000,000. Vacant lots: from $75,000. The Valley Club is notable as the only true golf cart lifestyle community in the Vail Valley from Vail to Wolcott. Nearly 65% of the 7,000 acres is dedicated open space.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Community</th>
+            <th>Location</th>
+            <th>Key Note</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>Arrowhead at Vail</td>
+            <td class="geo">Edwards, CO</td>
+            <td>Private golf &amp; ski community in the same market. Troon Golf management, strong real estate brokerage presence, well-indexed pages for luxury buyer searches. Directly competes for the same household.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr class="highlight">
+            <td>Bachelor Gulch</td>
+            <td class="geo">Beaver Creek, CO</td>
+            <td>Ritz-Carlton hotel on property drives continuous digital traffic and brand authority. Vail Resorts backing means premium placement in "luxury Vail Valley" searches. Strong luxury brand recognition nationally.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Frost Creek Club</td>
+            <td class="geo">Eagle, CO</td>
+            <td>Newer private golf and ranch community actively building its digital brand. Active social media presence and public-facing content targeted at the same affluent buyer demographic.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Cordillera Valley Club</td>
+            <td class="geo">Edwards, CO</td>
+            <td>A sub-community within Cordillera with its own separate website (cvcpoa.org). Creates a fragmented digital identity for Cordillera — prospects encounter multiple sites and governing bodies instead of one authoritative presence.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>EagleVail</td>
+            <td class="geo">Avon, CO</td>
+            <td>Less exclusive but active community with stronger Google reviews and social presence than Cordillera. Captures lower-funnel buyers who find it before finding Cordillera in search results.</td>
+            <td><span class="badge badge-lowmed">Low–Medium</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Cordillera is <strong>objectively one of the finest mountain communities in the Rockies</strong> — three championship golf courses, private Eagle River frontage, world-class fitness and equestrian amenities on 7,000 acres. The product is extraordinary. The digital presence is barely visible. A prospective buyer doing due diligence on a $2M purchase finds real estate broker pages, a closed hotel listing, and a member-gated newsletter — not an authoritative, compelling community voice.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(22,101,52,0.07);border:1px solid rgba(22,101,52,0.2)">
+          <div class="pos-card-label" style="color:#166534">Strengths</div>
+          <div class="pos-card-text">Three championship golf courses (Nicklaus, Irwin, Fazio). Private fly fishing on 1.5 miles of Eagle River. Equestrian Center. 33 miles of trails. Indoor saltwater pool. Ski access via Cordillera Vail Gondola Club. Functional community website with governance and service info. Dedicated staff and established HOA infrastructure.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">Current Position</div>
+          <div class="pos-card-text">Website is entirely resident-facing — no public-facing marketing narrative. Google Business Profile absent. Golf course TripAdvisor listings unclaimed with only 20 total reviews. Social media has fewer followers than many local restaurants. The highest-visibility Yelp result is a permanently-closed hotel. No public content stream whatsoever.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">An AI-powered resident and prospect chatbot would serve both audiences — answering common questions 24/7 while giving prospective buyers an authoritative, immediate introduction to the community. Combined with public content and a managed review strategy, this could transform Cordillera's discovery path for the buyers who matter most.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website</span><span class="grade grade-c">C+</span></div>
+          <div class="audit-note">Functional and well-organized for current residents — governance docs, services, amenities, gate access info are all present. But it's built entirely as a member portal, not a public showcase. No social media links. No photos showcasing the golf courses, trails, or fly fishing. Zero value for a prospective buyer doing research.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">No verified, active GBP found for the community or the CPOA. A 600-home luxury community with $1M+ property values has no confirmed Google Maps presence. Prospects searching "Cordillera Edwards CO" on Google Maps find nothing authoritative from the community itself.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">TripAdvisor (Golf Courses)</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Summit Course at Cordillera: 4.4/5, 14 reviews — ranked #4 of 11 outdoor activities in Edwards. Valley Course: 4.2/5, only 6 reviews. Neither listing appears claimed or actively managed. No owner responses. For world-class Nicklaus and Fazio-designed golf, 20 total reviews is critically thin.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Yelp</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note"><strong style="color:#b91c1c">The Lodge &amp; Spa at Cordillera shows "Permanently Closed"</strong> — one of the most prominent Yelp results for "Cordillera Edwards Colorado." 58 reviews, many referencing a now-defunct hotel. This is the first impression for any prospect who searches Yelp. The community has no managed Yelp presence to offset it.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Facebook</span><span class="grade grade-cm">C−</span></div>
+          <div class="audit-note">@CordilleraColorado — approximately 1,173 likes. For a 600+ household luxury community where the average home is over $1M, this is a thin audience. Content appears inward-facing for residents. Not functioning as a community showcase or awareness tool for prospective buyers.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Instagram</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">@cordillera__co — approximately 847 followers. A gated mountain community with 33 miles of trails, three championship golf courses, private river fly fishing, and Vail ski access should have a visually compelling Instagram presence. 847 followers suggests little to no content strategy or posting cadence.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Real estate brokers — Slifer Smith &amp; Frampton, BHHS Colorado Properties, Vail Luxury Group — dominate all search results for "Cordillera Edwards CO." The official community website does not appear for prospective buyer searches. All organic discovery and first-impression framing happens through third parties.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search (ChatGPT, Perplexity)</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Not cited in AI-generated responses about Vail Valley luxury communities or best Colorado mountain communities. AI engines cite communities with public content, active Google profiles, and review volume — all gaps for Cordillera. A buyer asking ChatGPT "what are the best gated communities near Vail?" will not encounter Cordillera.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Public Blog / Community Content</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The CPOA newsletter is gated behind a resident-only email subscription (contact AKeller@CordilleraPOA.com to subscribe). No public-facing blog, news feed, or content exists. This means zero organic content for search engines or AI tools to index. Every prospective buyer is entirely dependent on real estate agents for information about the community.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Digital Resident Services</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Owner portal exists (requires 16-digit property number + security code). Closing documents managed through ciranet.com. Gate access via RFID transponders. Functional but dated — no resident app, no AI assistant for common questions, no self-service tools beyond the basic portal. For a $1M+ community, residents expect more.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Review Volume (All Platforms)</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Approximately 20 golf course reviews on TripAdvisor (total, across two courses). No community-level reviews anywhere. The Lodge &amp; Spa's 58 Yelp reviews are for a closed hotel. For a community where 600+ households make annual assessment payments, the absence of social proof is a measurable liability in today's search environment.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-d">2.6</span></div>
+          <div class="audit-note">Score out of 10, based on website quality, search visibility, review presence, social activity, AI search citations, resident digital services, and public content output. The gap between the quality of the product and the quality of the digital presence is the defining characteristic of this audit.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>When a qualified buyer researches Cordillera before making a $1.5M–$4M purchase decision, they encounter: a member-gated website, a permanently-closed hotel on Yelp, real estate broker pages, and 20 golf reviews from 2019. There is no authoritative community voice anywhere in that research journey. The CPOA and CMD have built an exceptional community — but they've left the entire story to be told by others.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#f0fdf4;border-bottom:1px solid rgba(21,128,61,0.2)">
+      <span class="section-num" style="color:#15803d">05</span>
+      <span class="section-title" style="color:#15803d">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list" style="border:none;border-radius:0">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Launch an AI-Powered Resident &amp; Prospect Chatbot</span>
+          </div>
+          <div class="rec-detail">The single highest-ROI digital investment Cordillera could make. An AI chatbot on cordilleraliving.com would answer "What are the annual dues?" "How do I get gate access?" "What golf memberships are available?" for both current residents and prospective buyers — 24/7, without staff time. For prospects making a $2M decision, having immediate, accurate answers is a conversion driver. For residents, it reduces the repetitive inquiry load on CPOA staff.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Create a Public-Facing "Why Cordillera" Content Layer</span>
+          </div>
+          <div class="rec-detail">A dedicated public section of the website — separate from the resident portal — showcasing the community's amenities, neighborhoods, lifestyle, and natural setting. Right now, real estate brokers write the Cordillera story for buyers. The community should own that narrative. This section also gives AI search engines something authoritative to index and cite.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Claim and Build a Google Business Profile</span>
+          </div>
+          <div class="rec-detail">Create a verified GBP for the Cordillera community at the CPOA address (360 Carterville Road, Edwards, CO). Complete every field — photos of the Athletic Center, golf courses, trails, and equestrian center. Add amenities, hours, and a link to the community site. A complete GBP is the foundation of Google Maps visibility and directly feeds into AI search citation.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Claim TripAdvisor Golf Listings and Launch a Review Strategy</span>
+          </div>
+          <div class="rec-detail">Claim both the Summit Course and Valley Course TripAdvisor listings. Add photos, respond to existing reviews, and post a request in the member newsletter asking golfers to share their experience. The courses have 4.4 and 4.2 ratings — that's strong. 14 and 6 reviews is not. A managed review campaign over one golf season could triple the review count and significantly improve ranking among "Edwards, CO outdoor activities."</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Transform Instagram Into a Community Showcase</span>
+          </div>
+          <div class="rec-detail">No mountain community has more visually compelling content than Cordillera — morning light on the Nicklaus course, an angler on the Eagle River, aspens in September, a rider at the Equestrian Center, a sunrise from the Summit neighborhood at 9,000 feet. Three posts per week with a consistent aesthetic would build the audience that eventually buys homes here. 847 followers is a baseline, not a ceiling.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Address the Lodge &amp; Spa "Permanently Closed" Narrative</span>
+          </div>
+          <div class="rec-detail">The Lodge &amp; Spa at Cordillera's Yelp listing is the most visible signal for any first-time researcher. Even though it's a separate entity, it's the first thing many prospects encounter. The CPOA should add a clear notice on the community website explaining the lodge's status and redirecting prospects to the current amenity offering. A managed community Yelp presence would also help push the closed hotel listing down in relevance.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Publish a Seasonal Community Blog — Open to the Public</span>
+          </div>
+          <div class="rec-detail">Quarterly posts — "Summer on the Eagle River," "Golf Season Opens at the Summit Course," "Winter at Cordillera: Gondola Club &amp; Trail Conditions" — give search engines and AI tools something to index, give prospective buyers a window into the lifestyle, and give real estate agents shareable content to use with clients. The existing newsletter can stay resident-only; this would be a separate, public-facing content stream.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>Ready to tell the Cordillera story?</h2>
+    <p>The community is exceptional. The digital presence isn't. These are solvable problems — and most of them start with a content strategy and an AI layer, not a website rebuild.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Cordillera Living — Digital Presence Audit</span>
+    <span>April 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
