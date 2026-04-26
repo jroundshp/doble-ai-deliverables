@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Satterfield Brothers — Research &amp; Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F5F1EA;
+    color: #1F1B17;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(31,27,23,0.12);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #f97316;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F1B17;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #5A4F47;
+    line-height: 1.65;
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    border-right: 1px solid rgba(31,27,23,0.15);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F1B17;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8A7F6E;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(31,27,23,0.1);
+  }
+  .section-head {
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-num {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAF6EE; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8A7F6E;
+    margin-bottom: 6px;
+  }
+  .fact-val { font-size: 17px; color: #1F1B17; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(31,27,23,0.12); }
+  th {
+    text-align: left;
+    padding: 8px 12px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A7F6E;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(31,27,23,0.07); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr.highlight { background: rgba(127,0,0,0.04); }
+  td { padding: 12px; color: #5A4F47; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F1B17; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-extreme { background: rgba(127,0,0,0.12); color: #7f0000; }
+  .badge-high    { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med     { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed  { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low     { background: rgba(29,78,216,0.1);  color: #1d4ed8; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #5A4F47; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F1B17; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #5A4F47; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #EDE8E0;
+    border: 1px solid rgba(31,27,23,0.1);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F1B17; }
+  .grade {
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-c  { background: #b45309; }
+  .grade-cm { background: #9a4a10; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #5A4F47; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(185,28,28,0.06);
+    border: 1px solid rgba(185,28,28,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b91c1c;
+    margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #5A4F47; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; border: 1px solid rgba(31,27,23,0.1); border-radius: 8px; overflow: hidden; }
+  .rec-item { padding: 20px 24px; background: #FAF6EE; border-bottom: 1px solid rgba(31,27,23,0.07); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #f97316; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F1B17; }
+  .rec-detail { font-size: 14px; color: #5A4F47; line-height: 1.65; padding-left: 30px; }
+
+  /* ── Market Opportunity ── */
+  .opp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  @media (max-width: 600px) { .opp-grid { grid-template-columns: 1fr; } }
+  .opp-card { background: #EDE8E0; border: 1px solid rgba(31,27,23,0.1); border-radius: 8px; padding: 18px 20px; }
+  .opp-card-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #b45309;
+    margin-bottom: 10px;
+  }
+  .opp-card p { font-size: 14px; color: #5A4F47; line-height: 1.6; margin-bottom: 8px; }
+  .opp-card p:last-child { margin-bottom: 0; }
+  .opp-card ul { font-size: 14px; color: #5A4F47; line-height: 1.6; padding-left: 18px; }
+  .opp-card li { margin-bottom: 6px; }
+  .opp-card strong { color: #1F1B17; }
+  .drought-callout {
+    background: rgba(180,83,9,0.07);
+    border: 1px solid rgba(180,83,9,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .drought-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b45309;
+    margin-bottom: 8px;
+  }
+  .drought-callout p { font-size: 16px; color: #5A4F47; line-height: 1.65; }
+  .window-callout {
+    background: rgba(21,128,61,0.06);
+    border: 1px solid rgba(21,128,61,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .window-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #15803d;
+    margin-bottom: 8px;
+  }
+  .window-callout p { font-size: 16px; color: #5A4F47; line-height: 1.65; }
+
+  /* ── CTA ── */
+  .cta-block {
+    margin-top: 48px;
+    background: #1F1B17;
+    border-radius: 10px;
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .cta-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 8px;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .cta-block p { font-size: 15px; color: #8A7F6E; line-height: 1.6; max-width: 420px; }
+  .cta-btn {
+    display: inline-block;
+    background: #f97316;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: #ea6c0c; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(31,27,23,0.1);
+    font-size: 11px;
+    color: #8A7F6E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Research &amp; Audit · April 2026 · Colorado High Country</div>
+    <h1>Satterfield Brothers<br>High Country Logging</h1>
+    <p>Family-owned logging and timber operation serving the Colorado high country. Core services include commercial timber harvesting, beetle-kill tree removal, fire mitigation, fuel reduction, forest thinning, and land clearing for mountain terrain.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Brothers</div><div class="stat-label">Ownership</div></div>
+      <div class="stat"><div class="stat-val">Logging</div><div class="stat-label">Industry</div></div>
+      <div class="stat"><div class="stat-val">Eagle River Valley</div><div class="stat-label">Service Area</div></div>
+      <div class="stat"><div class="stat-val">None Found</div><div class="stat-label">GBP Status</div></div>
+      <div class="stat"><div class="stat-val">2.0 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Company Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#fff3e8;border-bottom:1px solid rgba(249,115,22,0.2)">
+      <span class="section-num" style="color:#f97316">01</span>
+      <span class="section-title" style="color:#f97316">Company Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">Ownership</div>
+          <div class="fact-val">Sibling-owned and operated — "Brothers" in the name signals a family business. Exact ownership details not publicly surfaced online.</div>
+        </div>
+        <div>
+          <div class="fact-label">What They Do</div>
+          <div class="fact-val">High country logging and timber services in Colorado. Scope likely includes commercial timber harvesting, beetle-kill tree removal, fire mitigation and fuel reduction, forest thinning, and land clearing for mountain terrain.</div>
+        </div>
+        <div>
+          <div class="fact-label">Service Area</div>
+          <div class="fact-val">Colorado high country — Eagle River Valley and surrounding mountain corridor. The "High Country" designation indicates elevation-focused operations serving central and western Colorado mountain communities.</div>
+        </div>
+        <div>
+          <div class="fact-label">Reputation</div>
+          <div class="fact-val">No online reviews found during audit. Zero ratings on Google, Yelp, or contractor platforms. The Facebook link origin suggests community presence, but reputation is not documented online.</div>
+        </div>
+        <div>
+          <div class="fact-label">Website</div>
+          <div class="fact-val">satterfieldbrothers.com exists but is built as a JavaScript-rendered single-page app. Web crawlers retrieve only the page title — the site is functionally invisible to every search engine.</div>
+        </div>
+        <div>
+          <div class="fact-label">Digital Presence</div>
+          <div class="fact-val">Near-zero discoverable footprint. No Google Business Profile found. No Yelp or contractor platform listings. Facebook is the only confirmed online touchpoint.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.2)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Geography</th>
+            <th>Key Note</th>
+            <th>Threat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>Bear Claw Fire Mitigation / Land Services</td>
+            <td class="geo">Eagle County / Vail</td>
+            <td>Dominant local player. 12k social followers, 80+ five-star Google reviews, active on Instagram, Facebook, YouTube, and GBP. Two branded domains. Federal contract work at Rocky Mountain National Park. Full equipment fleet.</td>
+            <td><span class="badge badge-extreme">Extreme</span></td>
+          </tr>
+          <tr class="highlight">
+            <td>Old Growth Tree Service + SLM</td>
+            <td class="geo">Gypsum, CO</td>
+            <td>Same base town. Dual brand: Old Growth Tree Service + Specialized Land Management (SLM, launched 2024). ~20-person team, 5,000+ acres of fuel reductions. Serves Eagle, Summit, Garfield, Pitkin, Routt counties.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr class="highlight">
+            <td>Outlaw Forestry</td>
+            <td class="geo">Gypsum, CO</td>
+            <td>Direct local rival in the same town. Led by ISA Certified Arborist. Specializes in HB 1182 insurance compliance documentation — a strong credibility lever with ranch and estate clients. Professional site, Instagram presence, testimonials from ranch and builder clients.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Earth-Wise Horticultural</td>
+            <td class="geo">Glenwood Springs, CO</td>
+            <td>Established 1994. Dual-valley presence across Roaring Fork and Vail Valley. ISA certified arborists, BBB profile, Facebook. Serves Pitkin, Garfield, Eagle counties. More premium residential tree care than logging, but overlapping geography and clientele.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Timber Pro Tree Service</td>
+            <td class="geo">Vail, CO</td>
+            <td>ISA Certified Arborist, Eagle and Pitkin counties. Fire mitigation, tree removal, pruning, 24-hr emergency. Squarespace site with no reviews and no social media — comparable digital weakness to Satterfield Brothers.</td>
+            <td><span class="badge badge-lowmed">Low-Medium</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.2)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Satterfield Brothers operates in a high-demand sector — Colorado's forest health and fire mitigation market has grown substantially with wildfire pressure — but they are <strong>virtually undetectable online</strong>. Their website exists but cannot be indexed by search engines. No GBP, no reviews, no directory listings. Any landowner, developer, or land manager searching for logging services in the Eagle River Valley will find their competitors first.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(220,38,38,0.07);border:1px solid rgba(220,38,38,0.2)">
+          <div class="pos-card-label" style="color:#b91c1c">Strengths</div>
+          <div class="pos-card-text">Family operation with a domain and Facebook presence — a foundation exists. Colorado's logging and fire mitigation market is growing with wildfire pressure and beetle-kill scale. Brothers-owned implies deep local roots and a reputation that can be built upon.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">Current Position</div>
+          <div class="pos-card-text">Effectively invisible online. The website cannot be crawled by Google. No GBP, no reviews, no directory listings. A landowner searching for logging or fire mitigation services in their county will not find them through any digital channel.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">The JS-only website is the single biggest technical barrier — fixing indexability costs almost nothing and unlocks all downstream SEO value. Pair with a GBP and a CTIA listing, and Satterfield Brothers becomes discoverable almost overnight.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Site exists at satterfieldbrothers.com but is a JS-only app — search engines retrieve only the title. Zero indexed pages, zero organic surface area.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No Google Business Profile found. Invisible on Google Maps and local search for any logging, tree removal, or fire mitigation query.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No search rankings detected for any service-related or branded query. The company does not appear in Google, Bing, or any major search index.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No reviews found on Google, Yelp, Angi, HomeAdvisor, or any contractor platform. No social proof accessible to prospective clients.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Facebook</span><span class="grade grade-cm">C−</span></div>
+          <div class="audit-note">Facebook page confirmed active — the audit link originated from a Facebook share. Page quality and follower count unknown; likely the only functioning online touchpoint.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Yelp / Angi / HomeAdvisor</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No listings found on any contractor or home-services platform. Absent from the channels where landowners and contractors search for bids.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Instagram / LinkedIn</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No Instagram or LinkedIn presence found. Social footprint is Facebook-only at best.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Local / Industry Directories</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Not found in Colorado Timber Industry Association directory, Colorado State Forest Service database, or any local business directory.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website Indexability</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">JavaScript-only rendering means Google cannot read the site content. Even if pages exist behind the JS framework, they are invisible to all search crawlers.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Calls to Action</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">No phone number, email, or quote form surfaced in any search result or directory listing. A prospect who finds them has no easy path to reach them.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Satterfield Brothers has a website — which puts them ahead of many small logging operations — but it is built in a way that renders it functionally invisible to every search engine. A landowner Googling <em>"high country logging Colorado"</em>, <em>"fire mitigation Eagle County"</em>, or <em>"beetle kill tree removal"</em> will not find them. The business exists. The digital footprint does not. This is an almost entirely fixable problem.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#f0fdf4;border-bottom:1px solid rgba(21,128,61,0.2)">
+      <span class="section-num" style="color:#15803d">05</span>
+      <span class="section-title" style="color:#15803d">Top 5 Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list" style="border:none;border-radius:0">
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Claim &amp; Build a Google Business Profile — Immediately</span></div>
+          <div class="rec-detail">This is the highest-leverage, zero-cost move. A complete GBP with services, photos, hours, and a service area will put Satterfield Brothers on the map for "logging Colorado," "fire mitigation Eagle County," "beetle kill tree removal," and similar queries. It is the difference between being findable and being invisible.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Fix the Website's Indexability Problem</span></div>
+          <div class="rec-detail">The current JS-only site is functionally invisible to Google. Either switch to a server-rendered platform (WordPress, Squarespace) or implement static page generation. Until this is resolved, no SEO investment will produce results — the crawlers cannot read the site.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Add a Contact Form and Phone Number to Every Page</span></div>
+          <div class="rec-detail">No contact information was surfaced anywhere online during this audit. A prospect who finds them through any channel currently has no easy path to reach them. A visible phone number and a simple quote request form are the minimum viable conversion tools.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Build a Project Photo Gallery</span></div>
+          <div class="rec-detail">High country logging and fire mitigation are highly visual services. Before/after photos of timber harvests, cleared fuel breaks, and beetle-kill removals communicate scale, capability, and quality in a way that text cannot. Even 10–15 photos dramatically increases trust with landowners evaluating bids.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Get Listed in the CTIA Directory and State Forest Service Database</span></div>
+          <div class="rec-detail">The Colorado Timber Industry Association member directory and the Colorado State Forest Service's forest products database are the primary channels through which land managers, developers, and private landowners find logging contractors. Presence in both is essentially free and puts the business in front of its highest-value prospects.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: Market Opportunity -->
+  <div class="section">
+    <div class="section-head" style="background:#fffbeb;border-bottom:1px solid rgba(180,83,9,0.2)">
+      <span class="section-num" style="color:#b45309">06</span>
+      <span class="section-title" style="color:#b45309">Market Opportunity — Eagle River Valley &amp; Roaring Fork</span>
+    </div>
+    <div class="section-body">
+      <div class="drought-callout">
+        <div class="drought-label">Drought Context — 2026</div>
+        <p>The Eagle River Valley and Roaring Fork Valley are currently experiencing severe to extreme drought conditions, amplifying wildfire risk across the region. Prolonged dry years increase standing dead timber — beetle-kill, drought-stress mortality — raise fuel loads in the understory, and trigger insurance pressure on homeowners and HOAs to establish defensible space. Many property owners face HB 1182 insurance compliance deadlines, creating an urgency-driven sales environment that benefits operators who are discoverable online.</p>
+      </div>
+      <div class="opp-grid">
+        <div class="opp-card">
+          <div class="opp-card-label">Fire Mitigation — High Urgency Now</div>
+          <p>Demand runs on two tracks simultaneously:</p>
+          <ul>
+            <li><strong>Large-scale commercial/government</strong> — ranches, HOAs, municipalities, and federal land managers contracting multi-acre fuel reduction. High value, competitive bid, relationship-driven.</li>
+            <li><strong>Residential defensible space</strong> — individual homeowners in Eagle, Garfield, Pitkin, and Routt counties receiving insurance notices. High volume, faster sales cycle, strong word-of-mouth potential in tight mountain communities.</li>
+          </ul>
+        </div>
+        <div class="opp-card">
+          <div class="opp-card-label">Timber Clearing — Durable Base</div>
+          <p>Large timber clearing — beetle-kill removal, construction site clearing, ranch management — remains a durable part of the high country market. These jobs don't go away.</p>
+          <p>This segment is more relationship-driven than urgency-driven. Existing operator relationships likely hold this business even without digital fixes — but fire mitigation is where new revenue is actively being won and lost right now.</p>
+        </div>
+      </div>
+      <div class="window-callout">
+        <div class="window-label">The Window Is Narrowing</div>
+        <p>Satterfield Brothers has the local history and equipment to compete in both segments. The gap is entirely digital. Bear Claw and Outlaw Forestry are actively building review moats in the same ZIP codes — Bear Claw alone has 80+ five-star reviews and 12k followers. A functioning Google Business Profile and an indexed website would put Satterfield Brothers in front of residential fire mitigation searches that are currently defaulting to these competitors. Drought-driven urgency compresses the timeline: the operators who are findable now are the ones capturing this cycle.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div>
+      <div class="cta-eyebrow">Ready to close the gap?</div>
+      <h2>We can have you on the map<br>within days.</h2>
+      <p>A working Google Business Profile, an indexed website, and your business appearing in local fire mitigation and logging searches — we can move fast on all of it.</p>
+    </div>
+    <a href="https://dobleai.com" class="cta-btn">Talk to Doble AI &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Satterfield Brothers — Research &amp; Audit · Colorado High Country</span>
+    <span>April 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
