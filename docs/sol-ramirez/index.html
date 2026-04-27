@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Sol Ramirez — Research &amp; Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F5F1EA;
+    color: #1F1B17;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(31,27,23,0.12);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #f97316;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F1B17;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #5A4F47;
+    line-height: 1.65;
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    border-right: 1px solid rgba(31,27,23,0.15);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F1B17;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8A7F6E;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(31,27,23,0.1);
+  }
+  .section-head {
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-num {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAF6EE; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8A7F6E;
+    margin-bottom: 6px;
+  }
+  .fact-val { font-size: 17px; color: #1F1B17; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(31,27,23,0.12); }
+  th {
+    text-align: left;
+    padding: 8px 12px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8A7F6E;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(31,27,23,0.07); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr.highlight { background: rgba(127,0,0,0.04); }
+  td { padding: 12px; color: #5A4F47; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F1B17; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge-high    { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med     { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed  { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low     { background: rgba(29,78,216,0.1);  color: #1d4ed8; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #5A4F47; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F1B17; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #5A4F47; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #EDE8E0;
+    border: 1px solid rgba(31,27,23,0.1);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F1B17; }
+  .grade {
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-c  { background: #b45309; }
+  .grade-cm { background: #9a4a10; }
+  .grade-dp { background: #a35320; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #5A4F47; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(185,28,28,0.06);
+    border: 1px solid rgba(185,28,28,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #b91c1c;
+    margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #5A4F47; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; border: 1px solid rgba(31,27,23,0.1); border-radius: 8px; overflow: hidden; }
+  .rec-item { padding: 20px 24px; background: #FAF6EE; border-bottom: 1px solid rgba(31,27,23,0.07); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #f97316; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F1B17; }
+  .rec-detail { font-size: 14px; color: #5A4F47; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA ── */
+  .cta-block {
+    margin-top: 48px;
+    background: #1F1B17;
+    border-radius: 10px;
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .cta-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 8px;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .cta-block p { font-size: 15px; color: #8A7F6E; line-height: 1.6; max-width: 420px; }
+  .cta-btn {
+    display: inline-block;
+    background: #f97316;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: #ea6c0c; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(31,27,23,0.1);
+    font-size: 11px;
+    color: #8A7F6E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Research &amp; Audit · April 2026 · Ajijic, Jalisco, Mexico</div>
+    <h1>Sol Ramirez<br>Real Estate</h1>
+    <p>A Canadian-Persian realtor who left Toronto, banking in Dubai, and the luxury diamond sector to build a life in Ajijic. Expat buyers making the same journey she made are actively searching for someone exactly like her. They're not finding her.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Canadian-Persian</div><div class="stat-label">Background</div></div>
+      <div class="stat"><div class="stat-val">Ajijic, MX</div><div class="stat-label">Location</div></div>
+      <div class="stat"><div class="stat-val">8 Active</div><div class="stat-label">Listings</div></div>
+      <div class="stat"><div class="stat-val">Chapala MLS</div><div class="stat-label">MLS Member</div></div>
+      <div class="stat"><div class="stat-val">1.5 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Agent Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#fff3e8;border-bottom:1px solid rgba(249,115,22,0.2)">
+      <span class="section-num" style="color:#f97316">01</span>
+      <span class="section-title" style="color:#f97316">Agent Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">Agent</div>
+          <div class="fact-val">Sol Ramirez — Agent at Lago Montaña Real Estate, Chapala, Jalisco. Email: sol@lagomontanarealestate.com · Phone: 332-154-1586</div>
+        </div>
+        <div>
+          <div class="fact-label">Background</div>
+          <div class="fact-val">Finance, mortgage &amp; tax prep · commercial banking in Dubai · high-tech ophthalmology sales · luxury diamond sector. Multiple international sales awards. Background spans four continents before relocating from Toronto to Ajijic.</div>
+        </div>
+        <div>
+          <div class="fact-label">Market</div>
+          <div class="fact-val">Ajijic–Chapala corridor, Lake Chapala, Jalisco, Mexico. Primary buyer base is US and Canadian expat retirees and snowbirds. Rental demand is strong — a significant portion of the lakeside market is long-term and seasonal rentals.</div>
+        </div>
+        <div>
+          <div class="fact-label">Active Listings</div>
+          <div class="fact-val">8 total: 4 for sale (Casa del Sol Duplex $325K USD; 3 land lots MXN 468K–5.2M in Ajijic) and 4 rentals (MXN 11K–30K/month in Chapala, El Chante, and Jocotepec).</div>
+        </div>
+        <div>
+          <div class="fact-label">MLS Presence</div>
+          <div class="fact-val">Listed on Chapala MLS (chapalamls.net). Profile shows 8 active listings but contains no bio, no personal story, and no professional detail beyond a name and contact info.</div>
+        </div>
+        <div>
+          <div class="fact-label">Broker</div>
+          <div class="fact-val">Lago Montaña Real Estate, Av. Hidalgo 234-B Riberas del Pilar, Chapala. Professional site with multi-language support (EN/FR/DE/ES). No dedicated agent profiles on homepage.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.2)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Agency / Portal</th>
+            <th>Geography</th>
+            <th>Key Note</th>
+            <th>Threat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>Ajijic Real Estate<br><span style="font-weight:400;font-size:13px;color:#8A7F6E">ajijic.com</span></td>
+            <td class="geo">Ajijic</td>
+            <td>Established multi-agent site with neighborhood guides, IDX search, and individual agent profiles. Strong local SEO — consistently ranks for "Ajijic real estate" queries.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr class="highlight">
+            <td>Eager Realty</td>
+            <td class="geo">Ajijic / Chapala / Jocotepec</td>
+            <td>Expat-focused agency with a dedicated site, full team bios, and multi-area coverage. Directly targets US and Canadian buyers navigating a foreign purchase — Sol's exact buyer profile.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Access Lake Chapala</td>
+            <td class="geo">Regional portal</td>
+            <td>Content-rich listing portal aggregating properties across the lakeside corridor. Ranks broadly for "Lake Chapala real estate" searches and funnels traffic to member agents.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Continental Real Estate</td>
+            <td class="geo">Ajijic, Calle Colón 1</td>
+            <td>Dedicated brokerage website with an established online presence. Competes directly on the same Ajijic for-sale and rental inventory.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Collins Real Estate</td>
+            <td class="geo">Ajijic area</td>
+            <td>Listed as a top-10 agency in Yelp's 2026 Ajijic rankings. Has built meaningful local brand recognition with expat buyers over time.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Chapala Realty / Coldwell Banker</td>
+            <td class="geo">Chapala</td>
+            <td>National brand recognition. Attracts US and Canadian buyers who prefer a familiar name. Competes primarily at the higher-value end of the market.</td>
+            <td><span class="badge badge-lowmed">Low–Med</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where She Stands -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.2)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where She Stands</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Sol Ramirez has a <strong>genuinely rare personal story</strong> in this market — a Canadian-Persian with international finance and luxury sales credentials who made the Ajijic expat move herself. The lakeside buyer base is overwhelmingly expat, and they are looking for exactly this kind of guide. That story is nowhere online.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(220,38,38,0.07);border:1px solid rgba(220,38,38,0.2)">
+          <div class="pos-card-label" style="color:#b91c1c">Strengths</div>
+          <div class="pos-card-text">Extraordinary international background no competitor can match. Living the expat experience firsthand. 8 active listings across for-sale and rentals. On Chapala MLS. Finance, negotiation, and cross-cultural expertise rare among local agents.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">Current Position</div>
+          <div class="pos-card-text">Effectively invisible as an individual online. Discoverable only by someone who already knows to search her name exactly. No personal brand, no Google presence, no content, no reviews.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">The Chapala–Ajijic market is full of expat buyers who want a trusted guide. Sol is that person — she made the move, understands finance, and has credentials from Dubai to Toronto. No competitor has this story, and no one is telling it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Personal Website</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">None exists. Sol has no independent web presence. Invisible to any buyer or renter searching online for a real estate agent in Ajijic or Chapala.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Not found. Sol does not appear on Google Maps or in local search results for any realtor or rental-related query in the Chapala–Ajijic area.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social Media</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No confirmed social media profiles. A few possible Instagram handles were found during the audit, but none is definitively linked to Sol's real estate work.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Chapala MLS Profile</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">Listed on chapalamls.net with 8 active properties. Minimal profile — no bio, no story, no professional photo description. Listings are visible; the agent is not.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Broker Agent Page</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Basic card on lagomontanarealestate.com — name, email, phone. No story, no credentials, no differentiating information of any kind.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Online Reviews</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Zero reviews found on any platform — Google, Yelp, or local directories. No reputation signal exists online despite active practice.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content / Blog</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No blog, no videos, no social posts. Zero content marketing output. No organic discoverability beyond an exact name-match search.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Search Visibility</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Sol's name surfaces only with a specific branded search ("Sol Ramirez Lago Montana"). She cannot be organically discovered by an expat buyer searching for a realtor in Ajijic.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Sol Ramirez has one of the most compelling personal stories in the Ajijic–Chapala market. An expat Googling <em>"realtor Ajijic"</em> or <em>"Lake Chapala homes for rent"</em> will find Eager Realty or ajijic.com first — despite Sol potentially being the more qualified and relatable choice. The story exists. The visibility does not.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#f0fdf4;border-bottom:1px solid rgba(21,128,61,0.2)">
+      <span class="section-num" style="color:#15803d">05</span>
+      <span class="section-title" style="color:#15803d">Top 5 Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list" style="border:none;border-radius:0">
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Build a Personal Website — For Sale + Dedicated Rentals Section</span></div>
+          <div class="rec-detail">The Chapala–Ajijic market has strong rental demand, and Sol's current portfolio is already ~50% rentals. A personal site that serves both buyers and renters immediately differentiates her from every broker-only page in the market. The site should lead with her story and include a curated for-sale listings section alongside a dedicated rentals section — the clearest gap in the current Ajijic agent landscape.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Tell the Story — Lead With the Bio</span></div>
+          <div class="rec-detail">No competitor in this market has a background like Sol's. Canadian-Persian. Commercial banking in Dubai. Luxury diamonds. Now living the Ajijic expat experience firsthand. This is the exact credibility profile that US and Canadian buyers — navigating a $200K–$500K+ purchase in a foreign country — need to see before they trust someone. That story must be front and center on every page, not buried in a contact card.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Set Up a Google Business Profile</span></div>
+          <div class="rec-detail">Free. 15–20 minutes to create. Immediately puts Sol on the map for "realtor Ajijic," "real estate agent Chapala," and "Lake Chapala homes for rent" searches. Add services, photos, hours, and a link to the personal site. This is the single highest-leverage move for organic search visibility and should happen concurrently with the site build.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Establish a Social Media Presence — Instagram First</span></div>
+          <div class="rec-detail">Instagram is the primary platform for the expat lifestyle and property content mix that resonates in this market. Even 2–3 posts per week — a rental highlight, a neighborhood shot, an Ajijic tip from someone who actually made the move — would establish a footprint no individual agent in the area currently has. It also gives prospective buyers a way to follow along before they're ready to buy or rent.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Request Reviews From Past Clients</span></div>
+          <div class="rec-detail">Five Google reviews on a new Business Profile will immediately outperform any competitor sitting at zero, regardless of their reputation. A direct ask via WhatsApp or email — with a link to the review page — is all it takes. This should happen as soon as the GBP is live, starting with the clients and referrals Sol has served most recently.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div>
+      <div class="cta-eyebrow">Ready to be found?</div>
+      <h2>Your story should be the<br>first thing they find.</h2>
+      <p>We can build your personal site, set up your Google presence, and make sure expat buyers searching for exactly what you offer can find you — in days, not months.</p>
+    </div>
+    <a href="https://dobleai.com" class="cta-btn">Talk to Doble AI &rarr;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Sol Ramirez — Research &amp; Audit · Ajijic, Jalisco, Mexico</span>
+    <span>April 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
