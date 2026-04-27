@@ -1,93 +1,91 @@
 {
-  "last_updated": "2026-04-20",
+  "last_updated": "2026-04-27",
   "colorado_watch": {
     "description": "AI consulting and marketing firms entering the Colorado mountain resort corridor",
     "entries": [
       {
-        "name": "Vail Valley Marketing",
-        "url": "https://vailvalley.marketing/",
-        "location": "Vail, CO",
+        "name": "The Blackbird Agency",
+        "url": "https://www.theblackbirdagency.com/",
+        "location": "Avon, CO (100 W. Beaver Creek Blvd., Suite 204)",
         "category": "agency",
-        "first_seen": "2026-04-16",
+        "first_seen": "2026-04-27",
         "signals": [
-          "Explicitly targets Vail Valley local businesses (contractors, restaurants, real estate)",
-          "SEO + GEO positioning — copy mentions 'AI-driven results' and answer engine visibility",
-          "Google Ads, social media management, web design all offered",
-          "Professional photography/video as upsell — same service bundle as Doble AI",
-          "Active Instagram (@vailvalleymarketing)"
+          "Physically embedded in Avon — same town as Doble AI's home market",
+          "Vail Valley Partnership member with strong local business network ties",
+          "Full-service: branding, websites, SEO, media planning, search marketing",
+          "Specializes in hospitality, destination marketing, outdoor, real estate — direct overlap with Doble AI verticals",
+          "Decades of experience with global/national brands — premium positioning"
         ],
         "threat_level": "High"
       },
       {
+        "name": "Tactical SEO Consulting",
+        "url": "https://tacticalseoconsulting.com/eagle/",
+        "location": "Colorado Springs (actively targeting Eagle County / Vail Valley with dedicated pages)",
+        "category": "consulting",
+        "first_seen": "2026-04-27",
+        "signals": [
+          "Dedicated Eagle CO landing page with AI SEO positioning",
+          "Claims 15+ years expertise combined with AI technology",
+          "Generative Engine Optimization (GEO) service targets AI search results",
+          "Page-1 ranking guarantee with exclusive territory protection pitch",
+          "Active AI automations service page — direct AI marketing competitor"
+        ],
+        "threat_level": "Medium"
+      },
+      {
+        "name": "Avid Design",
+        "url": "https://avidonline.com/",
+        "location": "Edwards, CO",
+        "category": "agency",
+        "first_seen": "2026-04-27",
+        "signals": [
+          "Physically located in Edwards — Doble AI's immediate service area",
+          "Full-service: branding, graphic design, web development, SEO, digital marketing",
+          "Established local agency with existing client relationships in Eagle County",
+          "Listed in Vail Valley Partnership member directory"
+        ],
+        "threat_level": "Medium"
+      },
+      {
+        "name": "Midnight Marketing Solutions",
+        "url": "https://midnightmarketingsolutions.com/",
+        "location": "Gunnison, CO (expanding to Glenwood Springs and Western Slope corridor)",
+        "category": "agency",
+        "first_seen": "2026-04-27",
+        "signals": [
+          "Explicitly offers AI consulting + website development for Western Slope small businesses",
+          "Tourism and hospitality AI automation focus — same verticals as Doble AI",
+          "Service area creeping toward Glenwood Springs — geographic adjacency risk",
+          "Active Facebook presence, Gunnison Chamber of Commerce member"
+        ],
+        "threat_level": "Low-Medium"
+      },
+      {
+        "name": "WB Digital Marketing",
+        "url": "https://www.wbdigitalmarketing.net/",
+        "location": "Vail, CO",
+        "category": "agency",
+        "first_seen": "2026-04-27",
+        "signals": [
+          "Vail-based local digital marketing partner",
+          "Targets same small business growth market as Doble AI in the Vail corridor",
+          "Limited public AI service claims found — more traditional digital marketing"
+        ],
+        "threat_level": "Low-Medium"
+      },
+      {
         "name": "AutomateNexus",
         "url": "https://automatenexus.com/",
-        "location": "National (geo-targeted pages for Vail + Aspen)",
+        "location": "National agency with geo-targeted pages for Aspen and Vail CO",
         "category": "agency",
-        "first_seen": "2026-04-20",
+        "first_seen": "2026-04-27",
         "signals": [
-          "Dedicated landing pages for 'AI-Powered Marketing' in Vail CO and Aspen CO",
-          "PPC advertising, social media marketing, AI-powered campaigns, marketing automation",
-          "Ranking in Google for 'AI marketing agency Vail Colorado' search",
-          "No apparent local physical presence — pure geo-SEO play",
-          "Conversion rate optimization and claims 150+ automations deployed"
-        ],
-        "threat_level": "Medium"
-      },
-      {
-        "name": "CTA Digital Media",
-        "url": "https://ctadigitalmedia.com/",
-        "location": "Eagle, CO (Vail Valley)",
-        "category": "agency",
-        "first_seen": "2026-04-16",
-        "signals": [
-          "Vail Valley Partnership member — strong local business community ties",
-          "Eagle Chamber of Commerce member",
-          "Active client work: Eagle County housing campaign with 10+ commercials",
-          "Video production + digital marketing combo",
-          "Facebook page active — primarily video/production focused, less AI overlap"
-        ],
-        "threat_level": "Low-Medium"
-      },
-      {
-        "name": "Dot Zero Multimedia",
-        "url": "https://dotzeromultimedia.com/",
-        "location": "Gypsum, CO (Eagle County)",
-        "category": "agency",
-        "first_seen": "2026-04-20",
-        "signals": [
-          "Physically based in Gypsum — Eagle County local presence",
-          "Positions as digital marketing partner for Colorado mountain towns",
-          "Serves the same geographic corridor as Doble AI",
-          "Full digital marketing services including web, social, SEO"
-        ],
-        "threat_level": "Medium"
-      },
-      {
-        "name": "Voxe AI",
-        "url": "https://voxeai.com/",
-        "location": "Colorado Springs, CO (could expand to mountain corridor)",
-        "category": "agency",
-        "first_seen": "2026-04-20",
-        "signals": [
-          "AI voice agents for 24/7 lead gen and appointment booking",
-          "AI-ready websites with API-first architecture",
-          "Transparent pricing: $1,500-$10,000/mo retainers, no long-term contracts",
-          "30-day ROI delivery claim",
-          "Active Instagram (@voxeaimarketing), BBB listed"
-        ],
-        "threat_level": "Low-Medium"
-      },
-      {
-        "name": "Tactical SEO Consulting",
-        "url": "https://tacticalseoconsulting.com/",
-        "location": "Colorado (Eagle County / Vail Valley targeting)",
-        "category": "consulting",
-        "first_seen": "2026-04-20",
-        "signals": [
-          "Claims 15+ years expertise combined with AI technology for Eagle County / Vail Valley SEO",
-          "Dedicated 'AI automations' service page",
-          "Ranking for Eagle County and Vail Valley search terms",
-          "Local SEO + Google Ads focus"
+          "Dedicated 'AI-Powered Marketing in Aspen CO' and 'Vail CO' landing pages",
+          "PPC advertising, social media marketing, email automation, CRO all offered",
+          "Ranking for 'AI marketing agency Vail Colorado' search terms",
+          "No local physical presence — pure geo-SEO play to capture mountain town leads",
+          "Also operates AutomateNexus CRM — sticky product ecosystem"
         ],
         "threat_level": "Low-Medium"
       }
@@ -107,10 +105,10 @@
           { "source": "Referral", "pct": 10 },
           { "source": "Social", "pct": 5 }
         ],
-        "what_theyre_doing_well": "Built proprietary 'Goodie' AI platform for answer engine optimization (AEO). 84% client retention, with 65% of clients reportedly doubling revenue within 6 months. Strong blog content engine consistently ranks for competitive 'best AI agency' terms.",
-        "why_getting_traction": "Data-backed claims + proprietary-branded methodology creates perceived differentiation that generic agencies lack. Content marketing flywheel drives inbound leads without paid acquisition.",
+        "what_theyre_doing_well": "Built proprietary 'Goodie' AI platform for Answer Engine Optimization. 84% client retention, with 65% of clients reportedly doubling revenue within 6 months. Strong content engine consistently ranks for competitive 'best AI agency' terms — their own blog is a lead-gen machine.",
+        "why_getting_traction": "Data-backed client claims plus a proprietary-branded methodology creates perceived differentiation. Content marketing flywheel drives inbound leads without paid acquisition — they've basically turned their agency marketing into a case study of what they sell.",
         "inspiration_score": 9,
-        "inspiration_notes": "Document and publish specific client results — 'Avon landscaper went from 3 Google reviews to 47 and 2x'd summer bookings.' Create a simple 'Results' page with real numbers. Name your methodology (e.g. 'The Doble Growth System') to build perceived IP. A branded process — even a simple one — makes solo agencies feel more legit than they realize."
+        "inspiration_notes": "Document and publish specific client results — 'Avon landscaper went from 3 Google reviews to 47 and 2x'd summer bookings.' Create a 'Results' page with real numbers. Name your methodology (e.g. 'The Doble Growth System') to build perceived IP. A branded process — even a simple one — makes solo agencies feel far more legit to prospects."
       },
       {
         "name": "Embarque",
@@ -122,8 +120,8 @@
           { "source": "Direct", "pct": 20 },
           { "source": "Referral", "pct": 15 }
         ],
-        "what_theyre_doing_well": "Publishing transparent, specific case studies showing real traffic numbers — helped SignHouse grow from zero to 60,000 monthly organic visitors in six months; BlueTally saw a 14,637% traffic increase. Numbers-first storytelling builds instant credibility.",
-        "why_getting_traction": "Radical transparency in results differentiates them in a field full of vague promises. Content marketing their own wins creates a trust flywheel that attracts similar clients organically.",
+        "what_theyre_doing_well": "Publishes hyper-specific case studies with real traffic numbers — helped one client grow from zero to 60,000 monthly organic visitors in six months; another saw a 14,637% traffic increase. Number-first storytelling builds instant credibility. Trial tier at $299/mo converts skeptics into long-term clients.",
+        "why_getting_traction": "Radical transparency in results differentiates them in a field full of vague promises. Content marketing their own wins creates a trust flywheel that attracts similar clients organically — their case study page is their best sales page.",
         "inspiration_score": 8,
         "inspiration_notes": "Doble AI should publish real client results with specific numbers as case studies. Local specificity ('Eagle-based contractor went from 0 to 200 monthly visitors in 90 days') will be especially compelling for local prospects who know those businesses and can verify the claims."
       },
@@ -138,41 +136,40 @@
           { "source": "Paid", "pct": 15 },
           { "source": "Referral", "pct": 10 }
         ],
-        "what_theyre_doing_well": "Subscription-based 'marketing-as-a-service' model: one predictable monthly fee for a full cross-functional marketing team. AI-enhanced content and paid social at scale with deep analytics included.",
-        "why_getting_traction": "MaaS subscription model removes the biggest SMB objection (project cost uncertainty). Businesses understand monthly subscriptions — it maps to SaaS mental models they already use.",
+        "what_theyre_doing_well": "Subscription-based 'marketing-as-a-service' model: one predictable monthly fee covers a full cross-functional marketing team. AI-enhanced content and paid social at scale with deep analytics included. Appeals to SMBs tired of project-based billing uncertainty.",
+        "why_getting_traction": "MaaS subscription model removes the biggest SMB objection: project cost uncertainty. Businesses understand monthly subscriptions — it maps to the SaaS mental models they already use for every other tool in their stack.",
         "inspiration_score": 7,
         "inspiration_notes": "Consider a fixed monthly subscription model for Doble AI — bundle website maintenance, 8-12 social posts/mo, Google Business updates, and AI SEO into one predictable price point ($500-$800/mo). Monthly retainers create stable recurring revenue and remove the feast-or-famine project cycle."
       },
       {
-        "name": "Vendasta",
-        "url": "https://vendasta.com/",
-        "founded_approx": "2008 (major AI platform pivot 2024-2025)",
-        "traffic_estimate": "~300K/mo",
+        "name": "SearchScaleAI",
+        "url": "https://www.searchscaleai.com/",
+        "founded_approx": "2023",
+        "traffic_estimate": "~10K/mo",
         "top_traffic_sources": [
-          { "source": "Organic Search", "pct": 50 },
-          { "source": "Direct", "pct": 30 },
-          { "source": "Referral", "pct": 15 },
-          { "source": "Social", "pct": 5 }
+          { "source": "Organic Search", "pct": 60 },
+          { "source": "Direct", "pct": 25 },
+          { "source": "Referral", "pct": 15 }
         ],
-        "what_theyre_doing_well": "White-label AI platform for agencies to resell to local SMBs: AI receptionist, Conversations AI (handles calls, books appointments, generates quotes), reputation management, and automated follow-up. $100M+ ARR, cash-flow positive. SMBs using the platform see 102% revenue retention vs 95% without AI.",
-        "why_getting_traction": "Agencies love white-labeling — they can resell enterprise-grade AI tools under their own brand without building infrastructure. SMBs get automation that genuinely solves missed-lead problems.",
-        "inspiration_score": 6,
-        "inspiration_notes": "Doble AI could white-label Vendasta or a similar platform (e.g. HighLevel) to immediately offer an AI receptionist / missed-call text-back service to Eagle County contractors and restaurants. 'Never miss a lead' is a high-value hook for trades businesses constantly on job sites and unable to answer every call."
+        "what_theyre_doing_well": "Focused purely on AI SEO for small/local businesses. Clear tiered pricing ($497/mo Starter, $750/mo AI Starter) makes it easy to buy. Tracks success across 24 industries and 20 local markets — proof of local market specialization. Also offers social media management as an add-on bundle.",
+        "why_getting_traction": "Hyper-specific positioning ('AI SEO for small local businesses') plus transparent pricing converts researchers into buyers faster than vague 'full-service' agencies. Low entry-point pricing removes budget friction for SMB prospects.",
+        "inspiration_score": 7,
+        "inspiration_notes": "Doble AI could publish a clear pricing page with 2-3 tiers specifically for Eagle County business types (e.g. Contractor Starter / Restaurant Growth / Real Estate Pro). Transparent pricing signals confidence and pre-qualifies inbound leads — most local agencies hide pricing, which is a trust barrier."
       },
       {
-        "name": "Voxe AI",
-        "url": "https://voxeai.com/",
-        "founded_approx": "2023",
-        "traffic_estimate": "~5K/mo (small but growing, Colorado-based)",
+        "name": "Tactical SEO Consulting",
+        "url": "https://tacticalseoconsulting.com/ai-seo-agency/",
+        "founded_approx": "2018",
+        "traffic_estimate": "~40K/mo",
         "top_traffic_sources": [
-          { "source": "Organic Search", "pct": 40 },
-          { "source": "Direct", "pct": 35 },
-          { "source": "Referral", "pct": 25 }
+          { "source": "Organic Search", "pct": 70 },
+          { "source": "Direct", "pct": 20 },
+          { "source": "Referral", "pct": 10 }
         ],
-        "what_theyre_doing_well": "Exceptionally clear AI service menu with transparent pricing ($1,500-$10K/mo, no long-term contracts). 30-day ROI guarantee. AI voice agents that handle inbound calls, qualify leads, and book appointments 24/7 — a concrete, easy-to-understand deliverable.",
-        "why_getting_traction": "Specific AI services with measurable outcomes (voice agents = never miss a call) solve a real pain point for small businesses that can't staff a phone. Colorado-market positioning keeps them relevant and visible locally.",
-        "inspiration_score": 8,
-        "inspiration_notes": "Study Voxe AI's service page structure closely — they make AI feel tangible and ROI-obvious. Doble AI could add an AI voice agent / missed-call text-back add-on at $150-200/mo for contractor and restaurant clients in the Eagle River Valley. 'Never miss a lead when you're on the job site' is a compelling hook for the trades vertical."
+        "what_theyre_doing_well": "Aggressively using geo-targeted landing pages to capture local SEO demand in specific cities — including Eagle CO and Vail. Claims '100M+ generated' for clients. Combines AI automation services with traditional SEO under one roof. Page-1 ranking guarantee is a powerful conversion hook for risk-averse SMBs.",
+        "why_getting_traction": "City-specific landing pages rank for hyper-local searches like 'SEO Eagle CO' before any local agency builds a presence. They capture the lead before a local competitor even knows there's demand. The ROI guarantee removes risk perception.",
+        "inspiration_score": 6,
+        "inspiration_notes": "Doble AI should build location-specific pages for each Eagle River Valley town (Avon, Eagle, Edwards, Minturn, Vail) before outside agencies occupy those rankings. Even thin, genuine local pages rank well — and being a real local business gives Doble an authenticity advantage that a Colorado Springs firm faking it cannot match."
       }
     ]
   }
