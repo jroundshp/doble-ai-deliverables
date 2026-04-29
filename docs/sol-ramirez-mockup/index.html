@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sol Ramirez | Lake Chapala Real Estate — Sales & Rentals in Ajijic</title>
+<meta name="description" content="Sol Ramirez — Your Lake Chapala real estate expert. Sales and long-term rentals in Ajijic, Chapala, Jocotepec and the Ribera. Local expertise, bilingual service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+   RESET & VARIABLES
+===================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --teal:       #1A4A5C;
+  --teal-mid:   #235F75;
+  --teal-dark:  #0F2D3A;
+  --gold:       #C4923A;
+  --gold-light: #D4A84E;
+  --sand:       #F6F1EA;
+  --sand-dark:  #EAE3D5;
+  --dark:       #1C1C1C;
+  --mid:        #5A5A5A;
+  --light:      #999999;
+  --border:     #E0D9CE;
+  --white:      #FFFFFF;
+  --green:      #25D366;
+  --ff-serif:   'Cormorant Garamond', Georgia, serif;
+  --ff-sans:    'Inter', system-ui, sans-serif;
+  --ff-label:   'Montserrat', sans-serif;
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm:  0 2px 12px rgba(0,0,0,0.06);
+  --shadow:     0 6px 30px rgba(0,0,0,0.10);
+  --shadow-lg:  0 16px 60px rgba(0,0,0,0.15);
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--ff-sans); color: var(--dark); background: var(--white); line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+h1, h2, h3, h4 { font-family: var(--ff-serif); font-weight: 400; line-height: 1.2; color: var(--teal); }
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); }
+h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); }
+h4 { font-size: 1.1rem; font-weight: 500; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--ff-label);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.lead { font-size: 1.05rem; font-weight: 300; color: var(--mid); line-height: 1.85; }
+.divider { width: 48px; height: 2px; background: var(--gold); margin: 1.2rem 0; }
+.divider.center { margin-left: auto; margin-right: auto; }
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+.section { padding: 6rem 0; }
+.section-sm { padding: 4rem 0; }
+
+.sec-header { margin-bottom: 3.5rem; }
+.sec-header.center { text-align: center; }
+.sec-header.center .divider { margin-left: auto; margin-right: auto; }
+.sec-header.center .lead { max-width: 580px; margin: 0 auto; }
+.sec-header h2 { margin: 0.6rem 0 0.8rem; }
+
+.bg-sand { background: var(--sand); }
+.bg-teal { background: var(--teal); }
+.bg-teal h2, .bg-teal h3 { color: var(--white); }
+.bg-teal p { color: rgba(255,255,255,0.72); }
+.bg-teal .eyebrow { color: var(--gold-light); }
+.bg-teal .divider { background: var(--gold); }
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  font-family: var(--ff-label);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  transition: all 0.28s var(--ease);
+  border: 1.5px solid transparent;
+  border-radius: 2px;
+}
+.btn-primary {
+  background: var(--gold); color: var(--white); border-color: var(--gold);
+}
+.btn-primary:hover {
+  background: var(--gold-light); border-color: var(--gold-light);
+  transform: translateY(-1px); box-shadow: 0 8px 24px rgba(196,146,58,0.35);
+}
+.btn-outline-white {
+  background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5);
+}
+.btn-outline-white:hover {
+  background: rgba(255,255,255,0.1); border-color: var(--white);
+}
+.btn-whatsapp {
+  background: var(--green); color: var(--white); border-color: var(--green);
+}
+.btn-whatsapp:hover {
+  background: #1EBE57; border-color: #1EBE57;
+  transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+}
+
+/* =====================================================
+   NAV
+===================================================== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.1rem 0;
+  background: rgba(15, 45, 58, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(196,146,58,0.2);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { display: flex; flex-direction: column; }
+.nav-name {
+  font-family: var(--ff-serif);
+  font-size: 1.3rem; font-weight: 500;
+  color: var(--white); letter-spacing: 0.02em; line-height: 1;
+}
+.nav-sub {
+  font-family: var(--ff-label);
+  font-size: 0.58rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-light); margin-top: 0.25rem;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 2.2rem;
+}
+.nav-links a {
+  font-family: var(--ff-label);
+  font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold-light); }
+.nav-right {
+  display: flex; align-items: center; gap: 1.2rem;
+}
+.nav-social {
+  display: flex; gap: 0.8rem;
+}
+.nav-social a {
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+  transition: all 0.2s;
+}
+.nav-social a:hover { background: rgba(255,255,255,0.18); color: var(--white); }
+
+/* =====================================================
+   HERO
+===================================================== */
+.hero {
+  min-height: 100vh;
+  padding-top: 72px;
+  background: var(--teal);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 75% 40%, rgba(196,146,58,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 85%, rgba(255,255,255,0.04) 0%, transparent 45%);
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 5rem;
+  align-items: center;
+  padding: 5rem 0;
+}
+.hero-text .eyebrow { margin-bottom: 1.5rem; }
+.hero-text h1 { color: var(--white); margin-bottom: 1.5rem; line-height: 1.15; }
+.hero-text .lead { color: rgba(255,255,255,0.70); margin-bottom: 2.5rem; max-width: 500px; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.hero-photo-wrap { position: relative; }
+.hero-photo-frame {
+  border-radius: 4px; overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.hero-photo-frame::after {
+  content: '';
+  position: absolute; inset: 0;
+  box-shadow: inset 0 0 0 1px rgba(196,146,58,0.25);
+  border-radius: 4px;
+  pointer-events: none;
+}
+.hero-photo-frame img {
+  width: 100%; height: 580px;
+  object-fit: cover; object-position: top center;
+}
+.hero-badge {
+  position: absolute;
+  bottom: -1.5rem; left: -1.5rem;
+  background: var(--gold);
+  color: var(--white);
+  padding: 1.2rem 1.4rem;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  min-width: 140px;
+}
+.hero-badge .num {
+  display: block;
+  font-family: var(--ff-serif);
+  font-size: 2.2rem; font-weight: 600; line-height: 1;
+}
+.hero-badge .lbl {
+  font-family: var(--ff-label);
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  opacity: 0.9; margin-top: 0.3rem; display: block;
+}
+
+/* =====================================================
+   STATS STRIP
+===================================================== */
+.stats-strip {
+  background: var(--sand);
+  padding: 2.8rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+.stat-item {
+  padding: 0.8rem 2rem;
+  border-right: 1px solid var(--border);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--ff-serif);
+  font-size: 2.4rem; font-weight: 500;
+  color: var(--teal); line-height: 1;
+  display: block; margin-bottom: 0.35rem;
+}
+.stat-label {
+  font-family: var(--ff-label);
+  font-size: 0.63rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* =====================================================
+   ABOUT
+===================================================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.about-photo-stack { position: relative; }
+.about-photo-main {
+  border-radius: 4px; overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.about-photo-main img {
+  width: 100%; height: 560px;
+  object-fit: cover; object-position: center 20%;
+}
+.about-photo-accent {
+  position: absolute;
+  bottom: -1.8rem; right: -1.8rem;
+  width: 190px;
+  border-radius: 4px; overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 4px solid var(--white);
+}
+.about-photo-accent img {
+  width: 100%; height: 200px;
+  object-fit: cover; object-position: top center;
+}
+
+.about-content .eyebrow { margin-bottom: 1rem; }
+.about-content h2 { margin-bottom: 0.5rem; }
+.about-content .divider { margin-bottom: 1.5rem; }
+.about-content p { color: var(--mid); margin-bottom: 1.2rem; line-height: 1.85; font-size: 0.97rem; }
+
+.credential-card {
+  margin-top: 2rem;
+  padding: 1.4rem 1.6rem;
+  background: var(--sand);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 4px 4px 0;
+}
+.credential-card .eyebrow { font-size: 0.6rem; margin-bottom: 0.4rem; }
+.credential-card h4 {
+  font-family: var(--ff-serif);
+  font-size: 1.15rem; color: var(--teal);
+  margin-bottom: 0.3rem; font-weight: 500;
+}
+.credential-card p { font-size: 0.88rem; color: var(--mid); margin: 0; line-height: 1.55; }
+
+.about-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem;
+}
+.about-tag {
+  font-family: var(--ff-label);
+  font-size: 0.63rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 2px; color: var(--mid);
+}
+
+/* =====================================================
+   LISTINGS
+===================================================== */
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.listing-card {
+  background: var(--white);
+  border-radius: 6px; overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: all 0.3s var(--ease);
+}
+.listing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+.listing-photo {
+  height: 190px; position: relative; overflow: hidden;
+}
+.listing-photo-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-label);
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.listing-photo-placeholder.home {
+  background: linear-gradient(135deg, #1A4A5C 0%, #2A6B82 100%);
+  color: rgba(255,255,255,0.35);
+}
+.listing-photo-placeholder.land {
+  background: linear-gradient(135deg, #3A6040 0%, #4E7D55 100%);
+  color: rgba(255,255,255,0.35);
+}
+.listing-badge {
+  position: absolute; top: 0.75rem; left: 0.75rem;
+  font-family: var(--ff-label);
+  font-size: 0.56rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.28rem 0.65rem; border-radius: 2px;
+}
+.listing-badge.for-sale { background: var(--teal); color: var(--white); }
+.listing-badge.land-badge { background: #3A6040; color: var(--white); }
+
+.listing-info { padding: 1.4rem; }
+.listing-price {
+  font-family: var(--ff-serif);
+  font-size: 1.35rem; font-weight: 600; color: var(--teal);
+  margin-bottom: 0.25rem;
+}
+.listing-name {
+  font-family: var(--ff-label);
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.05em; color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+.listing-location {
+  font-size: 0.8rem; color: var(--mid);
+  margin-bottom: 0.8rem;
+  display: flex; align-items: center; gap: 0.3rem;
+}
+.listing-specs {
+  display: flex; gap: 0.9rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem; color: var(--mid);
+}
+
+/* =====================================================
+   RENTALS
+===================================================== */
+.rentals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+}
+.rental-card {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  border-radius: 6px; overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s var(--ease);
+  background: var(--white);
+}
+.rental-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+.rental-photo {
+  background: linear-gradient(160deg, #C4923A 0%, #8A5E1C 100%);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 150px;
+}
+.rental-photo svg { color: rgba(255,255,255,0.35); }
+.rental-info { padding: 1.4rem; }
+.rental-price {
+  font-family: var(--ff-serif);
+  font-size: 1.3rem; font-weight: 600; color: var(--teal);
+  margin-bottom: 0.15rem;
+}
+.rental-price span {
+  font-family: var(--ff-sans);
+  font-size: 0.8rem; font-weight: 400; color: var(--mid);
+}
+.rental-name {
+  font-family: var(--ff-label);
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.05em; color: var(--dark);
+  margin-bottom: 0.2rem;
+}
+.rental-location { font-size: 0.82rem; color: var(--mid); margin-bottom: 0.75rem; }
+.rental-specs {
+  display: flex; gap: 0.8rem;
+  font-size: 0.78rem; color: var(--mid);
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+
+/* =====================================================
+   SERVICE AREAS
+===================================================== */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+.area-card {
+  text-align: center;
+  padding: 1.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: all 0.3s var(--ease);
+}
+.area-card:hover {
+  border-color: var(--gold);
+  background: var(--sand);
+  transform: translateY(-2px);
+}
+.area-card h4 {
+  font-family: var(--ff-serif);
+  font-size: 1.1rem; color: var(--teal);
+  margin-bottom: 0.35rem; font-weight: 500;
+}
+.area-card p { font-size: 0.8rem; color: var(--mid); line-height: 1.55; }
+
+/* =====================================================
+   CTA / CONTACT
+===================================================== */
+.cta-section {
+  background: var(--teal);
+  padding: 7rem 0;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(196,146,58,0.10) 0%, transparent 65%);
+}
+.cta-inner { position: relative; z-index: 1; }
+.cta-section h2 { color: var(--white); margin: 0.6rem 0 1rem; }
+.cta-section .lead { color: rgba(255,255,255,0.65); max-width: 500px; margin: 0 auto 2.5rem; }
+.cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.contact-row {
+  display: flex; justify-content: center; gap: 3rem;
+  margin-top: 3rem; flex-wrap: wrap;
+}
+.contact-item {
+  display: flex; align-items: center; gap: 0.55rem;
+  color: rgba(255,255,255,0.65); font-size: 0.88rem;
+}
+.contact-item strong { color: var(--white); }
+
+/* =====================================================
+   FOOTER
+===================================================== */
+.footer {
+  background: var(--teal-dark);
+  padding: 2.5rem 0;
+}
+.footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-brand .footer-name {
+  font-family: var(--ff-serif);
+  font-size: 1.15rem; color: var(--white);
+}
+.footer-brand .footer-sub {
+  font-family: var(--ff-label);
+  font-size: 0.58rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold-light); margin-top: 0.2rem;
+}
+.footer-links {
+  display: flex; gap: 2rem;
+}
+.footer-links a {
+  font-family: var(--ff-label);
+  font-size: 0.63rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold-light); }
+.footer-social {
+  display: flex; gap: 0.7rem;
+}
+.footer-social a {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.6);
+  transition: all 0.2s;
+}
+.footer-social a:hover { background: rgba(255,255,255,0.18); color: var(--white); }
+.footer-copy {
+  font-size: 0.75rem; color: rgba(255,255,255,0.3);
+  width: 100%; text-align: center; padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin-top: 0.5rem;
+}
+
+/* =====================================================
+   FEATURED RENTAL
+===================================================== */
+.featured-rental {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 3rem;
+  background: var(--white);
+  transition: box-shadow 0.3s var(--ease);
+}
+.featured-rental:hover { box-shadow: var(--shadow-lg); }
+.featured-rental-photo {
+  position: relative;
+  min-height: 340px;
+  background: #111;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.featured-rental-hero {
+  flex: 1; position: relative; overflow: hidden; min-height: 260px;
+}
+.featured-rental-hero img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.featured-rental-thumbs {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; height: 88px; flex-shrink: 0;
+}
+.featured-rental-thumbs img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.featured-rental-photo svg { color: rgba(255,255,255,0.25); }
+.featured-badge {
+  position: absolute;
+  top: 1.2rem; left: 1.2rem;
+  background: var(--gold);
+  color: var(--white);
+  font-family: var(--ff-label);
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: 2px;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.featured-rental-info {
+  padding: 2.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+  border-left: 1px solid var(--border);
+}
+.featured-rental-info .eyebrow { margin-bottom: 0.5rem; }
+.featured-rental-info h3 {
+  font-size: 1.7rem; color: var(--teal);
+  margin-bottom: 0.3rem; font-weight: 500;
+}
+.featured-rental-price {
+  font-family: var(--ff-serif);
+  font-size: 1.6rem; font-weight: 600; color: var(--teal);
+  margin: 1rem 0 0.2rem;
+}
+.featured-rental-price span {
+  font-family: var(--ff-sans);
+  font-size: 0.9rem; font-weight: 400; color: var(--mid);
+}
+.featured-rental-location {
+  font-size: 0.85rem; color: var(--mid);
+  display: flex; align-items: center; gap: 0.35rem;
+  margin-bottom: 1.2rem;
+}
+.featured-rental-specs {
+  display: flex; gap: 1.5rem; flex-wrap: wrap;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+.featured-spec {
+  display: flex; flex-direction: column; gap: 0.2rem;
+}
+.featured-spec-val {
+  font-family: var(--ff-serif);
+  font-size: 1.2rem; font-weight: 500; color: var(--teal);
+}
+.featured-spec-lbl {
+  font-family: var(--ff-label);
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--light);
+}
+.featured-rental-desc {
+  font-size: 0.88rem; color: var(--mid);
+  line-height: 1.75; margin-bottom: 1.5rem;
+}
+@media (max-width: 1024px) {
+  .featured-rental { grid-template-columns: 1fr; }
+  .featured-rental-photo { min-height: 260px; }
+  .featured-rental-info { border-left: none; border-top: 1px solid var(--border); }
+}
+
+/* =====================================================
+   BLOG
+===================================================== */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.blog-card {
+  background: var(--white);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+.blog-card-img {
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-mid) 100%);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.blog-card-img img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.blog-card-img.placeholder {
+  background: linear-gradient(135deg, #1A4A5C 0%, #2A6B82 100%);
+}
+.blog-card-body {
+  padding: 1.6rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+.blog-card-tag {
+  font-family: var(--ff-label);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.blog-card-date {
+  font-size: 0.75rem;
+  color: var(--light);
+}
+.blog-card h3 {
+  font-size: 1.15rem;
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  font-weight: 500;
+}
+.blog-card p {
+  font-size: 0.85rem;
+  color: var(--mid);
+  line-height: 1.7;
+  flex: 1;
+}
+.blog-card-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.2rem;
+  font-family: var(--ff-label);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: gap 0.2s;
+}
+.blog-card:hover .blog-card-read { gap: 0.7rem; }
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-photo-wrap { max-width: 460px; margin: 0 auto; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-stack { max-width: 460px; }
+  .listings-grid { grid-template-columns: repeat(2, 1fr); }
+  .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .rentals-grid { grid-template-columns: 1fr; }
+  .footer-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ======================== NAV ======================== -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <span class="nav-name">Sol Ramirez</span>
+        <span class="nav-sub">Lake Chapala Real Estate</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#for-sale">For Sale</a></li>
+        <li><a href="#rentals">Rentals</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="nav-social">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/ramdecerd/" target="_blank" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/sol.delacerda.33" target="_blank" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <!-- YouTube (link TBD) -->
+          <a href="#" aria-label="YouTube" style="opacity:0.5;cursor:default;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/>
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/523321541586" target="_blank" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+        <a href="https://wa.me/523316019911" target="_blank" class="btn btn-primary" style="padding:0.65rem 1.4rem;font-size:0.65rem;">
+          Contact Me
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ======================== HERO ======================== -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow">Ajijic · Chapala · Jocotepec · The Ribera</span>
+        <h1>Your Lake Chapala Real Estate Expert</h1>
+        <p class="lead">Sales and long-term rentals across the Chapala Lakeside region — guided by a bilingual Mexican agent with deep local knowledge you won't find anywhere else.</p>
+        <div class="hero-actions">
+          <a href="#for-sale" class="btn btn-primary">View Properties</a>
+          <a href="#rentals" class="btn btn-outline-white">Browse Rentals</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame">
+          <img src="./sol-photos/headshot.jpg" alt="Sol Ramirez — Lake Chapala Real Estate Agent, Lago Montaña Real Estate">
+        </div>
+        <div class="hero-badge">
+          <span class="num">7+</span>
+          <span class="lbl">Years in the Chapala Region</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== STATS ======================== -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num">7+</span>
+        <span class="stat-label">Years in Real Estate</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">8</span>
+        <span class="stat-label">Communities Served</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Bilingual</span>
+        <span class="stat-label">Spanish · English</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Sales<br>&amp; Rentals</span>
+        <span class="stat-label">Full-Service</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== ABOUT ======================== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-stack">
+        <div class="about-photo-main">
+          <img src="./sol-photos/mural.jpg" alt="Sol Ramirez at CEFOR Real Estate Law ceremony, Guadalajara">
+        </div>
+        <div class="about-photo-accent">
+          <img src="./sol-photos/pilot.jpg" alt="Sol Ramirez — Licensed Pilot (Piloto Aviador)">
+        </div>
+      </div>
+      <div class="about-content">
+        <span class="eyebrow">About Sol</span>
+        <h2>Local Roots.<br>Deep Expertise.</h2>
+        <div class="divider"></div>
+        <p>I'm Sol Ramirez — Rental Manager and Sales Agent at Lago Montaña Real Estate in Ajijic. Born in Mexico and rooted in this region, I've spent years helping international buyers and renters find their place in one of Mexico's most beloved expat communities.</p>
+        <p>What sets me apart isn't an international background — it's the opposite. I know the Lake Chapala region from the inside: the neighborhoods, the seasonal rhythms of the lake, the legal landscape of buying property in Mexico as a foreign national, and who to call when things need to get done.</p>
+        <p>Whether you're purchasing a forever home, investing in lakeside property, or finding the right long-term rental while you decide — I'll guide you through every step, in English or Spanish.</p>
+
+        <div class="credential-card">
+          <span class="eyebrow">Professional Credential</span>
+          <h4>Diplomado en Derecho Inmobiliario</h4>
+          <p>Real Estate Law · CEFOR / Cámara de Comercio Guadalajara · December 2024</p>
+        </div>
+
+        <div class="credential-card" style="margin-top:0.75rem; border-left-color: var(--teal);">
+          <span class="eyebrow" style="color: var(--teal);">Also</span>
+          <h4>Piloto Aviador — Licensed Pilot</h4>
+          <p>Certified aviation professional. The same precision and situational awareness that makes a great pilot makes an exceptional real estate guide.</p>
+        </div>
+
+        <div class="about-tags">
+          <span class="about-tag">Licensed Agent</span>
+          <span class="about-tag">Rental Specialist</span>
+          <span class="about-tag">English · Spanish</span>
+          <span class="about-tag">Licensed Pilot</span>
+          <span class="about-tag">Lago Montaña RE</span>
+          <span class="about-tag">Chapala MLS</span>
+          <span class="about-tag">Real Estate Law</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FOR SALE ======================== -->
+<section class="section bg-sand" id="for-sale">
+  <div class="container">
+    <div class="sec-header">
+      <span class="eyebrow">Listings</span>
+      <h2>Properties For Sale</h2>
+      <div class="divider"></div>
+      <p class="lead">Current listings in Ajijic and the Chapala Lakeside region.</p>
+    </div>
+    <div class="listings-grid">
+
+      <div class="listing-card">
+        <div class="listing-photo">
+          <div class="listing-photo-placeholder home">Photo Coming Soon</div>
+          <span class="listing-badge for-sale">For Sale</span>
+        </div>
+        <div class="listing-info">
+          <div class="listing-price">USD $325,000</div>
+          <div class="listing-name">Casa del Sol Duplex</div>
+          <div class="listing-location">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Ajijic
+          </div>
+          <div class="listing-specs">
+            <span>5 bed</span>
+            <span>·</span>
+            <span>2 bath</span>
+            <span>·</span>
+            <span>Duplex</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-photo">
+          <div class="listing-photo-placeholder land">Photo Coming Soon</div>
+          <span class="listing-badge land-badge">Land</span>
+        </div>
+        <div class="listing-info">
+          <div class="listing-price">MXN $468,000</div>
+          <div class="listing-name">Lote Great Views</div>
+          <div class="listing-location">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Agua Escondida
+          </div>
+          <div class="listing-specs">
+            <span>477 m²</span>
+            <span>·</span>
+            <span>Lake Views</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-photo">
+          <div class="listing-photo-placeholder land">Photo Coming Soon</div>
+          <span class="listing-badge land-badge">Land</span>
+        </div>
+        <div class="listing-info">
+          <div class="listing-price">MXN $4,100,000</div>
+          <div class="listing-name">Lote Niky</div>
+          <div class="listing-location">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Ajijic
+          </div>
+          <div class="listing-specs">
+            <span>585 m²</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-photo">
+          <div class="listing-photo-placeholder land">Photo Coming Soon</div>
+          <span class="listing-badge land-badge">Land</span>
+        </div>
+        <div class="listing-info">
+          <div class="listing-price">MXN $5,216,040</div>
+          <div class="listing-name">Lote Colón</div>
+          <div class="listing-location">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Ajijic Upper
+          </div>
+          <div class="listing-specs">
+            <span>435 m²</span>
+            <span>·</span>
+            <span>Hilltop</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== RENTALS ======================== -->
+<section class="section" id="rentals">
+  <div class="container">
+    <div class="sec-header">
+      <span class="eyebrow">Long-Term Rentals</span>
+      <h2>Available Rentals</h2>
+      <div class="divider"></div>
+      <p class="lead">Managed long-term rentals across the Lakeside corridor. All prices in MXN per month.</p>
+    </div>
+
+    <!-- FEATURED RENTAL -->
+    <div class="featured-rental">
+      <div class="featured-rental-photo">
+        <div class="featured-rental-hero">
+          <img src="./sol-photos/47lazaro-pool.jpg" alt="Two-Bedroom Casita with Private Pool — Ajijic">
+        </div>
+        <div class="featured-rental-thumbs">
+          <img src="./sol-photos/47lazaro-terrace.jpg" alt="Covered terrace with lake views">
+          <img src="./sol-photos/47lazaro-bedroom1.jpg" alt="Colonial master bedroom">
+          <img src="./sol-photos/47lazaro-courtyard.jpg" alt="Courtyard fountain">
+        </div>
+        <div class="featured-badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Featured Rental
+        </div>
+      </div>
+      <div class="featured-rental-info">
+        <span class="eyebrow">Premier Listing</span>
+        <h3>Two-Bedroom Casita with Private Pool</h3>
+        <div class="featured-rental-location">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Ajijic, Jalisco
+        </div>
+        <div class="featured-rental-specs">
+          <div class="featured-spec">
+            <span class="featured-spec-val">2</span>
+            <span class="featured-spec-lbl">Bedrooms</span>
+          </div>
+          <div class="featured-spec">
+            <span class="featured-spec-val">Private</span>
+            <span class="featured-spec-lbl">Pool</span>
+          </div>
+          <div class="featured-spec">
+            <span class="featured-spec-val">Flexible</span>
+            <span class="featured-spec-lbl">Weekend · Weekly · Monthly</span>
+          </div>
+        </div>
+        <p class="featured-rental-desc">A fully furnished colonial casita in the heart of Ajijic — private pool, covered lakeside terrace, hand-carved four-poster beds, and a signature pineapple fountain courtyard. Available for a weekend getaway, by the week, or by the month. One of Sol's most requested properties.</p>
+        <div class="featured-rental-price">Contact for Pricing</div>
+        <a href="https://wa.me/523321541586?text=Hi%20Sol%2C%20I'm%20interested%20in%20the%20two-bedroom%20casita%20with%20private%20pool%20in%20Ajijic." target="_blank" class="btn btn-whatsapp" style="margin-top:1.2rem;align-self:flex-start;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Inquire on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="rentals-grid">
+
+      <div class="rental-card">
+        <div class="rental-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="rental-info">
+          <div class="rental-price">MXN $12,500 <span>/ month</span></div>
+          <div class="rental-name">Casa San Jorge</div>
+          <div class="rental-location">El Chante</div>
+          <div class="rental-specs">
+            <span>2 bed</span><span>·</span><span>1 bath</span><span>·</span><span>Long-term</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rental-card">
+        <div class="rental-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="rental-info">
+          <div class="rental-price">MXN $30,000 <span>/ month</span></div>
+          <div class="rental-name">Casa Libramiento</div>
+          <div class="rental-location">Chapala</div>
+          <div class="rental-specs">
+            <span>5 bed</span><span>·</span><span>5 bath</span><span>·</span><span>Long-term</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rental-card">
+        <div class="rental-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="rental-info">
+          <div class="rental-price">MXN $14,000 <span>/ month</span></div>
+          <div class="rental-name">Casa Riveras del Chante</div>
+          <div class="rental-location">Jocotepec</div>
+          <div class="rental-specs">
+            <span>2 bed</span><span>·</span><span>2 bath</span><span>·</span><span>Long-term</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rental-card">
+        <div class="rental-photo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="rental-info">
+          <div class="rental-price">MXN $11,000 <span>/ month</span></div>
+          <div class="rental-name">Casa Máscaras</div>
+          <div class="rental-location">Jocotepec</div>
+          <div class="rental-specs">
+            <span>2 bed</span><span>·</span><span>1 bath</span><span>·</span><span>Long-term</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== SERVICE AREAS ======================== -->
+<section class="section bg-sand" id="areas">
+  <div class="container">
+    <div class="sec-header center">
+      <span class="eyebrow">Where I Work</span>
+      <h2>Service Areas</h2>
+      <div class="divider center"></div>
+      <p class="lead">I cover the full Lakeside corridor — from Chapala to Jocotepec and into the greater Guadalajara metro area.</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card">
+        <h4>Ajijic</h4>
+        <p>Heart of the expat community. Cobblestone streets, gallery district, lakefront malecón.</p>
+      </div>
+      <div class="area-card">
+        <h4>Chapala</h4>
+        <p>The region's largest town. Established infrastructure, the famous pier, and easy access.</p>
+      </div>
+      <div class="area-card">
+        <h4>Jocotepec</h4>
+        <p>Western Lakeside's quieter alternative. Authentic village feel and excellent value.</p>
+      </div>
+      <div class="area-card">
+        <h4>San Juan Cosalá</h4>
+        <p>Known for thermal springs and a tranquil waterfront setting between Ajijic and Joco.</p>
+      </div>
+      <div class="area-card">
+        <h4>Riberas del Pilar</h4>
+        <p>Popular residential corridor between Ajijic and Chapala. Long-term expat favorite.</p>
+      </div>
+      <div class="area-card">
+        <h4>San Luis Soyatlán</h4>
+        <p>Southern shoreline with stunning lake views and growing development opportunities.</p>
+      </div>
+      <div class="area-card">
+        <h4>Ixtlahuacán</h4>
+        <p>Authentic Mexican character, mountain backdrop, and off-the-beaten-path charm.</p>
+      </div>
+      <div class="area-card">
+        <h4>Guadalajara Metro</h4>
+        <p>Mexico's second city — 45 minutes from the lake. Urban properties available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== BLOG ======================== -->
+<section class="section bg-sand" id="blog">
+  <div class="container">
+    <div class="sec-header">
+      <span class="eyebrow">Lake Chapala Living</span>
+      <h2>From the Blog</h2>
+      <div class="divider"></div>
+      <p class="lead">Guides, tips, and local knowledge for buyers, renters, and anyone thinking about life on the lake.</p>
+    </div>
+    <div class="blog-grid" id="blog-posts-grid">
+
+      <div class="blog-card">
+        <div class="blog-card-img">
+          <img src="./sol-photos/ajijic-sunset.jpg" alt="Sunset over Ajijic and Lake Chapala">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-tag">Lake Chapala Living</span>
+            <span class="blog-card-date">April 2026</span>
+          </div>
+          <h3>The Lake Chapala Corridor: What Every Community Is Actually Like</h3>
+          <p>Most people arrive at the lake thinking Ajijic is the whole story. It isn't. From the established neighborhoods of Chapala to the market-town character of Jocotepec, each community along the northern shore has its own rhythm, price point, and daily life — and knowing the differences before you start your property search matters.</p>
+          <a href="#post-01" class="blog-card-read">Read Article →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== ARTICLE: POST 01 ======================== -->
+<article id="post-01" style="background:var(--white);padding:5rem 0 6rem;">
+  <div class="container-narrow" style="max-width:740px;margin:0 auto;padding:0 2rem;">
+
+    <div style="margin-bottom:2.5rem;">
+      <span class="eyebrow">Lake Chapala Living</span>
+      <h1 style="margin:0.8rem 0 0.5rem;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.2;color:var(--teal);">The Lake Chapala Corridor: What Every Community Is Actually Like</h1>
+      <p style="font-size:0.88rem;color:var(--light);margin:0.8rem 0 0;font-family:var(--ff-label);letter-spacing:0.06em;">By Sol Ramirez &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; 8 min read</p>
+      <div class="divider" style="margin-top:1.5rem;"></div>
+    </div>
+
+    <p style="font-size:1.1rem;color:var(--dark);line-height:1.85;font-weight:400;margin-bottom:1.8rem;">The Lake Chapala corridor stretches along the northern shore of Mexico's largest lake for roughly 50 kilometers, from the market town of Chapala in the east to the quieter western reaches of Jocotepec. Each community has its own character, price point, and daily rhythm. Knowing the differences before you start your property search can save you a lot of time — and more than a few wasted trips.</p>
+
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.8rem;">I've been working in this region since 2019. What I want to give you here isn't a tourism brochure. It's what I'd tell a friend sitting across from me at a table: what each town is actually like, who tends to end up there, and what the real estate market looks like on the ground.</p>
+
+    <h2 style="font-size:1.5rem;color:var(--teal);margin:2.8rem 0 1rem;font-weight:500;">Chapala: The Largest Town and the Most Overlooked</h2>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Most people flying into Guadalajara and heading for the lake are going straight to Ajijic. They pass through Chapala without stopping. That's a mistake.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Chapala is the municipal seat of the region, with around 45,000 residents. It's a real town with a full-service economy — hospitals, government offices, hardware stores, large grocery options, and a weekend tourism scene driven by visitors from Guadalajara. The malecón along the lakeshore is genuinely beautiful, and the historic pier that extends out over the water is one of the better-known images of the entire region.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Chapala Haciendas, Vista del Lago, and the streets surrounding Riberas del Pilar offer some of the best-value real estate in the corridor. You get more house for your money here than in Ajijic, with full infrastructure and proximity to everything. For buyers who don't need to be at the center of the expat scene, Chapala is frequently where I direct them first.</p>
+
+    <h2 style="font-size:1.5rem;color:var(--teal);margin:2.8rem 0 1rem;font-weight:500;">Riberas del Pilar and San Antonio Tlayacapan: The Quiet Middle Ground</h2>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Between Chapala and Ajijic, Riberas del Pilar and San Antonio Tlayacapan form a mostly residential stretch that many long-term residents prefer precisely because it isn't central to anything in particular.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Riberas has a high concentration of established expat households. It's quieter than Ajijic, walkable to the lake, and within easy reach of the shopping corridor on the carretera — Walmart, SuperLake, and Laguna Mall are all nearby. San Antonio retains a genuine village character, with the Chula Vista Golf Club on the hillside above town.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Property prices here sit between Chapala and Ajijic. Not the lowest on the corridor, but solid value for buyers who want residential comfort without the foot traffic of central Ajijic. A significant share of the long-term rental market I manage is concentrated in this stretch.</p>
+
+    <h2 style="font-size:1.5rem;color:var(--teal);margin:2.8rem 0 1rem;font-weight:500;">Ajijic: The Heart of the Expat Community</h2>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Ajijic is where most people end up when they first come to the lake, and for good reason. Designated a Pueblo Mágico by the Mexican government, it's the cultural and social center of the Lakeside region. The cobblestone streets, the art galleries, the restaurants, the Saturday market, the Lake Chapala Society — the infrastructure for expat life here is more developed than anywhere else on the lake.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">That's also what makes it the most expensive place to buy or rent in the corridor.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Homes in the village center, on the lake side of the carretera, and in gated communities on the hillside above town command real premiums. If Ajijic is where you want to be, the price reflects genuine demand. For those who want proximity to Ajijic without the premium, I usually suggest exploring the communities to the east and west before committing to anything.</p>
+
+    <h2 style="font-size:1.5rem;color:var(--teal);margin:2.8rem 0 1rem;font-weight:500;">San Juan Cosalá: Thermal Springs and a Different Pace</h2>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">About 15 minutes west of Ajijic, San Juan Cosalá rewards buyers who take the time to look. It's a predominantly Mexican town with a smaller expat presence than Ajijic or Riberas. The main draw has historically been the thermal springs and hot spring resorts along the lakeshore.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">On the hillside above town, gated communities like Raquet Club offer a different lifestyle: quieter, more private, with mountain views and tennis and pickleball courts. The feel is distinctly different from the village streets of central Ajijic.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Real estate here tends to be more affordable than Ajijic, and rental options at prices that often surprise buyers coming from the established communities to the east.</p>
+
+    <h2 style="font-size:1.5rem;color:var(--teal);margin:2.8rem 0 1rem;font-weight:500;">Jocotepec: The Western End of the Lake</h2>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Jocotepec sits at the western end of Lake Chapala and operates as a genuine Mexican market town. The surrounding fields supply berries to international distributors including Driscoll's, and the weekly tianguis is one of the most authentic markets in the region. The birria served here is worth the drive from Ajijic on its own.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">Jocotepec is also the most affordable community in the corridor for both buyers and renters.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">The expat population is smaller and more self-selected than in Ajijic. The people who settle here generally came looking for something different from the social scene further east — lower cost of living, authentic Mexican town life, proximity to the lake without the tourist traffic. For buyers on a tighter budget, or those looking for land with room to build, Jocotepec and its surrounding areas consistently offer the best value on the lake.</p>
+
+    <h2 style="font-size:1.5rem;color:var(--teal);margin:2.8rem 0 1rem;font-weight:500;">San Luis Soyatlán and Ixtlahuacán: The South Shore</h2>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">South of Jocotepec, the southern shoreline includes communities that rarely appear in the standard expat literature on the region. That's starting to change.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">San Luis Soyatlán sits on the south shore with lake views facing north across the water toward the main corridor. Development is increasing here, driven by buyers priced out of Ajijic and those who prefer a quieter stretch of shoreline away from the carretera. Ixtlahuacán, further into the hills, is for buyers who want mountain terrain, lower prices, and a more private setting. The properties available there are unlike anything in the main corridor.</p>
+
+    <h2 style="font-size:1.5rem;color:var(--teal);margin:2.8rem 0 1rem;font-weight:500;">What This Means for Your Property Search</h2>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">The most common mistake I see buyers make is arriving in Ajijic, falling in love with the town center, and assuming that's the whole lake. The corridor from Chapala to Jocotepec spans a full range of price points, lifestyles, and community types.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:1.2rem;">A retired couple who wants to walk to galleries and restaurants will land somewhere different from someone who wants a large home with a garden and space to breathe. The right community depends on what you actually need day to day. That's the conversation I try to have with every buyer and renter before we look at a single property. Location comes first.</p>
+    <p style="font-size:1rem;color:var(--mid);line-height:1.85;margin-bottom:2.5rem;">If you have questions about any of these communities, or want to know what's currently available in a specific town, you can reach me by WhatsApp or email. I respond quickly and I'm glad to help.</p>
+
+    <div style="background:var(--sand);border-left:3px solid var(--gold);padding:1.5rem 2rem;border-radius:0 6px 6px 0;margin-bottom:3.5rem;">
+      <p style="font-size:0.95rem;color:var(--mid);line-height:1.75;margin:0;"><strong style="color:var(--teal);">Sol Ramirez</strong> is a bilingual real estate agent and Rental Manager at Lago Montaña Real Estate in Ajijic. She holds a Diplomado en Derecho Inmobiliario from CEFOR / Cámara de Comercio Guadalajara and has been working in the Lake Chapala region since 2019. She covers sales and long-term rentals across the full Lakeside corridor.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div style="border-top:2px solid var(--border);padding-top:2.5rem;">
+      <h2 style="font-size:1.4rem;color:var(--teal);margin-bottom:2rem;font-weight:500;">Frequently Asked Questions</h2>
+
+      <div style="margin-bottom:1.8rem;">
+        <h3 style="font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:0.6rem;font-family:var(--ff-sans);">Which community is best for expats around Lake Chapala?</h3>
+        <p style="font-size:0.92rem;color:var(--mid);line-height:1.75;margin:0;">Ajijic has the largest expat population and the most social infrastructure. It's the natural starting point for most people new to the region. That said, many long-term residents eventually move to Riberas del Pilar, San Antonio, or Jocotepec for more space, lower costs, or a quieter environment.</p>
+      </div>
+
+      <div style="margin-bottom:1.8rem;">
+        <h3 style="font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:0.6rem;font-family:var(--ff-sans);">Is Chapala or Ajijic better for real estate investment?</h3>
+        <p style="font-size:0.92rem;color:var(--mid);line-height:1.75;margin:0;">Both offer different opportunities. Ajijic commands higher prices and stronger rental demand from the expat market. Chapala offers better value per square meter with a larger local population. For long-term rentals, the Riberas del Pilar stretch between the two towns tends to see steady year-round occupancy.</p>
+      </div>
+
+      <div style="margin-bottom:1.8rem;">
+        <h3 style="font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:0.6rem;font-family:var(--ff-sans);">What is Jocotepec like for foreigners?</h3>
+        <p style="font-size:0.92rem;color:var(--mid);line-height:1.75;margin:0;">Jocotepec is the most authentically Mexican community in the corridor. The expat population is small and tends to be quietly integrated into local life rather than concentrated in expat social circles. It offers real affordability, a market-town atmosphere, and some of the best traditional food on the lake.</p>
+      </div>
+
+      <div style="margin-bottom:1.8rem;">
+        <h3 style="font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:0.6rem;font-family:var(--ff-sans);">How far is Lake Chapala from Guadalajara?</h3>
+        <p style="font-size:0.92rem;color:var(--mid);line-height:1.75;margin:0;">Chapala is about 45 minutes from central Guadalajara on the carretera. Ajijic is roughly 55 to 60 minutes. Jocotepec is around an hour and 15 minutes. The road is well-maintained and the drive is straightforward.</p>
+      </div>
+
+      <div style="margin-bottom:1.8rem;">
+        <h3 style="font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:0.6rem;font-family:var(--ff-sans);">Can foreigners buy property in the Lake Chapala area?</h3>
+        <p style="font-size:0.92rem;color:var(--mid);line-height:1.75;margin:0;">Yes. Foreign nationals can purchase property throughout Mexico, including the Lake Chapala region, through a bank trust (fideicomiso) or a Mexican corporation. The process is well-established here given the long history of international buyers. I hold a Diplomado en Derecho Inmobiliario and can walk you through the legal requirements for your specific situation.</p>
+      </div>
+
+      <div style="margin-bottom:0;">
+        <h3 style="font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:0.6rem;font-family:var(--ff-sans);">What is the best community for long-term rentals near Lake Chapala?</h3>
+        <p style="font-size:0.92rem;color:var(--mid);line-height:1.75;margin:0;">Ajijic and Riberas del Pilar have the strongest consistent rental demand, driven by the expat and snowbird population. Chapala and Jocotepec offer lower rental prices and attract a mix of local and international tenants. The right market depends on the property type and your target tenant. I manage rentals across all of these areas and can advise based on current inventory and demand.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="https://wa.me/523321541586" target="_blank" class="btn btn-whatsapp">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Ask Sol a Question
+      </a>
+      <a href="#for-sale" class="btn btn-outline" style="color:var(--teal);border-color:var(--teal);">View Current Listings</a>
+    </div>
+
+  </div>
+</article>
+
+<!-- ======================== CONTACT CTA ======================== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <span class="eyebrow" style="display:block;margin-bottom:1rem;">Get in Touch</span>
+      <h2>Ready to Find Your Home<br>on the Lake?</h2>
+      <p class="lead">Whether you're buying, investing, or looking for a long-term rental — let's talk. I respond quickly in English and Spanish.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/523316019911" target="_blank" class="btn btn-whatsapp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Me Now
+        </a>
+        <a href="mailto:sol@lagomontanarealestate.com" class="btn btn-outline-white">Send an Email</a>
+      </div>
+      <div class="contact-row">
+        <div class="contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.3a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.44h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <strong>+52 33 2154 1586</strong>
+        </div>
+        <div class="contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <strong>sol@lagomontanarealestate.com</strong>
+        </div>
+        <div class="contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <strong>Riberas del Pilar, Chapala, Jalisco</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-name">Sol Ramirez</div>
+        <div class="footer-sub">Lago Montaña Real Estate · Ajijic, Jalisco</div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#for-sale">For Sale</a></li>
+        <li><a href="#rentals">Rentals</a></li>
+        <li><a href="#areas">Areas</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/ramdecerd/" target="_blank" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/sol.delacerda.33" target="_blank" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <!-- YouTube (link TBD) -->
+        <a href="#" aria-label="YouTube" style="opacity:0.5;cursor:default;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/523321541586" target="_blank" aria-label="WhatsApp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 Sol Ramirez · Lake Chapala Real Estate · All rights reserved</div>
+  </div>
+</footer>
+
+</body>
+</html>
