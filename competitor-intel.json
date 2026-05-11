@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04",
+  "last_updated": "2026-05-11",
   "colorado_watch": {
     "description": "AI consulting and marketing firms entering the Colorado mountain resort corridor",
     "entries": [
@@ -64,11 +64,11 @@
       {
         "name": "AutomateNexus",
         "url": "https://automatenexus.com",
-        "location": "National agency with geo-targeted landing pages for Aspen CO and Vail CO",
+        "location": "National agency with geo-targeted landing pages for Aspen CO, Vail CO, and Steamboat Springs CO",
         "category": "agency",
         "first_seen": "2026-04-27",
         "signals": [
-          "Dedicated 'AI-Powered Marketing in Aspen CO' and 'Vail CO' landing pages ranking in Google",
+          "Dedicated 'AI-Powered Marketing in Aspen CO', 'Vail CO', and 'Steamboat Springs CO' landing pages ranking in Google",
           "Ranking for 'AI marketing agency Vail Colorado' search terms — capturing leads before locals can",
           "PPC advertising, social media marketing, email automation, CRO, and AI chatbots all offered",
           "Veteran-owned, BYOK pricing from $2,500 one-time build fee — no subscriptions, strong SMB appeal",
@@ -89,6 +89,50 @@
           "Growing presence in Summit County (Breckenridge, Frisco, Silverthorne) — could expand westward"
         ],
         "threat_level": "Low"
+      },
+      {
+        "name": "Voxe AI",
+        "url": "https://voxeai.com",
+        "location": "Colorado Springs, CO",
+        "category": "agency",
+        "first_seen": "2026-05-11",
+        "signals": [
+          "Colorado-based AI marketing agency offering voice AI agents, AEO-optimized websites, and automated lead gen",
+          "Founded by serial entrepreneur Matt Aponte who built and exited 14 businesses — strong credibility pitch",
+          "Active Instagram (@voxeaimarketing) and BBB registered — growing local presence",
+          "Free 'AI Growth Audit' lead magnet — conversion-optimized offer that Doble AI could mirror",
+          "Services include AI receptionist, 24/7 lead qualification, and dormant-lead reactivation — broad SMB appeal",
+          "Colorado Springs base: not in mountain corridor yet, but geographically positioned to expand toward resort towns"
+        ],
+        "threat_level": "Low-Medium"
+      },
+      {
+        "name": "Aspen Peak Agency",
+        "url": "https://www.aspenpeakco.com",
+        "location": "Colorado (Aspen area)",
+        "category": "agency",
+        "first_seen": "2026-05-11",
+        "signals": [
+          "Claims deep learning-powered AI to analyze market trends and automate processes",
+          "Services span enterprise branding, web/app development, UI/UX, SEO, and AI sales funnels",
+          "Targets scaling businesses — likely focused on higher-end clients than Doble AI's SMB base",
+          "Aspen branding suggests premium mountain market positioning"
+        ],
+        "threat_level": "Low"
+      },
+      {
+        "name": "CTA Digital Media",
+        "url": "https://members.vailvalleypartnership.com/vvpmemberdirectory/Details/cta-digital-media-formerly-capture-the-action-2637292",
+        "location": "Vail Valley, CO",
+        "category": "agency",
+        "first_seen": "2026-05-11",
+        "signals": [
+          "Vail Valley Partnership member — embedded in local business community network",
+          "Full-service digital marketing and video production agency based in the corridor",
+          "Creative storytelling and strategic marketing focus — different angle than AI automation",
+          "Long-standing local brand ('formerly Capture the Action') — established trust with valley businesses"
+        ],
+        "threat_level": "Low-Medium"
       }
     ]
   },
@@ -142,7 +186,7 @@
         "inspiration_notes": "The $499/mo flat-rate, cancel-anytime model is a powerful conversion hook for skeptical small business owners. Doble AI could offer a 'Local Visibility Starter' at a fixed low entry price (e.g. $397/mo: GMB optimization + 4 blog posts + 8 social posts) to get clients in the door, then upsell. Own the local SEO wedge before RankAI's geo-pages start targeting Eagle County."
       },
       {
-        "name": "Uplane",
+        "name": "Uplané",
         "url": "https://uplane.com",
         "founded_approx": "2025",
         "traffic_estimate": "~5K/mo",
@@ -152,9 +196,9 @@
           { "source": "Referral", "pct": 20 }
         ],
         "what_theyre_doing_well": "YC F25 startup that raised $4.5M to replace marketing agencies with AI. Automatically generates thousands of ads and matching landing pages, launches across Meta/Google/TikTok/Taboola with one click, and continuously optimizes 24/7. Delivering 20-50% ROAS improvement for clients. Extremely compelling pitch to SMBs frustrated with agency retainer costs.",
-        "why_getting_traction": "Strong YC network effect driving press and early adopters. The 'replace your agency' positioning is provocative and shareable. SMBs are genuinely frustrated with expensive agencies that underdeliver — Uplane speaks directly to that pain. $4.5M seed gives them runway to iterate fast.",
+        "why_getting_traction": "Strong YC network effect driving press and early adopters. The 'replace your agency' positioning is provocative and shareable. SMBs are genuinely frustrated with expensive agencies that underdeliver — Uplané speaks directly to that pain. $4.5M seed gives them runway to iterate fast.",
         "inspiration_score": 7,
-        "inspiration_notes": "Uplane is a long-term threat to agency models but also a tool Doble AI could white-label or partner with to deliver paid ad management at scale without hiring. Watch their product closely — if they open a partner/reseller channel, early access could give Doble AI a competitive moat in the Eagle River Valley paid ads market."
+        "inspiration_notes": "Uplané is a long-term threat to agency models but also a tool Doble AI could white-label or partner with to deliver paid ad management at scale without hiring. Watch their product closely — if they open a partner/reseller channel, early access could give Doble AI a competitive moat in the Eagle River Valley paid ads market."
       },
       {
         "name": "Stormy AI",
@@ -185,6 +229,54 @@
         "why_getting_traction": "The BYOK anti-subscription model directly addresses SMB distrust of recurring fees for tools they don't own. 'Pay once, own it forever' is a powerful counter-narrative to SaaS fatigue. Geo-targeted landing pages are systematically capturing local AI marketing demand across resort towns nationally.",
         "inspiration_score": 7,
         "inspiration_notes": "Consider offering a 'you-own-it' AI setup tier — e.g. a one-time $1,500 fee to build and hand off a client's AI-powered website, review automation, and GMB system. Clients who are skeptical of monthly retainers might start with an owned asset, then naturally convert to a lower monthly maintenance plan. Ownership messaging resonates strongly with independent small business owners."
+      },
+      {
+        "name": "SmartSites",
+        "url": "https://www.smartsites.com",
+        "founded_approx": "2011",
+        "traffic_estimate": "~139K/mo",
+        "top_traffic_sources": [
+          { "source": "Organic Search", "pct": 50 },
+          { "source": "Direct", "pct": 30 },
+          { "source": "Referral", "pct": 12 },
+          { "source": "Paid", "pct": 8 }
+        ],
+        "what_theyre_doing_well": "Nine-time Inc. 5000 fastest-growing company (2017–2025). Perfect 5.0 rating across nearly 1,000 reviews and a 100% recommendation rate on Clutch. Combines AI SEO with conversion-optimized web design specifically for small-to-mid businesses — clear positioning, proven results, relentless review generation.",
+        "why_getting_traction": "Reviews are their moat. With 1,000+ verified 5-star reviews, they own the 'best digital marketing agency for small business' search intent organically. They turned client satisfaction into a compounding SEO and trust asset. Premier Google Partner + Microsoft Advertising Select Partner badges reinforce credibility at every touchpoint.",
+        "inspiration_score": 8,
+        "inspiration_notes": "Doble AI's biggest near-term leverage is reviews. Even 15-20 hyper-local 5-star Google reviews from Eagle/Avon/Edwards clients will dominate local search intent. Build a systematic review ask into every client milestone. A strong local review profile is a moat that AutomateNexus and national geo-page players cannot replicate."
+      },
+      {
+        "name": "Durable",
+        "url": "https://durable.com",
+        "founded_approx": "2022",
+        "traffic_estimate": "~300K/mo",
+        "top_traffic_sources": [
+          { "source": "Direct", "pct": 40 },
+          { "source": "Organic Search", "pct": 35 },
+          { "source": "Referral", "pct": 15 },
+          { "source": "Social", "pct": 10 }
+        ],
+        "what_theyre_doing_well": "AI website builder that generates a complete professional site in 30 seconds — now expanding into integrated SEO, GEO (generative engine optimization), AI marketing tools, and CRM. Hit $990K/mo revenue with only 9 employees. Targeting the massive SMB segment that can't afford an agency but needs more than a DIY template.",
+        "why_getting_traction": "Extreme speed-to-value (30 seconds to a live site) eliminates the #1 SMB objection: 'I don't have time.' Bundling marketing tools on top of the website keeps customers locked in and revenue per seat high. Word-of-mouth from small business communities is strong — founder-friendly, zero agency middleman.",
+        "inspiration_score": 7,
+        "inspiration_notes": "Durable is the 'good enough' threat — local SMBs who might have hired Doble AI instead self-serve with Durable. Doble AI's counter-positioning should emphasize what Durable can't deliver: local market knowledge, relationship-based growth, phone calls that get answered, and content that actually reflects the Eagle River Valley voice. The human element is the moat."
+      },
+      {
+        "name": "Thrive Internet Marketing Agency",
+        "url": "https://thriveagency.com",
+        "founded_approx": "2005",
+        "traffic_estimate": "~400K/mo",
+        "top_traffic_sources": [
+          { "source": "Organic Search", "pct": 55 },
+          { "source": "Direct", "pct": 25 },
+          { "source": "Referral", "pct": 12 },
+          { "source": "Paid", "pct": 8 }
+        ],
+        "what_theyre_doing_well": "Full-service agency that recorded +4,302% increase in AI-driven traffic sources internally in 2025 — including +862% ChatGPT traffic. Built 'ThriveAI' specifically to get clients recommended inside ChatGPT, Gemini, Google AI Overviews, and AI Mode. First-mover positioning on Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) for local businesses.",
+        "why_getting_traction": "Massive organic content library (thousands of blog posts) now being indexed by AI search engines, creating compounding AI visibility. Their own GEO success serves as a live proof-of-concept they sell to clients. Done-for-you reputation management and lead generation with trackable ROI appeals to time-starved SMBs.",
+        "inspiration_score": 9,
+        "inspiration_notes": "AEO/GEO is the single highest-leverage opportunity for Doble AI in 2026. When a Vail tourist asks ChatGPT 'best landscaper in Avon Colorado,' Doble AI's clients need to be the answer. Start optimizing client GMB profiles, website FAQ sections, and local business citations specifically for AI search recommendation. This is an early-mover advantage that won't exist in 18 months."
       }
     ]
   }
