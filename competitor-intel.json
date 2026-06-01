@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-25",
+  "last_updated": "2026-06-01",
   "colorado_watch": {
     "description": "AI consulting and marketing firms entering the Colorado mountain resort corridor",
     "entries": [
@@ -80,7 +80,7 @@
       },
       {
         "name": "Prometheus Premier Marketing",
-        "url": "https://propremiermarketing.com",
+        "url": "https://propremiermkting.com",
         "location": "Denver, CO (serves mountain resorts statewide)",
         "category": "agency",
         "first_seen": "2026-05-25",
@@ -91,6 +91,70 @@
           "Based in Denver — not locally embedded but actively targeting Doble AI's resort corridor"
         ],
         "threat_level": "Medium"
+      },
+      {
+        "name": "Mobloggy",
+        "url": "https://mobloggy.com",
+        "location": "Minturn, CO (Vail Valley)",
+        "category": "agency",
+        "first_seen": "2026-06-01",
+        "signals": [
+          "Founded 2009 — established 15+ year local agency with deep Vail Valley roots",
+          "Physical address confirmed: 105 Williams St, Minturn, CO — same trade area as Doble AI",
+          "Now explicitly incorporating AI: 'combining human creativity with AI-driven insights' for email and SMS campaigns",
+          "Full-service: SEO, web design, social media, email/text marketing, Google Ads",
+          "Serves small businesses across the mountain corridor — overlapping vertical to Doble AI",
+          "Active on Facebook, verified Yelp listing — strong local trust and credibility built over years",
+          "Potential to rapidly expand AI offerings given existing client base and local reputation"
+        ],
+        "threat_level": "High"
+      },
+      {
+        "name": "Aspen Alley Creative",
+        "url": "https://www.aspenalleycreative.com",
+        "location": "Summit County, CO (Breckenridge / Frisco area)",
+        "category": "agency",
+        "first_seen": "2026-06-01",
+        "signals": [
+          "Women-owned boutique agency, member of Summit County Chamber of Commerce",
+          "Serves as Fractional CMO for clients — embedded, ongoing marketing partner model",
+          "Services: branding, strategy, content creation, SEO, social media, advertising negotiation",
+          "15+ years experience on team — not a new entrant, credible operator",
+          "No explicit AI services detected — traditional strategic marketing",
+          "Summit County focus means geographic proximity but not direct Eagle County competition yet"
+        ],
+        "threat_level": "Low-Medium"
+      },
+      {
+        "name": "Bluetent",
+        "url": "https://www.bluetent.com",
+        "location": "Roaring Fork Valley, CO (Basalt — between Aspen and Glenwood Springs)",
+        "category": "agency",
+        "first_seen": "2026-06-01",
+        "signals": [
+          "21+ years in operation, 75+ person digital team — well-funded, established",
+          "Specializes in vacation rental digital marketing: web dev, SEO, digital ads, email, social",
+          "AI-powered email segmentation integrated into campaigns",
+          "Roaring Fork Valley base — geographic corridor overlap with Doble AI's territory",
+          "Niche focus: vacation rentals, not broader small business — limits direct competitive threat",
+          "Strong tech stack and direct booking website capabilities"
+        ],
+        "threat_level": "Low"
+      },
+      {
+        "name": "AutomateNexus",
+        "url": "https://automatenexus.com",
+        "location": "Multi-city Colorado (location landing page strategy)",
+        "category": "agency",
+        "first_seen": "2026-06-01",
+        "signals": [
+          "Generates city-specific AI marketing landing pages for Vail, Aspen, Longmont, Loveland, and many more",
+          "Claims AI-powered automation, PPC, social media, email, and analytics services",
+          "No local team or physical Colorado presence confirmed — appears to be a landing page SEO play",
+          "Ranks in Google for 'AI marketing Vail Colorado' and similar terms — could capture organic leads",
+          "No verified client reviews or Clutch/DesignRush listing found — credibility unconfirmed"
+        ],
+        "threat_level": "Low"
       }
     ]
   },
@@ -192,6 +256,50 @@
         "why_getting_traction": "Leverages the USA Today / Gannett media network for distribution and brand credibility, and bundles AI optimization into a platform that replaces the need for multiple vendors — compelling for time-strapped local business owners.",
         "inspiration_score": 5,
         "inspiration_notes": "LocaliQ is a potential gorilla threat if they expand mountain-market targeting — Doble AI should establish local relationships and trust now, before enterprise platforms start running localized outbound sales campaigns in Eagle County."
+      },
+      {
+        "name": "Rankai",
+        "url": "https://www.ycombinator.com/companies/rankai",
+        "founded_approx": "2024",
+        "traffic_estimate": "Early stage / pre-traffic",
+        "top_traffic_sources": [
+          {"source": "Direct / Referral", "pct": 80},
+          {"source": "Organic Search", "pct": 20}
+        ],
+        "what_theyre_doing_well": "YC-backed AI agents that strategize and execute on SEO like a traditional agency — claims to make SEO 20x more affordable by replacing human agency overhead with AI. End-to-end automation of keyword research, content, and link strategy.",
+        "why_getting_traction": "YC backing provides instant credibility and distribution to startup ecosystem; 'agency-grade SEO at 1/20th the cost' is a compelling pitch hitting the market as small businesses push back on rising agency retainers.",
+        "inspiration_score": 8,
+        "inspiration_notes": "Rankai signals where the market is heading: AI executing full SEO campaigns autonomously. Doble AI should position as the local human layer that interprets AI-generated SEO for Eagle County context — the 'knows the market' differentiator that a remote AI agent can never replicate."
+      },
+      {
+        "name": "Embarque",
+        "url": "https://www.embarque.io",
+        "founded_approx": "2021",
+        "traffic_estimate": "~40K/mo",
+        "top_traffic_sources": [
+          {"source": "Organic Search", "pct": 72},
+          {"source": "Direct", "pct": 18},
+          {"source": "Referral", "pct": 10}
+        ],
+        "what_theyre_doing_well": "Revenue-driven SEO agency with lean content and fast turnaround for startups and small businesses. Entry tier at $299/mo makes them accessible; client results include 1,600% YoY revenue growth. AI-cited SEO service explicitly targets getting clients mentioned in ChatGPT/AI answers.",
+        "why_getting_traction": "Startup-friendly pricing and GEO (Generative Engine Optimization) as a named, explicit service — one of the first agencies to productize 'get cited by AI' as a deliverable rather than just traditional keyword rankings.",
+        "inspiration_score": 8,
+        "inspiration_notes": "Embarque's $299 trial tier is a smart acquisition funnel — Doble AI could replicate this with a low-cost 'AI visibility audit' for local businesses (check how you appear in ChatGPT/Google AI Overviews) as a lead magnet before upselling full GEO/SEO retainers."
+      },
+      {
+        "name": "Lemonade Stand",
+        "url": "https://www.lemonadestand.org",
+        "founded_approx": "2012",
+        "traffic_estimate": "~60K/mo",
+        "top_traffic_sources": [
+          {"source": "Organic Search", "pct": 65},
+          {"source": "Direct", "pct": 25},
+          {"source": "Referral", "pct": 10}
+        ],
+        "what_theyre_doing_well": "Full-service digital marketing for small and mid-sized businesses with no contracts and no setup fees — transparent pricing model that builds trust with risk-averse small business owners. Explicitly helps clients appear on AI platforms like ChatGPT alongside traditional Google SEO.",
+        "why_getting_traction": "The no-contract, no-setup-fee model removes the #1 objection from small business owners ('I don't want to be locked in'). Transparent reporting and month-to-month flexibility drives word-of-mouth in the small business owner community.",
+        "inspiration_score": 7,
+        "inspiration_notes": "Doble AI should consider a no-contract, transparent-pricing positioning for at least one service tier — especially for Eagle County business owners who are skeptical of agency lock-in. 'Cancel anytime' is a powerful signal in a small community where reputation travels fast."
       }
     ]
   }
