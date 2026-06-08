@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-01",
+  "last_updated": "2026-06-08",
   "colorado_watch": {
     "description": "AI consulting and marketing firms entering the Colorado mountain resort corridor",
     "entries": [
@@ -155,6 +155,21 @@
           "No verified client reviews or Clutch/DesignRush listing found — credibility unconfirmed"
         ],
         "threat_level": "Low"
+      },
+      {
+        "name": "WDR Aspen",
+        "url": "https://wdraspen.com",
+        "location": "Aspen, CO",
+        "category": "agency",
+        "first_seen": "2026-06-08",
+        "signals": [
+          "Full-service marketing agency based in Aspen — data-driven SEO, digital ads, web design, social media, email, video",
+          "Member of Aspen Chamber of Commerce — embedded local credibility",
+          "Serves the luxury/premium Aspen market and surrounding corridor businesses",
+          "No explicit AI marketing positioning detected — traditional strategy focus",
+          "Direct geographic presence in the I-70/Hwy 82 corridor — proximity threat if they pivot to AI services"
+        ],
+        "threat_level": "Low-Medium"
       }
     ]
   },
@@ -167,10 +182,22 @@
         "founded_approx": "2019",
         "traffic_estimate": "~150K/mo",
         "top_traffic_sources": [
-          {"source": "Organic Search", "pct": 70},
-          {"source": "Direct", "pct": 18},
-          {"source": "Referral", "pct": 8},
-          {"source": "Social", "pct": 4}
+          {
+            "source": "Organic Search",
+            "pct": 70
+          },
+          {
+            "source": "Direct",
+            "pct": 18
+          },
+          {
+            "source": "Referral",
+            "pct": 8
+          },
+          {
+            "source": "Social",
+            "pct": 4
+          }
         ],
         "what_theyre_doing_well": "Hyper-niched on home services contractors (HVAC, roofing, plumbing) with SEO, PPC, and high-converting websites. 55+ person team publishing best-in-class contractor marketing content that dominates Google.",
         "why_getting_traction": "By serving one niche obsessively and producing exhaustive educational content about it, Hook earns top organic rankings for every 'contractor marketing' search term — which itself generates inbound leads from their ideal clients.",
@@ -183,10 +210,22 @@
         "founded_approx": "2022",
         "traffic_estimate": "~300K/mo",
         "top_traffic_sources": [
-          {"source": "Organic Search", "pct": 55},
-          {"source": "Direct", "pct": 25},
-          {"source": "Referral", "pct": 12},
-          {"source": "Paid Search", "pct": 8}
+          {
+            "source": "Organic Search",
+            "pct": 55
+          },
+          {
+            "source": "Direct",
+            "pct": 25
+          },
+          {
+            "source": "Referral",
+            "pct": 12
+          },
+          {
+            "source": "Paid Search",
+            "pct": 8
+          }
         ],
         "what_theyre_doing_well": "AI website builder that creates a complete small business website in 30 seconds — integrated CRM, invoicing, SEO tools, and AI content marketing in one platform. Hit $990K revenue with only 9 people in 2025.",
         "why_getting_traction": "Eliminates the biggest friction point for small local businesses (getting online fast and affordably) while bundling ongoing marketing tools — making the entry point free/cheap and monetizing through subscription upsells.",
@@ -199,10 +238,22 @@
         "founded_approx": "2005",
         "traffic_estimate": "~800K/mo",
         "top_traffic_sources": [
-          {"source": "Organic Search", "pct": 65},
-          {"source": "Direct", "pct": 20},
-          {"source": "Referral", "pct": 10},
-          {"source": "Social", "pct": 5}
+          {
+            "source": "Organic Search",
+            "pct": 65
+          },
+          {
+            "source": "Direct",
+            "pct": 20
+          },
+          {
+            "source": "Referral",
+            "pct": 10
+          },
+          {
+            "source": "Social",
+            "pct": 5
+          }
         ],
         "what_theyre_doing_well": "200+ specialists; now the category leader in AI SEO and GEO optimization — getting clients cited and recommended by ChatGPT, Gemini, Perplexity, and Claude. Grew AI referral traffic for clients +5,556% in 2025 alone.",
         "why_getting_traction": "Early mover on GEO (Generative Engine Optimization) — positioning before most agencies understood AI search would reshape local discovery. Their content on AI SEO now dominates the searches their clients' customers are making.",
@@ -215,10 +266,22 @@
         "founded_approx": "2009",
         "traffic_estimate": "~120K/mo",
         "top_traffic_sources": [
-          {"source": "Organic Search", "pct": 60},
-          {"source": "Direct", "pct": 22},
-          {"source": "Referral", "pct": 12},
-          {"source": "Paid", "pct": 6}
+          {
+            "source": "Organic Search",
+            "pct": 60
+          },
+          {
+            "source": "Direct",
+            "pct": 22
+          },
+          {
+            "source": "Referral",
+            "pct": 12
+          },
+          {
+            "source": "Paid",
+            "pct": 6
+          }
         ],
         "what_theyre_doing_well": "AI-powered SEO specifically for small and mid-sized businesses at affordable price points — white-label model lets resellers and small agencies package and sell Boostability's platform under their own brand.",
         "why_getting_traction": "The white-label angle creates a massive distribution network of independent agencies reselling their platform — scaling reach without a traditional sales team. Affordable pricing democratizes SEO for micro-businesses.",
@@ -231,10 +294,22 @@
         "founded_approx": "2014",
         "traffic_estimate": "~1.2M/mo",
         "top_traffic_sources": [
-          {"source": "Organic Search", "pct": 50},
-          {"source": "Direct", "pct": 30},
-          {"source": "Paid Search", "pct": 12},
-          {"source": "Referral", "pct": 8}
+          {
+            "source": "Organic Search",
+            "pct": 50
+          },
+          {
+            "source": "Direct",
+            "pct": 30
+          },
+          {
+            "source": "Paid Search",
+            "pct": 12
+          },
+          {
+            "source": "Referral",
+            "pct": 8
+          }
         ],
         "what_theyre_doing_well": "AI Employee product handles review requests, lead follow-up, and customer messaging 24/7 for local businesses — contractors, auto dealers, healthcare. $399–$599/mo. Pushing hard on 'replace your front desk with AI' messaging.",
         "why_getting_traction": "Directly replaces labor costs for small businesses (the thing owners hate most), proving ROI instantly via review volume and response speed. Strong Google and Meta integration drives discovery of their product to exactly the local business owners they target.",
@@ -247,10 +322,22 @@
         "founded_approx": "2019",
         "traffic_estimate": "~500K/mo",
         "top_traffic_sources": [
-          {"source": "Organic Search", "pct": 45},
-          {"source": "Direct", "pct": 30},
-          {"source": "Referral / Media Network", "pct": 18},
-          {"source": "Paid", "pct": 7}
+          {
+            "source": "Organic Search",
+            "pct": 45
+          },
+          {
+            "source": "Direct",
+            "pct": 30
+          },
+          {
+            "source": "Referral / Media Network",
+            "pct": 18
+          },
+          {
+            "source": "Paid",
+            "pct": 7
+          }
         ],
         "what_theyre_doing_well": "Gannett-backed AI lead management platform for local businesses — unified dashboard for SEO, ads, reputation, and lead capture. Partners include Google, Meta, Amazon Ads, Microsoft Advertising. End-to-end local marketing on one platform.",
         "why_getting_traction": "Leverages the USA Today / Gannett media network for distribution and brand credibility, and bundles AI optimization into a platform that replaces the need for multiple vendors — compelling for time-strapped local business owners.",
@@ -263,8 +350,14 @@
         "founded_approx": "2024",
         "traffic_estimate": "Early stage / pre-traffic",
         "top_traffic_sources": [
-          {"source": "Direct / Referral", "pct": 80},
-          {"source": "Organic Search", "pct": 20}
+          {
+            "source": "Direct / Referral",
+            "pct": 80
+          },
+          {
+            "source": "Organic Search",
+            "pct": 20
+          }
         ],
         "what_theyre_doing_well": "YC-backed AI agents that strategize and execute on SEO like a traditional agency — claims to make SEO 20x more affordable by replacing human agency overhead with AI. End-to-end automation of keyword research, content, and link strategy.",
         "why_getting_traction": "YC backing provides instant credibility and distribution to startup ecosystem; 'agency-grade SEO at 1/20th the cost' is a compelling pitch hitting the market as small businesses push back on rising agency retainers.",
@@ -277,9 +370,18 @@
         "founded_approx": "2021",
         "traffic_estimate": "~40K/mo",
         "top_traffic_sources": [
-          {"source": "Organic Search", "pct": 72},
-          {"source": "Direct", "pct": 18},
-          {"source": "Referral", "pct": 10}
+          {
+            "source": "Organic Search",
+            "pct": 72
+          },
+          {
+            "source": "Direct",
+            "pct": 18
+          },
+          {
+            "source": "Referral",
+            "pct": 10
+          }
         ],
         "what_theyre_doing_well": "Revenue-driven SEO agency with lean content and fast turnaround for startups and small businesses. Entry tier at $299/mo makes them accessible; client results include 1,600% YoY revenue growth. AI-cited SEO service explicitly targets getting clients mentioned in ChatGPT/AI answers.",
         "why_getting_traction": "Startup-friendly pricing and GEO (Generative Engine Optimization) as a named, explicit service — one of the first agencies to productize 'get cited by AI' as a deliverable rather than just traditional keyword rankings.",
@@ -292,14 +394,103 @@
         "founded_approx": "2012",
         "traffic_estimate": "~60K/mo",
         "top_traffic_sources": [
-          {"source": "Organic Search", "pct": 65},
-          {"source": "Direct", "pct": 25},
-          {"source": "Referral", "pct": 10}
+          {
+            "source": "Organic Search",
+            "pct": 65
+          },
+          {
+            "source": "Direct",
+            "pct": 25
+          },
+          {
+            "source": "Referral",
+            "pct": 10
+          }
         ],
         "what_theyre_doing_well": "Full-service digital marketing for small and mid-sized businesses with no contracts and no setup fees — transparent pricing model that builds trust with risk-averse small business owners. Explicitly helps clients appear on AI platforms like ChatGPT alongside traditional Google SEO.",
         "why_getting_traction": "The no-contract, no-setup-fee model removes the #1 objection from small business owners ('I don't want to be locked in'). Transparent reporting and month-to-month flexibility drives word-of-mouth in the small business owner community.",
         "inspiration_score": 7,
         "inspiration_notes": "Doble AI should consider a no-contract, transparent-pricing positioning for at least one service tier — especially for Eagle County business owners who are skeptical of agency lock-in. 'Cancel anytime' is a powerful signal in a small community where reputation travels fast."
+      },
+      {
+        "name": "Hibu",
+        "url": "https://hibu.com",
+        "founded_approx": "2012",
+        "traffic_estimate": "~800K/mo",
+        "top_traffic_sources": [
+          {
+            "source": "Organic Search",
+            "pct": 50
+          },
+          {
+            "source": "Direct",
+            "pct": 30
+          },
+          {
+            "source": "Referral",
+            "pct": 15
+          },
+          {
+            "source": "Paid",
+            "pct": 5
+          }
+        ],
+        "what_theyre_doing_well": "All-in-one managed marketing platform built for local small businesses — 'Hibu One' bundles website, local SEO, reviews, social, and paid ads in a single AI-optimized dashboard. Entry-level $300–$500/month. Closed 2024 with record lead generation for clients, traffic +538% when full suite is activated.",
+        "why_getting_traction": "Removes every vendor-juggling headache for small business owners — one platform, one invoice, one support line. AI auto-optimizes 24/7. The accessibility + verifiable lead gen is a compelling pitch for the exact time-strapped local business owners Doble AI serves.",
+        "inspiration_score": 7,
+        "inspiration_notes": "Hibu is the 'bundle everything' play that could creep into mountain-town markets. Doble AI's defense: hyper-local knowledge and direct owner relationship Hibu can't replicate. Position explicitly as the anti-Hibu — 'your neighbor who does AI marketing, not a call center in Iowa.'"
+      },
+      {
+        "name": "Scorpion",
+        "url": "https://scorpion.co",
+        "founded_approx": "2001",
+        "traffic_estimate": "~500K/mo",
+        "top_traffic_sources": [
+          {
+            "source": "Organic Search",
+            "pct": 45
+          },
+          {
+            "source": "Direct",
+            "pct": 35
+          },
+          {
+            "source": "Paid Search",
+            "pct": 13
+          },
+          {
+            "source": "Referral",
+            "pct": 7
+          }
+        ],
+        "what_theyre_doing_well": "Dominant in AI marketing for home services (HVAC, plumbing, roofing) with $738M revenue. New 'Convert' AI product handles missed calls and books jobs 24/7 — beta delivered 26% booking rate increase and ~$1M new revenue across clients. 'RevenueMax' suite ties ad spend to booked revenue.",
+        "why_getting_traction": "Solves the #1 pain for local service contractors: 30–50% of calls go unanswered. Scorpion's AI Convert captures those leads automatically and proves ROI in booked jobs — the exact metric contractors care about. Vertical-specific positioning (HVAC, plumbing) earns deep trust.",
+        "inspiration_score": 8,
+        "inspiration_notes": "Eagle County contractors (landscapers, HVAC, plumbers) face identical missed-call problems during peak ski-season rush. Doble AI should productize an 'AI after-hours coverage' add-on — partner with Podium AI Employee or similar — and pitch it as the local version of what Scorpion sells at enterprise scale."
+      },
+      {
+        "name": "NiceJob",
+        "url": "https://get.nicejob.com",
+        "founded_approx": "2017",
+        "traffic_estimate": "~80K/mo",
+        "top_traffic_sources": [
+          {
+            "source": "Organic Search",
+            "pct": 65
+          },
+          {
+            "source": "Direct",
+            "pct": 25
+          },
+          {
+            "source": "Referral",
+            "pct": 10
+          }
+        ],
+        "what_theyre_doing_well": "Reputation automation for service businesses: automated Google review requests, referral campaigns, AI-powered review replies, and rebooking sequences — all at $75–$125/month. Every new 5-star review compounds into better local SEO rankings. Strong integration with job-booking and CRM tools.",
+        "why_getting_traction": "Solves a specific, painful, visible problem (Google reviews) at a price any local business can justify. Clients see results within 30 days (new reviews appear). AI-powered review replies now boost local SEO automatically. Word-of-mouth in service-business owner communities drives organic growth.",
+        "inspiration_score": 9,
+        "inspiration_notes": "NiceJob is Doble AI's best bundling opportunity. Consider reselling or white-labeling NiceJob as part of every website/SEO retainer for Eagle County contractors, restaurants, and landscapers. Reviews + AI replies = a tangible 30-day win that dramatically reduces early churn and justifies the ongoing retainer."
       }
     ]
   }
