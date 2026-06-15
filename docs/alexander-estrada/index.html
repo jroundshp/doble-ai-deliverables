@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Alexander Estrada — Competitive Analysis & Digital Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0c0c0e;
+    color: #ECECEE;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  a { color: inherit; }
+
+  /* ── Header ── */
+  .hero { padding: 76px 0 52px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #c8102e; margin-bottom: 22px;
+  }
+  .tag::before { content: ''; display: block; width: 28px; height: 1px; background: #c8102e; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(38px, 6.5vw, 66px); font-weight: 500;
+    color: #fff; line-height: 1.04; margin-bottom: 18px;
+  }
+  .hero p { font-size: 18.5px; color: #b6b6bb; line-height: 1.7; max-width: 660px; margin-bottom: 40px; }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat { padding: 0 28px 0 0; margin-right: 28px; margin-bottom: 10px; border-right: 1px solid rgba(255,255,255,0.12); }
+  .stat:last-child { border-right: none; }
+  .stat-val { font-family: 'Playfair Display', serif; font-size: 25px; font-weight: 500; color: #fff; line-height: 1; margin-bottom: 5px; }
+  .stat-label { font-size: 11.5px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: #7d7d84; }
+
+  /* ── Opportunity Banner ── */
+  .alert {
+    margin-top: 40px; background: rgba(212,175,55,0.08);
+    border: 1px solid rgba(212,175,55,0.35); border-left: 4px solid #d4af37;
+    border-radius: 8px; padding: 18px 22px;
+  }
+  .alert-label { font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #d4af37; margin-bottom: 7px; }
+  .alert p { font-size: 15.5px; color: #e6dcc2; line-height: 1.65; }
+  .alert strong { color: #fff; }
+
+  /* ── Sections ── */
+  .section { margin-top: 46px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.09); }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
+  .section-title { font-size: 14.5px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; }
+  .section-body { padding: 28px 24px; background: #131316; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #8a8a90; margin-bottom: 7px; }
+  .fact-val { font-size: 15.5px; color: #d6d6da; line-height: 1.6; }
+  .fact-val a { color: #e89aa4; text-decoration: none; border-bottom: 1px solid rgba(232,154,164,0.35); }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  thead tr { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  th { text-align: left; padding: 8px 12px 12px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8a90; }
+  th:first-child { padding-left: 0; }
+  th:last-child { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 13px 12px; color: #c2c2c7; vertical-align: top; line-height: 1.5; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #fff; white-space: nowrap; }
+  td:last-child { padding-right: 0; }
+  td a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(200,16,46,0.55); }
+  td a:hover { color: #ff6b78; }
+  .lane { white-space: nowrap; font-size: 13px; color: #9a9aa0; }
+
+  .badge { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge-ceiling { background: rgba(120,120,128,0.18); color: #b9b9c0; }
+  .badge-peer    { background: rgba(200,16,46,0.16); color: #ff7480; }
+  .badge-model   { background: rgba(212,175,55,0.16); color: #e0c558; }
+  .badge-gap     { background: rgba(46,158,68,0.16); color: #5fd07e; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 16.5px; color: #c6c6cb; line-height: 1.7; margin-bottom: 22px; }
+  .position-intro strong { color: #fff; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 17px; }
+  .pos-card-label { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 9px; }
+  .pos-card-text { font-size: 14.5px; line-height: 1.6; color: #c2c2c7; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 22px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card { background: #18181c; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 15px 16px; }
+  .audit-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 7px; }
+  .audit-channel { font-size: 14.5px; font-weight: 600; color: #fff; }
+  .grade { font-size: 13px; font-weight: 800; color: #fff; padding: 2px 9px; border-radius: 4px; flex-shrink: 0; }
+  .grade-b  { background: #2563eb; }
+  .grade-c  { background: #b45309; }
+  .grade-cm { background: #9a4a10; }
+  .grade-d  { background: #c2410c; }
+  .grade-dp { background: #b45010; }
+  .grade-f  { background: #b91c1c; }
+  .grade-score { background: #c8102e; }
+  .audit-note { font-size: 13.5px; color: #b6b6bb; line-height: 1.55; }
+  .audit-note strong { color: #f0d98a; }
+
+  .key-finding { background: rgba(200,16,46,0.08); border: 1px solid rgba(200,16,46,0.3); border-radius: 8px; padding: 18px 22px; }
+  .key-finding-label { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.13em; color: #ff7480; margin-bottom: 9px; }
+  .key-finding p { font-size: 15.5px; color: #d6d6da; line-height: 1.7; }
+  .key-finding em { color: #fff; font-style: italic; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; }
+  .rec-item { padding: 21px 24px; background: #131316; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #c8102e; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #fff; }
+  .rec-detail { font-size: 14px; color: #b6b6bb; line-height: 1.7; padding-left: 30px; }
+  .rec-detail strong { color: #e6dcc2; }
+
+  /* ── CTA Footer ── */
+  .cta-block { margin-top: 56px; background: linear-gradient(135deg, #1a0508 0%, #c8102e 140%); border: 1px solid rgba(200,16,46,0.4); border-radius: 12px; padding: 44px 36px; text-align: center; }
+  .cta-block h2 { font-family: 'Playfair Display', serif; font-size: 29px; font-weight: 500; color: #fff; margin-bottom: 13px; }
+  .cta-block p { font-size: 16.5px; color: #f0c7cd; line-height: 1.65; max-width: 540px; margin: 0 auto 28px; }
+  .cta-btn { display: inline-block; background: #fff; color: #c8102e; font-size: 15px; font-weight: 700; padding: 14px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.15s; }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 15px; font-size: 13px; color: #d99aa3; }
+
+  /* ── Footer ── */
+  .footer { margin-top: 46px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 11px; color: #7d7d84; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Competitive Analysis &amp; Digital Audit · June 2026 · Denver–Boulder, Colorado</div>
+    <h1>Alexander Estrada</h1>
+    <p>Adventure filmmaker, photographer, and drone pilot — broadcast credits with the BBC, Channel 4, and ABC News, brand work with The North Face, Petzl, and La Sportiva. This is a look at where you stand in the Colorado market: who you're up against across your three lanes, where the real opening is, and exactly what the new site is being built to do about it.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">10+ yrs</div><div class="stat-label">Experience</div></div>
+      <div class="stat"><div class="stat-val">BBC · ABC</div><div class="stat-label">Broadcast Credits</div></div>
+      <div class="stat"><div class="stat-val">Bilingual</div><div class="stat-label">EN / ES</div></div>
+      <div class="stat"><div class="stat-val">3.4 / 10</div><div class="stat-label">Current Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The Opening</div>
+      <p>Across all three of your lanes — adventure, weddings, and commercial — <strong>not one serious Denver–Boulder competitor markets bilingual Spanish-language production.</strong> Your single biggest asset is the one thing nobody in this market is using. The plan is built around owning it.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-head" style="background:#1d1d22;border-bottom:1px solid rgba(200,16,46,0.3)">
+      <span class="section-num" style="color:#c8102e">01</span>
+      <span class="section-title" style="color:#c8102e">Your Profile</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">Three Revenue Lanes</div>
+          <div class="fact-val">Adventure &amp; climbing content (your hero niche), weddings / elopements / portraits, and commercial / brand / NGO video. One skill set — photo, motion, and drone — across three markets.</div>
+        </div>
+        <div>
+          <div class="fact-label">Credentials</div>
+          <div class="fact-val">Director of photography / fixer for the BBC (Simon Reeve), Channel 4 News, and ABC News. Documentary and institutional work for SUYANA and Natural Habitat Adventures. 10+ years filming in high-altitude and remote environments.</div>
+        </div>
+        <div>
+          <div class="fact-label">Brand Work</div>
+          <div class="fact-val">Shoots with world-class climbers sponsored by The North Face, Petzl, and La Sportiva — the exact blue-chip roster Boulder brands hire against.</div>
+        </div>
+        <div>
+          <div class="fact-label">Current Footprint</div>
+          <div class="fact-val">Portfolio site at <a href="https://alexanderestral.com">alexanderestral.com</a> (being rebuilt), 11 Vimeo films, six photo categories, and Instagram <a href="https://www.instagram.com/alexander_estral/">@alexander_estral</a> (~2,700 followers).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-head" style="background:#1d1d22;border-bottom:1px solid rgba(212,175,55,0.3)">
+      <span class="section-num" style="color:#d4af37">02</span>
+      <span class="section-title" style="color:#d4af37">The Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:22px 24px">
+      <p style="font-size:14.5px;color:#b6b6bb;line-height:1.65;margin-bottom:18px">Denver–Boulder is one of the most saturated adventure-media markets on earth. The field sorts into three roles: the <b style="color:#b9b9c0">market ceiling</b> you don't chase, <b style="color:#ff7480">direct peers</b> at your tier, and <b style="color:#e0c558">models worth studying</b> for how they package and sell. Click any name to view their site.</p>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Lane</th><th>Key Note</th><th>Relevance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><a href="https://www.ladzinski.com" target="_blank" rel="noopener">Keith Ladzinski</a></td><td class="lane">Adventure</td><td>~2M Instagram, 20+ National Geographic assignments, Canon Ambassador. The ceiling of the market.</td><td><span class="badge badge-ceiling">Aspirational</span></td></tr>
+          <tr><td><a href="https://www.senderfilms.com" target="_blank" rel="noopener">Sender Films</a></td><td class="lane">Adventure</td><td>Owns the Reel Rock Film Tour — the genre-defining climbing-film brand. Institutional gravity, not a head-to-head rival.</td><td><span class="badge badge-ceiling">Aspirational</span></td></tr>
+          <tr><td><a href="https://elizaearlecreative.com" target="_blank" rel="noopener">Eliza Earle</a></td><td class="lane">Adventure</td><td>~13K IG. TNF / Patagonia / Black Diamond — your exact brand roster. Closest true peer at the elite freelance tier.</td><td><span class="badge badge-peer">Direct peer</span></td></tr>
+          <tr><td><a href="https://www.kodykohlman.com" target="_blank" rel="noopener">Kody Kohlman</a></td><td class="lane">Adventure</td><td>Only ~6,400 IG, yet shoots TNF / Columbia / Rapha — wins on agency representation, not reach. Proof reach isn't the barrier.</td><td><span class="badge badge-peer">Direct peer</span></td></tr>
+          <tr><td><a href="https://www.wildgracevideo.com" target="_blank" rel="noopener">Wild Grace Video</a></td><td class="lane">Adventure</td><td>The only one selling like a business — transparent $5–10K pricing, discovery-call funnel, packages, FAQ. The packaging model.</td><td><span class="badge badge-model">Model to study</span></td></tr>
+          <tr><td><a href="https://adventureinstead.com" target="_blank" rel="noopener">Adventure Instead</a></td><td class="lane">Weddings</td><td>~116K IG, $14,200 flagship package, press in Forbes &amp; Vogue. Built the adventure-elopement category and an education arm.</td><td><span class="badge badge-ceiling">Aspirational</span></td></tr>
+          <tr><td><a href="https://thefoxesphotography.com" target="_blank" rel="noopener">The Foxes</a></td><td class="lane">Weddings</td><td>~38K IG. Husband-wife team, Airstream brand story, deep location guides. A lifestyle-brand approach to elopements.</td><td><span class="badge badge-peer">Direct peer</span></td></tr>
+          <tr><td><a href="https://stephanieyvesphotography.com" target="_blank" rel="noopener">Stephanie Yves</a></td><td class="lane">Weddings</td><td>Only ~1,200 IG but dominates Estes Park / RMNP search through location pages + a 100-page planning guide. SEO beats reach.</td><td><span class="badge badge-model">Model to study</span></td></tr>
+          <tr><td><a href="https://gonzaloespinoza.com" target="_blank" rel="noopener">Gonzalo Espinoza</a></td><td class="lane">Weddings</td><td>One of the few bilingual sites — but a dated presence aimed at quinceañeras / events. The Spanish lane is wide open above him.</td><td><span class="badge badge-gap">Bilingual gap</span></td></tr>
+          <tr><td><a href="https://roosmith.com" target="_blank" rel="noopener">Roo Smith</a></td><td class="lane">Commercial</td><td>Boulder. Patagonia / TNF / Netflix; Emmy-nominated. Runs a buyer-education blog. The clearest playbook for your commercial lane.</td><td><span class="badge badge-model">Model to study</span></td></tr>
+          <tr><td><a href="https://www.alexwitkowicz.com" target="_blank" rel="noopener">Alex Witkowicz</a></td><td class="lane">Commercial</td><td>Vice / CNN / HBO; shoots all over Latin America — but doesn't market the Spanish. Your closest credential-twin, with the wedge unclaimed.</td><td><span class="badge badge-peer">Direct peer</span></td></tr>
+          <tr><td><a href="https://www.dropmedia.tv" target="_blank" rel="noopener">Drop Media</a></td><td class="lane">Commercial</td><td>The best outdoor-brand logo wall in the metro — Arc'teryx, SRAM, CamelBak, Topo. Technical / extreme-environment positioning.</td><td><span class="badge badge-peer">Direct peer</span></td></tr>
+          <tr><td><a href="https://www.hiddenwoodsfilm.com" target="_blank" rel="noopener">Hidden Woods</a></td><td class="lane">Commercial</td><td>Strongest NGO / nonprofit positioning (Nature Conservancy, ACLU) — but English-only. Bilingual missions are an opening.</td><td><span class="badge badge-peer">Direct peer</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-head" style="background:#1d1d22;border-bottom:1px solid rgba(124,92,200,0.3)">
+      <span class="section-num" style="color:#a78bda">03</span>
+      <span class="section-title" style="color:#a78bda">Where You Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        You have <strong>credentials most of this market can't match</strong> — broadcast work for the BBC and ABC, a blue-chip outdoor-brand roster, and photo, film, and drone in one operator. What's missing isn't talent. It's that the current site reads as Peru-based, tells none of those stories as case studies, gives no one a way to hire you, and never mentions the one thing that would set you apart.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(200,16,46,0.08);border:1px solid rgba(200,16,46,0.28)">
+          <div class="pos-card-label" style="color:#ff7480">Strengths</div>
+          <div class="pos-card-text">BBC / Channel 4 / ABC News broadcast pedigree — rare at the freelance tier. TNF / Petzl / La Sportiva brand work. Photo + motion + drone in one person. Native Spanish. A real Vimeo reel and a deep image library.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.09);border:1px solid rgba(180,83,9,0.28)">
+          <div class="pos-card-label" style="color:#d99441">Current Position</div>
+          <div class="pos-card-text">The live site reads as Peru-based — invisible for Colorado search. No case studies or client names, no pricing or booking path, no FAQ / SEO content, and your bilingual edge is marketed nowhere. Strong work, but nothing is set up to be found or hired.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(46,158,68,0.09);border:1px solid rgba(46,158,68,0.28)">
+          <div class="pos-card-label" style="color:#5fd07e">Biggest Opportunity</div>
+          <div class="pos-card-text">Bilingual × adventure is an empty quadrant in every lane. Stack Spanish-first delivery, broadcast-grade storytelling, and a productized, search-optimized site, and you occupy a position no competitor in Denver–Boulder currently holds.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-head" style="background:#1d1d22;border-bottom:1px solid rgba(200,16,46,0.3)">
+      <span class="section-num" style="color:#c8102e">04</span>
+      <span class="section-title" style="color:#c8102e">Digital Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Get Found (SEO / Local)</span><span class="grade grade-f">D</span></div>
+          <div class="audit-note">No Colorado geo-targeting — the bio reads as Peru-based. No location pages, no blog, thin on-page copy. You don't surface for "adventure photographer Colorado" or anything near it.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Tell the Story (Positioning)</span><span class="grade grade-c">C−</span></div>
+          <div class="audit-note">Clean galleries and a genuine Vimeo reel — but no case studies, client names, captions, or testimonials. A portfolio, not a pitch. The credentials don't carry through.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Convert (Hire Path)</span><span class="grade grade-d">D+</span></div>
+          <div class="audit-note">A basic name / email / message form plus email and phone. No packages, no pricing or "from" anchor, no booking. A serious buyer has no clear next step.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social Proof / Reach</span><span class="grade grade-cm">C−</span></div>
+          <div class="audit-note">~2,700 Instagram followers, 316 posts. Modest — but mid-tier competitors book at 800–6,400 followers. <strong>Reach is not your bottleneck.</strong> Reputation and SEO are what convert here.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">GEO / AI Search</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">No FAQ content or structured data, so ChatGPT, Perplexity, and Google AI Overviews have nothing to cite. An open, fast-moving channel almost no competitor has claimed yet.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Bilingual Leverage</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">You're fully bilingual and it's marketed <strong>nowhere</strong>. This is the single most defensible asset you have, currently sitting at zero. The whole strategy starts here.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-score">3.4</span></div>
+          <div class="audit-note">Out of 10, across discoverability, positioning, conversion, social proof, AI search, and bilingual leverage. The gap between your actual credentials and your digital presence is the widest part of the opportunity.</div>
+        </div>
+        <div class="audit-card" style="border-color:rgba(46,158,68,0.3);background:rgba(46,158,68,0.06)">
+          <div class="audit-card-top"><span class="audit-channel">Target After Rebuild</span><span class="grade" style="background:#2e9e44">7.5–8</span></div>
+          <div class="audit-note">Where the new site is built to land — and, on the bilingual dimension specifically, to a market-leading position no competitor currently contests.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">The Wedge</div>
+        <p>Three separate competitor sweeps — adventure, weddings, and commercial — all landed on the same gap: <em>no serious Denver–Boulder competitor markets bilingual Spanish-language production.</em> Your defensible position writes itself — <em>"Bilingual, broadcast-grade adventure storytelling — photo and film — in Colorado"</em> — stacking three things none of them combine: Spanish-first delivery, BBC/ABC documentary rigor at a freelance price, and a productized, search-optimized site in a field of "email me" portfolios.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <div class="section-head" style="background:#1d1d22;border-bottom:1px solid rgba(46,158,68,0.3)">
+      <span class="section-num" style="color:#5fd07e">05</span>
+      <span class="section-title" style="color:#5fd07e">The Plan</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Lead with the bilingual + broadcaster + brand triad</span></div>
+          <div class="rec-detail">The homepage and About open on the one combination nobody else has: <strong>Spanish-first delivery, BBC/ABC documentary credibility, and outdoor-brand work.</strong> This becomes the headline, not a footnote buried in the bio.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Re-base everything to Denver–Boulder</span></div>
+          <div class="rec-detail">Every page reads as Colorado-based, with Peru and the Andes kept as expedition credibility — not as home. This is the single biggest fix for getting found in your actual market.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Build Spanish-language location and intent pages</span></div>
+          <div class="rec-detail">English search terms are saturated; their Spanish equivalents face almost no competition. Pages like <strong>"fotógrafo de bodas de aventura en Colorado"</strong> can own search that no competitor is even contesting.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Turn your 11 films into named case studies</span></div>
+          <div class="rec-detail">Client, brief, outcome — the way Roo Smith presents work. It's the biggest credibility upgrade available, and it's what brand buyers actually read before they hire. A short bilingual blog reinforces it.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Add packages, anchor pricing, and a real inquiry path</span></div>
+          <div class="rec-detail">Almost the entire field hides behind "email me." Even a "from $X" range plus clear packages beats them on trust. For the wedding lane, get listed on The Knot and WeddingWire and start collecting reviews — the signal couples filter on first.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">06</span><span class="rec-title">Add FAQ + structured content so AI search cites you</span></div>
+          <div class="rec-detail">Question-phrased sections with FAQ schema give ChatGPT, Perplexity, and Google AI Overviews something to quote — in both languages. An open channel, and one where being early is the whole advantage.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>The site is being built to do exactly this.</h2>
+    <p>Your new portfolio — dark, image-first, and built around the bilingual adventure wedge — is in progress. This audit is the strategy underneath it.</p>
+    <a href="https://dobleai.com" class="cta-btn">dobleai.com</a>
+    <div class="cta-sub">Questions or anything you want to adjust? Let's talk it through.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Alexander Estrada — Competitive Analysis &amp; Digital Audit</span>
+    <span>June 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
