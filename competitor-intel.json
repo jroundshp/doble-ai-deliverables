@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-15",
+  "last_updated": "2026-06-22",
   "colorado_watch": {
     "description": "AI consulting and marketing firms entering the Colorado mountain resort corridor",
     "entries": [
@@ -78,6 +78,51 @@
           "Aspen Chamber listing and Carbondale Chamber listing — active local presence"
         ],
         "threat_level": "Low"
+      },
+      {
+        "name": "Vail Digital Solutions",
+        "url": "https://vaildigitalsolutions.com",
+        "location": "Vail, CO (explicitly serves Vail, Edwards, Avon, and beyond)",
+        "category": "agency",
+        "first_seen": "2026-06-22",
+        "signals": [
+          "Nearly identical service stack to Doble AI: conversion-focused web design, business automation, SEO, graphic design",
+          "Explicitly names Vail, Edwards, and Avon as service territory — direct overlap",
+          "Active LinkedIn company page — building professional network locally",
+          "Positions on 'automation' and 'conversion-focused' — modern language targeting same buyer as Doble AI",
+          "Serves clients nationwide but anchors local identity in Vail Valley"
+        ],
+        "threat_level": "High"
+      },
+      {
+        "name": "Vail Valley Marketing",
+        "url": "https://vailvalley.marketing",
+        "location": "Vail Valley, CO",
+        "category": "agency",
+        "first_seen": "2026-06-22",
+        "signals": [
+          "Positions explicitly as 'Vail Valley's go-to for high-end digital marketing'",
+          "Services: web design, SEO + GEO positioning, Google Ads with landing pages, social media management, Facebook/Instagram ads",
+          "Results-first messaging — 'no bloated packages or filler services' — mirrors Doble AI's lean positioning",
+          "Covers same SMB verticals: local service businesses needing visibility in search and maps",
+          "No AI branding observed but service scope matches Doble AI closely"
+        ],
+        "threat_level": "High"
+      },
+      {
+        "name": "CTA Digital Media",
+        "url": "https://ctadigitalmedia.com",
+        "location": "Eagle, CO",
+        "category": "agency",
+        "first_seen": "2026-06-22",
+        "signals": [
+          "Based in Eagle, CO — direct geographic competitor in Doble AI's home market",
+          "Member of Eagle Chamber of Commerce and Vail Valley Partnership — strong local network",
+          "Services: professional video production, website design, SEO, social media marketing, video advertising",
+          "Active Facebook presence (formerly Capture the Action Video Productions)",
+          "No AI-specific positioning observed — traditional full-service agency with local trust advantage"
+        ],
+        "threat_level": "Medium"
       }
     ]
   },
@@ -143,6 +188,36 @@
         "why_getting_traction": "Strong review profiles on Clutch and G2, broad keyword coverage from high-volume blogging, and specific vertical pages (landscaping, roofing, restaurants) make them highly discoverable when SMBs search for marketing help.",
         "inspiration_score": 6,
         "inspiration_notes": "Publish hyper-local vertical content — e.g. 'How Eagle County landscapers get more calls in shoulder season' or 'Restaurant marketing for Vail ski season.' Thrive wins nationally on volume; Doble AI can win locally on specificity."
+      },
+      {
+        "name": "NoGood",
+        "url": "https://nogood.io",
+        "founded_approx": "2017",
+        "traffic_estimate": "~200K/mo",
+        "top_traffic_sources": [
+          {"source": "Organic Search", "pct": 65},
+          {"source": "Direct", "pct": 25},
+          {"source": "Referral", "pct": 10}
+        ],
+        "what_theyre_doing_well": "AI-native growth agency with proprietary systems and agents working alongside Claude, Google, and other AI partners. Purpose-built 'growth squads' tailored per client, rapid experimentation methodology, and 84% client retention rate verified by TechCrunch.",
+        "why_getting_traction": "Positions as expert-led AI-native agency rather than AI-tools-bolted-on — the human+AI hybrid resonates with clients burned by pure automation. Heavy content marketing output (100s of blog posts) dominates organic for growth agency keywords.",
+        "inspiration_score": 7,
+        "inspiration_notes": "Doble AI should publish a local 'results log' — real before/after wins for local clients like '47 new Google reviews for Eagle County landscaper in 30 days' or '1st-page Google ranking for Vail contractor in 6 weeks.' This specificity is something a national agency can never replicate."
+      },
+      {
+        "name": "MEGA AI (Gomega)",
+        "url": "https://www.gomega.ai",
+        "founded_approx": "2023",
+        "traffic_estimate": "~30K/mo",
+        "top_traffic_sources": [
+          {"source": "Organic Search", "pct": 55},
+          {"source": "Direct", "pct": 30},
+          {"source": "Referral", "pct": 15}
+        ],
+        "what_theyre_doing_well": "Purpose-built AI growth platform for SMBs: autonomous SEO Agent ($699/mo) and Ads Agent ($1,399/mo) that run 24/7 without ongoing human management. Transparent flat-rate pricing makes ROI calculation instant for small business owners.",
+        "why_getting_traction": "Hits the exact SMB pain point: too small for a real agency, too busy to DIY. Autonomous agents at flat monthly fee remove the 'agency relationship' friction entirely. Clear published pricing eliminates the sales call barrier that scares off small business owners.",
+        "inspiration_score": 8,
+        "inspiration_notes": "Doble AI should publish explicit starting prices on its website — even 'from $X/mo' — to compete with platforms that make the buy decision frictionless. Mountain-town SMB owners comparison-shop; removing the 'request a quote' barrier is an immediate conversion improvement."
       }
     ]
   }
