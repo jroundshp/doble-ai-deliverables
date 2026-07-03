@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<style>*{box-sizing:border-box}img{max-width:100%}</style>
+<title>Ellicottville Outside — Project Overview</title>
+<style>
+  :root{
+    --pine:#1f3d2f; --pine-950:#16281c; --forest:#2c5d42; --sage:#3f7d5a;
+    --gold:#e0a94a; --gold-deep:#c48f2f; --clay:#c25b34;
+    --cream:#f6f4ee; --paper:#fbfaf6;
+    --ink:#1c241f; --muted:#59614f; --line:#dfe3dc; --card:#ffffff;
+    --stone-100:#eef0ec;
+    --ground:var(--paper); --fg:var(--ink); --sub:var(--muted);
+    --border:var(--line); --panel:var(--card); --band:var(--pine);
+    --display:"Helvetica Neue",Arial,"Segoe UI",system-ui,sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter",Roboto,Helvetica,Arial,sans-serif;
+    --max:940px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#12211a; --fg:#eef0ec; --sub:#a9b3a6; --border:#2a3c31;
+      --panel:#1a2c22; --cream:#182720; --paper:#12211a; --band:#16281c;
+      --gold:#e8bd6b;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#12211a; --fg:#eef0ec; --sub:#a9b3a6; --border:#2a3c31;
+    --panel:#1a2c22; --cream:#182720; --paper:#12211a; --band:#16281c; --gold:#e8bd6b;
+  }
+  :root[data-theme="light"]{
+    --ground:#fbfaf6; --fg:#1c241f; --sub:#59614f; --border:#dfe3dc;
+    --panel:#ffffff; --cream:#f6f4ee; --paper:#fbfaf6; --band:#1f3d2f; --gold:#e0a94a;
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--fg);font-family:var(--body);
+    line-height:1.68;font-size:17px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  h1,h2,h3{text-wrap:balance;margin:0;}
+  p{margin:0 0 1em;}
+  a{color:var(--gold-deep);}
+  .disp{font-family:var(--display);text-transform:uppercase;font-weight:800;
+    letter-spacing:.01em;line-height:.98;}
+  .eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.22em;
+    font-weight:700;font-size:.72rem;color:var(--gold-deep);}
+
+  /* ---- Hero ---- */
+  .hero{background:var(--band);color:#f4f1e8;padding:64px 0 56px;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(120% 90% at 88% -10%, rgba(224,169,74,.20), transparent 55%),
+      linear-gradient(180deg, transparent 60%, rgba(0,0,0,.18));}
+  .hero .wrap{position:relative;z-index:1;}
+  .hero .eyebrow{color:var(--gold);}
+  .hero h1{font-family:var(--display);text-transform:uppercase;font-weight:800;
+    font-size:clamp(2.7rem,7vw,4.6rem);letter-spacing:.005em;line-height:.92;margin:.28em 0 .1em;}
+  .hero .lede{font-size:clamp(1.05rem,2.4vw,1.32rem);max-width:34ch;color:#e9e4d5;}
+  .url{display:inline-block;margin-top:22px;font-family:var(--display);letter-spacing:.05em;
+    text-transform:uppercase;font-weight:700;color:var(--pine);background:var(--gold);
+    padding:9px 18px;border-radius:8px;font-size:.95rem;}
+  .live{display:inline-flex;align-items:center;gap:8px;margin-top:22px;margin-left:14px;
+    font-size:.82rem;letter-spacing:.04em;color:#d8e4d5;text-transform:uppercase;font-weight:600;}
+  .dot{width:9px;height:9px;border-radius:50%;background:#6fd08c;box-shadow:0 0 0 4px rgba(111,208,140,.22);}
+
+  /* ---- Section scaffolding ---- */
+  section.block{padding:52px 0;border-bottom:1px solid var(--border);}
+  .kicker{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;}
+  .kicker .n{font-family:var(--display);font-weight:800;font-size:1rem;color:var(--gold-deep);
+    letter-spacing:.06em;}
+  h2.title{font-family:var(--display);text-transform:uppercase;font-weight:800;
+    font-size:clamp(1.7rem,4vw,2.5rem);letter-spacing:.01em;color:var(--fg);}
+  .sub{color:var(--sub);max-width:66ch;font-size:1.06rem;}
+
+  /* ---- Metric strip ---- */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);
+    border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:6px;}
+  .metric{background:var(--panel);padding:20px 18px;}
+  .metric .v{font-family:var(--display);font-weight:800;font-size:2rem;color:var(--pine);
+    font-variant-numeric:tabular-nums;line-height:1;}
+  :root[data-theme="dark"] .metric .v,@media (prefers-color-scheme:dark){.metric .v{color:var(--gold)}}
+  .metric .l{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--sub);
+    margin-top:8px;line-height:1.3;}
+
+  /* ---- Cards ---- */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px;}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px 22px;}
+  .card h3{font-family:var(--display);text-transform:uppercase;font-weight:800;font-size:1.15rem;
+    letter-spacing:.02em;color:var(--fg);margin-bottom:6px;}
+  .card p{margin:0;color:var(--sub);font-size:.97rem;line-height:1.6;}
+  .card .tag{display:inline-block;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;
+    font-weight:700;color:var(--gold-deep);margin-bottom:10px;}
+
+  /* ---- Spec table ---- */
+  .spec{width:100%;border-collapse:collapse;margin-top:8px;font-size:.98rem;}
+  .spec th{text-align:left;font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;
+    font-weight:800;font-size:.82rem;color:var(--gold-deep);padding:14px 16px 10px;
+    border-bottom:2px solid var(--border);white-space:nowrap;vertical-align:top;width:170px;}
+  .spec td{padding:14px 16px;border-bottom:1px solid var(--border);color:var(--fg);vertical-align:top;}
+  .spec td b{color:var(--fg);}
+  .spec td span{color:var(--sub);}
+  .tablewrap{overflow-x:auto;}
+
+  /* ---- Pill list ---- */
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .pill{font-size:.82rem;border:1px solid var(--border);background:var(--cream);color:var(--fg);
+    padding:5px 12px;border-radius:999px;font-weight:600;letter-spacing:.01em;}
+
+  /* ---- Valuation callout ---- */
+  .value{background:var(--band);color:#f2eede;border-radius:16px;padding:34px 32px;margin-top:8px;}
+  .value .eyebrow{color:var(--gold);}
+  .value h2{font-family:var(--display);text-transform:uppercase;font-weight:800;
+    font-size:clamp(1.5rem,3.4vw,2.1rem);margin:.3em 0 .2em;}
+  .value .row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px;}
+  .value .band{background:rgba(255,255,255,.06);border:1px solid rgba(224,169,74,.28);
+    border-radius:12px;padding:18px 20px;}
+  .value .band .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);
+    font-weight:700;}
+  .value .band .p{font-family:var(--display);font-weight:800;font-size:1.9rem;margin:6px 0 4px;
+    font-variant-numeric:tabular-nums;}
+  .value .band small{color:#cdd8c9;font-size:.86rem;line-height:1.5;display:block;}
+
+  /* ---- Included list ---- */
+  .incl{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 26px;margin-top:6px;padding:0;list-style:none;}
+  .incl li{position:relative;padding-left:26px;color:var(--fg);font-size:.98rem;line-height:1.5;}
+  .incl li::before{content:"";position:absolute;left:0;top:.5em;width:12px;height:12px;
+    border-radius:3px;background:var(--gold);box-shadow:inset 0 0 0 2px var(--pine);}
+  .incl li b{font-weight:700;}
+
+  footer{padding:34px 0 60px;color:var(--sub);font-size:.86rem;}
+  footer .disp{color:var(--fg);font-size:1.1rem;letter-spacing:.03em;}
+
+  @media (max-width:720px){
+    .metrics{grid-template-columns:repeat(2,1fr);}
+    .cards{grid-template-columns:1fr;}
+    .value .row{grid-template-columns:1fr;}
+    .incl{grid-template-columns:1fr;}
+    .live{margin-left:0;display:flex;margin-top:14px;}
+  }
+</style>
+</head>
+<body>
+
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Project Overview &nbsp;•&nbsp; Prospective Buyer Brief</div>
+    <h1>Ellicottville<br>Outside</h1>
+    <p class="lede">All things outdoor in Ellicottville, NY — a two-resort, four-season ski village.</p>
+    <div>
+      <span class="url">ellicottvilleoutside.com</span>
+      <span class="live"><span class="dot"></span>Live &amp; indexed</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- WHAT -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="n">01</span><h2 class="title">The What</h2></div>
+      <p class="sub">A multi-page destination hub for the outdoor town of Ellicottville, New York, built in the
+      mold of destination sites like Visit Park City, Discover Whistler, Aspen Snowmass, Discover Vail, and Eagle
+      Outside — scaled for a single mountain village.
+      It gathers everything a visitor needs into one branded home: two ski resorts
+      (<b>Holiday Valley</b> and <b>HoliMont</b>), 140+ miles of mountain-bike trail, hiking, fishing, paddling,
+      and nearby Allegany State Park — plus live weather, an events calendar, and full shop and dining directories.</p>
+
+      <div class="metrics" role="list" style="margin-top:26px;">
+        <div class="metric" role="listitem"><div class="v">11</div><div class="l">Indexed pages</div></div>
+        <div class="metric" role="listitem"><div class="v">46</div><div class="l">Shops &amp; dining listed</div></div>
+        <div class="metric" role="listitem"><div class="v">4</div><div class="l">SEO / GEO guides</div></div>
+        <div class="metric" role="listitem"><div class="v">4</div><div class="l">Seasons of content</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="n">02</span><h2 class="title">The Why</h2></div>
+      <p class="sub" style="margin-bottom:18px;">Ellicottville has the resorts, the trails, and the visitors, but no
+      single outdoor home online — the story is scattered across the two resorts, the chamber, and social feeds. This
+      site pulls it into one branded destination, giving visitors a place to plan a day and local businesses a place
+      to be found. It's a turnkey local media asset: an owned domain and social presence built into a finished, live
+      site a local operator can take over and run from day one.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="tag">Ready to run</span>
+          <h3>Finished and live</h3>
+          <p>Already built, indexed, and accruing traffic — no build phase to fund and no long runway. An owner steps
+          into a working property, not a project, and can start marketing it immediately.</p>
+        </div>
+        <div class="card">
+          <span class="tag">The model</span>
+          <h3>Free listings → traffic → paid features</h3>
+          <p>Every shop and restaurant is listed free to build utility and traffic. Featured placements are held back
+          as sellable inventory — the revenue line an owner steps into once the audience is proven.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY ELEMENTS -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="n">03</span><h2 class="title">Key Elements</h2></div>
+      <p class="sub" style="margin-bottom:22px;">Seven core pages plus a growing library of guides, all under one
+      brand identity (pine &amp; gold, condensed signage type, custom logo and favicon).</p>
+      <div class="cards">
+        <div class="card"><h3>The Village &amp; Directories</h3><p>21 in-village boutiques and 25 restaurants, bars,
+          and cafés — each with a photo and a link to the business, sourced from the chamber directory.</p></div>
+        <div class="card"><h3>Things To Do</h3><p>Skiing, mountain biking, hiking, fishing, paddling, and Allegany
+          State Park, organized by activity and season.</p></div>
+        <div class="card"><h3>Events Calendar</h3><p>HillTAP, Cabin Fever, Taste of Ellicottville, Birds of Prey,
+          HoliMont's MTB series, seasonal races and more — each marked up with Event schema.</p></div>
+        <div class="card"><h3>Guides (Blog)</h3><p>Four long-form, search-optimized guides: MTB for beginners, fall
+          foliage hikes, a Holiday Valley vs. HoliMont ski-day playbook, and the Nannen Arboretum.</p></div>
+        <div class="card"><h3>Live Conditions</h3><p>Real-time weather and forecast pulled from the National Weather
+          Service (api.weather.gov), plus a seasonal hero that switches winter/summer automatically.</p></div>
+        <div class="card"><h3>Photography Feature</h3><p>A dedicated page featuring Aldrich Aerial Photography
+          (FAA-certified drone), with fine-art prints for sale — the template for future paid partner features.</p></div>
+        <div class="card"><h3>Newsletter Capture</h3><p>A live signup form (Formspree) that emails new subscribers
+          straight to the owner — an owned audience channel from day one.</p></div>
+        <div class="card"><h3>Social Kit &amp; Campaigns</h3><p>Ready-made social graphics in three sizes plus two
+          launch campaigns (featured Airbnb stay; a HoliMont "ride &amp; stay") to seed traffic.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="n">04</span><h2 class="title">Under The Hood</h2></div>
+      <p class="sub" style="margin-bottom:8px;">Static, fast, and cheap to run — with search and AI visibility engineered in.</p>
+      <div class="tablewrap">
+      <table class="spec">
+        <tr>
+          <th>SEO</th>
+          <td><b>Full technical foundation.</b> <span>Unique title + meta description and a canonical tag on every
+          page, Open Graph and Twitter cards with share images, a submitted <code>sitemap.xml</code> (11 URLs) and
+          <code>robots.txt</code>, and clean semantic multi-page HTML. Rich structured data throughout: WebSite,
+          Organization, 46× LocalBusiness, ItemList directories, 18× Event, Article, and Place schema. www redirects
+          308 → apex so link equity stays on one canonical host.</span></td>
+        </tr>
+        <tr>
+          <th>GEO<br><span style="font-weight:400;font-size:.7rem;letter-spacing:.04em;color:var(--sub)">AI answer engines</span></th>
+          <td><b>FAQ-driven, entity-rich.</b> <span>The home page and every guide carry FAQ blocks marked up with
+          FAQPage / Question / Answer schema — plain-language, quotable answers that name the real places (Holiday
+          Valley, HoliMont, Art Roscoe, Allegany). This is the primary lever for getting cited by AI search and
+          answer engines, not just ranked by classic search.</span></td>
+        </tr>
+        <tr>
+          <th>Infrastructure</th>
+          <td><b>Static site on Vercel.</b> <span>Plain HTML / CSS / JS with a shared stylesheet and script — no
+          database, no server, near-zero maintenance. Hosted on Vercel (Pro team) with automatic HTTPS/SSL. Custom
+          domain <b>ellicottvilleoutside.com</b> is live; DNS stays at DreamHost (apex A record + www CNAME to
+          Vercel), email/MX untouched. Source is version-controlled in a private GitHub repo with off-machine backups.
+          Only external calls are the NWS weather API and the Formspree form.</span></td>
+        </tr>
+        <tr>
+          <th>Analytics</th>
+          <td><b>Two measurement layers, live.</b> <span>Vercel Web Analytics runs on all pages and is already
+          accruing traffic history — the proof-of-audience a buyer needs. Google Search Console is verified (DNS TXT)
+          with the sitemap submitted, giving indexing status and search-query data. GA4 can be dropped in with a
+          single tag ID if a buyer wants it.</span></td>
+        </tr>
+        <tr>
+          <th>Running cost</th>
+          <td><b>Minimal, and set up to transfer.</b> <span>The site is static — no database or backend to maintain,
+          so there's nothing to keep running and hosting costs stay low. Domain, DNS, hosting, source repository, and
+          analytics are all in place and transfer cleanly to a new owner. Ongoing cost is essentially the annual
+          domain renewal.</span></td>
+        </tr>
+      </table>
+      </div>
+
+      <div class="pills" style="margin-top:22px;">
+        <span class="pill">Static HTML/CSS/JS</span>
+        <span class="pill">Vercel Pro</span>
+        <span class="pill">Auto HTTPS / SSL</span>
+        <span class="pill">DreamHost DNS</span>
+        <span class="pill">Private GitHub repo</span>
+        <span class="pill">JSON-LD structured data</span>
+        <span class="pill">FAQPage / GEO</span>
+        <span class="pill">Vercel Analytics</span>
+        <span class="pill">Search Console verified</span>
+        <span class="pill">NWS weather API</span>
+        <span class="pill">Formspree capture</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR THE BUYER -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker"><span class="n">05</span><h2 class="title">What A Buyer Gets</h2></div>
+      <ul class="incl">
+        <li><b>The domain</b> ellicottvilleoutside.com, live with SSL</li>
+        <li><b>Established Facebook page</b> plus a live Instagram (@ellicottvilleoutside)</li>
+        <li><b>11 finished pages</b> — no build phase to fund</li>
+        <li><b>Two full directories</b> (46 businesses) ready to monetize</li>
+        <li><b>Four SEO/GEO guides</b> + events, with schema in place</li>
+        <li><b>Image rights cleared</b> on all site photography</li>
+        <li><b>Social kit + two launch campaigns</b> ready to post</li>
+        <li><b>Analytics + Search Console</b> already collecting data</li>
+        <li><b>Private repo &amp; backups</b> — clean handoff of source</li>
+        <li><b>A defined revenue path</b> via featured placements</li>
+      </ul>
+
+      <div class="value" style="margin-top:34px;">
+        <div class="eyebrow">Indicative Valuation</div>
+        <h2>A finished, working asset</h2>
+        <p style="color:#dce3d6;max-width:60ch;">Value scales with proven traffic. As-is, the figure reflects
+        replacement cost — the build, content, directories, and setup already done. Once the audience is
+        demonstrated and featured slots are selling, the range steps up materially.</p>
+        <div class="row">
+          <div class="band">
+            <div class="k">As-is (replacement cost)</div>
+            <div class="p">$3k – $5k</div>
+            <small>Built, live, indexed, and backed up — before monetization.</small>
+          </div>
+          <div class="band">
+            <div class="k">Once monetized</div>
+            <div class="p">$10k – $25k+</div>
+            <small>With proven traffic and featured-listing revenue running.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 90-DAY PARTNERSHIP -->
+  <section class="block" style="background:var(--cream);">
+    <div class="wrap">
+      <div class="kicker"><span class="n">06</span><h2 class="title">The 90-Day Launch Partnership</h2></div>
+      <p class="sub" style="margin-bottom:22px;">An optional add-on to the sale. For the first three months after
+      handoff, we work shoulder to shoulder with a member of your team to launch one integrated social presence across
+      all three brands — the Bistro, the Bake Shop, and Ellicottville Outside — promoting one another in a coordinated
+      rhythm. Then we hand you the calendar, the templates, and the playbook so your team runs it on their own.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="tag">Cross-promotion</span>
+          <h3>Three brands, one voice</h3>
+          <p>The Bistro, the Bake Shop, and Ellicottville Outside post on a coordinated schedule, each one sending its
+          audience to the others — so a follower of any one brand discovers all three.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Stay + fuel up</span>
+          <h3>The walkable weekend</h3>
+          <p>Tie the featured village Airbnb to a "breakfast on us" at the Bistro and Bake Shop and the wider Fuel Up
+          partners — one package that fills rooms, tables, and the pastry case together.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Events-driven</span>
+          <h3>Promos on the calendar's rhythm</h3>
+          <p>Every entry on the events calendar — Taste of Ellicottville, HillTAP, Cabin Fever, the HoliMont MTB
+          series — becomes a timed promotion, so campaigns ride real demand instead of guessing.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Shoulder to shoulder</span>
+          <h3>Built with your team, then yours</h3>
+          <p>We work directly alongside your team member for the full 90 days — building the shared content calendar
+          and post templates, running the first campaigns together, and training them to carry it forward.</p>
+        </div>
+      </div>
+
+      <div class="value" style="margin-top:34px;">
+        <div class="eyebrow">Optional Add-On</div>
+        <h2>Ninety days, hands on</h2>
+        <p style="color:#dce3d6;max-width:60ch;">A hands-on runway to get all three brands working as one system, so
+        the audience and the revenue model are live and running before we step back.</p>
+        <div class="row">
+          <div class="band">
+            <div class="k">Engagement</div>
+            <div class="p">$3,000 / mo</div>
+            <small>Three months, shoulder to shoulder with your team.</small>
+          </div>
+          <div class="band">
+            <div class="k">Total</div>
+            <div class="p">$9,000</div>
+            <small>In addition to the one-time purchase of the site above.</small>
+          </div>
+        </div>
+        <p style="color:#dce3d6;max-width:64ch;margin:24px 0 0;font-size:.98rem;">
+          And if you love the work and the momentum we build together, we're glad to keep going beyond the 90 days —
+          on a month-to-month basis, no commitment required.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="disp">Ellicottville Outside</div>
+    <p style="margin-top:8px;">All things outdoor in Ellicottville, NY &nbsp;•&nbsp; ellicottvilleoutside.com &nbsp;•&nbsp;
+    Facebook &amp; Instagram @ellicottvilleoutside &nbsp;•&nbsp; Overview prepared July 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
