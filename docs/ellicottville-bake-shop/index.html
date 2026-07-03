@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Ellicottville Bake Shop — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F7F3EA;
+    color: #2B2019;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(180,83,9,0.18);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B45309;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #B45309;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #2B2019;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #5A4636;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(180,83,9,0.22);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #2B2019;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9C7C5A;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #fff0f0;
+    border: 1px solid #fca5a5;
+    border-left: 4px solid #dc2626;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #dc2626;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #7f1d1d; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(220,38,38,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(180,83,9,0.14);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FCF8F1; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #9C7C5A; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #2B2019; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(180,83,9,0.18); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #9C7C5A;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(180,83,9,0.09); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #5A4636; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #2B2019; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(120,53,15,0.12); color: #78350f; }
+  .badge-sister { background: rgba(21,128,61,0.12); color: #15803d; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #5A4636; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #2B2019; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #5A4636; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #F3E9DA; border: 1px solid rgba(180,83,9,0.14);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #2B2019; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #5A4636; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(180,83,9,0.05); border: 1px solid rgba(180,83,9,0.22);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #B45309; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #5A4636; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FCF8F1; border-bottom: 1px solid rgba(180,83,9,0.1); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #B45309; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #2B2019; }
+  .rec-detail { font-size: 14px; color: #5A4636; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #3d1f0e 0%, #B45309 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #f3ddc4; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #B45309;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #e7c9a6; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(180,83,9,0.14);
+    font-size: 11px; color: #9C7C5A;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026 · Ellicottville, New York</div>
+    <h1>Ellicottville<br>Bake Shop</h1>
+    <p>A scratch-made artisan bakery and breakfast café on Washington Street, born from a baking tour of Iceland and Europe and open since March 2024. Fresh bread daily, house-made breakfast sandwiches, locally sourced everything, and a genuinely loyal following. This is an audit of how that reputation shows up online — and where the in-person love isn't yet translating into search, reviews, and AI answers.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Ellicottville</div><div class="stat-label">Location</div></div>
+      <div class="stat"><div class="stat-val">Mar 2024</div><div class="stat-label">Opened</div></div>
+      <div class="stat"><div class="stat-val">~1,725</div><div class="stat-label">Instagram Followers</div></div>
+      <div class="stat"><div class="stat-val">Toast</div><div class="stat-label">Online Ordering (Live)</div></div>
+      <div class="stat"><div class="stat-val">4.8 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">Critical Issue — Requires Immediate Attention</div>
+      <p>The website's <code>sitemap.xml</code> — the file Google uses to crawl the site — is polluted with roughly <strong>150 junk "product listing" URLs</strong> that have nothing to do with a bakery: winter snow boots, an engine blower motor, a "breast milk refrigerator," a tactical laser, egress ladders. These pages now return <code>404 Not Found</code>, so Google is being handed 150 dead links to crawl instead of the real menu, about, and events pages. This is the signature of a <strong>spam-injection / compromised WordPress plugin</strong>. It wastes crawl budget, drags down the whole domain's quality signal in Google's eyes, and should be cleaned out and the site security-hardened right away.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#f7ecdc;border-bottom:1px solid rgba(180,83,9,0.22)">
+      <span class="section-num" style="color:#B45309">01</span>
+      <span class="section-title" style="color:#B45309">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A full artisan bakery and breakfast/lunch café. Rotating daily scratch breads (sourdough, rye, brioche, honey wheat, baguette), pastries (croissants, scones, cinnamon rolls, pain au chocolat, sticky buns), and signature breakfast sandwiches on house-made biscuits and breads — plus coffee. Cozy 30+ seat room with a fireplace.</div>
+        </div>
+        <div>
+          <div class="fact-label">Location &amp; Contact</div>
+          <div class="fact-val">5 E Washington St., Suite 5a, Ellicottville, NY 14731 · (716) 699-9116 · hello@ellicottvillebakeshop.com. Hours appear to be roughly Wed–Mon mornings into early afternoon — but listings disagree across sources, which is itself a fixable findability problem (see recommendations).</div>
+        </div>
+        <div>
+          <div class="fact-label">The Story</div>
+          <div class="fact-val">Owners Corey and Jennifer Hogan were inspired by a bakery in Iceland, then toured bakeries across Europe and the U.S. before opening in March 2024. Everything is baked fresh from scratch daily. A clear, quotable origin story — a real asset for both search and AI answers.</div>
+        </div>
+        <div>
+          <div class="fact-label">Local Sourcing</div>
+          <div class="fact-val">Ingredients sourced from Valley View Farms, Eden Valley Creamery, and Troll Bridge Farms. Community-driven from day one — the owners polled residents on opening hours to serve the pre-work and pre-ski crowd. This "local, from scratch" narrative is exactly what ranks and gets cited when it's written down and structured.</div>
+        </div>
+        <div>
+          <div class="fact-label">Ordering &amp; Catering</div>
+          <div class="fact-val">Online ordering runs through Toast (indexable and transactional — a genuine strength). Catering available for larger orders. The machine to take an order already works; the gap is upstream, in how many people find their way to it.</div>
+        </div>
+        <div>
+          <div class="fact-label">Sister Business</div>
+          <div class="fact-val">The Hogans also own <strong>Alpine Bistro</strong>, just up Washington Street. The two are a portfolio, not rivals — and right now neither one links to or cross-promotes the other online. Two loyal local audiences that could be feeding each other are being kept separate.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Location</th>
+            <th>Key Note</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Katy's Cafe</td>
+            <td class="geo">Ellicottville</td>
+            <td>The heavyweight for breakfast &amp; coffee overlap: ~200+ Yelp reviews, Google ~4.4, ranked #3 of 21 Ellicottville restaurants on TripAdvisor, BBB A+. A deep, cross-verified review moat the Bake Shop hasn't built.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Ellicottville Coffee Co.</td>
+            <td class="geo">Ellicottville</td>
+            <td>Google 4.7 / ~142 reviews, own website, small-batch roaster, gluten-free options. Direct coffee-and-pastry overlap with a materially stronger Google footprint.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Curated Chaos (formerly Cupcaked)</td>
+            <td class="geo">Ellicottville</td>
+            <td>Established 2017, bakery plus event/wedding cakes (WeddingWire 4.9). Overlaps on pastries and custom orders. A recent rebrand may have diluted its search presence — a window worth exploiting.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Watson's Chocolates</td>
+            <td class="geo">Ellicottville</td>
+            <td>Regional chocolate/ice-cream brand (since 1946) with strong foot traffic and recognition. A sweet-treat competitor for tourist dollars rather than a bread/breakfast rival.</td>
+            <td><span class="badge badge-lowmed">Low–Med</span></td>
+          </tr>
+          <tr>
+            <td>Waffle Cabin / area bakeries</td>
+            <td class="geo">Ellicottville</td>
+            <td>Seasonal, slope-adjacent sweet and breakfast draws. Lower profile; limited online presence. Minor competitive pressure.</td>
+            <td><span class="badge badge-low">Low</span></td>
+          </tr>
+          <tr>
+            <td>Alpine Bistro</td>
+            <td class="geo">Ellicottville</td>
+            <td>Same owners — the Hogans' sister restaurant. Not a competitor: a built-in cross-promotion partner that today shares no digital link with the Bake Shop.</td>
+            <td><span class="badge badge-sister">Sister</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        The Bake Shop has <strong>the hardest thing to build already built: a genuinely loved product and a real local following</strong> — strong Instagram, a warm origin story, from-scratch quality, and working online ordering. What's missing is the connective tissue between that reputation and the internet: reviews that corroborate the love, written content AI tools can cite, clean technical SEO, and a Google Business Profile doing its job. Competitors with less charm are winning the <em>findability</em> race.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#B45309">Strengths</div>
+          <div class="pos-card-text">Beloved, high-quality from-scratch product. Strong social presence (Instagram ~1,725, Facebook ~1.5K, both active). Clear, quotable origin and local-sourcing story. Toast online ordering live. Content-rich menu and about pages. Present — for now — in AI "best breakfast in Ellicottville" answers.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(194,65,12,0.25)">
+          <div class="pos-card-label" style="color:#c2410c">Current Position</div>
+          <div class="pos-card-text">Sitemap polluted with ~150 spam 404s. No SEO plugin, so no meta descriptions, Open Graph tags, or schema anywhere. No H1 on the homepage. Thin reviews (Yelp 18, TripAdvisor unclaimed/empty, Facebook ~3) despite a strong reputation. No blog, no FAQ. Google Business Profile status unconfirmed and likely underbuilt.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">Because the product and audience already exist, fixing findability converts fast. Clean the spam, add SEO fundamentals and schema, claim and build the Google Business Profile, launch a review engine, and publish an FAQ/blog layer. Then link the two Hogan businesses together so the Bake Shop and Alpine Bistro feed each other's traffic.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website (ellicottvillebakeshop.com)</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">The real pages are good — a deep menu, a well-told about page, events and news sections. The content bones are there. But the site runs on WordPress with no SEO plugin, a spam-polluted sitemap, and no structured data, so all that good content is working with one hand tied behind its back.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No meta description, no Open Graph tags, no Twitter cards, no JSON-LD schema, and zero H1 tags on the homepage — plus ~150 spam 404 URLs in the sitemap. The fundamentals search engines and AI crawlers rely on to understand a page are almost entirely absent. High-impact, low-cost to fix.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">We could not confirm an actively managed, fully built profile in our remote scan — the Google listing doesn't surface a rating or review count, which is itself a weak signal. For a café, the GBP is the #1 driver of "bakery / breakfast near me" and Maps discovery and a primary AI source. This needs to be claimed, verified, and built out (verify the live profile directly).</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-c">C–</span></div>
+          <div class="audit-note">Sentiment is uniformly warm, but volume is thin: ~18 on Yelp, TripAdvisor listing unclaimed with 0 reviews, ~3 on Facebook. For a well-loved two-year-old spot in a ski-tourist village, that's far below the real level of affection — a classic "great in person, quiet online" gap. Reviews are the single biggest trust and AI-citation lever here.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Instagram</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">@ellicottvillebakeshop — ~1,725 followers, active with Reels and regular posts. The genuine bright spot and clearly the strongest channel. Fresh bread and pastries are made for this platform, and the audience is already responding. The opportunity is to convert that following into reviews and website traffic.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Facebook</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">~1.5K followers on an active page — a solid local audience. But the reviews/recommendations feature is barely used (~3), so the page isn't pulling its weight as a social-proof or discovery channel. Low-effort wins available.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">Katy's Cafe and Ellicottville Coffee own the first page for "coffee / breakfast / bakery Ellicottville" on the strength of review depth and cleaner sites. With no on-page SEO foundation and a spam-damaged sitemap, the Bake Shop is under-ranking a product that deserves to be on top.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility (GEO)</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Present but fragile. Ask an AI "best breakfast in Ellicottville" and the Bake Shop does get named — the clear website and story help. But with no FAQ/blog content, thin reviews, and an empty TripAdvisor, the cross-verified signals AI weighs are weak, and better-reviewed competitors can easily displace it as these answers mature.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content — Blog / FAQ</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">The menu and about pages are strong, but there is no blog and no FAQ. FAQs are the single biggest GEO driver — the question-and-answer content AI assistants quote directly. "Do you have gluten-free options?" "When does fresh bread come out?" "Do you take custom orders?" — none of it is written down where a search engine or AI can find it.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Online Ordering (Toast)</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">Toast online ordering is live and indexable — real transactional infrastructure many small cafés lack. The conversion machine already works. As with everything here, the problem is upstream: not enough people are being routed to it from search, Maps, and AI answers.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Cross-Promotion w/ Alpine Bistro</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Same owners, two Washington Street businesses, zero digital connection between them. No shared "our other spot" links, no combined local SEO footprint, no cross-tagged social. Two loyal audiences kept apart — one of the easiest, free wins available to the Hogans.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-c">4.8</span></div>
+          <div class="audit-note">Score out of 10, weighing website quality, technical SEO, search and AI visibility, reviews, social activity, content, and ordering infrastructure. A genuinely loved product with strong social and live ordering is held back by broken technical SEO, thin reviews, and no content layer.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Ellicottville Bake Shop has already won the part money can't easily buy — people love the place. What it hasn't done is teach the internet to love it too. The reputation lives in person and on Instagram, but the review sites are thin, the TripAdvisor page is empty, there's no FAQ or blog for AI tools to quote, and the website is quietly being sabotaged by a spam-injected sitemap. Every one of those is low-cost and fast to fix, and because the product and the ordering system already work, better visibility flows almost directly to more orders through the door.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#fdf6ec;border-bottom:1px solid rgba(180,83,9,0.22)">
+      <span class="section-num" style="color:#B45309">05</span>
+      <span class="section-title" style="color:#B45309">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Clean the Spam &amp; Secure the Site — Now</span>
+          </div>
+          <div class="rec-detail">Remove the ~150 junk product URLs, regenerate a clean sitemap that lists only the real pages, and audit WordPress for the rogue plugin or compromise that created them. Then harden security (updates, strong admin credentials, a security plugin). This stops the domain-quality bleed and is the first thing Google needs to see fixed.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Install an SEO Foundation (Titles, Descriptions, Schema)</span>
+          </div>
+          <div class="rec-detail">Add an SEO plugin and give every page a real title, a meta description, Open Graph tags, and a proper H1. Then add <code>LocalBusiness</code> / <code>Bakery</code> and <code>Menu</code> JSON-LD schema so Google and AI tools can read the name, address, hours, and menu as structured data. This is the cheapest, highest-leverage ranking work available.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Claim &amp; Fully Build the Google Business Profile</span>
+          </div>
+          <div class="rec-detail">Verify the profile, lock in one consistent set of hours (the conflicting listings need to be reconciled), add the right category, the Toast ordering link, and a strong set of photos of the bread, pastries, and the room. For a café this is the top source of "near me" and Maps discovery and a primary feed for AI local answers.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Launch a Review Engine</span>
+          </div>
+          <div class="rec-detail">The love is real; it just isn't written down. Add a QR code at the register and on the bag, and a Toast follow-up, that ask happy customers for a Google review. Claim the TripAdvisor listing. Going from ~18 scattered reviews to 100+ Google reviews over a season transforms both trust and AI citations — and directly lifts Maps ranking.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Add an FAQ + Blog Layer (GEO)</span>
+          </div>
+          <div class="rec-detail">Publish an FAQ answering what people actually ask — gluten-free options, when fresh bread comes out, custom and catering orders, parking, ski-morning hours — plus a simple blog (new seasonal breads, the local farms you source from, the Iceland story). This is exactly the indexable, question-answering content that earns organic traffic and gets quoted in ChatGPT and Google AI answers.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Connect the Two Hogan Businesses</span>
+          </div>
+          <div class="rec-detail">Cross-link the Bake Shop and Alpine Bistro on both websites ("our sister spot up the street"), cross-tag on social, and present them as a small local family of businesses. It compounds two audiences into one, strengthens the local SEO footprint of both, and costs nothing but a few links and a coordinated post.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Turn Instagram Into a Traffic &amp; Review Driver</span>
+          </div>
+          <div class="rec-detail">The strongest channel is already working — now point it somewhere. Add the Toast ordering link and a "leave us a review" prompt to the bio and stories, keep the fresh-bread Reels coming, and tag Alpine Bistro and Ellicottville tourism accounts. Convert ~1,725 engaged followers into orders and Google reviews, not just likes.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Add a Bilingual-Ready, After-Hours AI Concierge</span>
+          </div>
+          <div class="rec-detail">Ellicottville draws heavy Ontario and Québécois ski traffic (the sister Bistro already runs a French page). An AI chat concierge on the site — answering hours, allergen, custom-order, and catering questions and pointing to Toast 24/7, in English and French — captures the tourist and after-hours interest that a small team can't field live. This is Doble AI's signature layer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>The bakery is loved. Let's make it findable.</h2>
+    <p>Ellicottville Bake Shop already has the product, the following, and the ordering system. The gap is visibility — and most of it is fast and low-cost: clean the site, add SEO and content, build reviews, and connect it to Alpine Bistro. Not a rebuild.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Ellicottville Bake Shop — Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>

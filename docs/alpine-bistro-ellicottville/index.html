@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Alpine Bistro — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(47,111,106,0.2);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2F6F6A;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #2F6F6A;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #46524C;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(47,111,106,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7C8C84;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #eefaf6;
+    border: 1px solid #99e2d0;
+    border-left: 4px solid #0f766e;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #0f766e;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #134e4a; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(15,118,110,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(47,111,106,0.16);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #1F2622; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(71,85,76,0.14);  color: #46524c; }
+  .badge-sister { background: rgba(15,118,110,0.14); color: #0f766e; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F2622; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #cdeae3; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #2F6F6A;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #a6d4cb; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026 · Ellicottville, New York</div>
+    <h1>Alpine<br>Bistro</h1>
+    <p>An all-day café and light bistro on Washington Street — house-roasted Ellicottville Coffee, fresh-baked pastries from the family bakery, made-to-order sandwiches, flatbreads and grain bowls, plus European wines and cocktails into Friday and Saturday evenings. Opened in late 2025 and vertically integrated with its own roaster and bakery. This is an audit of how a promising new spot is showing up online in its critical first year — and where the launch momentum isn't being captured.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Ellicottville</div><div class="stat-label">Location</div></div>
+      <div class="stat"><div class="stat-val">Dec 2025</div><div class="stat-label">Opened</div></div>
+      <div class="stat"><div class="stat-val">~1,739</div><div class="stat-label">Instagram Followers</div></div>
+      <div class="stat"><div class="stat-val">HTML Menu</div><div class="stat-label">Machine-Readable</div></div>
+      <div class="stat"><div class="stat-val">4.1 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">Highest-Leverage Opportunity — Verify First</div>
+      <p>Alpine Bistro occupies <strong>16 Washington Street — the former Ellicottville Coffee Company space</strong> — pours Ellicottville Coffee, and shares owners with that brand. There is very likely an established Google Business Profile under <strong>"Ellicottville Coffee" carrying roughly 4.7★ and ~142 reviews</strong> sitting under the old name, while the new "Alpine Bistro" brand shows almost none. Google lets you <strong>rename an existing profile and keep every review.</strong> If that profile hasn't been renamed to Alpine Bistro, the new business is starting from zero on the exact asset that took years to earn. <em>Confirm this on Google Maps first</em> — but if it's true, it's the single biggest, fastest win available.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A café and casual all-day bistro — not fine dining. House-roasted Ellicottville Coffee, fresh pastries and bread from the family bakery, made-to-order breakfast and lunch (sandwiches, flatbreads, grain bowls, salads), and a light European wine-and-cocktail offering with limited Friday–Saturday evening hours. A community "gathering spot" with couches, retail, and multiple seating areas in a 4,500 sq ft space.</div>
+        </div>
+        <div>
+          <div class="fact-label">Location &amp; Contact</div>
+          <div class="fact-val">16 Washington Street, Ellicottville, NY 14731 · (716) 993-2478 · hello@alpinebistrony.com. Roughly Sun–Thu 8am–4pm, Fri 8am–8pm, Sat 8am–9pm (listings disagree on whether Wednesday is closed — reconcile). Prices are approachable: pastries $1.75–$5.75, breakfast $8.50–$11.75, bowls up to ~$17.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Story</div>
+          <div class="fact-val">Opened late 2025 by Corey and Jennifer Hogan in the former "Adventure Bound on the Fly" space. Vertically integrated: their own coffee roaster (Ellicottville Coffee), their own bakery (Ellicottville Bake Shop), feeding one café. A genuinely distinctive, quotable local-empire story that currently isn't written down anywhere search engines or AI can use it.</div>
+        </div>
+        <div>
+          <div class="fact-label">Menu &amp; Ordering</div>
+          <div class="fact-val">The menu is published as real HTML text — fully machine-readable and indexable (a real GEO strength most restaurant sites lack, since so many bury the menu in a PDF or image). Online ordering runs through the Ellicottville Coffee platform. No reservation system — appropriate for a café, so not a gap.</div>
+        </div>
+        <div>
+          <div class="fact-label">Sister Businesses</div>
+          <div class="fact-val">Part of a three-brand family with <strong>Ellicottville Bake Shop</strong> (5 E Washington St) and <strong>Ellicottville Coffee</strong> — all Hogan-owned, all within a block. Today these brands barely link to or reinforce each other online, leaving significant shared-audience and local-SEO value on the table.</div>
+        </div>
+        <div>
+          <div class="fact-label">Bilingual Signal</div>
+          <div class="fact-val">The site already ships a French <code>/fr/</code> version — a smart nod to Ellicottville's heavy Ontario and Québécois ski traffic, and a foundation Doble AI can build into a genuine bilingual discovery and concierge layer no local competitor offers.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Location</th>
+            <th>Key Note</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Katy's Cafe</td>
+            <td class="geo">Ellicottville</td>
+            <td>Alpine's closest direct rival — same coffee/breakfast/lunch daypart. TripAdvisor 4.3 / ~176 reviews and an established café reputation. This is the head-to-head to win.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Ellicottville Brewing Co.</td>
+            <td class="geo">Ellicottville</td>
+            <td>Highest review volume in town (TripAdvisor 4.2 / ~922). Owns casual après and evening drink traffic — the lane Alpine's wine/cocktail hours reach for on weekends.</td>
+            <td><span class="badge badge-med">Med–High</span></td>
+          </tr>
+          <tr>
+            <td>Dina's</td>
+            <td class="geo">Ellicottville</td>
+            <td>Fine dining next door at 15 Washington St. TripAdvisor 4.2 / ~451, #2 in town, on OpenTable. Different daypart (dinner), but dominates its street's search and review footprint.</td>
+            <td><span class="badge badge-lowmed">Low–Med</span></td>
+          </tr>
+          <tr>
+            <td>West Rose</td>
+            <td class="geo">Ellicottville</td>
+            <td>Contemporary American with best-in-class online booking (Resy, OpenTable 4.9 / ~371). A different lane, but the local benchmark for what a polished digital presence looks like.</td>
+            <td><span class="badge badge-lowmed">Low–Med</span></td>
+          </tr>
+          <tr>
+            <td>Villaggio / Silver Fox / others</td>
+            <td class="geo">Ellicottville</td>
+            <td>Established dinner and bar-and-grill venues with deep review bases. Adjacent lanes; minor direct pressure on Alpine's café daypart.</td>
+            <td><span class="badge badge-low">Low</span></td>
+          </tr>
+          <tr>
+            <td>Ellicottville Bake Shop</td>
+            <td class="geo">Ellicottville</td>
+            <td>Same owners — the Hogans' sister bakery a block away. Not a competitor: a built-in cross-promotion partner that today shares no digital link with Alpine.</td>
+            <td><span class="badge badge-sister">Sister</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Alpine Bistro is a <strong>strong concept in its most fragile moment — the first year</strong>. It has a distinctive vertically-integrated story, an inherited local audience, and a machine-readable menu. But it opened only months ago, and the digital foundation isn't yet set up to capture launch momentum: the reviews are scattered and near-zero on the major platforms, the technical SEO is bare, and there may be a valuable Google profile stranded under the old coffee-shop name. New restaurants live or die on early discoverability, and right now the internet barely knows Alpine exists.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(47,111,106,0.08);border:1px solid rgba(47,111,106,0.22)">
+          <div class="pos-card-label" style="color:#2F6F6A">Strengths</div>
+          <div class="pos-card-text">Distinctive, vertically-integrated concept (own roaster + bakery). Inherited, engaged social audience (Instagram ~1,739, Facebook ~1.3K). Machine-readable HTML menu AI tools can index. Approachable pricing. A French page already live. Likely a strong legacy Google profile to reclaim.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(194,65,12,0.25)">
+          <div class="pos-card-label" style="color:#c2410c">Current Position</div>
+          <div class="pos-card-text">Brand-new, so reviews are thin and fragmented (Facebook ~26, TripAdvisor unclaimed / 0, Google unconfirmed under the new name). No SEO plugin: no meta descriptions, Open Graph, or schema. Generic H1. The mobile site blocks pinch-to-zoom. Invisible in AI answers for essentially every dining query.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">Reclaim and rename the legacy Google profile to inherit its reviews, add SEO fundamentals and schema, claim TripAdvisor, publish an FAQ and coffee/breakfast content, and link the three Hogan brands together. Do it in the launch window and Alpine can own "coffee &amp; breakfast in Ellicottville" before Katy's-level review gaps calcify.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website (alpinebistrony.com)</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">A clean, modern WordPress/Divi site with About, Menu, Coffee, and Bar pages and a real HTML menu. Functional and on-brand. But the content is thin, there's no SEO plugin behind it, and the mobile viewport disables pinch-to-zoom — an accessibility and usability miss. Good starting point, weak foundation underneath.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No meta description, no Open Graph tags, no Twitter cards, no JSON-LD schema, and only a generic "Alpine Bistro" H1. Search engines and AI crawlers are given almost nothing structured to understand the business — its hours, menu, or location. All low-cost, high-impact to fix.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">No confirmed profile under "Alpine Bistro" surfaced in our remote scan. But a legacy "Ellicottville Coffee" profile (~4.7★ / ~142 reviews) very likely covers this exact address. Reconciling/renaming it — rather than starting a new one from zero — is the highest-leverage findability move available. Verify on Google Maps.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Nascent, as expected for a new business: Facebook ~26 recommendations (100% positive), TripAdvisor listing unclaimed with 0 reviews, Google unconfirmed under the new name. Sentiment is good but volume is tiny and fragmented. Building — and consolidating — reviews is job one for a first-year restaurant.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Instagram</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">@alpinebistrony — ~1,739 followers, active with reels and posts, likely carrying over the established Ellicottville Coffee audience. The strongest channel by far. The opportunity is to point that audience at reviews, the ordering link, and the sister businesses.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Facebook</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">~1.3K followers and 26 positive recommendations on an active page — a healthy base for a new business. Underused as a review and discovery engine; a light, consistent cadence and a review prompt would compound it quickly.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">With no on-page SEO foundation and a months-old domain, Alpine ranks nowhere for "coffee / breakfast / café Ellicottville" — where Katy's Cafe and the entrenched set sit. Nothing structured for search engines to latch onto yet, despite a genuinely differentiated offer.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility (GEO)</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">Ask an AI for dining in Ellicottville and Alpine isn't cited (correctly, for dinner queries — it's a café). But it's also largely absent for "best coffee / breakfast" answers, where it should compete. Its machine-readable HTML menu is the one asset an LLM can index today; a claimed profile, an FAQ, and café-focused content are the fastest GEO wins.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content — Blog / FAQ</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">The HTML menu is a plus, but there's no blog and no FAQ — the single biggest GEO driver. The questions people ask about a new spot ("Do they have wifi / seating / vegan options? Is the wine bar open weeknights? Do they roast their own coffee?") aren't answered anywhere indexable.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Mobile &amp; Accessibility</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">The viewport is set to <code>maximum-scale=1.0, user-scalable=0</code>, which blocks pinch-to-zoom on phones — an accessibility failure and a friction point for the majority of café visitors browsing on mobile. Images also lack alt text. Both are quick fixes with real usability and SEO upside.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Cross-Promotion (3 Hogan Brands)</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Coffee roaster, bakery, and bistro — one family, one block, three audiences kept digitally separate. No shared "our family of shops" links, combined local SEO, or cross-tagged social. Connecting them is a free, compounding win unique to this owner.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-c">4.1</span></div>
+          <div class="audit-note">Score out of 10, weighing website quality, technical SEO, search and AI visibility, reviews, social activity, content, mobile/accessibility, and menu indexability. A differentiated concept with strong social and a machine-readable menu is held back by a bare SEO foundation and a first-year review gap — with a likely legacy Google profile to reclaim.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Alpine Bistro has a great story and an inherited audience, but it's spending its most important year — the first one — nearly invisible online. The website tells search engines almost nothing, the reviews are scattered across platforms at near-zero, and there's very likely a 4.7★/~142-review Google profile stranded under the old "Ellicottville Coffee" name that the new brand should be inheriting, not abandoning. None of this requires a rebuild. It requires reclaiming what already exists, adding the SEO and content fundamentals, and connecting Alpine to its sister bakery and roaster — while the launch window is still open.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#effaf7;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">05</span>
+      <span class="section-title" style="color:#2F6F6A">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Reclaim &amp; Rename the Legacy Google Profile — First</span>
+          </div>
+          <div class="rec-detail">Confirm on Google Maps whether the "Ellicottville Coffee" profile (~4.7★ / ~142 reviews) covers 16 Washington Street. If it does, rename it to "Alpine Bistro" through Google Business Profile so the new brand inherits every review, photo, and year of ranking history — instead of starting from zero. This one move can leapfrog Alpine past most of the local review gap overnight.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Install an SEO Foundation (Titles, Descriptions, Schema)</span>
+          </div>
+          <div class="rec-detail">Add an SEO plugin and give every page a real title, meta description, and Open Graph tags, plus a specific H1. Add <code>Restaurant</code> / <code>CafeOrCoffeeShop</code> and <code>Menu</code> JSON-LD schema so Google and AI tools can read the name, address, hours, and menu as structured data. The HTML menu is already a strength — schema makes it a citable one.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Fix Mobile Zoom &amp; Add Alt Text</span>
+          </div>
+          <div class="rec-detail">Remove <code>maximum-scale=1.0, user-scalable=0</code> from the viewport so phone visitors can pinch-to-zoom — an accessibility requirement and a usability win for the mobile-first café crowd. Add descriptive alt text to menu and space photos. Fast, cheap, and good for both users and search.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Launch a Review Engine &amp; Claim TripAdvisor</span>
+          </div>
+          <div class="rec-detail">Add table tents and a receipt QR asking happy guests for a Google review, and claim the unclaimed TripAdvisor listing. In a new restaurant's first year, going from a couple dozen scattered reviews to 100+ consolidated Google reviews is the difference between showing up and being invisible — and it directly feeds Maps ranking and AI citations.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Publish an FAQ + Coffee/Breakfast Content (GEO)</span>
+          </div>
+          <div class="rec-detail">Add an FAQ (hours, wifi and seating, vegan/gluten-free options, whether the wine bar runs weeknights, that the coffee is roasted in-house) and a light blog around the roaster, the bakery, and seasonal menus. This is the indexable, question-answering content that wins "best coffee/breakfast in Ellicottville" in both Google and AI answers.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Connect the Three Hogan Brands</span>
+          </div>
+          <div class="rec-detail">Cross-link Alpine Bistro, Ellicottville Bake Shop, and Ellicottville Coffee across all three sites and social accounts, and present them as one local family of shops. It compounds three audiences, strengthens each brand's local SEO, and tells a story ("roasted, baked, and served within a block") that no competitor can match — all for the cost of a few links.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Turn Instagram Into a Traffic &amp; Review Driver</span>
+          </div>
+          <div class="rec-detail">The inherited ~1,739-follower audience is the strongest asset — now direct it. Put the ordering link and a "leave us a review" prompt in the bio and stories, keep coffee/pastry reels going, and cross-tag the bakery and Ellicottville tourism accounts. Convert engaged followers into reviews, orders, and search signals, not just likes.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Build the French Page Into a Bilingual Concierge</span>
+          </div>
+          <div class="rec-detail">Alpine already ships a French <code>/fr/</code> page — a real head start given Ellicottville's Ontario and Québécois ski traffic. Extend it into a full bilingual layer with an English/French AI chat concierge that answers hours, menu, allergen, and ordering questions 24/7. No local competitor serves French-speaking visitors well — this is Doble AI's signature wedge.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>Great concept. Let's win the first year.</h2>
+    <p>Alpine Bistro has the story, the audience, and a machine-readable menu. The gap is discoverability — and most of it is fast: reclaim the legacy Google profile, add SEO and content, build reviews, and connect the three Hogan brands. Not a rebuild.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Alpine Bistro — Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
