@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Walker Welding &amp; Fabrication — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F5F1EA;
+    color: #1C1410;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid rgba(194,65,12,0.15); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #c2410c; margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #c2410c; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px); font-weight: 500;
+    color: #1C1410; line-height: 1.05; margin-bottom: 16px;
+  }
+  .hero p { font-size: 19px; color: #43342B; line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0; margin-right: 28px; margin-bottom: 10px;
+    border-right: 1px solid rgba(194,65,12,0.2);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500;
+    color: #1C1410; line-height: 1; margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #8a6a52;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px; background: #fbf0e9; border: 1px solid #e8a879;
+    border-left: 4px solid #c2410c; border-radius: 8px; padding: 18px 22px;
+  }
+  .alert-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #b03c0a; margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #6e3410; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(194,65,12,0.1); padding: 1px 6px; border-radius: 4px; font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section { margin-top: 48px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(194,65,12,0.12); }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75; }
+  .section-title { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .section-body { padding: 28px 24px; background: #FBF7F0; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #8a6a52; margin-bottom: 6px; }
+  .fact-val { font-size: 16px; color: #1C1410; line-height: 1.6; }
+
+  /* ── Two-Site Compare ── */
+  .site-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .site-grid { grid-template-columns: 1fr; } }
+  .site-card { border: 1px solid rgba(194,65,12,0.18); border-radius: 10px; overflow: hidden; background: #fff; }
+  .site-card-head { padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .site-name { font-size: 15px; font-weight: 700; color: #1C1410; }
+  .site-url { font-size: 12.5px; color: #8a6a52; font-family: ui-monospace, Menlo, monospace; margin-top: 2px; }
+  .site-body { padding: 16px 18px; }
+  .site-body ul { list-style: none; }
+  .site-body li { font-size: 14px; color: #43342B; line-height: 1.5; padding-left: 18px; position: relative; margin-bottom: 8px; }
+  .site-body li::before { content: '·'; position: absolute; left: 4px; color: #c2410c; font-weight: 700; }
+  .site-verdict { margin-top: 12px; padding-top: 12px; border-top: 1px dashed rgba(194,65,12,0.25); font-size: 13.5px; color: #6e3410; line-height: 1.5; }
+  .merge-note { margin-top: 18px; background: rgba(194,65,12,0.06); border: 1px solid rgba(194,65,12,0.2); border-radius: 8px; padding: 16px 20px; font-size: 15px; color: #43342B; line-height: 1.65; }
+  .merge-note strong { color: #1C1410; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(194,65,12,0.15); }
+  th { text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a6a52; }
+  th:first-child { padding-left: 0; }
+  th:last-child { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(194,65,12,0.07); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #43342B; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1C1410; }
+  td:last-child { padding-right: 0; }
+  .geo { white-space: nowrap; }
+  .comp-intro { font-size: 15px; color: #43342B; line-height: 1.65; margin-bottom: 18px; }
+  .comp-intro strong { color: #1C1410; }
+
+  .badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.12);  color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(26,73,113,0.1);  color: #1a4971; }
+  .badge-open   { background: rgba(21,128,61,0.12); color: #15803d; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #43342B; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1C1410; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #43342B; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card { background: #F6EEE4; border: 1px solid rgba(194,65,12,0.12); border-radius: 8px; padding: 14px 16px; }
+  .audit-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1C1410; }
+  .grade { font-size: 13px; font-weight: 800; color: #fff; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-c  { background: #b45309; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .grade-num { background: #7d3a1e; }
+  .audit-note { font-size: 14px; color: #43342B; line-height: 1.5; }
+
+  .key-finding { background: rgba(194,65,12,0.05); border: 1px solid rgba(194,65,12,0.2); border-radius: 8px; padding: 16px 20px; }
+  .key-finding-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #c2410c; margin-bottom: 8px; }
+  .key-finding p { font-size: 16px; color: #43342B; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FBF7F0; border-bottom: 1px solid rgba(194,65,12,0.08); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #c2410c; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1C1410; }
+  .rec-detail { font-size: 14px; color: #43342B; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block { margin-top: 56px; background: linear-gradient(135deg, #1c1917 0%, #c2410c 100%); border-radius: 12px; padding: 40px 36px; text-align: center; }
+  .cta-block h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: #ffffff; margin-bottom: 12px; }
+  .cta-block p { font-size: 17px; color: #f6d8c4; line-height: 1.6; max-width: 540px; margin: 0 auto 28px; }
+  .cta-btn { display: inline-block; background: #ffffff; color: #c2410c; font-size: 15px; font-weight: 700; padding: 14px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.15s; }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #f0c2a4; }
+
+  /* ── Footer ── */
+  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(194,65,12,0.12); font-size: 11px; color: #8a6a52; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026 · Eagle County, Colorado</div>
+    <h1>Walker Welding<br>&amp; Fabrication</h1>
+    <p>A Colorado-native, owner-operated mobile welding and fabrication business run by Jack Walker out of Eagle, CO — custom fabrication, repair and restoration, mobile on-site welding, and design, across steel, stainless, and aluminum. The work looks strong and the website is genuinely well made. This is an audit of how that business shows up online today — and right now, almost no one can find it.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Eagle, CO</div><div class="stat-label">Home Base</div></div>
+      <div class="stat"><div class="stat-val">Two</div><div class="stat-label">Live Websites</div></div>
+      <div class="stat"><div class="stat-val">Mobile</div><div class="stat-label">Comes To You</div></div>
+      <div class="stat"><div class="stat-val">Not Found</div><div class="stat-label">On Google</div></div>
+      <div class="stat"><div class="stat-val">3.0 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">Headline Finding — Two Websites Competing With Each Other</div>
+      <p>Walker Welding is running <strong>two separate live websites for one business</strong> — <code>walkerweldingdenco.com</code> and <code>walkerwelds.com</code> — with the same phone number and the same email. Google can't tell which one is the "real" site, so any authority the business earns is split between them, and neither ranks. On top of that, the newer, better-looking site is branded around <strong>Denver</strong> while the business is actually based in <strong>Eagle</strong> — pointing customers and search engines at the wrong market. The single biggest win here is to consolidate into one site, anchored to your real Eagle County home base.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#f7ede4;border-bottom:1px solid rgba(194,65,12,0.2)">
+      <span class="section-num" style="color:#c2410c">01</span>
+      <span class="section-title" style="color:#c2410c">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">An owner-operated mobile welding and fabrication business — "Built Strong. Built to Last." A fully-equipped mobile rig comes to the customer for repairs, custom builds, and precision work, using all processes (MIG, TIG, stick) across steel, stainless, and aluminum. Positioned on 24-hour emergency response, a satisfaction guarantee, and licensed / certified / insured work.</div>
+        </div>
+        <div>
+          <div class="fact-label">Owner &amp; Location</div>
+          <div class="fact-val">Jack Walker · 210 Marmot Ln #B8, Eagle, CO 81631 · serving Eagle County and the surrounding valley. A real, physical Eagle County address is the foundation to build all local visibility on.</div>
+        </div>
+        <div>
+          <div class="fact-label">Services</div>
+          <div class="fact-val">Custom Fabrication (steel components, frames, brackets, assemblies to spec), Repair &amp; Restoration (equipment, trailers, farm machinery, structural), Mobile Welding (on-site rig, no hauling), and Design (works from drawings or designs from scratch, "built to print").</div>
+        </div>
+        <div>
+          <div class="fact-label">Contact</div>
+          <div class="fact-val">(970) 379-1722 · walkerweldingcontact@gmail.com. A working "Get a Free Quote" form on the newer site. Contact runs on a free Gmail address rather than a branded one — worth upgrading so leads never land in a personal inbox.</div>
+        </div>
+        <div>
+          <div class="fact-label">Reviews Shown</div>
+          <div class="fact-val">Three genuine 5-star Google reviews are displayed on the site — including one from a remote logging site, a trailer repair, and a gym-equipment fix. Real, positive proof — but hard-coded as text rather than flowing from a live, growing Google profile that new customers can find and add to.</div>
+        </div>
+        <div>
+          <div class="fact-label">Social Presence</div>
+          <div class="fact-val">Footer icons for Facebook, LinkedIn, and Google are placeholders with no live links. There is no active social channel — a missed opportunity in a trade where before/after weld photos are some of the most sharable content there is.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Your Two Websites -->
+  <div class="section">
+    <div class="section-head" style="background:#eef2f6;border-bottom:1px solid rgba(26,73,113,0.2)">
+      <span class="section-num" style="color:#1a4971">02</span>
+      <span class="section-title" style="color:#1a4971">Your Two Websites</span>
+    </div>
+    <div class="section-body">
+      <div class="site-grid">
+        <div class="site-card">
+          <div class="site-card-head" style="background:#f7ede4">
+            <div>
+              <div class="site-name">Site A — "DenCo"</div>
+              <div class="site-url">walkerweldingdenco.com</div>
+            </div>
+            <span class="grade grade-d">3.5</span>
+          </div>
+          <div class="site-body">
+            <ul>
+              <li>Newer, custom-coded single-page site — clean, modern, and genuinely well-written. The best-looking of the two.</li>
+              <li>Clear service cards, a 4-step process, testimonials, and a working quote form.</li>
+              <li>Branded around <strong>Denver</strong> — a market you're not based in and can't realistically win.</li>
+              <li>One page only, no meta description, no structured data — nothing for Google to rank.</li>
+            </ul>
+            <div class="site-verdict"><strong>Verdict:</strong> The better design and copy — keep this as the look and feel, but re-anchor it to Eagle.</div>
+          </div>
+        </div>
+        <div class="site-card">
+          <div class="site-card-head" style="background:#eef2f6">
+            <div>
+              <div class="site-name">Site B — "Walkerwelds"</div>
+              <div class="site-url">walkerwelds.com</div>
+            </div>
+            <span class="grade grade-d">2.8</span>
+          </div>
+          <div class="site-body">
+            <ul>
+              <li>Older Wix site with the <strong>real Eagle, CO address</strong> — the legitimate local anchor.</li>
+              <li>Four pages (Home, Mobile Welding, Consulting, Projects) plus a project gallery.</li>
+              <li>Thin browser title ("Home | Walker Welding"), no testimonials, no reviews engine, no social.</li>
+              <li>Minimalist and less polished than Site A, but pointed at the correct market.</li>
+            </ul>
+            <div class="site-verdict"><strong>Verdict:</strong> The right location, the weaker build — it holds the Eagle address Site A is missing.</div>
+          </div>
+        </div>
+      </div>
+      <div class="merge-note">
+        <strong>The move:</strong> combine the best of both into a single site — Site A's clean design and copy, on Site B's real Eagle County address and service-area — then retire or redirect the other so you stop competing with yourself. One strong site pointed at Eagle will outrank two half-built ones every time.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eef4f8;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">03</span>
+      <span class="section-title" style="color:#2563eb">The Market</span>
+    </div>
+    <div class="section-body" style="padding:24px 24px 20px">
+      <p class="comp-intro">Here's why the Denver branding works against you. <strong>Denver metro is one of the most crowded mobile-welding markets in the state</strong> — decades-old shops with fleets, certifications, and hundreds of reviews. You can't out-muscle them from Eagle. But your actual market — <strong>Eagle County — is wide open</strong>, with very few welders competing for local search. That's the market to own.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Competitor</th>
+            <th>Market</th>
+            <th>Key Note</th>
+            <th>Threat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mountain Man Welding &amp; Fabrication</td>
+            <td class="geo">Denver, CO</td>
+            <td>Family-owned since 1992 — grew from one truck to a fleet plus a CNC fabrication shop. Decades of authority on "mobile welding Denver."</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>All American Iron</td>
+            <td class="geo">Denver, CO</td>
+            <td>25+ years, veteran-owned, certified mobile welders serving residential and commercial with dedicated service pages and an established profile.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Fox Fabrication</td>
+            <td class="geo">Front Range</td>
+            <td>Markets itself as "the leader in mobile welding" on the Front Range, D1.1 certified, with landing pages built specifically to rank.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>OG Welding &amp; Steel Fabrication</td>
+            <td class="geo">Denver + Front Range</td>
+            <td>City-by-city service pages (Fort Collins, Greeley, Aurora, Lakewood…) that capture the exact "welding near me" searches a single page can't.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Eagle County local welders</td>
+            <td class="geo">Eagle, CO</td>
+            <td>Very thin local competition and little organized online presence. A claimed Google profile, a real Eagle-anchored site, and reviews would let Walker own "welder near me" in the valley quickly.</td>
+            <td><span class="badge badge-open">Wide Open</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f6f1e6;border-bottom:1px solid rgba(146,97,14,0.2)">
+      <span class="section-num" style="color:#92610e">04</span>
+      <span class="section-title" style="color:#92610e">Where You Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Walker Welding has done the part most trades skip — <strong>a professional, well-written website and a clear, credible offer</strong>. The presentation is a real asset. What's missing is everything that happens <em>before</em> a customer reaches the site: a Google Business Profile, one clear website instead of two, reviews that grow, and a settled Eagle-based service area. The good news is that the hard, expensive part is already done.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(194,65,12,0.07);border:1px solid rgba(194,65,12,0.2)">
+          <div class="pos-card-label" style="color:#c2410c">Strengths</div>
+          <div class="pos-card-text">A clean, modern, well-written website — better presented than most trade competitors. Clear service lines, all processes and all metals, a 4-step process, a working quote form, 24-hour emergency positioning, three genuine 5-star reviews, a real Eagle County address, and a "Colorado native, come-to-you" story. The offer and the presentation are real.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">Current Position</div>
+          <div class="pos-card-text">Two competing websites splitting authority. No Google Business Profile. No structured data or meta descriptions. A single rankable page on the better site. Three static reviews with no engine to grow them. Placeholder social links, a free Gmail, English only, and a Denver brand on an Eagle business. Invisible in both classic search and AI answers.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">The expensive part — a professional site and a solid offer — is done; the cheap part, being found, isn't. Consolidating to one Eagle-anchored site, claiming a Google Business Profile, adding a few service pages, a review engine, and a bilingual layer would put an already-good business in front of a wide-open local market — and an AI assistant would catch the 24-hour emergency demand it already advertises.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fdf1ec;border-bottom:1px solid rgba(194,65,12,0.2)">
+      <span class="section-num" style="color:#c2410c">05</span>
+      <span class="section-title" style="color:#c2410c">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website — Design &amp; Copy</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">The bright spot. The "DenCo" site is clean, modern, and well-written, with clear service lines, a 4-step process, embedded reviews, and a working quote form. Better presented than most trade competitors — this is a genuine asset to build on.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Two Competing Sites</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Two live sites for one business, same phone and email, split Google's trust between them so neither ranks. This is the single most damaging issue — and the easiest to fix by consolidating to one.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No claimed, built-out profile found under either site. For a mobile, owner-operated business this is the #1 driver of "welder near me" and Maps discovery, and the primary feed for AI local answers. The biggest single miss.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Location Signal</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">The better site brands around Denver while the business is based in Eagle. Muddled geography confuses both customers and Google about where you actually serve, and points your best asset at a market you can't win.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Site Architecture</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">The strong site is a single page — one indexable URL. No separate service or service-area pages. There's nothing to rank against "trailer repair Eagle," "mobile welding Vail," or any specific job. One page can only rank for one thing.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO &amp; Schema</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No meta description, no Open Graph preview, and no LocalBusiness structured data on the main site. That structured record of name, phone, area, hours, and reviews is what powers Google's local pack and AI answers — and it's absent.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Three genuine 5-star reviews — but hard-coded as text, not flowing from a live Google profile, with no engine to collect more. Established competitors carry dozens. A compounding trust and ranking gap.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Search the business name or "mobile welding" anywhere in the valley and Walker doesn't appear. With two split sites, no schema, and no profile, there's simply nothing positioned to rank.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Ask ChatGPT, Gemini, or Perplexity for a welder near Eagle or Vail and Walker isn't named. AI pulls from indexed content, structured data, reviews, and Google profiles — every one of which is a gap right now.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social Media</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Footer icons for Facebook, LinkedIn, and Google are placeholders with no live links. No active channel to show work, build trust, or feed discovery — in a trade where the job-photo content practically shoots itself.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Bilingual / Spanish</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">English only. Welding and the trades carry a heavily bilingual workforce and customer base across the valley, and no local welder serves Spanish-speaking clients well. The clearest uncontested wedge — and exactly what Doble AI is built to deliver.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-num">3.0</span></div>
+          <div class="audit-note">Out of 10, weighing website quality, site consolidation, technical SEO, structured data, search and AI visibility, Google profile, reviews, social, location signal, and bilingual reach. A strong business sitting on almost no findability foundation.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Walker Welding is the rare business whose <strong>website is the strong part</strong> — the build is clean, the copy is good, the offer is credible, and the reviews are real. The problem is that no one can find it: two competing sites splitting authority, no Google Business Profile, no structured data, and a Denver brand on an Eagle business. When someone in the valley searches for a welder, Walker simply isn't there. Because the presentation already earns trust, fixing findability flows almost directly to booked jobs — and nearly every fix is low-cost and fast. Combined score: 3.0 / 10.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#f7ede4;border-bottom:1px solid rgba(194,65,12,0.2)">
+      <span class="section-num" style="color:#c2410c">06</span>
+      <span class="section-title" style="color:#c2410c">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Consolidate to One Website</span></div>
+          <div class="rec-detail">Pick one site and commit to it — the recommended path is to keep the cleaner "DenCo" design and copy but rebuild it around your real Eagle County identity, then redirect the other domain to it. One strong, focused site stops the two from cannibalizing each other and lets all your search authority compound in one place.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Own "Eagle," Not "Denver"</span></div>
+          <div class="rec-detail">Re-anchor the brand and site to Eagle County — the market you're actually in and can realistically win. Update the naming, headlines, and service-area language to Eagle, Vail, Gypsum, Edwards, and the surrounding valley. It matches your address, your phone's 970 area code, and even the "remote logging site" review — and puts you in a far less crowded market than Denver metro.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Claim and Build the Google Business Profile</span></div>
+          <div class="rec-detail">The highest-leverage move, and it's free. Verify the profile as a service-area business (mobile, no storefront), pick the right categories, list services and your 24-hour emergency hours, and load real job photos. This is the #1 driver of "welder near me," Maps results, and the local answers AI assistants cite.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Add Schema, Meta Descriptions &amp; Rankable Pages</span></div>
+          <div class="rec-detail">On the consolidated site, add LocalBusiness structured data (name, phone, area served, hours, reviews), keyword-rich meta descriptions, and Open Graph tags so shared links show a proper preview. Then break the single page into focused, rankable pages — "Custom Steel Fabrication," "Trailer &amp; Equipment Repair," "24-Hour Mobile Welding in Eagle County" — so the site can show up for the specific jobs people search.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Launch a Review Engine</span></div>
+          <div class="rec-detail">Move from three static reviews to a live, growing Google profile. Text every satisfied customer a one-tap review link right after the job. Review volume is both a trust signal and a ranking and AI-citation factor — the practical way to pass established competitors in the wider market and dominate the local one.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">06</span><span class="rec-title">Add a Bilingual (English / Spanish) Layer</span></div>
+          <div class="rec-detail">A Spanish version of the site and quote form opens a heavily bilingual trade audience that no local welder serves well, and differentiates Walker instantly. It's a natural fit for a hands-on trade with a bilingual customer base — and Doble AI's signature capability.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">07</span><span class="rec-title">Add a Bilingual AI Quote &amp; Dispatch Assistant</span></div>
+          <div class="rec-detail">The site advertises 24-hour emergency response — so back it up. A bilingual AI chat and voice assistant could triage jobs, answer scope and pricing questions, capture location and photos, and route urgent calls day or night — turning the after-hours emergency demand you already promise into booked work instead of a missed call.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">08</span><span class="rec-title">Turn On Real Social + Job Photos</span></div>
+          <div class="rec-detail">Replace the placeholder icons with a live Facebook and Instagram and post before/after weld photos from real jobs. Welding is intensely visual; the content is created on every job and doubles as social proof and a discovery channel that feeds both search and word of mouth.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>The work is strong. Let's make it findable.</h2>
+    <p>Walker Welding already has the skill, the offer, and a good-looking site. The gap is visibility — and most of it is fast and low-cost: consolidate to one Eagle-anchored site, claim your Google profile, grow reviews, and add a bilingual AI layer. No rebuild-from-scratch required.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Walker Welding &amp; Fabrication — Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
