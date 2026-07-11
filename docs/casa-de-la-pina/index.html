@@ -86,6 +86,12 @@
   .paynote{font-size:14px;color:var(--ink-soft);margin-top:20px;}
   .methods{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none;}
   .methods li{font-size:13.5px;background:var(--plaster-2);border:1px solid var(--line);padding:6px 13px;border-radius:99px;color:var(--ink);}
+  .rates{display:flex;flex-wrap:wrap;gap:8px 10px;margin:18px 0 0;padding:0;list-style:none;}
+  .rates li{display:flex;align-items:baseline;gap:8px;background:var(--plaster-2);border:1px solid var(--line);padding:8px 14px;border-radius:10px;}
+  .rates .rlabel{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);}
+  .rates .rval{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:18px;color:var(--teal);font-variant-numeric:tabular-nums;}
+  .rates li.best{border-color:var(--gold);}
+  .rates .rbest{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;}
 
   ul.clean{list-style:none;margin:0;padding:0;}
   ul.clean li{position:relative;padding:8px 0 8px 26px;border-bottom:1px solid var(--line);font-size:16px;}
@@ -155,23 +161,29 @@
 
   <section>
     <p class="eyebrow">The place</p>
-    <p>Casa de la Piña is a self-contained two-bedroom casita set within our family property in the heart of Ajijic, on the north shore of Lake Chapala. You enter through the property's main gate, shared with the main house, and the casita is your own separate space inside, with its own walled garden and a pool kept for the exclusive use of casita guests. We live in the main house on the same property, so someone is always close by if you ever need anything.</p>
-    <p style="margin-top:16px;">Water, electricity, gas, drainage, and Wi-Fi are all covered by us. The kitchenette comes fully equipped, and towels and linens are included.</p>
+    <p>Casa de la Piña is a self-contained two-bedroom casita set within our family property in the heart of Ajijic, on the north shore of Lake Chapala. You enter through the property's main gate, shared with the main house, and the casita is your own separate space inside, with its own walled garden and a pool kept for the exclusive use of casita guests. A person we trust lives in the main house on the same property, so someone is always close by if you ever need anything.</p>
+    <p style="margin-top:16px;">Water, electricity, gas, drainage, and Wi-Fi are all covered by us. The kitchenette comes fully equipped, and towels and linens are included. A welcome gift will be waiting for you when you arrive.</p>
   </section>
 
   <section>
     <p class="eyebrow">What it costs</p>
     <div class="pay">
       <div class="totals">
-        <div><div class="big">$3,000</div><div class="cap">Total rent, USD, per month</div></div>
+        <div><div class="big">$115</div><div class="cap">Per night, USD · 3-night minimum</div></div>
         <div class="dep"><div class="amt">+ $500</div><div class="cap">Refundable security deposit</div></div>
       </div>
-      <p style="margin:0 0 18px;font-weight:600;color:var(--ink);">Rent is paid in two equal halves.</p>
+      <ul class="rates">
+        <li><span class="rlabel">Weekend · 3 nights</span><span class="rval">$345</span></li>
+        <li><span class="rlabel">One week</span><span class="rval">$805</span></li>
+        <li class="best"><span class="rlabel">One month</span><span class="rval">$3,000</span><span class="rbest">best rate</span></li>
+      </ul>
+      <p class="paynote" style="margin-top:12px">The monthly rate works out to about $100 a night, a discount on the nightly price.</p>
+      <p style="margin:22px 0 18px;font-weight:600;color:var(--ink);">How payment works</p>
       <div class="split">
-        <div class="inst"><span class="tag">Reserves your dates</span><div class="pct serif">50%</div><div class="amt">$1,500</div><div class="when">Due when you sign the agreement. The $500 deposit is paid together with this first half.</div></div>
-        <div class="inst"><span class="tag">Balance</span><div class="pct serif">50%</div><div class="amt">$1,500</div><div class="when">Due 60 days before check-in, on the exact date shown in your agreement.</div></div>
+        <div class="inst"><span class="tag">Under a month</span><div class="amt" style="font-size:23px">Paid in full</div><div class="when">Paid in full when you book, together with the $500 deposit. Your dates are held once payment is received.</div></div>
+        <div class="inst"><span class="tag">Monthly stay</span><div class="amt" style="font-size:23px">50% + 50%</div><div class="when">Half ($1,500) at signing to reserve, with the deposit, and the other half 60 days before check-in.</div></div>
       </div>
-      <p class="paynote">Everything is paid in US dollars. You can pay either half by:</p>
+      <p class="paynote">Everything is paid in US dollars, by:</p>
       <ul class="methods"><li>US bank transfer</li><li>Venmo</li><li>Mexico bank transfer (in USD)</li></ul>
       <p class="paynote">We send a receipt for every payment. Any bank, wire, or currency-conversion fees are the guest's to cover.</p>
     </div>
@@ -196,7 +208,7 @@
     <p class="eyebrow">A few house essentials</p>
     <ul class="clean">
       <li><strong>Up to 4 guests</strong>, the casita has two bedrooms. No unregistered overnight guests.</li>
-      <li><strong>Check-in 3:00 pm, check-out 11:00 am.</strong> Late check-out is possible when available, for a small charge.</li>
+      <li><strong>Check-in and check-out at 12:00 noon.</strong> Late check-out is possible when available, for a small charge.</li>
       <li><strong>Pets:</strong> normally not allowed. In special circumstances we may consider one, for an additional fee arranged in advance.</li>
       <li><strong>No parties or events.</strong></li>
       <li><strong>Smoking outdoors only.</strong> No open flames or fireworks.</li>
@@ -212,8 +224,8 @@
     <div class="steps">
       <div class="step"><div><h3>You reach out</h3><p>Tell us your dates and who is coming. We confirm the casita is open and answer any questions.</p></div></div>
       <div class="step"><div><h3>We send the agreement</h3><p>A plain-language rental agreement in English and Spanish, with your dates and exact payment due-dates filled in, plus the House Rules attached.</p></div></div>
-      <div class="step"><div><h3>You reserve</h3><p>Sign and send the first half ($1,500) plus the $500 deposit. Your dates are now held for you and off the calendar.</p></div></div>
-      <div class="step"><div><h3>You pay the balance</h3><p>The second half ($1,500) is due 60 days before you arrive. That is it, you are set.</p></div></div>
+      <div class="step"><div><h3>You reserve</h3><p>Send your first payment to hold your dates: the full amount for a stay under a month, or the first 50% ($1,500) plus the $500 deposit for a monthly stay.</p></div></div>
+      <div class="step"><div><h3>You settle any balance</h3><p>For a monthly stay, the remaining 50% is due 60 days before you arrive. Shorter stays are already paid in full, so nothing more is due.</p></div></div>
       <div class="step"><div><h3>You arrive</h3><p>We hand over the keys, the Wi-Fi password, and a warm welcome to Ajijic.</p></div></div>
     </div>
   </section>
@@ -223,23 +235,29 @@
 
   <section>
     <p class="eyebrow">La casa</p>
-    <p>Casa de la Piña es una casita independiente de dos habitaciones, ubicada dentro de nuestra propiedad familiar en el corazón de Ajijic, en la ribera norte del Lago de Chapala. Se ingresa por la entrada principal de la propiedad, compartida con la casa principal, y la casita es tu propio espacio independiente en el interior, con su jardín privado y una alberca de uso exclusivo de los huéspedes de la casita. Nosotros vivimos en la casa principal, en la misma propiedad, por lo que siempre hay alguien cerca por si necesitas algo.</p>
-    <p style="margin-top:16px;">El agua, la electricidad, el gas, el drenaje y el Wi-Fi corren por nuestra cuenta. La kitchenette está totalmente equipada, y se incluyen toallas y ropa de cama.</p>
+    <p>Casa de la Piña es una casita independiente de dos habitaciones, ubicada dentro de nuestra propiedad familiar en el corazón de Ajijic, en la ribera norte del Lago de Chapala. Se ingresa por la entrada principal de la propiedad, compartida con la casa principal, y la casita es tu propio espacio independiente en el interior, con su jardín privado y una alberca de uso exclusivo de los huéspedes de la casita. Una persona de nuestra confianza vive en la casa principal, en la misma propiedad, por lo que siempre hay alguien cerca por si necesitas algo.</p>
+    <p style="margin-top:16px;">El agua, la electricidad, el gas, el drenaje y el Wi-Fi corren por nuestra cuenta. La kitchenette está totalmente equipada, y se incluyen toallas y ropa de cama. Y un regalo de bienvenida te estará esperando a tu llegada.</p>
   </section>
 
   <section>
     <p class="eyebrow">Costo</p>
     <div class="pay">
       <div class="totals">
-        <div><div class="big">$3,000</div><div class="cap">Renta total, en USD, por mes</div></div>
+        <div><div class="big">$115</div><div class="cap">Por noche, en USD · mínimo 3 noches</div></div>
         <div class="dep"><div class="amt">+ $500</div><div class="cap">Depósito de garantía reembolsable</div></div>
       </div>
-      <p style="margin:0 0 18px;font-weight:600;color:var(--ink);">La renta se paga en dos mitades iguales.</p>
+      <ul class="rates">
+        <li><span class="rlabel">Fin de semana · 3 noches</span><span class="rval">$345</span></li>
+        <li><span class="rlabel">Una semana</span><span class="rval">$805</span></li>
+        <li class="best"><span class="rlabel">Un mes</span><span class="rval">$3,000</span><span class="rbest">mejor precio</span></li>
+      </ul>
+      <p class="paynote" style="margin-top:12px">La tarifa mensual equivale a unos $100 por noche, con descuento sobre el precio por noche.</p>
+      <p style="margin:22px 0 18px;font-weight:600;color:var(--ink);">Cómo funciona el pago</p>
       <div class="split">
-        <div class="inst"><span class="tag">Aparta tus fechas</span><div class="pct serif">50%</div><div class="amt">$1,500</div><div class="when">Al firmar el contrato. El depósito de $500 se paga junto con esta primera mitad.</div></div>
-        <div class="inst"><span class="tag">Saldo</span><div class="pct serif">50%</div><div class="amt">$1,500</div><div class="when">60 días antes del check-in, en la fecha exacta que indica tu contrato.</div></div>
+        <div class="inst"><span class="tag">Menos de un mes</span><div class="amt" style="font-size:23px">Pago completo</div><div class="when">Se paga por completo al reservar, junto con el depósito de $500. Tus fechas se apartan una vez recibido el pago.</div></div>
+        <div class="inst"><span class="tag">Estancia mensual</span><div class="amt" style="font-size:23px">50% + 50%</div><div class="when">La mitad ($1,500) al firmar para reservar, con el depósito, y la otra mitad 60 días antes del check-in.</div></div>
       </div>
-      <p class="paynote">Todo se paga en dólares estadounidenses. Puedes pagar cualquiera de las mitades por:</p>
+      <p class="paynote">Todo se paga en dólares estadounidenses, por:</p>
       <ul class="methods"><li>Transferencia bancaria (EE. UU.)</li><li>Venmo</li><li>Transferencia bancaria (México, en USD)</li></ul>
       <p class="paynote">Enviamos un recibo por cada pago. Cualquier comisión bancaria, de transferencia o de conversión de moneda corre por cuenta del huésped.</p>
     </div>
@@ -264,7 +282,7 @@
     <p class="eyebrow">Reglas esenciales</p>
     <ul class="clean">
       <li><strong>Hasta 4 huéspedes</strong>, la casita tiene dos habitaciones. Sin huéspedes adicionales sin registrar.</li>
-      <li><strong>Check-in 3:00 pm, check-out 11:00 am.</strong> El check-out tardío es posible según disponibilidad, con un cargo menor.</li>
+      <li><strong>Check-in y check-out a las 12:00 del mediodía.</strong> El check-out tardío es posible según disponibilidad, con un cargo menor.</li>
       <li><strong>Mascotas:</strong> normalmente no se permiten. En circunstancias especiales podemos considerar una, con un cargo adicional acordado por adelantado.</li>
       <li><strong>No se permiten fiestas ni eventos.</strong></li>
       <li><strong>Se puede fumar solo en exteriores.</strong> Sin llamas abiertas ni fuegos artificiales.</li>
@@ -280,8 +298,8 @@
     <div class="steps">
       <div class="step"><div><h3>Nos escribes</h3><p>Cuéntanos tus fechas y quiénes vienen. Confirmamos que la casita está disponible y respondemos tus dudas.</p></div></div>
       <div class="step"><div><h3>Te enviamos el contrato</h3><p>Un contrato de hospedaje en lenguaje sencillo, en inglés y español, con tus fechas y las fechas exactas de pago ya incluidas, más las Reglas de la Casa adjuntas.</p></div></div>
-      <div class="step"><div><h3>Reservas</h3><p>Firmas y envías la primera mitad ($1,500) más el depósito de $500. Tus fechas quedan apartadas y fuera del calendario.</p></div></div>
-      <div class="step"><div><h3>Pagas el saldo</h3><p>La segunda mitad ($1,500) vence 60 días antes de tu llegada. Con eso, todo queda listo.</p></div></div>
+      <div class="step"><div><h3>Reservas</h3><p>Envías tu primer pago para apartar tus fechas: el total para una estancia de menos de un mes, o el primer 50% ($1,500) más el depósito de $500 para una estancia mensual.</p></div></div>
+      <div class="step"><div><h3>Pagas el saldo (si aplica)</h3><p>Para una estancia mensual, el 50% restante vence 60 días antes de tu llegada. Las estancias más cortas ya están pagadas por completo.</p></div></div>
       <div class="step"><div><h3>Llegas</h3><p>Te entregamos las llaves, la contraseña del Wi-Fi y una cálida bienvenida a Ajijic.</p></div></div>
     </div>
   </section>
