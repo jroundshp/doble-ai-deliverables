@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="How a stay at Casa de la Piña works: rates, payment, and house rules. Cómo funciona una estancia en Casa de la Piña.">
+<meta property="og:title" content="Casa de la Piña · How We Work / Así Trabajamos">
+<meta property="og:description" content="A colonial casita on Lake Chapala, Ajijic. Rates, payment, and house rules, in English and Spanish.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0E4D52">
+<title>Casa de la Piña · How We Work / Así Trabajamos</title>
+<style>
+  :root{
+    --plaster:#F7F1E6;--plaster-2:#FBF7EF;--ink:#1C2321;--ink-soft:#4A4F49;
+    --teal:#0E4D52;--teal-bright:#12666C;--gold:#D9A54C;--gold-deep:#B9832E;
+    --leaf:#4E7A4C;--line:#E3D9C6;--card:#FFFDF8;--shadow:rgba(28,35,33,.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --plaster:#14201F;--plaster-2:#182826;--ink:#EFE7D6;--ink-soft:#B3AF9F;
+      --teal:#5FC7C0;--teal-bright:#7BD8D0;--gold:#E6B85C;--gold-deep:#E6B85C;
+      --leaf:#8FBE77;--line:#2C3B38;--card:#1B2A28;--shadow:rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --plaster:#F7F1E6;--plaster-2:#FBF7EF;--ink:#1C2321;--ink-soft:#4A4F49;
+    --teal:#0E4D52;--teal-bright:#12666C;--gold:#D9A54C;--gold-deep:#B9832E;
+    --leaf:#4E7A4C;--line:#E3D9C6;--card:#FFFDF8;--shadow:rgba(28,35,33,.10);
+  }
+  :root[data-theme="dark"]{
+    --plaster:#14201F;--plaster-2:#182826;--ink:#EFE7D6;--ink-soft:#B3AF9F;
+    --teal:#5FC7C0;--teal-bright:#7BD8D0;--gold:#E6B85C;--gold-deep:#E6B85C;
+    --leaf:#8FBE77;--line:#2C3B38;--card:#1B2A28;--shadow:rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;}
+  .page{
+    background:var(--plaster);color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px 40px;}
+  .serif{font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;}
+
+  header{text-align:center;padding:52px 0 30px;}
+  .mark{display:block;margin:0 auto 18px;width:56px;height:56px;color:var(--gold-deep);}
+  .kicker{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);font-weight:600;margin:0 0 14px;}
+  h1{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-weight:600;font-size:clamp(32px,6.5vw,48px);line-height:1.05;margin:0 0 16px;color:var(--ink);text-wrap:balance;letter-spacing:-.01em;}
+  .sub{font-size:17px;color:var(--ink-soft);max-width:44ch;margin:0 auto;text-wrap:balance;}
+  .sub .es{display:block;margin-top:8px;font-style:italic;}
+  .rule{width:64px;height:2px;background:var(--gold);border:0;margin:24px auto 0;border-radius:2px;}
+
+  .glance{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:8px 0 40px;}
+  .glance div{background:var(--card);padding:18px 14px;text-align:center;}
+  .glance .n{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:26px;color:var(--teal);line-height:1;}
+  .glance .l{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;line-height:1.3;}
+  @media (max-width:560px){.glance{grid-template-columns:repeat(2,1fr);}}
+
+  /* language divider */
+  .lang-band{display:flex;align-items:center;gap:16px;margin:8px 0 40px;color:var(--gold-deep);}
+  .lang-band::before,.lang-band::after{content:"";flex:1;height:1px;background:var(--line);}
+  .lang-band span{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:15px;letter-spacing:.28em;text-transform:uppercase;}
+
+  section{margin:0 0 40px;}
+  h2{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:25px;font-weight:600;color:var(--ink);margin:0 0 6px;letter-spacing:-.01em;}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin:0 0 16px;}
+  .eyebrow::after{content:"";flex:1;height:1px;background:var(--line);}
+  p{margin:0 0 14px;}p:last-child{margin-bottom:0;}
+  a{color:var(--teal-bright);}
+
+  .pay{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 28px;box-shadow:0 8px 30px var(--shadow);}
+  .totals{display:flex;flex-wrap:wrap;gap:22px;align-items:baseline;padding-bottom:24px;margin-bottom:24px;border-bottom:1px dashed var(--line);}
+  .totals .big{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:44px;color:var(--teal);line-height:1;font-variant-numeric:tabular-nums;}
+  .totals .cap{font-size:13px;color:var(--ink-soft);letter-spacing:.03em;max-width:26ch;}
+  .totals .dep{margin-left:auto;text-align:right;}
+  .totals .dep .amt{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:26px;color:var(--ink);font-variant-numeric:tabular-nums;}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:520px){.split{grid-template-columns:1fr;}}
+  .inst{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--plaster-2);}
+  .inst .pct{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:20px;color:var(--gold-deep);}
+  .inst .amt{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:30px;color:var(--ink);margin:2px 0 8px;font-variant-numeric:tabular-nums;}
+  .inst .when{font-size:14px;color:var(--ink-soft);line-height:1.45;}
+  .inst .tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--teal);background:color-mix(in srgb,var(--teal) 12%,transparent);padding:3px 9px;border-radius:99px;margin-bottom:12px;}
+  .paynote{font-size:14px;color:var(--ink-soft);margin-top:20px;}
+  .methods{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none;}
+  .methods li{font-size:13.5px;background:var(--plaster-2);border:1px solid var(--line);padding:6px 13px;border-radius:99px;color:var(--ink);}
+
+  ul.clean{list-style:none;margin:0;padding:0;}
+  ul.clean li{position:relative;padding:8px 0 8px 26px;border-bottom:1px solid var(--line);font-size:16px;}
+  ul.clean li:last-child{border-bottom:0;}
+  ul.clean li::before{content:"";position:absolute;left:2px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--leaf);}
+  ul.clean strong{color:var(--ink);}
+
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:15px;min-width:380px;}
+  th,td{text-align:left;padding:13px 18px;border-bottom:1px solid var(--line);}
+  th{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;background:var(--plaster-2);}
+  tr:last-child td{border-bottom:0;}
+  td.refund{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:18px;color:var(--teal);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  td.when{color:var(--ink-soft);}
+
+  .steps{counter-reset:s;display:grid;gap:2px;}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding:18px 0;border-bottom:1px solid var(--line);}
+  .step:last-child{border-bottom:0;}
+  .step::before{counter-increment:s;content:counter(s);font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:18px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--plaster);background:var(--teal);flex:none;}
+  .step h3{margin:4px 0 4px;font-size:17px;font-weight:650;color:var(--ink);}
+  .step p{font-size:15px;color:var(--ink-soft);margin:0;}
+
+  footer{text-align:center;padding:36px 24px 8px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:14px;}
+  footer .name{font-family:"Iowan Old Style",Palatino,Georgia,serif;color:var(--ink);font-size:17px;margin:6px 0;}
+  .fineprint{font-size:12px;color:var(--ink-soft);margin-top:20px;line-height:1.5;text-wrap:pretty;}
+
+  @page{margin:14mm;}
+  @media print{
+    .page{background:#fff;font-size:11.5pt;}
+    .pay{box-shadow:none;}
+    section,.step,.pay,.glance{break-inside:avoid;}
+    h1,h2{break-after:avoid;}
+    .lang-band{break-before:page;}
+  }
+</style>
+</head>
+<body>
+
+
+<div class="page">
+<div class="wrap">
+
+  <header>
+    <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M24 6c-1.6 2.4-4 3.4-6.6 3.4 1 2.2 3 3.6 5 3.9-2.7.5-5.4-.2-7.4-2 .3 2.7 2.2 4.8 4.7 5.6C16 22 12.5 22 9.6 20.4c1 2.9 3.6 4.9 6.7 5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M24 6c1.6 2.4 4 3.4 6.6 3.4-1 2.2-3 3.6-5 3.9 2.7.5 5.4-.2 7.4-2-.3 2.7-2.2 4.8-4.7 5.6C32 22 35.5 22 38.4 20.4c-1 2.9-3.6 4.9-6.7 5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14 27c0 7 4.5 15 10 15s10-8 10-15c0-4.4-4.5-6-10-6s-10 1.6-10 6Z" fill="currentColor" opacity=".14"/>
+      <path d="M14 27c0 7 4.5 15 10 15s10-8 10-15c0-4.4-4.5-6-10-6s-10 1.6-10 6Z" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M17 25l14 12M31 25 17 37M24 21v21" stroke="currentColor" stroke-width="1.1" opacity=".55"/>
+    </svg>
+    <p class="kicker">Casa de la Piña · Ajijic, Jalisco</p>
+    <h1 class="serif">A Colonial Casita on Lake Chapala</h1>
+    <p class="sub">Here is how a stay with us works, so you know exactly what to expect before anything is signed.
+      <span class="es">Así funciona una estancia con nosotros, para que sepas exactamente qué esperar antes de firmar nada.</span></p>
+    <hr class="rule">
+  </header>
+
+  <div class="glance">
+    <div><div class="n">2</div><div class="l">Bedrooms<br>Habitaciones</div></div>
+    <div><div class="n">4</div><div class="l">Guests<br>Huéspedes</div></div>
+    <div><div class="n">1</div><div class="l">Private pool<br>Alberca</div></div>
+    <div><div class="n">28</div><div class="l">Nights<br>Noches</div></div>
+  </div>
+
+  <!-- ============ ENGLISH ============ -->
+  <div class="lang-band" style="margin-top:0;break-before:auto;"><span>English</span></div>
+
+  <section>
+    <p class="eyebrow">The place</p>
+    <p>Casa de la Piña is a two-bedroom casita with a private pool and garden in the heart of Ajijic, on the north shore of Lake Chapala. It is our small colonial home, kept for guests who want a quiet, comfortable base for a Mexican winter. The pool and garden are yours alone for the length of your stay.</p>
+    <p style="margin-top:16px;">Water, electricity, gas, drainage, and Wi-Fi are all covered by us. The kitchenette comes fully equipped, and towels and linens are included.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">What it costs</p>
+    <div class="pay">
+      <div class="totals">
+        <div><div class="big">$2,500</div><div class="cap">Total rent, USD, for the full stay (about $89 a night)</div></div>
+        <div class="dep"><div class="amt">+ $500</div><div class="cap">Refundable security deposit</div></div>
+      </div>
+      <p style="margin:0 0 18px;font-weight:600;color:var(--ink);">Rent is paid in two equal halves.</p>
+      <div class="split">
+        <div class="inst"><span class="tag">Reserves your dates</span><div class="pct serif">50%</div><div class="amt">$1,250</div><div class="when">Due when you sign the agreement. The $500 deposit is paid together with this first half.</div></div>
+        <div class="inst"><span class="tag">Balance</span><div class="pct serif">50%</div><div class="amt">$1,250</div><div class="when">Due 60 days before check-in. For a mid-January arrival, that lands in mid-November.</div></div>
+      </div>
+      <p class="paynote">Everything is paid in US dollars. You can pay either half by:</p>
+      <ul class="methods"><li>US bank transfer</li><li>Venmo</li><li>Mexico bank transfer (in USD)</li></ul>
+      <p class="paynote">We send a receipt for every payment. Any bank, wire, or currency-conversion fees are the guest's to cover.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">If plans change</p>
+    <p style="margin-bottom:16px;">Life happens. Here is how refunds work, based on when you let us know in writing before check-in.</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Notice before check-in</th><th>You get back</th></tr></thead>
+      <tbody>
+        <tr><td class="when">More than 90 days</td><td class="refund">Full, less $100</td></tr>
+        <tr><td class="when">60 to 90 days</td><td class="refund">75%</td></tr>
+        <tr><td class="when">30 to 59 days</td><td class="refund">50%</td></tr>
+        <tr><td class="when">Under 30 days</td><td class="refund">No refund</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:14px;">If we ever have to cancel on you for any reason that isn't a breach on your side, you get 100% back.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">A few house essentials</p>
+    <ul class="clean">
+      <li><strong>Up to 4 guests</strong>, the casita has two bedrooms. No unregistered overnight guests.</li>
+      <li><strong>Check-in 3:00 pm, check-out 11:00 am.</strong> Late check-out is possible when available, for a small charge.</li>
+      <li><strong>No pets</strong>, and no parties or events.</li>
+      <li><strong>Smoking outdoors only.</strong> No open flames or fireworks.</li>
+      <li><strong>Quiet after 10:00 pm</strong>, this is a calm residential neighborhood.</li>
+      <li><strong>One private parking space</strong> on site.</li>
+      <li>The pool is for your exclusive use; please supervise children at all times.</li>
+    </ul>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:14px;">The full House Rules come attached to the agreement as Exhibit A.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">How we work, step by step</p>
+    <div class="steps">
+      <div class="step"><div><h3>You reach out</h3><p>Tell us your dates and who is coming. We confirm the casita is open and answer any questions.</p></div></div>
+      <div class="step"><div><h3>We send the agreement</h3><p>A plain-language rental agreement in English and Spanish, with the House Rules attached. Read it at your own pace.</p></div></div>
+      <div class="step"><div><h3>You reserve</h3><p>Sign and send the first half ($1,250) plus the $500 deposit. Your dates are now held for you and off the calendar.</p></div></div>
+      <div class="step"><div><h3>You pay the balance</h3><p>The second half ($1,250) is due 60 days before you arrive. That is it, you are set.</p></div></div>
+      <div class="step"><div><h3>You arrive</h3><p>We hand over the keys, the Wi-Fi password, and a warm welcome to Ajijic.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============ ESPAÑOL ============ -->
+  <div class="lang-band"><span>Español</span></div>
+
+  <section>
+    <p class="eyebrow">La casa</p>
+    <p>Casa de la Piña es una casita de dos habitaciones con alberca privada y jardín en el corazón de Ajijic, en la ribera norte del Lago de Chapala. Es nuestra pequeña casa colonial, pensada para huéspedes que buscan una base tranquila y cómoda para pasar el invierno en México. La alberca y el jardín son de tu uso exclusivo durante toda tu estancia.</p>
+    <p style="margin-top:16px;">El agua, la electricidad, el gas, el drenaje y el Wi-Fi corren por nuestra cuenta. La kitchenette está totalmente equipada, y se incluyen toallas y ropa de cama.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Costo</p>
+    <div class="pay">
+      <div class="totals">
+        <div><div class="big">$2,500</div><div class="cap">Renta total, en USD, por toda la estancia (unos $89 USD por noche)</div></div>
+        <div class="dep"><div class="amt">+ $500</div><div class="cap">Depósito de garantía reembolsable</div></div>
+      </div>
+      <p style="margin:0 0 18px;font-weight:600;color:var(--ink);">La renta se paga en dos mitades iguales.</p>
+      <div class="split">
+        <div class="inst"><span class="tag">Aparta tus fechas</span><div class="pct serif">50%</div><div class="amt">$1,250</div><div class="when">Al firmar el contrato. El depósito de $500 se paga junto con esta primera mitad.</div></div>
+        <div class="inst"><span class="tag">Saldo</span><div class="pct serif">50%</div><div class="amt">$1,250</div><div class="when">60 días antes del check-in. Para una llegada a mediados de enero, esto cae a mediados de noviembre.</div></div>
+      </div>
+      <p class="paynote">Todo se paga en dólares estadounidenses. Puedes pagar cualquiera de las mitades por:</p>
+      <ul class="methods"><li>Transferencia bancaria (EE. UU.)</li><li>Venmo</li><li>Transferencia bancaria (México, en USD)</li></ul>
+      <p class="paynote">Enviamos un recibo por cada pago. Cualquier comisión bancaria, de transferencia o de conversión de moneda corre por cuenta del huésped.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Si tus planes cambian</p>
+    <p style="margin-bottom:16px;">Entendemos que las cosas pasan. Así funcionan los reembolsos, según cuándo nos avises por escrito antes del check-in.</p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Aviso antes del check-in</th><th>Se te reembolsa</th></tr></thead>
+      <tbody>
+        <tr><td class="when">Más de 90 días</td><td class="refund">Completo, menos $100</td></tr>
+        <tr><td class="when">De 60 a 90 días</td><td class="refund">75%</td></tr>
+        <tr><td class="when">De 30 a 59 días</td><td class="refund">50%</td></tr>
+        <tr><td class="when">Menos de 30 días</td><td class="refund">Sin reembolso</td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:14px;">Si en algún momento tenemos que cancelar contigo por cualquier motivo que no sea un incumplimiento de tu parte, se te reembolsa el 100%.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Reglas esenciales</p>
+    <ul class="clean">
+      <li><strong>Hasta 4 huéspedes</strong>, la casita tiene dos habitaciones. Sin huéspedes adicionales sin registrar.</li>
+      <li><strong>Check-in 3:00 pm, check-out 11:00 am.</strong> El check-out tardío es posible según disponibilidad, con un cargo menor.</li>
+      <li><strong>No se permiten mascotas</strong>, ni fiestas o eventos.</li>
+      <li><strong>Se puede fumar solo en exteriores.</strong> Sin llamas abiertas ni fuegos artificiales.</li>
+      <li><strong>Silencio después de las 10:00 pm</strong>, esta es una zona residencial tranquila.</li>
+      <li><strong>Un espacio de estacionamiento privado</strong> en la propiedad.</li>
+      <li>La alberca es de tu uso exclusivo; supervisa a los niños en todo momento.</li>
+    </ul>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:14px;">Las Reglas de la Casa completas se adjuntan al contrato como Anexo A.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Así trabajamos, paso a paso</p>
+    <div class="steps">
+      <div class="step"><div><h3>Nos escribes</h3><p>Cuéntanos tus fechas y quiénes vienen. Confirmamos que la casita está disponible y respondemos tus dudas.</p></div></div>
+      <div class="step"><div><h3>Te enviamos el contrato</h3><p>Un contrato de hospedaje en lenguaje sencillo, en inglés y español, con las Reglas de la Casa adjuntas. Léelo con calma.</p></div></div>
+      <div class="step"><div><h3>Reservas</h3><p>Firmas y envías la primera mitad ($1,250) más el depósito de $500. Tus fechas quedan apartadas y fuera del calendario.</p></div></div>
+      <div class="step"><div><h3>Pagas el saldo</h3><p>La segunda mitad ($1,250) vence 60 días antes de tu llegada. Con eso, todo queda listo.</p></div></div>
+      <div class="step"><div><h3>Llegas</h3><p>Te entregamos las llaves, la contraseña del Wi-Fi y una cálida bienvenida a Ajijic.</p></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Questions before you decide? We are glad to talk it through.<br>
+       ¿Tienes dudas antes de decidir? Con gusto lo platicamos.</p>
+    <p class="name">John &amp; Gisella Rounds</p>
+    <p class="fineprint">This overview is a friendly summary, not the contract itself. The signed Rental Agreement and Exhibit A House Rules are the binding documents and govern in full.<br>
+      Este resumen es solo informativo, no es el contrato. El Contrato de Hospedaje firmado y el Anexo A (Reglas de la Casa) son los documentos vinculantes y rigen en su totalidad.<br>
+      Casa de la Piña · 47 Lázaro Cárdenas, Ajijic, Jalisco, México.</p>
+  </footer>
+
+</div>
+</div>
+
+</body>
+</html>
