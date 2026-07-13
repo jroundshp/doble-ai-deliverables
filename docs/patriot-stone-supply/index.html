@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Patriot Stone Supply — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(47,111,106,0.2);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2F6F6A;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #2F6F6A;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #46524C;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(47,111,106,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7C8C84;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #fef2f2;
+    border: 1px solid #f3b4b4;
+    border-left: 4px solid #b91c1c;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #b91c1c;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #6b1a1a; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(185,28,28,0.08);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(47,111,106,0.16);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #1F2622; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(71,85,76,0.14);  color: #46524c; }
+  .badge-sister { background: rgba(15,118,110,0.14); color: #0f766e; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F2622; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #cdeae3; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #2F6F6A;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #a6d4cb; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026 · Denton, Texas</div>
+    <h1>Patriot<br>Stone Supply</h1>
+    <p>A Denton-area stone, gravel and aggregate yard that also runs a concrete-recycling operation ("We Buy Concrete") and delivers with its own trucks. There's a real, differentiated business here, and even an Instagram feed with genuine footage of the yard at work. This is an audit of how a location-based supplier is showing up online in a competitive North Texas market, and the headline is that, despite the product and the content, it's very close to invisible where its buyers are actually searching — no address, no Google profile, and a following small enough that the good content reaches almost no one.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Denton, TX</div><div class="stat-label">Market</div></div>
+      <div class="stat"><div class="stat-val">We Buy Concrete</div><div class="stat-label">Differentiator</div></div>
+      <div class="stat"><div class="stat-val">~25</div><div class="stat-label">Facebook Followers</div></div>
+      <div class="stat"><div class="stat-val">Not Found</div><div class="stat-label">Google Profile</div></div>
+      <div class="stat"><div class="stat-val">3.0 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The Core Gap — A Location Business You Can't Locate</div>
+      <p>Patriot Stone Supply sells a place: a physical yard people drive to and order deliveries from. Yet the website publishes <strong>no address anywhere</strong>, there's <strong>no Google Business Profile we could find</strong>, and no map, so a Denton contractor searching "gravel delivery near me" or "stone yard Denton" simply won't surface it. The entire business rides on a single phone number carrying an out-of-state <code>701</code> (North Dakota) area code. Underneath, the site gives search engines and AI almost nothing to read — a duplicated <code>&lt;title&gt;</code>, no meta description, no Open Graph, and zero schema. The product and the trucks are real; the digital footprint that would put them in front of nearby buyers barely exists. Almost every fix here is fast and cheap.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A stone, gravel and aggregate supplier in the Denton, TX area — limestone, washed rock, river rock, flagstone and construction base materials — with delivery via its own trucks (DOT-registered as a carrier). It also runs a concrete-recycling "We Buy Concrete" dump-and-recycle service, which is a genuine differentiator most landscape-material yards don't offer.</div>
+        </div>
+        <div>
+          <div class="fact-label">Location &amp; Contact</div>
+          <div class="fact-val">Self-described as "local, based right here in Denton, Texas." Roughly Mon–Fri 6:30am–5:00pm, Sat 6:30am–12:00pm. The only contact on the site is a phone number, <code>(701) 580-3207</code> — a North Dakota area code, most likely a cell the owner kept after relocating. No street address, hours block, or map is published on the website itself.</div>
+        </div>
+        <div>
+          <div class="fact-label">Ownership &amp; Portfolio</div>
+          <div class="fact-val">Part of the Hogan family's group of businesses. It's the outlier of the set — a Texas operation alongside the Western New York restaurants, bakery, property management and fiberglass companies — but it shares the same web builder and the same generic template weaknesses, which is the through-line across the whole portfolio.</div>
+        </div>
+        <div>
+          <div class="fact-label">Products &amp; Services</div>
+          <div class="fact-val">A products grid (limestone and aggregate materials) plus a services list, and a dedicated "We Buy Concrete" page for concrete-rubble recycling. Ordering is by phone only — there's no online store, quote form, or even a contact form, so every lead has to convert on a call.</div>
+        </div>
+        <div>
+          <div class="fact-label">Social Proof</div>
+          <div class="fact-val">There's an active Instagram (@patriotstonesupply) with real reels — crushing rock, loading and delivering material — which is exactly the kind of content that builds trust for a yard. A Facebook page exists but sits at roughly 25 followers. We found no customer reviews on any platform, which for a supplier competing on reliability is a serious credibility gap.</div>
+        </div>
+        <div>
+          <div class="fact-label">Why Now</div>
+          <div class="fact-val">Denton is a fast-growing North Texas market with steady construction and landscaping demand, and the search competitors (Hello Gravel, Denton Sand &amp; Gravel) have real local-SEO footprints. Every "gravel Denton" or "concrete disposal near me" search that Patriot Stone can't be found for is a load going to someone else. The differentiators exist; the fixes to make them findable are quick, so the sooner they ship, the sooner they compound.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Location</th>
+            <th>Key Note</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hello Gravel</td>
+            <td class="geo">Denton, TX</td>
+            <td>The one to beat online. A search-optimized aggregate-delivery brand with a Denton landing page ranking for "gravel / crushed stone Denton," transparent product pages, and instant delivery quotes. Owns the exact searches Patriot Stone should be competing for.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Denton Sand &amp; Gravel, Inc.</td>
+            <td class="geo">Sanger / Denton, TX</td>
+            <td>Established local yard with an eight-county delivery footprint, a real website, and a listed phone. The incumbent "known name" for graded gravel in the county — the default a contractor already has saved.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Gravel Shop / Aggregate Markets</td>
+            <td class="geo">National (Denton pages)</td>
+            <td>National material-delivery marketplaces that spin up SEO landing pages for "limestone / gravel delivery in Denton." Not local, but they intercept the online searches before a small yard is ever seen.</td>
+            <td><span class="badge badge-med">Med</span></td>
+          </tr>
+          <tr>
+            <td>Local stone yards (Yelp set)</td>
+            <td class="geo">Denton, TX</td>
+            <td>The "Top 10 Stone Yard in Denton" Yelp listings — smaller landscape-material and stone yards with claimed listings and reviews. Individually modest, collectively they hold the map pack and review real estate Patriot Stone is absent from.</td>
+            <td><span class="badge badge-med">Med</span></td>
+          </tr>
+          <tr>
+            <td>Big-box &amp; ready-mix (landscape material)</td>
+            <td class="geo">Denton metro</td>
+            <td>Home-improvement stores and ready-mix suppliers that catch DIY and small-load buyers. A different lane than bulk delivery and concrete recycling, so lower direct pressure — but they set price expectations.</td>
+            <td><span class="badge badge-low">Low</span></td>
+          </tr>
+          <tr>
+            <td>"We Buy Concrete" recyclers</td>
+            <td class="geo">Denton metro</td>
+            <td>Few local yards actively market concrete-rubble buyback and recycling. This is the lane where Patriot Stone has the least competition and the clearest, ownable message — and it's currently buried on one un-optimized page.</td>
+            <td><span class="badge badge-sister">Opening</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Patriot Stone Supply has <strong>a real yard, its own delivery trucks, a differentiated concrete-recycling service, and an active Instagram showing the work — but almost no findable digital footprint to convert any of it</strong>. In a market where buyers search before they call, the business isn't showing up: no address, no Google Business Profile, no reviews, and a website search engines and AI can barely read. The good news is that this is a greenfield, not a turnaround — nothing needs to be undone, the fundamentals just need to be built.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(47,111,106,0.08);border:1px solid rgba(47,111,106,0.22)">
+          <div class="pos-card-label" style="color:#2F6F6A">Strengths</div>
+          <div class="pos-card-text">A real physical yard with its own delivery fleet in a growing market. A genuine differentiator in "We Buy Concrete" recycling. An active, credible Instagram feed of real work. A clean, modern (if generic) website as a starting point. No reputation damage to repair — it's a blank slate.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(194,65,12,0.25)">
+          <div class="pos-card-label" style="color:#c2410c">Current Position</div>
+          <div class="pos-card-text">Effectively invisible in local search. No address published, no Google Business Profile found, no reviews anywhere. The site carries a duplicated title, no meta description, no Open Graph, and no schema, so it ranks nowhere against Hello Gravel and Denton Sand &amp; Gravel. Every lead depends on already knowing the phone number.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">Get found. A claimed Google Business Profile with the yard address, consistent name-address-phone across directories, basic on-page SEO and LocalBusiness schema, plus a handful of reviews would move Patriot Stone from unlisted to competitive — and "concrete recycling in Denton" is a near-empty lane it could own outright.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website (patriotstonesupply.com)</span><span class="grade grade-c">C−</span></div>
+          <div class="audit-note">A clean, modern WordPress template with product and service sections and a dedicated "We Buy Concrete" page. It functions and looks tidy. But it publishes no address, no map, and no contact form, the copy is thin, and there's no SEO layer behind it. A workable shell that isn't yet doing any selling or getting found.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The title tag is the business name printed twice (<code>Patriot Stone Supply | Patriot Stone Supply</code>), there's no meta description, no Open Graph or Twitter cards, no JSON-LD schema, and only a generic H1. Search engines and AI crawlers are handed almost nothing structured — no location, hours, or product data. All low-cost, high-impact to fix.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">We could not find a Google Business Profile for Patriot Stone Supply in Denton. For a location-based supplier this is the single most damaging gap: no Maps pin, no "near me" presence, no hours, no photos, no review surface. This is the highest-leverage fix in the entire audit and it's free to claim.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No customer reviews found on Google, Facebook, Yelp, or anywhere else. Contractors and homeowners choosing a material supplier lean heavily on reviews for trust and reliability; with zero social proof online, Patriot Stone is asking buyers to take a cold phone number on faith while competitors show dozens of ratings.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Local Listings &amp; NAP</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No consistent Name-Address-Phone anywhere. The address appears on no page, and the phone number's <code>701</code> (North Dakota) area code sends a mixed local signal for a Denton business. Without a stable, matching NAP across Google, Apple Maps, Yelp, and Bing, local ranking has no foundation to stand on.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Instagram</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">@patriotstonesupply is the brightest spot — active reels of rock-crushing, loading, and deliveries that authentically show the operation. The following is small and the account isn't converting (no linked website funnel, no reviews prompt, no location tagging), but the content habit is real and worth amplifying.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Facebook</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">A "Patriot Stone Supply | Denton TX" page exists but sits at roughly 25 followers with little activity and no reviews enabled in practice. It's a placeholder more than a channel today — easy to activate by cross-posting the Instagram content and turning on recommendations.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">With no meta data, no schema, and no location content, Patriot Stone ranks nowhere for the money terms — "gravel / crushed stone / limestone Denton," "aggregate delivery Denton," "concrete disposal near me" — all held by Hello Gravel, Denton Sand &amp; Gravel, and national marketplaces. The demand is there and being searched; the site captures none of it.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility (GEO)</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Ask an AI assistant for a stone or gravel supplier in Denton and Patriot Stone isn't cited — worse, its generic name gets confused with unrelated "Patriot Stone" companies in Texas, Georgia, and Florida. With no schema, no distinctive content, and no reviews, there's nothing for an LLM to latch onto or disambiguate. A structured site and an FAQ are the fastest GEO wins.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Mobile &amp; Accessibility</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">The viewport is set to <code>maximum-scale=1.0, user-scalable=0</code>, which blocks pinch-to-zoom on phones — an accessibility failure and friction for the mobile-first, in-the-truck contractor audience. Product images also lack alt text. Both are quick fixes with real usability and SEO upside. (Notably the same template flaw appears across the owner's other sites.)</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content — Blog / FAQ</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No blog and no FAQ — the single biggest GEO driver is missing. The questions buyers actually ask ("Do you deliver to my zip? What's the minimum load? How much does a yard of crushed limestone cover? What can I dump at the concrete recycling?") are answered nowhere indexable, so neither Google nor AI can surface Patriot Stone as the answer.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-f">3.0</span></div>
+          <div class="audit-note">Score out of 10, weighing website quality, technical SEO, local search &amp; Google profile, reviews, AI visibility, social activity, content, and mobile/accessibility. A real business with a genuine differentiator and an active Instagram — dragged down by being nearly unfindable: no address, no Google profile, no reviews, and a site search engines and AI can't read.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Patriot Stone Supply's problem isn't the business — it's that the business can't be found. A location-based supplier with real trucks and a standout concrete-recycling service is running with no published address, no Google Business Profile, no reviews, and a website that tells search engines and AI almost nothing. None of this is a rebuild. Claim the Google profile with the yard address, make the name-address-phone consistent everywhere, add basic SEO and LocalBusiness schema, gather a first handful of reviews, and point the existing Instagram at it. Do that and Patriot Stone moves from invisible to competitive in the exact searches its buyers are already running — and "concrete recycling in Denton" is a lane it could own outright.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#effaf7;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">05</span>
+      <span class="section-title" style="color:#2F6F6A">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Claim &amp; Build a Google Business Profile (Highest Priority)</span>
+          </div>
+          <div class="rec-detail">This is the single biggest lever and it's free. Create and verify a Google Business Profile with the real yard address, hours, service area, product categories, and photos of the yard and trucks. It's what puts Patriot Stone on Maps, in the local "3-pack," and in "gravel near me" results, and it's a primary source AI assistants cite for local recommendations. Nothing else in this list matters as much.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Publish the Address &amp; a Consistent NAP Everywhere</span>
+          </div>
+          <div class="rec-detail">Put the yard's Name, Address, and Phone on the website (header, footer, and a real Contact page with an embedded map) and make it match exactly across Google, Apple Maps, Bing, and Yelp. Decide whether to move to a local Denton (940/469) number or clearly present the current one as the business line — the out-of-state area code muddies the local signal. Consistent NAP is the bedrock of local ranking.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Fix the SEO Foundation (Titles, Descriptions, H1s)</span>
+          </div>
+          <div class="rec-detail">Replace the duplicated title with a real, location-keyword title on every page ("Crushed Stone, Gravel &amp; Aggregate Delivery in Denton, TX | Patriot Stone Supply"), add unique meta descriptions and Open Graph tags, and give each page a specific H1. This is a couple of hours of work with an SEO plugin and it's the difference between being readable by search and being skipped.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Add LocalBusiness &amp; Product Schema</span>
+          </div>
+          <div class="rec-detail">Add <code>LocalBusiness</code> (or <code>Store</code>) JSON-LD with the address, hours, geo-coordinates, and service area, plus <code>Product</code> schema for the material types. This is how Google and AI tools read the business as structured data — and it directly helps disambiguate Patriot Stone from the unrelated "Patriot Stone" companies in other states that currently muddy its search results.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Turn On a Review Engine</span>
+          </div>
+          <div class="rec-detail">Start from zero deliberately: text a Google review link to every satisfied customer, add a QR code to invoices and the counter, and enable recommendations on Facebook. Even 10–15 genuine reviews would leapfrog the current "no social proof at all" position and feed both Maps ranking and AI citations. For a supplier that lives on reliability, reviews are the trust currency.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Publish Materials, Delivery-Area &amp; "We Buy Concrete" Content + FAQ (GEO)</span>
+          </div>
+          <div class="rec-detail">Give each material its own indexable page (coverage, uses, pricing guidance) and build out the concrete-recycling service as its own real page — it's the least-contested, most ownable message in the market. Add an FAQ answering the questions buyers actually type: delivery zips, minimum loads, coverage per yard, what's accepted at the recycling. This is the content that wins both Google and AI answers.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Fix Mobile Zoom &amp; Add Alt Text</span>
+          </div>
+          <div class="rec-detail">Remove <code>maximum-scale=1.0, user-scalable=0</code> from the viewport so contractors on phones can pinch-to-zoom — an accessibility requirement and a usability win for a mobile-first, on-the-jobsite audience. Add descriptive alt text to the product and yard photos. Fast, cheap, and good for both users and search. (Worth fixing across all of the owner's sites, since they share this flaw.)</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Point Instagram at the Funnel + Add an AI Quote Concierge</span>
+          </div>
+          <div class="rec-detail">Put the website and a "call/text for a quote" link in the Instagram bio, tag the Denton location on every reel, and cross-post to Facebook so the one active channel actually drives leads. Then add an AI chat concierge to the site that answers material, coverage, delivery-area, and "we buy concrete" questions and captures quote requests 24/7 — the exact after-hours questions a phone-only yard misses. This is Doble AI's signature layer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>Real yard. Real trucks. Time to be findable.</h2>
+    <p>Patriot Stone Supply has the materials, the delivery fleet, and a concrete-recycling service few competitors offer. The gap is discovery — and most of it is fast: claim the Google profile with the address, make the NAP consistent, add SEO and schema, gather reviews, and point Instagram at the funnel. Not a rebuild.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Patriot Stone Supply — Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
