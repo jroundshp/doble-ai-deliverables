@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Cooperstown Clubhouse — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(47,111,106,0.2);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2F6F6A;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #2F6F6A;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #46524C;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(47,111,106,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7C8C84;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #fdf6e9;
+    border: 1px solid #e9c98a;
+    border-left: 4px solid #b45309;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #b45309;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #7a4a12; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(180,83,9,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(47,111,106,0.16);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #1F2622; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(71,85,76,0.14);  color: #46524c; }
+  .badge-sister { background: rgba(15,118,110,0.14); color: #0f766e; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F2622; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #cdeae3; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #2F6F6A;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #a6d4cb; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026 · Cooperstown, New York</div>
+    <h1>Cooperstown<br>Clubhouse</h1>
+    <p>A fast-casual Mexican American restaurant on the grounds of the family's Cooperstown Experience complex, purpose-built for the one thing this market generates more than any other: hungry baseball and softball teams. It seats groups from 30 to 250 on a patio and courtyard tent, keeps kids busy with wiffle ball, an arcade, and cornhole, and even lets each family pay separately. It may have the single most ownable niche in Cooperstown dining — the team party. This is an audit of why almost none of that is winning online, and the answer is unusually specific: the business is fighting itself.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Cooperstown</div><div class="stat-label">Location</div></div>
+      <div class="stat"><div class="stat-val">Teams 30–250</div><div class="stat-label">Group Capacity</div></div>
+      <div class="stat"><div class="stat-val">2.4★ (17)</div><div class="stat-label">Google Rating</div></div>
+      <div class="stat"><div class="stat-val">Two Brands</div><div class="stat-label">Identity Split</div></div>
+      <div class="stat"><div class="stat-val">3.7 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The Core Gap — The Business Is Competing Against Itself</div>
+      <p>The Clubhouse's biggest problem isn't the food or the concept — it's that the same venue runs under <strong>two names across two websites</strong>. <code>cooperstownclubhouse.com</code> hands its menu, contact, and team bookings off to <code>rookiescrafthouseny.com</code>, the venue is reviewed on Yelp and followed on social as <strong>"Rookie's Craft House,"</strong> and the two even list different hours. The result is a split reputation: the "Cooperstown Clubhouse" Google profile sits at a rough <strong>2.4★ across 17 reviews</strong>, while the genuinely happy team-party reviews accumulate under the Rookie's name somewhere else. On top of that, the site carries an empty meta description, no schema, and no Open Graph. A venue that should be the automatic answer to "team party in Cooperstown" is splitting its authority in half and leading with its worst face. Almost all of this is fixable, and the fix starts with a single decision: pick one name.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A fast-casual Mexican American restaurant built around large-group and team dining — burgers, tacos, nachos, and bar food — with indoor and outdoor space, a courtyard tent, live music, and kid-friendly activities (wiffle ball, arcade, cornhole). Its standout feature is hosting teams of 30–250 and letting each family order and pay separately, which solves a real headache for traveling squads.</div>
+        </div>
+        <div>
+          <div class="fact-label">Location &amp; Contact</div>
+          <div class="fact-val">4850 NY-28, Cooperstown, NY 13326 · (607) 486-1483 · restaurant@cooperstownexperience.com. Open daily, roughly 11am–9pm (the Rookie's-branded listings say 11pm — the hours don't agree). On the grounds of the family's Cooperstown Experience baseball-and-softball complex, alongside sister restaurant Fenimore's Table.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Brand Split</div>
+          <div class="fact-val">The defining issue. The venue presents as both <strong>"Cooperstown Clubhouse"</strong> (cooperstownclubhouse.com, its Google profile) and <strong>"Rookie's Craft House"</strong> (rookiescrafthouseny.com, its Yelp listing, its social handles, and where team bookings actually happen). Whether these are one venue with two names or two concepts sharing the grounds and a booking system, the online effect is the same — reviews, search, and social proof are cut in half.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Niche (Its Superpower)</div>
+          <div class="fact-val">Team parties for the tournament crowd. On the complex grounds, built to feed and entertain whole teams and their families after a game — space, activities, per-family payment. Nobody else in the market is positioned to own "team party / group dining Cooperstown" the way this venue is. The demand is captive and recurring; the presence to capture it just isn't built.</div>
+        </div>
+        <div>
+          <div class="fact-label">On the Complex</div>
+          <div class="fact-val">Part of the Hogan family's Cooperstown Experience — the new baseball and softball tournament complex at 4850 NY-28 — with Fenimore's Table (sit-down dining) and the Rookie's identity all on or beside the grounds. A three-venue hospitality arm with a built-in audience, currently promoted as scattered pieces rather than one coordinated destination.</div>
+        </div>
+        <div>
+          <div class="fact-label">Why Now</div>
+          <div class="fact-val">Coaches and team parents book group meals ahead and vet them online first — and today they find a 2.4★ Google profile under one name and better reviews stranded under another. Every tournament week that passes with the brand split unresolved is bookings lost to confusion and a poor headline rating. Consolidating is low-cost and high-impact, and the sooner it happens the more of each summer it captures.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Competitor</th>
+            <th>Location</th>
+            <th>Key Note</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Its own second brand</td>
+            <td class="geo">Same venue</td>
+            <td>The biggest competitor is itself. "Cooperstown Clubhouse" and "Rookie's Craft House" split the reviews, search rankings, and social following of one operation, so neither identity builds the authority the venue has earned. Fixing this beats out-competing anyone else.</td>
+            <td><span class="badge badge-high">Critical</span></td>
+          </tr>
+          <tr>
+            <td>Dreams Park &amp; All Star Village dining</td>
+            <td class="geo">Hartwick / Oneonta</td>
+            <td>The rival complexes' own on-site food and nearby options catch their captive families first. The Clubhouse can pull the wider tournament crowd, but only if it's findable and clearly the better team-party choice — which today it isn't.</td>
+            <td><span class="badge badge-med">Med</span></td>
+          </tr>
+          <tr>
+            <td>Main Street group restaurants</td>
+            <td class="geo">Cooperstown</td>
+            <td>Doubleday Cafe, the Cooperstown Diner, and Brewery-style spots that can seat families and casual groups. More established reputations and review bases; they win the group booking when a coach can't easily find or trust the Clubhouse.</td>
+            <td><span class="badge badge-med">Med</span></td>
+          </tr>
+          <tr>
+            <td>Casual &amp; chain defaults</td>
+            <td class="geo">Cooperstown area</td>
+            <td>Familiar pizza, fast-food, and casual options families default to when logistics feel uncertain. Lower quality experience, but they win on being a known, low-risk quantity — exactly what a fractured brand and a 2.4★ rating undercut.</td>
+            <td><span class="badge badge-lowmed">Low–Med</span></td>
+          </tr>
+          <tr>
+            <td>Fenimore's Table</td>
+            <td class="geo">Cooperstown</td>
+            <td>Same owners — the sit-down sibling on the complex. Not a competitor: the natural other half of a coordinated on-grounds dining offer (casual team party here, sit-down dinner there), which today isn't packaged or cross-sold.</td>
+            <td><span class="badge badge-sister">Sister</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Cooperstown Clubhouse has <strong>the clearest, most ownable niche in the whole market — and a digital presence that fractures it in half</strong>. The team-party concept, the activities, the per-family payment, and a captive complex audience are genuine advantages, and the people who actually book it love it. But split across two brand names and two domains, carrying a 2.4★ headline rating under one identity and better reviews stranded under the other, the venue is undercutting its own biggest strength. This is a self-inflicted problem, which means it's also an unusually fixable one.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(47,111,106,0.08);border:1px solid rgba(47,111,106,0.22)">
+          <div class="pos-card-label" style="color:#2F6F6A">Strengths</div>
+          <div class="pos-card-text">The market's best niche: team parties, on the complex grounds, with space, activities, and per-family payment. A captive, recurring tournament audience. Genuinely happy customers (the team-party reviews are strong). A real booking flow already exists. Sister venues to package with.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(194,65,12,0.25)">
+          <div class="pos-card-label" style="color:#c2410c">Current Position</div>
+          <div class="pos-card-text">One venue, two brands, two domains, split social, mismatched hours. A 2.4★ / 17-review Google profile leading the "Clubhouse" name while the good reviews sit under "Rookie's." Empty meta description, no schema, no Open Graph, multiple H1s, and a pinch-to-zoom lock on mobile. Authority halved at every turn.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">Pick one name and become the default. Consolidate the brand, fix and grow the reviews, position clearly as the team-party venue, add the SEO and schema foundation, and cross-sell with Fenimore's and the complex. Do it and the Clubhouse can simply own "team party / group dining Cooperstown."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Brand Consistency &amp; Identity</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The defining failure. One venue split across "Cooperstown Clubhouse" and "Rookie's Craft House," two domains, two social handles, and even two sets of hours — with the booking flow on one and the reviews on the other. Every visit, review, link, and search that should compound onto one brand is divided between two. Nothing else improves as much as fixing this.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">A tale of two identities. The "Cooperstown Clubhouse" Google profile sits at ~2.4★ across 17 reviews — a genuine liability in front of every coach who searches it — while the "Rookie's" listings carry warmer, team-party-driven reviews. The low volume means the rating is fragile and fixable, and the split is why it isn't healing. Consolidate, respond, and generate fresh reviews from the happy groups.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The meta description is present but empty, there's no Open Graph, no Twitter cards, and no schema, and the page uses multiple H1s ("Cooperstown Clubhouse," "Live music," "activities," "Contact Us") instead of one clear heading. Search engines and AI are handed little structure and no summary. Standard, low-cost fixes with real ranking upside.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Mechanically fine: claimed, correct 4850 NY-28 address, phone, hours, with Order Online and Join Waitlist live. The problem isn't the profile plumbing, it's the 2.4★ rating on it and that a parallel "Rookie's" presence dilutes it. A working profile that's leading with the wrong number and competing with the venue's other self.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Team-Party / Group Booking</span><span class="grade grade-cp">C+</span></div>
+          <div class="audit-note">A real asset, oddly hidden. There's an actual team-party booking flow (routed through the Rookie's domain) and a genuine operational strength — per-family payment for big groups. This is the money feature. But it's buried behind the brand confusion and not surfaced or optimized as the headline offer it should be.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Positioning / Expectations</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">A subtle driver of the low rating: the happy reviews are team parties; the lukewarm ones read like walk-in diners judging a group-event venue as a regular restaurant ("bar food/apps which were fine"). The site doesn't set the expectation that this is a team-and-group destination, so it draws the wrong guests and the wrong reviews. Clear positioning fixes both.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website (two sites, one venue)</span><span class="grade grade-d">C−</span></div>
+          <div class="audit-note">Real content exists — menu, activities, live music, team-party, and contact pages — but it's spread across cooperstownclubhouse.com and rookiescrafthouseny.com, so effort and link equity are split. A modern WordPress/Divi build that would be a solid single site if it were, in fact, a single site.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social Media</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Split like everything else: @cooperstownclubhouse and @rookiescrafthouse both exist on Facebook and Instagram, so the audience, content, and social proof are divided across two handles. For a fun, visual, group-driven venue, social should be a strength; instead it's two half-built channels neither of which reaches critical mass.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">With an empty meta description and two competing domains, the venue ranks poorly for the exact terms it should own — "team party Cooperstown," "group dining near the ballfields," "team dinner Cooperstown." The demand is highly specific and under-contested; the site simply isn't structured or consolidated to capture it.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility (GEO)</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The brand split is poison for AI. Ask an assistant for a team-friendly restaurant in Cooperstown and it has two conflicting identities, a weak rating, and no schema to reconcile — so it recommends neither confidently. One clean brand with structured data and an FAQ would make the Clubhouse the obvious machine-readable answer for group dining.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content — FAQ / Info</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Activities and live-music pages are a nice touch, but there's no FAQ answering the high-intent group questions a coach actually has: minimum and maximum party size, deposits, per-family payment, menu options, dietary needs, how far from the ballfields, booking lead time. This is the indexable content that wins both Google and AI.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Mobile &amp; Accessibility</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">The viewport is set to <code>maximum-scale=1.0, user-scalable=0</code>, blocking pinch-to-zoom — an accessibility failure and friction for the phone-first parents and coaches booking on the go. Images also lack alt text. Quick fixes, and worth doing across the family's sites at once, since they share the flaw.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-f">3.7</span></div>
+          <div class="audit-note">Score out of 10, weighing brand consistency, reviews, technical SEO, local and AI search, the booking funnel, social, content, and mobile. The market's best niche and genuinely happy customers — held back hard by a venue split across two brands and two domains, a 2.4★ headline rating, and a bare technical foundation. A high ceiling behind a very fixable floor.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>The Cooperstown Clubhouse should be the automatic answer to "where does our team eat in Cooperstown" — it's on the complex grounds, built for groups of 30–250, with activities and per-family payment, and the people who book it are genuinely happy. What's stopping it is self-inflicted: the venue runs under two names across two websites, so its reviews, search, and social are split in half, and the "Clubhouse" identity leads with a rough 2.4★ while the good reviews sit under "Rookie's." Add an empty meta description and no schema, and the market's clearest niche is nearly invisible. The single most valuable move is to pick one brand, consolidate everything onto it, fix and grow the reviews, and position it plainly as the team-party destination — then own a search almost no one else can.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#effaf7;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">05</span>
+      <span class="section-title" style="color:#2F6F6A">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Pick One Brand and Consolidate Everything (Do This First)</span>
+          </div>
+          <div class="rec-detail">Decide once and for all: Cooperstown Clubhouse or Rookie's Craft House. Then make the other a 301 redirect, merge the two websites into one, consolidate the Google, Yelp, and social profiles (Google can merge duplicate listings), and unify the name, hours, and NAP everywhere. Every review, link, and search that's currently split will start compounding onto a single brand. Nothing else in this list pays off until this is done.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Fix and Rebuild the 2.4★ Rating</span>
+          </div>
+          <div class="rec-detail">Respond professionally to every existing review, address the service and expectations issues they point to, and launch a review-generation push aimed at the happy team-party groups — a QR at the table and a post-event text after every party. With only 17 reviews, the rating is fragile in both directions: a steady flow of genuine team-party reviews will lift it quickly, and consolidating the Rookie's reviews onto the same brand compounds the effect.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Position Clearly as the Team-Party Venue</span>
+          </div>
+          <div class="rec-detail">Lead the site and profile with what this place actually is: the group and team destination, not a walk-in fine-dining room. Say it plainly — "Cooperstown's home for team parties, 30–250, with activities and per-family payment." Setting the expectation draws the right guests (who leave great reviews) and gently filters the walk-in diners whose mismatched expectations drive the lukewarm ones.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Surface the Team-Booking Funnel as the Headline</span>
+          </div>
+          <div class="rec-detail">The per-family-payment team-party booking is the money feature and it's buried. Put it front and center on the consolidated site with a fast, obvious booking path, clear group sizes, deposits, and lead times. Make booking a team party the single easiest action on the whole site — it's the highest-value conversion the venue has.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Install the SEO Foundation &amp; Schema</span>
+          </div>
+          <div class="rec-detail">Write a real meta description (the current one is empty), give every page a keyword-and-location title, collapse to a single clear H1, and add Open Graph tags. Then add <code>Restaurant</code> / <code>LocalBusiness</code> and <code>Menu</code> schema (plus event/reservation markup for team parties) so Google and AI can read the venue, its hours, and its group offer as structured data.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Own "Team Party / Group Dining Cooperstown" + Package the Complex</span>
+          </div>
+          <div class="rec-detail">Build dedicated content for the searches this venue can win almost uncontested, and cross-sell the complex: a combined offer with Fenimore's Table (casual team party here, sit-down dinner there) and a tie-in with the Cooperstown Experience tournaments. One coordinated on-grounds dining story is far stronger than three venues marketed as strangers.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Fix Mobile Zoom &amp; Unify Hours / NAP</span>
+          </div>
+          <div class="rec-detail">Remove <code>maximum-scale=1.0, user-scalable=0</code> so phone users can pinch-to-zoom, add alt text, and reconcile the conflicting hours (11pm vs 9pm) to one correct set published identically everywhere. Small fixes, but mismatched hours actively erode trust and send families to a locked door — and the mobile lock hits the exact audience booking on their phones between games.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Add an AI Concierge for Group &amp; Team Booking</span>
+          </div>
+          <div class="rec-detail">Group booking generates a heavy, repetitive question load — capacity, deposits, per-family payment, menu and dietary options, activities, distance from the fields, lead time. A 24/7 AI concierge that answers all of it instantly and captures the booking inquiry converts after-hours coach interest a busy kitchen can't field live, and turns the venue's real strength into booked parties. This is Doble AI's signature layer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>The best niche in town. Time to stop splitting it.</h2>
+    <p>The Cooperstown Clubhouse is built to own team-party dining — on the grounds, with the space, the activities, and happy customers. The gap is self-inflicted: one brand, two names. Consolidate it, fix the reviews, position it clearly, and get found. Not a rebuild — a decision.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Cooperstown Clubhouse — Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
