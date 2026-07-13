@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Cooperstown Experience — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(47,111,106,0.2);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2F6F6A;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #2F6F6A;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #46524C;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(47,111,106,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7C8C84;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #fdf6e9;
+    border: 1px solid #e9c98a;
+    border-left: 4px solid #b45309;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #b45309;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #7a4a12; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(180,83,9,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(47,111,106,0.16);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #1F2622; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(71,85,76,0.14);  color: #46524c; }
+  .badge-sister { background: rgba(15,118,110,0.14); color: #0f766e; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F2622; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #cdeae3; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #2F6F6A;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #a6d4cb; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026 · Cooperstown, New York</div>
+    <h1>Cooperstown<br>Experience</h1>
+    <p>A brand-new youth baseball and softball tournament complex on Route 28 in Cooperstown, launching for the 2026 season with a genuinely bold offer: a stadium, VIP championship ceremonies inside the National Baseball Hall of Fame, weeklong and weekend formats, girls softball alongside boys baseball, and on-site dining from the family's own restaurants. It's stepping into a ring held for thirty years by Cooperstown Dreams Park and All Star Village. This is an audit of whether its digital presence is ready for that fight — and the honest answer is that the product is far ahead of the website, at exactly the moment when trust and findability online decide where a family sends its team.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Cooperstown</div><div class="stat-label">Location</div></div>
+      <div class="stat"><div class="stat-val">2026</div><div class="stat-label">Launch Season</div></div>
+      <div class="stat"><div class="stat-val">Baseball + Softball</div><div class="stat-label">Tournaments</div></div>
+      <div class="stat"><div class="stat-val">Hall of Fame</div><div class="stat-label">Signature Perk</div></div>
+      <div class="stat"><div class="stat-val">3.6 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The Core Gap — A Bold New Contender With a Quiet Website</div>
+      <p>Cooperstown Experience has a genuinely differentiated offer, and almost none of it is visible or findable online. The homepage title is just <code>Cooperstown Experience</code> with no meta description, no Open Graph, and no schema, so search engines and AI have nothing to work with — and the site barely surfaces the crown jewels (the Hall of Fame awards ceremonies, the stadium, girls softball, weekend formats, the on-site dining). The Google listing exists as a "Sports complex" but carries <strong>zero reviews</strong>, while Dreams Park and All Star Village have decades of them and years of parent-forum word of mouth. For a new tournament that families research and book a year or more out on reputation and trust, the site isn't yet built to earn either. Everything here is greenfield — and the differentiators are strong enough to win if they're actually shown.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A new baseball and softball tournament destination offering weeklong and weekend tournaments for boys' baseball and girls' softball, with championship games in a purpose-built ballpark stadium and awards ceremonies. A Cooperstown "baseball vacation" experience for teams and their families, launching for the 2026 season.</div>
+        </div>
+        <div>
+          <div class="fact-label">Location &amp; Contact</div>
+          <div class="fact-val">4850 NY-28, Cooperstown, NY 13326 · (607) 446-0110 · manager@cooperstownexperience.com. Sits on the Route 28 corridor south of the village — the same road travelers take toward the established complexes — with the family's restaurants (Cooperstown Clubhouse, Rookie's Craft House, Fenimore's Table) on and beside the grounds.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Differentiators</div>
+          <div class="fact-val">Three that genuinely stand out: a VIP championship ceremony <strong>inside the National Baseball Hall of Fame</strong> (Bullpen / Library Atrium) plus HOF memberships for participants; <strong>girls softball</strong> and <strong>weekend formats</strong>, both underserved by the week-long, boys-baseball incumbents; and brand-new fields with on-site dining. These are real reasons to choose it — if a family can find and understand them.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Competitive Reality</div>
+          <div class="fact-val">It launches against Cooperstown Dreams Park (since 1996, ~1,000 teams a summer) and Cooperstown All Star Village — deeply entrenched, with thousands of reviews, established forum reputations, and years of SEO. A newcomer doesn't out-muscle that head-on; it wins by owning the lanes they under-serve and by being unmistakably legitimate and findable online.</div>
+        </div>
+        <div>
+          <div class="fact-label">On-Site Dining (An Owned Edge)</div>
+          <div class="fact-val">Uniquely, the complex owns its own restaurants — the Cooperstown Clubhouse (built for team gatherings of 30–250), Rookie's Craft House, and Fenimore's Table. Feeding a hungry team after a game is a genuine pain point families cite at other complexes. Here it's a built-in advantage — and today it's not told as one anywhere online.</div>
+        </div>
+        <div>
+          <div class="fact-label">Why Now</div>
+          <div class="fact-val">This is the launch window, when first impressions are formed and the 2026–2027 booking decisions are being made. Every parent and coach vetting a new tournament will search it, compare it to the giants, and look for proof it's real and worth the money. The digital foundation built now is what converts that scrutiny into signed teams — and what's missing today is costing early bookings.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Competitor</th>
+            <th>Location</th>
+            <th>Key Note</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cooperstown Dreams Park</td>
+            <td class="geo">Hartwick, NY</td>
+            <td>The 800-pound gorilla — running 12U boys tournaments since 1996, ~1,000 teams a summer, 22 fields, and a massive review and forum footprint. Owns nearly every "Cooperstown baseball tournament" search. The reputation benchmark to be measured against.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Cooperstown All Star Village</td>
+            <td class="geo">Oneonta, NY</td>
+            <td>The established #2 — a full baseball-village experience with lodging, deep review base, and years of SEO. Directly competes for the same week-long boys-baseball family and dominates the second wave of comparison searches.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Cooperstown Baseball World</td>
+            <td class="geo">Oneonta, NY</td>
+            <td>Another regional youth-tournament brand competing for the same national travel-ball audience. Less dominant than the top two, but established, findable, and reviewed — everything the new entrant isn't yet.</td>
+            <td><span class="badge badge-med">Med</span></td>
+          </tr>
+          <tr>
+            <td>Regional weekend tournaments</td>
+            <td class="geo">Northeast</td>
+            <td>The broader field of weekend travel-ball tournaments families choose among. Individually small, but collectively they're the alternative when a family wants a weekend rather than a week — a lane Cooperstown Experience can lead on locally.</td>
+            <td><span class="badge badge-low">Low</span></td>
+          </tr>
+          <tr>
+            <td>The open lanes (advantage)</td>
+            <td class="geo">Cooperstown</td>
+            <td>Girls softball, weekend formats, and the Hall of Fame ceremony are under-served or unmatched by the incumbents. This is where Cooperstown Experience competes from strength rather than chasing — and where its content and SEO should concentrate first.</td>
+            <td><span class="badge badge-sister">Opening</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Cooperstown Experience has <strong>a genuinely differentiated product and a brutal, entrenched competitive field — and a digital presence that shows almost none of the former to win against the latter</strong>. The Hall of Fame ceremonies, the stadium, the softball and weekend lanes, the owned on-site dining: any one of these could pull a family from an incumbent, but they're buried on a thin site with no SEO foundation, no reviews yet, and no trust-building content. The offer can win. The website, as it stands, can't yet carry it.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(47,111,106,0.08);border:1px solid rgba(47,111,106,0.22)">
+          <div class="pos-card-label" style="color:#2F6F6A">Strengths</div>
+          <div class="pos-card-text">A truly differentiated offer: Hall of Fame championship ceremonies, a purpose-built stadium, girls softball and weekend formats the giants under-serve, and family-owned on-site dining. Brand-new facilities. A claimed Google "Sports complex" listing and a clean site platform to build on. No baggage — a blank slate.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(194,65,12,0.25)">
+          <div class="pos-card-label" style="color:#c2410c">Current Position</div>
+          <div class="pos-card-text">Nearly invisible against the incumbents. No meta, Open Graph, or schema; the differentiators aren't surfaced or indexable; the Google profile has zero reviews; no findable social proof; and the on-site dining edge is untold. A new name with a quiet site in a market where families lean hard on reputation and reviews.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">Win from strength. Build indexable content around the Hall of Fame ceremony, girls softball, and weekend formats to own the searches the giants ignore; establish legitimacy fast with transparency, early testimonials, and the HOF partnership; and sell the owned-dining convenience. Get found on the terms where it already has the better story.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website (cooperstownexperience.com)</span><span class="grade grade-d">C−</span></div>
+          <div class="audit-note">A functional site with the operational pages a tournament needs — programs, schedules, rules, complex development, employment. But it's thin and utilitarian: it reads like a registration portal, not a sales pitch. The differentiators that would actually win a family aren't foregrounded, and the design doesn't yet convey the premium the offer promises.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The homepage title is just "Cooperstown Experience" with no meta description, no Open Graph or Twitter cards, and no schema. Search engines and AI are handed nothing structured about what it is, where it is, or what makes it different. For a brand-new name nobody is searching for yet, this is the foundation that has to come first.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">A listing exists and is categorized correctly as a "Sports complex," with the 4850 NY-28 address, phone, website, and a photo — a solid start. But it's sparse and carries no reviews yet, and isn't yet being worked (posts, photos of the fields and ceremonies, Q&amp;A). For a new venue, an actively built profile is a primary trust and discovery surface.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews &amp; Social Proof</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No reviews anywhere yet — expected for a launch, but the single biggest gap against rivals sitting on thousands. Families choosing a new, unproven tournament need proof it's real and worth it. With no testimonials, no press, and no visible parent voices, there's nothing yet to counter "we've never heard of them." Building this fast is existential, not optional.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Differentiator Visibility</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">The crown jewels — the Hall of Fame ceremony, the stadium, girls softball, weekend formats, on-site dining — are the whole reason to choose this over the giants, yet they're barely surfaced and not built into indexable pages. The best assets are the least visible. Bringing them to the front is the highest-leverage content work here.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Ranks nowhere for "Cooperstown baseball tournament" — Dreams Park and All Star Village own it. Fighting them head-on is a losing battle, but "Cooperstown girls softball tournament," "weekend baseball tournament Cooperstown," and "2026/2027 Cooperstown tournaments" are winnable, under-contested lanes the site currently targets with no content at all.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility (GEO)</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Ask an AI assistant about Cooperstown youth baseball and it returns Dreams Park and All Star Village; Cooperstown Experience is effectively unknown. With no schema, no distinctive content, and no reviews, there's nothing for an LLM to learn or cite. As families increasingly plan trips through AI, being absent here is a growing, compounding disadvantage.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">On-Site Dining Integration</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">A real, ownable edge — three family-owned restaurants on and beside the grounds solve the "where does a hungry team eat" problem rivals leave to chance. Yet the complex site and the restaurant sites barely reference each other. Told and cross-linked properly, this is a differentiator and a cross-selling engine; today it's a missed connection.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social Media</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">No prominent, linked social presence surfaced from the site. For a new consumer brand marketing to parents and coaches — a highly visual, community-driven audience — social is where legitimacy, field photos, and excitement get built pre-launch. This channel needs to be established and pointed at the booking funnel.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content — FAQ / Info Hub</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No FAQ and no depth — the biggest GEO driver, missing entirely. Parents and coaches have a long, high-stakes question list (cost, what's included, lodging, schedule, travel, safety, how the HOF ceremony works, softball specifics). Answering them in indexable content is what wins both Google and AI answers and removes the friction blocking a big-ticket booking.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Mobile &amp; Accessibility</span><span class="grade grade-cp">C+</span></div>
+          <div class="audit-note">A relative bright spot: the site is on a cleaner platform than the family's restaurant sites and doesn't lock pinch-to-zoom, so the mobile baseline is acceptable. The work here is less about fixing breakage and more about a mobile experience worthy of the premium — most parents will first meet this complex on a phone.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-f">3.6</span></div>
+          <div class="audit-note">Score out of 10, weighing website quality, technical SEO, differentiator visibility, search and AI presence, reviews and social proof, dining integration, content, and mobile. A genuinely strong, differentiated offer launching against entrenched giants — held back by a thin, un-optimized site that shows almost none of what makes it special, and no trust signals yet built.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Cooperstown Experience is the rare audit where the business is well ahead of its website. The offer is genuinely differentiated — Hall of Fame championship ceremonies, a real stadium, the under-served girls-softball and weekend lanes, and family-owned on-site dining — but the site shows almost none of it, carries no SEO foundation, and has no reviews or trust signals to reassure families weighing it against thirty-year incumbents. This is a launch-moment opportunity, not a repair job. Surface the differentiators as indexable content, own the searches the giants ignore, build legitimacy fast with transparency and early proof, and integrate the owned dining — and a new contender becomes a findable, credible, bookable one at exactly the moment those decisions are being made.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#effaf7;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">05</span>
+      <span class="section-title" style="color:#2F6F6A">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Bring the Differentiators to the Front</span>
+          </div>
+          <div class="rec-detail">Turn the crown jewels into real, indexable pages: the Hall of Fame championship ceremony (with photos and exactly how it works), the stadium, girls softball, and weekend formats. Lead the homepage with them. These are the reasons a family leaves an incumbent, and right now they're the hardest things to find on the site. This is the single highest-leverage change.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Install an SEO Foundation &amp; Tournament Schema</span>
+          </div>
+          <div class="rec-detail">Give every page a real, keyword-and-location title, a meta description, and Open Graph tags, and add <code>SportsActivityLocation</code> / <code>LocalBusiness</code> and <code>Event</code> schema for the tournaments (dates, ages, location). This is what lets Google and AI understand and surface a name nobody is searching for yet — the groundwork every other digital win depends on.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Own the Lanes the Giants Ignore</span>
+          </div>
+          <div class="rec-detail">Don't fight Dreams Park for "Cooperstown baseball tournament." Win "Cooperstown girls softball tournament," "weekend baseball tournament Cooperstown," and "2026 / 2027 Cooperstown tournaments" with dedicated content built for each. These are under-contested, high-intent searches where Cooperstown Experience has the better — or the only — answer.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Build Legitimacy Fast (The New-Entrant Imperative)</span>
+          </div>
+          <div class="rec-detail">Close the "never heard of them" gap deliberately: feature the National Baseball Hall of Fame partnership prominently, publish complex-development progress and staff/coach bios for transparency, and gather testimonials and video from the very first tournaments. A new tournament asking families for a big-ticket, plan-ahead commitment has to prove it's real and excellent before reputation can do it automatically.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Turn On the Review &amp; Google-Profile Engine</span>
+          </div>
+          <div class="rec-detail">Make review generation a launch-day system: request Google reviews from every team and family after each event, and actively build the Google Business Profile with field photos, posts, and Q&amp;A. Early reviews are worth more than later ones — they're what converts the next skeptical family. Reinforce them on the site so the proof is visible where the decision is made.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Sell the On-Site Dining as an Amenity</span>
+          </div>
+          <div class="rec-detail">Make the family-owned restaurants a headline advantage: an on-grounds dining page, cross-links to the Clubhouse (team meals for 30–250), Rookie's, and Fenimore's, and team-meal packages. "Your team eats here, on-site, no scramble" answers a real pain point families hit at other complexes — and it cross-sells the restaurants at the same time. Today the complex and the restaurants barely acknowledge each other online.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Build the Coach &amp; Parent FAQ / Info Hub (GEO)</span>
+          </div>
+          <div class="rec-detail">Publish a thorough FAQ and info hub answering the real questions — total cost and what's included, lodging, schedule and format, travel and directions, safety, how the Hall of Fame ceremony works, softball specifics. This is the indexable, question-answering content that wins Google and AI answers and removes the friction standing between an interested family and a deposit.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Add an AI Concierge for Coaches &amp; Families</span>
+          </div>
+          <div class="rec-detail">The pre-booking question load for a tournament is enormous and high-stakes — cost, format, lodging, schedule, travel, dining, and exactly how the Hall of Fame ceremony works. A 24/7 AI concierge that answers those instantly and captures coach and family inquiries converts after-hours interest a small new team can't field live, and turns the site's information depth into booked teams. This is Doble AI's signature layer, and a real edge for a challenger brand that has to out-service the giants.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>A contender's offer. Time for a contender's presence.</h2>
+    <p>Cooperstown Experience has the stadium, the Hall of Fame ceremony, the under-served lanes, and the on-site dining to take on the giants. The gap is digital — surface the differentiators, own the searches they ignore, build trust fast, and get found. This is a launch-moment advantage, and it's there to be taken.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Cooperstown Experience — Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
