@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Fenimore's Table — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(47,111,106,0.2);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2F6F6A;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #2F6F6A;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #46524C;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(47,111,106,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7C8C84;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #fdf6e9;
+    border: 1px solid #e9c98a;
+    border-left: 4px solid #b45309;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #b45309;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #7a4a12; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(180,83,9,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(47,111,106,0.16);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #1F2622; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(71,85,76,0.14);  color: #46524c; }
+  .badge-sister { background: rgba(15,118,110,0.14); color: #0f766e; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F2622; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #cdeae3; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #2F6F6A;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #a6d4cb; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026 · Cooperstown, New York</div>
+    <h1>Fenimore's<br>Table</h1>
+    <p>A neighborhood gastro-pub on Route 28 in Cooperstown — creative American cooking "rooted in Cooperstown's sense of place," with a real menu, brunch, and online ordering through Toast. It's part of the Cooperstown Experience family, sharing the Route 28 corridor with its sister restaurant, the Cooperstown Clubhouse. This is an audit of how a genuinely good restaurant shows up online in one of the most search-heavy small tourism markets in America — and the headline is that the food and the website are ahead of the digital foundation underneath them, so the business is both hard to tell apart from the town's other "Fenimore" landmarks and largely invisible to the baseball-tournament traffic flowing right past its door.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Cooperstown</div><div class="stat-label">Market</div></div>
+      <div class="stat"><div class="stat-val">Gastro-Pub</div><div class="stat-label">Concept</div></div>
+      <div class="stat"><div class="stat-val">4.3★ (42)</div><div class="stat-label">Google Rating</div></div>
+      <div class="stat"><div class="stat-val">Route 28</div><div class="stat-label">Dreams Park Corridor</div></div>
+      <div class="stat"><div class="stat-val">4.6 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The Core Gap — A Good Restaurant Search Can't Tell Apart</div>
+      <p>Fenimore's Table has the hardest parts right: a distinctive concept, a machine-readable menu, and live online ordering. What's missing is the foundation that makes any of it findable. The site carries <strong>no meta description, no Open Graph tags, and no schema</strong>, so in a town full of "Fenimore" names — the Fenimore Art Museum, Fenimore Cafe, Fenimore Farm — search engines and AI assistants routinely surface those instead of the restaurant. And while it sits on the <code>Route 28</code> corridor that funnels a thousand-plus youth-baseball teams a summer toward Dreams Park, nothing on the site speaks to that tournament-family demand — the exact audience its sister Cooperstown Clubhouse is built to feed. The concept is strong; the digital scaffolding that would let the right people find it isn't built yet. The fixes are fast.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A neighborhood gastro-pub serving creative American cuisine — familiar favorites with seasonal, wandering twists — plus a dedicated brunch. Casual, food-forward, and built around a "sense of place" story tied to James Fenimore Cooper's Cooperstown. Dine-in, takeout, and event hosting.</div>
+        </div>
+        <div>
+          <div class="fact-label">Location &amp; Contact</div>
+          <div class="fact-val">4874 NY-28 (State Route 28), Cooperstown, NY 13326 · (607) 547-2767 · restaurant@cooperstownexperience.com. On the Route 28 approach south of the village core — the same corridor travelers take toward the Dreams Park and All Star Village baseball complexes, rather than the Main Street tourist strip.</div>
+        </div>
+        <div>
+          <div class="fact-label">Ownership &amp; Portfolio</div>
+          <div class="fact-val">Part of the Hogan family's Cooperstown Experience group. Its sister restaurant, the <strong>Cooperstown Clubhouse</strong>, sits directly across Route 28 (4850) and is built for large team and group events (30–250). Two owner-linked venues on the same corridor, sharing an umbrella brand — but today they reinforce each other only loosely online.</div>
+        </div>
+        <div>
+          <div class="fact-label">Menu &amp; Ordering</div>
+          <div class="fact-val">The menu is published as real HTML text and online ordering runs through Toast (ToastTab) — both genuine strengths. A machine-readable menu is something search engines and AI can actually index, which many restaurant sites lose by burying the menu in a PDF or image.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Market</div>
+          <div class="fact-val">Cooperstown punches far above its size in search: the Baseball Hall of Fame, Otsego Lake, and — critically for Route 28 — Cooperstown Dreams Park and All Star Village, which together run roughly 15+ tournament weeks from late May through August, drawing 1,000+ teams and their families for week-long stays. Those families eat out all week, and they search for it.</div>
+        </div>
+        <div>
+          <div class="fact-label">Why Now</div>
+          <div class="fact-val">The concept and the ordering flow are already in place, so the return on fixing the foundation is fast. Right now the restaurant is buried under the town's other "Fenimore" landmarks in search and absent from the tournament-family queries flowing past on Route 28. Each summer week those searches happen whether or not Fenimore's is ready to be found — the sooner the fundamentals ship, the more of that seasonal demand it captures.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Business</th>
+            <th>Location</th>
+            <th>Key Note</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Doubleday Cafe</td>
+            <td class="geo">Cooperstown</td>
+            <td>93 Main Street, in the heart of the Hall of Fame foot traffic. A beloved, high-review-volume tourist-and-local staple that owns the casual-American search in the village core. The name to beat on reputation.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Cafe Nicoletta</td>
+            <td class="geo">Cooperstown</td>
+            <td>96 Main Street, upscale Italian widely praised as among the best in town. Different cuisine, but competes hard for the "nice dinner in Cooperstown" search and sets the bar for a polished dining reputation.</td>
+            <td><span class="badge badge-med">Med–High</span></td>
+          </tr>
+          <tr>
+            <td>Cooperstown Diner</td>
+            <td class="geo">Cooperstown</td>
+            <td>136 Main Street, casual home-style cooking with a loyal following — a direct draw for the exact budget-conscious tournament families Fenimore's should be reaching. Overlaps the family daypart most.</td>
+            <td><span class="badge badge-med">Med</span></td>
+          </tr>
+          <tr>
+            <td>The Otesaga · 1909 · Hawkeye</td>
+            <td class="geo">Cooperstown</td>
+            <td>Lakefront upscale dining at the landmark resort. A different, destination lane, but dominates "best view / special-occasion dining" searches and holds a deep review base.</td>
+            <td><span class="badge badge-lowmed">Low–Med</span></td>
+          </tr>
+          <tr>
+            <td>Council Rock Brewery · brewpubs</td>
+            <td class="geo">Cooperstown</td>
+            <td>Casual food-and-drink venues catching après-game and evening traffic. Adjacent lane; modest direct pressure on the gastro-pub daypart.</td>
+            <td><span class="badge badge-low">Low</span></td>
+          </tr>
+          <tr>
+            <td>Cooperstown Clubhouse</td>
+            <td class="geo">Cooperstown</td>
+            <td>Same owners — the sister restaurant directly across Route 28, built for team and group events (30–250). Not a competitor: the natural cross-promotion partner for capturing tournament families together, which today they barely do online.</td>
+            <td><span class="badge badge-sister">Sister</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Fenimore's Table has <strong>a strong, differentiated concept, a machine-readable menu, and working online ordering — but a foundation that leaves it hard to find and easy to confuse</strong>. In a high-search market it has real assets most competitors lack, yet the site tells search engines and AI almost nothing, so it's routinely lost among the town's other "Fenimore" names and absent from the tournament-family demand flowing past on Route 28. The good parts are already built; what's missing is the scaffolding that turns them into visibility.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(47,111,106,0.08);border:1px solid rgba(47,111,106,0.22)">
+          <div class="pos-card-label" style="color:#2F6F6A">Strengths</div>
+          <div class="pos-card-text">A distinctive gastro-pub concept with a real story. A claimed, actively-managed Google profile (4.3★, 42 reviews) with order-online and waitlist live. A machine-readable HTML menu and Toast ordering. Active Instagram and Facebook. A sister restaurant across the road built for the exact group/team business the market generates.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(194,65,12,0.25)">
+          <div class="pos-card-label" style="color:#c2410c">Current Position</div>
+          <div class="pos-card-text">No meta description, no Open Graph, and no schema, so search engines and AI can't cleanly identify the restaurant and often surface the Fenimore Art Museum, Cafe, or Farm instead. The healthy Google profile isn't reinforced anywhere on the website or worked for a steady review flow. The mobile site blocks pinch-to-zoom. Nothing targets the Dreams Park tournament audience.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">Own the tournament-family corridor. Add SEO fundamentals and <code>Restaurant</code> schema to disambiguate the name, publish tournament-and-group dining content, consolidate reviews, and market jointly with the sister Clubhouse. Do it and Fenimore's can capture a huge, recurring seasonal audience that currently drives right past.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website (fenimorestable.com)</span><span class="grade grade-cp">C+</span></div>
+          <div class="audit-note">A clean, modern WordPress/Divi site with Menu, Brunch, and ordering pages and genuine brand storytelling. More complete and better-written than most in the portfolio. The weakness is entirely underneath it — no SEO layer, so a good site does little to get found.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No meta description, no Open Graph or Twitter cards, and no JSON-LD schema. The title tag is the business name plus a full tagline sentence rather than a searchable, location-keyed title, and the H1 is generic. Search and AI crawlers get almost nothing structured about the restaurant, its location, or its hours.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">Confirmed live and claimed on Google Maps: 4.3★ across 42 reviews, actively managed (hours updated by the business, order-online and Join Waitlist live, dine-in/takeout attributes, $20–30 price band). This is a genuine strength doing real work in Maps and "near me." The gap is that the website reinforces it with no embedded map, hours block, or review surface, and it isn't yet being worked for weekly posts and a steady review flow.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-cp">C+</span></div>
+          <div class="audit-note">A solid, real base: 4.3★ across 42 Google reviews on a claimed profile — reputation is healthier than the rest of the digital presence. The gaps are momentum and breadth: no visible review-generation habit, so it isn't compounding, the site surfaces none of it, and there's little beyond Google. A steady ask — QR on the check, a post-visit prompt, captured hard during the tournament weeks — would grow it fast.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Menu &amp; Online Ordering</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">A real strength. The menu is published as indexable HTML and ordering runs through Toast, so guests can order directly and search engines can actually read the offering. The next step is wrapping the menu in <code>Menu</code> schema so it becomes a citable source for AI answers, not just a readable page.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social — Instagram &amp; Facebook</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Active on both @fenimorestable channels with real, on-brand food content — a solid habit. It's underused as a funnel: little pointing followers to reviews or the ordering link, no location tagging for the tournament crowd, and only loose cross-promotion with the sister Clubhouse. Good raw material, not yet converting.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">With no on-page SEO and a name shared by several Cooperstown landmarks, Fenimore's ranks poorly for "restaurant / dinner / brunch Cooperstown" — where Doubleday, Cafe Nicoletta, and the entrenched set sit. The differentiated concept simply isn't reaching the searches it should win.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search &amp; Name Collision (GEO)</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Ask an AI for dining in Cooperstown and Fenimore's Table is easily conflated with the Fenimore Art Museum, Fenimore Cafe, and Fenimore Farm. With no schema and no distinctive structured content to disambiguate, the restaurant loses citations to landmarks that share its name. <code>Restaurant</code> schema and an FAQ are the fastest fixes.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Dreams Park / Tournament Market</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The single biggest missed opportunity. Thousands of baseball families spend week-long stays on this exact corridor every summer and search "where to eat / team dinner near Dreams Park." Nothing on the site — no page, no content, no group-dining offer — speaks to them, even though the sister Clubhouse is purpose-built for team events across the street.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content — Blog / FAQ</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">The HTML menu helps, but there's no blog and no FAQ — the biggest GEO driver. The questions visitors ask ("Do you take groups or teams? Is there parking? Kid-friendly? Brunch hours? How far from Dreams Park?") aren't answered anywhere indexable, so neither Google nor AI can surface Fenimore's as the answer.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Mobile &amp; Accessibility</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">The viewport is set to <code>maximum-scale=1.0, user-scalable=0</code>, blocking pinch-to-zoom on phones — an accessibility failure and friction for the mobile-first diners and out-of-town families browsing on the go. Images also lack alt text. Quick fixes with real usability and SEO upside. (The same flaw runs across the owner's other sites.)</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-c">4.6</span></div>
+          <div class="audit-note">Score out of 10, weighing website quality, technical SEO, local search, reviews, AI visibility, menu indexability, social, content, and mobile/accessibility. A strong concept with a healthy, claimed Google profile (4.3★/42), a real menu, and online ordering — held back by a bare technical-SEO foundation, a name-collision problem in organic and AI search, and a completely uncaptured tournament-family market.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Fenimore's Table is a good restaurant with its hardest assets already in place — a distinctive concept, an indexable menu, and live online ordering. What's holding it back is entirely fixable: with no meta, Open Graph, or schema, search engines and AI can't tell it apart from the town's other "Fenimore" landmarks, its healthy Google profile (4.3★/42) isn't reinforced by the website or grown with a steady review habit, and it says nothing to the thousands of baseball-tournament families driving past on Route 28 all summer. None of this is a rebuild. Add an SEO foundation and schema to claim the name, compound the Google profile and reviews, publish tournament-and-group dining content, and market jointly with the sister Clubhouse — and Fenimore's turns a captive, recurring seasonal audience into covers.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#effaf7;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">05</span>
+      <span class="section-title" style="color:#2F6F6A">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Install an SEO Foundation &amp; Schema to Claim the Name</span>
+          </div>
+          <div class="rec-detail">Add an SEO plugin and give every page a real, location-keyed title ("Fenimore's Table | Gastro-Pub &amp; Brunch in Cooperstown, NY"), a meta description, and Open Graph tags. Then add <code>Restaurant</code> and <code>Menu</code> JSON-LD with the name, Route 28 address, hours, and cuisine. This is what finally separates the restaurant from the Fenimore Art Museum, Cafe, and Farm in both Google and AI results — the highest-leverage technical fix here.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Own the Dreams Park / Tournament-Family Market</span>
+          </div>
+          <div class="rec-detail">Build a dedicated "Team &amp; Group Dining near Dreams Park" page and supporting content targeting the searches families run all summer — distance from the complexes, group reservations, kid-friendly options, post-game hours. Pair it with the sister Clubhouse's 30–250 event capacity so the two venues capture the corridor together. This is a large, recurring, under-contested audience the site currently ignores.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Compound the Google Profile You Already Have</span>
+          </div>
+          <div class="rec-detail">The Google profile is already a strength — 4.3★ across 42 reviews, claimed, with order-online and a waitlist live. Now compound it: post weekly (specials, brunch, events, tournament-week hours), keep fresh photos flowing, add the full menu, and respond to every review. Then reinforce it on the website, which today surfaces none of it — embed the map and hours and link the reviews. An actively worked profile ranks higher in Maps and "near me" and is a primary source AI assistants cite for local dining.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Consolidate &amp; Grow Reviews</span>
+          </div>
+          <div class="rec-detail">Build on the 42 Google reviews already there — a solid base that isn't being actively grown. Put a QR on the check and a post-visit prompt in the ordering flow to steer happy guests to Google, and keep the Yelp and Facebook profiles consistent. A steady review habit — especially captured during the high-volume tournament weeks — feeds Maps ranking and AI citations and builds the social proof out-of-town families rely on.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Publish an FAQ + Local Content (GEO)</span>
+          </div>
+          <div class="rec-detail">Add an FAQ answering the real questions — groups and teams, parking, kid-friendly, brunch hours, dietary options, distance from Dreams Park and the Hall of Fame — plus a light blog on seasonal menus and the Cooperstown story. This is the indexable, question-answering content that wins both Google and AI answers, and it reinforces the schema that disambiguates the name.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Fix Mobile Zoom &amp; Add Alt Text</span>
+          </div>
+          <div class="rec-detail">Remove <code>maximum-scale=1.0, user-scalable=0</code> from the viewport so phone visitors can pinch-to-zoom — an accessibility requirement and a usability win for the mobile-first, out-of-town audience. Add descriptive alt text to food and space photos. Fast, cheap, and good for both users and search — and worth fixing across all the owner's sites at once.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Turn Instagram &amp; Facebook Into a Traffic Driver</span>
+          </div>
+          <div class="rec-detail">Point the active social audience at the funnel: ordering and reservation links in the bios, a "leave us a review" prompt, location tags for the tournament crowd, and consistent cross-promotion with the sister Clubhouse. Turn engaged followers into orders, reviews, and search signals rather than just likes — and lean into it hard through the summer tournament weeks.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Add an AI Concierge for Visitors &amp; Teams</span>
+          </div>
+          <div class="rec-detail">Add an AI chat concierge that answers hours, menu, dietary, parking, and distance questions 24/7 and handles group and team booking inquiries — the exact things an out-of-town family or a coach organizing a 15-person post-game dinner asks before they choose. It captures after-hours interest a busy kitchen can't field live and routes group demand to Fenimore's and the Clubhouse. This is Doble AI's signature layer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>Great food. Time to win the search.</h2>
+    <p>Fenimore's Table has the concept, the menu, and the ordering already working. The gap is discovery — and most of it is fast: add SEO and schema to claim the name, publish tournament-and-group content, consolidate reviews, and market with the sister Clubhouse. Not a rebuild.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Fenimore's Table — Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
