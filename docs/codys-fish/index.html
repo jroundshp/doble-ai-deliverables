@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Cody's Fish — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F5F1EA;
+    color: #1C1410;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid rgba(194,65,12,0.15); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #c2410c; margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #c2410c; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px); font-weight: 500;
+    color: #1C1410; line-height: 1.05; margin-bottom: 16px;
+  }
+  .hero p { font-size: 19px; color: #43342B; line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0; margin-right: 28px; margin-bottom: 10px;
+    border-right: 1px solid rgba(194,65,12,0.2);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500;
+    color: #1C1410; line-height: 1; margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #8a6a52;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px; background: #fbf0e9; border: 1px solid #e8a879;
+    border-left: 4px solid #c2410c; border-radius: 8px; padding: 18px 22px;
+  }
+  .alert-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #b03c0a; margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #6e3410; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(194,65,12,0.1); padding: 1px 6px; border-radius: 4px; font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section { margin-top: 48px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(194,65,12,0.12); }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75; }
+  .section-title { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .section-body { padding: 28px 24px; background: #FBF7F0; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #8a6a52; margin-bottom: 6px; }
+  .fact-val { font-size: 16px; color: #1C1410; line-height: 1.6; }
+
+  /* ── Landscape Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(194,65,12,0.15); }
+  th { text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a6a52; }
+  th:first-child { padding-left: 0; }
+  th:last-child { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(194,65,12,0.07); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #43342B; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1C1410; }
+  td:last-child { padding-right: 0; }
+  .geo { white-space: nowrap; }
+  .comp-intro { font-size: 15px; color: #43342B; line-height: 1.65; margin-bottom: 18px; }
+  .comp-intro strong { color: #1C1410; }
+  .merge-note { font-size: 15px; color: #43342B; line-height: 1.65; }
+  .merge-note strong { color: #1C1410; }
+
+  .badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge-win    { background: rgba(21,128,61,0.12); color: #15803d; }
+  .badge-partial{ background: rgba(180,83,9,0.12);  color: #b45309; }
+  .badge-miss   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-open   { background: rgba(14,96,112,0.1);  color: #0e6070; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #43342B; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1C1410; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #43342B; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card { background: #F6EEE4; border: 1px solid rgba(194,65,12,0.12); border-radius: 8px; padding: 14px 16px; }
+  .audit-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1C1410; }
+  .grade { font-size: 13px; font-weight: 800; color: #fff; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-c  { background: #b45309; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .grade-num { background: #7d3a1e; }
+  .audit-note { font-size: 14px; color: #43342B; line-height: 1.5; }
+
+  .key-finding { background: rgba(194,65,12,0.05); border: 1px solid rgba(194,65,12,0.2); border-radius: 8px; padding: 16px 20px; }
+  .key-finding-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #c2410c; margin-bottom: 8px; }
+  .key-finding p { font-size: 16px; color: #43342B; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FBF7F0; border-bottom: 1px solid rgba(194,65,12,0.08); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #c2410c; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1C1410; }
+  .rec-detail { font-size: 14px; color: #43342B; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block { margin-top: 56px; background: linear-gradient(135deg, #0a2831 0%, #0e6070 100%); border-radius: 12px; padding: 40px 36px; text-align: center; }
+  .cta-block h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: #ffffff; margin-bottom: 12px; }
+  .cta-block p { font-size: 17px; color: #c8e6ec; line-height: 1.6; max-width: 560px; margin: 0 auto 28px; }
+  .cta-btn { display: inline-block; background: #ffffff; color: #0e6070; font-size: 15px; font-weight: 700; padding: 14px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.15s; }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #9fcfd9; }
+
+  /* ── Footer ── */
+  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(194,65,12,0.12); font-size: 11px; color: #8a6a52; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026 · Windsor, Colorado</div>
+    <h1>Cody's Fish</h1>
+    <p>You built something rare: a category you invented, work that hangs in fly shops across the country, and a story worth telling. This is a look at how that reputation shows up online today, and where a few focused moves would turn more of the people discovering fish art into people buying it directly from you.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">2015</div><div class="stat-label">Full-Time Since</div></div>
+      <div class="stat"><div class="stat-val">18K+</div><div class="stat-label">Plates In Stock</div></div>
+      <div class="stat"><div class="stat-val">National</div><div class="stat-label">Fly-Shop Reach</div></div>
+      <div class="stat"><div class="stat-val">$350–1,200</div><div class="stat-label">Piece Range</div></div>
+      <div class="stat"><div class="stat-val">6.4 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">Headline Finding — Famous In The Fly Shop, Invisible To The Gift Buyer</div>
+      <p>We ran the searches a first-time buyer actually types, things like <code>best custom fish art gift for a fly fisherman</code> and <code>unique fishing wall art</code>. The results fill up with Etsy, Amazon, Great Big Canvas, and mass metal-art shops. <strong>Cody's Fish appears nowhere</strong>, even though you are the artist who defined this exact niche. Everyone inside fly fishing knows the work; the person who's never heard your name, and the AI assistant they now ask for gift ideas, can't find you. Closing that gap is the difference between selling at wholesale and selling direct, and it's where most of the upside in this report lives.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#eef4f5;border-bottom:1px solid rgba(14,96,112,0.2)">
+      <span class="section-num" style="color:#0e6070">01</span>
+      <span class="section-title" style="color:#0e6070">Your Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">Who You Are</div>
+          <div class="fact-val">Cody Richardson, a Colorado native and former firefighter who went full-time as an artist in 2015, working out of Windsor, Colorado. Ann Richardson runs operations. Together you turn authentic vintage license plates into handmade gamefish and wildlife wall art.</div>
+        </div>
+        <div>
+          <div class="fact-label">What You Make</div>
+          <div class="fact-val">One-of-a-kind license-plate sculptures matched to where the fish is caught: a Bahamas plate becomes a bonefish, a rusty Rocky Mountain plate a trout, a Florida plate a tarpon, a Cuban plate a permit. Plus hunting species, hats, fly boxes, and accessories.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Backstory</div>
+          <div class="fact-val">It started in 2015 with a green-and-white Colorado trout you made for your own wall. Three fly shops took a chance on six pieces; four sold before they were even hung. It grew from there into shops nationwide. A genuinely distinctive story, and one your website barely tells.</div>
+        </div>
+        <div>
+          <div class="fact-label">How You Sell</div>
+          <div class="fact-val">Two channels: direct-to-consumer on your own Shopify store, and wholesale through fly shops across the U.S. and internationally, with drop-ship and no minimums. The wholesale network is a real strength; the direct channel is where the margin is.</div>
+        </div>
+        <div>
+          <div class="fact-label">Reputation</div>
+          <div class="fact-val">Real earned attention: features in The Drake Magazine and High Country Angler, and a full episode on The Articulate Fly podcast. Inside fly fishing, the work speaks for itself. That credibility just isn't captured anywhere a new buyer would see it.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Inventory Edge</div>
+          <div class="fact-val">18,000 to 20,000 authentic plates on hand, most pre-1980s, sourced from pickers, collectors, and international travel. It's a moat no competitor can copy, and a story worth telling far more loudly than it is today.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: The Discovery Landscape -->
+  <div class="section">
+    <div class="section-head" style="background:#eef4f8;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">The Discovery Landscape</span>
+    </div>
+    <div class="section-body" style="padding:24px 24px 20px">
+      <p class="comp-intro">You don't have a direct competitor: nobody else makes license-plate fish art at your level. The real contest isn't for the work, it's for <strong>attention at the moment someone decides to buy fish art</strong>. Here's who wins each of those moments today. The pattern is clear: you own every channel that requires already knowing your name, and you're absent from every channel where new buyers discover you.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Where Buyers Land</th>
+            <th>Who Wins It Today</th>
+            <th>Where You Stand</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fly-shop shelves</td>
+            <td>Cody's Fish. Your pieces hang in shops nationwide, often selling before they're on the wall.</td>
+            <td><span class="badge badge-win">You Win</span></td>
+          </tr>
+          <tr>
+            <td>Fly-fishing press &amp; word of mouth</td>
+            <td>Cody's Fish. The Drake, High Country Angler, The Articulate Fly. Real editorial credibility.</td>
+            <td><span class="badge badge-win">You Win</span></td>
+          </tr>
+          <tr>
+            <td>Your own Shopify store</td>
+            <td>A clean, well-organized store, but it mostly converts people who already came looking for you.</td>
+            <td><span class="badge badge-partial">Underused</span></td>
+          </tr>
+          <tr>
+            <td>Google search for gift &amp; art terms</td>
+            <td>Etsy, Amazon, Art.com, Great Big Canvas, mass metal-art shops. You don't appear.</td>
+            <td><span class="badge badge-miss">You're Absent</span></td>
+          </tr>
+          <tr>
+            <td>Marketplaces (Etsy &amp; friends)</td>
+            <td>High-volume generic sellers with hundreds of reviews and broad SEO. None of it one-of-a-kind like yours.</td>
+            <td><span class="badge badge-miss">You're Absent</span></td>
+          </tr>
+          <tr style="background:rgba(14,96,112,0.05)">
+            <td>AI assistants (ChatGPT, Gemini, Perplexity)</td>
+            <td>Nobody in this niche has the structured content these tools cite, so they name generic shops or say nothing.</td>
+            <td><span class="badge badge-open">Wide Open</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="merge-note" style="margin-top:18px">
+        <strong>The takeaway:</strong> the channels you win all depend on someone already knowing Cody's Fish exists. The channels you're missing are exactly where a brand-new buyer, or the AI they now ask for gift ideas, forms a shortlist. You have the best product in the category and none of the discovery infrastructure that would put it in front of people who've never heard of you. That's not a product problem, it's a findability problem, and it's very fixable.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where You Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f6f1e6;border-bottom:1px solid rgba(146,97,14,0.2)">
+      <span class="section-num" style="color:#92610e">03</span>
+      <span class="section-title" style="color:#92610e">Where You Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Most businesses we audit are missing the foundation: no real website, no reviews, invisible on search. <strong>You're the opposite.</strong> The foundation is built, the brand is real, and the product is one of a kind. What's missing is the layer on top that turns a strong niche reputation into broad discovery: content that tells your story, search and AI visibility for buyers who don't yet know you, and social proof that travels beyond the fly shop. A strong brand with a thin discovery layer is the best possible setup for fast growth.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Strengths</div>
+          <div class="pos-card-text">A category you invented. National fly-shop distribution. A professional Shopify store. Real press credibility. An unmatched 18K-plate inventory. A firefighter-to-artist story that lands instantly.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">The Gap</div>
+          <div class="pos-card-text">A blog that stopped in 2022. No customer reviews visible on the site. Invisible for generic buyer searches and in AI answers. The story and the provenance behind each piece are lived, not published.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(14,96,112,0.07);border:1px solid rgba(14,96,112,0.2)">
+          <div class="pos-card-label" style="color:#0e6070">Biggest Opportunity</div>
+          <div class="pos-card-text">Turn the story you already live into content that ranks and that AI assistants cite, add on-site reviews and press proof, and capture more sales direct instead of at wholesale, where roughly half the margin goes to the shop.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fdf1ec;border-bottom:1px solid rgba(194,65,12,0.2)">
+      <span class="section-num" style="color:#c2410c">04</span>
+      <span class="section-title" style="color:#c2410c">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Online Store</span><span class="grade grade-b">B+</span></div>
+          <div class="audit-note">A genuinely good Shopify storefront: strong photography, smart navigation by species, destination, and in-stock, current 2026 copyright, a working contact form and email. This is a real asset most makers never build. It's the one part of the funnel that's already strong.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Product Findability (SEO)</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Search your name and you're everywhere. Search the terms a new buyer uses, "fish wall art," "fly fishing gift," and you're nowhere. Your ranking depends on people already knowing the brand, which caps how many new customers search can send you.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility</span><span class="grade grade-d">D+</span></div>
+          <div class="audit-note">Ask ChatGPT or Gemini for a unique fish-art gift and you don't come up. These tools cite structured, published content, and there's very little of it about your work. This is the newest discovery channel and, right now, the biggest miss, but also the most open.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content / Storytelling</span><span class="grade grade-c">C-</span></div>
+          <div class="audit-note">You're sitting on the best content in the category, plate provenance, species-by-destination, the firefighter-to-artist arc, and almost none of it is published. Your blog has two posts and stopped in August 2022. The story lives in your work, not on your site.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews / Social Proof</span><span class="grade grade-c">C-</span></div>
+          <div class="audit-note">Your reputation is real but it lives in magazines and on fly-shop walls, not where a buyer decides. There are no customer reviews on your product pages and no "as seen in" proof from the press you've earned. The credibility exists; it's just not on the page.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">No individual Google profile surfaced for the Windsor studio. It matters less for a national direct-to-consumer maker than for a local shop, but it's still a free place to collect the reviews you're currently not gathering anywhere.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">FAQ &amp; Buyer Confidence</span><span class="grade grade-c">C+</span></div>
+          <div class="audit-note">Eight solid FAQs cover materials, custom orders, and turnaround, good work. But shipping and returns are missing, and on a $350 to $1,200 purchase those are exactly the questions that decide a sale. They're also prime material for AI assistants to quote.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Direct vs. Wholesale Mix</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Wholesale built the brand and remains a strength, but every wholesale sale gives roughly half the margin to the shop. With stronger discovery and proof, more of that demand converts on your own site at full margin. That's the core growth lever in this report.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social Media</span><span class="grade grade-b">B-</span></div>
+          <div class="audit-note">Active on Instagram and Facebook with a real following, and the work is inherently photogenic, a natural fit for the platforms. The opportunity is to point that audience toward content and product pages that actually capture and convert them.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-num">6.4</span></div>
+          <div class="audit-note">Out of 10, weighing the store, findability, AI visibility, content, reviews, and the direct-versus-wholesale mix. Well above the businesses we usually audit: the foundation is built. The score reflects a discovery gap, not a lack of substance.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>You've already done the hard part, the part most businesses never reach: <strong>a real product, a real brand, and a real reputation</strong>. What's missing is the discovery layer that carries all of that to people who don't yet know your name. Your best stories aren't published, your earned press isn't on your site, and you don't appear when a new buyer, or their AI assistant, goes looking for fish art. Because the substance is already there, these fixes convert almost directly into direct-to-consumer sales at full margin. Overall score today: 6.4 / 10, with a clear path into the 8s.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#eef4f5;border-bottom:1px solid rgba(14,96,112,0.2)">
+      <span class="section-num" style="color:#0e6070">05</span>
+      <span class="section-title" style="color:#0e6070">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Publish The Story You Already Live</span></div>
+          <div class="rec-detail">This is the rare business where the content is genuinely interesting. Every piece has an article in it: why a Bahamas plate makes the perfect bonefish, the provenance of a 1970s Colorado trout, the firefighter-to-artist story, how you source 18,000 plates. Revive the blog and publish steadily. This is what earns organic search traffic for the gift and art terms you're invisible for today, and it's the exact content foundation we build for our clients.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Own The AI-Search Frontier Before Anyone Else In The Niche</span></div>
+          <div class="rec-detail">No one making fish art has structured their content for AI assistants, so when someone asks ChatGPT or Gemini for a unique fishing gift, generic shops get named and you don't. A well-organized set of answers about your work, your process, and buying custom art would make you the artist these tools cite. It's the newest and most defensible ground in the whole report, and it goes to whoever claims it first.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Put Your Proof On The Page</span></div>
+          <div class="rec-detail">You've earned real credibility that no buyer sees at the moment of decision. Add customer reviews to your product pages, build a simple review-request into every order, and add an "as seen in" strip for The Drake, High Country Angler, and The Articulate Fly. A shoppable map of the fly shops that carry you turns your wholesale network into on-site social proof. The trust already exists; this puts it where it converts.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Close The Two FAQ Gaps That Cost Sales</span></div>
+          <div class="rec-detail">Your FAQ is good but silent on shipping and returns, and on a $350 to $1,200 handmade piece those are the exact questions that decide whether someone clicks buy. Adding clear, reassuring answers removes friction at checkout and, as a bonus, gives AI assistants clean, quotable content about how buying from you works.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Shift The Mix Toward Direct Sales</span></div>
+          <div class="rec-detail">Wholesale built the brand and should continue, but every wholesale piece hands roughly half the margin to the shop. The three moves above, content, AI visibility, and proof, all funnel toward the same outcome: more of the demand you already generate converting on your own site at full margin. Even a modest shift from wholesale to direct is meaningful money on pieces at this price point.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">06</span><span class="rec-title">Later: An AI Assistant For Custom Commissions</span></div>
+          <div class="rec-detail">Once the foundation above is in place, a site assistant could guide buyers through a custom commission, answer species, plate, and timeline questions, and capture the request around the clock, catching the gift buyer browsing at 11pm. It's a Phase-3 amplifier: powerful once the discovery layer is feeding it, so it comes after, not before, the work above.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>The work is one of a kind. Let's make it findable.</h2>
+    <p>You've already built the part most businesses never reach: a real product, a real brand, and a real reputation. The gap is discovery, and most of it is fast, high-margin, and squarely in your wheelhouse: publish your story, own the AI-search lane, and put your proof on the page. Let's walk through exactly what we'd do.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through the plan and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Cody's Fish — Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
