@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The New-Listing Playbook · John Tyler Real Estate</title>
+<meta name="description" content="A compliant go-to-market playbook for launching luxury listings across website, blog, Instagram, and Facebook in the Vail and Eagle River Valley. Prepared by Eagle River Base Camp for John Tyler Real Estate.">
+</head>
+<body>
+<style>
+  :root {
+    --bg: #F7F8F6;
+    --surface: #FFFFFF;
+    --surface-2: #F1F3EF;
+    --ink: #1A211D;
+    --muted: #5B665E;
+    --faint: #838E85;
+    --hair: #E1E5DF;
+    --hair-strong: #CDD3CB;
+    --brand: #24463A;
+    --brand-2: #2F5A49;
+    --accent: #A8842C;
+    --accent-ink: #7E6018;
+    --go: #2F6B4F;
+    --go-bg: #EAF1EC;
+    --caution: #9A6A12;
+    --caution-bg: #F6EEDC;
+    --stop: #A6462F;
+    --stop-bg: #F6E9E4;
+    --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+    --measure: 68ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12160F;
+      --surface: #191E16;
+      --surface-2: #1F251B;
+      --ink: #E9ECE5;
+      --muted: #A2AC9C;
+      --faint: #808A7B;
+      --hair: #2A311F;
+      --hair-strong: #384030;
+      --brand: #7FB39A;
+      --brand-2: #92C2AB;
+      --accent: #CBA351;
+      --accent-ink: #D9B871;
+      --go: #6FBF93;
+      --go-bg: #16241C;
+      --caution: #D3A64F;
+      --caution-bg: #2A2313;
+      --stop: #D98B72;
+      --stop-bg: #2B1B15;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F7F8F6; --surface: #FFFFFF; --surface-2: #F1F3EF; --ink: #1A211D;
+    --muted: #5B665E; --faint: #838E85; --hair: #E1E5DF; --hair-strong: #CDD3CB;
+    --brand: #24463A; --brand-2: #2F5A49; --accent: #A8842C; --accent-ink: #7E6018;
+    --go: #2F6B4F; --go-bg: #EAF1EC; --caution: #9A6A12; --caution-bg: #F6EEDC;
+    --stop: #A6462F; --stop-bg: #F6E9E4;
+  }
+  :root[data-theme="dark"] {
+    --bg: #12160F; --surface: #191E16; --surface-2: #1F251B; --ink: #E9ECE5;
+    --muted: #A2AC9C; --faint: #808A7B; --hair: #2A311F; --hair-strong: #384030;
+    --brand: #7FB39A; --brand-2: #92C2AB; --accent: #CBA351; --accent-ink: #D9B871;
+    --go: #6FBF93; --go-bg: #16241C; --caution: #D3A64F; --caution-bg: #2A2313;
+    --stop: #D98B72; --stop-bg: #2B1B15;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .flow > * + * { margin-top: 1.1em; }
+
+  a { color: var(--brand-2); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+  p { margin: 0; max-width: var(--measure); }
+  strong { font-weight: 650; }
+
+  .eyebrow {
+    font-family: var(--sans); font-size: 12px; font-weight: 650;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink);
+  }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    border-bottom: 1px solid var(--hair);
+    background:
+      radial-gradient(120% 90% at 82% -10%, color-mix(in srgb, var(--brand) 12%, transparent), transparent 60%),
+      var(--surface);
+  }
+  .hero-inner { padding: 68px 0 52px; }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4rem); letter-spacing: -0.015em; margin-top: 18px; }
+  .hero .lede { font-size: clamp(1.1rem, 2.4vw, 1.35rem); color: var(--muted); margin-top: 20px; max-width: 40ch; font-family: var(--serif); font-style: italic; }
+  .meta-line {
+    margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--hair);
+    display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 13.5px; color: var(--faint);
+  }
+  .meta-line b { color: var(--muted); font-weight: 600; }
+  .ridgeline { display: block; width: 100%; height: auto; margin-top: 4px; }
+
+  /* ---------- Disclaimer band ---------- */
+  .disclaimer {
+    background: var(--caution-bg);
+    border-top: 1px solid color-mix(in srgb, var(--caution) 30%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--caution) 30%, transparent);
+  }
+  .disclaimer .wrap { padding: 20px 24px; display: flex; gap: 14px; align-items: flex-start; }
+  .disclaimer p { font-size: 14.5px; color: color-mix(in srgb, var(--caution) 82%, var(--ink)); max-width: none; }
+  .disclaimer .mark { flex: none; font-weight: 700; color: var(--caution); font-size: 15px; letter-spacing: 0.04em; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 56px 0; border-bottom: 1px solid var(--hair); }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; }
+  .sec-num {
+    font-family: var(--serif); font-size: 15px; color: var(--accent);
+    font-variant-numeric: tabular-nums; padding-top: 6px; flex: none;
+  }
+  section h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); letter-spacing: -0.01em; }
+  .sec-sub { color: var(--muted); margin-top: 14px; margin-bottom: 30px; max-width: 62ch; }
+  h3 { font-size: 1.28rem; margin-top: 38px; margin-bottom: 12px; color: var(--brand); }
+  h4 { font-family: var(--sans); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); font-weight: 700; }
+
+  /* ---------- Phase cards (the funnel) ---------- */
+  .phases { display: grid; gap: 14px; margin-top: 26px; }
+  .phase {
+    display: grid; grid-template-columns: 54px 1fr; gap: 4px 20px;
+    background: var(--surface); border: 1px solid var(--hair);
+    border-left: 3px solid var(--brand); border-radius: 10px; padding: 20px 22px;
+  }
+  .phase .pn {
+    grid-row: 1 / 3; font-family: var(--serif); font-size: 2rem; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums;
+  }
+  .phase .pt { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--ink); }
+  .phase .pd { color: var(--muted); font-size: 15px; margin-top: 4px; }
+  .phase.p1 { border-left-color: var(--accent); } .phase.p1 .pn, .phase.p1 .pt { color: var(--accent-ink); }
+  .phase.p2 { border-left-color: var(--brand-2); }
+  .phase.p3 { border-left-color: var(--go); } .phase.p3 .pn { color: var(--go); }
+
+  /* ---------- Benefit cards ---------- */
+  .benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 20px; }
+  .benefit { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 20px 22px; }
+  .benefit .bt { font-family: var(--serif); font-size: 1.12rem; color: var(--brand); font-weight: 600; }
+  .benefit p { font-size: 14.5px; color: var(--muted); margin-top: 8px; }
+
+  /* ---------- Callouts ---------- */
+  .call { border-radius: 10px; padding: 16px 18px 16px 20px; border: 1px solid; border-left-width: 4px; margin-top: 20px; }
+  .call .ct { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+  .call p, .call ul { font-size: 15px; margin-top: 8px; }
+  .call.go { background: var(--go-bg); border-color: color-mix(in srgb, var(--go) 40%, transparent); }
+  .call.go .ct { color: var(--go); }
+  .call.caution { background: var(--caution-bg); border-color: color-mix(in srgb, var(--caution) 40%, transparent); }
+  .call.caution .ct { color: var(--caution); }
+  .call.stop { background: var(--stop-bg); border-color: color-mix(in srgb, var(--stop) 42%, transparent); }
+  .call.stop .ct { color: var(--stop); }
+  .call ul { margin-bottom: 0; padding-left: 20px; } .call li + li { margin-top: 5px; }
+
+  /* ---------- Tables ---------- */
+  .tbl-scroll { overflow-x: auto; margin-top: 22px; border: 1px solid var(--hair); border-radius: 10px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 560px; }
+  caption { text-align: left; font-size: 12.5px; color: var(--faint); padding: 12px 16px; border-bottom: 1px solid var(--hair); background: var(--surface-2); }
+  th, td { text-align: left; padding: 11px 16px; border-bottom: 1px solid var(--hair); vertical-align: top; }
+  thead th { background: var(--surface-2); font-family: var(--sans); font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  tbody th { font-family: var(--serif); font-weight: 600; color: var(--brand); font-size: 15px; white-space: nowrap; }
+  tbody tr:last-child td, tbody tr:last-child th { border-bottom: none; }
+  td .yes { color: var(--go); font-weight: 650; } td .no { color: var(--stop); font-weight: 650; } td .part { color: var(--caution); font-weight: 650; }
+
+  /* ---------- Content lists ---------- */
+  .flow ul { padding-left: 22px; max-width: var(--measure); }
+  .flow li { margin-top: 7px; }
+  .flow li::marker { color: var(--accent); }
+
+  .doslist { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+  .doslist > div { border-radius: 10px; padding: 16px 18px; border: 1px solid var(--hair); background: var(--surface); }
+  .doslist h4 { margin-bottom: 10px; }
+  .doslist ul { list-style: none; padding: 0; margin: 0; font-size: 14.5px; }
+  .doslist li { position: relative; padding-left: 22px; margin-top: 8px; color: var(--muted); }
+  .doslist .say li::before { content: "✓"; position: absolute; left: 0; color: var(--go); font-weight: 700; }
+  .doslist .avoid li::before { content: "✕"; position: absolute; left: 0; color: var(--stop); font-weight: 700; }
+
+  /* ---------- Checklist ---------- */
+  .checklist { columns: 2; column-gap: 32px; margin-top: 8px; }
+  .checklist .grp { break-inside: avoid; margin-bottom: 22px; }
+  .checklist h4 { color: var(--brand); font-family: var(--serif); font-size: 15px; text-transform: none; letter-spacing: 0; margin-bottom: 8px; }
+  .checklist ul { list-style: none; padding: 0; margin: 0; }
+  .checklist li { position: relative; padding-left: 26px; font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
+  .checklist li::before { content: ""; position: absolute; left: 0; top: 2px; width: 15px; height: 15px; border: 1.5px solid var(--hair-strong); border-radius: 4px; }
+
+  /* ---------- Sources ---------- */
+  .src-note { background: var(--surface-2); border: 1px solid var(--hair); border-radius: 10px; padding: 18px 20px; font-size: 14px; color: var(--muted); margin-bottom: 26px; }
+  .src-grp { margin-top: 22px; }
+  .src-grp h4 { color: var(--brand); margin-bottom: 10px; }
+  .src-grp ol { margin: 0; padding-left: 20px; font-size: 13px; color: var(--muted); }
+  .src-grp li { margin-top: 6px; word-break: break-word; }
+  .src-grp a { color: var(--brand-2); }
+
+  footer.end { padding: 40px 0 64px; }
+  footer.end p { font-size: 13px; color: var(--faint); }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .benefits, .doslist { grid-template-columns: 1fr; }
+    .checklist { columns: 1; }
+    .sec-head { flex-direction: column; gap: 4px; }
+    .sec-num { padding-top: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Eagle River Base Camp · Listing Go-To-Market Playbook</div>
+    <h1>The New-Listing Playbook</h1>
+    <p class="lede">A compliant way to launch a luxury listing across the web, before and after it hits the MLS.</p>
+    <svg class="ridgeline" viewBox="0 0 860 34" preserveAspectRatio="none" aria-hidden="true" style="margin-top:34px;height:34px">
+      <path d="M0 34 L70 14 L120 22 L190 4 L250 20 L330 10 L410 24 L470 8 L560 22 L640 12 L720 26 L800 14 L860 22 L860 34 Z" fill="var(--brand)" opacity="0.10"/>
+      <path d="M0 34 L70 14 L120 22 L190 4 L250 20 L330 10 L410 24 L470 8 L560 22 L640 12 L720 26 L800 14 L860 22" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.55"/>
+    </svg>
+    <div class="meta-line">
+      <span><b>Prepared for</b> John Tyler Real Estate</span>
+      <span><b>Market</b> Vail &amp; Eagle River Valley, Colorado</span>
+      <span><b>Version</b> July 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="disclaimer">
+  <div class="wrap">
+    <span class="mark">READ FIRST</span>
+    <p>This is a best-practices marketing playbook, not legal advice. MLS and brokerage policies can be stricter than the baselines here, and the rules change. Confirm specifics with your employing broker and the Vail Board of REALTORS® (VMLS) before you act. Fair Housing liability does not require intent, so when a post, image, or template is in doubt, have your broker or counsel review it first.</p>
+  </div>
+</div>
+
+<main>
+
+<!-- 1. STRATEGY -->
+<section id="strategy">
+  <div class="wrap flow">
+    <div class="sec-head"><span class="sec-num">01</span><h2>The strategy: why sequence a listing</h2></div>
+    <p class="sec-sub">Before the rules, the reason for them. A new luxury listing carries the most attention it will ever have in its first two weeks. The goal is not to spray it everywhere at once. It is to release that attention in stages, so each channel does the one thing it does best, and so every move stays inside MLS rules and Colorado license law.</p>
+
+    <h3>The four phases of a launch</h3>
+    <p>Think of a listing as moving through four windows. Each has a different audience and a different set of rules. The MLS-law section explains exactly what is allowed in each.</p>
+    <div class="phases">
+      <div class="phase p0">
+        <span class="pn">0</span>
+        <span class="pt">Hip pocket — private, pre-MLS</span>
+        <span class="pd">Media is being produced and a short list of likely buyers and their agents is warmed up quietly. Strictly limited marketing. This is the most regulated window in the plan.</span>
+      </div>
+      <div class="phase p1">
+        <span class="pn">1</span>
+        <span class="pt">Coming soon — public teaser</span>
+        <span class="pd">The property is announced but not yet showable or active. Every piece of marketing carries the words "Coming Soon." Builds a waiting list for launch day.</span>
+      </div>
+      <div class="phase p2">
+        <span class="pn">2</span>
+        <span class="pt">Live on the MLS — full launch</span>
+        <span class="pd">Active, showable, syndicated. This is where the website, Instagram, Facebook, and blog fire together and the pent-up demand converts.</span>
+      </div>
+      <div class="phase p3">
+        <span class="pn">3</span>
+        <span class="pt">Under contract &amp; sold — amplify the win</span>
+        <span class="pd">A closed sale is proof. Marketed correctly it becomes the story that wins the next listing appointment.</span>
+      </div>
+    </div>
+
+    <h3>Why each channel earns its place</h3>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="bt">Your personal website</div>
+        <p>The one asset you own, and John's new website opens pre-launch options he did not have before. A portal rents you your own audience, keeps the lead, and runs a competitor's ad beside your listing. His own site keeps the buyer, the email address, and the brand. It is also where the work before the MLS happens: a "Coming Soon" page can gather interest and build a waiting list before the listing is ever submitted, and a bilingual audience is served in the language they search in.</p>
+      </div>
+      <div class="benefit">
+        <div class="bt">Instagram</div>
+        <p>Where luxury is felt. Stills and Reels reach buyers, and just as valuably the agents and design-minded followers who refer them. Discovery through Reels and location tags puts a Vail / Eagle River Valley home in front of people who never typed it into a search bar.</p>
+      </div>
+      <div class="benefit">
+        <div class="bt">Facebook</div>
+        <p>The valley's town square for second-home owners and the 45-plus buyer. Strong for shareability when a friend tags a friend who is looking, for open-house and broker-preview events, and for reach into local Facebook groups. Note that each group sets its own posting rules, and many restrict or ban agent promotion, so post a listing only where that group's rules clearly permit it.</p>
+      </div>
+      <div class="benefit">
+        <div class="bt">Blog</div>
+        <p>The compounding asset. A listing story and a neighborhood guide keep earning traffic for months and answer the exact questions AI search engines now read aloud. This is the engine that gets John the credit for local expertise instead of the portal.</p>
+      </div>
+    </div>
+
+    <div class="call caution">
+      <div class="ct">◆ The hip-pocket advantage, and its catch</div>
+      <p>In luxury, a controlled reveal builds demand. A quiet pre-MLS window lets you perfect the media, line up known buyers and their agents, gauge price interest, and give the seller a discreet option. Done right it creates a waiting list that converts the day the listing goes live. It is also the single most regulated part of this plan. Under the Clear Cooperation Policy, the moment you market to the <em>public</em>, a one-business-day clock starts to submit the listing to the MLS. The next section shows how to capture the private-start benefit without breaking that rule.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. WHO GOVERNS WHAT -->
+<section id="governance">
+  <div class="wrap flow">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Who governs what</h2></div>
+    <p class="sec-sub">Four separate authorities apply at the same time. They do not cancel each other out. When they differ, the strictest one wins.</p>
+    <div class="tbl-scroll">
+      <table>
+        <caption>The rulebooks that bind a Vail Valley listing agent, simultaneously.</caption>
+        <thead><tr><th>Authority</th><th>Governs</th><th>Key point for this playbook</th></tr></thead>
+        <tbody>
+          <tr><th>NAR + VMLS</th><td>How and when a listing enters and moves through the MLS</td><td>Clear Cooperation, Coming Soon, delayed marketing, IDX display, listing photos</td></tr>
+          <tr><th>Colorado Real Estate Commission (DORA)</th><td>How you may advertise as a licensee</td><td>Firm name on every ad, truthful advertising, authority to advertise a property</td></tr>
+          <tr><th>Fair Housing (federal + Colorado)</th><td>What you may say, show, and target</td><td>No stated or implied preference; Colorado adds several protected classes; no intent required</td></tr>
+          <tr><th>FTC · CAN-SPAM · TCPA · Copyright · FAA</th><td>Disclosure, email, texting, images, drones</td><td>Ad disclosures, email/text consent, photo and music licensing, certified drone pilots</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 3. MLS LAW -->
+<section id="mls">
+  <div class="wrap flow">
+    <div class="sec-head"><span class="sec-num">03</span><h2>MLS law: before and during the listing</h2></div>
+    <p class="sec-sub">The core discipline of the whole plan. Get this right and everything downstream is safe. The rules here come from NAR's national policy and are implemented locally by the Vail Multi-List Service.</p>
+
+    <h3>Clear Cooperation: the one-business-day rule</h3>
+    <p>NAR's Clear Cooperation Policy states that within <strong>one (1) business day</strong> of marketing a property to the public, the listing broker must submit it to the MLS for cooperation with other participants. "Public marketing" is defined broadly and includes, among other things:</p>
+    <ul>
+      <li>Yard signs and flyers displayed to the public</li>
+      <li>Any public-facing website, including your own site and IDX or VOW displays</li>
+      <li>Social media posts promoting the specific property</li>
+      <li>Email blasts and multi-brokerage listing-sharing networks</li>
+    </ul>
+    <div class="call go">
+      <div class="ct">✓ The one-to-one exception that makes hip pocket possible</div>
+      <p>A single, direct broker-to-broker communication about a listing does not trigger Clear Cooperation. You may call or text <em>one</em> agent about a coming property. The moment it goes to <em>multiple</em> brokers, a sharing network, or the public in any form, it is public marketing and the one-day clock starts.</p>
+    </div>
+
+    <h3>Three legal ways to start private or slow</h3>
+    <p>There are three distinct statuses. They are easy to confuse and they are not the same thing. This is the table to keep open when planning a launch.</p>
+    <div class="tbl-scroll">
+      <table>
+        <caption>Comparison of the limited-marketing options. Confirm all local time limits with VMLS.</caption>
+        <thead><tr><th>&nbsp;</th><th>Office Exclusive</th><th>Delayed Marketing</th><th>Coming Soon</th></tr></thead>
+        <tbody>
+          <tr><th>Filed in the MLS?</th><td><span class="part">Filed, not shared</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td></tr>
+          <tr><th>Visible to other agents?</th><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td></tr>
+          <tr><th>On public IDX / portals?</th><td><span class="no">No</span></td><td><span class="no">Suppressed for a set window</span></td><td><span class="part">As "Coming Soon" only</span></td></tr>
+          <tr><th>Public marketing allowed?</th><td><span class="no">In-firm only</span></td><td><span class="part">Limited; check VMLS</span></td><td><span class="part">Yes, if labeled "Coming Soon"</span></td></tr>
+          <tr><th>Showings allowed?</th><td><span class="part">Per seller instruction</span></td><td><span class="yes">Yes, to cooperating agents</span></td><td><span class="no">Generally no</span></td></tr>
+          <tr><th>Seller must sign?</th><td><span class="yes">Certification</span></td><td><span class="yes">Certification</span></td><td><span class="yes">Status election</span></td></tr>
+          <tr><th>Best for</th><td>Maximum privacy; seller wants no public exposure</td><td>Perfecting media while cooperating agents can already show</td><td>Building a public waiting list before launch</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>A note on the 2025 change: NAR's "Multiple Listing Options for Sellers" policy (adopted March 2025, in force in every MLS since September 30, 2025) added the Delayed Marketing option. It did <strong>not</strong> repeal Clear Cooperation. Delayed marketing only holds a listing back from public IDX and syndication for a set window. It does not extend the one-business-day deadline to submit the listing to the MLS once you market publicly.</p>
+
+    <div class="call go">
+      <div class="ct">✓ A compliant hip-pocket start looks like this</div>
+      <ul>
+        <li>Seller signs an Office Exclusive certification acknowledging the MLS exposure they are choosing to delay or waive.</li>
+        <li>All promotion stays strictly inside John's own brokerage.</li>
+        <li>Outreach to outside agents is one-to-one only, never a blast to a group or network.</li>
+        <li>Media, pricing, and the buyer short list get built during this window.</li>
+      </ul>
+    </div>
+    <div class="call stop">
+      <div class="ct">✕ The instant the private window ends</div>
+      <p>A yard sign, a single public Instagram post, a "coming soon" email to your database, or sharing to a group of agents all count as public marketing. Any one of them ends the office-exclusive protection and starts the one-business-day clock to put the listing in the MLS. There is no way to keep marketing publicly and stay off the MLS.</p>
+    </div>
+
+    <h3>Seller authorization is required in writing</h3>
+    <p>Every one of these paths requires a signed seller certification confirming the seller understands the MLS benefits they are delaying or waiving. This sits alongside the marketing authority in the listing contract. In Colorado that contract is form LC50, and a mandatory new version (LC50 V2) is in use for contracts dated on or after January 1, 2026. Confirm you are on the current form.</p>
+
+    <div class="call caution">
+      <div class="ct">◆ Two local numbers to confirm with VMLS before you publish any timeline</div>
+      <p>NAR deliberately set no national figure for either the Coming Soon cap or the delayed-marketing window. Each MLS sets its own. The two numbers this playbook needs pinned down are the <strong>maximum days a listing can sit in "Coming Soon"</strong> and the <strong>length of the delayed-marketing window</strong> VMLS adopted. Get both directly from the Vail Board of REALTORS® (VMLS) or the current VMLS Rules and Regulations before quoting a client a date.</p>
+    </div>
+
+    <h3>Listing photos and drone footage</h3>
+    <div class="call stop">
+      <div class="ct">✕ Never reuse another agent's or the MLS's listing photos</div>
+      <p>Real estate photos are copyrighted the moment they are taken, and the <em>photographer</em> usually owns them unless a written agreement transfers the rights, not the agent and not the brokerage. Reusing another broker's MLS photos without written permission is infringement, with statutory damages starting at $750 per photo and reaching $150,000 per photo for willful cases. Commission your own media and keep the written license.</p>
+    </div>
+    <div class="call caution">
+      <div class="ct">◆ Drone footage requires an FAA-certified pilot</div>
+      <p>Aerial photography for a listing is a commercial operation, so the pilot must hold an FAA Part 107 certificate. Either John gets certified or he hires a certified operator, never an uncertified hobbyist. Much of the valley sits near Eagle County Regional Airport (EGE) controlled airspace and mountain terrain, so expect LAANC authorization requirements and check for community or HOA drone restrictions in places like Cordillera, Arrowhead, and Bachelor Gulch before flying.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. WEBSITE -->
+<section id="website">
+  <div class="wrap flow">
+    <div class="sec-head"><span class="sec-num">04</span><h2>The personal website: what you can do</h2></div>
+    <p class="sec-sub">The website is the safest and most valuable channel because John controls it end to end. A few Colorado rules shape how it must be built.</p>
+
+    <h3>His own listings</h3>
+    <p>With written marketing authority in the listing contract, John has full control to present his own listings: photos, video, floor plans, story, and lead-capture forms. Two conditions apply. He must honor whatever internet-display choice the seller selected on the LC50 (a seller can opt the property out of internet display entirely), and the property must be at the right status for what he is showing. A "Coming Soon" page is fine; presenting a Coming-Soon home as actively for sale is not.</p>
+
+    <h3>Other brokers' listings, through IDX</h3>
+    <p>An IDX feed lets John display the whole market's active listings on his site so buyers browse without leaving to a portal. IDX carries strict attribution rules.</p>
+    <div class="call stop">
+      <div class="ct">✕ "Listed by," never "Presented by"</div>
+      <p>Every IDX display of another broker's listing must clearly identify the listing firm and listing agent using "Listed by" or "Listing courtesy of." Phrases like "Presented by" that blur who holds the listing are prohibited. This is the rule most likely to be miswired in a website build, so check the template.</p>
+    </div>
+
+    <h3>The Colorado firm-name rule</h3>
+    <div class="call caution">
+      <div class="ct">◆ The brokerage name must appear clearly on every page</div>
+      <p>Colorado Rule 6.10 requires the employing brokerage firm's name to appear clearly and conspicuously on advertising, and specifically on every viewable page of an electronic display. A personal brand or team name is allowed, but it may not use words like "Realty," "Real Estate," "LLC," or "Inc." that imply it is a separate brokerage, and the firm's name must still be shown. Put the brokerage name in the site footer and header at minimum.</p>
+    </div>
+
+    <h3>Build the site to compound</h3>
+    <ul>
+      <li><strong>Coming Soon landing pages</strong> with an interest form turn Phase 1 into a real waiting list you own.</li>
+      <li><strong>Search and AI-answer optimization</strong> plus a strong FAQ section is where the site earns traffic for months, not days.</li>
+      <li><strong>Bilingual pages</strong> serve the valley's Spanish-speaking buyers and referrers in the language they actually search in, an edge most competitors skip.</li>
+      <li><strong>Equal Housing Opportunity</strong> statement and logo belong in the footer.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5. SOCIAL -->
+<section id="social">
+  <div class="wrap flow">
+    <div class="sec-head"><span class="sec-num">05</span><h2>Facebook &amp; Instagram: what you can do</h2></div>
+    <p class="sec-sub">Meta is powerful for luxury reach and carries the most specific traps. The first thing to internalize is the line between an organic post and a paid ad, because different rules apply.</p>
+
+    <div class="call caution">
+      <div class="ct">◆ The line that changes the rules: organic vs. paid</div>
+      <p>An unpaid, organic post is <strong>not</strong> subject to Meta's Special Ad Category targeting limits, because there is no paid targeting. It is still fully subject to Fair Housing content rules below. The moment you press "Boost" or "Promote," or run anything through Ads Manager, it becomes a <strong>paid ad</strong> and you must set its category to Housing, which triggers all the targeting restrictions.</p>
+    </div>
+
+    <h3>Paid housing ads: the Special Ad Category</h3>
+    <p>Any paid ad promoting a listing must be declared under Meta's Housing Special Ad Category. That declaration removes most targeting tools:</p>
+    <ul>
+      <li><strong>No ZIP-code targeting.</strong> The minimum radius is 15 miles, so you cannot draw a tight circle around one affluent neighborhood.</li>
+      <li><strong>Age is locked</strong> to 18 to 65-plus, and <strong>all genders</strong> must be included.</li>
+      <li><strong>No detailed interest or demographic targeting</strong> and no audience exclusions.</li>
+      <li><strong>No lookalike audiences.</strong> The "Special Ad Audiences" workaround was eliminated in October 2023.</li>
+    </ul>
+    <p>Skipping the Housing declaration to keep those tools gets the ad rejected and can lower the whole account's standing. Meta also auto-adjusts delivery on housing ads regardless of targeting, so the workaround does not work anyway.</p>
+
+    <h3>Fair Housing in words and images</h3>
+    <p>This applies to every post, paid or organic, and to photos as much as captions. The test is what an ordinary reader would understand, and intent is not a defense. Describe the <em>property and its features</em>, never the ideal buyer.</p>
+    <div class="doslist">
+      <div class="say">
+        <h4>Describe the property</h4>
+        <ul>
+          <li>"Four bedrooms, chef's kitchen, ski-in access"</li>
+          <li>"Walkable to Beaver Creek Village"</li>
+          <li>"Sunlit primary suite with valley views"</li>
+          <li>Inclusive, representative imagery of people</li>
+        </ul>
+      </div>
+      <div class="avoid">
+        <h4>Never describe the buyer</h4>
+        <ul>
+          <li>"Perfect for a young family" or "empty nesters"</li>
+          <li>"Walking distance to [a specific church]"</li>
+          <li>"Great bachelor pad," "ideal for a married couple"</li>
+          <li>"No vouchers" or "Section 8 not accepted"</li>
+        </ul>
+      </div>
+    </div>
+    <div class="call caution">
+      <div class="ct">◆ Colorado protects more classes than federal law</div>
+      <p>Beyond the federal classes (race, color, religion, national origin, sex, disability, familial status), Colorado also protects <strong>sexual orientation and gender identity, marital status, source of income, creed, ancestry, and veteran status</strong>. "No vouchers" and "ideal for a married couple" are lawful in some states and violate Colorado law. Write to the property, not the person.</p>
+    </div>
+
+    <h3>Two more social specifics</h3>
+    <div class="call stop">
+      <div class="ct">✕ Trending music can get a business post muted or pulled</div>
+      <p>Instagram and Facebook's built-in popular-music library is licensed for personal, non-commercial use only. An agent promoting listings is commercial use, so a business or professional account is limited to the Meta Sound Collection or separately licensed royalty-free music. There is no safe "just a few seconds" exception.</p>
+    </div>
+    <div class="call caution">
+      <div class="ct">◆ Disclose firm name and any material connection</div>
+      <p>Colorado and NAR both require the brokerage firm's name on advertising of a listing, including social posts and boosted ads. Separately, the FTC requires a clear, up-front disclosure when John advertises a property he owns, or when a paid influencer features a listing. Put "#ad" or "Sponsored by" at the very start of the caption, not buried in hashtags, and as on-screen text in Reels and Stories. Meta's own "Paid Partnership" label alone does not satisfy the FTC.</p>
+    </div>
+    <p>During Phase 1, any social post about the property must carry the words "Coming Soon" and must not present it as active or bookable for showings.</p>
+  </div>
+</section>
+
+<!-- 6. BLOG + EMAIL -->
+<section id="blog-email">
+  <div class="wrap flow">
+    <div class="sec-head"><span class="sec-num">06</span><h2>Blog, email &amp; texting</h2></div>
+    <p class="sec-sub">The channels that build the long game, plus the two (email and text) with the sharpest penalties for getting consent wrong.</p>
+
+    <h3>Blog</h3>
+    <p>The blog is where a listing becomes a story and a neighborhood becomes a guide, and where that content keeps working long after the sale. It is also the channel people ask about most for pre-marketing, so here is the compliant way to use it before and after the MLS. Hold onto one fact: the blog is a public-facing website, so the moment a post identifies the specific property (by address, photos, or enough detail to recognize it), it counts as public marketing under Clear Cooperation, and the one-business-day clock to submit the listing to the MLS begins.</p>
+
+    <div class="call stop">
+      <div class="ct">✕ The line that governs blog timing</div>
+      <p>Naming or picturing the specific property in a public blog post is public marketing. If the listing is being held as an Office Exclusive, that post collapses the exemption. Either way, the listing must be submitted to the MLS within one business day of that post. There is no compliant way to publicly blog the specific property and keep it off the MLS.</p>
+    </div>
+
+    <h4>Before the MLS (hip pocket): build demand without naming the property</h4>
+    <p>In the private window the blog cannot name or picture the specific listing, but it can do the most valuable pre-marketing of all: building the audience you convert on launch day. Publish neighborhood guides, luxury-market updates for the valley, and buyer and seller education. This content ranks in search, feeds an email and waiting list John owns, and establishes his local authority, all without touching Clear Cooperation. Because it is evergreen, the smart timing is to build it weeks or months ahead, so it is already earning traffic before any given listing exists.</p>
+
+    <h4>Coming Soon: the property teaser is now allowed, on a clock</h4>
+    <p>Once the seller elects Coming Soon and the listing is filed with VMLS, the blog can run a property-specific teaser. Publishing it is itself public marketing, so the listing must already be in the MLS or submitted within one business day, every post must carry the words "Coming Soon," and the property is not yet showable. Coming Soon can run only up to the VMLS day cap (confirm the exact number locally) before the listing must go Active, so time the teaser to lead into launch rather than to sit for weeks.</p>
+
+    <h4>Live on the MLS: the full listing story</h4>
+    <p>On go-live day the blog does its signature work: a full listing story with gallery and video, a neighborhood guide that keeps ranking after the sale, and open-house details. Publish it the day of or the day after the listing goes Active to ride the launch attention. Same rules carry over: the brokerage firm name on the page, no Fair Housing preference language, truthful claims only, virtually staged photos labeled as such, and any area sales statistics ("homes in the valley sold for...") cited to a source with a note that those sales were not necessarily John's transactions.</p>
+
+    <h4>After it sells</h4>
+    <p>Update or remove the "For Sale" framing promptly once the property is under contract or closed, and send a removal request to syndicators within three days of a listing's expiration. A "Just Sold" recap (only for John's own deal, or clearly attributed) and a market-insight post turn the result into the next listing conversation.</p>
+
+    <div class="call caution">
+      <div class="ct">◆ Blog timing at a glance</div>
+      <ul>
+        <li><strong>Pre-MLS content:</strong> build weeks to months ahead; evergreen, no specific property named.</li>
+        <li><strong>First property-specific post:</strong> submit the listing to the MLS within 1 business day.</li>
+        <li><strong>Coming Soon teaser:</strong> may run only up to the VMLS day cap, then the listing must go Active (confirm the cap locally).</li>
+        <li><strong>Launch post:</strong> publish the day of or day after the listing goes Active.</li>
+        <li><strong>After close/expiration:</strong> remove or update at once; syndicator removal request within 3 days of expiration.</li>
+      </ul>
+    </div>
+
+    <h3>Email (CAN-SPAM)</h3>
+    <ul>
+      <li>Accurate "from" name and subject line, no bait.</li>
+      <li>A valid physical mailing address in every message.</li>
+      <li>A working unsubscribe link, with opt-outs honored within 10 business days and never re-added.</li>
+    </ul>
+
+    <div class="call stop">
+      <div class="ct">✕ Texting is the sharpest trap: get consent first</div>
+      <p>Marketing texts require prior express written consent from that person to your brand, obtained before the first message. Cold-texting a purchased lead list, or FSBO and expired-listing numbers, is the classic violation, with damages of $500 to $1,500 per text plus Do-Not-Call exposure. Consent rules also vary by the recipient's state. Treat texting as opt-in only, and keep the proof.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. THE SEQUENCED PLAYBOOK -->
+<section id="playbook">
+  <div class="wrap flow">
+    <div class="sec-head"><span class="sec-num">07</span><h2>The sequenced playbook</h2></div>
+    <p class="sec-sub">Everything above, assembled into the actual order of operations for a single listing. Each phase names the goal, the moves by channel, the compliance gate, and the paperwork.</p>
+
+    <div class="phases">
+      <div class="phase p0">
+        <span class="pn">0</span>
+        <span class="pt">Hip pocket — private</span>
+        <span class="pd"><strong>Goal:</strong> perfect the media, build a private buyer short list, gauge price.<br>
+        <strong>Moves:</strong> commission photos/video/drone; one-to-one calls to specific agents; in-firm promotion only.<br>
+        <strong>Gate:</strong> zero public marketing. Any public touch starts the one-day MLS clock.<br>
+        <strong>Paperwork:</strong> LC50 listing contract + signed Office Exclusive certification.</span>
+      </div>
+      <div class="phase p1">
+        <span class="pn">1</span>
+        <span class="pt">Coming soon — teaser</span>
+        <span class="pd"><strong>Goal:</strong> turn attention into a waiting list before launch day.<br>
+        <strong>Moves:</strong> Coming Soon page with an interest form; teaser posts labeled "Coming Soon"; warm the email list (to opted-in contacts).<br>
+        <strong>Gate:</strong> submit to MLS within one business day of the first public post; label everything "Coming Soon"; no showings.<br>
+        <strong>Paperwork:</strong> confirm the Coming Soon day cap with VMLS.</span>
+      </div>
+      <div class="phase p2">
+        <span class="pn">2</span>
+        <span class="pt">Live launch</span>
+        <span class="pd"><strong>Goal:</strong> convert the pent-up demand in the first 14 days.<br>
+        <strong>Moves:</strong> website listing live; full IDX with correct "Listed by" attribution; Instagram Reel + carousel; Facebook post and open-house event; blog listing story + neighborhood guide; email to opted-in list.<br>
+        <strong>Gate:</strong> firm name on every page and post; Fair Housing language; licensed music; Housing category on any boosted post.<br>
+        <strong>Paperwork:</strong> keep media licenses on file.</span>
+      </div>
+      <div class="phase p3">
+        <span class="pn">3</span>
+        <span class="pt">Under contract &amp; sold</span>
+        <span class="pd"><strong>Goal:</strong> convert the result into the next listing.<br>
+        <strong>Moves:</strong> update status promptly everywhere; "Just Sold" post (only for John's own deal, or clearly attributed); a market-insight blog post.<br>
+        <strong>Gate:</strong> remove or update stale "For Sale" posts; syndicator removal request within 3 days of expiration; sold-data claims cited and disclaimed.<br>
+        <strong>Paperwork:</strong> retain advertising records (four years).</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CHECKLIST -->
+<section id="checklist">
+  <div class="wrap flow">
+    <div class="sec-head"><span class="sec-num">08</span><h2>One-page compliance checklist</h2></div>
+    <p class="sec-sub">The short version to run against any listing before it goes out.</p>
+    <div class="checklist">
+      <div class="grp">
+        <h4>MLS &amp; listing status</h4>
+        <ul>
+          <li>Public marketing? Submit to MLS within 1 business day.</li>
+          <li>Private start uses Office Exclusive + in-firm only.</li>
+          <li>Outside-agent outreach is one-to-one, never a blast.</li>
+          <li>Coming Soon posts labeled and not showable.</li>
+          <li>VMLS Coming Soon cap and delay window confirmed.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <h4>Seller paperwork</h4>
+        <ul>
+          <li>Current LC50 signed (V2 for 2026 dates).</li>
+          <li>Office Exclusive / delayed-marketing certification signed.</li>
+          <li>Seller's internet-display choice honored.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <h4>Every ad, page &amp; post</h4>
+        <ul>
+          <li>Brokerage firm name shown clearly.</li>
+          <li>Team/brand name avoids "Realty / LLC / Inc."</li>
+          <li>Truthful; status current; stale posts removed.</li>
+          <li>IDX uses "Listed by," not "Presented by."</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <h4>Fair Housing</h4>
+        <ul>
+          <li>Describes the property, never the buyer.</li>
+          <li>Colorado's added classes checked (source of income, marital status, orientation, and more).</li>
+          <li>Imagery is inclusive; Equal Housing statement shown.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <h4>Media &amp; social</h4>
+        <ul>
+          <li>Own the photos or hold a written license.</li>
+          <li>Drone flown by an FAA Part 107 pilot.</li>
+          <li>Business-account music is licensed for commercial use.</li>
+          <li>Boosted posts set to Housing category.</li>
+          <li>Own-property or sponsored posts disclosed up front.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <h4>Email &amp; text</h4>
+        <ul>
+          <li>Email: physical address + working unsubscribe.</li>
+          <li>Texts sent only to prior written opt-ins.</li>
+          <li>No cold-texting purchased or FSBO/expired lists.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. SOURCES -->
+<section id="sources">
+  <div class="wrap flow">
+    <div class="sec-head"><span class="sec-num">09</span><h2>Sources &amp; legal references</h2></div>
+    <p class="src-note">The rules in this playbook were compiled through dedicated legal-research passes against primary sources: NAR policy, the Colorado Real Estate Commission (DORA), HUD and the National Fair Housing Alliance, Meta's own advertising policies, the FTC and FCC, and the Vail Board of REALTORS®. Citations are grouped below so John, his managing broker, or counsel can verify any point directly. This document summarizes those sources for planning; it is not legal advice, and where a source could not be machine-verified (noted in the research) the underlying official page should be confirmed in a browser.</p>
+
+    <div class="src-grp">
+      <h4>MLS, Clear Cooperation &amp; listing rules</h4>
+      <ol>
+        <li>NAR — Clear Cooperation Policy: <a href="https://www.nar.realtor/about-nar/policies/mls-clear-cooperation-policy">nar.realtor/about-nar/policies/mls-clear-cooperation-policy</a></li>
+        <li>NAR — Multiple Listing Options for Sellers (2025): <a href="https://www.nar.realtor/about-nar/policies/multiple-listing-options-for-sellers">nar.realtor/about-nar/policies/multiple-listing-options-for-sellers</a></li>
+        <li>NAR — IDX Policy (Statement 7.58): <a href="https://www.nar.realtor/handbook-on-multiple-listing-policy/advertising-print-and-electronic-section-1-internet-data-exchange-idx-policy-policy-statement-7-58">Handbook, IDX Policy 7.58</a></li>
+        <li>NAR — Use of Photographs in an MLS: <a href="https://www.nar.realtor/about-nar/policies/mls-policy/use-of-photographs-in-a-multiple-listing-service">nar.realtor/about-nar/policies/mls-policy</a> &middot; Who Owns Your Property Photos: <a href="https://www.nar.realtor/copyright/who-owns-your-property-photos">nar.realtor/copyright</a></li>
+        <li>Vail Board of REALTORS® — Vail Multi-List Service &amp; Clear Cooperation: <a href="https://www.vbr.net/vail-multi-list-service/">vbr.net/vail-multi-list-service</a> &middot; <a href="https://www.vbr.net/understand-clear-cooperation/">vbr.net/understand-clear-cooperation</a></li>
+        <li>FAA Part 107 (commercial drone) overview: <a href="https://jrupprechtlaw.com/faa-part-107-regulations-commercial-drone-rules-explained-2025/">Part 107 rules (2025)</a></li>
+      </ol>
+    </div>
+
+    <div class="src-grp">
+      <h4>Colorado license &amp; advertising law</h4>
+      <ol>
+        <li>CREC Rules, 4 CCR 725-1, Chapter 6 (Rule 6.10 advertising): <a href="https://www.law.cornell.edu/regulations/colorado/title-4/agency-725/division-1/chapter-6">Cornell LII — Chapter 6</a></li>
+        <li>Colorado Division of Real Estate — Manual &amp; Position Statements (incl. CP-40 Teams): <a href="https://dre.colorado.gov/real-estate-manual-and-position-statements">dre.colorado.gov/real-estate-manual-and-position-statements</a></li>
+        <li>DRE — Exclusive Right-to-Sell Listing Contract (LC50 V2, effective Jan 1 2026): <a href="https://dre.colorado.gov/the-transaction-process/listing-contract-understanding-the-real-estate-transaction-process">dre.colorado.gov — Listing Contract</a></li>
+        <li>C.R.S. § 12-10-217 (misleading advertising, discipline): <a href="https://law.justia.com/codes/colorado/title-12/division-of-real-estate/article-10/part-2/section-12-10-217/">Justia — § 12-10-217</a></li>
+        <li>Colorado Civil Rights Division — Housing Discrimination (protected classes): <a href="https://ccrd.colorado.gov/housing-discrimination">ccrd.colorado.gov/housing-discrimination</a></li>
+      </ol>
+    </div>
+
+    <div class="src-grp">
+      <h4>Fair Housing, social platforms, email &amp; disclosure</h4>
+      <ol>
+        <li>Meta — Special Ad Category (Housing): <a href="https://www.facebook.com/business/help/298000447747885">facebook.com/business/help/298000447747885</a></li>
+        <li>U.S. DOJ — United States v. Meta Platforms (housing ad settlement): <a href="https://www.justice.gov/crt/case/united-states-v-meta-platforms-inc-fka-facebook-inc-sdny">justice.gov/crt — U.S. v. Meta</a></li>
+        <li>National Fair Housing Alliance — Responsible Advertising: <a href="https://nationalfairhousing.org/responsibleadvertising/">nationalfairhousing.org/responsibleadvertising</a></li>
+        <li>Fair Housing advertising words &amp; phrases list: <a href="https://www.fairhousinginstitute.com/wp-content/uploads/2020/06/Fair-Housing-Advertising-Words-Phrases-List-1.pdf">fairhousinginstitute.com (PDF)</a></li>
+        <li>FTC — Endorsement Guides (2023 final rule) &amp; Disclosures 101: <a href="https://www.federalregister.gov/documents/2023/07/26/2023-14795/guides-concerning-the-use-of-endorsements-and-testimonials-in-advertising">Federal Register</a> &middot; <a href="https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers">ftc.gov — Disclosures 101</a></li>
+        <li>NAR Code of Ethics, Article 12 (truthful advertising): <a href="https://www.nar.realtor/code-of-ethics-and-arbitration-manual/case-interpretations-related-to-article-12">nar.realtor — Article 12</a></li>
+        <li>FCC — TCPA opt-out rule (effective April 11, 2025): <a href="https://www.bclplaw.com/en-US/events-insights-news/the-tcpas-new-opt-out-rules-take-effect-on-april-11-2025-what-does-this-mean-for-businesses.html">bclplaw.com — TCPA opt-out</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="end">
+  <div class="wrap">
+    <p>Prepared by Eagle River Base Camp for John Tyler Real Estate &middot; Vail &amp; Eagle River Valley, Colorado &middot; July 2026. Best-practices marketing guidance, not legal advice. Confirm current MLS and brokerage policy with your employing broker and the Vail Board of REALTORS® before acting.</p>
+  </div>
+</footer>
+
+</body>
+</html>
