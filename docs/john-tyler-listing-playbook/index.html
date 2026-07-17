@@ -169,6 +169,20 @@
   .call.stop .ct { color: var(--stop); }
   .call ul { margin-bottom: 0; padding-left: 20px; } .call li + li { margin-top: 5px; }
 
+  /* ---------- Worked example ---------- */
+  .example { margin-top: 28px; background: var(--surface-2); border: 1px solid var(--hair); border-top: 3px solid var(--accent); border-radius: 12px; padding: 22px 24px; }
+  .example .ex-label { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-ink); }
+  .example h4.ex-title { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); text-transform: none; letter-spacing: 0; font-weight: 600; margin-top: 6px; }
+  .example .ex-rows { display: grid; gap: 12px; margin-top: 16px; }
+  .example .ex-row { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; font-size: 15px; }
+  .example .ex-row .ic { font-weight: 700; line-height: 1.5; }
+  .example .ex-row.go .ic { color: var(--go); }
+  .example .ex-row.caution .ic { color: var(--caution); }
+  .example .ex-row.stop .ic { color: var(--stop); }
+  .example .ex-row b { color: var(--ink); font-weight: 650; }
+  .example .ex-seq { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--hair); font-size: 14.5px; color: var(--muted); max-width: none; }
+  .example .ex-seq b { color: var(--brand); font-family: var(--serif); font-weight: 600; }
+
   /* ---------- Tables ---------- */
   .tbl-scroll { overflow-x: auto; margin-top: 22px; border: 1px solid var(--hair); border-radius: 10px; }
   table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 560px; }
@@ -301,6 +315,17 @@
     <div class="call caution">
       <div class="ct">◆ The hip-pocket advantage, and its catch</div>
       <p>In luxury, a controlled reveal builds demand. A quiet pre-MLS window lets you perfect the media, line up known buyers and their agents, gauge price interest, and give the seller a discreet option. Done right it creates a waiting list that converts the day the listing goes live. It is also the single most regulated part of this plan. Under the Clear Cooperation Policy, the moment you market to the <em>public</em>, a one-business-day clock starts to submit the listing to the MLS. The next section shows how to capture the private-start benefit without breaking that rule.</p>
+    </div>
+
+    <div class="example">
+      <div class="ex-label">Case in point</div>
+      <h4 class="ex-title">Two West Vail homes under one roof, two listings near $9M each, weeks away</h4>
+      <div class="ex-rows">
+        <div class="ex-row go"><span class="ic">✓</span><div><b>Safe to do today.</b> Shoot every photo and video now, because production is not marketing. Publish general market content that does not identify the homes: "the West Vail luxury market," "what $9M buys in Vail right now," a neighborhood guide. This builds the audience and waiting list with no Clear Cooperation exposure.</div></div>
+        <div class="ex-row caution"><span class="ic">&#9670;</span><div><b>Where the line falls.</b> The test is whether the public can recognize or find a property, not whether an address is printed. Posting the building's own photos, or combining type, neighborhood, and price ("new West Vail homes near $9M, coming soon"), can identify these listings in a market this small. Either one counts as marketing the property.</div></div>
+        <div class="ex-row stop"><span class="ic">&#10005;</span><div><b>What that triggers.</b> Once a specific home is identifiable in public, John needs the signed listing agreement and Coming Soon election already in place for that home, must file it with VMLS within one business day, and must label everything "Coming Soon" with no showings yet.</div></div>
+      </div>
+      <p class="ex-seq"><b>The sequence:</b> shoot media and run general content today, then sign each listing with its Coming Soon election, then flip to a property-specific "Coming Soon" and file with VMLS the same day, then go Active and launch on all four channels. These are two separate listings, each with its own address, so every step applies to each home on its own. Marketing them as a matched pair is fine once both are filed.</p>
     </div>
   </div>
 </section>
