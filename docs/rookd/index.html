@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Rookd Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F5F1EA;
+    color: #1C1410;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid rgba(194,65,12,0.15); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #c2410c; margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #c2410c; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px); font-weight: 500;
+    color: #1C1410; line-height: 1.05; margin-bottom: 16px;
+  }
+  .hero p { font-size: 19px; color: #43342B; line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0; margin-right: 28px; margin-bottom: 10px;
+    border-right: 1px solid rgba(194,65,12,0.2);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500;
+    color: #1C1410; line-height: 1; margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #8a6a52;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px; background: #fbf0e9; border: 1px solid #e8a879;
+    border-left: 4px solid #c2410c; border-radius: 8px; padding: 18px 22px;
+  }
+  .alert-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #b03c0a; margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #6e3410; line-height: 1.6; }
+  .alert code, .section-body code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(194,65,12,0.1); padding: 1px 6px; border-radius: 4px; font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section { margin-top: 48px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(194,65,12,0.12); }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75; }
+  .section-title { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .section-body { padding: 28px 24px; background: #FBF7F0; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #8a6a52; margin-bottom: 6px; }
+  .fact-val { font-size: 16px; color: #1C1410; line-height: 1.6; }
+
+  /* ── Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(194,65,12,0.15); }
+  th { text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a6a52; }
+  th:first-child { padding-left: 0; }
+  th:last-child { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(194,65,12,0.07); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #43342B; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1C1410; }
+  td:last-child { padding-right: 0; }
+  .geo { white-space: nowrap; }
+  .comp-intro { font-size: 15px; color: #43342B; line-height: 1.65; margin-bottom: 18px; }
+  .comp-intro strong { color: #1C1410; }
+
+  .badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.12);  color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(26,73,113,0.1);  color: #1a4971; }
+  .badge-open   { background: rgba(21,128,61,0.12); color: #15803d; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #43342B; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1C1410; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #43342B; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card { background: #F6EEE4; border: 1px solid rgba(194,65,12,0.12); border-radius: 8px; padding: 14px 16px; }
+  .audit-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1C1410; }
+  .grade { font-size: 13px; font-weight: 800; color: #fff; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-c  { background: #b45309; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .grade-num { background: #7d3a1e; }
+  .audit-note { font-size: 14px; color: #43342B; line-height: 1.5; }
+
+  .key-finding { background: rgba(194,65,12,0.05); border: 1px solid rgba(194,65,12,0.2); border-radius: 8px; padding: 16px 20px; }
+  .key-finding-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #c2410c; margin-bottom: 8px; }
+  .key-finding p { font-size: 16px; color: #43342B; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FBF7F0; border-bottom: 1px solid rgba(194,65,12,0.08); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #c2410c; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1C1410; }
+  .rec-detail { font-size: 14px; color: #43342B; line-height: 1.65; padding-left: 30px; }
+
+  /* ── Verification note ── */
+  .verify-note { margin-top: 20px; font-size: 12px; color: #8a6a52; line-height: 1.6; font-style: italic; }
+
+  /* ── CTA Footer ── */
+  .cta-block { margin-top: 56px; background: linear-gradient(135deg, #0a3324 0%, #00784a 100%); border-radius: 12px; padding: 40px 36px; text-align: center; }
+  .cta-block h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: #ffffff; margin-bottom: 12px; }
+  .cta-block p { font-size: 17px; color: #c9ecd9; line-height: 1.6; max-width: 560px; margin: 0 auto 28px; }
+  .cta-btn { display: inline-block; background: #ffffff; color: #00693f; font-size: 15px; font-weight: 700; padding: 14px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.15s; }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #9fd6b8; }
+
+  /* ── Footer ── */
+  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(194,65,12,0.12); font-size: 11px; color: #8a6a52; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026 · Colorado</div>
+    <h1>Rookd</h1>
+    <p>You have built a real product: verified identities, a portable Rookd Score, a modern app on a serious stack. This is a look at how Rookd shows up to the two audiences that decide whether a marketplace grows, search engines and AI assistants, and the short list of fixes that would change it. The good news up front: the biggest problem in this report is one architectural decision, not a rebuild.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">2024</div><div class="stat-label">Founded</div></div>
+      <div class="stat"><div class="stat-val">6</div><div class="stat-label">Markets Claimed</div></div>
+      <div class="stat"><div class="stat-val">1</div><div class="stat-label">Page in Google</div></div>
+      <div class="stat"><div class="stat-val">0</div><div class="stat-label">Visible to AI Search</div></div>
+      <div class="stat"><div class="stat-val">3.0 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">Headline Finding: The Internet Cannot See Your Site</div>
+      <p>Every public page on getrookd.com, including the homepage, rentals, pricing, FAQ, and how-it-works, ships with an empty body. The HTML that search engines and AI crawlers receive contains a title tag, well-written meta tags, and no content: the homepage delivers exactly one line of visible text, and the rentals page delivers 24 characters. Everything renders in the browser with JavaScript after the page loads. The consequences are already measurable. As of mid-July 2026, Google has indexed <strong>one page</strong> of the entire site, and the snippet it shows searchers is stale pre-launch splash copy about joining an email list. AI assistants like ChatGPT, Claude, and Perplexity, whose crawlers largely do not execute JavaScript, can see nothing at all. A trust layer that the internet's trust brokers cannot read.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e9f5ee;border-bottom:1px solid rgba(0,120,74,0.2)">
+      <span class="section-num" style="color:#00784a">01</span>
+      <span class="section-title" style="color:#00784a">Your Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What You Are</div>
+          <div class="fact-val">Rookd (Transparency Technologies, LLC), a trust layer for housing: identity-verified landlords and tenants, property ownership checks, a portable Rookd Score, verified rental listings, and roommate matching. Named for the chess Rook, the castle piece. Founded 2024.</div>
+        </div>
+        <div>
+          <div class="fact-label">Markets</div>
+          <div class="fact-val">Your own structured data declares Eagle County, Summit County, Pitkin County, Breckenridge, Denver, and Boulder. Housing-tight Colorado mountain markets plus the Front Range: exactly where a trust and verification story lands hardest.</div>
+        </div>
+        <div>
+          <div class="fact-label">Business Model</div>
+          <div class="fact-val">Freemium subscriptions: Free, Plus at $14.99, Pro at $29.99, and Unlimited at $49.99 per month. Growth depends on renters and landlords finding the platform, which makes discoverability the core growth constraint.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Engineering</div>
+          <div class="fact-val">Next.js on Vercel, Clerk authentication, Stripe billing, Supabase, PostHog analytics, hardened security headers, and thoughtful per-page metadata. This is a professionally built application. The audit findings below are about visibility, not build quality.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Positioning</div>
+          <div class="fact-val">"Trust layer for housing. Verified landlords. Verified tenants. Your move. Your future." A clear, differentiated one-liner in a category (rentals) where the incumbents are famously low-trust. The story is strong; almost nobody can currently read it.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Name</div>
+          <div class="fact-val">Rookd rhymes with "looked," but the natural reading is "rooked," which means swindled. Your About page already works to disambiguate it. Press coverage, reviews, and a strong brand-search result are what will finish that job; right now a brand search returns one stale line.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Who Owns Your Searches Today -->
+  <div class="section">
+    <div class="section-head" style="background:#eef4f8;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Who Owns Your Searches Today</span>
+    </div>
+    <div class="section-body" style="padding:24px 24px 20px">
+      <p class="comp-intro">We searched the queries your renters and landlords actually type: rentals in Breckenridge, housing in Summit County, verified landlords in Colorado. Rookd appears in none of them. Here is who does, and the encouraging part: <strong>none of these channels does what Rookd does</strong>. Nobody in your markets owns "verified" or "trust." The category is open; the shelf space is not.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Channel</th>
+            <th>Position</th>
+            <th>What They Hold</th>
+            <th>Threat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Zillow / Apartments.com</td>
+            <td class="geo">National portals</td>
+            <td>Own nearly every "apartments for rent [town]" search in your markets, including 66 Breckenridge listings on Apartments.com alone. Massive inventory and SEO moats, but zero identity verification and low trust; the exact gap Rookd exists to fill.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Facebook groups &amp; Craigslist</td>
+            <td class="geo">Where mountain rentals actually move</td>
+            <td>The real marketplace for workforce and seasonal housing in Summit and Eagle counties, and also where the scams live. This is your best recruiting ground: every horror story there is a Rookd sales pitch.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Housing authorities &amp; towns</td>
+            <td class="geo">Summit, Breckenridge, county programs</td>
+            <td>Summit Combined Housing Authority, town of Breckenridge housing pages, and county programs rank on page one for local housing searches. Potential partners and link sources rather than competitors.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Tenant-screening platforms</td>
+            <td class="geo">RentSpree, Findigs, and others</td>
+            <td>Own the "tenant screening" search space nationally and serve landlords only. Rookd's two-sided verification plus reputation score is a different and broader product, but searchers do not know that yet.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>AI assistants</td>
+            <td class="geo">ChatGPT, Claude, Perplexity, Gemini</td>
+            <td>A fast-growing share of "where should I look for a rental in Vail" questions is answered by AI tools. No housing player in your markets is optimized for them, and Rookd is currently invisible to them. Completely undefended ground.</td>
+            <td><span class="badge badge-open">Open</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where You Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f3eef8;border-bottom:1px solid rgba(126,34,206,0.15)">
+      <span class="section-num" style="color:#7e22ce">03</span>
+      <span class="section-title" style="color:#7e22ce">Where You Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">Most companies we audit have the opposite problem: a weak product layer behind a loud marketing presence. Rookd is the inverse. <strong>The product, stack, and positioning are real, and the discovery layer is close to zero.</strong> That is actually the better problem to have, because the fixes are engineering tasks your team can execute, not a reputation you have to rebuild.</p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(0,120,74,0.06);border:1px solid rgba(0,120,74,0.25)">
+          <div class="pos-card-label" style="color:#00784a">Strengths</div>
+          <div class="pos-card-text">A differentiated product in a low-trust category. Professional engineering on a modern stack. Clear positioning language. Well-written per-page titles, descriptions, and social cards. Rich structured data that shows someone on the team already understands schema. Instagram and X accounts established.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.06);border:1px solid rgba(180,83,9,0.25)">
+          <div class="pos-card-label" style="color:#b45309">Current Position</div>
+          <div class="pos-card-text">One page in Google's index, showing stale pre-launch copy. No robots.txt or sitemap. No server-rendered content anywhere. No press coverage or backlinks found. No LinkedIn company page. Structured data that claims a 4.8-star rating with no visible review source. English only, in markets with a large Spanish-speaking renter base.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.25)">
+          <div class="pos-card-label" style="color:#2563eb">Biggest Opportunity</div>
+          <div class="pos-card-text">Server-render the public pages and every listing becomes an indexable asset that compounds. Add market landing pages, real FAQ markup, and a Spanish renter experience, and Rookd can own "verified rentals" searches and AI answers in the exact mountain markets where trust matters most, before any incumbent moves.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fbf0e9;border-bottom:1px solid rgba(194,65,12,0.2)">
+      <span class="section-num" style="color:#c2410c">04</span>
+      <span class="section-title" style="color:#c2410c">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Product &amp; App Experience</span><span class="grade grade-b">B+</span></div>
+          <div class="audit-note">Modern, professionally engineered application: Next.js, Clerk, Stripe, Supabase, hardened security headers. The build quality is well above what we typically see at this stage. Not the problem.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Page Metadata</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">Every page has a unique, well-written title, meta description, and Open Graph / Twitter card. Genuinely good work, and largely wasted at the moment because the pages behind the metadata are unreadable to crawlers.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Search Indexing</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">A <code>site:getrookd.com</code> search returns exactly one result, the homepage, and its cached snippet is pre-launch email-list copy. The rentals, pricing, FAQ, and about pages are not in Google at all.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Crawlable Content</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">All public pages are fully client-rendered. The served HTML contains no body text: about one line on the homepage, 24 characters on the rentals page. Search engines render JavaScript slowly and unreliably; most AI crawlers never do.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO Foundations</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No robots.txt and no sitemap.xml; both URLs redirect into the app. The apex domain redirects to www, while every canonical tag and og:url points back to the apex, so pages declare a canonical URL that redirects away from itself.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Structured Data</span><span class="grade grade-c">C-</span></div>
+          <div class="audit-note">Rich, ambitious JSON-LD: Organization, WebApplication, Service with areaServed, offers, and search actions. But it claims a 4.8-star rating from 47 reviews with no visible review source anywhere, which violates Google's self-serving review guidelines and risks a manual action. And the FAQ page has no FAQPage markup, the one schema type that would earn AI citations.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">AI assistants cannot read any page of the site, so Rookd cannot be found, cited, or recommended by the fastest-growing discovery channel in housing search. For a trust brand, absence from AI answers is a direct credibility cost.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Local Market Visibility</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Searches for rentals and housing in Breckenridge, Summit County, and the Vail Valley surface Zillow, Apartments.com, housing authorities, and Vail Resorts. Rookd appears nowhere, including for the six markets named in its own structured data.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social &amp; Press</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Instagram and X accounts exist but have minimal reach. The Facebook link published in your structured data did not resolve when tested. No LinkedIn company page, unusual for a startup that will want credibility with landlords, partners, and investors. No press coverage or backlinks found in Summit Daily, Vail Daily, or Colorado startup media.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-num">3.0</span></div>
+          <div class="audit-note">Score out of 10. The product layer alone would grade far higher; the score reflects that virtually none of it is discoverable by the channels that will drive marketplace growth.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Rookd's constraint is not product, positioning, or engineering skill. It is one architectural decision: rendering every public page in the browser instead of on the server. That single choice is why Google shows one stale page, why AI assistants draw a blank, and why six declared markets show zero footprint. Because the site is already built on Next.js, the framework that does server rendering natively, this is a targeted refactor of the public routes, not a rebuild. Few audits come down to one fix this cleanly.</p>
+      </div>
+      <div class="verify-note">Method note: pages were fetched exactly as search and AI crawlers receive them (served HTML, no JavaScript execution) in July 2026, alongside Google index checks and public social lookups. Facebook and LinkedIn actively block automated checks, so those findings should be confirmed by loading the profiles directly. Review counts and index status reflect what was publicly visible at audit time.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#e9f5ee;border-bottom:1px solid rgba(0,120,74,0.2)">
+      <span class="section-num" style="color:#00784a">05</span>
+      <span class="section-title" style="color:#00784a">Top Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Server-Render the Public Pages</span></div>
+          <div class="rec-detail">The single highest-leverage fix in this report. Move the marketing pages (home, how-it-works, pricing, FAQ, about) and the public listing pages to server components or static generation in your existing Next.js App Router; the logged-in application can stay exactly as it is. Once listing pages ship real HTML, every rental on the platform becomes an indexable page that can rank for "[property type] for rent in [town]" searches, which is the organic engine every successful listings marketplace runs on.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Ship robots.txt, a Dynamic Sitemap, and Search Console</span></div>
+          <div class="rec-detail">Add a real robots.txt and a dynamic sitemap.xml that includes every public listing URL, then verify the site in Google Search Console and submit it. This is an afternoon of work, and it is how Google discovers new listings within hours instead of never. While you are in there, align the canonical tags with the www redirect so every page points to one consistent address.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Make the Structured Data Match Reality</span></div>
+          <div class="rec-detail">Remove the 4.8-star aggregate rating until it is backed by reviews a visitor can actually see, because for a company whose entire brand is trust, unverifiable review markup is the one defect you cannot afford, and it carries real penalty risk with Google. Then add FAQPage markup to your FAQ (the content already exists) and fix or remove the broken Facebook link. Your schema ambition is a strength; it just has to be true.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Build Server-Rendered Market Pages for Your Six Markets</span></div>
+          <div class="rec-detail">Breckenridge, Vail Valley / Eagle County, Aspen / Pitkin County, Summit County, Denver, and Boulder each deserve a real landing page: current listings, how verification protects renters in that market, local housing context, and an FAQ. Right now those markets exist only inside invisible schema tags. These pages are what let Rookd rank, and get cited by AI assistants, for the exact searches your renters make.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Launch a Spanish-Language Renter Experience</span></div>
+          <div class="rec-detail">A large share of the workforce renters in Eagle and Summit counties speaks Spanish at home, and they are the population most exposed to rental scams and least served by Zillow, Craigslist, and Facebook Marketplace. Not one housing platform in your markets serves them in Spanish. A properly translated renter flow and market pages would give Rookd an audience the incumbents structurally ignore, and it fits your verification mission precisely: the people who most need a trust layer.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">06</span><span class="rec-title">Tell the Story: Local Press, LinkedIn, and the Brand Search</span></div>
+          <div class="rec-detail">Housing is the story in Colorado mountain towns, and a local startup fighting rental scams with verification is exactly what Summit Daily, Vail Daily, and Colorado startup media cover. A founder story plus a LinkedIn company page plus a few earned links would fix your brand search (currently one stale line), start the backlink profile the SEO work needs, and put the "rhymes with looked" pronunciation into other people's mouths instead of only your own.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>The trust layer is built. Let's make it findable.</h2>
+    <p>You have already done the hard part: a real product, real engineering, and a position nobody in your markets holds. What is missing is the discovery layer, and most of it is targeted, well-understood work. We would be glad to walk through this report and exactly what we would do, in order.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We work with businesses across the Vail Valley and beyond.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Rookd (getrookd.com) Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Eagle River Base Camp · Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
