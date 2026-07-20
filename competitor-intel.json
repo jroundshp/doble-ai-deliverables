@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-13",
+  "last_updated": "2026-07-20",
   "colorado_watch": {
     "description": "AI consulting and marketing firms entering the Colorado mountain resort corridor",
     "entries": [
@@ -28,10 +28,41 @@
           "Established 2010, 15+ year incumbent in Vail Valley digital marketing",
           "Now combining human creativity with AI-driven insights for email/text campaigns",
           "Offers SEO, social media, PPC, web design, listings management, SMS automation",
+          "Google Certified in AI technologies — actively investing in AI capabilities",
           "Serves Vail Valley / Eagle County AND national clients",
           "Active Yelp presence updated May 2026"
         ],
         "threat_level": "Medium"
+      },
+      {
+        "name": "Frostbite Marketing",
+        "url": "https://frostbitemarketing.com/",
+        "location": "Colorado-wide (mountain corridor targeting confirmed)",
+        "category": "agency",
+        "first_seen": "2026-07-20",
+        "signals": [
+          "Dedicated Colorado location page — building SEO foothold in Vail/Eagle market",
+          "Full AI search stack: SEO + AEO (Answer Engine) + GEO (Generative Engine Optimization)",
+          "AI receptionist product for small business — directly competitive with automation plays",
+          "Custom retainer model, no published pricing — flexible to win any market",
+          "Statewide expansion play: 50-state location pages signal aggressive scaling",
+          "Launched integrated AI Search service combining SEO, AEO, GEO — press release coverage"
+        ],
+        "threat_level": "Medium"
+      },
+      {
+        "name": "Colorado Web Impressions",
+        "url": "https://coloradowebimpressions.com/",
+        "location": "Eagle, CO",
+        "category": "agency",
+        "first_seen": "2026-07-20",
+        "signals": [
+          "Eagle, CO based — directly in Doble AI's home market",
+          "Specializes in web design + SEO + AI marketing skills for Eagle-area businesses",
+          "Appearing in Eagle County search results for 'AI website design' queries",
+          "Traditional web agency adding AI positioning — not yet AI-first"
+        ],
+        "threat_level": "Low-Medium"
       },
       {
         "name": "AutomateNexus",
@@ -67,6 +98,36 @@
   "us_traction": {
     "description": "US AI marketing agencies gaining significant traction — what they're doing and why it's working",
     "entries": [
+      {
+        "name": "Blaze AI",
+        "url": "https://www.blaze.ai/",
+        "founded_approx": "2022",
+        "traffic_estimate": "~500K+/mo (1M+ active users)",
+        "top_traffic_sources": [
+          {"source": "Organic Search / SEO", "pct": 50},
+          {"source": "Direct / Brand", "pct": 30},
+          {"source": "Referral / Social", "pct": 20}
+        ],
+        "what_theyre_doing_well": "AI-powered marketing platform purpose-built for brick-and-mortar local businesses — content creation across 60+ formats, social scheduling, and Autopilot mode (launched Sept 2025) that runs campaigns fully autonomously. $10M ARR, 1M active users, 35% month-over-month growth.",
+        "why_getting_traction": "The only marketing tool in the $59-$220/mo range that delivers the full agency experience at DIY prices. Their 'Autopilot' brand story resonates with small business owners who want results without time investment. Hyper-local content angle differentiates from generic AI tools.",
+        "inspiration_score": 9,
+        "inspiration_notes": "Blaze AI is the productized version of what Doble AI does as a service — and it's winning the mass market. Doble AI's counter: position as the white-glove, locally-rooted version. 'Blaze runs your marketing; Doble AI knows your business and your valley.' Consider using Blaze internally as a production tool to lower delivery costs."
+      },
+      {
+        "name": "Sprites AI",
+        "url": "https://www.sprites.ai/",
+        "founded_approx": "2023",
+        "traffic_estimate": "~40K/mo",
+        "top_traffic_sources": [
+          {"source": "Organic Search / ProductHunt", "pct": 45},
+          {"source": "Direct / Brand", "pct": 35},
+          {"source": "Referral (YC network)", "pct": 20}
+        ],
+        "what_theyre_doing_well": "Y Combinator-backed AI agent that autonomously manages paid ads (Google, Meta, LinkedIn, TikTok, Reddit) + SEO + AEO from a single natural-language interface. Users report saving 10-20 hours/week and $5K-$50K/month vs. agency costs.",
+        "why_getting_traction": "YC stamp + sharp 'fire your agency' positioning + verifiable cost savings make it easy to buy. Cross-channel in one interface is a genuine product breakthrough — no competitor handles Google Ads + Meta + SEO in one agent. Strong ProductHunt launch built early community.",
+        "inspiration_score": 7,
+        "inspiration_notes": "Sprites AI signals that ad management automation is commoditizing fast. For Doble AI, the leverage is in strategy + creative direction + local context — the pieces AI agents still can't own. Monitor Sprites' pricing to understand market-rate expectations for automated ad management."
+      },
       {
         "name": "Mega (GoMega AI)",
         "url": "https://www.gomega.ai/",
