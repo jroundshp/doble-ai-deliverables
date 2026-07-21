@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Eagle Outside: Digital Presence Audit</title>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<style>
+  :root{
+    --paper:#f5f4f0; --ink:#2b3025; --muted:#6f7566; --brass:#8a6d2f;
+    --crit:#a53f2b; --warn:#b5892f; --pass:#4a7350;
+    --card:#ffffff; --line:#dcdcd2; --chipbg:#edece5;
+    --mono:"Menlo","SF Mono",Consolas,monospace;
+    --disp:"Futura","Avenir Next","Trebuchet MS",sans-serif;
+    --body:"Charter","Iowan Old Style",Georgia,serif;
+  }
+  @media (prefers-color-scheme: dark){:root{
+    --paper:#191b15; --ink:#e6e6de; --muted:#98a08d; --brass:#c2a256;
+    --crit:#d2664c; --warn:#cfa34a; --pass:#7aa87f;
+    --card:#20241c; --line:#333828; --chipbg:#282d21;
+  }}
+  :root[data-theme="dark"]{
+    --paper:#191b15; --ink:#e6e6de; --muted:#98a08d; --brass:#c2a256;
+    --crit:#d2664c; --warn:#cfa34a; --pass:#7aa87f;
+    --card:#20241c; --line:#333828; --chipbg:#282d21;
+  }
+  :root[data-theme="light"]{
+    --paper:#f5f4f0; --ink:#2b3025; --muted:#6f7566; --brass:#8a6d2f;
+    --crit:#a53f2b; --warn:#b5892f; --pass:#4a7350;
+    --card:#ffffff; --line:#dcdcd2; --chipbg:#edece5;
+  }
+  body{background:var(--paper); color:var(--ink); font-family:var(--body); line-height:1.6; margin:0;}
+  .wrap{max-width:780px; margin:0 auto; padding:48px 22px 80px;}
+  .eyebrow{font-family:var(--disp); text-transform:uppercase; letter-spacing:.22em; font-size:.72rem; color:var(--brass); font-weight:600;}
+  h1{font-family:var(--disp); font-weight:600; font-size:clamp(1.7rem,4.5vw,2.5rem); line-height:1.12; margin:.35em 0 .2em; text-wrap:balance; letter-spacing:.01em;}
+  .sub{color:var(--muted); font-size:1.02rem; max-width:60ch; margin:0 0 8px;}
+  .meta{font-family:var(--mono); font-size:.72rem; color:var(--muted); display:flex; gap:18px; flex-wrap:wrap; margin-top:14px;}
+  .verdict{display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:stretch; margin:34px 0 8px;}
+  @media (max-width:600px){.verdict{grid-template-columns:1fr;}}
+  .overall{background:#2b3025; color:#f5f4f0; border-radius:6px; padding:22px 26px; display:flex; flex-direction:column; justify-content:center; min-width:170px;}
+  @media (prefers-color-scheme: dark){.overall{background:var(--card); color:var(--ink); border:1px solid var(--line);}}
+  :root[data-theme="dark"] .overall{background:var(--card); color:var(--ink); border:1px solid var(--line);}
+  :root[data-theme="light"] .overall{background:#2b3025; color:#f5f4f0; border:none;}
+  .overall .n{font-family:var(--disp); font-size:3.4rem; font-weight:600; line-height:1; font-variant-numeric:tabular-nums;}
+  .overall .lbl{font-family:var(--disp); text-transform:uppercase; letter-spacing:.18em; font-size:.68rem; opacity:.75; margin-top:6px;}
+  .phases{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+  @media (max-width:600px){.phases{grid-template-columns:1fr;}}
+  .phase{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:14px 16px; display:flex; flex-direction:column; gap:4px;}
+  .phase .pn{font-family:var(--disp); font-size:1.7rem; font-weight:600; font-variant-numeric:tabular-nums;}
+  .phase .pl{font-family:var(--disp); text-transform:uppercase; letter-spacing:.14em; font-size:.66rem; color:var(--muted);}
+  .phase .bar{height:4px; background:var(--chipbg); border-radius:2px; overflow:hidden; margin-top:8px;}
+  .phase .bar i{display:block; height:100%; border-radius:2px;}
+  h2{font-family:var(--disp); font-weight:600; text-transform:uppercase; letter-spacing:.12em; font-size:.95rem; margin:44px 0 6px; padding-top:22px; border-top:1px solid var(--line); display:flex; align-items:baseline; gap:10px;}
+  h2 .score{font-variant-numeric:tabular-nums; color:var(--muted); font-size:.85rem; letter-spacing:.05em;}
+  .finding{display:grid; grid-template-columns:74px 1fr; gap:14px; padding:13px 0; border-bottom:1px solid var(--line); align-items:start;}
+  .finding:last-of-type{border-bottom:none;}
+  .chip{font-family:var(--disp); text-transform:uppercase; letter-spacing:.09em; font-size:.62rem; font-weight:600; padding:3px 8px; border-radius:3px; text-align:center; margin-top:3px;}
+  .c-crit{background:var(--crit); color:#fff;}
+  .c-warn{background:var(--warn); color:#fff;}
+  .c-pass{background:var(--pass); color:#fff;}
+  .finding p{margin:0; font-size:.98rem;}
+  .finding .ev{display:block; font-family:var(--mono); font-size:.74rem; color:var(--muted); margin-top:5px; overflow-x:auto; white-space:nowrap;}
+  ol.fixes{padding-left:1.3em; margin:10px 0 0;}
+  ol.fixes li{margin:10px 0; font-size:.98rem;}
+  ol.fixes b{font-family:var(--disp); font-weight:600; letter-spacing:.01em;}
+  .note{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--brass); border-radius:4px; padding:14px 18px; font-size:.95rem; margin:26px 0;}
+  .foot{margin-top:54px; padding-top:18px; border-top:1px solid var(--line); font-family:var(--disp); text-transform:uppercase; letter-spacing:.14em; font-size:.64rem; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+  a{color:var(--brass);}
+</style>
+
+<div class="wrap">
+  <span class="eyebrow">Digital Presence Audit</span>
+  <h1>Eagle Outside<br>eagleoutside.com</h1>
+  <p class="sub">The Town of Eagle's official adventure guide, audited on findability, visitor experience, and readiness for AI-driven search. Audited from the outside, the way a visitor or a search engine encounters it.</p>
+  <div class="meta"><span>AUDITED 2026-07-21</span><span>METHOD: LIVE CRAWL + SEARCH VISIBILITY</span><span>STACK: WORDPRESS · JUPITER THEME (2015) · YOAST</span></div>
+
+  <div class="verdict">
+    <div class="overall"><span class="n">4.6</span><span class="lbl">Overall / 10</span></div>
+    <div class="phases">
+      <div class="phase"><span class="pn">6</span><span class="pl">Get Found</span><div class="bar"><i style="width:60%;background:var(--pass)"></i></div></div>
+      <div class="phase"><span class="pn">5</span><span class="pl">Tell the Story</span><div class="bar"><i style="width:50%;background:var(--warn)"></i></div></div>
+      <div class="phase"><span class="pn">2</span><span class="pl">Amplify with AI</span><div class="bar"><i style="width:20%;background:var(--crit)"></i></div></div>
+    </div>
+  </div>
+
+  <div class="note"><b>The headline:</b> this is the opposite diagnosis from most sites we audit. The SEO fundamentals were done right when the site was built, and it still ranks on page one for the queries that matter. But the build dates to 2015, and a decade of deferred modernization is now showing everywhere a visitor or a search engine looks closely. A strong asset, coasting.</div>
+
+  <h2>Get Found <span class="score">6 / 10</span></h2>
+  <div class="finding"><span class="chip c-pass">Working</span><div><p>The fundamentals are in place and functioning: a keyword-true title ("Official Eagle Colorado Adventure Guide"), real meta description, canonical URLs, robots.txt, Yoast sitemaps, and Google Analytics. The site ranks on page one for "things to do in Eagle Colorado" and its trail pages rank for mountain biking, the town's signature query.</p></div></div>
+  <div class="finding"><span class="chip c-crit">Critical</span><div><p>Placeholder pages are live and submitted to Google. A leftover "clients" content type in the sitemap contains literal template pages named hotel-1, hotel-2, and hotel-3, plus a page for "xfinity," indexed since 2022.</p><span class="ev">/clients/hotel-1/ · /clients/hotel-2/ · /clients/hotel-3/ · /clients/xfinity/</span></div></div>
+  <div class="finding"><span class="chip c-warn">Warning</span><div><p>The blog has been silent for seven months. The newest post dates to December 2025. Freshness is a ranking signal, and the town's competitors for these queries (Vail Daily, colorado.com, TripAdvisor) publish continuously.</p><span class="ev">post-sitemap.xml newest lastmod: 2025-12-10</span></div></div>
+  <div class="finding"><span class="chip c-warn">Warning</span><div><p>Authority is split across two domains: rideeagle.com runs a separate trails site, dividing Eagle's strongest content story and its inbound links across two properties.</p></div></div>
+
+  <h2>Tell the Story <span class="score">5 / 10</span></h2>
+  <div class="finding"><span class="chip c-pass">Working</span><div><p>The story itself is excellent and the events calendar is actively maintained. The 100+ miles of singletrack, the April-to-December season, and official town designation are real competitive assets.</p><span class="ev">events sitemap lastmod: 2026-07-17</span></div></div>
+  <div class="finding"><span class="chip c-crit">Critical</span><div><p>The presentation dates to 2015: a Jupiter theme with LayerSlider, a homepage still serving twelve images uploaded in 2015, and a social share image that is the town logo PNG from May 2015. When the page is shared, the preview card shows a decade-old logo instead of Eagle's landscapes.</p><span class="ev">og:image: /uploads/2015/05/Town-of-Eagle-Logo250.png</span></div></div>
+  <div class="finding"><span class="chip c-warn">Warning</span><div><p>The page is heavy by modern standards: 64 script tags and 26 stylesheets on the homepage. Builds of this era predictably score poorly on Google's Core Web Vitals, which are both a ranking factor and a mobile-visitor experience factor. Exact scores to be measured and attached.</p><span class="ev">64 &lt;script&gt; · 26 stylesheets · LayerSlider 7.15</span></div></div>
+  <div class="finding"><span class="chip c-warn">Warning</span><div><p>Heading structure is muddled: three H1 tags on the homepage (Welcome to Eagle, Events, Parks), which blurs the page's topic signal for search engines.</p></div></div>
+  <div class="finding"><span class="chip c-crit">Critical</span><div><p>Pinch-to-zoom is disabled on mobile (user-scalable=0), a WCAG accessibility failure. For a municipally funded site, accessibility compliance is not optional, and this one is a one-line fix.</p><span class="ev">viewport: maximum-scale=1.0, user-scalable=0</span></div></div>
+
+  <h2>Amplify with AI <span class="score">2 / 10</span></h2>
+  <div class="finding"><span class="chip c-crit">Critical</span><div><p>Structured data is generic Yoast boilerplate (WebPage, Organization, Breadcrumb). No FAQ schema and no question-formatted content anywhere. When visitors ask AI assistants what to do in Eagle, nothing on this site is built to be the cited answer, and this query space is currently unclaimed by anyone.</p></div></div>
+  <div class="finding"><span class="chip c-crit">Critical</span><div><p>English only. Eagle County has a large Spanish-speaking population, and the town's official adventure guide serves none of it. No hreflang, no Spanish pages, no bilingual pathway.</p></div></div>
+
+  <h2>Ranked Fix List</h2>
+  <ol class="fixes">
+    <li><b>Remove the placeholder pages.</b> Delete or de-index the hotel-1/2/3 and xfinity pages and retire the leftover content types. One afternoon, immediate credibility gain.</li>
+    <li><b>Fix the accessibility viewport.</b> Re-enable zoom. One line, and it closes a compliance gap a municipal site should not carry.</li>
+    <li><b>Modernize the theme and performance.</b> Replace the 2015 Jupiter/LayerSlider build with a fast, current presentation worthy of the content. This is the largest single upgrade to both rankings and visitor impression.</li>
+    <li><b>Refresh imagery and the share card.</b> Current-decade photography on the homepage and a landscape og:image so shares show Eagle, not a 2015 logo file.</li>
+    <li><b>Revive the blog on a seasonal cadence.</b> The rankings this site still holds are fed by content; seven silent months spends that equity down.</li>
+    <li><b>Add the AI-readiness layer.</b> FAQ-structured content with schema on the trails, events, and visit pages, so Eagle becomes the cited answer in AI assistants for its own queries.</li>
+    <li><b>Go bilingual.</b> Spanish mirrors of the core pages would make this the first bilingual town adventure guide in the valley and serve a large share of the county it represents.</li>
+    <li><b>Consolidate the trails story.</b> Unify or tightly cross-link rideeagle.com so Eagle's best content competes as one property, not two.</li>
+  </ol>
+
+  <div class="note">A note on method: findings describe what is externally visible to visitors, search engines, and AI assistants as of the audit date. Where a metric could not be captured at audit time (Core Web Vitals scores), it is noted as pending rather than assumed.</div>
+
+  <div class="foot"><span>Eagle River Base Camp / Doble AI</span><span>Prepared July 2026 · Eagle River Valley, Colorado</span></div>
+</div>
+
+</body>
+</html>
