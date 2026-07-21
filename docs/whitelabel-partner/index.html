@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>White Label Partner Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F5F1EA;
+    color: #1C1410;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid rgba(194,65,12,0.15); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #c2410c; margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #c2410c; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px); font-weight: 500;
+    color: #1C1410; line-height: 1.05; margin-bottom: 16px;
+  }
+  .hero p { font-size: 19px; color: #43342B; line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0; margin-right: 28px; margin-bottom: 10px;
+    border-right: 1px solid rgba(194,65,12,0.2);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500;
+    color: #1C1410; line-height: 1; margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #8a6a52;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px; background: #fbf0e9; border: 1px solid #e8a879;
+    border-left: 4px solid #c2410c; border-radius: 8px; padding: 18px 22px;
+  }
+  .alert-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #b03c0a; margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #6e3410; line-height: 1.6; }
+  .alert code, .section-body code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(194,65,12,0.1); padding: 1px 6px; border-radius: 4px; font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section { margin-top: 48px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(194,65,12,0.12); }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75; }
+  .section-title { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .section-body { padding: 28px 24px; background: #FBF7F0; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #8a6a52; margin-bottom: 6px; }
+  .fact-val { font-size: 16px; color: #1C1410; line-height: 1.6; }
+
+  /* ── Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(194,65,12,0.15); }
+  th { text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8a6a52; }
+  th:first-child { padding-left: 0; }
+  th:last-child { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(194,65,12,0.07); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #43342B; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1C1410; }
+  td:last-child { padding-right: 0; }
+  .comp-intro { font-size: 15px; color: #43342B; line-height: 1.65; margin-bottom: 18px; }
+  .comp-intro strong { color: #1C1410; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #43342B; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1C1410; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #43342B; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card { background: #F6EEE4; border: 1px solid rgba(194,65,12,0.12); border-radius: 8px; padding: 14px 16px; }
+  .audit-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1C1410; }
+  .grade { font-size: 13px; font-weight: 800; color: #fff; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-c  { background: #b45309; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .grade-num { background: #7d3a1e; }
+  .audit-note { font-size: 14px; color: #43342B; line-height: 1.5; }
+
+  .key-finding { background: rgba(194,65,12,0.05); border: 1px solid rgba(194,65,12,0.2); border-radius: 8px; padding: 16px 20px; }
+  .key-finding-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #c2410c; margin-bottom: 8px; }
+  .key-finding p { font-size: 16px; color: #43342B; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FBF7F0; border-bottom: 1px solid rgba(194,65,12,0.08); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #c2410c; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1C1410; }
+  .rec-detail { font-size: 14px; color: #43342B; line-height: 1.65; padding-left: 30px; }
+
+  /* ── Verification note ── */
+  .verify-note { margin-top: 20px; font-size: 12px; color: #8a6a52; line-height: 1.6; font-style: italic; }
+
+  /* ── CTA Footer ── */
+  .cta-block { margin-top: 56px; background: linear-gradient(135deg, #0a3324 0%, #00784a 100%); border-radius: 12px; padding: 40px 36px; text-align: center; }
+  .cta-block h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: #ffffff; margin-bottom: 12px; }
+  .cta-block p { font-size: 17px; color: #c9ecd9; line-height: 1.6; max-width: 560px; margin: 0 auto 28px; }
+  .cta-btn { display: inline-block; background: #ffffff; color: #00693f; font-size: 15px; font-weight: 700; padding: 14px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.15s; }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #9fd6b8; }
+
+  /* ── Footer ── */
+  .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(194,65,12,0.12); font-size: 11px; color: #8a6a52; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026</div>
+    <h1>White Label Partner</h1>
+    <p>You reached out about a white-label partnership. Before any meeting, we run the same audit on every company we talk to, and we thought you might like to see yours. The short version: your content engine and on-page SEO are genuinely good, better than most agencies we review. The layer that proves you are who you say you are is where the score falls, and for a company selling trust to other agencies, that is the layer that closes deals.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">45</div><div class="stat-label">Blog Posts, Weekly Cadence</div></div>
+      <div class="stat"><div class="stat-val">0.16s</div><div class="stat-label">Server Response</div></div>
+      <div class="stat"><div class="stat-val">114</div><div class="stat-label">Images Missing Alt Text</div></div>
+      <div class="stat"><div class="stat-val">"0"</div><div class="stat-label">Clients Served, per AI Crawlers</div></div>
+      <div class="stat"><div class="stat-val">5.8 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">Headline Finding: You Sell AI Search Visibility, and AI Cannot See You</div>
+      <p>Your homepage stat counters are JavaScript animations. In a browser they count up; to crawlers that do not execute JavaScript, which includes most AI assistants, your homepage reads <strong>"0 U.S-BASED AGENCY PARTNERS, 0 CLIENTS SERVED, 0 LEADS GENERATED, 0 MILLION CHATS."</strong> Your team page serves those same crawlers blank placeholder rectangles where thirteen faces should be. Any agency owner who asks ChatGPT or Perplexity about White Label Partner is getting answers sourced from a page that says zero. AI search visibility is on your own services menu; your own site is the first place to deploy it.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e9f5ee;border-bottom:1px solid rgba(0,120,74,0.2)">
+      <span class="section-num" style="color:#00784a">01</span>
+      <span class="section-title" style="color:#00784a">Your Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What You Are</div>
+          <div class="fact-val">A white-label fulfillment agency for digital agencies: SEO, paid ads, web and app development, GoHighLevel, AI automation, live chat and call coverage, content, design. "We Don't Compete with You, We Complete You" is a genuinely good line.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Claims</div>
+          <div class="fact-val">Your site says 125+ in-house experts. Your outreach email says 150+ people supporting 200+ agencies. Public review platforms show roughly five reviews. One of these numbers is doing the selling, and it is not the one prospects can verify.</div>
+        </div>
+        <div>
+          <div class="fact-label">Where You Are</div>
+          <div class="fact-val">The site presents Miami, FL. The listed address is a Suite 108-291 mail-suite; business directories also list an office on Shahra-e-Faisal in Karachi. Offshore delivery is a normal, workable model. Presenting it as US-based in-house staff is a discoverable gap, and your prospects are agency owners, the one audience guaranteed to look.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Model</div>
+          <div class="fact-val">Post-paid, no contracts, NDA on request, work delivered under the partner's brand. Structurally attractive terms. Terms reduce risk on paper; the proof layer is what makes anyone believe the work behind them.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Where You Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f3eef8;border-bottom:1px solid rgba(126,34,206,0.15)">
+      <span class="section-num" style="color:#7e22ce">02</span>
+      <span class="section-title" style="color:#7e22ce">Where You Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">Most businesses we audit have thin content and no publishing discipline. You have the opposite profile: <strong>a real content machine pointed at the right buyer, undermined by a trust layer that contradicts it at every step.</strong> The fixes are cheap relative to what they cost you in conversions.</p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(0,120,74,0.06);border:1px solid rgba(0,120,74,0.25)">
+          <div class="pos-card-label" style="color:#00784a">Strengths</div>
+          <div class="pos-card-text">45 blog posts on a weekly cadence, aimed precisely at agency-owner pain points. Clean titles, metas, canonicals, Open Graph tags, Yoast sitemaps updated the day of this audit. Sub-200ms server response behind Cloudflare. Citations on Clutch, GoodFirms, Capterra, Manta, and Trustpilot.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.06);border:1px solid rgba(180,83,9,0.25)">
+          <div class="pos-card-label" style="color:#b45309">Current Position</div>
+          <div class="pos-card-text">Roughly five public reviews against a claim of 200+ agency partners. Team photos that render as blank placeholders to crawlers. Stat counters that read as zeros to AI. A Miami mail-suite fronting a Karachi operation. Outreach sent from lookalike and throwaway domains. Each item is small; together they are a pattern a skeptical buyer assembles in about twenty minutes.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.25)">
+          <div class="pos-card-label" style="color:#2563eb">Biggest Opportunity</div>
+          <div class="pos-card-text">Make the proof match the pitch. Real reviews at scale, real faces served in HTML, real numbers in crawlable text, outreach from your own domain, and an honest global-team story. "125 specialists in Karachi delivering behind 200 agency brands" is a strong pitch. It is the dressed-up version that leaks credibility.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fbf0e9;border-bottom:1px solid rgba(194,65,12,0.2)">
+      <span class="section-num" style="color:#c2410c">03</span>
+      <span class="section-title" style="color:#c2410c">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content Engine</span><span class="grade grade-a">A-</span></div>
+          <div class="audit-note">45 posts, publishing weekly through the day of this audit, targeted at the exact questions your buyers type. This is the discipline most agencies never sustain. Credit where due.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">On-Page SEO Hygiene</span><span class="grade grade-b">B+</span></div>
+          <div class="audit-note">Unique titles and descriptions, clean canonicals, Open Graph tags, sane robots.txt, fresh Yoast sitemaps. The fundamentals are handled.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Page Performance</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">517KB of raw HTML, 79 script tags, and 146 images with no native lazy loading on the homepage. The server is fast; the page it sends is not. Mobile PageSpeed is leaving points on the table for a company that sells PageSpeed fixes.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Accessibility &amp; Image SEO</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">114 of 146 homepage images have no alt text. That is an accessibility failure and a free image-SEO channel left unused, on a site that sells SEO.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Structured Data</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Organization schema only. You have FAQ content, seventeen service pages, and testimonials, and none of it is marked up. FAQPage and Service schema are the cheapest AI-citation wins available and they are sitting unused.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The zeros problem, detailed above. You list AI search visibility as a service you deliver to agencies. Your own homepage is the strongest counterexample a prospect could find.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Proof &amp; Reviews</span><span class="grade grade-d">D-</span></div>
+          <div class="audit-note">Roughly five reviews across Trustpilot and directories, around 4 stars, against a claimed 200+ agency partners. If even a tenth of those partners left a review, this grade becomes an A and your close rate moves with it.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Outreach Infrastructure</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Detailed in Section 04. Every touchpoint in your own outbound sequence borrows credibility from something it is not, which is a strange way to open a conversation about trust.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-num">5.8</span></div>
+          <div class="audit-note">Score out of 10. The content and SEO layers alone would grade well above this; the score reflects a trust layer that actively works against them.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Your constraint is not effort, volume, or technical skill. It is that the believability layer contradicts the marketing layer. You are asking agency owners, professional skeptics, to put their brand reputation in your hands, while the verifiable record shows five reviews, blank faces, zeroed counters, and borrowed identities. Every deliverable you produce may be excellent. The internet has no way to know.</p>
+      </div>
+      <div class="verify-note">Method note: pages were fetched as search and AI crawlers receive them (served HTML, no JavaScript execution) in July 2026, alongside public directory, registry, and review-platform lookups. In a full browser your counters presumably display real figures; the findings describe what crawlers and AI assistants can read. Review counts reflect what was publicly visible at audit time.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: How You Reached Us -->
+  <div class="section">
+    <div class="section-head" style="background:#eef4f8;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">04</span>
+      <span class="section-title" style="color:#2563eb">How You Reached Us: The Outreach Chain, Audited</span>
+    </div>
+    <div class="section-body" style="padding:24px 24px 20px">
+      <p class="comp-intro">We also audited the sequence that landed in our inbox, because it is part of your digital presence too. <strong>Across four touchpoints, not one arrived from whitelabelpartner.com.</strong> We assume this protects your domain reputation. It also means every prospect who checks, and agency owners check, meets three different identities before they meet you.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Touchpoint</th>
+            <th>What It Presented As</th>
+            <th>What It Is</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Intro email</td>
+            <td>Abigail at globalelevatedigital.com</td>
+            <td>A domain registered in March 2026 with whois privacy, no website of its own, and a 301 redirect to whitelabelpartner.com. "Global Elevate Digital" has no independent footprint anywhere we could find.</td>
+          </tr>
+          <tr>
+            <td>Booking link</td>
+            <td>A Calendly page</td>
+            <td>bookcalendly.com, a lookalike domain registered in November 2024, running a self-hosted WordPress booking page. Not Calendly.</td>
+          </tr>
+          <tr>
+            <td>Calendar invite</td>
+            <td>Ali, Whitelabel Services</td>
+            <td>A personal Gmail address, which Google itself flagged as an "invitation from an unknown sender." Your real domain email exists and works; it was not used.</td>
+          </tr>
+          <tr>
+            <td>The ask</td>
+            <td>"A quick 10 to 15 minute conversation"</td>
+            <td>A 45-minute calendar hold.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#e9f5ee;border-bottom:1px solid rgba(0,120,74,0.2)">
+      <span class="section-num" style="color:#00784a">05</span>
+      <span class="section-title" style="color:#00784a">Top Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Put Real Numbers in Real HTML</span></div>
+          <div class="rec-detail">Replace the JavaScript count-up counters with server-rendered figures (animate them after render if you like the effect). Same for the team photos: serve actual images in the HTML, not lazy-load placeholders. This is a day of work and it ends the "0 CLIENTS SERVED" problem for every AI assistant and crawler on the internet.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Close the Review Gap</span></div>
+          <div class="rec-detail">Five reviews cannot carry a 200-agency claim. A simple post-delivery review ask to even a fraction of your active partners would take Trustpilot from 5 reviews to 50+ in a quarter. This is the single highest-leverage trust fix available to you, and it costs almost nothing.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Send Outreach as Yourself</span></div>
+          <div class="rec-detail">Retire the throwaway domains, the Calendly lookalike, and the personal Gmail invites. Use a properly warmed subdomain of your own brand, a real scheduling tool, and your real name and role. Your deliverability team is optimizing for inbox placement; your buyers are optimizing for "can I trust these people with my clients." Right now those two efforts are working against each other.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Tell the Real Location Story</span></div>
+          <div class="rec-detail">A 125-person delivery team in Karachi with US-facing account management is a legitimate, sellable model that hundreds of agencies happily buy. A Miami mail-suite presented as headquarters is a twenty-minute discovery away for any prospect with a search bar. Own the global-team story before someone else tells it for you.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Deploy the Schema You Already Earned</span></div>
+          <div class="rec-detail">Add FAQPage markup to your FAQ content, Service markup to your seventeen service pages, and Review markup once the review base is real. You have already done the hard part, which is writing the content. Marking it up is the cheap part, and it is how AI assistants start citing you for the queries your blog already targets.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><span class="rec-num">06</span><span class="rec-title">Fix the Performance Basics</span></div>
+          <div class="rec-detail">Alt text on all 146 images, native lazy loading, and a script audit to cut the 79 tags down to what the page actually uses. Standard work, the same punchlist you would hand any client, applied at home.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>This audit took us about thirty minutes.</h2>
+    <p>It is one of the things we build for businesses: findability, proof, and AI search visibility, diagnosed and fixed in plain language. If a version of this under your partners' brands sounds more interesting than the meeting you booked, we are open to that conversation.</p>
+    <a href="https://dobleai.com" class="cta-btn">Doble AI · dobleai.com</a>
+    <div class="cta-sub">Eagle River Base Camp · Vail Valley, Colorado</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>White Label Partner (whitelabelpartner.com) Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Eagle River Base Camp · Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
