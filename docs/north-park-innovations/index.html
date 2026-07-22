@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>North Park Innovations Group | Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F4F2ED;
+    --card: #FFFFFF;
+    --ink: #1E2430;
+    --ink-mid: #475060;
+    --ink-mute: #6B7484;
+    --line: #DDD8CC;
+    --accent: #1D4E6B;
+    --accent-soft: #E8EFF3;
+    --spark: #C2410C;
+    --good: #2d6a4f;
+    --okay: #1a4971;
+    --warn: #7d5a1e;
+    --poor: #7d3a1e;
+    --bad: #6b1d1d;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Hero ── */
+  .hero { padding: 72px 0 48px; border-bottom: 1px solid rgba(29,78,107,0.25); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(34px, 5.5vw, 58px); font-weight: 500;
+    line-height: 1.08; margin-bottom: 16px;
+  }
+  .hero .sub { font-size: 18px; color: var(--ink-mid); line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+
+  .stats { display: flex; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 28px; }
+  .stat { flex: 1 1 140px; padding-right: 24px; margin-bottom: 12px; }
+  .stat + .stat { border-left: 1px solid var(--line); padding-left: 24px; }
+  .stat .v { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; color: var(--ink); }
+  .stat .v.hot { color: var(--spark); }
+  .stat .l { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-top: 4px; }
+
+  /* ── Alert ── */
+  .alert {
+    margin: 40px 0 0; background: var(--accent-soft);
+    border: 1px solid rgba(29,78,107,0.3); border-left: 4px solid var(--accent);
+    border-radius: 4px; padding: 24px 28px;
+  }
+  .alert .k { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .alert p { font-size: 15px; color: var(--ink-mid); line-height: 1.7; }
+  .alert code { font-size: 13px; background: #fff; border: 1px solid var(--line); padding: 1px 6px; border-radius: 3px; }
+
+  /* ── Sections ── */
+  .section { padding: 56px 0 0; }
+  .sec-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(24px, 3.5vw, 32px); font-weight: 500; margin-bottom: 24px;
+  }
+
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+  @media (max-width: 640px) { .facts { grid-template-columns: 1fr; } }
+  .fact { border-top: 2px solid var(--accent); padding-top: 12px; }
+  .fact .fl { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 8px; }
+  .fact .fv { font-size: 14.5px; color: var(--ink-mid); line-height: 1.65; }
+
+  .tbl-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.6; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+  td { color: var(--ink-mid); }
+  td strong { color: var(--ink); }
+  tr:last-child td { border-bottom: none; }
+  .tbl-note { font-size: 13.5px; color: var(--ink-mute); line-height: 1.7; border-left: 3px solid var(--line); padding-left: 14px; margin-top: 20px; }
+
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 640px) { .cols2 { grid-template-columns: 1fr; } }
+  .list-card { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 24px 28px; }
+  .list-card h3 { font-size: 15px; margin-bottom: 14px; letter-spacing: 0.02em; }
+  .list-card.for h3 { color: var(--good); }
+  .list-card.against h3 { color: var(--bad); }
+  .list-card ul { padding-left: 20px; font-size: 14px; color: var(--ink-mid); }
+  .list-card li { margin-bottom: 10px; line-height: 1.6; }
+  .list-card li strong { color: var(--ink); }
+
+  /* ── Channels ── */
+  .channel {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+    padding: 20px 22px; margin-bottom: 12px;
+  }
+  .grade {
+    flex: 0 0 auto; width: 54px; height: 54px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 20px; color: #fff;
+  }
+  .g-a { background: var(--good); } .g-b { background: var(--okay); }
+  .g-c { background: var(--warn); } .g-d { background: var(--poor); } .g-f { background: var(--bad); }
+  .channel h3 { font-size: 15.5px; margin-bottom: 5px; }
+  .channel p { font-size: 14px; color: var(--ink-mid); line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-item { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 20px 24px; margin-bottom: 12px; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; color: var(--spark); }
+  .rec-title { font-size: 15.5px; font-weight: 600; }
+  .rec-detail { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
+  .rec-detail code { font-size: 12.5px; background: var(--bg); border: 1px solid var(--line); padding: 1px 5px; border-radius: 3px; }
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 9px; border-radius: 20px; margin-left: 10px; vertical-align: middle; }
+  .pill.free { background: #E7F2EC; color: var(--good); }
+  .pill.quick { background: #FBEDE4; color: var(--spark); }
+
+  /* ── CTA ── */
+  .cta-block {
+    margin-top: 72px; background: var(--accent); color: #fff;
+    border-radius: 8px; padding: 48px 44px; text-align: center;
+  }
+  .cta-block h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 4vw, 34px); font-weight: 500; margin-bottom: 16px; }
+  .cta-block p { font-size: 15.5px; line-height: 1.7; color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 28px; }
+  .cta-btn {
+    display: inline-block; background: #fff; color: var(--accent);
+    font-weight: 600; font-size: 15px; padding: 14px 32px; border-radius: 6px; text-decoration: none;
+  }
+  .cta-sub { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 16px; }
+
+  .verify-note { font-size: 12.5px; color: var(--ink-mute); line-height: 1.7; font-style: italic; margin-top: 40px; }
+
+  .footer {
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    border-top: 1px solid var(--line); margin-top: 32px; padding-top: 24px;
+    font-size: 13px; color: var(--ink-mute);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026</div>
+    <h1>North Park Innovations Group, Inc.</h1>
+    <p class="sub">iConnect Training · Marcraft · iManifold. HVAC/R, electrical, and cybersecurity training equipment and curriculum, designed and manufactured in Ellicottville, New York and shipped to schools, colleges, and military bases worldwide.</p>
+    <div class="stats">
+      <div class="stat"><div class="v hot">6.8 / 10</div><div class="l">Digital Score</div></div>
+      <div class="stat"><div class="v">1980</div><div class="l">Lineage (Stride Tool)</div></div>
+      <div class="stat"><div class="v">84</div><div class="l">Blog Posts, Monthly Cadence</div></div>
+      <div class="stat"><div class="v">50</div><div class="l">Product Pages, 0 With Schema</div></div>
+      <div class="stat"><div class="v">0</div><div class="l">Google Reviews Visible</div></div>
+    </div>
+  </div>
+
+  <!-- CORE FINDING -->
+  <div class="alert">
+    <div class="k">The Core Finding: A Content Engine With the Wiring Left Unfinished</div>
+    <p>iConnect Training publishes a real blog post every month, hand-writes its page titles, and already owns roughly six of the top nine Google results for "refrigeration training unit." Yet the company has no visible Google Business Profile, none of its 50 product pages carry Product schema, and every page's structured data still points at a leftover GoDaddy staging address (<code>256.f93.myftpupload.com</code>) instead of the live site. Google is being told, on every single page, that this website belongs to a construction site that no longer exists. These are finishing details, and they are exactly the details that decide who gets surfaced in Maps, rich results, and AI answers.</p>
+  </div>
+
+  <!-- 01 SNAPSHOT -->
+  <div class="section">
+    <div class="sec-label">01 · Business Snapshot</div>
+    <h2>Who They Are</h2>
+    <div class="facts">
+      <div class="fact"><div class="fl">Company</div><div class="fv">North Park Innovations Group, Inc. Privately held, husband-and-wife owned (Bill Northrup, CEO, and Lori Northrup). Described by NYSERDA as a woman-owned small business. About 29 employees.</div></div>
+      <div class="fact"><div class="fl">Headquarters</div><div class="fv">6442 Route 242 East, Ellicottville, NY 14731. Design, manufacturing, shipping, and support all on site. Main: (716) 699-2031 · Sales: (716) 468-4047.</div></div>
+      <div class="fact"><div class="fl">What They Sell</div><div class="fv">Hands-on vocational training units and curriculum for high schools, technical colleges, military bases, and government facilities. Quote-based sales through product-page forms and a print catalog; no e-commerce (the industry norm).</div></div>
+      <div class="fact"><div class="fl">Brand Family</div><div class="fv">iConnect Training (HVAC/R and electrical), Marcraft (cybersecurity, IT, green energy; acquired February 2023), iManifold (digital manifold tools), and parent site npinnovations.com. Four separate domains.</div></div>
+      <div class="fact"><div class="fl">Momentum</div><div class="fv">$250,000 NYSERDA clean-energy training award. $19,000 Retool WNY award. Exhibitor at AHR Expo 2026, ACTE, and HVAC Excellence, where they introduced 8 new trainers in 2025.</div></div>
+      <div class="fact"><div class="fl">Site Stack</div><div class="fv">WordPress with The7 theme, WPBakery builder, Yoast-style SEO, and Google Site Kit. Roughly 280 URLs: 84 posts, 50 product pages, 16 testimonials, 13 team profiles.</div></div>
+    </div>
+  </div>
+
+  <!-- 02 COMPETITIVE SET -->
+  <div class="section">
+    <div class="sec-label">02 · Competitive Set</div>
+    <h2>Who Owns Their Searches</h2>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Competitor</th><th>Position</th><th>Web Posture</th></tr>
+        <tr><td><strong>Amatrol</strong></td><td>Category leader, full trades breadth</td><td>Strongest SEO in the space. Deep product pages plus eLearning content, ranks #1 for head terms, amplified by a dealer network that also ranks.</td></tr>
+        <tr><td><strong>Festo Didactic / Lab-Volt</strong></td><td>Global corporate</td><td>Huge structured catalog, high domain authority, multiple domains ranking at once.</td></tr>
+        <tr><td><strong>Hampden Engineering</strong></td><td>65-year legacy manufacturer</td><td>Visibly dated static site, yet still ranks for kit-specific queries through rep firms.</td></tr>
+        <tr><td><strong>DAC Worldwide</strong></td><td>Niche: cutaways, component models</td><td>Surfaces through roundups and dealer catalogs rather than winning terms directly.</td></tr>
+      </table>
+    </div>
+    <p class="tbl-note">The pattern that matters: on broad buying terms like "HVAC training equipment for schools," aggregators and dealers (GoVets, Tech-Labs, AET Labs, Amtek) outrank the manufacturers themselves. iConnect appears on page one but near the bottom. On specific product terms, iConnect wins outright. The head-term fight is winnable, because their content engine already out-publishes everyone except Amatrol.</p>
+  </div>
+
+  <!-- 03 WHERE THEY STAND -->
+  <div class="section">
+    <div class="sec-label">03 · Where They Stand</div>
+    <h2>Strengths and Gaps</h2>
+    <div class="cols2">
+      <div class="list-card for">
+        <h3>Working in Their Favor</h3>
+        <ul>
+          <li><strong>A real content engine.</strong> 84 blog posts, one per month like clockwork, written for their actual buyer (the instructor). Newest post July 13, 2026.</li>
+          <li><strong>Long-tail dominance.</strong> Roughly 6 of the top 9 Google results for "refrigeration training unit" are iconnecttraining.com pages.</li>
+          <li><strong>Clean on-page SEO.</strong> Unique hand-written titles and meta descriptions on 10 of 11 sampled pages. Sitemap, canonicals, and image alt text all in place.</li>
+          <li><strong>Credibility assets.</strong> 16 testimonials, an FAQ page, a product matrix, trade-show presence, grant awards, and an active YouTube channel (AHR 2026 recap already posted).</li>
+          <li><strong>They own their branded Google results.</strong> Page one for "iConnect Training" is all theirs.</li>
+        </ul>
+      </div>
+      <div class="list-card against">
+        <h3>Working Against Them</h3>
+        <ul>
+          <li><strong>Not visible on Google Maps.</strong> No Business Profile panel appears for either company name, on Google or Bing. A 29-person manufacturer with a real HQ and zero Google reviews.</li>
+          <li><strong>No Product schema.</strong> 50 product pages, none marked up as products. No Organization schema either. Invisible to rich results and AI shopping-style answers.</li>
+          <li><strong>Staging-domain bug.</strong> Site-wide structured data references a defunct GoDaddy staging URL.</li>
+          <li><strong>Zoom disabled on mobile.</strong> The viewport blocks pinch-to-zoom, a WCAG accessibility failure, on a site selling to educators and government buyers.</li>
+          <li><strong>Crowded name on Bing.</strong> "iConnect" collides with HR portals and government systems; they rank about 5th for their own name plus town.</li>
+          <li><strong>Stale edges.</strong> Parent site npinnovations.com untouched for about 17 months, team pages frozen since February 2023, and typos live in meta descriptions ("neeeds," "principals").</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 CHANNEL AUDIT -->
+  <div class="section">
+    <div class="sec-label">04 · Online Presence Audit</div>
+    <h2>Twelve Channels, Graded</h2>
+
+    <div class="channel"><div class="grade g-b">B+</div><div><h3>Website Design &amp; UX</h3><p>Professional, current, and organized around the buyer: product matrix, equipment packages, curriculum, videos. Heavy builder stack (The7 plus WPBakery) but it works, and server response is fast.</p></div></div>
+    <div class="channel"><div class="grade g-b">B+</div><div><h3>On-Page SEO</h3><p>Unique, descriptive, clearly hand-written titles and metas across the site. Docked for two spelling errors in live meta descriptions, a generic "Portfolio Archive" page with no meta, and an og:title of "Home" on the homepage.</p></div></div>
+    <div class="channel"><div class="grade g-a">A-</div><div><h3>Content Engine</h3><p>84 posts at a steady monthly cadence with zero gaps, aimed squarely at HVAC instructors ("How to Spot Gaps in Your HVAC/R Lab Before the School Year Starts," July 13). This is the asset everything else should be built on.</p></div></div>
+    <div class="channel"><div class="grade g-b">B</div><div><h3>Organic Search Rankings</h3><p>Dominant on product-specific terms, present but outranked by dealers and aggregators on broad buying terms. The gap is content positioned for the purchasing decision-maker, not just the instructor.</p></div></div>
+    <div class="channel"><div class="grade g-f">F*</div><div><h3>Google Business Profile &amp; Maps</h3><p>No local panel visible for either company name on Google or Bing, and zero Google reviews. *We report "not visible," not "does not exist": an unclaimed or suspended profile may sit behind this, which only the owner can confirm. Either way, the public-facing result is invisibility.</p></div></div>
+    <div class="channel"><div class="grade g-d">D</div><div><h3>Structured Data</h3><p>SEO-plugin defaults only. No Product or Offer markup on any of 50 product pages, no Organization schema, no FAQPage schema, and a site-wide reference to a dead GoDaddy staging domain inside the schema graph.</p></div></div>
+    <div class="channel"><div class="grade g-c">C-</div><div><h3>AI Search Readiness (GEO)</h3><p>The raw material is there: an FAQ page with 10 real questions, comparison posts (TU-9240 vs TU-9250), testimonials. None of it is marked up or structured so AI assistants can cite it. When a district administrator asks ChatGPT for HVAC lab equipment vendors, this content should be the answer.</p></div></div>
+    <div class="channel"><div class="grade g-c">C+</div><div><h3>Social Media</h3><p>All four channels exist and show 2026 activity (YouTube AHR recap, Facebook posts, Instagram, LinkedIn showcase page). But 219 LinkedIn followers is thin for a company selling to institutions, and the effort is not compounding.</p></div></div>
+    <div class="channel"><div class="grade g-b">B-</div><div><h3>Reviews &amp; Social Proof</h3><p>16 on-site testimonials and a "Real Stories From Real Instructors" series are genuinely good. Third-party proof is near zero: no Google reviews (no profile), and nothing visible anywhere a skeptical procurement officer would check independently.</p></div></div>
+    <div class="channel"><div class="grade g-c">C</div><div><h3>Mobile &amp; Accessibility</h3><p>Pinch-to-zoom is disabled (a WCAG 1.4.4 failure). The homepage ships 326 KB of HTML with 26 stylesheets and 17 external scripts. Educational and government buyers increasingly carry accessibility procurement requirements; this is a sales risk, not just a technical one.</p></div></div>
+    <div class="channel"><div class="grade g-c">C+</div><div><h3>Brand Architecture</h3><p>Four domains (iconnecttraining, marcraft, npinnovations, imanifold) with duplicated press releases, weak cross-linking, and a parent site 17 months stale. On Bing, the crowded "iConnect" name buries them below HR-software collisions.</p></div></div>
+    <div class="channel"><div class="grade g-b">B-</div><div><h3>Conversion Path</h3><p>Quote-request forms on product pages and a print catalog offer fit the industry. But there is no email link anywhere, no office hours, and no dealer or rep locator, so every path funnels into one form or one phone line.</p></div></div>
+  </div>
+
+  <!-- 05 RECOMMENDATIONS -->
+  <div class="section">
+    <div class="sec-label">05 · Priority Recommendations</div>
+    <h2>Eight Fixes, In Order</h2>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Stand Up the Google Business Profile<span class="pill free">Free</span><span class="pill quick">Week 1</span></span></div>
+      <div class="rec-detail">Claim or create the profile as a manufacturer at 6442 Route 242 East, then ask five long-standing instructor customers for reviews. This is the single largest visibility gap, and it costs nothing.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Purge the Staging Domain From the Schema Graph<span class="pill quick">Week 1</span></span></div>
+      <div class="rec-detail">Run a search-and-replace for <code>256.f93.myftpupload.com</code> across the database and re-verify the SEO plugin's site settings. Every page currently misidentifies itself to Google.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Add Product Schema to All 50 Training-Unit Pages</span></div>
+      <div class="rec-detail">Name, image, brand, model, and description on every unit, templated once through the portfolio post type. This is how product pages qualify for rich results, and how AI assistants learn the catalog exists.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Mark Up the FAQ and Comparison Content for AI Search</span></div>
+      <div class="rec-detail">FAQPage schema on the existing FAQ page, FAQ blocks on each category page, and Organization schema tying together all four domains and social profiles. The content already answers buyer questions; the markup lets machines cite it.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Remove the Zoom Lock and Run a Performance Pass</span></div>
+      <div class="rec-detail">Delete <code>maximum-scale</code> and <code>user-scalable</code> from the viewport tag (a one-line fix for the WCAG failure), then consolidate the 26 stylesheets and 17 scripts the builder stack ships on every page.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">06</span><span class="rec-title">Build Decision-Maker Landing Pages to Win Head Terms</span></div>
+      <div class="rec-detail">"HVAC training equipment for schools" and "HVAC lab for community colleges" pages written for administrators and procurement, with funding guidance (Perkins V, NYSERDA-style grants) that the monthly blog can feed. Dealers are winning these terms today with thinner content.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">07</span><span class="rec-title">Tidy the Brand Edges</span></div>
+      <div class="rec-detail">Fix the meta typos and the "Home" og:title, give the training-units archive a real title and description, refresh or consolidate npinnovations.com (17 months idle), and update the team pages (frozen since 2023).</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">08</span><span class="rec-title">Turn the Grant Story Into Third-Party Press</span></div>
+      <div class="rec-detail">The $250K NYSERDA award and the woman-owned manufacturer story exist only as self-published releases. Pitch trade press and WNY business media; independent coverage builds the citations and authority the crowded "iConnect" name needs, especially on Bing.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>The hard part is already done.</h2>
+    <p>North Park Innovations publishes consistently, ranks for what it makes, and has a genuine story: a family-owned, woman-owned Ellicottville manufacturer shipping training labs worldwide. What's missing is the connective layer that turns that work into visibility where buying decisions now start: Google Maps, rich results, and AI answers. Most of these fixes are one-time, technical, and permanent. A company scoring 6.8 with these gaps open has an unusually short path to 9.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <p class="verify-note">Verification note: findings are based on served-HTML fetches (as crawlers see the site), sitemap and schema inspection, public search checks on Google and Bing, and public social lookups in July 2026. No owner-side data (Search Console, Google Business Profile, analytics) was available for this review; "not visible in search" findings should be confirmed against those accounts. LinkedIn and Facebook limit automated checks; follower figures come from public search snapshots.</p>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>North Park Innovations Group · Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Eagle River Base Camp · Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
