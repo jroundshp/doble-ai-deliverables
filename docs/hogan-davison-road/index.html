@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Davison Road: Where Things Stand</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --ink: #26221d;
+    --muted: #6f675b;
+    --accent: #8c3f2b;
+    --accent-ink: #8c3f2b;
+    --rule: #e5dfd4;
+    --card: #f3efe8;
+    --card-strong: #ece6db;
+    --good: #3e6b46;
+    --warn: #8a6a1f;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1e1b17;
+      --ink: #eae4da;
+      --muted: #a69c8c;
+      --accent: #d47c5f;
+      --accent-ink: #d98d73;
+      --rule: #3a342b;
+      --card: #272319;
+      --card-strong: #2e2920;
+      --good: #8fb896;
+      --warn: #cfa94e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1e1b17;
+    --ink: #eae4da;
+    --muted: #a69c8c;
+    --accent: #d47c5f;
+    --accent-ink: #d98d73;
+    --rule: #3a342b;
+    --card: #272319;
+    --card-strong: #2e2920;
+    --good: #8fb896;
+    --warn: #cfa94e;
+  }
+  :root[data-theme="light"] {
+    --bg: #fbfaf7;
+    --ink: #26221d;
+    --muted: #6f675b;
+    --accent: #8c3f2b;
+    --accent-ink: #8c3f2b;
+    --rule: #e5dfd4;
+    --card: #f3efe8;
+    --card-strong: #ece6db;
+    --good: #3e6b46;
+    --warn: #8a6a1f;
+  }
+  html { background: var(--bg); }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.65;
+    margin: 0;
+    font-size: 17px;
+  }
+  .page {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.4rem 5rem;
+  }
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 1.1rem;
+  }
+  h1 {
+    font-size: 2.15rem;
+    line-height: 1.15;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .dek {
+    font-size: 1.08rem;
+    color: var(--muted);
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+  }
+  .meta {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.2rem 0 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.6rem;
+  }
+  h2 {
+    font-size: 1.42rem;
+    font-weight: 600;
+    margin: 3rem 0 0.9rem;
+    text-wrap: balance;
+    letter-spacing: -0.005em;
+  }
+  h3 {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 1.9rem 0 0.5rem;
+    text-wrap: balance;
+  }
+  p { margin: 0 0 1rem; }
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; border-radius: 2px; }
+  ul, ol { margin: 0 0 1rem; padding-left: 1.3rem; }
+  li { margin-bottom: 0.45rem; }
+  strong { font-weight: 600; }
+
+  .summary {
+    background: var(--card);
+    border-left: 3px solid var(--accent);
+    padding: 1.2rem 1.4rem;
+    margin: 2rem 0 0;
+  }
+  .summary p:last-child { margin-bottom: 0; }
+  .summary .label {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--sans);
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+  .table-wrap { overflow-x: auto; margin: 1.2rem 0 1.6rem; }
+  th {
+    text-align: left;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    padding: 0.5rem 0.9rem 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  td {
+    padding: 0.55rem 0.9rem 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted); }
+
+  .option {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.6rem;
+    margin-top: 2.2rem;
+  }
+  .option-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+  }
+  .option-num {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+    font-variant-numeric: tabular-nums;
+    flex: none;
+  }
+  .option h3 { margin: 0; font-size: 1.18rem; }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.7rem 0 1rem;
+    font-family: var(--sans);
+  }
+  .chip {
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    padding: 0.18rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--muted);
+    background: var(--card);
+    white-space: nowrap;
+  }
+  .chip.now { color: var(--accent-ink); border-color: var(--accent-ink); background: transparent; font-weight: 600; }
+  .chip.good { color: var(--good); border-color: var(--good); background: transparent; font-weight: 600; }
+
+  .aside {
+    background: var(--card);
+    padding: 1rem 1.3rem;
+    margin: 1.4rem 0;
+    font-size: 0.95rem;
+  }
+  .aside .label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+  .aside p:last-child { margin-bottom: 0; }
+
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li {
+    padding-left: 1.7rem;
+    position: relative;
+    margin-bottom: 0.7rem;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.42em;
+    width: 0.62em;
+    height: 0.62em;
+    border: 1.5px solid var(--accent-ink);
+    border-radius: 2px;
+  }
+
+  .footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 3.5rem;
+    padding-top: 1.6rem;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .footer p { margin-bottom: 0.6rem; }
+  .sources { font-size: 0.88rem; color: var(--muted); }
+  .sources li { margin-bottom: 0.3rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    a { transition: color 120ms ease; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">Eagle River Base Camp &middot; Doble AI</p>
+  <h1>Davison Road: where things stand, and five paths forward</h1>
+  <p class="dek">Based on the four court filings you sent, plus our own research into the record, the local coverage, the new council, and the state programs that touch this corridor.</p>
+  <div class="meta">
+    <span>Prepared for Corey Hogan</span>
+    <span>July 29, 2026</span>
+    <span>Discussion draft, not legal advice</span>
+  </div>
+
+  <div class="summary">
+    <p class="label">The short version</p>
+    <p>The Article 78 was a real loss, but it was the hardest possible way to win: courts almost never overturn a city-wide rezoning. What remains is a set of paths the lawsuit never touched. One of them is urgent (the appeal clock may still be open and needs a docket check this week). Two work the problem from a different direction (a fresh use variance, and a petition to the new council, three of whose six members were not there for the March 2025 vote). One makes money under the zoning you already have, anchored by the new hospital a mile away. And the public-pressure route just proved it works in Lockport: in March 2026 the council tried to pass a citywide apartment moratorium and backed down after residents and developers packed the room.</p>
+  </div>
+
+  <h2>What you sent us, in plain English</h2>
+  <p>We reviewed the Verified Article 78 Petition (May 21, 2025), the City's Memorandum of Law in Opposition (November 3, 2025), your reply affirmation (November 5, 2025), and the Order and Judgment (entered March 2, 2026). Here is the arc they describe, checked against the public record:</p>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>When</th><th>What happened</th></tr>
+      <tr><td class="date">Jan 2024</td><td>Davison Road Properties, LLC acquires eight parcels, about 38,000 sq ft, in the Lockport Professional Park corridor. Two of eight units tenanted; the broker letter in the record shows failed office marketing since 2021.</td></tr>
+      <tr><td class="date">Apr 2024</td><td>The variance bid to convert 770 Davison Road draws roughly 50 neighbors in opposition; the ZBA tables it twice and the application is withdrawn. Important later: withdrawn, not denied.</td></tr>
+      <tr><td class="date">Feb 2025</td><td>The City's draft zoning map designates the corridor Mixed-Use Neighborhood (MU-N), which would have permitted residential conversion.</td></tr>
+      <tr><td class="date">Mar 26, 2025</td><td>The Common Council unanimously adopts the new Comprehensive Plan and Zoning Code (Local Law 1-2025), moving about 60 corridor parcels into a new Mixed Office (MO) district, the only district in the city that prohibits residential use.</td></tr>
+      <tr><td class="date">May 22, 2025</td><td>Article 78 filed (Index E187604/2025): spot zoning, arbitrary and capricious, SEQRA, and General City Law &sect; 28-a claims.</td></tr>
+      <tr><td class="date">Nov 26, 2025</td><td>Justice Frank Caruso hears argument and denies the petition from the bench.</td></tr>
+      <tr><td class="date">Mar 2, 2026</td><td>Order and Judgment entered: petition denied in its entirety.</td></tr>
+    </table>
+  </div>
+
+  <h2>Where we believe you stand</h2>
+  <p>An honest read, including the parts that cut against you, because the strategy only works if it is built on the full picture.</p>
+
+  <h3>What is working against you</h3>
+  <ul>
+    <li><strong>The legal standard, not the facts, decided the case.</strong> A rezoning by a common council is a legislative act. Courts presume it valid and sustain it if its consistency with the comprehensive plan is even debatable. That same deference applies on appeal, which is why we put reversal odds low even though the equities read well.</li>
+    <li><strong>The prior zoning did not permit residential either.</strong> The old B-4 district also barred conversion; the February 2025 draft map was the thing that would have changed that. This weakens the framing that the City took away an existing right, and it is close to fatal for a federal takings claim, since your investment-backed expectation at purchase was a property where residential already required a variance.</li>
+    <li><strong>The neighbors have shown up twice.</strong> In 2024 against 770 Davison, and back in 2020 against the infirmary-site housing proposal at 102 Davison. Corridor-adjacent opposition is organized and the council knows it votes.</li>
+  </ul>
+
+  <h3>What is working for you</h3>
+  <ul>
+    <li><strong>A court has already found the hardship real.</strong> The tax certiorari judgment cutting the assessment from over $3 million to roughly $848,000 is a judicial finding that these buildings cannot perform as offices. That is unusually strong dollars-and-cents evidence for a use variance, and a standing argument to the City about what the status quo costs its own tax base.</li>
+    <li><strong>The City's own plan argues your side.</strong> The 2024 Comprehensive Plan identifies a citywide housing need and endorses adaptive reuse of aging commercial corridors. State law (General City Law &sect; 28-a) requires zoning to accord with the plan. A text amendment restoring residential here would implement the plan; the current MO district sits in tension with it.</li>
+    <li><strong>Lockport certified as a Pro-Housing Community in early 2025.</strong> That certification is now a prerequisite for major state discretionary funding, and the state's own data shows the city issuing almost no housing permits. A city that banned housing in the one corridor with a willing converter, months after certifying as pro-housing, has a story problem you can use respectfully but firmly.</li>
+    <li><strong>The council has changed.</strong> Three of the six aldermen who cast the March 2025 vote are gone. The 2nd Ward, which contains Professional Parkway, is now held by Marcus Wyche (D). The mayor, a named respondent, is publicly feuding with his own council and faces election in 2027. A petition to this council is not a rerun of the last one.</li>
+    <li><strong>Public pressure demonstrably moves this council.</strong> In March 2026 the council proposed a six-month moratorium on larger multifamily projects. Residents and development interests packed the meeting, and the council tabled it 4 to 1. The playbook that stopped the moratorium is available to the Davison Road story too.</li>
+    <li><strong>The market anchor came back.</strong> Eastern Niagara Hospital's 2023 closure gutted the park's original reason to exist, but Catholic Health opened Lockport Memorial Hospital one mile north on Transit Road in October 2023. The corridor's own listings now market that distance. That supports a medical and services repositioning under the zoning you already have.</li>
+    <li><strong>Lockport's rental market is tight.</strong> Roughly 3 percent vacancy, with the comprehensive plan itself acknowledging the housing need. The demand side of your conversion thesis has only strengthened.</li>
+  </ul>
+
+  <h2>Options to consider, in the order we would run them</h2>
+  <p>These are numbered in sequence, not by preference, because the early ones are cheap and preserve leverage for the later ones. They are also not mutually exclusive; the strongest posture runs several at once.</p>
+
+  <div class="option">
+    <div class="option-head"><span class="option-num">1</span><h3>Check the appeal clock this week</h3></div>
+    <div class="chips"><span class="chip now">Do now</span><span class="chip">Cost: minimal</span><span class="chip">Odds of reversal: low</span><span class="chip">Value: leverage</span></div>
+    <p>In New York the 30-day window to appeal runs from <em>service of the judgment with notice of entry</em>, not from entry itself, and the automatic NYSCEF notification does not count as service. If the City's counsel never filed and served a formal Notice of Entry after March 2, 2026, the window may still be open today. We found no served notice and no notice of appeal in the public record, but that needs a direct NYSCEF docket check by your counsel, this week.</p>
+    <p>If the window is open, filing a notice of appeal is inexpensive, buys six months to perfect, and keeps every negotiation below alive. Order the November 26 transcript either way; the bench ruling has to be settled into the record, and its reasoning shapes everything else. We would treat the appeal as leverage rather than the plan: reversal odds against a legislative act are low, with the comprehensive-plan inconsistency argument the most promising thread.</p>
+  </div>
+
+  <div class="option">
+    <div class="option-head"><span class="option-num">2</span><h3>File a fresh use variance on your strongest buildings</h3></div>
+    <div class="chips"><span class="chip">Cost: moderate</span><span class="chip">Timeline: months</span><span class="chip">Odds: real but contested</span></div>
+    <p>Because the 2024 application was withdrawn rather than denied, a use variance under General City Law &sect; 81-b is procedurally fresh. Three of the four factors line up well: the tax judgment and broker history are exactly the dollars-and-cents proof boards demand; residential conversion beside residential neighborhoods is an easy neighborhood-character argument; and the hardship (market-wide office collapse) is not of your making.</p>
+    <p>The honest risk is the <strong>uniqueness factor</strong>: the statute disqualifies hardship shared by a substantial portion of the district, and vacancy afflicts much of the 60-parcel corridor. The counter is to apply narrowly, on the one to three buildings whose size and configuration make them distinctly unconvertible to anything the MO district permits, with building-specific pro formas for every permitted use. Even a denial changes your litigation posture: a ZBA denial is reviewed less deferentially than a council's legislative act.</p>
+  </div>
+
+  <div class="option">
+    <div class="option-head"><span class="option-num">3</span><h3>Petition the new council for a text amendment</h3></div>
+    <div class="chips"><span class="chip good">Highest expected value</span><span class="chip">Cost: low to moderate</span><span class="chip">Timeline: 6 to 18 months</span></div>
+    <p>Ask the council to amend the MO district to allow residential conversion by special use permit. That framing matters: it does not ask them to admit error or rezone the map, it gives them case-by-case control, and it lets them say yes to the buildings while keeping standards for the neighbors. The pitch writes itself from the City's own documents: the comprehensive plan calls for adaptive reuse and more housing; the Pro-Housing certification the City sought now gates its access to state money; and the corridor's collapsing assessments are a recurring hole in the City's budget that your reinvestment would fill.</p>
+    <p>The audience is different now. Three new aldermen, a Democrat holding your ward, a council president who has shown he responds to organized rooms, and a 2027 election on the horizon. The March 2025 vote was unanimous; the March 2026 moratorium retreat shows the current council counts heads. This is where the public-narrative work below feeds directly into an official ask.</p>
+  </div>
+
+  <div class="option">
+    <div class="option-head"><span class="option-num">4</span><h3>Make the buildings earn under the zoning you have</h3></div>
+    <div class="chips"><span class="chip good">No approvals fight needed</span><span class="chip">Cost: leasing + capital</span><span class="chip">Timeline: starts now</span></div>
+    <p>The MO district expressly permits neighborhood-scale medical and professional offices plus retail, entertainment, and service uses. With Lockport Memorial Hospital one mile away, the strongest national pattern for parks exactly like this is a medical and services cluster: physician satellites, physical therapy and rehab, imaging and lab draw, dialysis, behavioral health clinics, dental, veterinary. Beyond medical: childcare (single-story buildings with parking are ideal, and New York's OCFS has been funding center construction with grants from $500,000 to $5 million), salon suites and wellness operators, coworking, and a direct pitch to Niagara County, whose seat is Lockport, for services leasing.</p>
+    <p>Financing exists for this today: both the City of Lockport and Niagara County participate in Open C-PACE, which can finance up to 100 percent of energy-related renovation (HVAC, roofs, envelope) on 1980s buildings that need new systems regardless of use. The Niagara County IDA's sales-tax and mortgage-tax exemptions apply to renovation. Restore NY funds commercial rehab as well as conversions, though the City must sponsor the application, which becomes realistic if Option 3 thaws the relationship. The 2026 state CFA round closes July 31, so ESD capital grants are a 2027 play with an anchor tenant attached.</p>
+    <p>This option is not a surrender of the residential thesis. Occupied buildings carry themselves while Options 2 and 3 run, and every signed medical or service tenant strengthens the story that you are investing in the corridor the City abandoned.</p>
+  </div>
+
+  <div class="option">
+    <div class="option-head"><span class="option-num">5</span><h3>Know your exit numbers, even if you never use them</h3></div>
+    <div class="chips"><span class="chip">Cost: minimal</span><span class="chip">Value: a floor under every decision</span></div>
+    <p>If exiting ever becomes the answer, selling building-by-building to owner-users (medical groups, service businesses using SBA financing at 51 percent occupancy) will almost certainly beat a bulk portfolio sale, which prices at distressed-investor levels. The regional land bank is a last-resort floor, not a market. Worth quantifying now simply so every negotiation with the City happens against a known walk-away number. Time also runs in your favor here: each year of corridor vacancy costs the City tax revenue and strengthens your seat at the table.</p>
+  </div>
+
+  <div class="aside">
+    <p class="label">What we would not spend money on</p>
+    <p>A federal regulatory takings suit. The MO district still permits office, retail, and service uses, so there is no total wipeout; the buildings were purchased when residential already required a variance, which guts the investment-backed-expectations factor; and the Article 78 judgment gives the City preclusion arguments. Low odds, real cost, and it hardens the very relationship Options 3 and 4 depend on.</p>
+  </div>
+
+  <h2>The narrative track that runs under all of it</h2>
+  <p>The March 2026 moratorium fight is the most instructive event of the past year: this council reverses course when the room fills and the story is clear. Right now the public story of Davison Road exists mostly on your advocacy site and in scattered coverage, and the ruling itself went unreported. The work we do at Doble AI is making the right story findable and hard to ignore: a corridor site that documents the vacancy, the tax math, and the plan's own promises in a form journalists, council members, and AI search engines all surface; the coalition case made alongside the downtown development interests who stopped the moratorium; and steady, factual pressure timed to council calendars and the 2027 cycle. That narrative is also the marketing engine for Option 4's leasing push; the same corridor story that moves a council member also reaches a physician group looking for space near the new hospital.</p>
+
+  <h2>What we would do in the next 30 days</h2>
+  <ul class="checklist">
+    <li>Counsel pulls the NYSCEF docket for E187604/2025: was a Notice of Entry served, and is the appeal window open? File a notice of appeal if it is. Order the November 26 transcript regardless.</li>
+    <li>Decide the variance question: pick the one to three buildings with the strongest building-specific case and commission the pro formas the &sect; 81-b test requires.</li>
+    <li>Draft the text-amendment petition (residential by special use permit in MO), built on the comprehensive plan's own language, the Pro-Housing certification, and the tax arithmetic.</li>
+    <li>Start the leasing track: a broker push aimed at medical, childcare, and county tenants, with C-PACE and IDA incentives packaged into the offer.</li>
+    <li>Rebuild the public narrative: refresh the corridor site with the current facts and numbers, and map the coalition that beat the moratorium.</li>
+  </ul>
+
+  <div class="footer">
+    <p><strong>Prepared by John Rounds, Eagle River Base Camp / Doble AI.</strong> This document summarizes our understanding of the filings you provided and our independent research, and outlines options for discussion. It is a strategy document, not legal advice; the legal steps described here should be evaluated and executed with your counsel.</p>
+    <p class="sources">Key sources beyond the filings: Lockport Union-Sun &amp; Journal coverage of the <a href="https://www.lockportjournal.com/news/local_news/council-passes-comprehensive-and-zoning-plans-despite-opposition/article_4671f590-3f29-4d74-9454-1a5852ba0e85.html">code adoption</a>, the <a href="https://www.lockportjournal.com/news/local_news/professional-parkway-buildings-owner-suing-over-zoning-change/article_646e7165-d180-41a2-88fb-727047499e13.html">lawsuit</a>, and the <a href="https://www.lockportjournal.com/news/davison-road-office-building-conversion-bid-withdrawn/article_310108de-01c2-11ef-8d5c-5b9defb844ca.html">2024 variance withdrawal</a>; <a href="https://www.wkbw.com/niagara-county/would-probably-kill-the-project-lockport-considering-moratorium-on-new-multi-family-developments">WKBW on the 2026 moratorium</a>; City of Lockport <a href="https://ecode360.com/9603277">Zoning Code (Ch. 190)</a> and <a href="https://lockportny.gov/government/common-council/">current council</a>; NYS HCR <a href="https://hcr.ny.gov/phc">Pro-Housing Communities</a>; <a href="https://esd.ny.gov/restore-new-york">Restore NY</a>; <a href="https://www.eicpace.org/municipalities">Open C-PACE member municipalities</a>; OCFS <a href="https://ocfs.ny.gov/programs/childcare/grants/construction-fund/">childcare capital program</a>; <a href="https://www.loopnet.com/portfolio-property/57-Davison-Ct-Lockport-NY/6779222/">corridor listings</a>.</p>
+  </div>
+</div>
+</body>
+</html>
