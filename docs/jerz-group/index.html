@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Jerz Group | Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F4F2ED;
+    --card: #FFFFFF;
+    --ink: #1C2026;
+    --ink-mid: #3E4650;
+    --ink-mute: #68707B;
+    --line: #D9D8D0;
+    --accent: #1B3A5C;
+    --accent-soft: #E8EDF3;
+    --spark: #B08C3E;
+    --good: #2d6a4f;
+    --okay: #1a4971;
+    --warn: #7d5a1e;
+    --poor: #7d3a1e;
+    --bad: #6b1d1d;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Hero ── */
+  .hero { padding: 72px 0 48px; border-bottom: 1px solid rgba(27,58,92,0.25); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(34px, 5.5vw, 58px); font-weight: 500;
+    line-height: 1.08; margin-bottom: 16px;
+  }
+  .hero .sub { font-size: 18px; color: var(--ink-mid); line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+
+  .stats { display: flex; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 28px; }
+  .stat { flex: 1 1 140px; padding-right: 24px; margin-bottom: 12px; }
+  .stat + .stat { border-left: 1px solid var(--line); padding-left: 24px; }
+  .stat .v { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; color: var(--ink); }
+  .stat .v.hot { color: var(--spark); }
+  .stat .l { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-top: 4px; }
+
+  /* ── Alert ── */
+  .alert {
+    margin: 40px 0 0; background: var(--accent-soft);
+    border: 1px solid rgba(27,58,92,0.3); border-left: 4px solid var(--accent);
+    border-radius: 4px; padding: 24px 28px;
+  }
+  .alert .k { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .alert p { font-size: 15px; color: var(--ink-mid); line-height: 1.7; }
+  .alert code { font-size: 13px; background: #fff; border: 1px solid var(--line); padding: 1px 6px; border-radius: 3px; }
+
+  /* ── Sections ── */
+  .section { padding: 56px 0 0; }
+  .sec-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(24px, 3.5vw, 32px); font-weight: 500; margin-bottom: 24px;
+  }
+
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+  @media (max-width: 640px) { .facts { grid-template-columns: 1fr; } }
+  .fact { border-top: 2px solid var(--accent); padding-top: 12px; }
+  .fact .fl { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 8px; }
+  .fact .fv { font-size: 14.5px; color: var(--ink-mid); line-height: 1.65; }
+
+  .tbl-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.6; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+  td { color: var(--ink-mid); }
+  td strong { color: var(--ink); }
+  tr:last-child td { border-bottom: none; }
+  .tbl-note { font-size: 13.5px; color: var(--ink-mute); line-height: 1.7; border-left: 3px solid var(--line); padding-left: 14px; margin-top: 20px; }
+
+  /* ── Channels ── */
+  .channel {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+    padding: 20px 22px; margin-bottom: 12px;
+  }
+  .grade {
+    flex: 0 0 auto; width: 54px; height: 54px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 20px; color: #fff;
+  }
+  .g-a { background: var(--good); } .g-b { background: var(--okay); }
+  .g-c { background: var(--warn); } .g-d { background: var(--poor); } .g-f { background: var(--bad); }
+  .channel h3 { font-size: 15.5px; margin-bottom: 5px; }
+  .channel p { font-size: 14px; color: var(--ink-mid); line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-item { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 20px 24px; margin-bottom: 12px; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; color: var(--spark); }
+  .rec-title { font-size: 15.5px; font-weight: 600; }
+  .rec-detail { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
+  .rec-detail code { font-size: 12.5px; background: var(--bg); border: 1px solid var(--line); padding: 1px 5px; border-radius: 3px; }
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 9px; border-radius: 20px; margin-left: 10px; vertical-align: middle; }
+  .pill.free { background: #E7F2EC; color: var(--good); }
+  .pill.quick { background: #F5EEDF; color: var(--spark); }
+
+  /* ── CTA ── */
+  .cta-block {
+    margin-top: 72px; background: var(--accent); color: #fff;
+    border-radius: 8px; padding: 48px 44px; text-align: center;
+  }
+  .cta-block h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 4vw, 34px); font-weight: 500; margin-bottom: 16px; }
+  .cta-block p { font-size: 15.5px; line-height: 1.7; color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 28px; }
+  .cta-btn {
+    display: inline-block; background: #fff; color: var(--accent);
+    font-weight: 600; font-size: 15px; padding: 14px 32px; border-radius: 6px; text-decoration: none;
+  }
+  .cta-sub { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 16px; }
+
+  .verify-note { font-size: 12.5px; color: var(--ink-mute); line-height: 1.7; font-style: italic; margin-top: 40px; }
+
+  .footer {
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    border-top: 1px solid var(--line); margin-top: 32px; padding-top: 24px;
+    font-size: 13px; color: var(--ink-mute);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · July 2026</div>
+    <h1>The Jerz Group</h1>
+    <p class="sub">Second citizenships, tax residencies, international structures, and offshore banking, built around a founder with 25 years of experience and residencies in seven countries. The story is strong and the client base is real. But the buyers in this niche vet everything through Google and AI assistants before they book a call, and right now those channels either say very little or recommend the competition.</p>
+    <div class="stats">
+      <div class="stat"><div class="v hot">4.3 / 10</div><div class="l">Digital Score</div></div>
+      <div class="stat"><div class="v">"Home"</div><div class="l">Homepage Title Tag</div></div>
+      <div class="stat"><div class="v">0</div><div class="l">Schema Records Sitewide</div></div>
+      <div class="stat"><div class="v">404</div><div class="l">Sitemap Status</div></div>
+      <div class="stat"><div class="v">9 mo</div><div class="l">Since Last Blog Post</div></div>
+    </div>
+  </div>
+
+  <!-- CORE FINDING -->
+  <div class="alert">
+    <div class="k">The Core Finding: A Trust Business With an Unfinished Trust Layer</div>
+    <p>The Jerz Group sells the highest-trust product on the internet: clients hand over passports, bank details, and six-figure decisions to a firm they usually discover online. Every prospect in this niche does the same three checks before booking: they Google the category, they Google the brand, and increasingly they ask ChatGPT or Perplexity who to use. On the category check, the firm is not visible; those results belong to Nomad Capitalist, Global Citizen Solutions, and a bench of single-country specialists. On the brand check, Google currently shows pages titled <code>Contact Us 1 - Immigration 128</code> (the web template's internal name), a copy of the site indexed on a third-party vendor's domain, and a 3.3-star Trustpilot profile with a single-digit review count set against the site's claim of 5,000+ clients. None of this reflects the actual business. All of it is fixable, and most of it is fixable fast.</p>
+  </div>
+
+  <!-- 01 SNAPSHOT -->
+  <div class="section">
+    <div class="sec-label">01 · Business Snapshot</div>
+    <h2>Who They Are</h2>
+    <div class="facts">
+      <div class="fact"><div class="fl">Company</div><div class="fv">The Jerz Group (formerly presented as The Jerz Way), a global mobility and wealth protection advisory. US registration at 312 W 2nd Street, Casper, WY. Contact via WhatsApp (+1 510-985-9990) and info@thejerzway.com.</div></div>
+      <div class="fact"><div class="fl">What They Sell</div><div class="fv">Citizenship programs (Austria, Germany, Hungary, Ireland, Italy, Poland, Paraguay), residency visas (Argentina, Brazil, Colombia, Georgia, Mexico, Panama, Spain, Uruguay), international business formation, and offshore banking, plus trusts, genealogy research, and tax optimization.</div></div>
+      <div class="fact"><div class="fl">Founder Brand</div><div class="fv">"Jerz": 25+ years of global business experience, dual citizenship, residencies in seven countries, BS in Finance and MBA in International Business. The site claims 5,000+ clients served and a 99% success rate. This is a personal-authority business, like every winner in the niche.</div></div>
+      <div class="fact"><div class="fl">Audience</div><div class="fv">Entrepreneurs and investors, largely American and Canadian, seeking legal tax reduction and a plan B abroad. A skeptical, research-heavy audience that has been trained by years of offshore scams to verify everything.</div></div>
+      <div class="fact"><div class="fl">Site Stack</div><div class="fv">Webflow, built on the "Immigration 128" template. Professional design, deep country-page architecture, strong calls to action (consultation booking, WhatsApp, lead-magnet guide). The front of the house is in good shape.</div></div>
+      <div class="fact"><div class="fl">Content Assets</div><div class="fv">A genuinely substantial blog: long-form posts with FAQ sections, internal links, and tables. The instincts are right. The catch: the newest posts are dated early November 2025, roughly nine months dark as of this audit.</div></div>
+    </div>
+  </div>
+
+  <!-- 02 COMPETITIVE SET -->
+  <div class="section">
+    <div class="sec-label">02 · Competitive Set</div>
+    <h2>Who Owns Their Searches</h2>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Competitor</th><th>Position</th><th>Web Posture</th></tr>
+        <tr><td><strong>Nomad Capitalist</strong></td><td>Category king</td><td>Dominates nearly every buyer search in the niche with a massive content library, a huge YouTube presence, and years of compounding authority. The default answer when anyone (or any AI) asks "who does this."</td></tr>
+        <tr><td><strong>Global Citizen Solutions</strong></td><td>Global firm</td><td>Ranks on citizenship and dual-tax questions with deep, structured guides. Heavy investment in exactly the informational content The Jerz Group's blog started and stopped.</td></tr>
+        <tr><td><strong>Offshore Protection / Offshore Citizen</strong></td><td>Established specialists</td><td>Long-running sites with decades of accumulated pages on offshore structures, trusts, and banking. They surface on the technical, high-intent queries.</td></tr>
+        <tr><td><strong>Single-country specialists</strong></td><td>Niche operators</td><td>On "Paraguay residency" searches (a flagship Jerz Group service), the results are filled by dedicated firms like Paraguay Residency Solutions, WeParaguay, and Get Residency Paraguay. Each flagship country has its own bench like this.</td></tr>
+      </table>
+    </div>
+    <p class="tbl-note">The pattern to notice: none of these competitors is winning on service quality, which no search engine can measure. They are winning on content depth, structured data, review volume, and years of consistency. All four are replicable inputs.</p>
+  </div>
+
+  <!-- 03 CHANNEL GRADES -->
+  <div class="section">
+    <div class="sec-label">03 · Channel-by-Channel</div>
+    <h2>Where the Score Comes From</h2>
+
+    <div class="channel"><div class="grade g-b">B</div><div><h3>Website Design &amp; UX</h3><p>A polished, professional Webflow build with clear service pillars, country-level pages, prominent consultation CTAs, and WhatsApp contact. The visitor-facing experience sells. Docked for template artifacts (placeholder page names) that leak into search results and for the split between "Jerz Way" and "Jerz Group" branding on the same site.</p></div></div>
+
+    <div class="channel"><div class="grade g-f">F</div><div><h3>On-Page SEO</h3><p>The homepage title tag is the single word "Home." There is no meta description and no canonical tag, and interior pages carry template placeholder titles like "Contact Us 1 - Immigration 128." For a firm competing against Nomad Capitalist, the site is introducing itself to Google with a blank business card.</p></div></div>
+
+    <div class="channel"><div class="grade g-f">F</div><div><h3>Crawl &amp; Indexing</h3><p>robots.txt is empty and sitemap.xml returns a 404 page. Webflow generates a sitemap automatically; the setting appears to be off. Whether Google Search Console is set up is not visible from outside and should be confirmed, but the crawl signals a search engine can see are all missing.</p></div></div>
+
+    <div class="channel"><div class="grade g-f">F</div><div><h3>Structured Data</h3><p>Zero schema records found anywhere on the site. No Organization, no Person for the founder, no Service, no FAQPage even though the blog posts already contain written FAQ sections. Structured data is how search engines and AI assistants confirm an entity is real; right now they are being asked to take it on faith.</p></div></div>
+
+    <div class="channel"><div class="grade g-d">D-</div><div><h3>Brand Search Results</h3><p>A search for the brand currently surfaces template-placeholder page titles, a copy of the site content indexed on a third-party vendor's domain (headinthecloudsseo.com) that carries a better title tag than the real site, and the Trustpilot profile described below. The one channel every warm prospect checks is the one working hardest against the close.</p></div></div>
+
+    <div class="channel"><div class="grade g-d">D</div><div><h3>Brand Architecture</h3><p>Two identities in the wild: the domains are correctly consolidated (thejerzway.com now redirects to thejerzgroup.com, which was done right), but the email domain, the LinkedIn URL, the Trustpilot profile, and a separate landing subdomain still say "Jerz Way," and there are two Instagram accounts. Google and AI models are being asked to merge two half-entities into one reputation, and they will not do it on their own.</p></div></div>
+
+    <div class="channel"><div class="grade g-c">C+</div><div><h3>Content Engine</h3><p>The strongest asset on the audit. Long-form posts with FAQ sections, tables, internal links to service pages, and consultation CTAs: the correct architecture for both classic SEO and AI-assistant citations. Graded down because the engine went quiet in November 2025, has no author attribution or schema, and the copy needs an editorial pass to read like the founder rather than a content tool.</p></div></div>
+
+    <div class="channel"><div class="grade g-d">D-</div><div><h3>Reviews &amp; Social Proof</h3><p>Trustpilot shows 3.3 stars from a single-digit number of reviews, with a harsh review visible near the top, on the profile for a firm claiming 5,000+ clients and a 99% success rate. In this niche, that gap between claim and third-party proof is the most expensive problem on this page. It is also the most mechanically fixable: the clients exist; they have never been systematically asked.</p></div></div>
+
+    <div class="channel"><div class="grade g-f">F</div><div><h3>Organic Rankings</h3><p>Not visible in our checks on the category searches that describe the core business ("best firm for second citizenship and tax reduction") or on flagship service searches ("Paraguay residency for American entrepreneurs"). Those results belong to the competitive set above, top to bottom.</p></div></div>
+
+    <div class="channel"><div class="grade g-f">F</div><div><h3>AI Search Visibility (Provisional)</h3><p>Buyers in this exact demographic are the heaviest users of ChatGPT and Perplexity for vendor research. In our initial sweep the firm was not visible on any buyer-intent prompt, while Nomad Capitalist appears consistently. There is nothing for an AI to cite: no schema, no fresh content, no review mass, and a fragmented entity. A full five-prompt, three-engine test with screenshots is the immediate next step.</p></div></div>
+  </div>
+
+  <!-- 04 THE VENDOR DOMAIN -->
+  <div class="section">
+    <div class="sec-label">04 · One Finding Worth Its Own Section</div>
+    <h2>A Second Version of the Site Is Live on Someone Else's Domain</h2>
+    <div class="alert">
+      <div class="k">headinthecloudsseo.com · Indexed and Ranking on the Brand Name</div>
+      <p>A rebuilt, rebranded version of The Jerz Group site ("Structure Your Freedom," with an Establish / Operate / Protect / Bank / Live navigation) is live on headinthecloudsseo.com, which appears to be a web or SEO vendor's own domain. It is built on WordPress, it is fully indexable, it canonicals to itself, and it carries proper structured data and a professional title tag: everything the real site is missing. It currently appears in Google's results for the brand name. If this is a rebuild in progress, it is good work parked in the wrong place: every day it stays there, Google is crediting a vendor's domain with content that belongs to thejerzgroup.com, and prospects who click it land somewhere that is not the firm's own address. It should be launched on the real domain or taken out of the index, whichever the vendor relationship calls for.</p>
+    </div>
+  </div>
+
+  <!-- 05 RECOMMENDATIONS -->
+  <div class="section">
+    <div class="sec-label">05 · The Fix List</div>
+    <h2>Eight Fixes, In Order</h2>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Rewrite Every Title Tag and Meta Description<span class="pill quick">Week 1</span></span></div>
+      <div class="rec-detail">Replace "Home" and every "Immigration 128" placeholder with real titles: "Second Citizenship &amp; Global Tax Strategy | The Jerz Group" and the equivalent for each country and service page. This is an afternoon of work in Webflow and it changes what every prospect sees in every search result.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Turn On the Plumbing: Sitemap, robots.txt, Search Console<span class="pill free">Free</span><span class="pill quick">Week 1</span></span></div>
+      <div class="rec-detail">Enable Webflow's auto-generated sitemap, populate robots.txt, verify the domain in Google Search Console, and submit the sitemap. Until this is done, nobody is even measuring what Google does with the site, and Google is left to find pages on its own.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Resolve the Vendor-Domain Copy</span></div>
+      <div class="rec-detail">Decide the fate of the rebuild on headinthecloudsseo.com: launch it on thejerzgroup.com if it is the future of the site, or have it noindexed and canonicaled to the real domain if it is a staging copy. Either answer works; the current state, where it competes with the brand in Google, is the only wrong one.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Finish the Rebrand Everywhere Google Looks</span></div>
+      <div class="rec-detail">The domain redirect was the hard part and it is already done. Complete the sweep: move email to @thejerzgroup.com, update the LinkedIn URL, consolidate the two Instagram accounts, claim a Trustpilot profile under the Group name (or update the existing one), and align the landing subdomain. One entity, one name, everywhere.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Close the Proof Gap With a Review Engine</span></div>
+      <div class="rec-detail">A firm with 5,000+ clients and single-digit reviews has an asking problem, not a reputation problem. A systematic post-engagement review request (at the moment a residency card or passport arrives, the emotional peak) turns even a 1% response rate into 50+ reviews. Volume is also the only honest answer to the negative review already sitting there: it stops being the story when it is one voice among a hundred.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">06</span><span class="rec-title">Build the Schema Layer<span class="pill quick">Week 2</span></span></div>
+      <div class="rec-detail">Organization and founder Person schema (this is a personal-authority business; the founder's credentials belong in machine-readable form), Service schema on the offer pages, and FAQPage schema on every blog post that already has an FAQ section written. That last one is found money: the content exists, it just is not marked up.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">07</span><span class="rec-title">Restart the Content Engine on the Searches Being Lost</span></div>
+      <div class="rec-detail">The buyer prompts the firm is not visible on are the editorial calendar: cost and timeline pages for each flagship program, country comparisons, process explainers, founder-voice takes. Two posts a month, each with an FAQ and schema, aimed at queries the single-country specialists currently own. A Spanish-language track is worth considering given the Latin American program list (Paraguay, Mexico, Colombia, Argentina, Uruguay).</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">08</span><span class="rec-title">Measure AI Visibility Monthly</span></div>
+      <div class="rec-detail">Run a fixed set of five buyer prompts across ChatGPT, Google AI Overviews, and Perplexity, screenshot the answers, and track movement month over month: who gets recommended, who gets cited, and which sources the engines trust. This audience asks AI who to hire. The firms that show up in those answers over the next two years will take the category, and right now the seat is open behind Nomad Capitalist.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>The firm that helps clients pass due diligence should pass its own.</h2>
+    <p>Nothing on this page questions the underlying business; 17 years and thousands of engagements are the hard part, and they are already done. What is missing is the digital layer that lets Google, and increasingly ChatGPT and Perplexity, vouch for that record to a skeptical buyer at 11pm. Most of these fixes are one-time and technical, the review engine compounds from the first ask, and the content architecture is already half-built. A firm scoring 4.3 with this much real substance behind it has a short path to 7.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <p class="verify-note">Verification note: findings are based on served-HTML fetches (as crawlers see the site), robots.txt, sitemap, and schema inspection, and public search checks in July 2026, date-stamped July 29. "Not visible in search" describes what external checks can see; it does not claim an asset does not exist. No owner-side data (Search Console, analytics, Webflow settings, Trustpilot admin) was available for this review, and the status of the vendor-domain rebuild should be confirmed with that vendor. The full AI-assistant visibility test (five buyer prompts across three engines, with screenshots) is pending and will be appended.</p>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>The Jerz Group · Digital Presence Audit</span>
+    <span>July 2026 · Prepared by Eagle River Base Camp · Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
