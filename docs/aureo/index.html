@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Aureo | Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F5F1EA;
+    --card: #FFFFFF;
+    --ink: #1F1B14;
+    --ink-mid: #4A4237;
+    --ink-mute: #786E5F;
+    --line: #DCD5C7;
+    --accent: #6E5218;
+    --accent-soft: #F2EADA;
+    --spark: #B8862B;
+    --good: #2d6a4f;
+    --okay: #1a4971;
+    --warn: #7d5a1e;
+    --poor: #7d3a1e;
+    --bad: #6b1d1d;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Hero ── */
+  .hero { padding: 72px 0 48px; border-bottom: 1px solid rgba(110,82,24,0.25); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(34px, 5.5vw, 58px); font-weight: 500;
+    line-height: 1.08; margin-bottom: 16px;
+  }
+  .hero .sub { font-size: 18px; color: var(--ink-mid); line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+
+  .stats { display: flex; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 28px; }
+  .stat { flex: 1 1 140px; padding-right: 24px; margin-bottom: 12px; }
+  .stat + .stat { border-left: 1px solid var(--line); padding-left: 24px; }
+  .stat .v { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; color: var(--ink); }
+  .stat .v.hot { color: var(--spark); }
+  .stat .l { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-top: 4px; }
+
+  /* ── Alert ── */
+  .alert {
+    margin: 40px 0 0; background: var(--accent-soft);
+    border: 1px solid rgba(110,82,24,0.3); border-left: 4px solid var(--accent);
+    border-radius: 4px; padding: 24px 28px;
+  }
+  .alert .k { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .alert p { font-size: 15px; color: var(--ink-mid); line-height: 1.7; }
+  .alert p + p { margin-top: 14px; }
+  .alert code { font-size: 13px; background: #fff; border: 1px solid var(--line); padding: 1px 6px; border-radius: 3px; }
+
+  /* ── Sections ── */
+  .section { padding: 56px 0 0; }
+  .sec-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(24px, 3.5vw, 32px); font-weight: 500; margin-bottom: 24px;
+  }
+  .section > p.lede { font-size: 15px; color: var(--ink-mid); line-height: 1.75; margin-bottom: 24px; max-width: 720px; }
+
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+  @media (max-width: 640px) { .facts { grid-template-columns: 1fr; } }
+  .fact { border-top: 2px solid var(--accent); padding-top: 12px; }
+  .fact .fl { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 8px; }
+  .fact .fv { font-size: 14.5px; color: var(--ink-mid); line-height: 1.65; }
+
+  .tbl-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.6; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+  td { color: var(--ink-mid); }
+  td strong { color: var(--ink); }
+  tr:last-child td { border-bottom: none; }
+  .tbl-note { font-size: 13.5px; color: var(--ink-mute); line-height: 1.7; border-left: 3px solid var(--line); padding-left: 14px; margin-top: 20px; }
+  .yes { color: var(--good); font-weight: 600; }
+  .no { color: var(--bad); font-weight: 600; }
+
+  /* ── Channels ── */
+  .channel {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+    padding: 20px 22px; margin-bottom: 12px;
+  }
+  .grade {
+    flex: 0 0 auto; width: 54px; height: 54px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 20px; color: #fff;
+  }
+  .g-a { background: var(--good); } .g-b { background: var(--okay); }
+  .g-c { background: var(--warn); } .g-d { background: var(--poor); } .g-f { background: var(--bad); }
+  .channel h3 { font-size: 15.5px; margin-bottom: 5px; }
+  .channel p { font-size: 14px; color: var(--ink-mid); line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-item { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 20px 24px; margin-bottom: 12px; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; color: var(--spark); }
+  .rec-title { font-size: 15.5px; font-weight: 600; }
+  .rec-detail { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
+  .rec-detail code { font-size: 12.5px; background: var(--bg); border: 1px solid var(--line); padding: 1px 5px; border-radius: 3px; }
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 9px; border-radius: 20px; margin-left: 10px; vertical-align: middle; }
+  .pill.free { background: #E7F2EC; color: var(--good); }
+  .pill.quick { background: #F5EEDF; color: var(--spark); }
+
+  /* ── Strength strip ── */
+  .strengths { background: #EDF3EE; border: 1px solid #C8DDD0; border-radius: 6px; padding: 24px 28px; }
+  .strengths .k { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--good); margin-bottom: 12px; }
+  .strengths ul { list-style: none; }
+  .strengths li { font-size: 14.5px; color: var(--ink-mid); line-height: 1.6; padding-left: 22px; position: relative; margin-bottom: 9px; }
+  .strengths li::before { content: '✓'; position: absolute; left: 0; color: var(--good); font-weight: 700; }
+  .strengths li:last-child { margin-bottom: 0; }
+
+  /* ── CTA ── */
+  .cta-block {
+    margin-top: 72px; background: var(--accent); color: #fff;
+    border-radius: 8px; padding: 48px 44px; text-align: center;
+  }
+  .cta-block h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 4vw, 34px); font-weight: 500; margin-bottom: 16px; }
+  .cta-block p { font-size: 15.5px; line-height: 1.7; color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 28px; }
+  .cta-btn {
+    display: inline-block; background: #fff; color: var(--accent);
+    font-weight: 600; font-size: 15px; padding: 14px 32px; border-radius: 6px; text-decoration: none;
+  }
+  .cta-sub { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 16px; }
+
+  .verify-note { font-size: 12.5px; color: var(--ink-mute); line-height: 1.7; font-style: italic; margin-top: 40px; }
+
+  .footer {
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    border-top: 1px solid var(--line); margin-top: 32px; padding-top: 24px;
+    font-size: 13px; color: var(--ink-mute);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · August 2026</div>
+    <h1>Aureo</h1>
+    <p class="sub">A Bitcoin-only platform in Mexico with a genuinely excellent website, a complete bilingual content library, and clean technical foundations. This is the highest-scoring audit we have run. It is also the first one where the problem is not the site. Aureo has already written the answers its buyers are searching for. Those answers are not marked up in the format AI engines read, and the highest-volume search in the category currently belongs entirely to Bitso.</p>
+    <div class="stats">
+      <div class="stat"><div class="v hot">7.4 / 10</div><div class="l">Digital Score</div></div>
+      <div class="stat"><div class="v">176</div><div class="l">Pages, Full EN/ES Mirror</div></div>
+      <div class="stat"><div class="v">54</div><div class="l">Pages of Unmarked Q&amp;A</div></div>
+      <div class="stat"><div class="v">8 / 176</div><div class="l">Pages With FAQ Schema</div></div>
+      <div class="stat"><div class="v">0</div><div class="l">Category Search Visibility</div></div>
+    </div>
+  </div>
+
+  <!-- CORE FINDING -->
+  <div class="alert">
+    <div class="k">The Core Finding: The Expensive Work Is Done, The Cheap Work Is Not</div>
+    <p>Most audits we run find a real business behind a broken website. Aureo is the opposite, and that is worth saying plainly before anything else: the build quality here is better than any site we have audited. Server-rendered content that AI crawlers can actually read, a complete and genuinely decoupled Spanish and English mirror across 176 URLs, correct hreflang with an <code>x-default</code>, canonical tags on every page with zero mismatches, and a content library of 43 bilingual posts, 20 newsletters, research reports and two calculators. Nothing in this audit recommends a rebuild.</p>
+    <p>The gap is one layer up. Across the site, <strong>54 pages already answer buyer questions in explicit question-and-answer form</strong>: 47 blog posts and 7 core service pages, in both languages, written by people who clearly know the subject. <strong>FAQPage structured data appears on 8 of 176 pages.</strong> That markup is what tells an AI assistant "this page contains a direct answer to that exact question." Without it, the answers are still there for a human who has already found the page, and close to invisible to the systems deciding which page to surface in the first place. The writing was the hard part and it is finished. The markup is a few days of work.</p>
+  </div>
+
+  <!-- 01 SNAPSHOT -->
+  <div class="section">
+    <div class="sec-label">01 · Business Snapshot</div>
+    <h2>Who They Are</h2>
+    <div class="facts">
+      <div class="fact"><div class="fl">Company</div><div class="fv">Aureo (aureobitcoin.com), formerly Swapido. A Bitcoin-only financial platform serving Mexico. Operating entities are Swapido S.A.S. de C.V. and Soluciones Tecnologicas Nagumatech S.A.P.I. de C.V.</div></div>
+      <div class="fact"><div class="fl">What They Sell</div><div class="fv">Buying and selling Bitcoin against Mexican pesos over SPEI, delivered direct to the customer's own wallet on-chain or over Lightning. Three segments: individuals, businesses, and Patrimonio, a private OTC desk for high net worth clients and family offices. Bitcoin only. No altcoins, no stablecoins, no yield products.</div></div>
+      <div class="fact"><div class="fl">Regulatory Posture</div><div class="fv">Registered in the Bitcoin Service Provider registry administered by the Central Reserve Bank of El Salvador and supervised by that country's Superintendency of the Financial System. Aureo Mexico is registered with the SAT as a Vulnerable Activity under LFPIORPI. This is stated clearly on the site, which is more than most of the category does.</div></div>
+      <div class="fact"><div class="fl">Backing &amp; Team</div><div class="fv">$1.1M pre-seed from Early Riders, announced October 2025. The founding team previously built Veriphi, a Bitcoin-only exchange in Canada acquired by Bull Bitcoin in 2021, then worked on Lightning and self-custody tooling at Bull Bitcoin before relocating to Mexico.</div></div>
+      <div class="fact"><div class="fl">Site Stack</div><div class="fv">Next.js, server-rendered. Roughly 270 KB of gzipped JavaScript, sub-second time to first byte, HTTP/2. Google Analytics and Microsoft Clarity are both installed. Performance is not a problem on this site and does not appear in the fix list.</div></div>
+      <div class="fact"><div class="fl">Earned Media</div><div class="fv">Coverage in Bitcoin Magazine, news.bitcoin.com, cryptonews, and Newswire, plus a Stephan Livera Podcast appearance (episode 701). Real third-party validation already exists. It is not currently declared anywhere a machine can read it.</div></div>
+    </div>
+  </div>
+
+  <!-- 02 WHAT'S WORKING -->
+  <div class="section">
+    <div class="sec-label">02 · Baseline</div>
+    <h2>What Is Already Right</h2>
+    <p class="lede">Audits are more useful when they are specific about what not to touch. Everything in this list was verified against the served HTML and should be left alone:</p>
+    <div class="strengths">
+      <div class="k">Verified Strengths</div>
+      <ul>
+        <li><strong>Genuinely decoupled bilingual content.</strong> The Spanish and English versions are separately written, not machine-translated, with correct <code>lang</code> attributes (<code>es-MX</code> and <code>en</code>) on all 176 pages. This is rare and it is expensive to produce.</li>
+        <li><strong>Complete crawl infrastructure.</strong> robots.txt is correct, sitemap.xml carries full <code>xhtml:link</code> hreflang annotations including <code>x-default</code>, and every page has a self-referencing canonical. We checked all 176 and found zero canonical mismatches.</li>
+        <li><strong>Content is server-rendered.</strong> A representative blog post delivers roughly 26,000 characters of readable text in the initial HTML response. AI crawlers, most of which do not execute JavaScript, can read the whole library.</li>
+        <li><strong>The legacy URL migration was handled correctly.</strong> Old <code>/editorial/</code> paths 301 to <code>/blog/</code> with correct canonicals. We checked because a stale <code>/editorial/</code> URL still appears in Google results. That is reindexing lag, not a defect.</li>
+        <li><strong>The content itself is strong.</strong> The tax material in particular is winning searches today, which is the proof that this approach works when the machine-readable layer is present.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 03 THE HEADLINE FINDING -->
+  <div class="section">
+    <div class="sec-label">03 · One Finding Worth Its Own Section</div>
+    <h2>54 Pages of Answers, 8 Pages of Markup</h2>
+    <div class="alert">
+      <div class="k">Verified Page by Page Against the Served HTML</div>
+      <p>We scanned every page in the sitemap for question-format headings and then cross-checked which of those pages carry FAQPage structured data. The result is consistent across the whole site: the content exists everywhere, the markup exists almost nowhere.</p>
+    </div>
+    <div class="tbl-wrap" style="margin-top:20px;">
+      <table>
+        <tr><th>Page group</th><th>Pages with written Q&amp;A</th><th>Carrying FAQPage schema</th></tr>
+        <tr><td><strong>Blog posts</strong> (both languages)</td><td>47 of 86</td><td class="no">0</td></tr>
+        <tr><td><strong>Core service pages</strong><br><span style="font-size:13px;">personas, empresas, patrimonio, precios, comprar-bitcoin, custodia-multi-institucional and their English twins</span></td><td>7, with 3 to 12 questions each</td><td class="no">0</td></tr>
+        <tr><td><strong>Homepage and two others</strong></td><td>Yes</td><td class="yes">8 total sitewide</td></tr>
+      </table>
+    </div>
+    <p class="tbl-note">Examples pulled directly from the live pages, all of them unmarked: "¿Cuánto tarda la verificación de identidad (KYC)?" and "¿Qué comisiones aplican?" on /personas. "¿Aureo ayuda con RESICO o RMF?" and "¿Pueden ejecutar tickets grandes?" on /empresas. "¿Las bóvedas MIC se mezclan con activos de otros clientes?" on /custodia-multi-institucional. Eleven questions on the Bitcoin tax post, eleven on the ETF post, eleven on how-does-bitcoin-work. These are the exact questions buyers type into an AI assistant, already answered, already in two languages, and not yet in the format the assistant reads.</p>
+  </div>
+
+  <!-- 04 AI VISIBILITY -->
+  <div class="section">
+    <div class="sec-label">04 · AI &amp; Search Visibility</div>
+    <h2>Where Aureo Shows Up, and Where It Does Not</h2>
+    <p class="lede">We ran the buyer questions an Aureo customer would actually ask. The pattern is sharp: Aureo wins the specific and loses the general. Everything below is reproducible in a few minutes, and we would encourage it: put these same questions into ChatGPT, Grok, Perplexity and Google in a clean session and see what comes back for you.</p>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Buyer question</th><th>Result</th><th>Who appears instead</th></tr>
+        <tr><td><strong>"Best way to buy bitcoin in Mexico"</strong><br><span style="font-size:13px;">the highest-volume commercial query in the category</span></td><td class="no">Not visible</td><td>Bitso, Binance, SatoshiTango, OKX, Kraken, Strike</td></tr>
+        <tr><td><strong>"Mejor plataforma para comprar bitcoin en México"</strong><br><span style="font-size:13px;">the same query in the primary market language</span></td><td class="no">Not visible</td><td>Bitso (including Bitso's own comparison blog post), Binance</td></tr>
+        <tr><td><strong>"How does a Mexican company buy bitcoin for treasury, with CFDI invoicing"</strong></td><td class="no">Not visible</td><td>Fidelity, Schwab, Bitcoin Magazine, US-focused sources</td></tr>
+        <tr><td><strong>Bitcoin tax questions in Mexico</strong> (RESICO, SAT, capital gains)</td><td class="yes">Strong</td><td>Aureo cited three times in one result set, alongside generic tax tools</td></tr>
+        <tr><td><strong>Bitcoin custody for high net worth and family offices in LatAm</strong></td><td class="yes">Strong</td><td>Aureo's own /patrimonio page cited, plus the Bitcoin Magazine funding coverage</td></tr>
+        <tr><td><strong>Brand search</strong> ("Aureo bitcoin Mexico")</td><td class="yes">Strong</td><td>Own pages and earned media dominate. Brand recall is not the issue.</td></tr>
+      </table>
+    </div>
+    <p class="tbl-note">Read the pattern rather than the individual rows. Where Aureo has published a deep, specific, well-structured answer, it wins, and it beats far larger companies to do it. Where the query is broad and commercial, it is absent, and the seat is occupied by exchanges with a decade of accumulated authority. The tax content proves the method works. It has simply not been pointed at the queries that carry the volume.</p>
+
+    <div class="alert" style="margin-top:28px;">
+      <div class="k">The Most Useful Result We Got</div>
+      <p>Asked how a Mexican company buys Bitcoin for its treasury and handles CFDI invoicing, the engine returned Fidelity and Charles Schwab, then explicitly gave up on the Mexican half of the question and advised consulting a Mexican tax advisor. Aureo's <code>/empresas</code> page answers that question directly, including what documentation is provided and whether Aureo assists with RESICO. There is a published post on business Bitcoin taxes for 2026 as well. The demand is confirmed, the answer already exists on the site, and the engine could not connect them. That single gap is the entire thesis of this audit in one query.</p>
+    </div>
+  </div>
+
+  <!-- 05 CITATION SOURCES -->
+  <div class="section">
+    <div class="sec-label">05 · The Off-Site Track</div>
+    <h2>Which Sources the Engines Actually Cite</h2>
+    <p class="lede">When an AI assistant answers "best way to buy bitcoin in Mexico," it does not invent a list. It leans on a small, identifiable set of third-party sites. We recorded which ones came back, in both languages:</p>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Market</th><th>Sources cited</th><th>Aureo present</th></tr>
+        <tr><td><strong>English</strong></td><td>cryptovantage.com, bitrawr.com, bitdegree.org, coinjournal.net, newhedge.io, bitcoin.com/exchanges, bleap.finance</td><td class="no">None</td></tr>
+        <tr><td><strong>Spanish</strong></td><td>criptonoticias.com, criptotendencias.com, espaciocripto.io, comparalatam.com, cointop100.com, finantres.mx</td><td class="no">None</td></tr>
+      </table>
+    </div>
+    <p class="tbl-note">This turns an abstract problem into a list of phone calls. Roughly a dozen named properties decide who gets recommended in this category, and Aureo appears on zero of them. Worth noting separately: Bitso ranks for "mejor exchange" partly on the strength of its own comparison content. A Bitcoin-only firm publishing an honest, specific comparison of the Mexican options, including where a full-service exchange genuinely suits a customer better, is well positioned to take that ground precisely because it has no altcoin book to defend.</p>
+  </div>
+
+  <!-- 06 CHANNEL GRADES -->
+  <div class="section">
+    <div class="sec-label">06 · Channel-by-Channel</div>
+    <h2>Where the Score Comes From</h2>
+
+    <div class="channel"><div class="grade g-a">A</div><div><h3>Site Build &amp; Performance</h3><p>Server-rendered Next.js, roughly 270 KB of gzipped JavaScript across 21 chunks, 27 KB of CSS, time to first byte around half a second over HTTP/2. Content arrives in the HTML, which matters more than raw speed here because most AI crawlers do not run JavaScript. No action needed.</p></div></div>
+
+    <div class="channel"><div class="grade g-a">A</div><div><h3>Bilingual Execution</h3><p>A complete, separately authored Spanish and English mirror across all 176 URLs with correct per-locale language attributes and full hreflang including x-default. Most bilingual sites we audit are a translation plugin over an English original. This is the real thing, and in the Mexican market it is a durable advantage.</p></div></div>
+
+    <div class="channel"><div class="grade g-a">A-</div><div><h3>Content Depth &amp; Quality</h3><p>43 bilingual posts, 20 newsletters, research reports, and two working calculators. The tax and custody material is substantive enough that search engines already reward it. Marked down only slightly: the 40 newsletter pages run thin at roughly 200 words with no headings and no article-level schema, so they add page count without adding much retrievable substance.</p></div></div>
+
+    <div class="channel"><div class="grade g-b">B+</div><div><h3>Technical SEO Foundation</h3><p>robots.txt, a properly annotated sitemap, canonical tags on every page with zero mismatches, and a correctly executed legacy URL migration. The deductions are all metadata hygiene rather than architecture, and they are listed below.</p></div></div>
+
+    <div class="channel"><div class="grade g-c">C</div><div><h3>Metadata Hygiene</h3><p>83 of 176 meta descriptions exceed the roughly 160 characters Google will display, and 56 of those exceed 200 because they appear to be automatic dumps of the first paragraph rather than written summaries. The longest runs 591 characters. 55 title tags exceed 60 characters and will truncate in results. 19 pages carry more than one H1. Six newsletter pages have no meta description at all, and one Spanish tax post renders its brand suffix twice: <code>...guía SAT | Aureo | Aureo</code>. Individually trivial, collectively this is the difference between a search result that sells and one that trails off mid-sentence.</p></div></div>
+
+    <div class="channel"><div class="grade g-c">C+</div><div><h3>URL Hygiene</h3><p>21 English posts are served on Spanish slugs, so an English reader and an English-language crawler both see <code>/en/blog/cuanto-tarda-compra-bitcoin</code>. Two live URLs carry typos that are also sitting in the sitemap: <code>...pay-locas-in-mexico...</code> (intended "locals") and <code>...selling-Bitcoin-in-Mexido</code> (intended "Mexico"). Several slugs mix upper and lower case. These have earned links, so the fix is a 301 rather than a rename.</p></div></div>
+
+    <div class="channel"><div class="grade g-d">D+</div><div><h3>Structured Data &amp; GEO Readiness</h3><p>The foundation is present: Organization and WebSite schema sitewide, BlogPosting and BreadcrumbList on all 86 posts, FinancialService on two pages. What is missing is the layer that drives AI citation. FAQPage appears on 8 of 176 pages against 54 pages of written Q&amp;A. The 40 newsletter pages carry no article schema at all. This single grade is most of the gap between 7.4 and 9.</p></div></div>
+
+    <div class="channel"><div class="grade g-d">D</div><div><h3>Entity Graph</h3><p>The Organization schema's <code>sameAs</code> property lists exactly one profile, <code>twitter.com/aureobitcoin</code>, while the site footer links out to X, LinkedIn, Instagram and a YouTube channel, all live. There is no <code>foundingDate</code>, <code>address</code>, <code>contactPoint</code> or <code>founder</code>. No Person schema exists for any of the six named team members, all of whom have public professional profiles. Separately, <code>BlogPosting.author</code> is declared as a Person named "Aureo," which describes the company as an individual. For regulated financial content, author identity and credentials are among the strongest quality signals available, and right now none of them are declared.</p></div></div>
+
+    <div class="channel"><div class="grade g-f">F</div><div><h3>Category Search Visibility</h3><p>Not visible on the primary commercial query in either language. This is the single largest source of missed demand on the audit, and it is also the slowest to fix, because the incumbents have a decade of authority. It is won with the content engine that already exists, pointed at different queries.</p></div></div>
+
+    <div class="channel"><div class="grade g-f">F</div><div><h3>Third-Party Citation Presence</h3><p>Absent from every aggregator and comparison property the engines cite for this category, in both languages. Genuine earned media exists (Bitcoin Magazine, Stephan Livera, news.bitcoin.com) but none of it lives on the specific pages that get pulled into "best exchange in Mexico" answers. This is outreach work, not engineering work, and it is the fastest available lever on the category problem.</p></div></div>
+  </div>
+
+  <!-- 07 RECOMMENDATIONS -->
+  <div class="section">
+    <div class="sec-label">07 · The Fix List</div>
+    <h2>Eight Fixes, In Order of Return</h2>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Add FAQPage Schema to the 54 Pages That Already Have the Content<span class="pill quick">Highest Return</span></span></div>
+      <div class="rec-detail">The questions and answers are written, in both languages, and already sitting in the page markup as headings and body copy. This is a template change on the blog and service page components plus a pass to map existing headings into the schema, not a content project. Start with the seven service pages and the tax and custody posts, which already have demonstrated search traction. Nothing else on this list returns as much for as little.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Fix the Author and Entity Layer<span class="pill quick">Week 1</span></span></div>
+      <div class="rec-detail">Change <code>BlogPosting.author</code> from a Person named "Aureo" to the actual human authors, with Person schema carrying their credentials, and expand <code>Organization.sameAs</code> to include the LinkedIn, Instagram and YouTube profiles that already exist. Add <code>foundingDate</code>, <code>contactPoint</code>, and <code>founder</code>. For regulated financial content this is a direct trust signal, and a team that came out of Veriphi and Bull Bitcoin has credentials genuinely worth declaring.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Get Listed on the Properties the Engines Cite<span class="pill quick">Fastest Category Lever</span></span></div>
+      <div class="rec-detail">Roughly a dozen named sites decide the "best exchange in Mexico" answer, listed in section 05. Most accept submissions or run editorial review programs. The Spanish-language set (criptonoticias, criptotendencias, espaciocripto, comparalatam) matters most and is the least contested by international competitors. A Bitcoin-only, regulator-registered, direct-to-wallet platform is a genuinely differentiated entry on lists currently full of interchangeable exchanges.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Write the Comparison Content the Category Is Won With</span></div>
+      <div class="rec-detail">Bitso ranks for "mejor exchange" partly on its own comparison post. The honest version of that page is available to Aureo and not to a full-service exchange: a direct comparison of the Mexican options, including a clear statement of who is better served elsewhere. Same for the business treasury and CFDI question, which is currently unanswered by anyone and which Aureo can answer better than any US source. The queries Aureo is losing are the editorial calendar.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Rewrite the Meta Descriptions and Long Titles<span class="pill free">Mechanical</span></span></div>
+      <div class="rec-detail">83 descriptions over 160 characters, 56 of them raw paragraph dumps, and 55 titles over 60. Replace the automatic fallback with a written field per page, in both languages, and add a length check in the publishing flow so the problem does not return. Fix the duplicated brand suffix on the Spanish tax post while in there.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">06</span><span class="rec-title">Correct the Typo Slugs and English URL Paths</span></div>
+      <div class="rec-detail">301 the two typo URLs (<code>pay-locas-in-mexico</code>, <code>selling-Bitcoin-in-Mexido</code>) to corrected slugs, normalize the mixed-case URLs, and give the 21 English posts currently on Spanish slugs English equivalents with redirects from the old paths. These pages have earned links, so redirect rather than rename, and update the sitemap after.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">07</span><span class="rec-title">Decide What the Newsletter Archive Is For</span></div>
+      <div class="rec-detail">40 pages at roughly 200 words with no headings and no article schema. Two defensible answers: give them proper Article schema, headings and descriptions so they contribute, or consolidate the archive and stop publishing each issue as an indexable page. The current middle position adds URLs without adding retrievable substance. Six of them have no meta description at all.</div>
+    </div>
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">08</span><span class="rec-title">Measure AI Visibility Monthly</span></div>
+      <div class="rec-detail">Run a fixed set of buyer prompts across ChatGPT, Grok, Google AI Overviews and Perplexity, in both languages, and screenshot the answers. Grok earns its place here specifically: this audience lives on X. Track who gets recommended, who gets cited, and which third-party sources the engines are leaning on that month. Once the schema work in fix 01 lands, this is how you find out what it bought, and the tax content gives a clean baseline that is already winning.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>The hard part is finished. The gap is a markup layer and a dozen listings.</h2>
+    <p>Aureo has already done what almost nobody in this category does: published deep, accurate, genuinely bilingual answers to the questions its buyers ask, on a fast site that machines can read. That is years of compounding work and it cannot be shortcut. What is missing is the thin translation layer that lets an AI assistant recognize those answers as answers, and a presence on the dozen properties those assistants already trust. A 7.4 with this much real substance behind it has a shorter path to 9 than any site we have audited.</p>
+    <a href="https://dobleai.com" class="cta-btn">dobleai.com</a>
+    <div class="cta-sub">Happy to walk through any of this, or just leave it with you.</div>
+  </div>
+
+  <p class="verify-note">Verification note: findings are based on served-HTML fetches of all 176 sitemap URLs (as crawlers see the site), plus robots.txt, sitemap, schema and metadata inspection, and public search checks. Sweep date-stamped August 2, 2026. "Not visible" describes what external checks can see and does not claim an asset does not exist. No owner-side data (Search Console, analytics, or CMS settings) was available for this review. The AI visibility section reflects a search-engine proxy pass covering six buyer prompts in two languages, and AI assistant answers vary by session and over time, so treat those rows as a snapshot rather than a fixed ranking and reproduce them directly if useful. Page counts for question-format content were measured by scanning heading elements on every page and cross-referencing declared FAQPage schema.</p>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Aureo · Digital Presence Audit</span>
+    <span>August 2026 · Prepared by Eagle River Base Camp · Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
