@@ -166,7 +166,7 @@
     <div class="stats">
       <div class="stat"><div class="v hot">7.4 / 10</div><div class="l">Digital Score</div></div>
       <div class="stat"><div class="v">176</div><div class="l">Pages, Full EN/ES Mirror</div></div>
-      <div class="stat"><div class="v">54</div><div class="l">Pages of Unmarked Q&amp;A</div></div>
+      <div class="stat"><div class="v hot">114 / 114</div><div class="l">FAQ Answers Missing From Server HTML</div></div>
       <div class="stat"><div class="v">8 / 176</div><div class="l">Pages With FAQ Schema</div></div>
       <div class="stat"><div class="v">0</div><div class="l">Category Search Visibility</div></div>
     </div>
@@ -176,7 +176,8 @@
   <div class="alert">
     <div class="k">The Core Finding: The Expensive Work Is Done, The Cheap Work Is Not</div>
     <p>Most audits we run find a real business behind a broken website. Aureo is the opposite, and that is worth saying plainly before anything else: the build quality here is better than any site we have audited. Server-rendered content that AI crawlers can actually read, a complete and genuinely decoupled Spanish and English mirror across 176 URLs, correct hreflang with an <code>x-default</code>, canonical tags on every page with zero mismatches, and a content library of 43 bilingual posts, 20 newsletters, research reports and two calculators. Nothing in this audit recommends a rebuild.</p>
-    <p>The gap is one layer up. Across the site, <strong>54 pages already answer buyer questions in explicit question-and-answer form</strong>: 47 blog posts and 7 core service pages, in both languages, written by people who clearly know the subject. <strong>FAQPage structured data appears on 8 of 176 pages.</strong> That markup is what tells an AI assistant "this page contains a direct answer to that exact question." Without it, the answers are still there for a human who has already found the page, and close to invisible to the systems deciding which page to surface in the first place. The writing was the hard part and it is finished. The markup is a few days of work.</p>
+    <p>The gap is one layer up, and it is sharper than "some missing markup." The FAQ sections on the commercial pages are Radix accordions whose answer panels stay unmounted until a visitor clicks. That is a reasonable engineering choice for a human audience. The side effect is that <strong>the answer text never reaches the server-rendered HTML.</strong> We checked every page: across the 16 commercial pages there are <strong>114 answer regions and all 114 are empty in the server response.</strong> The answers are not merely unmarked, they are absent. A crawler that does not execute JavaScript, which is most of the ones that matter here, sees a stack of questions and no answers.</p>
+    <p>The homepage is the exception, and it is the proof: it ships a FAQPage block carrying all seven of its answers, which is why the homepage FAQ is machine-readable and the other fourteen pages are not. <strong>The correct pattern is already in the codebase. It was simply never rolled out.</strong> Separately, 47 blog posts contain written question-and-answer sections with no FAQPage markup either, though on those the answers at least reach the HTML. The writing was the hard and expensive part and it is finished. What is missing is a translation layer, and section 08 of this audit hands it over already built.</p>
   </div>
 
   <!-- 01 SNAPSHOT -->
@@ -213,20 +214,27 @@
   <!-- 03 THE HEADLINE FINDING -->
   <div class="section">
     <div class="sec-label">03 · One Finding Worth Its Own Section</div>
-    <h2>54 Pages of Answers, 8 Pages of Markup</h2>
+    <h2>Every FAQ Answer on Every Commercial Page Is Missing From the HTML</h2>
     <div class="alert">
-      <div class="k">Verified Page by Page Against the Served HTML</div>
-      <p>We scanned every page in the sitemap for question-format headings and then cross-checked which of those pages carry FAQPage structured data. The result is consistent across the whole site: the content exists everywhere, the markup exists almost nowhere.</p>
+      <div class="k">Reproduce This in Ten Seconds</div>
+      <p>Run these two commands. The first counts the accordion answer regions on the individuals page. The second looks for the answer to your own KYC question, "hasta 5 minutos."</p>
+      <p style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px 14px;">curl -s https://www.aureobitcoin.com/es/personas | grep -c 'role="region"'<br><span style="color:var(--ink-mute);">→ 4</span><br><br>curl -s https://www.aureobitcoin.com/es/personas | grep -c 'minutos'<br><span style="color:var(--bad);font-weight:600;">→ 0</span></p>
+      <p>The answer is not in the page. Not hidden by CSS, not collapsed, not deferred in a data payload we could find: absent from the response, including the React Server Component flight data. The same holds on all sixteen commercial pages.</p>
     </div>
     <div class="tbl-wrap" style="margin-top:20px;">
       <table>
-        <tr><th>Page group</th><th>Pages with written Q&amp;A</th><th>Carrying FAQPage schema</th></tr>
-        <tr><td><strong>Blog posts</strong> (both languages)</td><td>47 of 86</td><td class="no">0</td></tr>
-        <tr><td><strong>Core service pages</strong><br><span style="font-size:13px;">personas, empresas, patrimonio, precios, comprar-bitcoin, custodia-multi-institucional and their English twins</span></td><td>7, with 3 to 12 questions each</td><td class="no">0</td></tr>
-        <tr><td><strong>Homepage and two others</strong></td><td>Yes</td><td class="yes">8 total sitewide</td></tr>
+        <tr><th>Page</th><th>Questions in HTML</th><th>Answers in HTML</th></tr>
+        <tr><td>/es/comprar-bitcoin and /en/buy-bitcoin</td><td>12 each</td><td class="no">0</td></tr>
+        <tr><td>/es/vender-bitcoin and /en/sell-bitcoin</td><td>11 each</td><td class="no">0</td></tr>
+        <tr><td>/es/custodia-multi-institucional and /en/multi-institution-custody</td><td>9 each</td><td class="no">0</td></tr>
+        <tr><td>/es/precios and /en/pricing</td><td>6 each</td><td class="no">0</td></tr>
+        <tr><td>/es/empresas and /en/businesses</td><td>5 each</td><td class="no">0</td></tr>
+        <tr><td>/es/personas and /en/individuals</td><td>4 each</td><td class="no">0</td></tr>
+        <tr><td>/es/patrimonio and /en/patrimonio</td><td>3 each</td><td class="no">0</td></tr>
+        <tr><td><strong>/es and /en (homepage)</strong></td><td>7 each</td><td class="yes">0 in the accordion, but all 7 present in FAQPage JSON-LD</td></tr>
       </table>
     </div>
-    <p class="tbl-note">Examples pulled directly from the live pages, all of them unmarked: "¿Cuánto tarda la verificación de identidad (KYC)?" and "¿Qué comisiones aplican?" on /personas. "¿Aureo ayuda con RESICO o RMF?" and "¿Pueden ejecutar tickets grandes?" on /empresas. "¿Las bóvedas MIC se mezclan con activos de otros clientes?" on /custodia-multi-institucional. Eleven questions on the Bitcoin tax post, eleven on the ETF post, eleven on how-does-bitcoin-work. These are the exact questions buyers type into an AI assistant, already answered, already in two languages, and not yet in the format the assistant reads.</p>
+    <p class="tbl-note">The last row is the important one. The homepage solves this exactly the right way, by shipping the answers as structured data alongside the interactive accordion. Whoever built that page understood the problem. It just never reached the other fourteen. Separately, 47 of the 86 blog posts carry written Q&amp;A sections with no FAQPage markup, though on those the answer text does at least reach the HTML, so they are a smaller problem than the commercial pages.</p>
   </div>
 
   <!-- 04 AI VISIBILITY -->
@@ -300,8 +308,8 @@
     <h2>Eight Fixes, In Order of Return</h2>
 
     <div class="rec-item">
-      <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Add FAQPage Schema to the 54 Pages That Already Have the Content<span class="pill quick">Highest Return</span></span></div>
-      <div class="rec-detail">The questions and answers are written, in both languages, and already sitting in the page markup as headings and body copy. This is a template change on the blog and service page components plus a pass to map existing headings into the schema, not a content project. Start with the seven service pages and the tax and custody posts, which already have demonstrated search traction. Nothing else on this list returns as much for as little.</div>
+      <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Get the FAQ Answers Back Into the HTML<span class="pill free">Already Built for You</span><span class="pill quick">Highest Return</span></span></div>
+      <div class="rec-detail">Do on the other fourteen commercial pages what the homepage already does: ship the answers as a FAQPage block next to the accordion. We have built this and it is yours, free, in section 08 below. 112 question and answer pairs across all 16 pages in both languages, taken from your own copy, plus a 20-line server component. Nothing else on this list returns as much for as little. The 47 blog posts with written Q&amp;A are the natural second pass.</div>
     </div>
     <div class="rec-item">
       <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Fix the Author and Entity Layer<span class="pill quick">Week 1</span></span></div>
@@ -331,6 +339,22 @@
       <div class="rec-header"><span class="rec-num">08</span><span class="rec-title">Measure AI Visibility Monthly</span></div>
       <div class="rec-detail">Run a fixed set of buyer prompts across ChatGPT, Grok, Google AI Overviews and Perplexity, in both languages, and screenshot the answers. Grok earns its place here specifically: this audience lives on X. Track who gets recommended, who gets cited, and which third-party sources the engines are leaning on that month. Once the schema work in fix 01 lands, this is how you find out what it bought, and the tax content gives a clean baseline that is already winning.</div>
     </div>
+  </div>
+
+  <!-- 08 THE FREE PACK -->
+  <div class="section">
+    <div class="sec-label">08 · Yours, Free</div>
+    <h2>We Already Built Fix 01</h2>
+    <p class="lede">Rather than describe the highest-value fix, here it is, finished. No cost, no strings, no obligation to reply.</p>
+    <div class="strengths">
+      <div class="k">FAQ Schema Pack · 112 Q&amp;A Pairs · 16 Pages · Both Languages</div>
+      <ul>
+        <li><strong><a href="faq-schema/aureo-faq-schema.json" style="color:var(--accent);">aureo-faq-schema.json</a></strong> Complete FAQPage JSON-LD for all 16 commercial pages, keyed by route, Spanish and English.</li>
+        <li><strong><a href="faq-schema/FaqJsonLd.tsx" style="color:var(--accent);">FaqJsonLd.tsx</a></strong> A server component, about 20 lines, no dependencies. One line per page to install.</li>
+        <li><strong><a href="faq-schema/README.md" style="color:var(--accent);">README.md</a></strong> Install steps, the verification commands, and the two items that need a decision from you.</li>
+      </ul>
+    </div>
+    <p class="tbl-note">Every question was read from your rendered page. Every answer was recovered from your own client bundles, where the accordion content is defined, then matched back to its question per page and per locale. Nothing was written, translated, paraphrased, or invented: it is your copy, moved into a second format. Two caveats stated plainly. The fee answer on /personas and /individuals is a JSX fragment containing a link, so there is no clean plain-text version and someone there needs to write one sentence. And /es and /en are already correct, so they are included only for diffing. If you would rather generate this from your source of truth than paste our file, that is the better long-term answer and the README says so.</p>
   </div>
 
   <!-- CTA -->

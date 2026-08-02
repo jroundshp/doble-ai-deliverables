@@ -1,0 +1,1082 @@
+{
+  "/es": {
+    "locale": "es-MX",
+    "url": "https://www.aureobitcoin.com/es",
+    "_note": "Already implemented on your site. Included for parity and verification only, no action needed.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "es-MX",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es Aureo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una firma Bitcoin-only en México para personas, empresas y patrimonios familiares. No vendemos altcoins, stablecoins ni productos de yield. Ayudamos a los mexicanos a convertir pesos en ahorro de larga duración."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Aureo es custodio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por defecto, no. El Bitcoin que compras llega a tu propia cartera, en cadena o vía Lightning. Para clientes HNW y empresas que lo requieran, la Custodia Multiinstitucional está disponible bajo solicitud a través de nuestra alianza con Onramp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Aureo está regulado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aureo (Swapido S.A.S. de C.V.) está inscrita en el Registro de Proveedores de Servicios de Bitcoin administrado por el Banco Central de Reserva de El Salvador, con servicios ofrecidos por esa entidad registrada y supervisados por la Superintendencia del Sistema Financiero de El Salvador. Aureo México (Soluciones Tecnológicas Nagumatech S.A.P.I. de C.V.) está inscrita ante el SAT de México como Actividad Vulnerable bajo la LFPIORPI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda la verificación de identidad (KYC)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La verificación de identidad (KYC) puede tomar hasta 5 minutos. Te aprobamos en un plazo de 15 minutos en horario hábil. Siempre estamos listos para ayudar a quienes necesiten apoyo con este proceso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿En qué se diferencia Aureo de una plataforma cripto masiva?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Somos Bitcoin-only. Tratamos a Bitcoin como tecnología monetaria, no como un ticker. Nuestra investigación, mesa OTC y asesoría están construidas para capital serio — no para especulación retail. Los precios se publican con transparencia total."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las comisiones escalan por tamaño de ticket, desde 2.00% en primeras compras hasta 0.75% en tickets OTC arriba de $20M MXN. Publicamos una gráfica de break-even en la página de precios que muestra dónde Aureo se vuelve estructuralmente más barato que las alternativas masivas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Quién está detrás de Aureo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un equipo con ~10 años en Bitcoin. El CEO Gustavo Flores Echaiz es contribuidor de Bitcoin Optech y ex-Wasabi Wallet. El equipo cofundó Veriphi, trabajó en Bitcoin Well y Bitrefill, y levantó $1.1M en una ronda pre-seed de Early Riders en octubre de 2025."
+          }
+        }
+      ]
+    }
+  },
+  "/en": {
+    "locale": "en-US",
+    "url": "https://www.aureobitcoin.com/en",
+    "_note": "Already implemented on your site. Included for parity and verification only, no action needed.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Aureo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Bitcoin-only firm in Mexico for individuals, businesses, and family wealth. We don't sell altcoins, stablecoins, or yield products. We help Mexicans convert pesos into long-duration savings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Aureo a custodian?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By default, no. Bitcoin you buy lands at your own wallet, on-chain or via Lightning. For HNW and enterprise clients who require it, Multi-Institution Custody is available on request via our partnership with Onramp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Aureo regulated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aureo (Swapido S.A.S. de C.V.) is registered in the Bitcoin Service Provider Registry administered by the Central Reserve Bank of El Salvador, with services offered by that registered entity and supervised by the Superintendency of the Financial System of El Salvador. Aureo Mexico, (Soluciones Tecnologicas Nagumatech S.A.P.I. de C.V.) is registered with Mexico's SAT as a Vulnerable Activity under LFPIORPI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does identity verification (KYC) take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Going through our identity verification (KYC) can take up to 5 minutes. We approve you within 15 minutes during business hours. We are always ready to help any users who require assistance with this process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Aureo different from a mass-market crypto platform?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We're Bitcoin-only. We treat Bitcoin as monetary technology, not a ticker. Our research, OTC desk, and advisory are built for serious capital — not for retail speculation. Full pricing is published transparently."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fees scale by ticket size, from 2.00% on first buys to 0.75% on OTC tickets over MXN 20M. We publish a break-even chart on the pricing page showing where Aureo becomes structurally cheaper than mass-market alternatives."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who's behind Aureo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A team with ~10 years in Bitcoin. CEO Gustavo Flores Echaiz is a Bitcoin Optech contributor and Wasabi Wallet alum. The team has co-founded Veriphi, worked at Bitcoin Well and Bitrefill, and raised $1.1M in a pre-seed round from Early Riders in October 2025."
+          }
+        }
+      ]
+    }
+  },
+  "/es/comprar-bitcoin": {
+    "locale": "es-MX",
+    "url": "https://www.aureobitcoin.com/es/comprar-bitcoin",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "es-MX",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es Aureo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aureo es la forma más simple y segura de comprar y vender Bitcoin en México. Ahorra, gasta e intercambia Bitcoin sin complicaciones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué criptomonedas soportan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Solo Bitcoin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Está disponible On-Chain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, soportamos On-Chain y Lightning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto son las comisiones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestras tarifas son escaladas por volumen: desde 2.00% en transacciones menores a $5,000 MXN hasta 1.25% entre $50,000 y $199,999 MXN. Las operaciones OTC desde $200,000 MXN van de 1.00% a 0.75%. Las mismas tarifas aplican a compras y ventas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuáles son los límites de transacción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puedes vender desde $20 MXN hasta un monto ilimitado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda una transacción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las transacciones tardan segundos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Emiten factura o comprobante de pago?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Puedes ver todo tu historial de transacciones en tu cuenta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tengo que pagar impuestos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Recomendamos consultar tu situación fiscal con tu contador."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo funciona el proceso KYC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Requerimos una verificación básica de identidad: una foto de tu identificación y un comprobante de domicilio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué identificaciones aceptan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "INE/IFE para residentes mexicanos, pasaporte para residentes internacionales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Y si no tengo una cartera Lightning?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puedes usar Blink, Wallet of Satoshi o Strike, algunas de las opciones más simples. También puedes recibir On-Chain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué Bitcoin y no otra criptomoneda?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bitcoin es el único dinero verdaderamente descentralizado, libre de manipulación o control. Tiene la mayor infraestructura, mayor aceptación global y seguridad comprobada."
+          }
+        }
+      ]
+    }
+  },
+  "/en/buy-bitcoin": {
+    "locale": "en-US",
+    "url": "https://www.aureobitcoin.com/en/buy-bitcoin",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Aureo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aureo is the simplest and safest way to buy and sell Bitcoin in Mexico. Save, spend, and exchange Bitcoin without complications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which cryptocurrencies are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bitcoin only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the platform available On-Chain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we support On-Chain and Lightning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much are the fees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our pricing is volume-tiered: from 2.00% on transactions under $5,000 MXN down to 1.25% at $50,000–$199,999 MXN. OTC trades $200,000 MXN and above range from 1.00% down to 0.75%. The same rates apply to both buys and sells."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the transaction limits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can sell from $20 MXN to an unlimited amount."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a transaction take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Transactions take seconds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you issue an invoice/proof of payment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! You can see your entire transaction history in your account page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to pay taxes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We recommend consulting with your accountant about your tax situation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the KYC process work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We require basic identity verification to ensure the safety of our users. This includes a photo of your ID and a proof of address."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What types of IDs are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "INE/IFE for Mexican residents, Passport for international residents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I don't have a Lightning wallet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can use Blink, Wallet of Satoshi, or Strike, which are some of the simplest options. You can also receive On-Chain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why bitcoin and not another cryptocurrency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bitcoin is the only truly decentralized money, free from manipulation or control. It has the largest infrastructure, greatest global acceptance, and proven security."
+          }
+        }
+      ]
+    }
+  },
+  "/es/vender-bitcoin": {
+    "locale": "es-MX",
+    "url": "https://www.aureobitcoin.com/es/vender-bitcoin",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "es-MX",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es Aureo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aureo es la forma más simple y segura de comprar y vender Bitcoin en México. Ahorra, gasta e intercambia Bitcoin sin complicaciones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué criptomonedas soportan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Solo Bitcoin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto son las comisiones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestras tarifas son escaladas por volumen: desde 2.00% en transacciones menores a $5,000 MXN hasta 1.25% entre $50,000 y $199,999 MXN. Las operaciones OTC desde $200,000 MXN van de 1.00% a 0.75%. Las mismas tarifas aplican a compras y ventas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuáles son los límites de transacción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puedes vender desde $20 MXN hasta un monto ilimitado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda una transacción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las transacciones tardan segundos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Emiten factura o comprobante de pago?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Puedes ver todo tu historial de transacciones en tu cuenta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tengo que pagar impuestos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Recomendamos consultar tu situación fiscal con tu contador."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo funciona el proceso KYC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Requerimos una verificación básica de identidad: una foto de tu identificación y un comprobante de domicilio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué identificaciones aceptan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "INE/IFE para residentes mexicanos, pasaporte para residentes internacionales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué querría vender Bitcoin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para acceder a liquidez en pesos de inmediato cuando la necesitas, ya sea para pagos, gastos o cualquier necesidad financiera personal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué Bitcoin y no otra criptomoneda?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bitcoin es el único dinero verdaderamente descentralizado, libre de manipulación o control. Tiene la mayor infraestructura, mayor aceptación global y seguridad comprobada."
+          }
+        }
+      ]
+    }
+  },
+  "/en/sell-bitcoin": {
+    "locale": "en-US",
+    "url": "https://www.aureobitcoin.com/en/sell-bitcoin",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Aureo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aureo is the simplest and safest way to buy and sell Bitcoin in Mexico. Save, spend, and exchange Bitcoin without complications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which cryptocurrencies are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bitcoin only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much are the fees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our pricing is volume-tiered: from 2.00% on transactions under $5,000 MXN down to 1.25% at $50,000–$199,999 MXN. OTC trades $200,000 MXN and above range from 1.00% down to 0.75%. The same rates apply to both buys and sells."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the transaction limits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can sell from $20 MXN to an unlimited amount."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a transaction take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Transactions take seconds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you issue an invoice/proof of payment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! You can see your entire transaction history in your account page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to pay taxes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We recommend consulting with your accountant about your tax situation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the KYC process work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We require basic identity verification to ensure the safety of our users. This includes a photo of your ID and a proof of address."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What types of IDs are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "INE/IFE for Mexican residents, Passport for international residents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why would I want to sell bitcoin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To access liquidity in pesos immediately when you need it, whether for bills, expenses, or any personal financial need."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why bitcoin and not another cryptocurrency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bitcoin is the only truly decentralized money, free from manipulation or control. It has the largest infrastructure, greatest global acceptance, and proven security."
+          }
+        }
+      ]
+    }
+  },
+  "/es/custodia-multi-institucional": {
+    "locale": "es-MX",
+    "url": "https://www.aureobitcoin.com/es/custodia-multi-institucional",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "es-MX",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Las bóvedas MIC se mezclan con activos de otros clientes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. MIC usa una bóveda segregada a titularidad del cliente (no mezclada, no ómnibus)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Quién puede mover fondos en MIC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MIC se estructura como multifirma 2 de 3 entre tres instituciones independientes; ninguna parte puede mover fondos por sí sola."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo puedo verificar mis holdings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MIC ofrece transparencia on-chain para verificar saldos y movimientos directamente en la cadena de bloques."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué controles de seguridad hay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MIC soporta controles como time-locks, límites de gasto, verificación por capas y protección contra deepfakes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si una llave queda fuera?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MIC está diseñado para resiliencia: las operaciones continúan si una llave no está disponible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se rehipotecan los activos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. MIC incluye un compromiso de no rehipotecación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hay seguro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. MIC incluye cobertura de bóveda por incidente respaldada por Lloyd's of London."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo liquidar directamente desde la mesa OTC hacia MIC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Puedes liquidar a tu propia cartera o directamente a una bóveda MIC a titularidad del cliente, según tu configuración preferida."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es la opción multi-jurisdicción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para algunos clientes, MIC puede configurarse con un quórum multi-jurisdiccional de llaves (EE.UU. / Reino Unido / Canadá)."
+          }
+        }
+      ]
+    }
+  },
+  "/en/multi-institution-custody": {
+    "locale": "en-US",
+    "url": "https://www.aureobitcoin.com/en/multi-institution-custody",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are MIC vaults pooled with other clients' assets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. MIC uses a segregated client-owned vault (not pooled / not omnibus)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who can move funds in MIC custody?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MIC is structured as 2-of-3 multisig across three independent institutions; no single party can move funds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I verify my holdings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MIC offers on-chain transparency to verify balances and movements directly on the blockchain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What security controls are in place?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MIC supports controls such as time-locks, spending limits, layered verification, and deepfake protection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if one key is unavailable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MIC is designed for resilience: operations continue if one key is unavailable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are assets rehypothecated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. MIC includes a no-rehypothecation commitment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there insurance coverage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. MIC includes per-incident vault coverage backed by Lloyd's of London."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I settle directly from the OTC desk into MIC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can settle to your own wallet or settle directly to a client-owned MIC vault, depending on your preferred setup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the multi-jurisdiction key option?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For some clients, MIC can be configured with a multi-jurisdiction key quorum option (U.S. / U.K. / Canada)."
+          }
+        }
+      ]
+    }
+  },
+  "/es/precios": {
+    "locale": "es-MX",
+    "url": "https://www.aureobitcoin.com/es/precios",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "es-MX",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Las mismas tarifas aplican a compra y venta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El tabulador aplica para ambos lados, con negociación en tickets institucionales."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué incluye la comisión?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ejecución, coordinación, rieles SPEI, reportes empresariales, acuses SAT y reporting básico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hay costos de custodia MIC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La Custodia Multiinstitucional se cotiza según diseño y necesidades de gobierno."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo comparar contra otras plataformas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. La gráfica existe para que la comparación sea explícita y revisable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa arriba de $2M MXN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La comisión es personalizada. Solicita una cotización para definirla según el tamaño y la operación."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué documentos entregan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entregamos reportes empresariales personalizados, acuses del SAT y reporting denominado en pesos."
+          }
+        }
+      ]
+    }
+  },
+  "/en/pricing": {
+    "locale": "en-US",
+    "url": "https://www.aureobitcoin.com/en/pricing",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do the same rates apply to buys and sells?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The schedule applies to both sides, with negotiation for institutional tickets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is included in the fee?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Execution, coordination, SPEI rails, custom business reports, SAT acuses, and basic reporting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there MIC custody costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Multi-Institution Custody is quoted based on design and governance needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I compare against other platforms?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The chart exists so comparison is explicit and reviewable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens above MXN 2M?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The fee is custom. Request a quote based on the transaction size and requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What documents do you provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide custom business reports, SAT acuses, and peso-denominated reporting."
+          }
+        }
+      ]
+    }
+  },
+  "/es/empresas": {
+    "locale": "es-MX",
+    "url": "https://www.aureobitcoin.com/es/empresas",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "es-MX",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué documentos entregan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entregamos reportes empresariales personalizados, acuses del SAT y reporting denominado en pesos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Aureo ayuda con RESICO o RMF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Documentamos postura y datos para que tu asesor pueda revisar tratamiento. No sustituimos asesoría fiscal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Pueden ejecutar tickets grandes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. La mesa OTC está diseñada para tamaño y coordinación humana."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hay custodia para empresas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, la Custodia Multiinstitucional está disponible bajo solicitud vía Onramp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Trabajan con comités?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Preparamos briefs, métodos y materiales para revisión interna."
+          }
+        }
+      ]
+    }
+  },
+  "/en/businesses": {
+    "locale": "en-US",
+    "url": "https://www.aureobitcoin.com/en/businesses",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What documents do you provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide custom business reports, SAT acuses, and peso-denominated reporting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Aureo help with RESICO or RMF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We document posture and data so your advisor can review treatment. We do not replace tax advice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you execute large tickets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The OTC desk is designed for size and human coordination."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is custody available for businesses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Multi-Institution Custody is available on request, via our partner Onramp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with committees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We prepare briefs, methods, and materials for internal review."
+          }
+        }
+      ]
+    }
+  },
+  "/es/personas": {
+    "locale": "es-MX",
+    "url": "https://www.aureobitcoin.com/es/personas",
+    "_needs_answer": [
+      "¿Qué comisiones aplican?"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "es-MX",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda la verificación de identidad (KYC)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La verificación de identidad (KYC) puede tomar hasta 5 minutos. Te aprobamos en un plazo de 15 minutos en horario hábil. Siempre estamos listos para ayudar a quienes necesiten apoyo con este proceso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo vender Bitcoin por pesos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Puedes vender Bitcoin y recibir pesos directamente en tu cuenta bancaria registrada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Aureo es Bitcoin-only?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. No vendemos altcoins, stablecoins ni productos de yield."
+          }
+        }
+      ]
+    }
+  },
+  "/en/individuals": {
+    "locale": "en-US",
+    "url": "https://www.aureobitcoin.com/en/individuals",
+    "_needs_answer": [
+      "What fees apply?"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does identity verification (KYC) take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Going through our identity verification (KYC) can take up to 5 minutes. We approve you within 15 minutes during business hours. We are always ready to help any users who require assistance with this process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I sell Bitcoin for pesos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can sell Bitcoin and receive pesos directly in your registered bank account."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Aureo Bitcoin-only?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We do not sell altcoins, stablecoins, or yield products."
+          }
+        }
+      ]
+    }
+  },
+  "/es/patrimonio": {
+    "locale": "es-MX",
+    "url": "https://www.aureobitcoin.com/es/patrimonio",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "es-MX",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Aureo custodia mi Bitcoin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por defecto, no. El Bitcoin llega a tu propia cartera. Para clientes HNW, Custodia Multiinstitucional está disponible bajo solicitud vía Onramp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es el tamaño mínimo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El tamaño mínimo de orden es 200,000 pesos mexicanos (MXN). Patrimonio está diseñado para tickets OTC y asignaciones significativas. Comenzamos con una conversación sobre ejecución, gobierno y reporting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dan asesoría de inversión?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Damos investigación, contexto y acompañamiento operativo. La decisión de asignación y su tratamiento fiscal/legal se revisan con tus asesores."
+          }
+        }
+      ]
+    }
+  },
+  "/en/patrimonio": {
+    "locale": "en-US",
+    "url": "https://www.aureobitcoin.com/en/patrimonio",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Aureo custody my Bitcoin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By default, no. Bitcoin lands in your own wallet. For HNW clients, Multi-Institution Custody is available on request via Onramp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the minimum ticket?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The minimum order size is 200,000 Mexican pesos (MXN). Patrimonio is designed for over-the-counter (OTC) tickets and significant allocations. We begin with a conversation about execution, governance, and reporting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide investment advice?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide research, context, and operating support. Allocation decisions and tax/legal treatment should be reviewed with your advisors."
+          }
+        }
+      ]
+    }
+  }
+}
