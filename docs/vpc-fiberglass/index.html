@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>VPC Fiberglass — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(47,111,106,0.2);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2F6F6A;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #2F6F6A;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #46524C;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(47,111,106,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7C8C84;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #eefaf6;
+    border: 1px solid #99e2d0;
+    border-left: 4px solid #0f766e;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #0f766e;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #134e4a; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(15,118,110,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(47,111,106,0.16);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #1F2622; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(71,85,76,0.14);  color: #46524c; }
+  .badge-sister { background: rgba(15,118,110,0.14); color: #0f766e; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F2622; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #cdeae3; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #2F6F6A;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #a6d4cb; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · August 2026 · Medina · Lockport · Amherst, New York</div>
+    <h1>VPC<br>Fiberglass</h1>
+    <p>Virtual Polymer Compounds, LLC — a custom fiberglass and FRP fabricator running three Western New York facilities, building equipment shelters and enclosures, manhole covers, ductwork, flumes, scrubbers and tanks for water, wastewater, chemical and industrial clients. This is the strongest-built site in the portfolio by a wide margin, and it is audited on that basis: the question here is not whether the foundation works, but why a company with real technical depth is still not the name an engineer's AI assistant returns.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">3</div><div class="stat-label">NY Facilities</div></div>
+      <div class="stat"><div class="stat-val">53</div><div class="stat-label">Indexed Pages</div></div>
+      <div class="stat"><div class="stat-val">5.0★ (3)</div><div class="stat-label">Google Rating</div></div>
+      <div class="stat"><div class="stat-val">66ms</div><div class="stat-label">Server Response</div></div>
+      <div class="stat"><div class="stat-val">6.4 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The Core Gap — B2B Buyers Have Moved to AI First</div>
+      <p>Start with the good news, because it is genuinely different from the rest of the portfolio: <strong>this site is well built.</strong> Valid SSL on both hostnames with a correct redirect, a 66ms server response, real meta descriptions, canonical tags, four types of structured data on the homepage, and a mobile viewport that does <em>not</em> block pinch-to-zoom — the defect present on every other site in the group. No rebuild is warranted. The gap is narrower and more specific: <strong>across every commercial page we checked, there is not one FAQ and not one piece of <code>FAQPage</code> or <code>Product</code> schema</strong> — and an entire product catalog at <code>products.vpcfiberglass.com</code> carrying zero structured data at all. Ask an AI assistant to name custom FRP enclosure manufacturers for a water-treatment project and it returns Augusta Fiberglass, Warminster, Signature Enclosures, RM Products and LF Manufacturing. VPC is not in the answer. For a business whose buyers are engineers and specifiers — the population that has moved to asking AI first — that is the whole opportunity, and it is markup and content, not construction.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A custom fiberglass (FRP) fabricator, not a distributor. Standard and fully custom equipment shelters and enclosures under the <strong>Enduro</strong> line, plus composite manhole covers, ductwork, Parshall flumes for flow measurement, FRP fans, scrubber systems, chemical storage buildings and booster-pump skid packages. An on-staff design team builds to spec at effectively any size.</div>
+        </div>
+        <div>
+          <div class="fact-label">Locations &amp; Contact</div>
+          <div class="fact-val"><strong>Medina</strong> — 10478 Ridge Road (headquarters), (585) 735-9668. <strong>Lockport</strong> — 222 S Niagara St production facility. <strong>Amherst</strong> — 2410 North Forest Road. A second number, (585) 735-9965, also appears site-wide. Three facilities is a real competitive asset that the digital footprint currently under-represents.</div>
+        </div>
+        <div>
+          <div class="fact-label">Who Actually Buys</div>
+          <div class="fact-val">Municipal water and wastewater authorities, chemical and industrial plants, and the consulting engineers who write the specifications. These are considered, specification-driven purchases with long lead times — which is exactly why being named in a research answer matters more here than in retail. The buyer is researching long before anyone picks up a phone.</div>
+        </div>
+        <div>
+          <div class="fact-label">Content Assets</div>
+          <div class="fact-val">Genuinely strong and unusual for this sector: a 1,600-word material guide on fiberglass, a Fiberglass vs. Concrete comparison, Manhole Systems 101, guides to ductwork, flumes and shelters, plus a real case-study library with named projects. The expensive part — writing authoritative technical content — is already done. The cheap part, marking it up so machines can quote it, has not been.</div>
+        </div>
+        <div>
+          <div class="fact-label">Product Catalog</div>
+          <div class="fact-val">A separate catalog runs at <code>products.vpcfiberglass.com</code>, linked from the homepage more than fifty times. It is ThomasNet-hosted and carries <strong>zero JSON-LD</strong>. Every product in it is invisible as structured data to both Google Shopping-style surfaces and AI assistants, which is the single largest untapped asset here.</div>
+        </div>
+        <div>
+          <div class="fact-label">Why Now</div>
+          <div class="fact-val">B2B technical buying is where AI search has moved fastest, because the questions are specific and the answers are researchable. An engineer asking which manufacturer makes a corrosion-resistant enclosure for a chlorine room now gets a shortlist, not a page of links. VPC has the products, the plants and the technical writing to be on that shortlist and currently is not. The competitors being named are not better fabricators — they are better marked up.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Competitor</th>
+            <th>Base</th>
+            <th>Key Note</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shelter Works</td>
+            <td class="geo">Missouri</td>
+            <td>Positions itself as the FRP shelter pioneer and is distributed across Upstate New York by Siewert Equipment, with offices in Rochester and Albany. A national brand with a sales force inside VPC's home territory. This is the direct one.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Augusta Fiberglass</td>
+            <td class="geo">South Carolina</td>
+            <td>94-acre site, 300,000+ sq ft of manufacturing. Named <em>first</em> in AI answers for water and wastewater FRP equipment. Scale plus visibility is a hard combination to displace, but their advantage in the answer is partly markup, not just size.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Warminster Fiberglass</td>
+            <td class="geo">Pennsylvania</td>
+            <td>Founded 1958, FRP shelters and wastewater components, regionally adjacent to VPC's Northeast market. Consistently surfaced in AI-generated supplier shortlists.</td>
+            <td><span class="badge badge-med">Med–High</span></td>
+          </tr>
+          <tr>
+            <td>RM Products / Orenco Composites</td>
+            <td class="geo">National</td>
+            <td>Modular FRP buildings aimed squarely at water and wastewater. Orenco's DuraFiber line extends into telecom and transportation. Both get named where VPC does not.</td>
+            <td><span class="badge badge-med">Med</span></td>
+          </tr>
+          <tr>
+            <td>MEKCO · Signature Enclosures · LF Manufacturing</td>
+            <td class="geo">National</td>
+            <td>Custom shelter and NEMA 4X enclosure specialists serving the same chemical, refinery and water-treatment buyers. Individually smaller threats; collectively they occupy the answer space VPC should share.</td>
+            <td><span class="badge badge-lowmed">Low–Med</span></td>
+          </tr>
+          <tr>
+            <td>ThomasNet directory itself</td>
+            <td class="geo">Platform</td>
+            <td>Lists 611 FRP shelter suppliers, VPC among them. It drives qualified traffic, but it also intermediates the relationship and ranks its own category pages above individual manufacturers. Useful channel, dangerous sole channel.</td>
+            <td><span class="badge badge-med">Med</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        VPC is <strong>the best-built site in the portfolio and still loses the query that matters</strong>. The foundation is sound, the technical content is authoritative, and three facilities give it a regional manufacturing story most competitors cannot match. What is missing is the translation layer: nothing on the site is formatted as a question with an answer, no product carries product markup, the catalog subdomain is structurally silent, and three locations are represented by two Google profiles with mismatched details. The manufacturing is real. The machine-readable version of it has not been built.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(47,111,106,0.08);border:1px solid rgba(47,111,106,0.22)">
+          <div class="pos-card-label" style="color:#2F6F6A">Strengths</div>
+          <div class="pos-card-text">Fast, clean, correctly configured site (66ms response, valid SSL both hosts, proper apex redirect). Meta descriptions and canonicals in place. Four schema types on the homepage. Mobile viewport correct — no pinch-to-zoom block. Authoritative technical resource library and a named case-study set. Three NY facilities. Verified clean of the cloaking found elsewhere in the portfolio.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(194,65,12,0.25)">
+          <div class="pos-card-label" style="color:#c2410c">Current Position</div>
+          <div class="pos-card-text">Zero FAQ content and zero <code>FAQPage</code> schema across every commercial page. No <code>Product</code> schema anywhere, including a catalog subdomain with no structured data at all. A test page and duplicate product pages are publicly indexed. Three reviews total, one of which is a delivery driver's GPS coordinates. Amherst has no Google profile. Absent from buyer-intent AI answers.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">Convert existing technical authority into citable structure. Mark up the resource library as FAQs, put <code>Product</code> schema on the catalog, clean the indexed junk, complete the three-location local footprint, and ask a decade of municipal and industrial customers for the reviews they would almost certainly give. This is a markup and content engagement, not a rebuild — and the B2B lane is markedly less contested than any consumer category in the portfolio.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website (vpcfiberglass.com)</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">WordPress on a custom theme with WP Rocket caching behind Cloudflare. Genuinely fast at a 66ms server response, valid SSL on both apex and www with a correct 301, and 53 indexed pages covering products, services, industries, resources and case studies. Substantially better engineered than any other site in the portfolio. Marked down only for the hygiene issues below.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO</span><span class="grade grade-cp">C+</span></div>
+          <div class="audit-note">Real meta descriptions and canonical tags on most pages, a sensible robots.txt and a working XML sitemap — all absent on the sibling sites. Three specific misses: the <code>/locations/</code> page, a key commercial page, has no meta description at all; the homepage carries two <code>&lt;h1&gt;</code> tags where it should carry one; and there is no <code>og:image</code>, so every share and AI preview renders without an image.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Structured Data / Schema</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">The homepage does carry <code>Organization</code>, <code>WebSite</code>, <code>WebPage</code> and <code>BreadcrumbList</code> markup — a real head start. But there is <strong>no <code>Product</code> schema on a manufacturer's site</strong> and <strong>no <code>FAQPage</code> schema anywhere</strong>. Interior pages drop to breadcrumbs only. The two schema types that would most directly feed AI answers are the two that are missing.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Product Catalog Subdomain</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note"><code>products.vpcfiberglass.com</code> is a full ThomasNet-hosted catalog linked from the homepage over fifty times, and it contains <strong>zero JSON-LD blocks</strong>. Every product is structurally invisible. It also sits on a subdomain rather than a path, which splits authority away from the main domain. The largest single upside on this audit.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content — Resources &amp; FAQ</span><span class="grade grade-cp">C+</span></div>
+          <div class="audit-note">The resource library is a genuine asset: roughly 1,600 words on fiberglass as a material, a Fiberglass vs. Concrete comparison, Manhole Systems 101, and guides to ductwork, flumes and shelters. Authoritative, specific, and exactly what a specifying engineer wants. Yet <strong>not one page carries an FAQ</strong>. The answers exist in prose; none are formatted as the question a buyer actually types.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility (GEO)</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Asked to name manufacturers of custom fiberglass equipment enclosures for water treatment, the engines return Augusta Fiberglass, Warminster Fiberglass, Signature Enclosures, RM Products, GTOFRP and LF Manufacturing. VPC does not appear. It surfaces only when a query already contains its product names — which means it is retrievable but not recommendable. With no FAQ, no product markup and a silent catalog, there is little for an engine to quote.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Two profiles exist and both are claimed, with hours, photos and website links: <strong>VPC Fiberglass</strong> (10478 Ridge Rd, Medina) and <strong>VPC Fiberglass – Lockport Production Facility</strong> (222 S Niagara St). That is real and better than assumed. But the <strong>Amherst facility at 2410 North Forest Road has no profile at all</strong>, and the Lockport profile lists (888) 290-9522 — a number that appears nowhere on the website.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">5.0★ looks strong until you open it: <strong>three reviews</strong>, and the top one reads "43.2580764, -78.4422799 – Shipping building" — a delivery driver logging coordinates three years ago, not a customer. The Lockport profile has none. For a manufacturer with decades of municipal and industrial clients, this is the widest gap between real-world reputation and its online record on the whole audit.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Site Hygiene</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">A page literally titled <strong>"test location"</strong> is live, indexed and in the public sitemap. The Enduro enclosure page exists in at least four near-duplicate versions (<code>-2</code>, <code>-3</code>, <code>-5</code>), splitting relevance across copies of the same product. An author archive at <code>/author/tmswebsiteadminthomasnet-com/</code> is also indexed, publishing the vendor's admin account name to search engines.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Multi-Location / Local SEO</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">Three facilities across Medina, Lockport and Amherst, but only two Google profiles, no <code>LocalBusiness</code> markup per location, and inconsistent formatting on the site itself — "222 S Niagara St" and "222 South Niagara St" both appear on the same page. Three plants is a competitive advantage over national suppliers shipping from out of state, and it is currently invisible in local search.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">SEO / Organic Search</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Meaningfully better positioned than the sibling sites thanks to real content depth and correct fundamentals. The ceiling is set by the missing structure: category terms like "FRP equipment shelter manufacturer" and "fiberglass manhole cover supplier" are winnable with the content already written, once it is marked up and the duplicates are consolidated.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Mobile &amp; Accessibility</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">The viewport is correctly set to <code>width=device-width, initial-scale=1.0</code> with no zoom lock — notable because <em>every other site in this portfolio blocks pinch-to-zoom</em>. Whoever built this one got right what the others got wrong. Alt-text coverage should still be reviewed across the product imagery.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Security &amp; Integrity</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">Checked specifically because a sibling site in this portfolio was found serving cloaked spam to search crawlers. <strong>VPC is clean.</strong> Browser and Googlebot responses are byte-identical, no injected content, no spam URLs, sitemap legitimate. Cloudflare in front, valid Let's Encrypt certificates on both hostnames.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-cp">6.4</span></div>
+          <div class="audit-note">Out of 10, weighing site quality, technical SEO, structured data, search and AI visibility, reviews, content, local footprint, hygiene, mobile and security. <strong>The highest score in the Hogan portfolio by a wide margin</strong> — the next best is 5.5. A well-built, fast, genuinely informative site held back by missing markup, indexed clutter, an unrepresented third location and a review record that badly understates the business.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>VPC has already done the expensive work. The site is fast and correctly built, the technical writing is authoritative, and three New York plants give it a regional story its national competitors cannot tell. What it has not done is the cheap work: not one FAQ exists on any commercial page, no product on a manufacturer's site carries <code>Product</code> markup, and a whole catalog subdomain contains no structured data at all. That is why an engineer's AI assistant names Augusta Fiberglass and Warminster and not VPC — not because those firms fabricate better, but because their content is in a form a machine can quote. Add to that a test page in the live sitemap, four near-duplicate versions of the same product page, a missing Google profile for Amherst, and three reviews of which one is a truck driver's GPS reading. Every one of these is fixable without touching the design, and the B2B category is far emptier than any consumer market in this portfolio.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#effaf7;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">05</span>
+      <span class="section-title" style="color:#2F6F6A">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Put Product Schema on the Catalog</span>
+          </div>
+          <div class="rec-detail">The catalog at <code>products.vpcfiberglass.com</code> carries zero structured data while being linked from the homepage more than fifty times. Add <code>Product</code> markup to every item — name, description, material, dimensions, application, manufacturer — so each becomes a citable entity rather than an unreadable page. This is the single highest-leverage item on the audit, and it does not require writing anything new.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Turn the Resource Library Into Marked-Up FAQs</span>
+          </div>
+          <div class="rec-detail">The material guide, the concrete comparison and the 101 explainers already answer what buyers ask — in prose. Restructure the answers as explicit questions ("How long does an FRP enclosure last in a chlorine environment?", "Fiberglass or concrete for a wet well?", "What lead time for a custom shelter?") and wrap them in <code>FAQPage</code> schema. FAQ markup is the primary driver of AI citation, and VPC currently has none anywhere.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Clean the Indexed Clutter</span>
+          </div>
+          <div class="rec-detail">Delete or noindex the live <code>/locations/test-location/</code> page. Consolidate the four near-duplicate Enduro enclosure pages into one canonical product page and redirect the rest, recovering the relevance currently split across copies. Noindex the <code>/author/</code> archive, which is publishing the web vendor's admin username to search engines. Add the missing meta description to <code>/locations/</code>.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Complete the Three-Location Local Footprint</span>
+          </div>
+          <div class="rec-detail">Create a Google Business Profile for the <strong>Amherst</strong> facility at 2410 North Forest Road, which has none. Reconcile the Lockport profile's (888) 290-9522 against the numbers published on the site so they agree. Standardise "S Niagara" versus "South Niagara" site-wide, and add <code>LocalBusiness</code> markup per location. Three plants beats a competitor shipping from South Carolina — but only if the three are findable.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Ask a Decade of Customers for Reviews</span>
+          </div>
+          <div class="rec-detail">Three reviews, one of them a delivery driver's coordinates, is not a reputation — it is an absence. Municipal engineers, plant managers and contractors who have bought from VPC for years will give a review if asked, and B2B review counts are so low across this category that even a dozen genuine ones would stand out. Reviews also feed directly into how AI assistants judge which suppliers to name.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Publish Spec-Grade Comparison Content</span>
+          </div>
+          <div class="rec-detail">The Fiberglass vs. Concrete page proves the format works. Extend it to the comparisons specifiers actually run — FRP versus stainless, versus aluminium, versus precast — plus corrosion-resistance tables, load ratings and the BABA compliance angle already touched on. This is the material engines quote when asked which supplier fits a requirement, and almost none of VPC's competitors have published it either.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Reduce Dependence on the ThomasNet Channel</span>
+          </div>
+          <div class="rec-detail">ThomasNet delivers qualified traffic, but it also lists 611 competing FRP shelter suppliers, ranks its own category pages above individual manufacturers, and currently hosts VPC's catalog on a subdomain it controls. Keep the channel, and build the owned equivalent alongside it so that a buyer researching the category can find VPC directly rather than only through a directory that monetises the alternatives.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Add an AI Spec Assistant to the Site</span>
+          </div>
+          <div class="rec-detail">Add an AI assistant trained on the product catalog, material specs and case studies that can answer sizing, material-selection and lead-time questions and route a qualified enquiry to the design team. Specification research happens at all hours and long before contact; capturing it is worth more per enquiry here than in any consumer business in the portfolio, because a single custom shelter order dwarfs a restaurant ticket. This is Doble AI's signature layer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>The manufacturing is real. The machine-readable version isn't built.</h2>
+    <p>VPC is the strongest site in the portfolio and still isn't named when an engineer asks an AI who builds custom FRP enclosures. The fix is markup and content on work that already exists — product schema, FAQs, a clean index, a complete local footprint and the reviews a decade of customers would happily give. Not a rebuild.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>VPC Fiberglass — Digital Presence Audit</span>
+    <span>August 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
