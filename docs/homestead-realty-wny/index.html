@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Homestead Realty WNY — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(47,111,106,0.2);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2F6F6A;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #2F6F6A;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #46524C;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(47,111,106,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7C8C84;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #eefaf6;
+    border: 1px solid #99e2d0;
+    border-left: 4px solid #0f766e;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #0f766e;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #134e4a; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(15,118,110,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(47,111,106,0.16);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #1F2622; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(71,85,76,0.14);  color: #46524c; }
+  .badge-sister { background: rgba(15,118,110,0.14); color: #0f766e; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F2622; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #cdeae3; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #2F6F6A;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #a6d4cb; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · August 2026 · Getzville, New York</div>
+    <h1>Homestead<br>Realty WNY</h1>
+    <p>Affordable residential rentals across Western New York, operating since 1987 from an administrative office at 2410 North Forest Road in Getzville and describing a portfolio of 60-plus units across Erie and Niagara counties. This audit covers the website, the Google presence, and the reputation record. One finding sits above all the others and is addressed first, because it is not a marketing problem.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Since 1987</div><div class="stat-label">In Business</div></div>
+      <div class="stat"><div class="stat-val">60+</div><div class="stat-label">Units Claimed</div></div>
+      <div class="stat"><div class="stat-val">3</div><div class="stat-label">Listed Online</div></div>
+      <div class="stat"><div class="stat-val">3.0★ (4)</div><div class="stat-label">Google · Unclaimed</div></div>
+      <div class="stat"><div class="stat-val">2.8 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert" style="background:#fef2f2;border-color:#fecaca;border-left-color:#b91c1c">
+      <div class="alert-label" style="color:#b91c1c">Address This First — The Google Profile Is Unclaimed and Carries Unanswered Complaints</div>
+      <p style="color:#7f1d1d">The Google Business Profile for Homestead Realty WNY is <strong>not claimed</strong> — Google still shows a "Claim this business" link on it. It carries <strong>3.0 stars from 4 reviews</strong>, split at the extremes rather than clustered, and the review displayed at the top is a <strong>one-star account from a Local Guide with 141 reviews</strong> describing roaches, rats, mould and a summer without working air conditioning. It was edited two years ago and <strong>has never received a reply</strong>, because no one controls the profile to reply with. We are not in a position to judge the merits of what a former tenant wrote, and this audit does not try to. What we can say is that it is the first thing a prospective tenant sees, it has stood unanswered for two years on a profile the business does not control, and for a housing provider that is a materially different kind of exposure than a bad review of a restaurant. Claiming the profile and responding professionally comes before any other item in this document.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A residential rental operator positioning on affordability — "affordable homes for Western New York families." The site describes rental homes, duplexes and apartments and claims <strong>60-plus units across Erie and Niagara counties</strong>, with roots going back to 1987. Tenants are also offered a 15% discount at the affiliated law firm.</div>
+        </div>
+        <div>
+          <div class="fact-label">Location &amp; Contact</div>
+          <div class="fact-val">2410 North Forest Road, Suite 301, Getzville, NY 14068. The site promotes <strong>716.932.6550</strong> as the direct line and <code>jen@tiveronlaw.com</code> for enquiries. Google instead lists <strong>(716) 636-7600</strong>, the law firm's main number, and labels the location "Located in: Tiveron Law PLLC." The two do not agree.</div>
+        </div>
+        <div>
+          <div class="fact-label">What's Actually Listed</div>
+          <div class="fact-val">Three property pages: 2780 Main Street, 118 W. Hazeltine and 480 Oliver Street #4. A fourth, 6042 Shaffer Road in Lockport, appears on the Properties page already flagged as not available. Against a claimed 60-plus units, the public catalogue represents under five per cent of the portfolio.</div>
+        </div>
+        <div>
+          <div class="fact-label">Site Footprint</div>
+          <div class="fact-val">Twelve URLs in the sitemap, and four of them are not real pages: the WordPress starter post <code>hello-world</code>, an <code>uncategorized</code> category archive, an <code>/author/admin/</code> archive and a thank-you page. One third of the indexed site is scaffolding that was never removed.</div>
+        </div>
+        <div>
+          <div class="fact-label">How Tenants Pay</div>
+          <div class="fact-val">A payments page accepting card, e-check, ACH and PayPal, plus an apartment application. The transactional layer works, which matters: the plumbing for running a rental business online is present. It is the discovery and reputation layers that are missing.</div>
+        </div>
+        <div>
+          <div class="fact-label">Why Now</div>
+          <div class="fact-val">Affordable rentals in Western New York is a demand-rich, low-competition search category, and a 1987 operating history is genuine authority. But a prospective tenant searching today finds an unclaimed profile, a three-star average, an unanswered complaint about habitability, and a website that tells Google nothing at all. Nearly forty years of operating history is being represented online by four reviews and an empty title tag.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Competitor Type</th>
+            <th>Where</th>
+            <th>Key Note</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Zillow &amp; Apartments.com</td>
+            <td class="geo">National portals</td>
+            <td>Where renters actually start. They rank for nearly every "apartments in Buffalo / Lockport / Niagara Falls" query, carry photos, filters and verified availability, and syndicate listings everywhere else. A landlord absent from them is invisible to most of the market regardless of their own website.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Facebook Marketplace &amp; rental groups</td>
+            <td class="geo">Buffalo / Niagara</td>
+            <td>Where a large share of affordable-segment renting in WNY actually happens, especially below market rate. Free, immediate, and heavily used by exactly this tenant demographic.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Local property-management firms</td>
+            <td class="geo">Erie County</td>
+            <td>Buffalo-area managers running comparable portfolios, most with claimed Google profiles, double-digit review counts and full listing feeds. They win the same searches on presence rather than product.</td>
+            <td><span class="badge badge-med">Med–High</span></td>
+          </tr>
+          <tr>
+            <td>Muir Lake Luxury Apartments · Creekview Court</td>
+            <td class="geo">Getzville</td>
+            <td>Named developments visible on the map within a few hundred metres of the Getzville office. Different price tier, but they own the local map pack that Homestead's own address sits inside.</td>
+            <td><span class="badge badge-lowmed">Low–Med</span></td>
+          </tr>
+          <tr>
+            <td>Individual landlords</td>
+            <td class="geo">WNY-wide</td>
+            <td>Fragmented and mostly unsophisticated online. This is the real opening: in the affordable segment almost nobody has claimed a profile, gathered reviews or published structured listings. The bar to become the most credible operator in local search is unusually low.</td>
+            <td><span class="badge badge-low">Low</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Homestead has <strong>a real business and almost no digital representation of it</strong>. Nearly four decades of operating history, 60-plus units and a working payments and application system sit behind a website whose homepage has an <em>entirely empty title tag</em>, no meta descriptions on any page, no structured data anywhere, and the WordPress default post still published. The Google profile that renters actually see is unclaimed and averages three stars. The gap here is not sophistication; it is completion. Most of what needs doing is finishing work that was started and left.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(47,111,106,0.08);border:1px solid rgba(47,111,106,0.22)">
+          <div class="pos-card-label" style="color:#2F6F6A">Strengths</div>
+          <div class="pos-card-text">A genuine 1987 operating history and 60-plus units. Working payments (card, e-check, ACH, PayPal) and an online application. Correct HTTPS with proper www and http redirects. Mobile viewport correctly configured. Verified clean of the cloaking found elsewhere in this portfolio. A clear, sympathetic positioning line already written on the homepage.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(194,65,12,0.25)">
+          <div class="pos-card-label" style="color:#c2410c">Current Position</div>
+          <div class="pos-card-text">Unclaimed Google profile at 3.0 stars with an unanswered one-star habitability complaint. Homepage title tag completely empty. Zero meta descriptions and zero schema across all twelve pages. WordPress "Hello world!" post live. An <code>/author/admin/</code> page publishing the admin username. Three of 60-plus units listed. Absent from the rental portals renters actually use.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
+          <div class="pos-card-text">Claim the profile, reply to what is there, and start asking satisfied long-term tenants for reviews — four reviews is a number a single good month reverses. Then fill in the basics: real titles, descriptions, schema, the full unit list, and listings on Zillow and Apartments.com. The affordable segment is so thinly contested online that basic competence would make Homestead the most credible operator in local search.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note"><strong>Unclaimed.</strong> Google still displays "Claim this business," which means nobody can reply to reviews, correct the details, post updates or add photos. It also lists <strong>(716) 636-7600</strong>, the law firm's main line, rather than the 716.932.6550 the website promotes, and shows the business as located inside Tiveron Law PLLC. For a local rental business this profile is the single most important digital asset, and it is currently unowned.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">3.0 stars from <strong>four</strong> reviews, split at the extremes rather than averaging out. The top-displayed review is one star from a <strong>Local Guide with 141 reviews and 124 photos</strong> — an account Google weights heavily — alleging roaches, rats, mould and a summer without working AC. Edited two years ago, never answered. A second one-star sits below it. Whatever the merits, an unanswered habitability complaint is the first impression this business makes.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The homepage <code>&lt;title&gt;</code> tag is <strong>completely empty</strong> — verified to both a browser and Googlebot. The title is the single most important on-page ranking element and the line that appears as the clickable headline in search results. Beyond that: <strong>no meta description on any of the twelve pages</strong>, no Open Graph tags, and interior titles that are bare fragments ("Payments", "Properties") with no brand or location attached.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Structured Data / Schema</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note"><strong>Zero JSON-LD across the entire site.</strong> No <code>RealEstateAgent</code> or <code>LocalBusiness</code> markup, no <code>Apartment</code> or <code>Residence</code> markup on the property pages, no <code>Offer</code> data for rent amounts or availability. Search engines and AI assistants are given no structured facts about the business, its location, or a single unit.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility (GEO)</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">There is essentially nothing for an engine to quote: no title, no descriptions, no schema, no FAQ, and three listed units. Ask an AI where to find affordable rentals in Buffalo or Niagara County and Homestead has no material to be cited from. Run the test yourself — the instructions are recommendation 02 — and the absence is immediate and obvious.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Property Listings</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Three individual property pages are published, plus one on the Properties page already marked unavailable. The site claims <strong>60-plus units</strong>. Under five per cent of the portfolio is visible, so a renter arriving with a genuine need most often finds nothing suitable and leaves. Each unlisted unit is also a page that could have ranked for its own street and neighbourhood.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Rental Portal Presence</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No presence found on Zillow Rentals or Apartments.com, which is where the overwhelming majority of renters actually begin. For a rental business these portals matter more than the website does: they carry the search traffic, the filters, and the syndication into everything else. Absent from them, the three published listings are effectively unfindable.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Site Hygiene</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The WordPress starter post <strong>"Hello world!"</strong> is still live and in the public sitemap, along with an <code>uncategorized</code> archive. Both are the standard signal of a site that was set up and never finished. An <code>/author/admin/</code> archive is also indexed, publishing that the administrator account is named <strong>"admin"</strong> — the single most-targeted username in automated WordPress attacks.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content — Blog / FAQ</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No FAQ and no content beyond the starter post. Every question a prospective tenant asks before applying — income requirements, pets, deposits, application fees, who handles maintenance, whether housing vouchers are accepted — is unanswered anywhere indexable. For an affordable-housing operator these questions carry unusually high search volume and unusually little competition.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Website (homesteadrealtywny.com)</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">A modern-looking WordPress 6.9.4 site that loads quickly (110ms) with correct HTTPS and redirects, working payments and an online application. It looks credible at a glance. But at twelve pages with four of them scaffolding, and 385 words on the homepage, there is very little site here beneath the design.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Local SEO / NAP</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">The Getzville address is consistent between the site and Google, which is a genuine plus. But the phone numbers disagree — Google shows the law firm's main line, the site pushes a different direct number — and the enquiry email is a law-firm address. With no local schema and an unclaimed profile, nothing anchors the business in Erie or Niagara County local results.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Mobile &amp; Accessibility</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">The viewport is correctly set with no pinch-to-zoom block, which several other sites in this portfolio get wrong. The layout is responsive and the payment and application flows work on a phone — the right call for a tenant base that is overwhelmingly mobile-first. Alt-text coverage should still be reviewed.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Security &amp; Integrity</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Checked specifically because a sibling site in this portfolio was found serving cloaked spam to crawlers. Homestead is <strong>clean</strong> — browser and Googlebot responses identical, no injected content. Marked down only for the exposed <code>admin</code> username and a publicly disclosed WordPress version, both of which narrow an attacker's work.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Overall Digital Score</span><span class="grade grade-f">2.8</span></div>
+          <div class="audit-note">Out of 10, weighing the Google profile, reputation, technical SEO, structured data, listings coverage, portal presence, content, hygiene, local signals, mobile and security. <strong>The lowest score in the portfolio.</strong> Not because the business is weak — nearly forty years and 60-plus units say otherwise — but because almost none of it has been carried onto the internet, and the one asset renters do see is unclaimed and unanswered.</div>
+        </div>
+      </div>
+      <div class="key-finding">
+        <div class="key-finding-label">Key Finding</div>
+        <p>Two things are true at once. First, this is a real business with real history that has essentially no digital representation: an empty title tag, no descriptions, no schema, three of 60-plus units published, the WordPress starter post still live, and no presence on the rental portals where tenants actually search. Second, and more urgently, the Google profile a prospective tenant sees is <strong>unclaimed</strong>, averages three stars, and leads with a two-year-old unanswered one-star account alleging roaches, rats and mould from a high-credibility Local Guide. The second problem is not a marketing problem and should not be handled as one. Claim the profile, respond professionally to what is there, and start asking long-term tenants for reviews. Only then is the rest of this list worth working through — and once it is, the affordable-rental category in Western New York is so thinly contested online that basic competence would put Homestead ahead of nearly everyone.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#effaf7;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">05</span>
+      <span class="section-title" style="color:#2F6F6A">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Claim the Google Profile and Answer the Reviews</span>
+          </div>
+          <div class="rec-detail">Do this before anything else in this document. The profile is unclaimed, so nobody can reply, correct the phone number, add photos or post availability. Claim it through Google's verification, then respond to the one-star reviews the way a professional operator would: acknowledge, state what was done or is being done, and offer a direct contact. A reply does not erase a complaint, but an answered complaint reads completely differently from an unanswered one — and right now it has stood for two years with silence next to it.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Run the AI Test Yourself — Ten Minutes</span>
+          </div>
+          <div class="rec-detail">Open <strong>ChatGPT</strong>, <strong>Perplexity</strong>, <strong>Grok</strong> and a plain <strong>Google search</strong> in a private or logged-out window, and type what a renter would type: <em>"affordable apartments for rent in Buffalo NY"</em> · <em>"who are the best landlords or property managers in Niagara County"</em> · <em>"pet friendly affordable rentals in Erie County New York"</em> · <em>"do I need good credit to rent an apartment in Buffalo"</em> · and <em>"what do you know about Homestead Realty WNY in Getzville New York"</em>. Note who gets named and whether Homestead appears at all. That last prompt is the revealing one. Everything in this audit is an explanation of what you will see.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Start a Review Habit With Long-Term Tenants</span>
+          </div>
+          <div class="rec-detail">Four reviews is a number a single good month reverses, and after nearly forty years there are tenants who have renewed repeatedly and would say so. Ask at renewal, after a maintenance job closes well, and at move-in. A dozen genuine reviews takes the average from 3.0 to comfortably above 4.0 and pushes the two one-stars down the page where a first-time visitor may never reach them. This is the fastest and cheapest reputational repair available.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Fix the Empty Title Tag and the Missing Descriptions</span>
+          </div>
+          <div class="rec-detail">The homepage title tag is literally empty, which is the most damaging single on-page defect a site can carry — it is the headline Google shows in results and the strongest ranking signal on the page. Give every page a real title in the pattern "Affordable Rentals in Buffalo &amp; Niagara County | Homestead Realty WNY," add a meta description to all twelve, and replace bare fragments like "Payments" with something a searcher would click.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Publish the Full Portfolio, Not Three Units</span>
+          </div>
+          <div class="rec-detail">Three published units against a claimed sixty means most renters who arrive find nothing and leave. Publish every available unit with photos, rent, bedrooms, neighbourhood and availability date, and keep them current. Each becomes a page that can rank for its own street and area — "apartments for rent Oliver Street North Tonawanda" is a query with real intent and almost no competition.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">List on Zillow Rentals and Apartments.com</span>
+          </div>
+          <div class="rec-detail">This is where renters actually start, and Homestead is not there. The portals carry the search traffic, the filters renters use, and syndication into dozens of other sites. For a rental business this outranks the website in importance, and getting listed is largely free. It also creates the third-party citations that both Google and AI assistants use to corroborate a business exists.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Clean Up the Unfinished WordPress</span>
+          </div>
+          <div class="rec-detail">Delete the "Hello world!" starter post and the <code>uncategorized</code> archive — both are live and in the public sitemap, and both signal an abandoned site. Remove or noindex <code>/author/admin/</code>, which is publishing that the administrator account is named "admin," and rename that account: it is the first username every automated WordPress attack tries. Hide the WordPress version string while you are in there.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Add Schema for the Business and Every Unit</span>
+          </div>
+          <div class="rec-detail">The site has no structured data at all. Add <code>RealEstateAgent</code> or <code>LocalBusiness</code> markup with the Getzville address, the correct phone and service areas, then <code>Apartment</code> or <code>Residence</code> markup on each unit with rent, bedrooms, bathrooms and availability. This is what lets Google and AI assistants read the portfolio as facts rather than prose, and it is the layer that makes listings eligible to be quoted in an answer.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">09</span>
+            <span class="rec-title">Write the FAQ Renters Actually Search</span>
+          </div>
+          <div class="rec-detail">Income and credit requirements, security deposits, application fees, pets, whether Section 8 or housing vouchers are accepted, how maintenance requests work, typical response times. These are high-intent, high-volume questions with almost no good local answers published anywhere. Answering them honestly does three jobs at once: it wins the search, it feeds AI answers, and it pre-screens applicants so fewer unsuitable enquiries reach the office.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">10</span>
+            <span class="rec-title">Add an AI Assistant for Tenant Enquiries</span>
+          </div>
+          <div class="rec-detail">Once the FAQ and unit data exist, an AI assistant on the site can answer availability, pricing, pet and application questions around the clock and route serious applicants to the office. Rental enquiries arrive at all hours and from people comparing several places at once; being the one that answers immediately wins a disproportionate share. It also absorbs the repetitive questions a small team currently fields by phone. This is Doble AI's signature layer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>Forty years of business. Four reviews and an empty title tag.</h2>
+    <p>Start by claiming the Google profile and answering what is on it — that one is urgent and it is not marketing. Then the rest is straightforward completion work: real titles, the full unit list, portal listings, schema and an FAQ. The affordable-rental category in Western New York is barely contested online, and Homestead has the history to own it.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Homestead Realty WNY — Digital Presence Audit</span>
+    <span>August 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
