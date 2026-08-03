@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Hogan Portfolio — Digital Presence Audits</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(47,111,106,0.2);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2F6F6A;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #2F6F6A;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #46524C;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(47,111,106,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7C8C84;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #eefaf6;
+    border: 1px solid #99e2d0;
+    border-left: 4px solid #0f766e;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #0f766e;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #134e4a; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(15,118,110,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(47,111,106,0.16);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #1F2622; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(71,85,76,0.14);  color: #46524c; }
+  .badge-sister { background: rgba(15,118,110,0.14); color: #0f766e; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F2622; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #cdeae3; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #2F6F6A;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #a6d4cb; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<style>
+  .biz-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 700px) { .biz-grid { grid-template-columns: 1fr; } }
+  .biz {
+    display: block; text-decoration: none; background: #E9F1ED;
+    border: 1px solid rgba(47,111,106,0.18); border-radius: 8px;
+    padding: 16px 18px; transition: border-color 0.15s, transform 0.15s;
+  }
+  .biz:hover { border-color: #2F6F6A; transform: translateY(-1px); }
+  .biz-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+  .biz-name { font-size: 16px; font-weight: 700; color: #1F2622; }
+  .biz-score { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; flex-shrink: 0; }
+  .biz-cat { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84; margin-bottom: 8px; }
+  .biz-note { font-size: 13.5px; color: #46524C; line-height: 1.55; }
+  .biz-link { font-size: 12px; font-weight: 700; color: #2F6F6A; margin-top: 10px; display: block; }
+  .rail { display:flex; gap:0; margin: 8px 0 0; flex-wrap: wrap; }
+  .rail div { flex:1; min-width:60px; text-align:center; padding:8px 4px; border-radius:6px; margin-right:4px; }
+  .rail span { display:block; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; }
+  .rail b { display:block; font-family:'Playfair Display',serif; font-size:20px; font-weight:500; }
+</style>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audits · Portfolio Summary · August 2026</div>
+    <h1>Eight Businesses,<br>One Pattern</h1>
+    <p>Complete digital presence audits for the Hogan portfolio: two restaurants, a bakery, a café, a baseball tournament complex, an aggregate yard in Texas, a fiberglass manufacturer and a rental housing operator. Eight businesses across four states and six industries, scored on the same twelve channels. They have almost nothing in common commercially. They turned out to share one problem.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">8</div><div class="stat-label">Audits Complete</div></div>
+      <div class="stat"><div class="stat-val">2.8 – 6.4</div><div class="stat-label">Score Range</div></div>
+      <div class="stat"><div class="stat-val">4.1</div><div class="stat-label">Portfolio Average</div></div>
+      <div class="stat"><div class="stat-val">0 of 8</div><div class="stat-label">Visible to AI Search</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The Pattern — It Is Not About How Well the Sites Are Built</div>
+      <p>The obvious conclusion, looking at scores clustered between 2.8 and 6.4, is that the websites were built badly. That is true of some of them and it is not the interesting finding. <strong>The interesting finding is that build quality made no difference to the outcome that matters.</strong> VPC Fiberglass scores 6.4 — valid certificates, a 66-millisecond response, real meta descriptions, structured data on the homepage, a correctly configured mobile viewport. It is a well-made site. Ask an AI assistant to name manufacturers of custom fiberglass enclosures and it returns Augusta Fiberglass, Warminster, Signature Enclosures and LF Manufacturing. VPC is not in the answer. Homestead Realty scores 2.8 and loses the same query for entirely different reasons. <strong>All eight are effectively invisible when someone asks an AI who to hire</strong>, and the two ends of the range get there by different routes. That is not a web-vendor problem. It is a category-wide gap that nobody in these markets has closed yet, and this portfolio holds eight positions in it.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: The Eight -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">The Eight Audits</span>
+    </div>
+    <div class="section-body">
+      <div class="biz-grid">
+
+        <a class="biz" href="../vpc-fiberglass/">
+          <div class="biz-top"><span class="biz-name">VPC Fiberglass</span><span class="biz-score" style="color:#1a4971">6.4</span></div>
+          <div class="biz-cat">Manufacturing · Medina, Lockport &amp; Amherst NY</div>
+          <div class="biz-note">The best-built site in the portfolio and still not named when an engineer asks who makes FRP enclosures. Zero FAQ content, no product markup, and a whole catalog subdomain carrying no structured data. Also: a page called "test location" live in the public sitemap, and three reviews of which the top one is a delivery driver's GPS coordinates.</div>
+          <span class="biz-link">Read the audit →</span>
+        </a>
+
+        <a class="biz" href="../ellicottville-bake-shop/">
+          <div class="biz-top"><span class="biz-name">Ellicottville Bake Shop</span><span class="biz-score" style="color:#7d5a1e">5.5</span></div>
+          <div class="biz-cat">Bakery · Ellicottville NY</div>
+          <div class="biz-note">Strong local reputation, thin technical foundation. Separately, this audit surfaced a live security problem: the site was serving clean pages to browsers and scraped spam to Google. Reported, and cleaned up by the web manager within days. That one was not visible from a browser at all.</div>
+          <span class="biz-link">Read the audit →</span>
+        </a>
+
+        <a class="biz" href="../alpine-bistro-ellicottville/">
+          <div class="biz-top"><span class="biz-name">Alpine Bistro</span><span class="biz-score" style="color:#b45309">4.8</span></div>
+          <div class="biz-cat">Café &amp; Wine Bar · Ellicottville NY</div>
+          <div class="biz-note">A genuinely healthy Google profile at 4.6 stars across 65 reviews, carrying the discoverability almost alone. No meta description, no Open Graph, no schema on the site behind it, and a mobile viewport that blocks pinch-to-zoom.</div>
+          <span class="biz-link">Read the audit →</span>
+        </a>
+
+        <a class="biz" href="../fenimores-table/">
+          <div class="biz-top"><span class="biz-name">Fenimore's Table</span><span class="biz-score" style="color:#b45309">4.6</span></div>
+          <div class="biz-cat">Gastro-pub · Cooperstown NY</div>
+          <div class="biz-note">Competing for attention against a name collision in a tournament town, and reframed during the audit as the sit-down dining arm of the Cooperstown Experience complex rather than a standalone restaurant chasing passing trade.</div>
+          <span class="biz-link">Read the audit →</span>
+        </a>
+
+        <a class="biz" href="../cooperstown-clubhouse/">
+          <div class="biz-top"><span class="biz-name">Cooperstown Clubhouse</span><span class="biz-score" style="color:#c2410c">3.7</span></div>
+          <div class="biz-cat">Team Dining · Cooperstown NY</div>
+          <div class="biz-note">A split brand: the same venue runs as Cooperstown Clubhouse on its website and Google, and as Rookie's Craft House on Yelp and social, where team bookings actually route. Mismatched hours between them, and the Google side sits at 2.4 stars.</div>
+          <span class="biz-link">Read the audit →</span>
+        </a>
+
+        <a class="biz" href="../cooperstown-experience/">
+          <div class="biz-top"><span class="biz-name">Cooperstown Experience</span><span class="biz-score" style="color:#c2410c">3.6</span></div>
+          <div class="biz-cat">Tournament Complex · Cooperstown NY</div>
+          <div class="biz-note">A brand-new youth baseball and softball complex entering a market Dreams Park has held since 1996. Real differentiators exist — awards inside the Hall of Fame, girls softball, weekend formats, on-site dining — and almost none of them are findable.</div>
+          <span class="biz-link">Read the audit →</span>
+        </a>
+
+        <a class="biz" href="../patriot-stone-supply/">
+          <div class="biz-top"><span class="biz-name">Patriot Stone Supply</span><span class="biz-score" style="color:#c2410c">3.0</span></div>
+          <div class="biz-cat">Aggregate Yard · Denton TX</div>
+          <div class="biz-note">A location business you cannot locate. No address published, no Google Business Profile at all. Customers who need to drive a truck to a yard cannot find where the yard is.</div>
+          <span class="biz-link">Read the audit →</span>
+        </a>
+
+        <a class="biz" href="../homestead-realty-wny/">
+          <div class="biz-top"><span class="biz-name">Homestead Realty WNY</span><span class="biz-score" style="color:#b91c1c">2.8</span></div>
+          <div class="biz-cat">Rental Housing · Getzville NY</div>
+          <div class="biz-note">Nearly forty years of operating history and 60-plus units, represented online by three listings and an empty title tag. The Google profile is unclaimed, which means the reviews on it have never been answerable. Start here, and start with the profile.</div>
+          <span class="biz-link">Read the audit →</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: What Repeats -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">What Repeats Across the Portfolio</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr>
+            <th>Finding</th>
+            <th>How Many</th>
+            <th>Why It Matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>No FAQ content</td>
+            <td class="geo"><span class="badge badge-high">8 of 8</span></td>
+            <td>Question-and-answer content is the single strongest driver of being quoted by an AI assistant. Not one business in the portfolio has any. This is the most repeatable fix and the one with the clearest return.</td>
+          </tr>
+          <tr>
+            <td>Missing or incomplete schema</td>
+            <td class="geo"><span class="badge badge-high">8 of 8</span></td>
+            <td>Structured data is how a machine reads a business as facts rather than prose. Several sites have none at all; the best has some but omits the two types that matter most for being recommended.</td>
+          </tr>
+          <tr>
+            <td>Not named in AI answers</td>
+            <td class="geo"><span class="badge badge-high">8 of 8</span></td>
+            <td>Competitors are being returned instead, in every category tested. The engines are not choosing against these businesses. They cannot see them well enough to choose them at all.</td>
+          </tr>
+          <tr>
+            <td>Review presence far below the real business</td>
+            <td class="geo"><span class="badge badge-med">6 of 8</span></td>
+            <td>Three reviews for a decades-old manufacturer, four for a forty-year rental operator, one profile unclaimed and another absent entirely. Reviews feed both map rankings and AI recommendations.</td>
+          </tr>
+          <tr>
+            <td>Unfinished website scaffolding left public</td>
+            <td class="geo"><span class="badge badge-med">4 of 8</span></td>
+            <td>Starter posts, test pages, author archives and duplicate product pages sitting in live sitemaps. Each one dilutes relevance and signals an unattended site to both search engines and visitors.</td>
+          </tr>
+          <tr>
+            <td>Cross-business links between the properties</td>
+            <td class="geo"><span class="badge badge-lowmed">0 of 8</span></td>
+            <td>Eight businesses under one owner, none of them reinforcing another. Shared audiences, shared local authority and shared traffic are all being left on the table for the cost of a few links.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Path -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">What Fixing This Actually Involves</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">
+        Most of this work is <strong>specification, not construction</strong>. The majority of what these eight audits recommend can be written up and handed to whoever maintains each site, with no access required. A smaller portion needs someone inside the site. A third portion is not website work at all.
+      </p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(47,111,106,0.08);border:1px solid rgba(47,111,106,0.22)">
+          <div class="pos-card-label" style="color:#2F6F6A">Can Be Handed Over as a Spec</div>
+          <div class="pos-card-text">FAQ content written against each business. Schema blocks ready to paste. Page titles, meta descriptions and Open Graph tags as a simple list. Product and listing markup. The mobile viewport fix. Most of the recommendations across all eight sit here.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(194,65,12,0.25)">
+          <div class="pos-card-label" style="color:#c2410c">Needs Site Access</div>
+          <div class="pos-card-text">Deleting test pages and starter posts, consolidating duplicate pages, renaming exposed admin accounts, and confirming that content is actually readable in the served page rather than only after a click. These cannot be specified from outside with confidence.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Not Website Work at All</div>
+          <div class="pos-card-text">Claiming Google profiles, creating the ones that do not exist, responding to reviews, and asking satisfied customers for new ones. Several of the highest-impact items in this portfolio never touch a website, and one of them is urgent.</div>
+        </div>
+      </div>
+      <div class="key-finding" style="margin-top:20px">
+        <div class="key-finding-label">Verification</div>
+        <p>However the work gets done, the same check applies afterwards: run the buyer's question back through ChatGPT, Perplexity, Grok and Google's AI answers, and see whether the business is named this time. Each audit carries its own set of five prompts written for that business's actual customer. Re-running them monthly is how you tell whether anything moved, and it is the only measurement that reflects how people now decide who to hire.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>Eight open lanes, while the field is still empty.</h2>
+    <p>None of these businesses is losing because a competitor is better. They are losing because competitors are readable and they are not. The work repeats across all eight, which means it gets faster each time, and the category is uncontested today in a way it will not be for long.</p>
+    <a href="https://dobleai.com" class="cta-btn">dobleai.com</a>
+    <div class="cta-sub">Prepared for Corey Hogan · Doble AI</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Hogan Portfolio — Digital Presence Audits</span>
+    <span>August 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
