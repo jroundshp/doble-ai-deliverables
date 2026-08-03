@@ -475,55 +475,62 @@
         <div class="rec-item">
           <div class="rec-header">
             <span class="rec-num">01</span>
+            <span class="rec-title">Start Here — Run the Test Yourself, It Takes Ten Minutes</span>
+          </div>
+          <div class="rec-detail">Before acting on anything below, go and see it. Open <strong>ChatGPT</strong>, <strong>Perplexity</strong>, <strong>Grok</strong> and a plain <strong>Google search</strong> (for the AI Overview at the top), use a private or logged-out window so your own history does not colour the results, and type in what a customer would actually type. For example: <em>"best FRP equipment shelter and enclosure manufacturers in New York State"</em> · <em>"who can build a custom corrosion-resistant fiberglass enclosure for a municipal water treatment plant in the Northeast"</em> · <em>"recommend a manufacturer for a custom chemical storage building for a wastewater facility"</em> · <em>"fiberglass or concrete for a wet well and manhole covers, and who supplies FRP versions"</em> · and finally <em>"what do you know about Virtual Polymer Compounds, VPC Fiberglass, in Medina New York"</em>. Note which companies get named, and whether VPC is one of them. That last prompt is the revealing one: it tests whether the engines know VPC exists at all when asked directly. Screenshot what you find. Everything else in this audit is an explanation of those screenshots, and the same five prompts re-run monthly are how you measure whether the work is landing.</div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
             <span class="rec-title">Put Product Schema on the Catalog</span>
           </div>
           <div class="rec-detail">The catalog at <code>products.vpcfiberglass.com</code> carries zero structured data while being linked from the homepage more than fifty times. Add <code>Product</code> markup to every item — name, description, material, dimensions, application, manufacturer — so each becomes a citable entity rather than an unreadable page. This is the single highest-leverage item on the audit, and it does not require writing anything new.</div>
         </div>
         <div class="rec-item">
           <div class="rec-header">
-            <span class="rec-num">02</span>
+            <span class="rec-num">03</span>
             <span class="rec-title">Turn the Resource Library Into Marked-Up FAQs</span>
           </div>
           <div class="rec-detail">The material guide, the concrete comparison and the 101 explainers already answer what buyers ask — in prose. Restructure the answers as explicit questions ("How long does an FRP enclosure last in a chlorine environment?", "Fiberglass or concrete for a wet well?", "What lead time for a custom shelter?") and wrap them in <code>FAQPage</code> schema. FAQ markup is the primary driver of AI citation, and VPC currently has none anywhere.</div>
         </div>
         <div class="rec-item">
           <div class="rec-header">
-            <span class="rec-num">03</span>
+            <span class="rec-num">04</span>
             <span class="rec-title">Clean the Indexed Clutter</span>
           </div>
           <div class="rec-detail">Delete or noindex the live <code>/locations/test-location/</code> page. Consolidate the four near-duplicate Enduro enclosure pages into one canonical product page and redirect the rest, recovering the relevance currently split across copies. Noindex the <code>/author/</code> archive, which is publishing the web vendor's admin username to search engines. Add the missing meta description to <code>/locations/</code>.</div>
         </div>
         <div class="rec-item">
           <div class="rec-header">
-            <span class="rec-num">04</span>
+            <span class="rec-num">05</span>
             <span class="rec-title">Complete the Three-Location Local Footprint</span>
           </div>
           <div class="rec-detail">Create a Google Business Profile for the <strong>Amherst</strong> facility at 2410 North Forest Road, which has none. Reconcile the Lockport profile's (888) 290-9522 against the numbers published on the site so they agree. Standardise "S Niagara" versus "South Niagara" site-wide, and add <code>LocalBusiness</code> markup per location. Three plants beats a competitor shipping from South Carolina — but only if the three are findable.</div>
         </div>
         <div class="rec-item">
           <div class="rec-header">
-            <span class="rec-num">05</span>
+            <span class="rec-num">06</span>
             <span class="rec-title">Ask a Decade of Customers for Reviews</span>
           </div>
           <div class="rec-detail">Three reviews, one of them a delivery driver's coordinates, is not a reputation — it is an absence. Municipal engineers, plant managers and contractors who have bought from VPC for years will give a review if asked, and B2B review counts are so low across this category that even a dozen genuine ones would stand out. Reviews also feed directly into how AI assistants judge which suppliers to name.</div>
         </div>
         <div class="rec-item">
           <div class="rec-header">
-            <span class="rec-num">06</span>
+            <span class="rec-num">07</span>
             <span class="rec-title">Publish Spec-Grade Comparison Content</span>
           </div>
           <div class="rec-detail">The Fiberglass vs. Concrete page proves the format works. Extend it to the comparisons specifiers actually run — FRP versus stainless, versus aluminium, versus precast — plus corrosion-resistance tables, load ratings and the BABA compliance angle already touched on. This is the material engines quote when asked which supplier fits a requirement, and almost none of VPC's competitors have published it either.</div>
         </div>
         <div class="rec-item">
           <div class="rec-header">
-            <span class="rec-num">07</span>
+            <span class="rec-num">08</span>
             <span class="rec-title">Reduce Dependence on the ThomasNet Channel</span>
           </div>
           <div class="rec-detail">ThomasNet delivers qualified traffic, but it also lists 611 competing FRP shelter suppliers, ranks its own category pages above individual manufacturers, and currently hosts VPC's catalog on a subdomain it controls. Keep the channel, and build the owned equivalent alongside it so that a buyer researching the category can find VPC directly rather than only through a directory that monetises the alternatives.</div>
         </div>
         <div class="rec-item">
           <div class="rec-header">
-            <span class="rec-num">08</span>
+            <span class="rec-num">09</span>
             <span class="rec-title">Add an AI Spec Assistant to the Site</span>
           </div>
           <div class="rec-detail">Add an AI assistant trained on the product catalog, material specs and case studies that can answer sizing, material-selection and lead-time questions and route a qualified enquiry to the design team. Specification research happens at all hours and long before contact; capturing it is worth more per enquiry here than in any consumer business in the portfolio, because a single custom shelter order dwarfs a restaurant ticket. This is Doble AI's signature layer.</div>
