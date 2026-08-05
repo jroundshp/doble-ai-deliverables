@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Tiveron Law PLLC — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(47,111,106,0.2);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2F6F6A;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #2F6F6A;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #46524C;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(47,111,106,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7C8C84;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #eefaf6;
+    border: 1px solid #99e2d0;
+    border-left: 4px solid #0f766e;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #0f766e;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #134e4a; line-height: 1.6; }
+  .alert p + p { margin-top: 12px; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(15,118,110,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(47,111,106,0.16);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #1F2622; line-height: 1.6; }
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; }
+  td:last-child  { padding-right: 0; }
+  .nw { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(71,85,76,0.14);  color: #46524c; }
+  .badge-ok     { background: rgba(21,128,61,0.12); color: #15803d; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F2622; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-am { background: #16803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bp { background: #1e3a8a; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-cm { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+  .audit-note code, .fact-val code, .rec-detail code, td code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(47,111,106,0.1);
+    padding: 1px 5px; border-radius: 4px; font-size: 0.88em;
+  }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+  .key-finding p + p { margin-top: 12px; }
+
+  .note-box {
+    background: #fffbeb; border: 1px solid #fcd34d; border-left: 4px solid #d97706;
+    border-radius: 8px; padding: 14px 18px; margin-top: 20px;
+  }
+  .note-box-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #b45309; margin-bottom: 6px;
+  }
+  .note-box p { font-size: 14px; color: #713f12; line-height: 1.6; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+  .rec-detail em { color: #1F2622; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #cdeae3; line-height: 1.6;
+    max-width: 560px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #2F6F6A;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #a6d4cb; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · August 2026 · Amherst · Buffalo · Ellicottville · Lockport · Lancaster, New York</div>
+    <h1>Tiveron<br>Law PLLC</h1>
+    <p>Western New York's full-service firm, more than 35 attorneys across five offices, trading as Tiveron Law since the HoganWillig rebrand in November 2022. This is the best-engineered website in the portfolio and it has the strongest review base by a wide margin. It is audited on that basis. The question is not whether the site works. It is why a firm with 191 Google reviews and nearly a thousand pages of published legal content is not the name that comes back when someone asks an AI assistant who to call in Buffalo.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">5</div><div class="stat-label">Offices</div></div>
+      <div class="stat"><div class="stat-val">963</div><div class="stat-label">URLs in Sitemap</div></div>
+      <div class="stat"><div class="stat-val">4.2★ (191)</div><div class="stat-label">Main Google Profile</div></div>
+      <div class="stat"><div class="stat-val">60ms</div><div class="stat-label">Server Response</div></div>
+      <div class="stat"><div class="stat-val">5.5 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The Core Gap — The Firm Rebranded. The Machine-Readable Website Did Not.</div>
+      <p>Start with the good news, because there is a lot of it. The hosting is professional grade (WP Engine behind Cloudflare, a 60ms server response, valid SSL, a correct redirect from the bare domain), the mobile viewport does <em>not</em> block pinch-to-zoom, which is the defect on every other site in the portfolio, and the content library is enormous: 688 articles, 103 practice pages, 108 FAQ pages and 23 attorney bios. There is no case for a rebuild here.</p>
+      <p>The problem is that the November 2022 rebrand was completed for humans and never completed for machines. Nearly four years on, <strong>39 of the 40 blog posts we sampled still carry "HoganWillig Law Firm" in the page title tag</strong>, which is the single line Google and every AI assistant read first. The site's <code>Organization</code> markup still lists the old firm's Facebook and X accounts as its official profiles, and the X account is dead. The <code>robots.txt</code> file still points every crawler at a sitemap on <code>hoganwillig.com</code> that returns a 404. And on the old domain itself, only the homepage redirects: <strong>every deep link from fifty years of citations, directory listings and press coverage lands on a 404.</strong></p>
+      <p>The result is a firm that reads to a search engine as two half-entities instead of one strong one. Ask an AI who handles residential closings in Buffalo, and it names Clark Peshkin, Smolarek Law and LoTempio. Tiveron, which by its own account does more residential closings than any other real estate group in the Buffalo area, is not in the answer. None of this is construction. It is naming, markup and redirects.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A full-service Western New York law firm with more than 35 attorneys, trading under the registered line <strong>"Legal Counsel for Life®"</strong>. Practice areas span Personal Injury and Medical Malpractice, Matrimonial and Family Law, Estate Planning and Elder Law, Real Estate, Civil Litigation, Corporate and Business, Social Security Disability, Criminal Defense, and Vehicle and Traffic. The firm rebranded from HoganWillig, with the current site launched 16 November 2022.</div>
+        </div>
+        <div>
+          <div class="fact-label">Offices and Numbers</div>
+          <div class="fact-val"><strong>Amherst</strong> (main), 2410 North Forest Road Suite 301, 716-636-7600. <strong>Buffalo</strong>, 155 Summer Street, 716-332-3442. <strong>Ellicottville</strong>, 5 E. Washington St Suite 5B, 716-699-9115. <strong>Lockport</strong>, 770 Davison Road, 716-434-7766. <strong>Lancaster</strong>, by appointment only, 716-681-1500. Five locations across Erie, Niagara and Cattaraugus counties is a genuine competitive asset that the digital footprint currently under-represents.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Strongest Asset</div>
+          <div class="fact-val">The review base. The Amherst profile holds <strong>4.2 stars from 191 reviews</strong>, with Ellicottville at 4.5 from 11 and Buffalo at 3.6 from 17. For context, that is more review volume than most Buffalo firms of any size carry, and it is the highest of any business audited in this portfolio. It is also, at present, completely invisible to structured data. Not one rating appears in the site's markup.</div>
+        </div>
+        <div>
+          <div class="fact-label">Content Assets</div>
+          <div class="fact-val">Unusually deep and almost entirely un-leveraged: <strong>688 articles</strong>, <strong>103 practice-area pages</strong>, <strong>108 individual FAQ pages</strong>, <strong>10 problem-first "solutions" pages</strong> (I Need A Divorce, Charged With A DWI, Injured In An Accident), 23 attorney bios and 5 office pages. The expensive part, which is writing authoritative legal content, is done. The cheap part, which is labelling it so machines can quote it, has not been started.</div>
+        </div>
+        <div>
+          <div class="fact-label">Recognition Already Earned</div>
+          <div class="fact-val">Super Lawyers and Rising Stars selections (12 attorneys), U.S. News Best Lawyers, Legal Elite of Western New York, top AVVO ratings, a 2025 Buffalo News Top Workplace listing, and Diane R. Tiveron on Buffalo Business First's Power 200 Women list. These are exactly the third-party trust signals AI assistants weight most heavily, and none of them are marked up as structured data.</div>
+        </div>
+        <div>
+          <div class="fact-label">Who Built It</div>
+          <div class="fact-val">PaperStreet Web Design, a specialist law-firm web vendor, on WordPress with a custom <code>paperstreet</code> theme. This matters for the portfolio picture: unlike the restaurant and retail sites, this was <strong>not</strong> built by the vendor responsible for the shared defects elsewhere in the group, and the quality difference is obvious. The failures here are of maintenance and follow-through after launch, not of construction.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">The instinct is to benchmark against the big Buffalo names. That is the wrong frame for this audit. In traditional search and in reputation, Tiveron competes with the large full-service firms. <strong>In AI answers, it is losing to solo practitioners and small shops</strong> who publish specific, structured, plainly-priced answers to the exact questions buyers type. Both sets are listed below, because they are different fights.</p>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Firm</th><th>Position</th><th>Where They Beat Tiveron</th><th class="nw">Threat</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Phillips Lytle LLP</td>
+            <td class="nw">Large full-service</td>
+            <td>Owns the "full-service law firm Buffalo" phrase in general search with far greater domain authority and a national corporate client base. Competes for the corporate and commercial work, not the consumer practices.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Bond, Schoeneck &amp; King</td>
+            <td class="nw">Large full-service</td>
+            <td>One of the largest firms in the city with deep regional content and institutional authority. Same corporate overlap, minimal consumer overlap.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Lipsitz Green Scime Cambria</td>
+            <td class="nw">Buffalo full-service</td>
+            <td>The closest true peer. Named to Best Lawyers "Best Law Firms" across 26 practice areas, and competes across the same consumer and litigation mix Tiveron serves.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Rupp Pfalzgraf</td>
+            <td class="nw">Top-five WNY full-service</td>
+            <td>Directly positions itself as a top-five full-service Western New York firm, which is the same claim Tiveron's homepage makes, with a cleaner brand story and no legacy naming drag.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Cellino Law</td>
+            <td class="nw">Personal injury</td>
+            <td>Dominates personal injury brand recall in WNY and carries an enormous, actively-managed review base. Any Tiveron PI search competes against the most recognised legal brand in the market.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Friedman &amp; Ranzenhofer<br><span style="font-weight:400;font-size:13px;color:#7C8C84">wny-lawyers.com</span></td>
+            <td class="nw">Consumer multi-practice</td>
+            <td>The single most instructive competitor here. A smaller firm that <strong>surfaces in AI answers for both real estate and personal injury</strong> because its site is built around plain-language question pages. It ranks where Tiveron does not, despite far less scale.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Clark Peshkin</td>
+            <td class="nw">Solo, real estate closings</td>
+            <td>Wins the residential closing question outright in AI answers, largely by <strong>publishing a flat $600 closing fee on the page</strong>. A specific number is a citable fact. Tiveron does more closings than anyone in the area and publishes no equivalent.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Katz and Baehre</td>
+            <td class="nw">Estate planning, Amherst</td>
+            <td>Returned ahead of Tiveron for Western New York estate planning, on the strength of one specific, repeatable claim ("assisted over 10,000 Western New York families").</td>
+            <td><span class="badge badge-lowmed">Med-High</span></td>
+          </tr>
+          <tr>
+            <td>Tully Rinckey PLLC</td>
+            <td class="nw">Multi-office regional</td>
+            <td>Appears immediately adjacent to Tiveron in Google Maps results for the Amherst area, competing for the same map-pack attention on the firm's own home turf.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Directories<br><span style="font-weight:400;font-size:13px;color:#7C8C84">Expertise · Justia · Super Lawyers · Avvo · Yelp</span></td>
+            <td class="nw">Aggregators</td>
+            <td>Not competitors for clients, but they are what AI assistants actually cite when asked to recommend a Buffalo lawyer. They intercept the recommendation before any firm's own site is consulted. Presence and rank inside them is its own work stream.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">Tiveron has the two things that are genuinely hard to acquire: <strong>scale and reputation</strong>. Five offices, 35+ attorneys, nearly a thousand published pages and 191 reviews at 4.2 stars. What it lacks are the things that cost the least: <strong>a consistent machine-readable name, working redirects from its own history, and content labelled so an assistant can quote it.</strong></p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(21,128,61,0.09);border:1px solid rgba(21,128,61,0.22)">
+          <div class="pos-card-label" style="color:#15803d">Real Strengths</div>
+          <div class="pos-card-text">Professional hosting and a fast, secure, mobile-correct site. A content library most firms would envy. 191 reviews at 4.2 stars on the main profile. Genuine third-party recognition from Super Lawyers, Best Lawyers and Buffalo News. Analytics properly installed. Nothing here needs rebuilding.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.09);border:1px solid rgba(180,83,9,0.22)">
+          <div class="pos-card-label" style="color:#b45309">The Drag</div>
+          <div class="pos-card-text">An unfinished rebrand in the layer only machines read. Old firm name in hundreds of title tags, dead social accounts declared as official, a robots.txt pointing at a 404, and a legacy domain that drops every deep link. Fifty years of accumulated authority is leaking through a broken join.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(185,28,28,0.08);border:1px solid rgba(185,28,28,0.22)">
+          <div class="pos-card-label" style="color:#b91c1c">The Open Flank</div>
+          <div class="pos-card-text">Zero presence in AI answers across every buyer-intent question tested, including the firm's strongest practice. Solo practitioners with a fraction of the resources are being recommended instead, because they answer the question directly and Tiveron does not.</div>
+        </div>
+      </div>
+
+      <div class="key-finding" style="margin-top:22px">
+        <div class="key-finding-label">The Finding That Explains The Rest</div>
+        <p>A title tag is the one line a search engine and an AI assistant read before anything else. On this site, the title tag of a typical article reads: <em>"Egregious Sexual Assault Case Rocks Western New York Community: HoganWillig Law Firm - Amherst, Buffalo, Ellicottville, Lancaster, Lockport New York"</em>. We sampled 40 articles and found the old firm name in <strong>39 of them</strong>. The sitemap lists 688 articles in total.</p>
+        <p>Meanwhile the firm's own <code>Organization</code> record, the structured data block that tells machines who this business is, declares its official social profiles as <code>facebook.com/hoganwillig</code> and <code>x.com/hoganwillig</code>. The X account returns a 404. The correct Tiveron accounts are linked in the visible footer, where humans can see them, but not in the markup, where machines look. Every automated system reading this site is being told, consistently and in the firm's own words, that it is looking at HoganWillig.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Hosting &amp; Infrastructure</span><span class="grade grade-a">A-</span></div>
+          <div class="audit-note">WP Engine managed WordPress behind Cloudflare, HTTP/2, a <strong>60ms server response</strong>, valid SSL, and a correct 301 from the bare domain to <code>www</code>. Genuinely professional. Only marks off for the complete absence of security headers (no HSTS, CSP, X-Frame-Options or Referrer-Policy), which is a hygiene rather than a performance issue.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Mobile &amp; Page Experience</span><span class="grade grade-bm">B-</span></div>
+          <div class="audit-note">The viewport is set correctly and does <strong>not</strong> lock pinch-to-zoom, unlike every other site in the portfolio. Lazy-loading is handled in JavaScript. The weak point is images: homepage photographs are served as <strong>PNGs at 350KB to 420KB each</strong> where WebP would cut them by roughly two thirds, and there is not a single WebP or AVIF file anywhere on the page.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Brand Consistency (Rebrand)</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The headline failure. <strong>39 of 40 sampled articles carry "HoganWillig Law Firm" in the title tag</strong>, out of 688 total. The <code>Organization</code> schema and the <code>article:publisher</code> tag both declare HoganWillig social accounts as official, site-wide. At least one live article URL still contains the slug <code>hoganwillig-pllc-attorneys-receive-super-lawyers-recognition</code>. Nearly four years after the rebrand.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Legacy Domain &amp; Link Equity</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">On <code>hoganwillig.com</code> the homepage 301-redirects correctly to Tiveron. <strong>Every deep URL we tested returns a 404</strong>, including <code>/amherst/</code>, <code>/lockport/</code>, <code>/real-estate-law/</code> and <code>/attorneys/</code>. Google still surfaces some of those old pages in results. For a firm with decades of citations, press coverage and directory links, this discards the accumulated authority of the old domain page by page.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Structured Data / Schema</span><span class="grade grade-dp">D+</span></div>
+          <div class="audit-note">Present but skeletal. Every page carries <code>WebPage</code>, <code>WebSite</code>, <code>BreadcrumbList</code> and <code>Organization</code>. The <code>Organization</code> block contains only name, URL, logo and those wrong social links: <strong>no address, no telephone, no geo coordinates, no service area, no rating</strong>. The firm is typed as a generic <code>Organization</code> rather than <code>LegalService</code> or <code>Attorney</code>. No <code>Person</code> markup on 23 attorney bios. No <code>Review</code> markup anywhere.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">FAQ Pages (108 of them)</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The clearest missed opportunity on the site. There are 108 individual FAQ pages, each answering a real client question. Every one we sampled shares the <strong>identical <code>&lt;h1&gt;</code> of "Frequently Asked Questions"</strong> rather than the question itself, ships a <strong>meta description consisting of two full stops (<code>..</code>)</strong>, and carries <strong>no <code>FAQPage</code> schema at all</strong>. FAQ markup is the primary driver of AI citation. The content exists; the labels do not.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Technical SEO (core pages)</span><span class="grade grade-cp">C+</span></div>
+          <div class="audit-note">Main pages are handled properly: unique descriptive titles, real meta descriptions, canonical tags and Open Graph, all managed by Yoast SEO Premium. But <code>robots.txt</code> declares the sitemap as <code>hoganwillig.com/sitemap_index.xml</code>, which <strong>returns a 404</strong>, while the site's own working sitemap goes undeclared. Every one of the 688 articles also shares an identical <code>lastmod</code> date, which flattens the freshness signal crawlers use.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Content Library</span><span class="grade grade-a">A-</span></div>
+          <div class="audit-note">963 URLs in the sitemap: 688 articles, 103 practice pages, 108 FAQs, 23 attorney bios, 10 problem-first solution pages and 5 office pages. Individual pages run substantial, with attorney bios above 2,000 words and practice pages between 1,300 and 1,900. The solution pages in particular are exactly the right shape for AI retrieval. This is the asset the whole recovery plan is built on.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profiles</span><span class="grade grade-cp">C+</span></div>
+          <div class="audit-note">Three profiles are live and healthy: Amherst 4.2★ (191), Ellicottville 4.5★ (11), Buffalo 3.6★ (17). Two gaps. The <strong>Lockport office at 770 Davison Road, which has a real street address, is not visible in Maps results</strong>. And the <strong>Buffalo profile publishes the Amherst main line, (716) 636-7600, while the site lists 716-332-3442</strong> for that office. Lancaster is appointment-only, so its absence is legitimate.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-bp">B+</span></div>
+          <div class="audit-note">The strongest channel and the best asset in the entire portfolio. <strong>191 reviews at 4.2 stars</strong> on the main profile represents years of accumulated goodwill. The firm also runs a testimonials page. The gap is purely technical: that page carries <strong>no <code>Review</code> or <code>aggregateRating</code> markup</strong>, so none of the reputation is machine-readable, and the 3.6 on the Buffalo profile deserves attention on its own terms.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI Search Visibility</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Not visible on any buyer-intent question tested. Divorce, residential closings, estate planning and elder law all return other firms. Only a direct brand-category query surfaces the site. Most striking is real estate: the firm states it handles more residential closings than any other group in the Buffalo area, and the answers name <strong>Clark Peshkin, Smolarek Law, Michael J. Hughes and LoTempio</strong> instead. See the note below on how this was measured.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Analytics &amp; Measurement</span><span class="grade grade-bp">B+</span></div>
+          <div class="audit-note">Properly instrumented and better than most of the portfolio: GA4, Google Tag Manager and Google Site Kit are all installed and current. The infrastructure to measure the effect of every recommendation below is already in place, which materially lowers the cost of proving whether the work landed.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social &amp; Directory Footprint</span><span class="grade grade-cm">C-</span></div>
+          <div class="audit-note">Correctly-branded Facebook, X and LinkedIn accounts exist and are linked in the visible footer, and an Instagram account resolves. But the markup declares the dead HoganWillig accounts instead. Off-site, major directories including FindLaw and Lawyers.com <strong>still carry the firm under <code>hoganwillig-pllc</code> URLs</strong>, so the citation trail Google uses to confirm business identity is split across two names.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Crawler Access &amp; Security</span><span class="grade grade-a">A-</span></div>
+          <div class="audit-note">Checked specifically because it has bitten this portfolio before. <strong>All results clean.</strong> GPTBot, OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot, Googlebot, Bingbot and Google-Extended each receive a normal 200 response, byte-identical to a browser's. No AI crawler is blocked and no cloaking behaviour reproduced from our end. The site is doing nothing to keep the assistants out.</div>
+        </div>
+
+      </div>
+
+      <div class="note-box">
+        <div class="note-box-label">How the AI Visibility Result Was Measured, and Its Limits</div>
+        <p>These findings come from running buyer-intent questions through live search and recording which firms are returned and which sources are cited. That is strong evidence of what the engines currently surface, but it is not the same as a screenshot-verified sweep of ChatGPT, Perplexity, Grok and Google AI Overviews in logged-out sessions, which is the standard we hold ourselves to. Read every result here as <strong>"not visible from outside"</strong> rather than "does not exist". Recommendation 01 is for the firm to run the same prompts and screenshot what comes back, which takes about ten minutes and settles the question with the firm's own evidence rather than ours.</p>
+      </div>
+
+      <div class="key-finding" style="margin-top:20px">
+        <div class="key-finding-label">Who AI Recommends Instead, and What It Cites</div>
+        <p><strong>Residential closings:</strong> Clark Peshkin, Smolarek Law, Michael J. Hughes, LoTempio, Keith Schulefand. <strong>Divorce:</strong> Paul Walier, Kate Johnson Law, Keith Schulefand, Dominic Saraceno, Linda DiPasquale. <strong>Estate planning and elder law:</strong> WSM Elder Law, Katz and Baehre, Ettinger Law. <strong>Full-service firm:</strong> Phillips Lytle, Bond Schoeneck &amp; King, Lipsitz Green, Rupp Pfalzgraf, with Tiveron appearing here.</p>
+        <p>The pattern worth acting on is what gets <em>cited</em>. Across these answers the recurring sources are <strong>Expertise.com, Justia, Super Lawyers, Lawyers.com, Avvo, Yelp and Birdeye</strong>. These directories are the layer the assistants trust for legal recommendations, which means the repair path has two tracks: fix the markup and content on the site, and separately make sure the firm is present, current and correctly named inside the specific directories the engines already read. Several of those listings still say HoganWillig.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#effaf7;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">05</span>
+      <span class="section-title" style="color:#2F6F6A">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Start Here. Run the Test Yourself, It Takes Ten Minutes</span>
+          </div>
+          <div class="rec-detail">Before acting on anything below, go and see it. Open <strong>ChatGPT</strong>, <strong>Perplexity</strong>, <strong>Grok</strong> and a plain <strong>Google search</strong> (for the AI Overview at the top), use a private or logged-out window so your own history does not colour the results, and type what a client would actually type. For example: <em>"best real estate closing attorney in Buffalo NY"</em> · <em>"who can help me with a divorce in Western New York"</em> · <em>"recommend an estate planning and elder law firm near Amherst New York"</em> · <em>"how much does a residential real estate closing attorney cost in Buffalo"</em> · and finally <em>"what do you know about Tiveron Law in Buffalo New York"</em>. Note which firms get named, and whether Tiveron is one of them. That last prompt is the revealing one: it tests whether the engines know the firm exists at all under its current name. Screenshot what you find. Everything else in this audit explains those screenshots, and the same five prompts re-run monthly are how you measure whether the work is landing.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Finish the Rebrand in the Title Tags</span>
+          </div>
+          <div class="rec-detail">This is the highest-leverage item on the audit and it is a settings change, not a rewrite. The article title template still appends "HoganWillig Law Firm - Amherst, Buffalo, Ellicottville, Lancaster, Lockport New York" to every post. In Yoast SEO, edit the title template for the post type once and all 688 articles update together. While in there, do the same for the FAQ post type, where the pattern is also still wrong. Then resubmit the sitemap in Search Console so the corrections are picked up rather than waiting on a natural recrawl. One afternoon of work touching several hundred pages.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Redirect the Old Domain Properly, Page by Page</span>
+          </div>
+          <div class="rec-detail">Right now only <code>hoganwillig.com</code>'s homepage redirects and every deeper URL 404s, which throws away inbound links built over decades. Because the URL structure largely carried over, most of this can be handled with a single wildcard rule mapping <code>hoganwillig.com/anything/</code> to <code>tiveronlaw.com/anything/</code>, with a short manual list for the paths that changed. Pull the old domain's top pages from Search Console or a backlink tool first so the highest-value URLs are verified individually. This recovers authority the firm has already paid for.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Fix the Organization Record and Point robots.txt at the Right Sitemap</span>
+          </div>
+          <div class="rec-detail">Two small edits with outsized effect. First, the <code>Organization</code> schema: swap the dead HoganWillig social URLs for the live Tiveron accounts, change the type from generic <code>Organization</code> to <code>LegalService</code>, and add what is currently missing entirely, which is address, telephone, geographic coordinates and service area. Second, <code>robots.txt</code> currently directs every crawler to <code>hoganwillig.com/sitemap_index.xml</code>, which returns a 404. Point it at the site's own working sitemap. Both are configuration, not development.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Turn 108 Orphaned FAQs Into the Firm's AI Engine</span>
+          </div>
+          <div class="rec-detail">There are already 108 pages answering real client questions, and each is currently wasted three ways: the <code>&lt;h1&gt;</code> says "Frequently Asked Questions" instead of the question, the meta description is literally two full stops, and there is no <code>FAQPage</code> schema. Fix the template so the question becomes the heading, generate descriptions from the first line of each answer, and wrap every question and answer pair in <code>FAQPage</code> markup. Then group them onto the relevant practice pages so a divorce enquiry meets the twelve matrimonial FAQs at once. FAQ markup is the single strongest driver of AI citation, and this firm has more raw FAQ content than any competitor named in this audit.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Publish the Answers That Are Winning for Everyone Else</span>
+          </div>
+          <div class="rec-detail">Clark Peshkin, a solo practitioner, beats a 35-attorney firm on the closing question largely by publishing a flat $600 fee. A specific number is a fact an assistant can quote; "contact us for a consultation" is not. The firm's strongest claim, that it handles more residential closings than any other real estate group in the Buffalo area, appears in directory copy but not as a prominent, marked-up statement on the real estate pages. Put the claim, the volume and a real fee range on the page. Do the same for the other practices: what an uncontested divorce typically costs, what a simple will costs, how long an SSD appeal takes. These are exactly the questions in the prompts above.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Make 191 Reviews Machine-Readable, and Complete the Map Footprint</span>
+          </div>
+          <div class="rec-detail">The 4.2 rating from 191 reviews is the firm's best competitive asset and no machine can currently see it. Add <code>aggregateRating</code> and <code>Review</code> markup to the testimonials page and the relevant practice pages. Separately, three profile issues need owner-side attention: the <strong>Lockport office is not visible in Maps despite having a real street address at 770 Davison Road</strong> and should be claimed or created; the <strong>Buffalo profile lists the Amherst phone number</strong>, which is a direct contradiction of the website and a signal Google penalises; and the Buffalo profile's 3.6 from 17 reviews deserves a deliberate response effort. Worth confirming internally which profiles the firm already manages before any are treated as missing.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Clean Up the Directories That AI Actually Cites</span>
+          </div>
+          <div class="rec-detail">When an assistant is asked to recommend a Buffalo lawyer, it leans on Expertise.com, Justia, Super Lawyers, Lawyers.com, Avvo and Yelp far more than on any firm's own website. Several of those listings still resolve under <code>hoganwillig-pllc</code> URLs, which splits the firm's identity in exactly the layer that matters most. Work through them one by one: update the name, confirm the five office addresses and their correct individual phone numbers, add the current attorney roster and the Super Lawyers and Best Lawyers recognitions. This is unglamorous and it is where the recommendations are actually being made.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">09</span>
+            <span class="rec-title">Mark Up the Attorneys and Compress the Images</span>
+          </div>
+          <div class="rec-detail">Two smaller items to close out. The 23 attorney bios are substantial, some above 2,000 words, and carry no <code>Person</code> or <code>Attorney</code> schema, so credentials, bar admissions, practice areas and awards are invisible as structured facts. Adding it makes each attorney an entity an assistant can recognise and cite by name. Separately, homepage photographs are served as PNGs between 350KB and 420KB with no WebP anywhere on the site. Converting them cuts roughly two thirds of the weight on the firm's most-visited page, which is straightforward work on hosting this capable.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>The firm rebranded. The website still introduces itself as HoganWillig.</h2>
+    <p>Tiveron has the scale, the reviews and the content library to be the default answer in Western New York. It is losing buyer-intent questions to solo practitioners because its own site tells machines the wrong name, drops its own history at a 404, and leaves 108 ready-made answers unlabelled. Every item above is naming, markup and redirects on work that already exists. Not a rebuild.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Tiveron Law PLLC — Digital Presence Audit</span>
+    <span>August 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
