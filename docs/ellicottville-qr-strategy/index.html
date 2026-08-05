@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>A Card by the Register · Ellicottville Bake Shop and Alpine Bistro</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid rgba(47,111,106,0.2); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #2F6F6A; margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #2F6F6A; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px); font-weight: 500;
+    color: #1F2622; line-height: 1.05; margin-bottom: 16px;
+  }
+  .hero p { font-size: 19px; color: #46524C; line-height: 1.65; max-width: 660px; margin-bottom: 40px; }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat { padding: 0 28px 0 0; margin-right: 28px; margin-bottom: 10px; border-right: 1px solid rgba(47,111,106,0.25); }
+  .stat:last-child { border-right: none; }
+  .stat-val { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; color: #1F2622; line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7C8C84; }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px; background: #eefaf6; border: 1px solid #99e2d0;
+    border-left: 4px solid #0f766e; border-radius: 8px; padding: 16px 20px;
+  }
+  .alert-label { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #0f766e; margin-bottom: 6px; }
+  .alert p { font-size: 15px; color: #134e4a; line-height: 1.6; }
+
+  /* ── Sections ── */
+  .section { margin-top: 48px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(47,111,106,0.16); }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
+  .section-title { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+  .section-body p { font-size: 16px; color: #46524C; line-height: 1.7; }
+  .section-body p + p { margin-top: 14px; }
+  .section-body strong { color: #1F2622; }
+  .lead { font-size: 17px !important; }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px; margin-top: 20px;
+  }
+  .key-finding-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px; }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+
+  /* ── Page contents list ── */
+  .contents { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+  @media (max-width: 640px) { .contents { grid-template-columns: 1fr; } }
+  .content-card { background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16); border-radius: 8px; padding: 14px 16px; }
+  .content-card b { display: block; font-size: 15px; color: #1F2622; margin-bottom: 4px; }
+  .content-card span { font-size: 14px; color: #46524C; line-height: 1.5; }
+
+  /* ── Recommendations / benefit list ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  /* ── Card mockups ── */
+  .mock-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+  @media (max-width: 700px) { .mock-grid { grid-template-columns: 1fr; } }
+  .mock-wrap { display: flex; flex-direction: column; }
+  .mock {
+    background: linear-gradient(165deg, #2c5d42 0%, #1f3d2f 58%, #16281c 100%);
+    border-radius: 10px; padding: 26px 24px 20px; text-align: center;
+    box-shadow: 0 14px 32px rgba(20,40,28,0.22);
+  }
+  .mock-brand {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #e0a94a; margin-bottom: 18px;
+  }
+  .mock-head {
+    font-family: 'Bebas Neue', Impact, sans-serif; font-size: 34px; line-height: 0.98;
+    letter-spacing: 0.02em; color: #ffffff; margin-bottom: 10px;
+  }
+  .mock-sub { font-size: 13px; color: #cbd9cd; line-height: 1.5; max-width: 250px; margin: 0 auto 18px; }
+  .mock-qr { background: #f6f4ee; border-radius: 8px; padding: 12px; display: inline-block; line-height: 0; }
+  .mock-qr img { width: 132px; height: 132px; display: block; }
+  .mock-scan { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #e0a94a; margin-top: 14px; }
+  .mock-rule { height: 1px; background: rgba(224,169,74,0.35); margin: 16px 0 12px; }
+  .mock-foot { font-size: 12px; color: #9fb3a4; letter-spacing: 0.04em; }
+  .mock-foot b { color: #ffffff; font-weight: 600; }
+  .mock-caption { font-size: 14px; color: #46524C; line-height: 1.6; margin-top: 14px; }
+  .mock-caption b { color: #1F2622; }
+
+  .live-note {
+    margin-top: 22px; background: rgba(224,169,74,0.12); border: 1px solid rgba(196,143,47,0.4);
+    border-radius: 8px; padding: 14px 18px; font-size: 14px; color: #5c4a20; line-height: 1.6;
+  }
+  .live-note b { color: #3d3113; }
+
+  /* ── CTA Footer ── */
+  .cta-block { margin-top: 56px; background: linear-gradient(135deg, #16281c 0%, #2c5d42 100%); border-radius: 12px; padding: 40px 36px; text-align: center; }
+  .cta-block h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: #ffffff; margin-bottom: 12px; }
+  .cta-block p { font-size: 17px; color: #cfe3d5; line-height: 1.6; max-width: 560px; margin: 0 auto 28px; }
+  .cta-btn { display: inline-block; background: #e0a94a; color: #16281c; font-size: 15px; font-weight: 700; padding: 14px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.15s; }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #9fb8a6; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84; display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Concept Brief · August 2026 · Ellicottville, New York</div>
+    <h1>A Card by<br>the Register</h1>
+    <p>A small printed card at the counter at the Ellicottville Bake Shop and Alpine Bistro. One code, one tap, and a visitor has the whole town in front of them: what's on today, what the weather is doing, where the trails are, what's open. Here is the idea, why we think it helps your customers, and what it would take to try it.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">11</div><div class="stat-label">Local guides</div></div>
+      <div class="stat"><div class="stat-val">46</div><div class="stat-label">Village businesses listed</div></div>
+      <div class="stat"><div class="stat-val">30+</div><div class="stat-label">Events on the calendar</div></div>
+      <div class="stat"><div class="stat-val">$0</div><div class="stat-label">Cost to the shops</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The idea, in one paragraph</div>
+      <p>People standing in your line are, most of the time, in the middle of deciding what to do with their day. A card at the register lets them scan and land on a page built for exactly that question: today's events, the weather, trail and creek conditions, resort webcams, and the local list of what to do in every season. The card carries your name. The visitor gets a better weekend out of it, and a visitor who gets a better weekend comes back to Ellicottville, and back to you.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">The Question Behind the Counter</span>
+    </div>
+    <div class="section-body">
+      <p class="lead">Your staff already answers this question, over and over, every weekend. Where's the trailhead. Is the lift running. What's going on tonight. Is there anything to do with the kids if it rains. Where do we park for the festival.</p>
+      <p>They give good answers, because they live here. But the answers get improvised during a rush, they change depending on who is working that shift, and the person asking is standing between you and the next customer in line. Nobody has time to draw a map on a napkin at 9:15 on a Saturday in October.</p>
+      <p>The card does not replace that conversation. It gives your staff something to point at, and it gives the visitor something to keep looking at after they walk out with their coffee.</p>
+      <div class="key-finding">
+        <div class="key-finding-label">Why this matters more here than in most towns</div>
+        <p>Ellicottville does not sell one thing. It sells a weekend. Nobody drives two hours for a single stop, and nobody decides to come back because of a single stop either. They come back because the whole weekend worked: they found the trail, they caught the festival, the timing made sense, they were not stuck in the rental scrolling through five different websites trying to figure out what was open. Every business in the village is holding one end of that same weekend.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">What They Land On</span>
+    </div>
+    <div class="section-body">
+      <p class="lead">The code does not open a homepage. It opens a single page built for the moment somebody is standing at your counter with a day to fill.</p>
+      <div class="contents">
+        <div class="content-card"><b>Right now, outside</b><span>Live conditions from the National Weather Service, plus links to both resort webcams so people can see the mountain before they drive to it.</span></div>
+        <div class="content-card"><b>Today and this weekend</b><span>The events calendar, checked daily against the resort and chamber listings. Festivals, races, live music, rodeo weekends, the whole run of the season.</span></div>
+        <div class="content-card"><b>Where to go outside</b><span>Mountain biking, hiking, the Finger Lakes Trail, Griffis Sculpture Park, Nannen Arboretum, disc golf, the skatepark, Sky High. Written up properly, not just listed.</span></div>
+        <div class="content-card"><b>Water conditions</b><span>Live gauges on Cattaraugus Creek and the Allegheny, so anglers and paddlers know before they load the truck.</span></div>
+        <div class="content-card"><b>The village</b><span>Every restaurant, bar, cafe, and shop in town, with links to their own pages. Where to stay, from slopeside to the campground.</span></div>
+        <div class="content-card"><b>Nothing in the way</b><span>No app to download, no account, no email required, no ads. It opens on any phone and it is free to read.</span></div>
+      </div>
+      <p style="margin-top:20px">The hook on the card changes with the season, since the question changes with the season. In February it is conditions and webcams. In July it is trails and the creek. In October it is foliage and the Fall Festival. The printed card never has to change, because only the page behind it does.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <div class="section-head" style="background:#f0fdf4;border-bottom:1px solid rgba(21,128,61,0.18)">
+      <span class="section-num" style="color:#15803d">03</span>
+      <span class="section-title" style="color:#15803d">How It Could Look</span>
+    </div>
+    <div class="section-body">
+      <p class="lead" style="margin-bottom:22px">Rough concepts, not final art. A folded tent card, roughly four inches tall, sitting where people already look while they wait. Same card, one per shop, each with its own hook and its own name on the bottom.</p>
+
+      <div class="mock-grid">
+        <div class="mock-wrap">
+          <div class="mock">
+            <div class="mock-brand">Ellicottville Outside</div>
+            <div class="mock-head">What's going on<br>today?</div>
+            <div class="mock-sub">Events, trails, conditions, and the local list. One page, no digging.</div>
+            <div class="mock-qr"><img src="bakeshop.svg" alt="QR code that opens the Ellicottville Outside guide"></div>
+            <div class="mock-scan">Scan with your camera</div>
+            <div class="mock-rule"></div>
+            <div class="mock-foot">Brought to you by the <b>Ellicottville Bake Shop</b></div>
+          </div>
+          <div class="mock-caption">The <b>Bake Shop counter card</b>. Morning crowd, coffee in hand, day not yet decided. The hook is the day itself.</div>
+        </div>
+
+        <div class="mock-wrap">
+          <div class="mock">
+            <div class="mock-brand">Ellicottville Outside</div>
+            <div class="mock-head">Where to<br>next?</div>
+            <div class="mock-sub">Trail reports, the creek, what's open, and what's on tonight.</div>
+            <div class="mock-qr"><img src="alpine.svg" alt="QR code that opens the Ellicottville Outside guide"></div>
+            <div class="mock-scan">Scan with your camera</div>
+            <div class="mock-rule"></div>
+            <div class="mock-foot">Brought to you by <b>Alpine Bistro</b></div>
+          </div>
+          <div class="mock-caption">The <b>Alpine Bistro card</b>. People are sitting down here, so there is time to look. The hook points at the rest of the day.</div>
+        </div>
+      </div>
+
+      <div class="live-note">
+        <b>These two codes are live.</b> Point your phone at either one and it opens the guide right now. They are different codes on purpose: each one reports back separately, so we can tell which counter people actually scan and how that changes by season and by hour.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <div class="section-head" style="background:#fefce8;border-bottom:1px solid rgba(180,83,9,0.2)">
+      <span class="section-num" style="color:#b45309">04</span>
+      <span class="section-title" style="color:#b45309">What's In It for the Bake Shop and Alpine</span>
+    </div>
+    <div class="rec-list">
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">A better visit is a repeat visit</span></div>
+        <div class="rec-detail">This is the whole argument. People do not come back to Ellicottville because of one great morning bun. They come back because the weekend worked. Anything that makes the weekend work is marketing for every business in the village, and it lands hardest on the two rooms people start their morning in.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">It answers the question so your staff does not have to</span></div>
+        <div class="rec-detail">During a rush, "there's a card right there with everything happening this weekend" is a complete answer that takes three seconds. Your staff can still add the local advice on top when there is time for it, which is the part visitors love anyway.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Your name is on the thing that helped them</span></div>
+        <div class="rec-detail">The card says who handed them their day. The shop that solved the "what do we do now" problem is the one that gets remembered, gets recommended to the next carload of friends, and gets talked about in the review.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">It makes you the local, not just the coffee</span></div>
+        <div class="rec-detail">Plenty of places sell a good breakfast. The one that knows the town is a different kind of business. This is a low-effort way to be visibly that place, all season, without anybody having to memorize the events calendar.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">The traffic goes both directions</span></div>
+        <div class="rec-detail">You are already the two Fuel Up spots on the guide's front page, and the trail and lodging guides point people to the Bake Shop before the ride and Alpine after it. The card sends people to the guide, and the guide keeps sending people back to your counters.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">06</span><span class="rec-title">The cost is counter space</span></div>
+        <div class="rec-detail">We design them, we print them, we bring them in. If they clutter the counter or nobody touches them, we pull them out and that is the end of it. There is nothing to sign and nothing to cancel.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">07</span><span class="rec-title">You get to see what your customers are asking</span></div>
+        <div class="rec-detail">We can see when people scan and what they look at once they land. If Saturday mornings at the Bake Shop are all events and Sunday afternoons are all trails, that is worth knowing for both of us. We will share it back either way.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(109,40,217,0.18)">
+      <span class="section-num" style="color:#6d28d9">05</span>
+      <span class="section-title" style="color:#6d28d9">Straight Talk on How This Works</span>
+    </div>
+    <div class="section-body">
+      <p class="lead">Worth saying plainly, because a card at your register should not come with a hidden agenda.</p>
+      <p><strong>EllicottvilleOutside.com is ours.</strong> It is an independent guide to the town, built and paid for by us, not affiliated with Holiday Valley, HoliMont, or the Chamber. More people reading it is good for us, which is the honest reason we would like a card on your counter. That is the entire ask.</p>
+      <p><strong>In return, the guide works for you.</strong> Both of your businesses are already featured on it, your websites already link back to it, and the card puts that same relationship where the visitors actually are, which is standing in front of your register rather than searching at home three weeks earlier.</p>
+      <p><strong>Nothing is sold on the card or the page.</strong> No email required, no signup wall, no ads, and nothing on it competes with you. If we ever want to change that, we would come ask you first.</p>
+      <p><strong>You can stop it any time,</strong> for any reason or no reason. Hand the cards back and we are done.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">06</span>
+      <span class="section-title" style="color:#2F6F6A">What Happens Next</span>
+    </div>
+    <div class="rec-list">
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">You tell us what your customers actually ask</span></div>
+        <div class="rec-detail">This is the part we cannot guess at and you already know. The five questions your staff hears most should be the five things on that page. If we build it around the wrong questions, the card is just clutter.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">We build the page</span></div>
+        <div class="rec-detail">A single mobile page that answers those questions and nothing else. Most of the pieces already exist on the guide, so this is assembly rather than a build from scratch.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">One proof card, on your counter</span></div>
+        <div class="rec-detail">We print exactly one, bring it in, and you look at it in the actual spot. Wrong size, wrong colors, wrong wording, too big for the counter: better to find out now than after a box of them shows up.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Cards go out at both shops</span></div>
+        <div class="rec-detail">One design per shop, each with its own code and its own name on it. Later we can look at a window cling or a sticker on the to-go bags, which travel with people all day, but the counter is the place to start.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Thirty days later, we show you the numbers</span></div>
+        <div class="rec-detail">How many scans, which shop, what days, what hours, and what people looked at. Then you decide: keep it, change the wording, or pull it. No part of this needs to be permanent to be worth trying.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Take a look and tell us what you think</h2>
+    <p>The guide is live now, and the two codes above open it. If the idea makes sense, the next thing we need from you is the list of questions your customers actually ask.</p>
+    <a class="cta-btn" href="https://ellicottvilleoutside.com/?utm_source=brief&amp;utm_medium=doc&amp;utm_campaign=fuelup">Visit EllicottvilleOutside.com</a>
+    <div class="cta-sub">Prepared for Corey and Jennifer Hogan · Ellicottville Bake Shop and Alpine Bistro</div>
+  </div>
+
+  <div class="footer">
+    <span>Doble AI · Eagle River Base Camp LLC</span>
+    <span>Concept brief · August 2026</span>
+  </div>
+
+</div>
+</body>
+</html>
