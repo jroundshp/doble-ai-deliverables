@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Concrete Warrior — North Dakota Competitive Landscape</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid rgba(47,111,106,0.2); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #2F6F6A; margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #2F6F6A; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px); font-weight: 500;
+    color: #1F2622; line-height: 1.05; margin-bottom: 16px;
+  }
+  .hero p { font-size: 19px; color: #46524C; line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat { padding: 0 28px 0 0; margin-right: 28px; margin-bottom: 10px; border-right: 1px solid rgba(47,111,106,0.25); }
+  .stat:last-child { border-right: none; }
+  .stat-val { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; color: #1F2622; line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7C8C84; }
+
+  /* ── Alert ── */
+  .alert {
+    margin-top: 40px; background: #fef2f2; border: 1px solid #f3b4b4;
+    border-left: 4px solid #b91c1c; border-radius: 8px; padding: 16px 20px;
+  }
+  .alert-label { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #b91c1c; margin-bottom: 6px; }
+  .alert p { font-size: 15px; color: #6b1a1a; line-height: 1.6; }
+  .alert p + p { margin-top: 8px; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(185,28,28,0.08); padding: 1px 6px; border-radius: 4px; font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section { margin-top: 48px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(47,111,106,0.16); }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
+  .section-title { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+  .section-body > p { font-size: 16px; color: #46524C; line-height: 1.7; }
+  .section-body > p + p { margin-top: 12px; }
+  .section-body strong { color: #1F2622; }
+  h3.sub {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #7C8C84; margin: 26px 0 12px;
+  }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px; }
+  .fact-val { font-size: 16px; color: #46524C; line-height: 1.6; }
+  .fact-val strong { color: #1F2622; }
+
+  /* ── Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th { text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84; }
+  th:first-child { padding-left: 0; }
+  th:last-child { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; }
+  td:last-child { padding-right: 0; }
+
+  .badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge-high { background: rgba(185,28,28,0.1); color: #b91c1c; }
+  .badge-med { background: rgba(180,83,9,0.1); color: #b45309; }
+  .badge-low { background: rgba(71,85,76,0.14); color: #46524c; }
+  .badge-open { background: rgba(15,118,110,0.14); color: #0f766e; }
+
+  /* ── Audit cards ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card { background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16); border-radius: 8px; padding: 14px 16px; }
+  .audit-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade { font-size: 13px; font-weight: 800; color: #fff; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; }
+  .grade-a { background: #15803d; }
+  .grade-b { background: #1d4ed8; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c { background: #b45309; }
+  .grade-d { background: #c2410c; }
+  .grade-f { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+  .audit-note code { font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; background: rgba(47,111,106,0.09); padding: 1px 5px; border-radius: 3px; }
+
+  /* ── Key finding ── */
+  .key-finding { background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24); border-radius: 8px; padding: 16px 20px; margin-top: 20px; }
+  .key-finding-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px; }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+  .key-finding p + p { margin-top: 10px; }
+
+  /* ── Position cards ── */
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 4px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Rec list ── */
+  .rec-list { display: flex; flex-direction: column; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  ul.plain { padding-left: 20px; margin-top: 10px; }
+  ul.plain li { font-size: 15.5px; color: #46524C; line-height: 1.6; margin-bottom: 7px; }
+  ul.plain li strong { color: #1F2622; }
+
+  /* ── CTA ── */
+  .cta-block { margin-top: 56px; background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%); border-radius: 12px; padding: 40px 36px; text-align: center; }
+  .cta-block h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: #fff; margin-bottom: 12px; }
+  .cta-block p { font-size: 17px; color: #cdeae3; line-height: 1.6; max-width: 560px; margin: 0 auto; }
+
+  .footer {
+    margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84; display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .method { margin-top: 20px; font-size: 12.5px; color: #7C8C84; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="tag">Competitive Landscape · August 2026 · New Town, North Dakota</div>
+    <h1>Concrete Warrior</h1>
+    <p>Before anything gets built, this is where the North Dakota operation would be starting from. Who already sells aggregate into New Town, how strong their hold actually is, and the two openings that came out of looking at their sites directly rather than taking their word for it.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-val">New Town, ND</div><div class="stat-label">Market</div></div>
+      <div class="stat"><div class="stat-val">5</div><div class="stat-label">Competitors Reviewed</div></div>
+      <div class="stat"><div class="stat-val">0 of 5</div><div class="stat-label">With FAQ Schema</div></div>
+      <div class="stat"><div class="stat-val">23</div><div class="stat-label">ND Rigs Running</div></div>
+      <div class="stat"><div class="stat-val">Greenfield</div><div class="stat-label">Our Position</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The opening, in one line</div>
+      <p>The strongest local competitor, Ruach Resources, has exactly one page targeting this market. Its title tag reads <code>Aggregate &amp; Gravel Supply in New Town MT</code>. The headline on the page reads <code>AGGREGATE PRODUCTS IN NEW TOWN, MT</code>. New Town is in North Dakota.</p>
+      <p>We checked their other town pages. Parshall, Stanley and Watford City are all correctly labeled ND. <strong>The error appears only on New Town</strong>, the one town that matters to this project.</p>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">The Market</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">Where</div>
+          <div class="fact-val">New Town sits in Mountrail County on the <strong>Fort Berthold Reservation</strong>, in the middle of the Bakken. Work connected to the Four Bears Segment falls inside MHA Nation jurisdiction.</div>
+        </div>
+        <div>
+          <div class="fact-label">Who Buys</div>
+          <div class="fact-val">Not homeowners. Project managers, dispatchers, batch plants, excavation contractors and oil field service companies. They want to know you have the material, that it lands this week, and what it costs.</div>
+        </div>
+        <div>
+          <div class="fact-label">Demand, Four Legs</div>
+          <div class="fact-val">Oil field roads and pads. <strong>Tribal and public infrastructure.</strong> Commercial and residential building around New Town, Parshall and Stanley. Concrete recycling and washout.</div>
+        </div>
+        <div>
+          <div class="fact-label">Season</div>
+          <div class="fact-val">Roughly <strong>May through October</strong>. The two market plan exists because heavy iron that sits idle five months a year loses money in both directions.</div>
+        </div>
+      </div>
+
+      <div class="key-finding">
+        <div class="key-finding-label">Read the rig count honestly</div>
+        <p>North Dakota held at <strong>23 to 24 active rigs</strong> through spring 2026, with Williston Basin production near 1.28 million barrels a day, about 9.8% of US output. That is a steady, disciplined Bakken. Operators are holding production flat and managing cost, not expanding.</p>
+        <p>So oil field aggregate demand here is real and repeatable, but it is not about to double. <strong>The drilling leg is the flattest of the four.</strong> The tribal infrastructure spending and the recycling side are what make this market interesting, and they are the two the operations memo spends the least time on.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body" style="padding:20px 24px">
+      <table>
+        <thead>
+          <tr><th>Business</th><th>What They Are</th><th>Threat</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ruach Resources</td>
+            <td>The real local competitor. Aggregate and ready mix across the Williston Basin since 2011, formed when Triple Aggregate and Oil Capital Ready Mix merged. Plants in Tioga and Williston, multiple pits, own trucking. Lists New Town in its service area and runs a landing page per town.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Hello Gravel</td>
+            <td>A national bulk material marketplace, not a local operator. No pit, no trucks and no yard anywhere near New Town. It ranks on auto generated town pages and brokers the order to whoever will fill it. Also rated the top online threat in the Denton audit.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>McCody Concrete</td>
+            <td>Diversified concrete products and construction services out of Williston, operating across six states. Established and institutional, aimed more at large scale work than at the yard level buyer.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Fisher Industries</td>
+            <td>The giant. Dickinson ND, founded 1952, over 30 million tons a year, a top 25 US sand and gravel producer with 12 commercial and 45 portable crushing plants. Not competing for a 40 ton delivery in New Town.</td>
+            <td><span class="badge badge-low">Low direct</span></td>
+          </tr>
+          <tr>
+            <td>Knife River</td>
+            <td>Publicly traded construction materials and contracting. Same story as Fisher. Different weight class, worth knowing so nobody tries to fight them head on.</td>
+            <td><span class="badge badge-low">Low direct</span></td>
+          </tr>
+          <tr>
+            <td>Tribal enterprises</td>
+            <td>Fort Berthold Development Corp and related MHA Nation entities hold TERO contracting preference on the reservation. Not aggregate specialists as far as we can find, but on preference eligible work they are structurally advantaged in a way no marketing overcomes.</td>
+            <td><span class="badge badge-open">Partner, not rival</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand Technically</span>
+    </div>
+    <div class="section-body">
+      <p>We pulled each competitor's homepage and checked the same things: the title tag, the meta description, structured data, social share tags, and whether there is any FAQ content marked up for search engines and AI. Grades are for <strong>findability</strong>, not for how the site looks.</p>
+
+      <div class="audit-grid" style="margin-top:18px">
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Ruach Resources</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">Best in the field. Real meta description, structured data present, 8 Open Graph tags, phone in the header, a page per town, and NDDOT Section 816 specs quoted. Weaknesses: homepage title is just <code>Ruach Resources</code>, with no service or geography in it, and the blog is buried in the footer.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Fisher Industries</span><span class="grade grade-cp">C+</span></div>
+          <div class="audit-note">Corporate site, structured data present, 7 Open Graph tags. But the title is only <code>Fisher Industries</code> and the meta description is effectively empty. National in scope, so it never speaks to New Town specifically.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">McCody Concrete</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Has a genuine meta description naming its six states and the Williston location. But <strong>zero structured data</strong>, and its Open Graph tags are written as <code>name="og:..."</code> instead of <code>property="og:..."</code>, which is the wrong attribute, so shares do not render properly.</div>
+        </div>
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Knife River</span><span class="grade grade-c">C</span></div>
+          <div class="audit-note">Good descriptive title. But <strong>no meta description at all</strong> and only a single Open Graph tag on a public company homepage. Broad corporate messaging, nothing local.</div>
+        </div>
+        <div class="audit-card" style="grid-column:1 / -1; background:#E9F1ED">
+          <div class="audit-card-top"><span class="audit-channel">Hello Gravel</span><span class="grade grade-a">A on AI readiness</span></div>
+          <div class="audit-note">We could not audit the page itself. It returned <code>403</code> to our request, sitting behind a bot challenge. What is public is more interesting than the HTML would have been, and it is covered in Section 04.</div>
+        </div>
+      </div>
+
+      <div class="key-finding">
+        <div class="key-finding-label">The finding that applies to every one of them</div>
+        <p><strong>Not one competitor in this market has FAQ schema anywhere on its homepage, and Ruach has no FAQ section anywhere on its site at all.</strong></p>
+        <p>That matters more each month. When a contractor asks an AI assistant "how many tons of Class 5 do I need for a 200 foot access road" or "who delivers scoria near New Town," the answer gets assembled from pages that answered those questions in plain language and marked them up so a machine can read them. In this market, nobody has written those pages. That is an open lane, and it is cheap to take.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(185,28,28,0.18)">
+      <span class="section-num" style="color:#b91c1c">04</span>
+      <span class="section-title" style="color:#b91c1c">The Threat Nobody Is Watching</span>
+    </div>
+    <div class="section-body">
+      <p>The instinct is to treat Ruach as the competitor and the national producers as the big names. On the evidence, the more serious threat is <strong>Hello Gravel</strong>, and it is the same name that came up as the top online threat in the Denton audit back in July. The same broker is sitting between this business and its buyers in both markets.</p>
+
+      <p>Here is what it has built. Hello Gravel publishes an <code>llms.txt</code> file and runs a live <strong>read-only API for AI agents</strong>, including a Model Context Protocol endpoint. In their own words, it lets an agent "answer the full pre-purchase chain, size the job, confirm delivery, and price it, using the same engine as the website."</p>
+
+      <ul class="plain">
+        <li><strong>Estimate material</strong> from length, width and depth</li>
+        <li><strong>Check delivery</strong> and available dates for a ZIP code</li>
+        <li><strong>List products</strong> available at that ZIP</li>
+        <li><strong>Return an all-in delivered quote</strong>, price included</li>
+      </ul>
+
+      <div class="key-finding">
+        <div class="key-finding-label">What that actually means</div>
+        <p>When someone asks an AI assistant where to get forty tons of gravel delivered near New Town, Hello Gravel can hand back a real, priced, deliverable answer without a human being involved. Every other company in this market can offer a phone number and an invitation to call for a quote.</p>
+        <p>They have no pit, no trucks and no yard within five hundred miles of New Town. They are winning the search anyway, because they built for how buying is starting to happen. <strong>A local operator with actual material and actual trucks should not be losing this, and the reason it is being lost has nothing to do with the material.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="section">
+    <div class="section-head" style="background:#fffbeb;border-bottom:1px solid rgba(180,83,9,0.2)">
+      <span class="section-num" style="color:#b45309">05</span>
+      <span class="section-title" style="color:#b45309">What Fort Berthold Changes</span>
+    </div>
+    <div class="section-body">
+      <p>This is the part that separates New Town from any other town of its size, and it is not a marketing question.</p>
+
+      <p>Any prime contractor, subcontractor <strong>or supplier</strong> intending to work on the Fort Berthold Reservation must file a compliance plan and hold a license from the MHA Tribal Employment Rights Office. Applications are accepted <strong>in person only</strong> at the TERO building in New Town, Monday through Thursday, 8:00 to 3:30. No emailed, faxed or mailed applications. Fees changed on January 1, 2026.</p>
+
+      <p>The ordinance also requires preference in contracting to Indian owned firms, strongest for firms wholly owned and controlled by enrolled members, and the TERO director reviews whether a preferred contractor genuinely self performs the work or passes it through.</p>
+
+      <div class="card-grid" style="margin-top:20px">
+        <div class="pos-card" style="background:#fff7ed;border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">Sequencing</div>
+          <div class="pos-card-text">TERO licensing and the pit and sand arrangements are the long poles. They run on the Nation's calendar and in person. The website is not the long pole and nothing should wait on it.</div>
+        </div>
+        <div class="pos-card" style="background:#f0fdf4;border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Positioning</div>
+          <div class="pos-card-text">On Fort Berthold, "TERO licensed, hiring locally" is a stronger trust signal to a buyer than any amount of copy about equipment. It belongs on the homepage, not in a footer.</div>
+        </div>
+        <div class="pos-card" style="background:#eff6ff;border:1px solid rgba(37,99,235,0.2)">
+          <div class="pos-card-label" style="color:#2563eb">Open question</div>
+          <div class="pos-card-text">If there is tribal ownership or partnership in the structure, that is the headline of the whole business, not a compliance note. We need to know before homepage copy gets written.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">06</span>
+      <span class="section-title" style="color:#2F6F6A">Where Concrete Warrior Starts</span>
+    </div>
+    <div class="section-body">
+      <p>Honest summary of the starting position, so nobody is working from a rosier picture than the facts support.</p>
+
+      <div class="card-grid" style="margin-top:18px">
+        <div class="pos-card" style="background:#fef2f2;border:1px solid rgba(185,28,28,0.18)">
+          <div class="pos-card-label" style="color:#b91c1c">Behind on</div>
+          <div class="pos-card-text">Everything visible. No website, no Google Business Profile, no listings, no reviews, no name recognition in the Bakken. Ruach has fourteen years of local history here.</div>
+        </div>
+        <div class="pos-card" style="background:#fffbeb;border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">Even on</div>
+          <div class="pos-card-text">Answer content and AI readiness, where the entire local field is at zero. And on material specs, which every one of them under-publishes.</div>
+        </div>
+        <div class="pos-card" style="background:#f0fdf4;border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">Ahead on</div>
+          <div class="pos-card-text">Concrete recycling and washout, carried up from the Texas operation. Thin local competition, and it is the one lane with a real operating history behind it.</div>
+        </div>
+      </div>
+
+      <div class="key-finding">
+        <div class="key-finding-label">The realistic read</div>
+        <p>Nobody catches a fourteen year incumbent on general aggregate searches this season. That is not the play. The play is to be the correct, specific, machine readable answer for <strong>New Town, North Dakota</strong>, on the exact terms where the incumbent is either absent, wrong about the state, or silent. That is a narrow front and it is winnable in one season.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">07</span>
+      <span class="section-title" style="color:#7c3aed">Open Questions Before Anything Is Built</span>
+    </div>
+    <div class="rec-list">
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">What entity is Concrete Warrior?</span></div>
+        <div class="rec-detail">A trade name of Patriot Stone Supply LLC, a separate North Dakota entity, or a joint venture. This decides the domain registrant, the legal name, the Google listing and the TERO application. It is the first fork in the road and everything else waits on it.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Is there a staffed yard address near New Town?</span></div>
+        <div class="rec-detail">This is the single biggest variable in the Google plan. A staffed address supports a standard listing, which is what wins "gravel near me" searches. Without one it becomes a service area listing, which works but ranks less strongly. A pit with nobody there is usually not enough.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Where does TERO licensing stand, and is there tribal ownership?</span></div>
+        <div class="rec-detail">Gates the work itself, not just the marketing, and changes the positioning entirely if the answer is yes.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Can the batch plant partner be named publicly?</span></div>
+        <div class="rec-detail">A named relationship is a real credibility asset in a market built on reliability. An unnamed one is worth nothing externally.</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">One phone number and one address, and the material list with honest prices</span></div>
+        <div class="rec-detail">Confirmed materials with North Dakota specs, price brackets per ton, and a realistic delivery radius so the service area claims are true. Publishing prices is unusual in this industry and it is one of the strongest things the Texas site already does.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>The starting line, agreed</h2>
+    <p>This document exists so everyone involved is working from the same picture of the market before any money goes into a domain, a build or a listing. Corrections and local knowledge are welcome and will change the plan.</p>
+  </div>
+
+  <div class="method">
+    <strong>Method and limits.</strong> Every competitor claim here was verified directly at the source on August 5, 2026, by pulling the live pages rather than relying on directories. The Ruach page titles, headings and state labels were read from the raw HTML across four of their town pages. Domain availability was checked at the Verisign registry. TERO requirements come from mhatero.com. Market figures come from public Bakken reporting as of spring 2026 and should be refreshed before any external use. Two limits worth stating plainly: Hello Gravel's page returned a 403 to our request, so its HTML was not audited and its grade reflects only its published agent interfaces; and we have not yet reviewed the Google map results or review counts for aggregate searches around New Town, which needs a look from someone on the ground.
+  </div>
+
+  <div class="footer">
+    <span>Prepared by John Rounds · Eagle River Base Camp / Doble AI</span>
+    <span>August 5, 2026 · Private, unlisted</span>
+  </div>
+
+</div>
+</body>
+</html>
