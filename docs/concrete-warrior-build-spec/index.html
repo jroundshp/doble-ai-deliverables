@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Concrete Warrior — Website Build Specification</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero { padding: 72px 0 56px; border-bottom: 1px solid rgba(47,111,106,0.2); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #2F6F6A; margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #2F6F6A; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px); font-weight: 500;
+    color: #1F2622; line-height: 1.05; margin-bottom: 16px;
+  }
+  .hero p { font-size: 19px; color: #46524C; line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat { padding: 0 28px 0 0; margin-right: 28px; margin-bottom: 10px; border-right: 1px solid rgba(47,111,106,0.25); }
+  .stat:last-child { border-right: none; }
+  .stat-val { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 500; color: #1F2622; line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7C8C84; }
+
+  /* ── Alert ── */
+  .alert {
+    margin-top: 40px; background: #fef2f2; border: 1px solid #f3b4b4;
+    border-left: 4px solid #b91c1c; border-radius: 8px; padding: 16px 20px;
+  }
+  .alert-label { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #b91c1c; margin-bottom: 6px; }
+  .alert p { font-size: 15px; color: #6b1a1a; line-height: 1.6; }
+  .alert p + p { margin-top: 8px; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(185,28,28,0.08); padding: 1px 6px; border-radius: 4px; font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section { margin-top: 48px; border-radius: 10px; overflow: hidden; border: 1px solid rgba(47,111,106,0.16); }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
+  .section-title { font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+  .section-body > p { font-size: 16px; color: #46524C; line-height: 1.7; }
+  .section-body > p + p { margin-top: 12px; }
+  .section-body strong { color: #1F2622; }
+  h3.sub {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #7C8C84; margin: 26px 0 12px;
+  }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px; }
+  .fact-val { font-size: 16px; color: #46524C; line-height: 1.6; }
+  .fact-val strong { color: #1F2622; }
+
+  /* ── Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th { text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84; }
+  th:first-child { padding-left: 0; }
+  th:last-child { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; }
+  td:last-child { padding-right: 0; }
+
+  .badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge-high { background: rgba(185,28,28,0.1); color: #b91c1c; }
+  .badge-med { background: rgba(180,83,9,0.1); color: #b45309; }
+  .badge-low { background: rgba(71,85,76,0.14); color: #46524c; }
+  .badge-open { background: rgba(15,118,110,0.14); color: #0f766e; }
+
+  /* ── Audit cards ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card { background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16); border-radius: 8px; padding: 14px 16px; }
+  .audit-card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade { font-size: 13px; font-weight: 800; color: #fff; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; }
+  .grade-a { background: #15803d; }
+  .grade-b { background: #1d4ed8; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c { background: #b45309; }
+  .grade-d { background: #c2410c; }
+  .grade-f { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+  .audit-note code { font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; background: rgba(47,111,106,0.09); padding: 1px 5px; border-radius: 3px; }
+
+  /* ── Key finding ── */
+  .key-finding { background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24); border-radius: 8px; padding: 16px 20px; margin-top: 20px; }
+  .key-finding-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px; }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+  .key-finding p + p { margin-top: 10px; }
+
+  /* ── Position cards ── */
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 4px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Rec list ── */
+  .rec-list { display: flex; flex-direction: column; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+
+  ul.plain { padding-left: 20px; margin-top: 10px; }
+  ul.plain li { font-size: 15.5px; color: #46524C; line-height: 1.6; margin-bottom: 7px; }
+  ul.plain li strong { color: #1F2622; }
+
+  /* ── CTA ── */
+  .cta-block { margin-top: 56px; background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%); border-radius: 12px; padding: 40px 36px; text-align: center; }
+  .cta-block h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; color: #fff; margin-bottom: 12px; }
+  .cta-block p { font-size: 17px; color: #cdeae3; line-height: 1.6; max-width: 560px; margin: 0 auto; }
+
+  .footer {
+    margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84; display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .method { margin-top: 20px; font-size: 12.5px; color: #7C8C84; line-height: 1.6; }
+</style>
+
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="tag">Build Specification · Draft v1 · August 2026</div>
+    <h1>Concrete Warrior</h1>
+    <p>What the website needs to do, page by page, written so any competent builder can quote it. This is a requirements document, not a design. It deliberately does not specify a platform, a framework or a look, so that quotes are comparable and every bidder is pricing the same outcome.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-val">~22</div><div class="stat-label">Pages At Launch</div></div>
+      <div class="stat"><div class="stat-val">10</div><div class="stat-label">Answer Articles</div></div>
+      <div class="stat"><div class="stat-val">English</div><div class="stat-label">One Language</div></div>
+      <div class="stat"><div class="stat-val">Mobile</div><div class="stat-label">Primary Device</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">Read this first</div>
+      <p>Three decisions are still open on the client side and they affect scope. Bidders should quote against the structure below and note any assumptions. <strong>1)</strong> The trading name is not final. <strong>2)</strong> The material and price list is not final. <strong>3)</strong> The delivery radius is not final, which sets how many service area pages get built.</p>
+      <p>Everything marked <code>[TBC]</code> is a client input, not a builder decision.</p>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">What This Site Is For</span>
+    </div>
+    <div class="section-body">
+      <p>Concrete Warrior LLC operates a ready mix concrete batch plant and an aggregate operation at 9702 ND-23, New Town, North Dakota, on the Fort Berthold Reservation. It is a licensed contractor with the MHA Nation.</p>
+
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">Who the buyer is</div>
+          <div class="fact-val">Not homeowners. Project managers, dispatchers, excavation and site contractors, oil field service companies, tribal programs and public works. Often standing on a job site, on a phone, with poor signal.</div>
+        </div>
+        <div>
+          <div class="fact-label">What they want to know</div>
+          <div class="fact-val">Three things, in this order: <strong>do you have the material, can you get it to my site this week, and what does it cost.</strong> Every layout decision should serve that sequence.</div>
+        </div>
+        <div>
+          <div class="fact-label">The lead product</div>
+          <div class="fact-val"><strong>Ready mix concrete.</strong> There is no other batch plant in New Town, and concrete's roughly ninety minute placement window makes proximity decisive. Aggregate, scoria, crushing, recycling and topsoil follow behind it.</div>
+        </div>
+        <div>
+          <div class="fact-label">Definition of success</div>
+          <div class="fact-val">A contractor within delivery range who needs concrete or aggregate finds this business, gets a real answer including a price range, and calls. Measured by calls and quote requests, not by traffic.</div>
+        </div>
+      </div>
+
+      <div class="key-finding">
+        <div class="key-finding-label">The single most important constraint</div>
+        <p>This is a market where almost no competitor publishes anything useful. The advantage available here is <strong>specificity</strong>: real material specs, real price brackets, real photographs, real answers to real questions. A handsome site with vague copy loses to a plain site with numbers on it.</p>
+        <p>Bidders should read that as licence to spend effort on content structure rather than on visual novelty.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(185,28,28,0.18)">
+      <span class="section-num" style="color:#b91c1c">02</span>
+      <span class="section-title" style="color:#b91c1c">The Domain Question</span>
+    </div>
+    <div class="section-body">
+      <p>This is the first decision and nothing else can be finalised without it. It is not really a website question, it is a naming question that the website inherits.</p>
+
+      <div class="key-finding" style="background:rgba(185,28,28,0.05);border-color:rgba(185,28,28,0.25)">
+        <div class="key-finding-label">Why this is urgent, and not cosmetic</div>
+        <p>The Google Business Profile asks for a website address during setup, and verification for a new listing can take anywhere from a few days to a couple of weeks. <strong>The domain is what unblocks starting the listing, and the listing is the slowest item in the entire project.</strong></p>
+        <p>Register it before the site exists. A holding page with the name, phone, address and service area is enough to file against.</p>
+      </div>
+
+      <h3 class="sub">Availability, checked at the registry August 2026</h3>
+      <table>
+        <thead><tr><th>Domain</th><th>Status</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>concretewarrior.com</td><td style="color:#b91c1c;font-weight:700">Taken</td><td>Registered since 2013, now parked with a domain reseller. Purchasable, typically low thousands. Not in use by an operating business.</td></tr>
+          <tr><td>concretewarriornd.com</td><td style="color:#15803d;font-weight:700">Available</td><td>The ND is an advantage rather than a compromise. It states the state, which matters in a market where an out of state competitor's local page is labelled for the wrong one.</td></tr>
+          <tr><td>rhinoreadymix.com</td><td style="color:#b91c1c;font-weight:700">Taken</td><td>Held since 2015 by an established and unrelated ready mix company in Houston, Texas, which also holds the search results for that name.</td></tr>
+          <tr><td>rhinoreadymixnd.com</td><td style="color:#15803d;font-weight:700">Available</td><td>Same logic as above if Rhino becomes the trading name.</td></tr>
+          <tr><td>rhinoreadymix.net<br>rhinoreadymixllc.com</td><td style="color:#15803d;font-weight:700">Available</td><td>Weaker alternatives. A .net alongside an active .com owned by a same named competitor invites confusion.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub">What has to be decided</h3>
+      <ul class="plain">
+        <li><strong>One brand or two?</strong> Concrete Warrior LLC and Rhino Ready Mix, LLC both exist. If concrete and aggregate trade under different names, that is two sites, two Google listings and two sets of local signals, which roughly doubles the ongoing effort. <strong>One name is materially cheaper and ranks faster.</strong> If there is a business reason for two, it should be a deliberate choice.</li>
+        <li><strong>If the answer is Rhino</strong>, the Houston overlap needs a decision rather than a discovery. It does not prevent operating, but it does mean the brand permanently shares search results with a Texas concrete company, which is awkward given the affiliated operation is also in Texas.</li>
+        <li><strong>Registrant is the client.</strong> Whoever builds the site, the domain is registered in the client's name, on the client's account, with the client holding the credentials. Never in a vendor's account.</li>
+        <li><strong>Buy the obvious misspellings</strong> and redirect them. A few dollars a year, and it stops somebody else parking on them later.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">03</span>
+      <span class="section-title" style="color:#2563eb">Site Structure</span>
+    </div>
+    <div class="section-body">
+      <p>Roughly 22 pages at launch. The rule throughout: <strong>one page per thing somebody searches for.</strong> A single page trying to cover nine materials ranks for none of them.</p>
+
+      <div class="tree">/                             Home
+/concrete/                    Ready mix concrete. The lead page.
+    /concrete/mixes/          Mix designs, strengths, typical uses
+    /concrete/delivery/       Radius, lead times, minimums, scheduling
+/materials/                   Index
+    /materials/scoria/
+    /materials/gravel/
+    /materials/sand/
+    /materials/class-5/
+    /materials/crushed-concrete/
+    /materials/topsoil/
+/services/                    Index
+    /services/crushing/               portable and on site
+    /services/concrete-recycling/
+    /services/concrete-washout/
+    /services/topsoil-stripping/
+/service-area/                Index  [TBC how many town pages]
+    /service-area/new-town/
+    /service-area/four-bears/
+    /service-area/parshall/
+    /service-area/mandaree/
+/answers/                     Content library, 10 articles
+/about/                       Equipment capability, TERO, track record
+/working-on-fort-berthold/    TERO licensing and local hiring
+/contact/                     Quote request, hours, map, direct line</div>
+
+      <h3 class="sub">Rules that apply to every page</h3>
+      <ul class="plain">
+        <li><strong>Tappable phone number in the header</strong>, on every page, above the fold. Half this traffic is someone standing in dirt.</li>
+        <li><strong>Unique title tag and meta description</strong> per page. No templated duplicates, no blanks.</li>
+        <li><strong>A quote request path</strong> reachable from every page in one tap.</li>
+        <li><strong>Minimum five FAQ questions</strong> per commercial page, marked up as FAQ structured data. This is the primary driver of being quoted by AI assistants and it is where the whole market is currently at zero.</li>
+        <li><strong>No page ships with placeholder copy.</strong> If the client input is missing, the page does not launch.</li>
+      </ul>
+
+      <h3 class="sub">Material and service pages, required contents</h3>
+      <ul class="plain">
+        <li>What it is, in plain language, and what it is normally used for</li>
+        <li><strong>Gradation or spec, including the NDDOT class where one applies</strong></li>
+        <li><strong>Price bracket</strong>, per ton or per cubic yard <code>[TBC]</code></li>
+        <li>Typical quantity guidance, for example tons per truckload and coverage</li>
+        <li>At least one real photograph of that material at this yard</li>
+        <li>Five FAQs with structured data</li>
+      </ul>
+
+      <div class="key-finding">
+        <div class="key-finding-label">On service area pages</div>
+        <p>Build them <strong>only for towns genuinely served</strong>, and write each one differently. Thin near duplicate pages generated for every town within a hundred miles are treated as doorway pages, get filtered, and can drag down the rest of the site. Four real pages beat thirty generated ones.</p>
+        <p>Concrete and aggregate have <strong>different radii</strong> and the pages should say so. Concrete is limited by the placement window; aggregate is limited by freight cost.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">04</span>
+      <span class="section-title" style="color:#7c3aed">Technical Requirements</span>
+    </div>
+    <div class="section-body">
+      <p>Platform is the builder's choice. These are the outcomes it has to deliver. Every item is objectively checkable at handover.</p>
+
+      <table>
+        <thead><tr><th>Area</th><th>Requirement</th></tr></thead>
+        <tbody>
+          <tr><td>Performance</td><td>Largest Contentful Paint under 2.5s on a simulated 4G connection, on mobile, for the home page and any material page. Rural signal is the normal case here, not the edge case.</td></tr>
+          <tr><td>Mobile</td><td>Mobile first. <strong>Pinch to zoom must not be disabled.</strong> No <code>maximum-scale=1</code> or <code>user-scalable=no</code>. Tap targets sized for gloved hands.</td></tr>
+          <tr><td>Structured data</td><td>Valid JSON-LD: <code>LocalBusiness</code> with full address, geo, hours and phone; <code>Product</code> with <code>Offer</code> on each material page; <code>FAQPage</code> on every page carrying FAQs; <code>BreadcrumbList</code>; <code>Article</code> on each answer piece. Must pass Google's Rich Results Test with no errors.</td></tr>
+          <tr><td>Metadata</td><td>Unique title and description per page. Canonical tags. Open Graph and Twitter card tags with a real image, so shared links render properly in text messages and Facebook.</td></tr>
+          <tr><td>Indexing</td><td>XML sitemap, sensible robots.txt, Google Search Console verified and sitemap submitted at handover. No stray <code>noindex</code> left on production.</td></tr>
+          <tr><td>Analytics</td><td>GA4 installed, with calls and quote submissions tracked as conversion events. Traffic numbers alone are not the measure.</td></tr>
+          <tr><td>Forms</td><td>Quote request delivering to a monitored inbox, with spam protection, a visible confirmation, and an autoresponder. Must not silently fail. Fields at minimum: name, phone, email, site location, material, quantity, needed-by date.</td></tr>
+          <tr><td>Accessibility</td><td>Descriptive alt text on all images. WCAG AA contrast. Keyboard navigable. Real text, not text baked into images.</td></tr>
+          <tr><td>Security and hosting</td><td>HTTPS with auto renewal. Automatic backups. Uptime monitoring. <strong>Client owns the domain, the hosting account, the analytics property and all credentials.</strong></td></tr>
+          <tr><td>Handover</td><td>Written documentation for editing content, adding an answer article, and changing prices, aimed at a non technical staff member.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="key-finding" style="background:rgba(185,28,28,0.05);border-color:rgba(185,28,28,0.25)">
+        <div class="key-finding-label">Non negotiable: the business name, address and phone</div>
+        <p>The exact same business name, street address and phone number string must appear identically in the site footer, in the structured data, on the contact page and on the Google Business Profile. <strong>Byte for byte identical.</strong></p>
+        <p>This sounds pedantic and it is the single most common cause of a local business failing to rank in its own town. Inconsistency here will undo a great deal of otherwise good work, so it is called out as an acceptance criterion rather than left to care.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="section">
+    <div class="section-head" style="background:#fffbeb;border-bottom:1px solid rgba(180,83,9,0.2)">
+      <span class="section-num" style="color:#b45309">05</span>
+      <span class="section-title" style="color:#b45309">Content, Photography And Tone</span>
+    </div>
+    <div class="section-body">
+      <h3 class="sub">Photography</h3>
+      <p><strong>Real photographs only. No stock imagery and no AI generated images.</strong> This is a firm requirement, not a preference.</p>
+      <p>The client will supply roughly thirty daylight phone photographs of the plant, the pit, stockpiles, trucks, loading and finished pours. Slightly rough, real photographs of this yard outperform polished stock photography in this trade, because they are the one thing a competitor cannot copy and a template cannot fake. The builder is responsible for cropping, compressing and sizing them properly, not for replacing them.</p>
+
+      <h3 class="sub">Tone</h3>
+      <ul class="plain">
+        <li>Plain, specific, trade literate. Numbers and specs over adjectives.</li>
+        <li>No filler superlatives. "Premier provider of quality solutions" is worse than "Class 5, $14 a ton, delivered within 40 miles."</li>
+        <li>Do not overstate capability or capacity. Everything published must be defensible to a contractor who will notice.</li>
+      </ul>
+
+      <h3 class="sub">The answers library, 10 articles</h3>
+      <p>Nav label should read <strong>Answers</strong>, not Blog. Every piece answers a question a buyer actually types. Six at launch, four within ninety days.</p>
+      <table>
+        <thead><tr><th>#</th><th>Article</th><th>Launch</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>How much concrete do I need? With the math and a worked example</td><td>Launch</td></tr>
+          <tr><td>2</td><td>How many tons of gravel do I need? Same treatment</td><td>Launch</td></tr>
+          <tr><td>3</td><td>Scoria vs gravel for lease roads and well pads</td><td>Launch</td></tr>
+          <tr><td>4</td><td>Working on Fort Berthold: TERO licensing in plain English</td><td>Launch</td></tr>
+          <tr><td>5</td><td>What Class 5 means, and the NDDOT spec behind it</td><td>Launch</td></tr>
+          <tr><td>6</td><td>Pouring concrete in a North Dakota season: the window, and cold weather practice</td><td>Launch</td></tr>
+          <tr><td>7</td><td>Crushed concrete vs virgin aggregate: where recycled is the better call</td><td>90 days</td></tr>
+          <tr><td>8</td><td>What a concrete washout costs you if you get it wrong</td><td>90 days</td></tr>
+          <tr><td>9</td><td>Portable crushing on site vs hauling material in</td><td>90 days</td></tr>
+          <tr><td>10</td><td>What topsoil stripping is worth on your site</td><td>90 days</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:14.5px;color:#7C8C84">Each article: 800 to 1,400 words, five FAQs with structured data, one real image, internal links to the relevant material or service page. Articles 3 and 4 are the highest value because nobody else in this market has written them.</p>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="section">
+    <div class="section-head" style="background:#f0fdf4;border-bottom:1px solid rgba(21,128,61,0.2)">
+      <span class="section-num" style="color:#15803d">06</span>
+      <span class="section-title" style="color:#15803d">Scope Boundaries</span>
+    </div>
+    <div class="section-body">
+      <div class="card-grid">
+        <div class="pos-card" style="background:#f0fdf4;border:1px solid rgba(21,128,61,0.2)">
+          <div class="pos-card-label" style="color:#15803d">In scope</div>
+          <div class="pos-card-text">The ~22 pages. Six answer articles at launch. Structured data, metadata, sitemap, analytics, Search Console. Quote form. Photo processing. Handover docs and training.</div>
+        </div>
+        <div class="pos-card" style="background:#fffbeb;border:1px solid rgba(180,83,9,0.2)">
+          <div class="pos-card-label" style="color:#b45309">Quote separately</div>
+          <div class="pos-card-text">Google Business Profile creation and verification. Trade directory listings. The four later articles. Ongoing content. Logo and brand identity, if none exists.</div>
+        </div>
+        <div class="pos-card" style="background:#fef2f2;border:1px solid rgba(185,28,28,0.18)">
+          <div class="pos-card-label" style="color:#b91c1c">Explicitly out</div>
+          <div class="pos-card-text">Online ordering or payment. Customer portal or account logins. A Spanish version. Live dispatch or scheduling integration. Anything requiring a back office system that does not exist yet.</div>
+        </div>
+      </div>
+
+      <div class="key-finding">
+        <div class="key-finding-label">Why no Spanish version</div>
+        <p>We build bilingual sites routinely and it is the right call in many markets. It is <strong>not</strong> right here. The buyer for concrete and aggregate on Fort Berthold is English speaking and the local community is the MHA Nation. A Spanish version would be effort spent on nobody. If a bidder proposes one, treat it as padding.</p>
+      </div>
+
+      <h3 class="sub">Client supplies</h3>
+      <ul class="check">
+        <li>Final trading name and legal entity name <code>[TBC]</code></li>
+        <li>Logo and any existing brand assets, or a note that none exist</li>
+        <li>Material list with specs and price brackets <code>[TBC]</code></li>
+        <li>Delivery radius for concrete and for aggregate, separately <code>[TBC]</code></li>
+        <li>Confirmed street address, staffed hours and a permanent phone number</li>
+        <li>Around 30 photographs, per section 05</li>
+        <li>Equipment capability summary, general rather than an inventory, and with no financial detail</li>
+        <li>A named person who can answer questions and approve within two business days</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">07</span>
+      <span class="section-title" style="color:#2563eb">How To Quote This</span>
+    </div>
+    <div class="section-body">
+      <p>So that bids can be compared honestly, please price these as separate lines rather than one number.</p>
+
+      <table>
+        <thead><tr><th>Line</th><th>What it covers</th></tr></thead>
+        <tbody>
+          <tr><td>A. Design and build</td><td>The ~22 pages, responsive, to the technical requirements in section 04.</td></tr>
+          <tr><td>B. Content writing</td><td>Page copy plus six launch articles. State clearly whether copy is included or expected from the client.</td></tr>
+          <tr><td>C. Technical SEO</td><td>Structured data, metadata, sitemap, Search Console, analytics with conversion tracking.</td></tr>
+          <tr><td>D. Photography handling</td><td>Processing and placing client supplied images.</td></tr>
+          <tr><td>E. Hosting and care</td><td>Monthly. State exactly what is included and what an hourly change costs.</td></tr>
+          <tr><td>F. Optional</td><td>Google Business Profile setup, directory listings, the four later articles.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sub">Also state plainly</h3>
+      <ul class="plain">
+        <li><strong>Timeline</strong> from signed to launched, and what would delay it.</li>
+        <li><strong>Ownership.</strong> Who owns the domain, hosting, analytics and the code or content. The client should own all of it.</li>
+        <li><strong>Platform</strong> proposed, and what editing it requires.</li>
+        <li><strong>Portability.</strong> If the relationship ends, what does the client keep and in what form.</li>
+        <li><strong>Two comparable examples</strong> of work for trade, industrial or materials businesses, with live links.</li>
+      </ul>
+
+      <div class="key-finding" style="background:rgba(185,28,28,0.05);border-color:rgba(185,28,28,0.25)">
+        <div class="key-finding-label">Questions worth asking every bidder</div>
+        <p><strong>Will you publish prices?</strong> Many builders will resist. In this market it is one of the strongest advantages available, and reluctance here signals a template rather than a strategy.</p>
+        <p><strong>How do you handle FAQ structured data?</strong> If the answer is vague, the site will not get quoted by AI assistants, which is where a meaningful share of this market is heading.</p>
+        <p><strong>Who writes the material specs?</strong> Whoever it is needs to be comfortable being corrected by Richard. Wrong specs in front of a spec buyer are worse than no specs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">08</span>
+      <span class="section-title" style="color:#7c3aed">Acceptance Criteria</span>
+    </div>
+    <div class="section-body">
+      <p>The build is complete when all of the following are true and demonstrable. This list exists so that "done" is not a matter of opinion.</p>
+      <ul class="check">
+        <li>Every page has a unique title tag and meta description</li>
+        <li>Structured data passes Google's Rich Results Test with zero errors</li>
+        <li>Home page and one material page hit LCP under 2.5s on simulated mobile 4G</li>
+        <li>Pinch to zoom works</li>
+        <li>Business name, address and phone are byte identical across footer, contact page, structured data and Google listing</li>
+        <li>A test quote submission arrives in the monitored inbox and triggers the autoresponder</li>
+        <li>A test call from a mobile registers as a conversion in GA4</li>
+        <li>Sitemap submitted in Search Console with no coverage errors</li>
+        <li>No stock or AI generated imagery anywhere on the site</li>
+        <li>All six launch articles published, each with five FAQs marked up</li>
+        <li>No placeholder or lorem ipsum text on any live page</li>
+        <li>Client holds admin access to domain, hosting, analytics and Search Console</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 09 -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">09</span>
+      <span class="section-title" style="color:#2F6F6A">Who Builds It</span>
+    </div>
+    <div class="section-body">
+      <p>Two honest options, and this document works for either.</p>
+
+      <div class="card-grid" style="margin-top:6px">
+        <div class="pos-card" style="background:#e8f2ef;border:1px solid rgba(47,111,106,0.24)">
+          <div class="pos-card-label" style="color:#2F6F6A">We build it</div>
+          <div class="pos-card-text">We wrote the spec, we did the market research behind it, and we build sites of exactly this shape. Nothing here would need to be re-explained, and the research already done feeds straight into the copy.</div>
+        </div>
+        <div class="pos-card" style="background:#FAFBF8;border:1px solid rgba(47,111,106,0.16)">
+          <div class="pos-card-label" style="color:#46524C">Take it out for quotes</div>
+          <div class="pos-card-text">This is written to be biddable. Section 07 sets out how to price it in comparable lines. Getting two or three quotes is a reasonable thing to do and we are not precious about it.</div>
+        </div>
+        <div class="pos-card" style="background:#FAFBF8;border:1px solid rgba(47,111,106,0.16)">
+          <div class="pos-card-label" style="color:#46524C">Or both</div>
+          <div class="pos-card-text">Quote it out, include us, and compare. The spec exists so that whichever way it goes, the client knows what they are buying and can tell whether they got it.</div>
+        </div>
+      </div>
+
+      <div class="key-finding" style="background:rgba(185,28,28,0.05);border-color:rgba(185,28,28,0.25)">
+        <div class="key-finding-label">Before sending this to anyone, please read this</div>
+        <p>This document, and especially the competitive landscape document that accompanies it, contain <strong>original research into this market</strong>: where the gaps are, which competitors are weak and exactly how, which categories are empty, and where the openings sit. That research took real work and it is currently an advantage because nobody else has it.</p>
+        <p>Handing it to three web agencies means handing it to three companies who work for other clients, possibly one day in this industry. It is not confidential in a legal sense and there is nothing scandalous in it. But it is <strong>a competitive asset, and it stops being one the moment it is widely distributed.</strong></p>
+        <p>Our suggestion: send the <em>build specification</em> to bidders, which is sections 02 through 08 and contains what a builder actually needs. <strong>Keep the competitive landscape document inside the group.</strong> A builder does not need to know why the market is open in order to quote the pages, and the reasoning is the part worth protecting.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>A note on what this is</h2>
+    <p>A requirements document, not a design and not a proposal. It prescribes no platform, so whoever quotes it is pricing the same work. Corrections from the operating side, especially on materials, specs and delivery radius, will change it and are welcome.</p>
+  </div>
+
+  <div class="method">
+    <strong>Status.</strong> Draft v1, August 2026. Written from the market research in the accompanying competitive landscape document and from information provided by the client on August 6, 2026. Items marked <code>[TBC]</code> are pending client decisions and are the reason this is a draft. The trading name in particular is unresolved, and if the business trades under a different name than the one on this document, page structure is unaffected but branding, domain and the Google listing all change.
+  </div>
+
+  <div class="footer">
+    <span>Prepared by John Rounds · Eagle River Base Camp / Doble AI</span>
+    <span>August 6, 2026 · Draft v1 · Private, unlisted</span>
+  </div>
+
+</div>
+</body>
+</html>
