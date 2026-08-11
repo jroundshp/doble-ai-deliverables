@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A decision tree for how to hold bitcoin: ETF exposure, third-party custody, or self-custody done correctly.">
+<title>Owning Bitcoin: A Decision Tree</title>
+
+<style>
+  :root {
+    --ground:   #E7EAE8;
+    --panel:    #F7F8F7;
+    --panel-2:  #DFE3E1;
+    --ink:      #171B1A;
+    --muted:    #59615F;
+    --faint:    #7E8785;
+    --line:     #C5CAC7;
+    --line-2:   #9DA5A2;
+    --brass:    #8E6516;
+    --brass-t:  #EFE6D2;
+    --steel:    #35586A;
+    --rust:     #9C3D27;
+    --rust-t:   #F0DED8;
+
+    --serif: "Iowan Old Style", "Charter", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: "Avenir Next", Avenir, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:  #121514;
+      --panel:   #1B1F1E;
+      --panel-2: #262B29;
+      --ink:     #E2E6E3;
+      --muted:   #98A19E;
+      --faint:   #79827F;
+      --line:    #333A38;
+      --line-2:  #4E5754;
+      --brass:   #D6A552;
+      --brass-t: #2A2419;
+      --steel:   #79A5BA;
+      --rust:    #D3785B;
+      --rust-t:  #2E1D18;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:  #121514;
+    --panel:   #1B1F1E;
+    --panel-2: #262B29;
+    --ink:     #E2E6E3;
+    --muted:   #98A19E;
+    --faint:   #79827F;
+    --line:    #333A38;
+    --line-2:  #4E5754;
+    --brass:   #D6A552;
+    --brass-t: #2A2419;
+    --steel:   #79A5BA;
+    --rust:    #D3785B;
+    --rust-t:  #2E1D18;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.62;
+    margin: 0;
+    padding: 0 24px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1060px; margin: 0 auto; }
+  .col  { max-width: 640px; }
+
+  /* ---------- masthead ---------- */
+
+  header.mast {
+    padding: 72px 0 40px;
+    border-bottom: 1px solid var(--line-2);
+    margin-bottom: 56px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin: 0 0 20px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(38px, 6.5vw, 62px);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    margin: 0 0 24px;
+  }
+  h1 em { font-style: italic; color: var(--brass); }
+  .standfirst {
+    font-family: var(--serif);
+    font-size: clamp(17px, 2.2vw, 20px);
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0;
+  }
+
+  /* ---------- sections ---------- */
+
+  section { margin-bottom: 72px; }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 3.6vw, 34px);
+    line-height: 1.16;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 8px;
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0 0 14px;
+    display: block;
+  }
+  p { margin: 0 0 18px; }
+  .col p:last-child { margin-bottom: 0; }
+  strong { font-weight: 600; }
+
+  /* ---------- figures ---------- */
+
+  figure {
+    margin: 34px 0 0;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 26px 26px 20px;
+    overflow-x: auto;
+  }
+  figure svg {
+    display: block;
+    width: 100%;
+    min-width: 640px;
+    max-width: 100%;
+    height: auto;
+  }
+  figcaption {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    max-width: 660px;
+  }
+
+  /* SVG paint classes, driven entirely by theme tokens */
+  .bx     { fill: var(--panel); stroke: var(--line-2); stroke-width: 1.2; }
+  .bx-b   { fill: var(--panel); stroke: var(--brass);  stroke-width: 1.6; }
+  .bx-s   { fill: var(--panel); stroke: var(--steel);  stroke-width: 1.2; }
+  .bx-r   { fill: var(--panel); stroke: var(--rust);   stroke-width: 1.2; }
+  .bx-t   { fill: var(--brass-t); stroke: var(--brass); stroke-width: 1.6; }
+  .bx-f   { fill: var(--panel-2); stroke: var(--line-2); stroke-width: 1.2; }
+  .bx-d   { fill: none; stroke: var(--line-2); stroke-width: 1.2; stroke-dasharray: 4 4; }
+
+  .ln     { stroke: var(--line-2); stroke-width: 1.3; fill: none; }
+  .ln-b   { stroke: var(--brass);  stroke-width: 1.6; fill: none; }
+  .ln-s   { stroke: var(--steel);  stroke-width: 1.3; fill: none; }
+  .ln-d   { stroke: var(--line-2); stroke-width: 1.2; fill: none; stroke-dasharray: 4 4; }
+  .ln-ax  { stroke: var(--line-2); stroke-width: 1;   fill: none; }
+  .ln-gd  { stroke: var(--line);   stroke-width: 1;   fill: none; stroke-dasharray: 3 5; }
+
+  .mk     { fill: var(--line-2); }
+  .mk-b   { fill: var(--brass); }
+  .mk-s   { fill: var(--steel); }
+
+  text { font-family: var(--sans); }
+  .tx   { fill: var(--ink); }
+  .tx-m { fill: var(--muted); }
+  .tx-f { fill: var(--faint); }
+  .tx-b { fill: var(--brass); }
+  .tx-s { fill: var(--steel); }
+  .tx-r { fill: var(--rust); }
+  .lbl  { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .b600 { font-weight: 600; }
+  .dot-r { fill: var(--rust); }
+  .dot-m { fill: var(--faint); }
+
+  /* ---------- callout ---------- */
+
+  .callout {
+    border-left: 3px solid var(--rust);
+    background: var(--rust-t);
+    padding: 20px 24px;
+    border-radius: 0 4px 4px 0;
+    margin: 34px 0 0;
+    max-width: 720px;
+  }
+  .callout .lbl-h {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rust);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .callout p { margin: 0; font-size: 15px; }
+
+  /* ---------- steps ---------- */
+
+  ol.steps { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 2px; counter-reset: s; }
+  ol.steps li {
+    counter-increment: s;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    column-gap: 18px;
+    row-gap: 3px;
+    align-items: start;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 16px 20px;
+  }
+  ol.steps li::before {
+    content: counter(s, decimal-leading-zero);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--brass);
+    padding-top: 3px;
+    font-variant-numeric: tabular-nums;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+  ol.steps > li > b { grid-column: 2; grid-row: 1; font-weight: 600; font-size: 15px; margin-bottom: 2px; }
+  ol.steps > li > span { grid-column: 2; grid-row: 2; font-size: 14px; color: var(--muted); line-height: 1.5; }
+  ol.steps span b.inl { font-size: inherit; font-weight: 600; color: var(--ink); }
+
+  /* ---------- table ---------- */
+
+  .tbl-wrap { overflow-x: auto; margin-top: 30px; border: 1px solid var(--line); border-radius: 4px; }
+  table { border-collapse: collapse; width: 100%; min-width: 760px; background: var(--panel); }
+  th, td { text-align: left; padding: 15px 18px; vertical-align: top; border-bottom: 1px solid var(--line); }
+  thead th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--faint);
+    font-weight: 400;
+    background: var(--panel-2);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.setup { font-weight: 600; font-size: 14.5px; width: 26%; }
+  td.why { font-size: 14px; color: var(--muted); width: 40%; }
+  td.amt2 { font-size: 13.5px; color: var(--rust); line-height: 1.5; width: 34%; }
+
+  /* ---------- close ---------- */
+
+  .close {
+    border-top: 1px solid var(--line-2);
+    padding-top: 40px;
+    margin-top: 20px;
+  }
+  .close p { font-family: var(--serif); font-size: 19px; line-height: 1.55; max-width: 620px; }
+  .fine {
+    font-size: 12.5px;
+    color: var(--faint);
+    line-height: 1.55;
+    max-width: 620px;
+    margin-top: 34px;
+  }
+
+  @media (max-width: 620px) {
+    body { padding: 0 18px 64px; }
+    header.mast { padding-top: 48px; }
+    figure { padding: 18px 16px 14px; }
+    ol.steps li { grid-template-columns: 32px 1fr; column-gap: 12px; padding: 14px 16px; }
+  }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">A decision tree</p>
+  <h1>Exposure, or <em>ownership</em></h1>
+  <p class="standfirst">Every question about how to hold bitcoin comes down to one fork, asked three times: do you want the thing, or a claim on the thing? Here is the map, and what waits at the end of each branch.</p>
+</header>
+
+<section>
+  <div class="col">
+    <span class="kicker">The whole map</span>
+    <h2>Three forks, four destinations</h2>
+    <p>The first fork is the real one. If you only want the price to go up, a spot ETF is a perfectly rational instrument and the rest of this document is optional reading. If you want the asset itself, everything after that is a question about who can take it from you and how easily you can take it back.</p>
+    <p>These paths are not exclusive. A common arrangement is an ETF inside the retirement account, where the tax wrapper is worth more than the sovereignty, and coins in cold storage outside it, where the reverse is true.</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 980 810" role="img" aria-label="Decision tree: wanting exposure to bitcoin forks into a spot ETF, third-party custody, or self-custody by single signature with passphrase or by two-of-three multisig, with all self-custody paths converging on four non-negotiable requirements.">
+      <defs>
+        <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <polygon class="mk" points="0,1 10,5 0,9" />
+        </marker>
+        <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <polygon class="mk-b" points="0,1 10,5 0,9" />
+        </marker>
+        <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <polygon class="mk-s" points="0,1 10,5 0,9" />
+        </marker>
+      </defs>
+
+      <!-- start -->
+      <rect class="bx-f" x="110" y="16" width="280" height="44" rx="22" />
+      <text class="tx b600" x="250" y="43" font-size="14" text-anchor="middle">You want exposure to bitcoin</text>
+      <line class="ln-b" x1="250" y1="60" x2="250" y2="88" marker-end="url(#a2)" />
+
+      <!-- Q1 -->
+      <rect class="bx-b" x="90" y="90" width="320" height="52" rx="5" />
+      <text class="tx b600" x="250" y="121" font-size="14" text-anchor="middle">Do you need the asset itself?</text>
+
+      <line class="ln-s" x1="410" y1="116" x2="498" y2="116" marker-end="url(#a3)" />
+      <text class="tx-f lbl" x="454" y="108" text-anchor="middle">no</text>
+
+      <!-- exit 1 -->
+      <rect class="bx-s" x="500" y="76" width="440" height="80" rx="5" />
+      <text class="tx-s b600" x="522" y="102" font-size="13.5">Spot ETF, such as IBIT or FBTC</text>
+      <text class="tx-m" x="522" y="122" font-size="11.5">Price exposure in a normal brokerage or IRA. Nothing to lose or forget.</text>
+      <text class="tx-m" x="522" y="140" font-size="11.5">One custodian holds the coins. You cannot send, spend, or verify them.</text>
+
+      <line class="ln-b" x1="250" y1="142" x2="250" y2="184" marker-end="url(#a2)" />
+      <text class="tx-b lbl" x="262" y="168">yes</text>
+
+      <!-- Q2 -->
+      <rect class="bx-b" x="90" y="186" width="320" height="52" rx="5" />
+      <text class="tx b600" x="250" y="217" font-size="14" text-anchor="middle">Who holds the keys?</text>
+
+      <line class="ln-s" x1="410" y1="212" x2="498" y2="212" marker-end="url(#a3)" />
+      <text class="tx-f lbl" x="454" y="204" text-anchor="middle">a company</text>
+
+      <!-- exit 2 -->
+      <rect class="bx-s" x="500" y="170" width="440" height="106" rx="5" />
+      <text class="tx-s b600" x="522" y="194" font-size="13.5">Third-party custody</text>
+      <text class="tx-m" x="522" y="214" font-size="11.5">Exchange account: easiest on-ramp. Their failure becomes your failure.</text>
+      <text class="tx-m" x="522" y="232" font-size="11.5">Collaborative custody: three keys, you hold two, a firm holds one.</text>
+      <text class="tx-m" x="522" y="250" font-size="11.5">Real bitcoin either way, and an institution still stands between you</text>
+      <text class="tx-m" x="522" y="266" font-size="11.5">and it.</text>
+
+      <line class="ln-b" x1="250" y1="238" x2="250" y2="294" marker-end="url(#a2)" />
+      <text class="tx-b lbl" x="262" y="272">i do</text>
+
+      <!-- Q3 -->
+      <rect class="bx-b" x="90" y="296" width="320" height="52" rx="5" />
+      <text class="tx b600" x="250" y="327" font-size="14" text-anchor="middle">How many keys guard it?</text>
+
+      <!-- split bus -->
+      <path class="ln-b" d="M250,348 V376" />
+      <path class="ln-b" d="M225,376 H755" />
+      <path class="ln-b" d="M225,376 V400" marker-end="url(#a2)" />
+      <path class="ln-b" d="M755,376 V400" marker-end="url(#a2)" />
+
+      <!-- option A -->
+      <rect class="bx-t" x="50" y="404" width="350" height="150" rx="5" />
+      <text class="tx-b lbl" x="70" y="426">one key</text>
+      <text class="tx b600" x="70" y="448" font-size="14.5">Single signature, plus a passphrase</text>
+      <text class="tx-m" x="70" y="472" font-size="11.5">One device, one dice-rolled seed, one passphrase.</text>
+      <text class="tx-m" x="70" y="492" font-size="11.5">Simple enough to explain to an heir in a letter.</text>
+      <text class="tx-m" x="70" y="512" font-size="11.5">The passphrase has no spell-check. One wrong</text>
+      <text class="tx-m" x="70" y="530" font-size="11.5">character opens a different, empty wallet in silence.</text>
+
+      <!-- option B -->
+      <rect class="bx-t" x="580" y="404" width="350" height="150" rx="5" />
+      <text class="tx-b lbl" x="600" y="426">several keys</text>
+      <text class="tx b600" x="600" y="448" font-size="14.5">2-of-3 multisig</text>
+      <text class="tx-m" x="600" y="472" font-size="11.5">Three keys in three places, any two can spend.</text>
+      <text class="tx-m" x="600" y="492" font-size="11.5">No single fire, safe, or mistake can end you.</text>
+      <text class="tx-m" x="600" y="512" font-size="11.5">You must also back up the wallet descriptor.</text>
+      <text class="tx-m" x="600" y="530" font-size="11.5">Without it, three good keys still open nothing.</text>
+
+      <!-- converge -->
+      <path class="ln" d="M225,554 V584" />
+      <path class="ln" d="M755,554 V584" />
+      <path class="ln" d="M225,584 H755" />
+      <path class="ln" d="M490,584 V612" marker-end="url(#a1)" />
+
+      <rect class="bx-f" x="140" y="614" width="700" height="48" rx="5" />
+      <text class="tx b600" x="490" y="644" font-size="14.5" text-anchor="middle">Both paths fail in the same four ways. Close all four.</text>
+
+      <path class="ln" d="M490,662 V690" />
+      <path class="ln" d="M130,690 H850" />
+      <path class="ln" d="M130,690 V706" marker-end="url(#a1)" />
+      <path class="ln" d="M370,690 V706" marker-end="url(#a1)" />
+      <path class="ln" d="M610,690 V706" marker-end="url(#a1)" />
+      <path class="ln" d="M850,690 V706" marker-end="url(#a1)" />
+
+      <rect class="bx" x="30" y="710" width="200" height="72" rx="4" />
+      <text class="tx b600" x="48" y="734" font-size="13">Durable</text>
+      <text class="tx-m" x="48" y="752" font-size="10.5">Engraved steel. Paper burns,</text>
+      <text class="tx-m" x="48" y="766" font-size="10.5">floods, and fades.</text>
+
+      <rect class="bx" x="270" y="710" width="200" height="72" rx="4" />
+      <text class="tx b600" x="288" y="734" font-size="13">Separated</text>
+      <text class="tx-m" x="288" y="752" font-size="10.5">Seed and passphrase never</text>
+      <text class="tx-m" x="288" y="766" font-size="10.5">in the same building.</text>
+
+      <rect class="bx" x="510" y="710" width="200" height="72" rx="4" />
+      <text class="tx b600" x="528" y="734" font-size="13">Tested</text>
+      <text class="tx-m" x="528" y="752" font-size="10.5">Wipe the device and restore</text>
+      <text class="tx-m" x="528" y="766" font-size="10.5">it, before you fund it.</text>
+
+      <rect class="bx" x="750" y="710" width="200" height="72" rx="4" />
+      <text class="tx b600" x="768" y="734" font-size="13">Inheritable</text>
+      <text class="tx-m" x="768" y="752" font-size="10.5">Someone can recover it</text>
+      <text class="tx-m" x="768" y="766" font-size="10.5">when you no longer can.</text>
+    </svg>
+    <figcaption>Two exits and one continuing spine. The exits are legitimate destinations, not failures. What changes down the spine is not how much bitcoin you own but how many other parties have to stay solvent, honest, and in business for you to keep it.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="col">
+    <span class="kicker">The first fork, in plain terms</span>
+    <h2>The ETF is a claim. The coin is the thing.</h2>
+    <p>The gold analogy holds almost exactly. An ETF share is a claim on metal in someone else's vault, priced continuously and settled in dollars. It is convenient, liquid, and it sits inside a retirement account. It is also a promise that a chain of institutions will keep behaving.</p>
+    <p>Two mechanical details are worth knowing. The sponsor fee is paid <em>in bitcoin</em>, so the amount of BTC backing each share declines a little every year even when the price does nothing. And ordinary shareholders cannot redeem shares for coins. The exit is dollars, at market hours, through a broker.</p>
+    <p>Self-custody buys you the opposite trade: no fee drag, no market hours, no counterparty, and no one to call when you make a mistake. You become the vault, the backup department, and the estate plan.</p>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <span class="kicker">Inside the self-custody branch</span>
+    <h2>Two secrets, two places, one wallet</h2>
+    <p>This is the piece people find counterintuitive, so it is worth drawing. The hardware device is not where your bitcoin lives. The device is a replaceable tool that signs. What actually controls the money is a pair of secrets, and the design goal is that finding either one alone gets an attacker nowhere.</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 980 410" role="img" aria-label="A seed phrase stored in one location and a passphrase stored in another combine to produce spendable bitcoin; the signing device is a replaceable component, and an attacker holding only one of the three gets nothing.">
+      <defs>
+        <marker id="b1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <polygon class="mk-b" points="0,1 10,5 0,9" />
+        </marker>
+      </defs>
+
+      <rect class="bx-b" x="110" y="24" width="340" height="86" rx="5" />
+      <text class="tx-b lbl" x="132" y="48">location a</text>
+      <text class="tx b600" x="132" y="70" font-size="14.5">Seed phrase, 24 words</text>
+      <text class="tx-m" x="132" y="90" font-size="11.5">99 dice rolls, 256 bits, entered on the device.</text>
+      <text class="tx-m" x="132" y="105" font-size="11.5">Engraved in steel and never photographed.</text>
+
+      <rect class="bx-b" x="530" y="24" width="340" height="86" rx="5" />
+      <text class="tx-b lbl" x="552" y="48">location b</text>
+      <text class="tx b600" x="552" y="70" font-size="14.5">Passphrase</text>
+      <text class="tx-m" x="552" y="90" font-size="11.5">Six diceware words, memorized, one written</text>
+      <text class="tx-m" x="552" y="105" font-size="11.5">copy kept miles from the steel.</text>
+
+      <path class="ln-b" d="M280,110 V160 H472" />
+      <path class="ln-b" d="M700,110 V160 H508" />
+      <circle class="bx-b" cx="490" cy="160" r="17" />
+      <text class="tx-b b600" x="490" y="166" font-size="16" text-anchor="middle">+</text>
+      <path class="ln-b" d="M490,177 V206" marker-end="url(#b1)" />
+
+      <rect class="bx-t" x="290" y="208" width="400" height="66" rx="5" />
+      <text class="tx b600" x="490" y="238" font-size="15" text-anchor="middle">Spendable bitcoin</text>
+      <text class="tx-m" x="490" y="258" font-size="11.5" text-anchor="middle">Restorable onto any compatible device, indefinitely</text>
+
+      <rect class="bx-d" x="40" y="208" width="210" height="66" rx="5" />
+      <text class="tx-m b600" x="145" y="236" font-size="13" text-anchor="middle">Signing device</text>
+      <text class="tx-f" x="145" y="255" font-size="11" text-anchor="middle">interchangeable, disposable</text>
+      <path class="ln-d" d="M250,241 H288" />
+      <text class="tx-f lbl" x="269" y="230" text-anchor="middle">signs</text>
+
+      <line class="ln-ax" x1="40" y1="308" x2="940" y2="308" />
+      <text class="tx-r lbl" x="40" y="332">what a thief gets with only one piece</text>
+
+      <rect class="bx-r" x="40" y="344" width="288" height="52" rx="4" />
+      <text class="tx b600" x="60" y="368" font-size="12.5">Only the steel plate</text>
+      <text class="tx-m" x="60" y="386" font-size="11">A valid wallet, holding nothing.</text>
+
+      <rect class="bx-r" x="346" y="344" width="288" height="52" rx="4" />
+      <text class="tx b600" x="366" y="368" font-size="12.5">Only the passphrase</text>
+      <text class="tx-m" x="366" y="386" font-size="11">A string attached to no wallet.</text>
+
+      <rect class="bx-r" x="652" y="344" width="288" height="52" rx="4" />
+      <text class="tx b600" x="672" y="368" font-size="12.5">Only the device</text>
+      <text class="tx-m" x="672" y="386" font-size="11">PIN-locked, then self-wiping.</text>
+    </svg>
+    <figcaption>The seed alone opens a real but empty wallet, which is why a passphrase can double as a decoy under duress. The device is the only replaceable part: lose it in a fire and you buy another and restore. Lose both secrets and nothing is replaceable.</figcaption>
+  </figure>
+
+  <div class="callout">
+    <span class="lbl-h">The fourth case, and the one that actually happens</span>
+    <p>You are the only living person who knows that both halves exist, what they are for, and where they sit. Then you are gone, and your family inherits a metal plate they cannot read and a password they never knew to look for. Separation defeats a burglar and an heir with equal efficiency.</p>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <span class="kicker">Threat modeling</span>
+    <h2>People defend against the wrong things</h2>
+    <p>Almost nobody loses coins the way they imagine losing coins. The failures that actually empty wallets are quiet, procedural, and boring, and they cluster in the corner of this chart that gets the least attention.</p>
+  </div>
+
+  <figure>
+    <svg viewBox="0 0 980 560" role="img" aria-label="A two-by-two map plotting bitcoin loss scenarios against how much attention they get and how often they cause loss. Forgotten passphrases, single backups, untested recovery, missing inheritance plans, and lost multisig descriptors sit in the high-loss, low-attention quadrant. Confiscation, quantum computing, and exchange hacks sit in the high-attention, low-loss quadrant.">
+      <line class="ln-ax" x1="140" y1="470" x2="920" y2="470" />
+      <line class="ln-ax" x1="140" y1="50" x2="140" y2="470" />
+      <line class="ln-gd" x1="530" y1="50" x2="530" y2="470" />
+      <line class="ln-gd" x1="140" y1="260" x2="920" y2="260" />
+
+      <text class="tx-r lbl" x="158" y="72">under-defended</text>
+      <text class="tx-f lbl" x="912" y="72" text-anchor="end">worth the worry</text>
+      <text class="tx-f lbl" x="158" y="456">minor</text>
+      <text class="tx-f lbl" x="912" y="456" text-anchor="end">over-defended</text>
+
+      <circle class="dot-r" cx="215" cy="108" r="5" />
+      <text class="tx" x="230" y="112" font-size="12">Mistyped or forgotten passphrase</text>
+
+      <circle class="dot-r" cx="235" cy="160" r="5" />
+      <text class="tx" x="250" y="164" font-size="12">Only one copy of the backup</text>
+
+      <circle class="dot-r" cx="200" cy="212" r="5" />
+      <text class="tx" x="215" y="216" font-size="12">Recovery never tested</text>
+
+      <circle class="dot-r" cx="380" cy="128" r="5" />
+      <text class="tx" x="395" y="132" font-size="12">No inheritance plan</text>
+
+      <circle class="dot-r" cx="368" cy="236" r="5" />
+      <text class="tx" x="383" y="240" font-size="12">Multisig descriptor lost</text>
+
+      <circle class="dot-m" cx="596" cy="120" r="5" />
+      <text class="tx-m" x="611" y="124" font-size="12">Phishing and fake support</text>
+
+      <circle class="dot-m" cx="580" cy="196" r="5" />
+      <text class="tx-m" x="595" y="200" font-size="12">Malware swapping the address</text>
+
+      <circle class="dot-m" cx="640" cy="322" r="5" />
+      <text class="tx-m" x="655" y="326" font-size="12">Exchange failure</text>
+
+      <circle class="dot-m" cx="600" cy="382" r="5" />
+      <text class="tx-m" x="615" y="386" font-size="12">Coerced in person</text>
+
+      <circle class="dot-m" cx="730" cy="428" r="5" />
+      <text class="tx-m" x="745" y="432" font-size="12">Confiscation</text>
+
+      <circle class="dot-m" cx="820" cy="452" r="4.5" />
+      <text class="tx-m" x="835" y="456" font-size="12">Quantum</text>
+
+      <circle class="dot-m" cx="200" cy="392" r="4.5" />
+      <text class="tx-m" x="215" y="396" font-size="12">Firmware backdoor</text>
+
+      <text class="tx-f lbl" x="140" y="498">little attention</text>
+      <text class="tx-f lbl" x="920" y="498" text-anchor="end">constant attention</text>
+      <text class="tx-m" x="530" y="528" font-size="12.5" text-anchor="middle">How much attention the scenario gets</text>
+      <text class="tx-m" x="112" y="260" font-size="12.5" text-anchor="middle" transform="rotate(-90 112 260)">How often it actually loses coins</text>
+    </svg>
+    <figcaption>A judgment map drawn from common failure patterns, not from measured data. The point is the shape rather than any single placement: the expensive, exotic threats are already well covered by ordinary hardware, and the cheap, procedural ones are not covered by anything except your own discipline.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="col">
+    <span class="kicker">Doing it right</span>
+    <h2>The order matters more than the gear</h2>
+    <p>Every step below exists because skipping it is a documented way to lose money. The sequence is deliberate: everything that could go wrong should go wrong while the wallet is empty. Note that both secrets come off the same pair of dice, which is the point. Randomness you produced in a room by yourself is the one input in this whole process that no manufacturer, firmware, or supply chain can quietly compromise.</p>
+  </div>
+
+  <ol class="steps">
+    <li><b>Buy the device from the manufacturer</b><span>Direct, never a marketplace listing. A tampered device is the one attack that defeats every other precaution. Check the firmware signature on first boot.</span></li>
+    <li><b>Roll the seed yourself, with dice, offline</b><span>This is the recommendation, not the advanced option. A hardware wallet's random number generator is the one component you cannot audit, and every word of your seed comes out of it. Dice remove it from the trust equation. <b class="inl">Ninety-nine rolls of a fair six-sided die yields 256 bits</b>, which is exactly what a 24-word seed encodes. Enter each roll into the device and let it derive the words and the checksum, rather than converting by hand. If the device offers to mix your dice entropy with its own, take it: the result is safe as long as either source was.</span></li>
+    <li><b>Write the seed to steel, not paper</b><span>Engraved or stamped, rated for house-fire temperatures. Paper is a five-year medium in a drawer and a zero-year medium in a flood.</span></li>
+    <li><b>Roll the passphrase with dice too</b><span>Use the same method and the same dice. Five rolls select one word from a standard diceware list; six words gives you roughly 77 bits, far more than any phrase you would invent, and it is words rather than symbols so you can actually memorize it. Understand what you are making: this is a second wallet, not a second password. There is no checksum and no error message, so one wrong character silently opens a different empty wallet that looks entirely legitimate. Record capitalization and spacing exactly as entered. If you are not confident you can reproduce it in ten years, a plain seed you can genuinely recover beats a clever one you cannot.</span></li>
+    <li><b>Separate the two secrets</b><span>Far enough apart that one burglary, one fire, or one flood cannot take both. Close enough that you can still assemble them yourself in an afternoon.</span></li>
+    <li><b>Wipe the device and restore from the backup</b><span>Before a single satoshi goes in. This is the step that gets skipped and the reason people discover a transcription error years too late. If the restored wallet shows the same first receive address, your backup is real.</span></li>
+    <li><b>Send a small test amount, then the rest</b><span>Verify the receiving address on the device screen itself, not on the computer. Address-swapping malware edits what your monitor shows you and cannot edit what the device shows you.</span></li>
+    <li><b>Write the instructions for whoever comes after you</b><span>Sealed, with the lawyer or in the safe: what the metal plate is, which device, that a passphrase exists and where it lives, and who to call. Not the passphrase itself.</span></li>
+    <li><b>Say nothing</b><span>The most effective physical security measure is that nobody knows there is anything to take.</span></li>
+  </ol>
+</section>
+
+<section>
+  <div class="col">
+    <span class="kicker">Choosing between them</span>
+    <h2>This is not a ladder</h2>
+    <p>It is tempting to read these three as tiers, with multisig at the top for serious money. That framing is wrong, and following it has cost people coins. Multisig does not add security on top of a good single-signature setup. It trades one category of risk for another: it removes any single key, safe, or fire as a fatal event, and in exchange it adds coordination, a descriptor you must back up everywhere, more software to keep working, and an inheritance problem that is genuinely harder to write down.</p>
+    <p>A dice-generated seed, a passphrase you can reproduce, steel backups, real geographic separation, and clear instructions for your heirs is <strong>a complete strategy</strong>. Nothing sits above it that you are obligated to graduate to. Choose by which failure you are actually trying to prevent, and by who has to operate this when you are having a bad day years from now.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Setup</th><th>Choose it when</th><th>What it costs you</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="setup">One hardware wallet, seed on steel, no passphrase</td>
+          <td class="why">You want the fewest moving parts in existence, one physical location is genuinely secure, and whoever inherits this may not be technical. It is also the right place to learn, before real money is involved.</td>
+          <td class="amt2">Anyone who finds the plate has the coins. Your entire defense is physical.</td>
+        </tr>
+        <tr>
+          <td class="setup">Single signature plus a passphrase, in two locations</td>
+          <td class="why">You want a discovered backup to be worth nothing on its own, one person operates it, and you are confident you can reproduce the passphrase exactly in ten years. A duress wallet comes free with the design.</td>
+          <td class="amt2">The passphrase has no checksum and no reset. Forgetting it is indistinguishable from never having had the coins.</td>
+        </tr>
+        <tr>
+          <td class="setup">2-of-3 multisig</td>
+          <td class="why">No single location, event, or person should be able to end this: a house fire, a coerced moment, or a co-owner. Often the right answer when control is genuinely shared, as with partners, a business, or a trust.</td>
+          <td class="amt2">More software, more parts, and a descriptor that becomes its own single point of failure the moment you neglect it. Harder to hand to an heir.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="close">
+    <p>Sovereignty is not a feature you buy once. It is an ongoing job you have agreed to do yourself, and the whole argument for doing it is that no one else can be fired from it, go bankrupt during it, or decide one morning that you no longer qualify.</p>
+  </div>
+
+  <p class="fine">Written as an overview of how to think about the decision, not as financial, tax, or legal advice. Product names, fees, and custodial arrangements change; verify current details before acting on any of them. Moving your own coins between your own wallets is generally not a taxable event while selling is, but confirm your situation with a professional.</p>
+</section>
+
+</div>
+</body>
+</html>
