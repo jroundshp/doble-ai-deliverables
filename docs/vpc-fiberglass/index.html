@@ -410,7 +410,9 @@
         </div>
         <div class="audit-card">
           <div class="audit-card-top"><span class="audit-channel">Structured Data / Schema</span><span class="grade grade-c">C</span></div>
-          <div class="audit-note">The homepage does carry <code>Organization</code>, <code>WebSite</code>, <code>WebPage</code> and <code>BreadcrumbList</code> markup — a real head start. But there is <strong>no <code>Product</code> schema on a manufacturer's site</strong> and <strong>no <code>FAQPage</code> schema anywhere</strong>. Interior pages drop to breadcrumbs only. The two schema types that would most directly feed AI answers are the two that are missing.</div>
+          <div class="audit-note">The homepage does carry <code>Organization</code>, <code>WebSite</code>, <code>WebPage</code> and <code>BreadcrumbList</code> markup — a real head start. But there is <strong>no <code>Product</code> schema on a manufacturer's site</strong> and <strong>no <code>FAQPage</code> schema anywhere</strong>. Interior pages drop to breadcrumbs only. The two schema types that would most directly feed AI answers are the two that are missing.
+
+          <br><br><strong>Added August 13, 2026 on re-verification: the one piece of local-business markup on the site is malformed and probably does not parse.</strong> A fourth JSON-LD block on the homepage declares <code>"@type": "localbusiness"</code> against <code>"@context": "https://www.schema.org"</code>. Schema.org types are case-sensitive, so the valid value is <code>LocalBusiness</code>; and the canonical context is <code>https://schema.org</code>, without the <code>www</code>. Either error alone is enough for a strict parser to discard the block. This is the markup carrying the company name, phone and logo, so the single element telling a machine "this is a real business you can contact" is likely being thrown away. It is a five-minute fix and invisible to anyone reviewing the site by eye.</div>
         </div>
         <div class="audit-card">
           <div class="audit-card-top"><span class="audit-channel">Product Catalog Subdomain</span><span class="grade grade-dp">D+</span></div>
@@ -498,7 +500,9 @@
             <span class="rec-num">04</span>
             <span class="rec-title">Clean the Indexed Clutter</span>
           </div>
-          <div class="rec-detail">Delete or noindex the live <code>/locations/test-location/</code> page. Consolidate the four near-duplicate Enduro enclosure pages into one canonical product page and redirect the rest, recovering the relevance currently split across copies. Noindex the <code>/author/</code> archive, which is publishing the web vendor's admin username to search engines. Add the missing meta description to <code>/locations/</code>.</div>
+          <div class="rec-detail">Delete or noindex the live <code>/locations/test-location/</code> page. Consolidate the four near-duplicate Enduro enclosure pages into one canonical product page and redirect the rest, recovering the relevance currently split across copies. Noindex the <code>/author/</code> archive, which is publishing the web vendor's admin username to search engines. Add the missing meta description to <code>/locations/</code>.
+
+          <br><br><strong>Added August 13, 2026 on re-verification: there are no location pages at all.</strong> <code>locations-sitemap.xml</code> contains exactly two URLs — the <code>/locations/</code> archive, and <code>/locations/test-location/</code>. The archive page names Medina, Lockport, Amherst and North Forest in plain text and links to none of them. So a three-plant manufacturer has one placeholder page where three real ones should be, and every location query a buyer might run has nothing to land on. Deleting the test page is the smaller half of this recommendation; the larger half is building a genuine page per facility, each with its own address, phone, hours, capabilities and <code>LocalBusiness</code> markup. Paired with the missing <code>Product</code> schema above, the two things this buyer actually searches — a product and a place — are the two the site has no findable pages for.</div>
         </div>
         <div class="rec-item">
           <div class="rec-header">
