@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Break'n Bad — Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(47,111,106,0.2);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2F6F6A;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #2F6F6A;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #46524C;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(47,111,106,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #1F2622;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7C8C84;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #eefaf6;
+    border: 1px solid #99e2d0;
+    border-left: 4px solid #0f766e;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #0f766e;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #134e4a; line-height: 1.6; }
+  .alert p + p { margin-top: 12px; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(15,118,110,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(47,111,106,0.16);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FAFBF8; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #7C8C84; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #1F2622; line-height: 1.6; }
+
+  /* ── Tables ── */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(47,111,106,0.2); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(47,111,106,0.1); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #46524C; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #1F2622; }
+  td:last-child  { padding-right: 0; }
+  .nw { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(71,85,76,0.14);  color: #46524c; }
+  .badge-ok     { background: rgba(21,128,61,0.12); color: #15803d; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #1F2622; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #46524C; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #E9F1ED; border: 1px solid rgba(47,111,106,0.16);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #1F2622; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-am { background: #16803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bp { background: #1e3a8a; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-cm { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #46524C; line-height: 1.5; }
+  .audit-note code, .fact-val code, .rec-detail code, td code, .key-finding code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(47,111,106,0.1);
+    padding: 1px 5px; border-radius: 4px; font-size: 0.88em;
+  }
+
+  .key-finding {
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
+  .key-finding p + p { margin-top: 12px; }
+
+  .note-box {
+    background: #fffbeb; border: 1px solid #fcd34d; border-left: 4px solid #d97706;
+    border-radius: 8px; padding: 14px 18px; margin-top: 20px;
+  }
+  .note-box-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #b45309; margin-bottom: 6px;
+  }
+  .note-box p { font-size: 14px; color: #713f12; line-height: 1.6; }
+  .note-box p + p { margin-top: 10px; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FAFBF8; border-bottom: 1px solid rgba(47,111,106,0.11); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #2F6F6A; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #1F2622; }
+  .rec-detail { font-size: 14px; color: #46524C; line-height: 1.65; padding-left: 30px; }
+  .rec-detail em { color: #1F2622; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #123a37 0%, #2F6F6A 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #cdeae3; line-height: 1.6;
+    max-width: 560px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #2F6F6A;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #a6d4cb; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(47,111,106,0.16);
+    font-size: 11px; color: #7C8C84;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · 14 August 2026 · Rochester, Minnesota · South Bend, Indiana</div>
+    <h1>Break'n<br>Bad</h1>
+    <p>A sports card breaking operation founded in 2021, running daily live rips on Fanatics Live, Whatnot and eBay Live under the line "$20 flat rate breaks." The brand is good. The streams are real. The website is a storefront that cannot take an order and a set of pages that will not show a customer what they came to read. This audit is about the gap between those two things.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">22 of 26</div><div class="stat-label">Pages With Identical Blank Bodies</div></div>
+      <div class="stat"><div class="stat-val">8 of 8</div><div class="stat-label">Products Sold Out</div></div>
+      <div class="stat"><div class="stat-val">0</div><div class="stat-label">Structured Data Blocks</div></div>
+      <div class="stat"><div class="stat-val">0 of 7</div><div class="stat-label">Collections With Products</div></div>
+      <div class="stat"><div class="stat-val">3.4 / 10</div><div class="stat-label">Digital Score</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="alert-label">The Core Gap — The Site Launched Before It Was Finished, and Nobody Came Back</div>
+      <p>The foundation is genuinely good. Shopify hosting answers in <strong>55 milliseconds</strong>, the security headers are correct, <code>www</code> and the <code>.myshopify.com</code> address both redirect properly, the mobile viewport allows pinch-to-zoom, and every AI crawler we tested (GPTBot, PerplexityBot, ClaudeBot, Googlebot) receives a clean 200. Nothing is blocking anybody. There are also five genuinely well-chosen blog articles already written, on exactly the questions a new collector types.</p>
+      <p>What sits on top of that foundation is unfinished. <strong>22 of the site's 26 pages render the same 15 words</strong>, byte for byte: the "Join Our Lives" platform block. That includes the refund policy, the shipping policy, the privacy policy, the terms of service, the FAQ, the testimonials page, the card breaking glossary and the live schedule. The text for those pages exists inside Shopify, because we can read fragments of it in the auto-generated meta descriptions, but the page template never puts it on the screen. A customer who clicks "refund policy" before a $20 buy-in sees nothing at all.</p>
+      <p>Alongside that: <strong>every one of the eight products is Sold Out</strong>, so the shop cannot take money. All seven collections are empty, and three of them carry the wrong name entirely, so <code>/collections/nfl</code> is headed "What We Break" and <code>/collections/mlb</code> is headed "Contact." The published phone number on every page is <strong>+1 (555) 010-2026</strong>, which is inside the range reserved for fiction. The homepage headline is still selling a drawing at a convention that ended on 2 August. The Instagram, X and TikTok icons in the footer link to <code>href=""</code>, and the copyright line reads "[2026]" with the brackets still in it.</p>
+      <p>None of this is a rebuild. It is a template fix, an inventory setting and a launch checklist that was never run.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Business Snapshot -->
+  <div class="section">
+    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">01</span>
+      <span class="section-title" style="color:#2F6F6A">Business Snapshot</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">What It Is</div>
+          <div class="fact-val">A live sports card breaking business, founded 2021, streaming daily across three platforms: <strong>Fanatics Live</strong> (<code>fanatics.live/shops/breakn-bad</code>), <strong>Whatnot</strong> (<code>whatnot.com/user/breaknbad</code>) and <strong>eBay Live</strong> (<code>ebay.com/str/breaknsupplies</code>). The signature offer is a <strong>$20 flat rate break</strong> with free shipping. Six breakers are named on the team page: Alex, Sam, Isaiah, Michael, Jaeger and Grady.</div>
+        </div>
+        <div>
+          <div class="fact-label">Where It Is, According to Its Own Site</div>
+          <div class="fact-val">Three different answers. The About page says <strong>"just outside of Rochester, Minnesota"</strong> and mentions an expansion to Notre Dame in South Bend, Indiana. Every product page says <strong>"Ships within 24 hrs from South Bend, IN."</strong> The Collector's Club sign-up page says South Bend. The contact page gives <strong>no address at all</strong>, and no hours. There is no single place on the site where a customer can learn where this business actually is.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Platform Dependency</div>
+          <div class="fact-val">All three revenue channels are rented. Breaks are sold on Fanatics Live, Whatnot and eBay Live, and the breaknbad.com store sells <strong>only merchandise</strong>: eight items, all currently unbuyable. There is not one break, spot or slot purchasable on the owned domain. If a platform changes its fee structure, its algorithm or its terms, there is no direct channel to fall back on.</div>
+        </div>
+        <div>
+          <div class="fact-label">The Site Itself</div>
+          <div class="fact-val">Shopify, on a custom theme (<code>bnb-base.css</code>), Archivo Black and Inter, black-and-orange, and it looks sharp. The build quality of what renders is good. The problem is coverage: only four page templates actually do anything, and 22 pages fall through to a default that displays nothing the page was written to say.</div>
+        </div>
+        <div>
+          <div class="fact-label">Content Already Written</div>
+          <div class="fact-val">Five real articles, and the topic selection is smart: <em>What is Card Breaking, A Complete Beginner's Guide</em>, <em>Fanatics Live vs Whatnot, Which Platform Should You Use</em>, <em>How Instant Rips Work</em>, <em>How to Submit Cards for Grading</em> and <em>What Are Live Sports Card Breaks</em>. These are the exact questions a first-time buyer asks. They are also scattered across four separate blog sections, with the grading article reachable at five different URLs.</div>
+        </div>
+        <div>
+          <div class="fact-label">Measurement in Place</div>
+          <div class="fact-val">Effectively none. <strong>No GA4, no Google Tag Manager, no Meta pixel, no email or SMS platform tag.</strong> Only Shopify's built-in analytics is running. For a business whose entire model is moving an audience from a rented live stream to an owned property, there is currently no way to see whether anyone makes that trip.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Competitive Set -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
+      <span class="section-num" style="color:#2563eb">02</span>
+      <span class="section-title" style="color:#2563eb">Competitive Set</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">Break'n Bad's real competition is not other breakers on Whatnot, where the stream and the personality do the work. It is the breakers who <strong>also own a website that sells</strong>. Those operations capture the collector who searches before they buy, and they keep the customer when the platform stops sending traffic. Every name below was returned by live search on buyer-intent questions where Break'n Bad was absent.</p>
+      <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Competitor</th><th>Position</th><th>Where They Beat Break'n Bad</th><th class="nw">Threat</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Layton Sports Cards<br><span style="font-weight:400;font-size:13px;color:#7C8C84">laytonsportscards.com</span></td>
+            <td class="nw">National breaker + hobby shop</td>
+            <td>The model to study. Full-service shop with live case breaks <strong>sold on its own site</strong>, 37 break and product links on the homepage alone, a written meta description that names the sports it breaks, and <strong>five structured data blocks</strong> where Break'n Bad has zero. Returned by name on the "best breakers online" question.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>The Clubhouse<br><span style="font-weight:400;font-size:13px;color:#7C8C84">clubhousebreaks.com</span></td>
+            <td class="nw">Established breaker, 10+ years</td>
+            <td>Publishes a page literally titled "Who Are the Best Sports Card Breakers," which is why search engines quote it when a buyer asks that question. It answers the comparison question <em>about the category</em> and collects the recommendation as a result. 36 break links on the homepage.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Triple Diamond Sports Breaks<br><span style="font-weight:400;font-size:13px;color:#7C8C84">tdsbreaks.com</span></td>
+            <td class="nw">Regional breaker, Upper Midwest</td>
+            <td><strong>139 break and product links on one page.</strong> A direct competitor for the same Minnesota-adjacent audience, surfacing on the Rochester-area query where Break'n Bad does not appear. Proof that a regional breaker can rank; the geography is not the obstacle.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Midwest Box Breaks<br><span style="font-weight:400;font-size:13px;color:#7C8C84">midwestboxbreaks.net</span></td>
+            <td class="nw">Regional breaker</td>
+            <td>Returned ahead of Break'n Bad on the Rochester, Minnesota query despite being a smaller operation, on the strength of a name and domain that state the category and the region together.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Iron Lion Collectibles</td>
+            <td class="nw">Shopify breaker + shop</td>
+            <td>The closest structural analogue: a Shopify store that actually <strong>sells breaks as products</strong> across NFL, MLB, NBA, UFC, WWE and soccer, breaking five days a week. Same platform, same category, opposite outcome, because the collections are full and the products are in stock.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Med City Sports Cards<br>Coulee Cards &amp; Gaming</td>
+            <td class="nw">Rochester, MN storefronts</td>
+            <td>Both hold <strong>claimed Google Business Profiles in Rochester</strong> with star ratings, addresses and phone numbers. Coulee also runs online breaking events. Search Google Maps for a card breaker near Rochester and these are the answers. Break'n Bad does not appear on the map at all.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Michiana Sports Cards<br>Bruce's Sports Cards · The Sport Stash</td>
+            <td class="nw">South Bend, IN storefronts</td>
+            <td>The same picture at the shipping-origin end. Three claimed profiles with reviews own the South Bend map results, including one with 116 reviews. Break'n Bad ships from South Bend and has no listing there either.</td>
+            <td><span class="badge badge-med">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Fanatics Live · Whatnot</td>
+            <td class="nw">The platforms themselves</td>
+            <td>Not competitors for breaks, but they win the <em>recommendation</em>. Asked who to trust for a team break, engines answer "use Fanatics Live, its breakers are vetted" or "check Whatnot ratings" rather than naming any individual breaker. The platform absorbs the trust that the breaker earned.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+          <tr>
+            <td>Hobby media<br><span style="font-weight:400;font-size:13px;color:#7C8C84">Cardlines · Hall of Cards · Grumpy Dad Cards · Baseball America</span></td>
+            <td class="nw">Publishers and aggregators</td>
+            <td>These sites are what search engines and AI assistants actually cite when someone asks how breaks work or which breaker to pick. They intercept the question upstream of every breaker's own website. Getting mentioned inside them is its own work stream, separate from anything on breaknbad.com.</td>
+            <td><span class="badge badge-high">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Where They Stand -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
+      <span class="section-num" style="color:#7c3aed">03</span>
+      <span class="section-title" style="color:#7c3aed">Where They Stand</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">Break'n Bad has the two assets that are hardest to manufacture: <strong>a live audience and a brand with a voice.</strong> Five years of streams, six breakers, a memorable name and a $20 price point that is genuinely easy to say out loud. What it does not have is anywhere for that audience to land. The website is the one asset it owns outright, and right now it is the weakest thing in the operation.</p>
+      <div class="card-grid">
+        <div class="pos-card" style="background:rgba(21,128,61,0.09);border:1px solid rgba(21,128,61,0.22)">
+          <div class="pos-card-label" style="color:#15803d">Real Strengths</div>
+          <div class="pos-card-text">Fast, secure, correctly-configured Shopify hosting with a 55ms response. A clean, distinctive visual brand. Presence on all three major breaking platforms. A clear, repeatable offer at $20 flat rate with free shipping. Five well-targeted articles already written. Every AI crawler is welcome and unblocked.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(180,83,9,0.09);border:1px solid rgba(180,83,9,0.22)">
+          <div class="pos-card-label" style="color:#b45309">The Drag</div>
+          <div class="pos-card-text">A site that launched with placeholder content still in it and was never swept. A fictional phone number, a bracketed template token in the copyright, three dead social icons, and a homepage headline still promoting a convention that ended two weeks ago. Each one is small. Together they read as abandoned.</div>
+        </div>
+        <div class="pos-card" style="background:rgba(185,28,28,0.08);border:1px solid rgba(185,28,28,0.22)">
+          <div class="pos-card-label" style="color:#b91c1c">The Open Flank</div>
+          <div class="pos-card-text">Total dependence on rented platforms, with no owned channel that can transact, no email or SMS capture on the domain, no analytics to measure the handoff, and no Google Business Profile in either city. Competitors with a fraction of the audience are being recommended instead.</div>
+        </div>
+      </div>
+
+      <div class="key-finding" style="margin-top:22px">
+        <div class="key-finding-label">The Finding That Explains The Rest</div>
+        <p>We pulled all 26 pages listed in the site's own sitemap, stripped the navigation and footer, and hashed what was left. <strong>22 of them are identical.</strong> Not similar. The same 15 words, in the same order: "JOIN OUR LIVES / Watch on Fanatics / Watch on WhatNot / Watch on eBay Live." The refund policy, shipping policy, privacy policy, terms of service, FAQ, testimonials, card breaking glossary, live schedule and "What We Break" pages all return that identical block. We confirmed it twice, once with a raw fetch and once by rendering the pages in a real browser so that nothing loaded by JavaScript was missed.</p>
+        <p>The content is not lost. Shopify auto-generates a meta description from a page's body text, and those descriptions are still populated. The FAQ page's description begins <em>"When will new group breaks be added? New group breaks (i.e. old favor..."</em> and the shipping page's begins <em>"Shipping for any of our breaks is ALWAYS free as a courtesy to all of..."</em>. That text is sitting in the Shopify admin right now. It reaches the <code>&lt;head&gt;</code> of the document and never reaches the screen. One page template is dropping the body.</p>
+        <p>Separately, the Shopify-native policy URLs (<code>/policies/refund-policy</code> and the other three) all return <strong>404</strong>, which means the policies were entered as custom pages rather than in Shopify's policy fields, and are therefore not attached to checkout either. A buyer has no way to read the terms of a $20 purchase before or during checkout.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Online Presence Audit -->
+  <div class="section">
+    <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(220,38,38,0.2)">
+      <span class="section-num" style="color:#dc2626">04</span>
+      <span class="section-title" style="color:#dc2626">Online Presence Audit</span>
+    </div>
+    <div class="section-body">
+      <div class="audit-grid">
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Hosting &amp; Infrastructure</span><span class="grade grade-a">A</span></div>
+          <div class="audit-note">Nothing to fix. Shopify on Cloudflare, HTTP/2, <strong>55ms time to first byte</strong>, valid SSL with HSTS, a content security policy, <code>X-Frame-Options: DENY</code>, and correct 301s from both <code>www.breaknbad.com</code> and <code>breakn-bad.myshopify.com</code> to the apex domain. The 404 handler returns a real 404. This is the part of the stack that is doing its job.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Crawler Access</span><span class="grade grade-a">A</span></div>
+          <div class="audit-note">Checked deliberately, because a blocked crawler would explain the invisibility for free. It does not. <strong>GPTBot, PerplexityBot, ClaudeBot and Googlebot each receive a normal 200</strong> with a full-size response identical to a browser's. <code>robots.txt</code> is Shopify's standard file and correctly declares the sitemap. Nothing is being kept out. The engines can read this site; there is just very little on it to read.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Page Templates &amp; Content Rendering</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The headline failure. <strong>22 of 26 pages render byte-identical bodies of 15 words.</strong> Only the homepage, About, The Team and Contact display real content. Every policy page, the FAQ, the testimonials, the glossary and the live schedule are blank to a human and blank to a crawler. Verified in a rendered browser, not just a raw fetch.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Store &amp; Purchasability</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note"><strong>All eight products show "Sold Out."</strong> The store cannot take an order today. Beyond stock: six of the eight have a title tag that disagrees with the product name on the page (<code>/products/bnb-sweatshirt</code> is headed "BnB Archive Collection 1/100" but titled "BnB Sweatshirt"), three share the identical description "Break'n Bad cotton tee," and a crewneck sweatshirt is priced the same $35 as a t-shirt.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Collections &amp; Merchandising</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note"><strong>All seven collections contain zero products.</strong> Three carry the wrong name outright: <code>/collections/nfl</code> is headed "What We Break," <code>/collections/mlb</code> is headed "Contact," <code>/collections/nba</code> is headed "Testimonials," and those wrong names are in the title tags Google shows. A leftover Shopify demo collection, <code>media-and-entertainment-example-products</code>, is live and listed in the sitemap.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Structured Data / Schema</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note"><strong>Zero <code>application/ld+json</code> blocks across every URL we fetched</strong>: homepage, all 8 products, all 7 collections, all 26 pages and every blog article. No <code>Product</code> markup means no price, availability or rating can appear in a Google result. No <code>Organization</code> or <code>LocalBusiness</code> means no machine has a structured record of who this business is. Layton Sports Cards ships five schema blocks on its homepage alone.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Placeholder Content &amp; Launch QA</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">The site shipped with template filler still in place. The phone number on every page is <strong>+1 (555) 010-2026</strong>, wired into a live <code>tel:</code> link, and 555-01XX is the block reserved for fiction. The copyright line reads <strong>"[2026] // LIVE STREAMING MEMORABILIA"</strong>, brackets included. The Instagram, X and TikTok footer icons are anchors with <code>href=""</code>, so they reload the page. A launch checklist would have caught all three in ten minutes.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Homepage &amp; Timeliness</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">The <code>&lt;h1&gt;</code>, the first thing a search engine reads, is <strong>"ENTER IN A $2,000 CREDIT DRAWING"</strong> for the National Sports Card Convention, which ran 29 July to 2 August 2026 in Rosemont and finished twelve days ago. The page never states what the business does, where it is, when it streams or how a break works. The title tag reads <strong>"Break'n Bad – Break'n Bad"</strong> and there is no meta description, no Open Graph and no Twitter card, so every share of this URL renders as a bare link.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Information Architecture</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Duplicates everywhere. <code>/pages/about-1</code> and <code>/pages/about-us-1</code>; <code>/pages/the-team</code> and <code>/pages/the-team-1</code>, which are byte-identical; three separate live pages (<code>live-stream</code>, <code>live-streams</code>, <code>live-schedule</code>). Nine theme utility pages are indexable, including <code>set-password</code>, <code>profile-edit</code>, <code>edit-notifications</code>, <code>reward</code> and a <code>store-locator</code> for a business with no store. Twenty of the 26 pages are unreachable from the navigation.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Blog Structure</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Good writing in a broken container. Five articles are split across <strong>four separate blog sections</strong>, three of which (<code>how-to-submit-cards-for-grading</code>, <code>-1</code>, <code>-2</code>, <code>-3</code>) are empty index pages duplicating an article's title. The grading article is reachable at five URLs competing with each other. None of the articles carries a written meta description, an author, a visible date or <code>Article</code> schema.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Searched Google Maps for both cities. <strong>No profile exists in Rochester, Minnesota or South Bend, Indiana.</strong> Rochester returns Med City Sports Cards, Coulee Cards &amp; Gaming, NerdinOut and Gamez &amp; More. South Bend returns Michiana Sports Cards, Bruce's Sports Cards, The Sport Stash and Premium Investment, one with 116 reviews. Every one of those is a claimed listing occupying space Break'n Bad is not contesting.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Name, Address, Phone Consistency</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Three conflicting stories on one domain: About says Rochester, Minnesota, every product page says "ships from South Bend, IN," and the Contact page gives no address whatsoever. The only phone number published is fictional. The eBay storefront trades as <strong>"breaknsupplies"</strong> rather than Break'n Bad. Search engines confirm a business identity by matching these signals across sources, and there is nothing here to match.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">AI &amp; Search Visibility</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">Absent from every buyer-intent question tested: best breakers to buy into online, where to join a $20 flat rate break, who to trust for NFL team breaks, and card breakers near Rochester. Named instead: <strong>Fanatics Live, Whatnot, The Clubhouse, Layton Sports Cards, Iron Lion Collectibles, Midwest Box Breaks and Triple Diamond</strong>. A direct brand query does find the site, and returns the fictional phone number as the contact. See the measurement note below.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Social Footprint</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">Real accounts exist and the site mostly fails to link them. The footer offers Facebook (an un-vanitied <code>profile.php?id=</code> URL), YouTube and <strong>LinkedIn</strong>, which is an unusual choice for a hobby audience, while <strong>Instagram, X and TikTok are dead links</strong>. The Instagram account <code>@break.n.bad</code> does exist and is linked only from the eight product pages, which are the pages fewest visitors reach. TikTok Shop is discussed in the articles as a rival breaking venue and linked nowhere on the site.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Analytics &amp; Measurement</span><span class="grade grade-f">F</span></div>
+          <div class="audit-note">No GA4, no Google Tag Manager, no Meta pixel, no Klaviyo or comparable email and SMS tag. Shopify's built-in analytics is the only instrumentation present. There is currently no way to answer the one question the business most needs answered: how many people leave a Whatnot stream and arrive here.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Collector's Club (Data Capture)</span><span class="grade grade-cm">C-</span></div>
+          <div class="audit-note">The single best strategic idea on the site, executed on the wrong domain. The QR code on the merch shirts leads to a sign-up collecting name, email, mobile, birthday and zip. It is hosted at <strong><code>collectors-club-henna.vercel.app</code></strong>, an auto-generated address that looks like a phishing link to a collector who has just met the brand, sits outside the site's own privacy policy, and passes none of its SEO value back to breaknbad.com.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Trust &amp; Proof</span><span class="grade grade-d">D</span></div>
+          <div class="audit-note">The proof on the page cannot be checked by a reader. Three About-page testimonials are credited to handles (<code>@RIPPER_JAX99</code>, <code>@CARD_QUEEN_TX</code>, <code>@MIKE_THE_MINT</code>) with no platform, link or date. Two team-page quotes are attributed to "Matthew" and "Chris," neither of whom is among the six breakers named directly above them. Meanwhile the real proof, the platform ratings and sales history on Fanatics Live and Whatnot, appears nowhere on the site.</div>
+        </div>
+
+        <div class="audit-card">
+          <div class="audit-card-top"><span class="audit-channel">Mobile &amp; Page Experience</span><span class="grade grade-b">B</span></div>
+          <div class="audit-note">Solid. The viewport is declared correctly and does <strong>not</strong> lock pinch-to-zoom, which is an accessibility failure common in this class of build. Fonts are preloaded, the homepage carries only nine images and every one has descriptive <code>alt</code> text. Marks off only because one breaker's photo is missing from the crew carousel.</div>
+        </div>
+
+      </div>
+
+      <div class="note-box">
+        <div class="note-box-label">How the AI Visibility Result Was Measured, and Its Limits</div>
+        <p>These findings come from running buyer-intent questions through live, AI-summarised web search and recording which businesses are named and which sources are cited, plus headless Google Maps queries for the profile check. That is solid evidence of what the engines currently surface. It is <strong>not</strong> the screenshot-verified sweep of ChatGPT, Perplexity, Grok and Google AI Overviews in logged-out sessions that we normally deliver: those four blocked automated access from our end today. Read every result here as <strong>"not visible from outside"</strong> rather than "does not exist."</p>
+        <p>Recommendation 01 asks the team to run the same five prompts by hand and screenshot the answers. It takes about ten minutes and settles the question with Break'n Bad's own evidence rather than ours. Those five prompts, re-run monthly, are also how you measure whether any of this work lands.</p>
+      </div>
+
+      <div class="key-finding" style="margin-top:20px">
+        <div class="key-finding-label">Who Gets Recommended Instead, and What Gets Cited</div>
+        <p><strong>Best breakers to buy into online:</strong> Fanatics Live, Whatnot, The Clubhouse, Layton Sports Cards, Best Card Breaks. <strong>Where to join a $20 flat rate break:</strong> Whatnot, Breakers.TV, Fanatics Live, Cardlines, Iron Lion Collectibles. <strong>Who to trust for NFL team breaks:</strong> the answer names the platforms and their vetting processes, and no individual breaker at all. <strong>Card breakers near Rochester, Minnesota:</strong> Med City Sports Cards, Coulee Cards &amp; Gaming, Midwest Box Breaks, Triple Diamond Sports Breaks.</p>
+        <p>The pattern in what gets <em>cited</em> matters as much as who gets named. The recurring sources are <strong>Cardlines, Hall of Cards, Baseball America, Grumpy Dad Cards, Yelp, Facebook and the platforms' own help content</strong>. That gives the repair path two tracks. On-site: publish answers a machine can quote, starting with the blank pages. Off-site: get Break'n Bad present, named and correctly described inside the hobby publications and directories the engines already read. Unlinked brand mentions count here, not only links.</p>
+        <p>One further note worth acting on quickly. A brand-name query <em>does</em> return breaknbad.com, and the answer it generates repeats <strong>+1 (555) 010-2026</strong> as the way to contact this business. The fictional number is now being propagated by machines, which is a different and worse problem from simply having it on a page.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Priority Recommendations -->
+  <div class="section">
+    <div class="section-head" style="background:#effaf7;border-bottom:1px solid rgba(47,111,106,0.24)">
+      <span class="section-num" style="color:#2F6F6A">05</span>
+      <span class="section-title" style="color:#2F6F6A">Priority Recommendations</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="rec-list">
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">01</span>
+            <span class="rec-title">Do These Four Things Today, Before Anything Else</span>
+          </div>
+          <div class="rec-detail">Four fixes, under an hour combined, each of which is currently costing money. <strong>One:</strong> replace <em>+1 (555) 010-2026</em> with the real number, or remove the phone line entirely if the business does not take calls. It is on every page and inside a live <code>tel:</code> link, and AI answers are now repeating it. <strong>Two:</strong> mark the eight products back in stock, or hide the shop; a storefront that says Sold Out on every item reads as a closed business. <strong>Three:</strong> replace the homepage headline, which still promotes a drawing at a convention that ended on 2 August. <strong>Four:</strong> point the Instagram, X and TikTok footer icons at the real accounts, starting with <code>instagram.com/break.n.bad</code>, which exists and is currently linked only from the eight product pages.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">02</span>
+            <span class="rec-title">Fix the One Page Template That Is Hiding 22 Pages</span>
+          </div>
+          <div class="rec-detail">This is the highest-leverage item in the audit and it is a single template file, not 22 separate repairs. The default page template renders a fixed "Join Our Lives" block and never outputs the page's own body content. The text is not lost: it is in the Shopify admin and still reaching the meta description tag. Whoever built the theme needs to add the page content output back to that template, at which point the refund policy, shipping policy, privacy policy, terms, FAQ, glossary, testimonials and live schedule all reappear at once. <em>While that is open</em>, also move the four policies into Shopify's native policy fields under Settings, so they attach to checkout and the <code>/policies/</code> URLs stop returning 404.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">03</span>
+            <span class="rec-title">Run the AI Test Yourselves. Ten Minutes, and It Frames Everything Else</span>
+          </div>
+          <div class="rec-detail">Open <strong>ChatGPT</strong>, <strong>Perplexity</strong>, <strong>Grok</strong> and a plain <strong>Google search</strong> for the AI Overview at the top. Use a logged-out or private window so your own history does not colour the result. Type what a collector types: <em>"best sports card breakers to buy into online"</em> · <em>"where can I join a $20 flat rate sports card break"</em> · <em>"recommend a trustworthy breaker for NFL team breaks on Whatnot"</em> · <em>"card breakers near Rochester Minnesota"</em> · and finally <em>"what do you know about Break'n Bad sports cards"</em>. Screenshot each answer. Note who gets named and which sites get cited. That last prompt is the revealing one, because it tests whether the engines know this business exists under its own name and what they say about it. Re-run the same five every month; the change in those answers is the scoreboard for all the work below.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">04</span>
+            <span class="rec-title">Sell Breaks on Your Own Domain</span>
+          </div>
+          <div class="rec-detail">This is the strategic item, and it is the one that changes the business rather than the website. Every dollar currently runs through Fanatics Live, Whatnot or eBay, and the owned store sells only t-shirts. Iron Lion Collectibles runs the same Shopify platform and sells breaks directly as products across six sports. Layton does it with 37 break links on the homepage. Triple Diamond does it with 139. Start small: list the recurring formats as real products with a price, a date and a description, keep the live rip itself on whichever platform the audience prefers, and let collectors who find you through search buy a spot without leaving your site. That turns seven empty collections into the actual catalogue and gives every other recommendation here something to point at.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">05</span>
+            <span class="rec-title">Rebuild the Collections and Repair the Product Records</span>
+          </div>
+          <div class="rec-detail">The NFL collection is headed "What We Break," the MLB collection is headed "Contact," the NBA collection is headed "Testimonials," and none of the seven contains a single product. Rename all three to match their handles, fill them, and delete the leftover Shopify demo collection <code>media-and-entertainment-example-products</code>, which is live and in the sitemap. On the products themselves, six of eight have a title tag that contradicts the name on the page, and three tees share the identical one-line description. Give each product its own title, its own description and a real photograph. Ten items, maybe two hours, and it is the difference between a catalogue and a placeholder.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">06</span>
+            <span class="rec-title">Add Structured Data, Which Currently Does Not Exist Anywhere</span>
+          </div>
+          <div class="rec-detail">There is not one <code>ld+json</code> block on this site. Three additions, in order of payback. <strong><code>Organization</code></strong> in the theme layout: legal name, logo, the real phone, the real address, and <code>sameAs</code> links to the Fanatics, Whatnot, eBay, Instagram, YouTube and Facebook accounts, so machines can join the identity into one entity instead of several. <strong><code>Product</code></strong> on product pages with price and availability, which is what lets a Google result show a price. <strong><code>FAQPage</code></strong> on the FAQ once it renders again, which is the single strongest driver of being quoted by an AI assistant. Most Shopify themes ship with all of this; this one has had it removed or never had it.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">07</span>
+            <span class="rec-title">Settle Where the Business Is, Then Claim It on Google</span>
+          </div>
+          <div class="rec-detail">The site currently says Rochester, Minnesota on one page and South Bend, Indiana on another, and gives no address on the page built for exactly that. Decide which location is the customer-facing one, state it on the Contact page with a real address and hours, and make every other mention agree. Then <strong>create a Google Business Profile</strong>. There is none in either city today, while Med City Sports Cards and Coulee Cards own Rochester and four claimed listings own South Bend. If there is no public-facing address, a service-area profile still works, and it is free. Do the same tidy-up on the eBay storefront, which trades as "breaknsupplies" and splits the brand in half.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">08</span>
+            <span class="rec-title">Consolidate the Blog and Answer the Questions You Are Losing</span>
+          </div>
+          <div class="rec-detail">The five existing articles are on the right topics; they are just buried. Merge the four blog sections into one, delete the three empty index pages duplicating an article's title, and pick one canonical URL for the grading guide, which currently exists at five addresses competing with one another. Give each article a written meta description, an author and a visible date. Then write against the miss list from Recommendation 03: <em>how a $20 flat rate break actually works</em>, <em>what happens if my team hits nothing</em>, <em>when do cards ship after a break</em>, <em>how to pick a breaker you can trust</em>. Those are the questions where the engines currently answer with someone else's page.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">09</span>
+            <span class="rec-title">Bring the Collector's Club Home and Turn On Measurement</span>
+          </div>
+          <div class="rec-detail">The QR-code-to-Collector's-Club idea is genuinely good and it is running on <code>collectors-club-henna.vercel.app</code>, which looks like a phishing link to someone who has just scanned a shirt at a convention. Move it to <code>breaknbad.com/collectors-club</code> so the trust, the privacy policy and the search value all stay on the domain you own. Then install <strong>GA4</strong> and a <strong>Meta pixel</strong>, because none of the four platforms are currently measured, and connect an email or SMS tool to the club list. This is the closing of the loop: stream on a rented platform, capture the collector on your own site, own the relationship afterwards.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header">
+            <span class="rec-num">10</span>
+            <span class="rec-title">Put the Real Proof on the Page</span>
+          </div>
+          <div class="rec-detail">The About page's three testimonials carry handles with no platform, link or date, and the team page quotes a "Matthew" and a "Chris" who are not among the six breakers named directly above them. A collector deciding whether to send you $20 cannot verify any of it. The real proof already exists somewhere else: the ratings, review counts and completed-sale history on Fanatics Live, Whatnot and eBay. Put those numbers on the site, name the platform each came from, and link out so they can be checked. Verifiable proof from a third party is worth considerably more than an unverifiable quote, both to a buyer and to an AI assistant deciding whether to recommend you.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA BLOCK -->
+  <div class="cta-block">
+    <h2>The streams are real. The website says the business is closed.</h2>
+    <p>Break'n Bad has an audience, a brand and five years of breaks behind it. Its own site publishes a fictional phone number, sells nothing, hides 22 of its 26 pages and still advertises a convention that ended two weeks ago. Every item in this audit is a template fix, a settings change or a page that already exists and simply needs to be shown. None of it is a rebuild.</p>
+    <a href="https://dobleai.com" class="cta-btn">Book a Free Audit Call at dobleai.com</a>
+    <div class="cta-sub">No commitment. 30 minutes. We'll walk through exactly what we'd do and what it would cost.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Break'n Bad — Digital Presence Audit</span>
+    <span>14 August 2026 · Prepared by Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>
