@@ -1,0 +1,410 @@
+<title>Long-Stay Discounts vs. the Demand Calendar &middot; Doble AI</title>
+<style>
+  :root {
+    --paper:#f5f4f0; --surface:#ffffff; --ink:#1c2620; --muted:#5c6b62;
+    --line:#e0ddd4; --brand:#1f3d2f; --brand-soft:#e8efe9; --gold:#c79338; --gold-soft:#f4ecd8;
+    --t-low:#6b8a99; --t-shoulder:#d19f38; --t-high:#cf6329; --t-peak:#a82f1c;
+    --t-low-ink:#12232b; --t-shoulder-ink:#2a1e05; --t-high-ink:#fff; --t-peak-ink:#fff;
+    --shadow:0 1px 2px rgba(28,38,32,.05), 0 10px 30px -14px rgba(28,38,32,.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:#0f1512; --surface:#18201b; --ink:#eef2ec; --muted:#9aaba0;
+      --line:#26302a; --brand:#6aa588; --brand-soft:#152a20; --gold:#d8ab52; --gold-soft:#241d0f;
+      --t-low:#5f8494; --t-shoulder:#c2922f; --t-high:#c85d26; --t-peak:#b23421;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 34px -16px rgba(0,0,0,.65);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#0f1512; --surface:#18201b; --ink:#eef2ec; --muted:#9aaba0;
+    --line:#26302a; --brand:#6aa588; --brand-soft:#152a20; --gold:#d8ab52; --gold-soft:#241d0f;
+    --t-low:#5f8494; --t-shoulder:#c2922f; --t-high:#c85d26; --t-peak:#b23421;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 34px -16px rgba(0,0,0,.65);
+  }
+  :root[data-theme="light"] {
+    --paper:#f5f4f0; --surface:#ffffff; --ink:#1c2620; --muted:#5c6b62;
+    --line:#e0ddd4; --brand:#1f3d2f; --brand-soft:#e8efe9; --gold:#c79338; --gold-soft:#f4ecd8;
+    --t-low:#6b8a99; --t-shoulder:#d19f38; --t-high:#cf6329; --t-peak:#a82f1c;
+    --shadow:0 1px 2px rgba(28,38,32,.05), 0 10px 30px -14px rgba(28,38,32,.18);
+  }
+
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:960px; margin:0 auto; padding:clamp(26px,5vw,60px) clamp(20px,4vw,44px); }
+  .eyebrow { font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--brand); font-weight:600; }
+  .gold-eyebrow { color:var(--gold); }
+
+  /* ---- Presenter header ---- */
+  .presenter { display:flex; align-items:center; gap:13px; margin-bottom:34px; }
+  .evl-mark { width:44px; height:44px; flex:none; border-radius:11px; }
+  .presenter .pt { line-height:1.25; }
+  .presenter .pt .a { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+  .presenter .pt .b { font-weight:750; font-size:15px; letter-spacing:-.01em; }
+  .presenter .pt .b span { color:var(--gold); }
+
+  h1 { font-size:clamp(32px,5.4vw,54px); line-height:1.03; letter-spacing:-.022em; font-weight:800; margin:.2em 0 .3em; text-wrap:balance; }
+  .lead { font-size:clamp(17px,2.4vw,21px); color:var(--muted); max-width:62ch; margin:0; }
+  .lead b { color:var(--ink); font-weight:600; }
+
+  .preparedfor { margin:34px 0 6px; }
+  .preparedfor .label { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:11px; }
+  .preparedfor .who { font-size:15px; font-weight:600; margin-bottom:14px; }
+  .logos { display:flex; flex-wrap:wrap; gap:12px; }
+  .logocard { background:#fff; border:1px solid var(--line); border-radius:12px; height:66px; padding:0 20px; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow); }
+  .logocard img { height:48px; width:auto; display:block; }
+  .logocard img.badge { height:56px; }
+  .lockup { text-align:center; line-height:1; color:#2a2018; font-family:Georgia,"Times New Roman",serif; }
+  .lockup .l1 { font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#8a6d3b; }
+  .lockup .l2 { font-size:20px; font-weight:700; letter-spacing:.01em; margin-top:3px; }
+  .lockup.coffee { font-family:ui-monospace,Menlo,monospace; color:#4a3524; }
+  .lockup.coffee .l1 { font-size:15px; letter-spacing:.02em; text-transform:none; font-weight:700; color:#4a3524; }
+  .lockup.coffee .l2 { font-size:11px; letter-spacing:.34em; text-transform:uppercase; font-weight:600; color:#9a7b4a; margin-top:5px; }
+
+  /* ---- generic sections ---- */
+  section { margin-top:clamp(46px,6.5vw,72px); }
+  .sec-head { display:flex; align-items:baseline; gap:14px; margin-bottom:18px; }
+  .sec-head h2 { font-size:clamp(22px,3.2vw,29px); letter-spacing:-.016em; font-weight:750; margin:0; }
+  .sec-num { font-family:ui-monospace,Menlo,monospace; font-size:13px; color:var(--gold); font-weight:700; }
+  .lede { color:var(--muted); max-width:66ch; margin:-4px 0 22px; }
+  .lede b { color:var(--ink); font-weight:600; }
+
+  .overview { background:#1f3d2f; color:#f2f5f0; border-radius:16px; padding:clamp(24px,4vw,36px); box-shadow:var(--shadow); }
+  .overview .eyebrow { color:var(--gold); }
+  .overview h2 { font-size:clamp(23px,3.4vw,31px); margin:12px 0 14px; letter-spacing:-.015em; line-height:1.15; text-wrap:balance; }
+  .overview p { margin:0 0 14px; font-size:16.5px; color:#dfe7df; max-width:64ch; }
+  .overview p:last-child { margin-bottom:0; }
+  .overview b { color:#fff; }
+  .overview .gold { color:var(--gold); font-weight:700; }
+
+  /* ribbon */
+  .ribbon { display:grid; grid-template-columns:repeat(12,1fr); gap:6px; overflow-x:auto; padding-bottom:4px; }
+  .mo { min-width:0; text-align:center; }
+  .mo .bar { height:62px; border-radius:8px 8px 4px 4px; display:flex; align-items:flex-end; justify-content:center; padding-bottom:6px; }
+  .mo .bar span { font-family:ui-monospace,Menlo,monospace; font-size:10px; font-weight:700; opacity:.92; }
+  .mo .lab { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin-top:7px; }
+  .mo .ev { font-size:11px; color:var(--ink); line-height:1.25; margin-top:3px; min-height:2.4em; }
+  .t-low{background:var(--t-low);color:var(--t-low-ink);} .t-shoulder{background:var(--t-shoulder);color:var(--t-shoulder-ink);}
+  .t-high{background:var(--t-high);color:var(--t-high-ink);} .t-peak{background:var(--t-peak);color:var(--t-peak-ink);}
+  .legend { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 0; }
+  .chip { display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; padding:5px 11px 5px 8px; border-radius:999px; background:var(--surface); border:1px solid var(--line); }
+  .chip .dot { width:11px; height:11px; border-radius:3px; }
+  .chip .sep { color:var(--muted); font-weight:400; }
+
+  /* tiers */
+  .tier { background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); overflow:hidden; margin-bottom:15px; }
+  .tier-top { display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding:15px 20px; border-left:6px solid; }
+  .tier-top.low{border-color:var(--t-low);} .tier-top.shoulder{border-color:var(--t-shoulder);}
+  .tier-top.high{border-color:var(--t-high);} .tier-top.peak{border-color:var(--t-peak);}
+  .tier-name { font-size:19px; font-weight:750; letter-spacing:-.01em; }
+  .price { font-family:ui-monospace,Menlo,monospace; font-size:14px; font-weight:700; padding:3px 10px; border-radius:6px; background:var(--brand-soft); color:var(--brand); font-variant-numeric:tabular-nums; }
+  .tier-sub { color:var(--muted); font-size:13px; margin-left:auto; text-align:right; }
+  .tier-body { padding:4px 20px 18px; }
+  .rows { list-style:none; margin:0; padding:0; }
+  .rows li { padding:11px 0; border-top:1px solid var(--line); display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  .rows li:first-child { border-top:none; }
+  .when { font-family:ui-monospace,Menlo,monospace; font-size:12.5px; color:var(--brand); font-weight:600; flex:0 0 130px; }
+  .what { flex:1; min-width:200px; font-size:14.5px; }
+  .what b { font-weight:700; }
+  .what small { display:block; color:var(--muted); font-size:12.5px; margin-top:1px; }
+
+  /* tables */
+  .tbl-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); }
+  table { border-collapse:collapse; width:100%; min-width:520px; background:var(--surface); }
+  th,td { text-align:left; padding:13px 18px; border-bottom:1px solid var(--line); font-size:14px; }
+  th { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:600; background:var(--brand-soft); }
+  tr:last-child td { border-bottom:none; }
+  td.mx { font-family:ui-monospace,Menlo,monospace; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap; }
+  td.delta { font-family:ui-monospace,Menlo,monospace; font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:700; }
+  .up{color:var(--brand);} .down{color:var(--muted);} .even{color:var(--muted);font-weight:600;}
+
+  .banner { background:var(--gold); color:#2a2008; border-radius:14px; padding:22px 24px; box-shadow:var(--shadow); }
+  .banner .kick { font-family:ui-monospace,Menlo,monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; opacity:.72; }
+  .banner p { margin:8px 0 0; font-size:16.5px; line-height:1.5; max-width:66ch; }
+  .banner p b { font-weight:750; }
+
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+  .note { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 18px; }
+  .note h4 { margin:0 0 6px; font-size:14.5px; }
+  .note p { margin:0; font-size:13.5px; color:var(--muted); }
+  .note p b { color:var(--ink); }
+  .three { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+  .evl-lockup { display:flex; align-items:center; gap:9px; }
+  .evl-lockup svg { width:32px; height:32px; border-radius:8px; flex:none; }
+  .evl-words { display:flex; flex-direction:column; line-height:1; font-family:system-ui,sans-serif; font-weight:800; }
+  .evl-words .e1 { font-size:12.5px; letter-spacing:.02em; color:#1f3d2f; }
+  .evl-words .e2 { font-size:12.5px; letter-spacing:.26em; color:#c79338; margin-top:3px; }
+  .playbox { display:grid; grid-template-columns:1.1fr .9fr; gap:20px; align-items:center; background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:22px; margin-top:15px; }
+  .playbox h4 { margin:0 0 9px; font-size:16.5px; letter-spacing:-.01em; }
+  .playbox p { margin:0 0 10px; font-size:14px; color:var(--muted); }
+  .playbox p:last-child { margin-bottom:0; }
+  .playbox p b { color:var(--ink); }
+  .welcomecard { background:#faf6ec; border:2px dashed #c79338; border-radius:12px; padding:20px 22px; font-family:Georgia,"Times New Roman",serif; }
+  .welcomecard .wc-hi { font-size:19px; font-weight:700; margin:0 0 8px; color:#1f3d2f; }
+  .welcomecard p { margin:0 0 8px; font-size:13.5px; color:#40382c; line-height:1.5; }
+  .welcomecard ul { margin:8px 0; padding:0; list-style:none; display:grid; gap:7px; }
+  .welcomecard li { font-size:13.5px; padding-left:22px; position:relative; color:#2a2418; }
+  .welcomecard li::before { content:"○"; position:absolute; left:3px; top:-1px; color:#c79338; font-size:15px; }
+  .welcomecard .wc-sign { font-style:italic; margin:11px 0 0; color:#6b5d43; }
+  .welcomecard.italian { border-color:#8a2b2b; }
+  .welcomecard.italian .wc-hi { color:#8a2b2b; }
+  .welcomecard.italian li::before { color:#8a2b2b; }
+
+  /* deliverables */
+  .deliv { list-style:none; margin:0; padding:0; display:grid; gap:11px; }
+  .deliv li { display:flex; gap:13px; align-items:flex-start; background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:14px 16px; box-shadow:var(--shadow); }
+  .deliv .tick { flex:none; width:22px; height:22px; border-radius:50%; background:var(--brand-soft); color:var(--brand); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; margin-top:1px; }
+  .deliv .dtxt { font-size:14.5px; }
+  .deliv .dtxt b { font-weight:700; }
+  .deliv .dtxt small { display:block; color:var(--muted); font-size:12.5px; margin-top:1px; }
+
+  /* pricing */
+  .plans { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .plan { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px 24px 22px; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+  .plan.feature { border:1.5px solid var(--brand); }
+  .plan .tag { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--gold); font-weight:700; }
+  .plan h3 { margin:8px 0 3px; font-size:21px; letter-spacing:-.01em; }
+  .plan .sub { color:var(--muted); font-size:13.5px; margin:0 0 16px; }
+  .plan .amt { font-family:ui-monospace,Menlo,monospace; font-size:38px; font-weight:800; letter-spacing:-.02em; color:var(--brand); line-height:1; font-variant-numeric:tabular-nums; }
+  .plan .amt small { font-size:15px; font-weight:600; color:var(--muted); letter-spacing:0; }
+  .plan ul { list-style:none; margin:18px 0 0; padding:0; display:grid; gap:9px; }
+  .plan ul li { font-size:13.7px; padding-left:22px; position:relative; color:var(--ink); }
+  .plan ul li::before { content:"✓"; position:absolute; left:0; color:var(--brand); font-weight:800; }
+  .roi { margin-top:16px; background:var(--gold-soft); border:1px solid var(--line); border-radius:12px; padding:16px 18px; font-size:14.5px; }
+  .roi b { color:var(--ink); }
+
+  .cta { margin-top:clamp(46px,6vw,66px); background:#1f3d2f; color:#f2f5f0; border-radius:16px; padding:clamp(26px,4vw,40px); text-align:center; box-shadow:var(--shadow); }
+  .cta h2 { font-size:clamp(23px,3.6vw,32px); margin:0 0 10px; letter-spacing:-.015em; color:#fff; text-wrap:balance; }
+  .cta p { margin:0 auto; max-width:52ch; color:#dfe7df; font-size:16px; }
+  .cta .sign { margin-top:20px; font-family:ui-monospace,Menlo,monospace; font-size:12.5px; letter-spacing:.06em; color:var(--gold); }
+
+  footer { margin-top:40px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 18px; justify-content:space-between; }
+  footer b { color:var(--ink); }
+  .flag { color:var(--t-high); }
+
+  @media (max-width:640px){
+    .two,.plans,.three,.playbox{grid-template-columns:1fr;}
+    .ribbon{grid-template-columns:repeat(12,62px);}
+    .tier-sub{margin-left:0;text-align:left;flex-basis:100%;}
+  }
+</style>
+
+<style>
+  .nightgrid { display:grid; grid-template-columns:repeat(9,1fr); gap:7px; }
+  .night { border-radius:9px; overflow:hidden; border:1px solid var(--line); background:var(--surface); box-shadow:var(--shadow); }
+  .night .h { padding:5px 0 4px; text-align:center; font-family:ui-monospace,Menlo,monospace; font-size:10px; font-weight:700; letter-spacing:.04em; }
+  .night .r { padding:9px 4px 10px; text-align:center; font-family:ui-monospace,Menlo,monospace; font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .night .d { display:block; font-size:9.5px; font-weight:600; color:var(--muted); letter-spacing:.02em; margin-top:3px; }
+  .blockcard { background:var(--surface); border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:22px; margin-bottom:16px; }
+  .blockcard > .bh { display:flex; flex-wrap:wrap; align-items:baseline; gap:12px; margin-bottom:4px; }
+  .blockcard .bh .t { font-size:19px; font-weight:750; letter-spacing:-.01em; }
+  .blockcard .bh .n { font-family:ui-monospace,Menlo,monospace; font-size:12px; color:var(--muted); }
+  .blockcard .bh .verdict { margin-left:auto; font-family:ui-monospace,Menlo,monospace; font-size:12px; font-weight:700; padding:4px 11px; border-radius:999px; }
+  .v-loss { background:#fbe6e1; color:#8f2a17; }
+  .v-ok   { background:var(--brand-soft); color:var(--brand); }
+  @media (prefers-color-scheme:dark){ .v-loss{background:#3a1a13;color:#e8917a;} }
+  :root[data-theme="dark"] .v-loss{background:#3a1a13;color:#e8917a;}
+  .stack { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:16px 0 4px; }
+  .stat { background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); }
+  .stat .k { font-family:ui-monospace,Menlo,monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+  .stat .v { font-family:ui-monospace,Menlo,monospace; font-size:23px; font-weight:800; letter-spacing:-.02em; margin-top:5px; font-variant-numeric:tabular-nums; }
+  .stat .s { font-size:12px; color:var(--muted); margin-top:2px; }
+  .big { font-family:ui-monospace,Menlo,monospace; font-size:clamp(46px,9vw,86px); font-weight:800; letter-spacing:-.03em; line-height:1; color:var(--gold); font-variant-numeric:tabular-nums; }
+  .scribble { background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--gold); border-radius:0 12px 12px 0; padding:15px 18px; margin-top:14px; }
+  .scribble h4 { margin:0 0 6px; font-size:14px; }
+  .scribble p { margin:0; font-size:13.5px; color:var(--muted); }
+  .scribble p b { color:var(--ink); }
+  .barwrap { margin-top:8px; }
+  .barrow { display:flex; align-items:center; gap:12px; padding:9px 0; border-top:1px solid var(--line); }
+  .barrow:first-child { border-top:none; }
+  .barrow .lbl { flex:0 0 168px; font-size:13.5px; }
+  .barrow .lbl small { display:block; color:var(--muted); font-size:11.5px; }
+  .barrow .track { flex:1; height:22px; background:var(--brand-soft); border-radius:5px; overflow:hidden; min-width:80px; }
+  .barrow .fill { height:100%; border-radius:5px; }
+  .barrow .amt { flex:0 0 92px; text-align:right; font-family:ui-monospace,Menlo,monospace; font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; }
+  .barrow .amt small { display:block; font-weight:600; font-size:11px; }
+  @media (max-width:760px){ .nightgrid{grid-template-columns:repeat(5,1fr);} .stack{grid-template-columns:repeat(2,1fr);} .barrow .lbl{flex:0 0 120px;} }
+  @media (max-width:460px){ .nightgrid{grid-template-columns:repeat(3,1fr);} }
+</style>
+
+<meta name="robots" content="noindex, nofollow">
+<div class="wrap">
+
+  <div class="presenter">
+    <svg class="evl-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Ellicottville Outside">
+      <rect width="64" height="64" rx="14" fill="#1f3d2f"/>
+      <circle cx="44" cy="20" r="7" fill="#e0a94a"/>
+      <path d="M6 50 L22 24 L33 40 L41 28 L58 50 Z" fill="#3f7d5a"/>
+      <path d="M22 24 L33 40 L27 40 L18 30 Z" fill="#2c5d42"/>
+      <path d="M41 28 L58 50 L44 50 L37 38 Z" fill="#2c5d42"/>
+      <rect x="6" y="50" width="52" height="4" fill="#e0a94a"/>
+    </svg>
+    <div class="pt">
+      <div class="a">A Doble AI follow-up</div>
+      <div class="b">Companion to <span>Ellicottville Rental Pricing</span></div>
+    </div>
+  </div>
+
+  <header>
+    <div class="eyebrow">Short-Term Rental &middot; Length-of-Stay Discounts</div>
+    <h1>Your three winter blocks, run night by night against the demand calendar.</h1>
+    <p class="lead">You sketched out what a <b>10% weekly</b> and <b>20% monthly</b> discount does to three winter stays, and tested a deeper 25% on top. Here is the same arithmetic with one thing added: what each of those nights is actually worth in Ellicottville. Two of the three blocks give away real money. The third one is defensible, and the reason it is defensible turns out to be the most useful number on this page.</p>
+
+    <div class="preparedfor">
+      <div class="label">Prepared for</div>
+      <div class="who">Corey &amp; Jennifer Hogan &middot; 14&ndash;16 Washington Street</div>
+    </div>
+  </header>
+
+  <section style="margin-top:clamp(34px,4.5vw,50px)">
+    <div class="sec-head"><span class="sec-num">01</span><h2>What you sent</h2></div>
+    <p class="lede">Three blocks, priced flat, then discounted. The per-night column is the one worth staring at, because it is the number the guest is really paying you.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Block</th><th>Nights</th><th>Your gross</th><th>After 20%</th><th>After 25%</th><th>Per night at 25%</th></tr></thead>
+        <tbody>
+          <tr><td>Dec 26 &rarr; Jan 4</td><td class="mx">9</td><td class="mx">$4,302</td><td class="mx">$3,442</td><td class="mx">$3,226</td><td class="delta down">$358</td></tr>
+          <tr><td>Feb 12 &rarr; Feb 21</td><td class="mx">9</td><td class="mx">$4,620</td><td class="mx">$3,696</td><td class="mx">$3,465</td><td class="delta down">$385</td></tr>
+          <tr><td>Dec 26 &rarr; Mar 21</td><td class="mx">85</td><td class="mx">$38,934</td><td class="mx" style="color:var(--muted);font-weight:600">not run</td><td class="mx">$29,200</td><td class="delta down">$344</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scribble">
+      <h4>Two small slips, corrected</h4>
+      <p>On the February block, <b>4,620 &minus; 924 = 3,696</b>, not 3,796. And 25% off 4,620 leaves <b>3,465</b>, not 3,445. Both move in your favor on paper by about a hundred dollars, and neither changes the conclusion below. The December and full-season blocks check out exactly, including the 85-night count.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2>The same nights, priced to demand</h2></div>
+    <p class="lede">Every night below is tiered off the model in the pricing plan, using the <b>bottom half of each published band</b>. These are deliberately conservative numbers, not best-case ones.</p>
+
+    <div class="blockcard">
+      <div class="bh"><span class="t">Dec 26 &rarr; Jan 4</span><span class="n">9 nights &middot; Christmas and New Year's</span><span class="verdict v-loss">giving away $1,924</span></div>
+      <p class="lede" style="margin:2px 0 16px">Seven of these nine nights sit inside the single most reliable window of your year. This is the week that books itself.</p>
+      <div class="nightgrid">
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$650<span class="d">SAT Dec 26</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$575<span class="d">SUN Dec 27</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$575<span class="d">MON Dec 28</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$575<span class="d">TUE Dec 29</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$650<span class="d">WED Dec 30</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$650<span class="d">THU Dec 31</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$650<span class="d">FRI Jan 1</span></div></div>
+<div class="night"><div class="h t-high">HIGH</div><div class="r">$475<span class="d">SAT Jan 2</span></div></div>
+<div class="night"><div class="h t-shoulder">SHOULDER</div><div class="r">$350<span class="d">SUN Jan 3</span></div></div>
+</div>
+      <div class="stack">
+        <div class="stat"><div class="k">Your gross</div><div class="v">$4,302</div><div class="s">$478 a night</div></div>
+        <div class="stat"><div class="k">You keep at 25%</div><div class="v">$3,226</div><div class="s">$358 a night</div></div>
+        <div class="stat"><div class="k">Tiered model</div><div class="v" style="color:var(--brand)">$5,150</div><div class="s">$572 a night</div></div>
+        <div class="stat"><div class="k">Difference</div><div class="v" style="color:var(--gold)">+$1,924</div><div class="s">on nine nights</div></div>
+      </div>
+    </div>
+
+    <div class="blockcard">
+      <div class="bh"><span class="t">Feb 12 &rarr; Feb 21</span><span class="n">9 nights &middot; Presidents' Week</span><span class="verdict v-loss">giving away $2,010</span></div>
+      <p class="lede" style="margin:2px 0 16px">Presidents' Day falls on Monday, February 15, 2027. Every one of these nine nights is inside the school-break week, which the plan already flags as the deepest sustained ski demand of the winter. There is not a soft night in this block.</p>
+      <div class="nightgrid">
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$650<span class="d">FRI Feb 12</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$650<span class="d">SAT Feb 13</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$575<span class="d">SUN Feb 14</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$575<span class="d">MON Feb 15</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$575<span class="d">TUE Feb 16</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$575<span class="d">WED Feb 17</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$575<span class="d">THU Feb 18</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$650<span class="d">FRI Feb 19</span></div></div>
+<div class="night"><div class="h t-peak">PEAK</div><div class="r">$650<span class="d">SAT Feb 20</span></div></div>
+</div>
+      <div class="stack">
+        <div class="stat"><div class="k">Your gross</div><div class="v">$4,620</div><div class="s">$513 a night</div></div>
+        <div class="stat"><div class="k">You keep at 25%</div><div class="v">$3,465</div><div class="s">$385 a night</div></div>
+        <div class="stat"><div class="k">Tiered model</div><div class="v" style="color:var(--brand)">$5,475</div><div class="s">$608 a night</div></div>
+        <div class="stat"><div class="k">Difference</div><div class="v" style="color:var(--gold)">+$2,010</div><div class="s">on nine nights</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="banner">
+      <div class="kick">The pattern in both blocks</div>
+      <p>The discount is doing its hardest work on the nights that never needed help. <b>Christmas week and Presidents' week sell out whether or not you discount them.</b> A flat percentage cannot tell the difference between a night you have to fight for and a night the calendar hands you, so it cuts both by the same amount. Between these two stays alone, that is <b>$3,487 to $3,934 on eighteen nights that carry no real occupancy risk.</b></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2>The 85-night block is a different question</h2></div>
+    <p class="lede">This one is not a giveaway, and it would be wrong to tell you it is. A full-winter booking at $29,200 is guaranteed money, with one turnover instead of thirty. The tiered model only beats it <b>if you actually sell the nights.</b> Here is what those 85 nights look like once they are priced individually.</p>
+    <div class="barwrap">
+      <div class="barrow"><div class="lbl">21 Peak nights<small>Christmas, MLK, Presidents', Mardi Gras</small></div><div class="track"><div class="fill t-peak" style="width:100.0%"></div></div><div class="amt">$12,975<small>$618/night</small></div></div>
+<div class="barrow"><div class="lbl">13 High nights<small>ski-season Fridays and Saturdays</small></div><div class="track"><div class="fill t-high" style="width:47.6%"></div></div><div class="amt">$6,175<small>$475/night</small></div></div>
+<div class="barrow"><div class="lbl">15 Shoulder nights<small>in-season Sundays, late-March tail</small></div><div class="track"><div class="fill t-shoulder" style="width:37.2%"></div></div><div class="amt">$4,830<small>$322/night</small></div></div>
+<div class="barrow"><div class="lbl">36 Low nights<small>in-season Monday through Thursday</small></div><div class="track"><div class="fill t-low" style="width:74.9%"></div></div><div class="amt">$9,720<small>$270/night</small></div></div>
+    </div>
+    <div class="stack" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat"><div class="k">Tiered, every night sold</div><div class="v" style="color:var(--brand)">$33,700</div><div class="s">$396 a night at 100% occupancy</div></div>
+      <div class="stat"><div class="k">The block, guaranteed</div><div class="v">$29,200</div><div class="s">$344 a night, no vacancy risk</div></div>
+      <div class="stat"><div class="k">Flat $350, every night sold</div><div class="v">$29,750</div><div class="s">your rate today, for reference</div></div>
+    </div>
+    <div class="scribble">
+      <h4>Worth noticing</h4>
+      <p>The guaranteed block pays you <b>less than your own current flat rate would</b> across the same 85 nights, and about <b>$4,500 less</b> than pricing them to demand. But both of those comparisons assume you fill every single night, which nobody does.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2>Whether to take the block comes down to one number</h2></div>
+    <p class="lede">Work backwards from the guaranteed number. Sell every Peak and High night, which is the easy 34, and you are still $10,050 short of the block. Closing that gap takes <b>35 of the remaining 51 soft nights</b>.</p>
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:clamp(24px,4vw,34px);text-align:center;margin-bottom:16px">
+      <div class="eyebrow gold-eyebrow">Break-even occupancy</div>
+      <div class="big">81%</div>
+      <p class="lede" style="margin:12px auto 0;max-width:56ch;text-align:center">Above roughly 81% occupancy across the winter, pricing to demand wins. Below it, take the 85-night booking and be glad of it.</p>
+    </div>
+    <div class="two">
+      <div class="note"><h4>If you have run 80%+ before</h4><p>Turn the season-long discount off and price to the calendar. You will clear more, and you keep the flexibility to take a high-value short stay over Fall Festival or Mardi Gras.</p></div>
+      <div class="note"><h4>If you have not, or you do not know</h4><p>The block is a sound deal. <b>Take it, but not at 25%, and not with the peak weeks priced flat inside it.</b> Section 05 is how you fix that without losing the booking.</p></div>
+    </div>
+    <p class="lede" style="margin-top:18px">Nobody should be guessing at this. Your own booking history from last winter answers it in about ten minutes, and it is the first thing we would pull.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2>Four fixes, in order of how much they are worth</h2></div>
+
+    <ul class="deliv">
+      <li><span class="tick">1</span><span class="dtxt"><b>Gross up the peak nights so the discount lands where you meant it to</b><small>Airbnb applies the length-of-stay percentage to whatever nightly rate is showing. So set the marquee nights high enough that the discount brings them down to your target, instead of below it.</small></span></li>
+      <li><span class="tick">2</span><span class="dtxt"><b>Put a floor under the marquee windows</b><small>Christmas week, MLK, Presidents' week and Mardi Gras get a rate floor and a three-night minimum. A long stay is welcome to include them. It is not welcome to discount them.</small></span></li>
+      <li><span class="tick">3</span><span class="dtxt"><b>Stop treating the weekly and the monthly as the same lever</b><small>Your 10% weekly is a healthy incentive and it is not what is hurting you. The 20% to 25% monthly is a different animal, because it is the one that reaches across whole holiday weeks. Leave the weekly alone and bring the monthly down to 10&ndash;12%.</small></span></li>
+      <li><span class="tick">4</span><span class="dtxt"><b>Close the soft nights with the caf&eacute;, not the rate</b><small>The 36 midweek nights are where a real concession belongs, and the welcome card costs you food cost instead of room revenue. A 25% cut on this block is $9,734 handed over in cash. The same guest would take breakfast for a small fraction of it.</small></span></li>
+    </ul>
+
+    <p class="lede" style="margin-top:22px">On the first one, the arithmetic is simple. To land on your target after the discount, list at:</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Night type</th><th>Target you want to keep</th><th>List at, for 20% off</th><th>List at, for 25% off</th></tr></thead>
+        <tbody>
+          <tr><td>Marquee peak</td><td class="mx">$650</td><td class="mx">$812</td><td class="mx">$867</td></tr>
+          <tr><td>Peak weekday</td><td class="mx">$575</td><td class="mx">$719</td><td class="mx">$767</td></tr>
+          <tr><td>Ski weekend</td><td class="mx">$475</td><td class="mx">$594</td><td class="mx">$633</td></tr>
+          <tr><td>In-season Sunday</td><td class="mx">$350</td><td class="mx">$438</td><td class="mx">$467</td></tr>
+          <tr><td>In-season midweek</td><td class="mx">$270</td><td class="mx">$338</td><td class="mx">$360</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede" style="margin-top:14px">Those left-hand numbers are not a price increase. They are the same rates from the pricing plan, grossed up so that a long-stay guest and a weekend guest end up paying you the same thing for the same night.</p>
+  </section>
+
+  <div class="cta">
+    <div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px">The short version</div>
+    <h2>Discount the nights that need it. Never the nights that sell themselves.</h2>
+    <p>A single percentage applied across a whole winter cannot tell those apart, and in Ellicottville the gap between them is more than $380 a night. Set the calendar first, then let the discount work on what is left.</p>
+    <div class="sign">Doble AI &middot; Ellicottville Outside &middot; dobleai.com</div>
+  </div>
+
+  <footer>
+    <span>Prepared by <b>Doble AI</b> for Corey &amp; Jennifer Hogan &middot; August 2026</span>
+    <span class="flag">Model rates use the bottom half of each published tier. Mardi Gras 2027 is not yet announced; projected as the weekend of Mar 12&ndash;13 and confirmed before rates publish.</span>
+  </footer>
+
+</div>
