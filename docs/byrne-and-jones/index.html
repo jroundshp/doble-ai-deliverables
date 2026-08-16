@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Byrne &amp; Jones Construction | Digital Presence Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F5F1EA;
+    --card: #FFFFFF;
+    --ink: #1F1B14;
+    --ink-mid: #4A4237;
+    --ink-mute: #786E5F;
+    --line: #DCD5C7;
+    --accent: #b8500f;
+    --accent-soft: #FBEDE2;
+    --spark: #f97316;
+    --good: #2d6a4f;
+    --okay: #1a4971;
+    --warn: #7d5a1e;
+    --poor: #7d3a1e;
+    --bad: #6b1d1d;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  .hero { padding: 72px 0 48px; border-bottom: 1px solid rgba(184,80,15,0.25); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(34px, 5.5vw, 58px); font-weight: 500;
+    line-height: 1.08; margin-bottom: 16px;
+  }
+  .hero .sub { font-size: 18px; color: var(--ink-mid); line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
+
+  .stats { display: flex; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 28px; }
+  .stat { flex: 1 1 140px; padding-right: 24px; margin-bottom: 12px; }
+  .stat + .stat { border-left: 1px solid var(--line); padding-left: 24px; }
+  .stat .v { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; color: var(--ink); }
+  .stat .v.hot { color: var(--spark); }
+  .stat .l { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-top: 4px; }
+
+  .alert {
+    margin: 40px 0 0; background: var(--accent-soft);
+    border: 1px solid rgba(184,80,15,0.3); border-left: 4px solid var(--accent);
+    border-radius: 4px; padding: 24px 28px;
+  }
+  .alert .k { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .alert p { font-size: 15px; color: var(--ink-mid); line-height: 1.7; }
+  .alert p + p { margin-top: 14px; }
+  .alert code { font-size: 13px; background: #fff; border: 1px solid var(--line); padding: 1px 6px; border-radius: 3px; word-break: break-all; }
+
+  .section { padding: 56px 0 0; }
+  .sec-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(24px, 3.5vw, 32px); font-weight: 500; margin-bottom: 24px;
+  }
+  .section > p.lede { font-size: 15px; color: var(--ink-mid); line-height: 1.75; margin-bottom: 24px; max-width: 720px; }
+  .section > p.body { font-size: 14.5px; color: var(--ink-mid); line-height: 1.75; margin-bottom: 18px; max-width: 720px; }
+
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+  @media (max-width: 640px) { .facts { grid-template-columns: 1fr; } }
+  .fact { border-top: 2px solid var(--accent); padding-top: 12px; }
+  .fact .fl { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 8px; }
+  .fact .fv { font-size: 14.5px; color: var(--ink-mid); line-height: 1.65; }
+
+  .tbl-wrap { overflow-x: auto; background: var(--card); border: 1px solid var(--line); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.6; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-mute); }
+  td { color: var(--ink-mid); }
+  td strong { color: var(--ink); }
+  tr:last-child td { border-bottom: none; }
+  .tbl-note { font-size: 13.5px; color: var(--ink-mute); line-height: 1.7; border-left: 3px solid var(--line); padding-left: 14px; margin-top: 20px; }
+  .yes { color: var(--good); font-weight: 600; }
+  .no { color: var(--bad); font-weight: 600; }
+  .mid { color: var(--warn); font-weight: 600; }
+
+  .channel {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+    padding: 20px 22px; margin-bottom: 12px;
+  }
+  .grade {
+    flex: 0 0 auto; width: 54px; height: 54px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 20px; color: #fff;
+  }
+  .g-a { background: var(--good); } .g-b { background: var(--okay); }
+  .g-c { background: var(--warn); } .g-d { background: var(--poor); } .g-f { background: var(--bad); }
+  .channel h3 { font-size: 15.5px; margin-bottom: 5px; }
+  .channel p { font-size: 14px; color: var(--ink-mid); line-height: 1.65; }
+
+  .rec-item { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 20px 24px; margin-bottom: 12px; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; flex-wrap: wrap; }
+  .rec-num { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; color: var(--spark); }
+  .rec-title { font-size: 15.5px; font-weight: 600; }
+  .rec-detail { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
+  .rec-detail code { font-size: 12.5px; background: var(--bg); border: 1px solid var(--line); padding: 1px 5px; border-radius: 3px; word-break: break-all; }
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 9px; border-radius: 20px; margin-left: 10px; vertical-align: middle; }
+  .pill.free { background: #E7F2EC; color: var(--good); }
+  .pill.quick { background: #F5EEDF; color: var(--spark); }
+
+  .strengths { background: #EDF3EE; border: 1px solid #C8DDD0; border-radius: 6px; padding: 24px 28px; }
+  .strengths .k { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--good); margin-bottom: 12px; }
+  .strengths ul { list-style: none; }
+  .strengths li { font-size: 14.5px; color: var(--ink-mid); line-height: 1.6; padding-left: 22px; position: relative; margin-bottom: 9px; }
+  .strengths li::before { content: '✓'; position: absolute; left: 0; color: var(--good); font-weight: 700; }
+  .strengths li:last-child { margin-bottom: 0; }
+  .strengths a { color: var(--accent); }
+
+  .cta-block {
+    margin-top: 72px; background: var(--accent); color: #fff;
+    border-radius: 8px; padding: 48px 44px; text-align: center;
+  }
+  .cta-block h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(24px, 4vw, 34px); font-weight: 500; margin-bottom: 16px; }
+  .cta-block p { font-size: 15.5px; line-height: 1.7; color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 28px; }
+  .cta-btn {
+    display: inline-block; background: #fff; color: var(--accent);
+    font-weight: 600; font-size: 15px; padding: 14px 32px; border-radius: 6px; text-decoration: none;
+  }
+  .cta-sub { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 16px; }
+
+  .verify-note { font-size: 12.5px; color: var(--ink-mute); line-height: 1.7; font-style: italic; margin-top: 40px; }
+
+  .footer {
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    border-top: 1px solid var(--line); margin-top: 32px; padding-top: 24px;
+    font-size: 13px; color: var(--ink-mute);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="tag">Digital Presence Audit · August 2026</div>
+    <h1>Byrne &amp; Jones Construction</h1>
+    <p class="sub">A 50-year, $191M contractor with a genuinely well-built website. The technical
+    foundation here is stronger than almost anything we audit. The problem is not the site,
+    it is that the best pages on it cannot be reached by clicking.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="v hot">6.5<span style="font-size:16px;color:var(--ink-mute);">/10</span></div><div class="l">Overall</div></div>
+      <div class="stat"><div class="v">152</div><div class="l">URLs crawled</div></div>
+      <div class="stat"><div class="v hot">28</div><div class="l">Orphaned pages</div></div>
+      <div class="stat"><div class="v">6/6</div><div class="l">Claimed Google profiles</div></div>
+      <div class="stat"><div class="v hot">1</div><div class="l">Dead primary CTA</div></div>
+    </div>
+
+    <div class="alert">
+      <div class="k">The one to fix this week</div>
+      <p>On your EV charging station page, the button reading <strong>"Contact for Free Project
+      Evaluation"</strong> returns a 404. It points at
+      <code>/asphalt-paving/ev-charging-station-installation/#EVContact</code>, the path the page
+      used before it moved under <code>/stlouis/</code>. The anchor is right and
+      <code>id="EVContact"</code> is still on the page, sitting above a working quote form with
+      name, phone, email and project fields.</p>
+      <p>So the form is fine. The button above it sends people to a 404 whose only options are
+      Home, Careers and Locations. Not Contact. Changing the href to <code>#EVContact</code> is
+      the entire fix.</p>
+    </div>
+  </div>
+
+  <!-- 01 SNAPSHOT -->
+  <div class="section">
+    <div class="sec-label">01 · Business Snapshot</div>
+    <h2>Who They Are</h2>
+    <div class="facts">
+      <div class="fact"><div class="fl">Business</div><div class="fv">Commercial asphalt, concrete, sports and parks construction. Founded 1976 by Robert Byrne, sealing driveways to pay for college.</div></div>
+      <div class="fact"><div class="fl">Headquarters</div><div class="fv">13940 St Charles Rock Road, Bridgeton, MO 63044</div></div>
+      <div class="fact"><div class="fl">Markets</div><div class="fv">St. Louis, Kansas City, Nashville, Columbus OH, Omaha and Lincoln NE, South Roxana IL</div></div>
+      <div class="fact"><div class="fl">Scale</div><div class="fv">Roughly $191M revenue (ZoomInfo, 2025). More than 1,400 athletic facilities built since 2010.</div></div>
+      <div class="fact"><div class="fl">Platform</div><div class="fv">WordPress with Divi and Rank Math SEO. HubSpot for forms and analytics. 106 pages, 46 posts, 10 videos in the sitemap.</div></div>
+      <div class="fact"><div class="fl">Divisions</div><div class="fv">Asphalt, concrete, sports, parks, soil stabilization, microsurfacing, engineering and design</div></div>
+    </div>
+  </div>
+
+  <!-- 02 STRENGTHS -->
+  <div class="section">
+    <div class="sec-label">02 · Baseline</div>
+    <h2>What Is Already Right</h2>
+    <p class="lede">This section is longer than it usually is, because most of the fundamentals
+    are genuinely handled. Anything below this line does not need work, and knowing that changes
+    what the rest of the audit is worth spending money on.</p>
+    <div class="strengths">
+      <div class="k">Verified working · August 16, 2026</div>
+      <ul>
+        <li><strong>Every page is readable by machines.</strong> Service copy, FAQ answers and project descriptions all appear in the served HTML rather than being painted in by JavaScript. This is the floor that everything else in AI search depends on, and plenty of well-designed sites fail it.</li>
+        <li><strong>Canonicals are clean across all 152 URLs.</strong> Zero mismatches, zero status errors, zero noindex pages sitting in the sitemap. Nothing on the site is quietly declaring itself a duplicate of something else.</li>
+        <li><strong>robots.txt is hand-tuned, not stock.</strong> Someone deliberately blocked search parameters, ad-click IDs, oEmbed endpoints and the SDS PDF library while whitelisting the employment application. That is careful crawl-budget work.</li>
+        <li><strong>All six Google Business Profiles are claimed and owner-managed.</strong> Each one links to its own market page with a <code>?utm_campaign=gmb</code> tag, so the attribution was set up on purpose. Ratings run 4.5 to 5.0, with Hilliard showing 5.0 across 31 reviews.</li>
+        <li><strong>Schema is rich and mostly correct.</strong> GeneralContractor, Place, PostalAddress, Service, Offer, VideoObject and BreadcrumbList, plus real FAQ markup on 23 pages.</li>
+        <li><strong>The sports pages are exceptional.</strong> Running tracks carries 26 question and answer pairs, turf field installation 24, tennis courts 13. This is the depth that gets a page quoted by an AI assistant, and it is already paying: you rank first for track and turf queries in Missouri and second nationally for Midwest pickleball court construction.</li>
+        <li><strong>The 404 page is custom and on-brand.</strong> Which is how we could tell the EV button was broken rather than the server being down.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 03 THE ORPHAN ESTATE -->
+  <div class="section">
+    <div class="sec-label">03 · One Finding Worth Its Own Section</div>
+    <h2>Twenty-eight pages have no internal links pointing at them, and they are the sales pages</h2>
+    <p class="body">We crawled every page in your sitemap and built the internal link graph from
+    the served HTML. Twenty-eight pages came back with zero inbound links. A crawler can still
+    reach them through the sitemap, so they are not invisible to Google. But a human being cannot
+    reach them by clicking, from anywhere on your site.</p>
+    <p class="body">Orphaned pages are usually leftovers. These are not.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Orphaned page</th><th>Words</th><th>What it is</th></tr>
+        <tr><td><strong>/sports/case-study-chaminade-high-school/</strong></td><td>445</td><td>Case study</td></tr>
+        <tr><td><strong>/sports/kirksville-high-school-case-study/</strong></td><td>791</td><td>Case study</td></tr>
+        <tr><td><strong>/sports/unity-high-school-case-study/</strong></td><td>316</td><td>Case study</td></tr>
+        <tr><td><strong>/sports/mt-hebron-park-case-study/</strong></td><td>676</td><td>Case study</td></tr>
+        <tr><td><strong>/sports/smith-cotton-athletic-complex/</strong></td><td>995</td><td>Project story, longest of the group</td></tr>
+        <tr><td><strong>/sports/cooperative-purchasing/</strong></td><td>498</td><td>Explains buying from you without a bid process</td></tr>
+        <tr><td><strong>/sports/cooperative-purchasing/portfolio/</strong></td><td>298</td><td>Supporting portfolio for the above</td></tr>
+        <tr><td><strong>/in-the-press/</strong></td><td>231</td><td>Third-party press coverage</td></tr>
+        <tr><td><strong>/sports/maintenance-request/</strong></td><td>177</td><td>Existing customers requesting service</td></tr>
+        <tr><td><strong>/project-tour/</strong></td><td>365</td><td>Books a site visit with a rep</td></tr>
+        <tr><td><strong>/sports/resources/</strong></td><td>283</td><td>Resource hub</td></tr>
+        <tr><td><strong>/stlouis/asphalt-paving/ev-charging-station-installation/</strong></td><td>268</td><td>The page with the dead button</td></tr>
+      </table>
+    </div>
+    <p class="tbl-note">Twelve of twenty-eight shown. The remaining sixteen are blog posts and
+    award pages. The full list, with a suggested parent page for each, is in the free repair pack
+    at the bottom of this audit.</p>
+
+    <p class="body" style="margin-top:24px;">Read that list as a sales problem rather than an SEO
+    problem. Every case study you have is unreachable. The page explaining cooperative purchasing,
+    which is how a school district or parks department buys from you without running a competitive
+    bid, is unreachable. Your press coverage is unreachable. The page where an existing customer
+    requests maintenance is unreachable.</p>
+    <p class="body">Someone wrote all of this. Someone approved it. It is good material. A buyer
+    comparing you against ATG Sports or Mid-America Sports Construction cannot find any of it
+    without a direct link from a salesperson.</p>
+
+    <div class="alert">
+      <div class="k">Why this matters more than it looks</div>
+      <p>Internal links do two jobs at once. They carry ranking signal, and they carry people.
+      The SEO half is real but modest. The sales half is the expensive part: you are paying to
+      produce proof material that never reaches the person deciding whether to shortlist you.</p>
+      <p>This is also the cheapest finding in the audit to fix. No new content, no new pages. It
+      is a set of links from pages that already exist to pages that already exist.</p>
+    </div>
+  </div>
+
+  <!-- 04 SEARCH VISIBILITY -->
+  <div class="section">
+    <div class="sec-label">04 · Search &amp; AI Visibility</div>
+    <h2>You win three paving markets and lose the two that matter most</h2>
+    <p class="lede">For every market you serve, a buyer-intent search, and a note on whether
+    Byrne &amp; Jones came back. The pattern is not the one we expected going in.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Buyer search</th><th>Result</th><th>Your page</th><th>FAQ pairs</th></tr>
+        <tr><td>Commercial asphalt paving Columbus OH parking lot</td><td class="yes">Ranked 1st</td><td>1,990 words</td><td>9</td></tr>
+        <tr><td>Commercial asphalt paving Kansas City parking lot</td><td class="yes">Ranked 1st</td><td>736 words</td><td>0</td></tr>
+        <tr><td>Commercial asphalt paving Omaha NE parking lot</td><td class="yes">Ranked 1st</td><td>3,769 words</td><td>7</td></tr>
+        <tr><td>Who builds running tracks and turf fields for high schools in Missouri</td><td class="yes">Ranked 1st, cited</td><td>Sports hub</td><td>26 (tracks)</td></tr>
+        <tr><td>Contractor to build pickleball courts for a city park in the Midwest</td><td class="yes">Ranked 2nd, cited</td><td>1,733 words</td><td>11</td></tr>
+        <tr><td>What do you know about Byrne &amp; Jones Construction</td><td class="yes">Strong</td><td>Own pages plus directories</td><td>n/a</td></tr>
+        <tr><td><strong>Best commercial asphalt paving contractor St. Louis</strong></td><td class="no">Absent</td><td>1,469 words</td><td><strong>2</strong></td></tr>
+        <tr><td><strong>Commercial parking lot paving contractor Nashville TN</strong></td><td class="no">Absent</td><td>725 words</td><td><strong>0</strong></td></tr>
+      </table>
+    </div>
+
+    <p class="body" style="margin-top:24px;">St. Louis is the headquarters. Fifty years, the
+    original market, the largest one. Nashville is the newest expansion and the one with the most
+    to prove. Those are the two you lose.</p>
+
+    <p class="body">We re-ran both before recording them, which changed the finding in a way worth
+    reporting honestly. Search St. Louis paving using <em>your</em> language, "50 years,"
+    "self-performing crews," and you rank first in both markets. Search using the language a
+    facilities manager actually types, "best commercial asphalt paving contractor St. Louis," and
+    you are nowhere while St. Louis Paving, Ford Asphalt, Rose Paving, Keeley and E. Meier take
+    the page.</p>
+
+    <div class="alert">
+      <div class="k">The distinction that matters</div>
+      <p>You are not invisible in St. Louis. You are visible to people who already know how you
+      describe yourselves. The pages are written in company voice rather than buyer voice, and the
+      generic high-volume query is the one you lose.</p>
+      <p>Kansas City is the honest counter-example and we are including it rather than hiding it:
+      736 words, zero FAQ markup, ranked first. Depth is not the only variable. St. Louis and
+      Nashville are simply more contested, and in contested markets the thinner page loses. Those
+      are also the two markets where your page is thinnest relative to the competition.</p>
+    </div>
+
+    <p class="body" style="margin-top:24px;">Who the engines recommend instead, by market:
+    <strong>St. Louis</strong> St. Louis Paving, Ford Asphalt, Leritz Busy Bee, E. Meier, Keeley,
+    K&amp;K, Brewster. <strong>Nashville</strong> Pave America, Rose Paving, R&amp;R Paving, Turner
+    Asphalt, Nash Paving, Titan. <strong>Sports</strong> ATG Sports, Mid-America Sports
+    Construction, McConnell &amp; Associates, Sports Turf Company.</p>
+  </div>
+
+  <!-- 05 DEPTH GAP -->
+  <div class="section">
+    <div class="sec-label">05 · The Pattern Underneath</div>
+    <h2>Your investment is inverse to your market size</h2>
+    <p class="lede">Counting question and answer pairs marked up in schema across the site produces
+    an uncomfortable ranking.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Page</th><th>Words</th><th>FAQ pairs in schema</th></tr>
+        <tr><td>/sports/running-tracks/</td><td>—</td><td class="yes">26</td></tr>
+        <tr><td>/sports/turf-field-installation/</td><td>—</td><td class="yes">24</td></tr>
+        <tr><td>/sports/tennis-court-construction/</td><td>—</td><td class="yes">13</td></tr>
+        <tr><td>/sports/pickleball-court-construction/</td><td>1,733</td><td class="yes">11</td></tr>
+        <tr><td>/ohio/asphalt-paving/ (Columbus)</td><td>1,990</td><td class="mid">9</td></tr>
+        <tr><td>/nebraska/omaha-asphalt-paving/</td><td>3,769</td><td class="mid">7</td></tr>
+        <tr><td>/nebraska/lincoln-asphalt-paving/</td><td>2,448</td><td class="mid">7</td></tr>
+        <tr><td><strong>/stlouis/asphalt-paving/ (headquarters)</strong></td><td>1,469</td><td class="no">2</td></tr>
+        <tr><td><strong>/nashville/asphalt-paving/</strong></td><td>725</td><td class="no">0</td></tr>
+        <tr><td><strong>/kansas-city/asphalt-paving/</strong></td><td>736</td><td class="no">0</td></tr>
+        <tr><td><strong>/illinois/asphalt-paving/</strong></td><td>732</td><td class="no">0</td></tr>
+      </table>
+    </div>
+    <p class="tbl-note">Nebraska and Ohio look like recent, deliberate optimization work. Kansas
+    City, Nashville and Illinois look like the original template, untouched. St. Louis sits in
+    between with two questions answered.</p>
+
+    <p class="body" style="margin-top:24px;">Separately, 21 pages already have question-format
+    headings written into the copy with no FAQ schema wrapping them. The homepage asks "What are
+    some different types of pavement damage?" The Kansas City concrete page asks "Are you looking
+    for a commercial concrete contractor in Kansas City?" Six blog posts are structured as pure
+    question and answer and carry no markup at all. The writing is done. Only the markup layer is
+    missing, which is the cheapest kind of gap there is.</p>
+  </div>
+
+  <!-- 06 LEGACY DEBT -->
+  <div class="section">
+    <div class="sec-label">06 · Legacy Debt</div>
+    <h2>Two migrations left residue that is still live</h2>
+
+    <p class="body"><strong>The HubSpot blog is still online and still ranking.</strong>
+    <code>blog.byrneandjones.com</code> returns a 200 with the title "Byrne &amp; Jones
+    Construction Blog" and zero posts. Its RSS feed is empty. Its footer reads
+    <em>2019 Byrne &amp; Jones Construction</em>. Its navigation is the pre-migration company:
+    Rhino Pave Asphalt, and Missouri, Nebraska and Ohio divisions, with no Nashville, no Kansas
+    City, no Illinois and no Parks division. It carries no canonical tag and no robots directive,
+    so nothing tells Google to ignore it.</p>
+    <p class="body">It surfaced third in our brand search, above your own About page. A prospect
+    checking you out can land on an empty 2019 shell of your company. Redirect the subdomain to
+    <code>/blog/</code> and the problem is gone permanently.</p>
+
+    <p class="body" style="margin-top:20px;"><strong>Retired URLs are still linked from live
+    pages.</strong> The 2024 WordPress migration reorganized the site and the internal links never
+    fully followed. Nine legacy paths are still linked from pages people read today. Two live blog
+    posts link to <code>/sports/tennis-court-pickleball-court-construction/</code>, which now takes
+    two redirect hops to land. Your sports hub links to <code>/sports/landscape-turf/</code>, which
+    redirects to playground installation. Your About page links to <code>/Ohio/</code> with a
+    capital O. One blog post has an href with a trailing space inside the URL. None of this breaks
+    a page, but all of it is real and all of it is mechanical to fix.</p>
+
+    <p class="body" style="margin-top:20px;"><strong>A Nebraska phone number is sitting in the
+    Ohio page's HTML.</strong> <code>/ohio/</code> contains a text block reading
+    "Free Estimates -&gt; (531) 201-6959," which is the Omaha and Lincoln number. Worth being
+    precise about the impact: we rendered the page and that block does not display to a visitor,
+    so nobody is calling Nebraska by mistake. But it is in the served document, which means
+    crawlers, AI engines and screen readers see a Nebraska number on your Columbus page. For a
+    business whose local ranking depends on consistent name, address and phone data, that is a
+    small pollutant in the exact place it hurts. Delete the leftover module.</p>
+
+    <p class="body" style="margin-top:20px;">One item for you rather than for us:
+    <code>/ohio/asphalt-maintenance-and-repair/</code> shows (614) 957-2083 while every other Ohio
+    page shows (614) 662-4572. That is very often a deliberate call-tracking line, so we are
+    flagging it as a question rather than scoring it as an error.</p>
+  </div>
+
+  <!-- 07 SCORECARD -->
+  <div class="section">
+    <div class="sec-label">07 · Scorecard</div>
+    <h2>Channel by Channel</h2>
+
+    <div class="channel"><div class="grade g-a">A−</div><div><h3>Technical Foundation</h3>
+      <p>Clean canonicals on all 152 URLs, no status errors, server-rendered content, hand-tuned robots.txt, working sitemap index. Points off only for the 404 link, the redirect chain and the trailing-slash link pattern.</p></div></div>
+
+    <div class="channel"><div class="grade g-a">A−</div><div><h3>Local Presence</h3>
+      <p>Six claimed profiles across six markets, each pointing at its own market page with campaign tagging, ratings 4.5 to 5.0. Better managed than most contractors of any size. Points off for the stray Nebraska number in the Ohio HTML.</p></div></div>
+
+    <div class="channel"><div class="grade g-b">B</div><div><h3>Structured Data and GEO Markup</h3>
+      <p>23 pages carry real FAQ schema and the sports pages are best in class. Held back by 21 pages with question headings and no markup, and four market pages with none at all.</p></div></div>
+
+    <div class="channel"><div class="grade g-c">C+</div><div><h3>Search Visibility</h3>
+      <p>First place in Columbus, Kansas City and Omaha, first or second nationally for sports. Absent from the generic buyer query in St. Louis and Nashville, which are the two most valuable markets on the list.</p></div></div>
+
+    <div class="channel"><div class="grade g-c">C+</div><div><h3>Content Depth and Freshness</h3>
+      <p>Sports content is deep and current. 51 pages sit under 350 words and 49 have not been touched since 2024. Roughly two thirds of the blog came across in the migration and was never re-optimized: meta descriptions run as long as 301 characters, and one post lost its H1 entirely.</p></div></div>
+
+    <div class="channel"><div class="grade g-c">C</div><div><h3>Conversion Path</h3>
+      <p>HubSpot forms render and work, and the contact page is clean. But the main contact page is 164 words with the form inside a cross-domain iframe, the EV page's primary button 404s, and the maintenance request page is unreachable by clicking.</p></div></div>
+
+    <div class="channel"><div class="grade g-d">D</div><div><h3>Internal Linking and Architecture</h3>
+      <p>28 orphaned pages including every case study, both cooperative purchasing pages and the press page. Nine retired URLs still linked from live pages. A two-hop redirect chain from two blog posts. This is the weakest area and also the cheapest to repair.</p></div></div>
+
+    <div class="channel"><div class="grade g-c">C−</div><div><h3>Legacy and Brand Consistency</h3>
+      <p>A live 2019 HubSpot shell ranking on brand queries with an obsolete division structure. Founding year is inconsistent across the web, 1975 in some directory profiles against 1976 on your own site.</p></div></div>
+  </div>
+
+  <!-- 08 FIXES -->
+  <div class="section">
+    <div class="sec-label">08 · What We Would Do</div>
+    <h2>Ranked by Return, Not by Effort</h2>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Fix the EV page button</span><span class="pill quick">10 minutes</span></div>
+      <div class="rec-detail">Change the href from the old absolute URL to <code>#EVContact</code>. The form it should reach is already on the page. This is the only finding in the audit that is actively losing a lead today.</div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Link the 28 orphaned pages</span><span class="pill free">Done for you</span></div>
+      <div class="rec-detail">Case studies belong on the service page for the work they describe and on the sports hub. Cooperative purchasing belongs in the main navigation, because it removes a procurement barrier for exactly the school and municipal buyers you want. The press page belongs on About. The full map, with a suggested parent for each page, is in the free pack below.</div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Redirect blog.byrneandjones.com</span><span class="pill quick">One DNS or HubSpot change</span></div>
+      <div class="rec-detail">301 the whole subdomain to <code>/blog/</code>. It removes an empty 2019 version of your company from your brand results permanently, and consolidates whatever authority the old domain still holds.</div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Rewrite St. Louis and Nashville around buyer language</span></div>
+      <div class="rec-detail">Bring both up to the depth of the Omaha page, which is your own proof that it works. Take the questions from the miss list: what a commercial lot costs per square foot, how long a resurface closes a lot, who handles ADA compliance, what happens to the business during the pour. Two FAQ pairs on the headquarters page against 26 on the running track page is the gap in one number.</div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Wrap the 21 existing question headings in FAQ schema</span></div>
+      <div class="rec-detail">The copy exists and reads well. Rank Math can emit FAQPage JSON-LD per page, so this is a markup pass rather than a writing project. Start with the homepage, the asphalt hub and the six question-structured blog posts.</div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">06</span><span class="rec-title">Clear the legacy link debt</span><span class="pill free">List provided</span></div>
+      <div class="rec-detail">Nine retired paths, one two-hop chain, one capital-letter URL, one href with a space in it, and twelve site-wide patterns that drop the trailing slash. All 32 are listed with source page and replacement target in the pack below.</div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">07</span><span class="rec-title">Re-optimize the migrated blog</span></div>
+      <div class="rec-detail">Around 30 posts came across in May 2024 with HubSpot-era metadata. Descriptions run to 301 characters and get truncated, one post has no H1, and 12 posts have no inbound links from anywhere. Rather than rewriting them, decide which ones still earn a place, consolidate the rest, and give the survivors current descriptions and a link from the service page they support.</div>
+    </div>
+
+    <div class="rec-item">
+      <div class="rec-header"><span class="rec-num">08</span><span class="rec-title">Measure AI visibility monthly</span></div>
+      <div class="rec-detail">Run a fixed set of buyer prompts across ChatGPT, Google AI Overviews, Perplexity and Grok, screenshot the answers, and track who gets recommended and which third-party sources the engines are citing. Your sports pages are already winning, which gives a clean baseline to measure the paving work against.</div>
+    </div>
+  </div>
+
+  <!-- 09 FREE PACK -->
+  <div class="section">
+    <div class="sec-label">09 · Yours, Free</div>
+    <h2>We Already Built Fixes 02 and 06</h2>
+    <p class="lede">Rather than describe the two cheapest high-value fixes, here they are, finished.
+    No cost and no obligation to reply.</p>
+    <div class="strengths">
+      <div class="k">Repair Pack · 60 rows · Generated from your own site</div>
+      <ul>
+        <li><strong><a href="repair-pack/bj-link-repairs.csv">bj-link-repairs.csv</a></strong> All 32 broken, legacy and redirecting internal links. Each row names the page carrying the link, the href as written, and the current destination it should point to.</li>
+        <li><strong><a href="repair-pack/bj-orphan-map.csv">bj-orphan-map.csv</a></strong> All 28 orphaned pages with word counts and a suggested parent page for each.</li>
+        <li><strong><a href="repair-pack/README.md">README.md</a></strong> How to read both files, and which rows to do first.</li>
+      </ul>
+    </div>
+    <p class="tbl-note">Every row came from crawling your sitemap and building the link graph from
+    served HTML. Nothing was written, inferred or invented. The suggested parent pages in the
+    orphan map are the one exception and they are labelled as suggestions, because where a case
+    study belongs is a question about your sales process rather than your site structure. Blank
+    rows are the ones we did not think it was our place to answer.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>The expensive work is done. What is missing is a set of links and two better pages.</h2>
+    <p>Most audits landing at this score are looking at a site that needs rebuilding. This one is
+    not. The site is fast and crawlable, the schema is real, the six Google profiles are properly
+    managed, and the sports pages are deep enough that AI assistants already quote them. The gap
+    between 6.5 and 8.5 is mechanical: reconnect 28 pages that already exist, repair 32 links,
+    retire a 2019 subdomain, and give St. Louis and Nashville the same treatment Omaha already
+    got.</p>
+    <a href="https://dobleai.com" class="cta-btn">dobleai.com</a>
+    <div class="cta-sub">Happy to walk through any of this, or just leave it with you.</div>
+  </div>
+
+  <p class="verify-note">Verification note: findings are based on served-HTML fetches of all 152
+  sitemap URLs as crawlers see them, a full internal link-graph crawl, robots.txt and sitemap
+  inspection, schema and metadata parsing, headless-browser rendering of the contact, Ohio and EV
+  pages, and headless Google Maps checks of all six business profiles. Sweep date-stamped
+  August 16, 2026. "Absent" and "not visible" describe what external checks can see on that date
+  and do not claim an asset does not exist. Search visibility was measured through a search-engine
+  proxy pass across eight buyer-intent queries rather than direct sessions in ChatGPT, Perplexity
+  and Grok, so those rows are a snapshot rather than a fixed ranking; the misses in St. Louis and
+  Nashville were each re-run with alternate phrasing before being recorded, which materially
+  changed how they are reported here. Google Business Profile review counts are suppressed for
+  signed-out users, so only the Hilliard count was observable. No owner-side data from Search
+  Console, analytics or the CMS was available for this review.</p>
+
+  <div class="footer">
+    <span>Byrne &amp; Jones Construction · Digital Presence Audit</span>
+    <span>August 2026 · Prepared by Eagle River Base Camp · Doble AI · dobleai.com</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+type,issue,on_page,current_href,change_to
+broken_or_legacy_link,404 — dead end,/stlouis/asphalt-paving/ev-charging-station-installation/,/asphalt-paving/ev-charging-station-installation/,/stlouis/asphalt-paving/ev-charging-station-installation/
+broken_or_legacy_link,301 chain (2 hops),/blog/sports/6-things-to-know-before-building-a-pickleball-court/,/sports/tennis-court-pickleball-court-construction/,/sports/tennis-court-construction/
+broken_or_legacy_link,301 chain (2 hops),/blog/sports/a-guide-for-installing-a-tennis-court/,/sports/tennis-court-pickleball-court-construction/,/sports/tennis-court-construction/
+broken_or_legacy_link,301 legacy URL,/blog/sports/how-to-make-sure-your-athletic-facilities-are-ready-for-fall-sports/,/sports/artificial-turf/,/sports/turf-field-installation/
+broken_or_legacy_link,301 legacy URL,/blog/sports/the-advantages-of-artificial-turf-baseball-fields/,/sports/artificial-turf/,/sports/turf-field-installation/
+broken_or_legacy_link,301 legacy URL,/sports/,/sports/artificial-turf/,/sports/turf-field-installation/
+broken_or_legacy_link,301 legacy URL,/blog/sports/the-advantages-of-artificial-turf-baseball-fields/,/sports/artificial-turf/baseball-and-softball-fields/,/sports/turf-field-installation/baseball-fields/
+broken_or_legacy_link,301 legacy URL,/sports/turf-field-installation/,/sports/artificial-turf/contact/,/sports/turf-field-installation/contact/
+broken_or_legacy_link,301 legacy URL,/sports/turf-field-installation/baseball-fields/,/sports/artificial-turf/contact/,/sports/turf-field-installation/contact/
+broken_or_legacy_link,301 legacy URL,/sports/turf-field-installation/soccer-fields/,/sports/artificial-turf/contact/,/sports/turf-field-installation/contact/
+broken_or_legacy_link,301 legacy URL,/sports/,/sports/landscape-turf/,/parks/playground-installation/
+broken_or_legacy_link,301 legacy URL,/blog/asphalt/parking-lot-surface-options-asphalt-vs-concrete/,/asphalt-paving/parking-lot-construction/,/stlouis/asphalt-paving/parking-lot-construction/
+broken_or_legacy_link,301 legacy URL,/blog/asphalt/tips-for-keeping-your-asphalt-parking-lot-looking-great/,/asphalt-paving/parking-lot-construction/,/stlouis/asphalt-paving/parking-lot-construction/
+broken_or_legacy_link,301 legacy URL,/blog/sports/how-to-make-sure-your-athletic-facilities-are-ready-for-fall-sports/,/asphalt-paving/parking-lot-construction/,/stlouis/asphalt-paving/parking-lot-construction/
+broken_or_legacy_link,301 legacy URL,/blog/asphalt/parking-lot-surface-options-asphalt-vs-concrete/,/asphalt-paving/maintenance/,/stlouis/asphalt-paving/maintenance/
+broken_or_legacy_link,301 legacy URL,/blog/asphalt/parking-lot-surface-options-asphalt-vs-concrete/,/asphalt-paving/sealcoating/,/stlouis/asphalt-paving/sealcoating/
+broken_or_legacy_link,301 legacy URL,/stlouis/asphalt-paving/maintenance/,/asphalt-paving/sealcoating/,/stlouis/asphalt-paving/sealcoating/
+broken_or_legacy_link,wrong case — 200 + canonical,/about-us/,/Ohio/,/ohio/
+broken_or_legacy_link,malformed href (trailing space),/blog/asphalt/tips-for-keeping-your-asphalt-parking-lot-looking-great/,/asphalt-paving/ ,/asphalt-paving/
+broken_or_legacy_link,naked domain — extra redirect hop,/ohio/asphalt-maintenance-and-repair/,https://byrneandjones.com/ohio/contact,/ohio/contact  (use www + trailing slash)
+redirect_link,href omits trailing slash → 301 on every click (from 1 page(s)),(site-wide),/contact,/contact/
+redirect_link,href omits trailing slash → 301 on every click (from 8 page(s)),(site-wide),/nebraska,/nebraska/
+redirect_link,href omits trailing slash → 301 on every click (from 11 page(s)),(site-wide),/stlouis,/stlouis/
+redirect_link,href omits trailing slash → 301 on every click (from 2 page(s)),(site-wide),/nebraska/contact,/nebraska/contact/
+redirect_link,href omits trailing slash → 301 on every click (from 1 page(s)),(site-wide),/ohio/contact,/ohio/contact/
+redirect_link,href omits trailing slash → 301 on every click (from 5 page(s)),(site-wide),/nashville,/nashville/
+redirect_link,href omits trailing slash → 301 on every click (from 5 page(s)),(site-wide),/kansas-city,/kansas-city/
+redirect_link,href omits trailing slash → 301 on every click (from 2 page(s)),(site-wide),/stlouis/contact,/stlouis/contact/
+redirect_link,href omits trailing slash → 301 on every click (from 3 page(s)),(site-wide),/asphalt-paving/guidestrip-installation,/asphalt-paving/guidestrip-installation/
+redirect_link,href omits trailing slash → 301 on every click (from 1 page(s)),(site-wide),/careers,/careers/
+redirect_link,href omits trailing slash → 301 on every click (from 1 page(s)),(site-wide),/illinois/contact,/illinois/contact/
+redirect_link,href omits trailing slash → 301 on every click (from 1 page(s)),(site-wide),/nashville/contact,/nashville/contact/
