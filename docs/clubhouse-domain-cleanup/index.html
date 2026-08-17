@@ -114,20 +114,24 @@
 <div class="page">
 
   <div class="hero">
-    <div class="tag">Cooperstown Clubhouse · Domain Conversion Review</div>
-    <h1>The redirect was done properly. The cleanup was never finished.</h1>
-    <p>This is a look at how rookiescrafthouseny.com was converted over to cooperstownclubhouse.com, and at four things left behind by that conversion. It is not an argument that the conversion was a mistake. It was deliberate, and the hardest part of it was done correctly.</p>
-    <p>The reason it is worth a read anyway is that the leftovers all point the same direction: the live Clubhouse site currently depends on the retired domain in ways that will break on their own if nobody touches them.</p>
+    <div class="tag">Cooperstown Clubhouse · Rookie's Conversion Review</div>
+    <h1>What we were able to confirm, and what we think is worth cleaning up.</h1>
+    <p>This walks through how rookiescrafthouseny.com was converted over to cooperstownclubhouse.com. It is in two halves. First, the parts of the setup we checked and confirmed are working the way they should. Then five items we think are worth cleaning up.</p>
+    <p>Each item gives the evidence, then steps to check it yourself, and only then what we would change. The corrections are written as what to do <em>if you agree</em> with the finding, because several of these could be deliberate for reasons that are not visible from outside.</p>
     <div class="meta-row">
-      <div class="stat"><div class="stat-val">4</div><div class="stat-label">Items</div></div>
-      <div class="stat"><div class="stat-val">~1 hr</div><div class="stat-label">Total effort</div></div>
-      <div class="stat"><div class="stat-val">Dec 19, 2026</div><div class="stat-label">Domain expires</div></div>
+      <div class="stat"><div class="stat-val">5</div><div class="stat-label">Items</div></div>
+      <div class="stat"><div class="stat-val">~2 hrs</div><div class="stat-label">Total effort</div></div>
+      <div class="stat"><div class="stat-val">2 new</div><div class="stat-label">Since the audit</div></div>
       <div class="stat"><div class="stat-val">Aug 17, 2026</div><div class="stat-label">Verified</div></div>
+    </div>
+    <div class="callout">
+      <h3>How this relates to the audit</h3>
+      <p>Three of the five are already in the Clubhouse audit, restated here with steps rather than as findings. Two are new since it was last revised on August 13: the phone and email links in item 1, and the images in item 4. Where this document goes further than the audit, it says so in place.</p>
     </div>
   </div>
 
-  <h2>First, what was done right</h2>
-  <p class="lede">Worth stating plainly, because it changes what the rest of this means. Somebody who understood domain migrations set this up.</p>
+  <h2>What we confirmed is set up correctly</h2>
+  <p class="lede">We checked each of these against the live domains and profiles. They behave the way a conversion should, and nothing in the five items below contradicts any of them.</p>
 
   <table>
     <tr><th>Check</th><th>Result</th></tr>
@@ -135,65 +139,65 @@
     <tr><td><code>https://rookiescrafthouseny.com</code></td><td class="ok">301, single hop</td></tr>
     <tr><td><code>http://www.rookiescrafthouseny.com</code></td><td class="ok">301, single hop</td></tr>
     <tr><td><code>https://www.rookiescrafthouseny.com</code></td><td class="ok">301, single hop</td></tr>
-    <tr><td>Canonical tags on the retired domain</td><td class="ok">Every page points to its Clubhouse equivalent</td></tr>
+    <tr><td>Canonical tags on the retired domain</td><td class="ok">Every page names its Clubhouse equivalent</td></tr>
     <tr><td><code>robots.txt</code> on the retired domain</td><td class="ok">Points at the Clubhouse sitemap</td></tr>
     <tr><td>Retired URLs in any sitemap</td><td class="ok">None</td></tr>
-    <tr><td>Facebook and Instagram</td><td class="ok">Both converted to <code>cooperstownclubhouse</code></td></tr>
+    <tr><td>Social links in the site's own footer</td><td class="ok">Point at the <code>cooperstownclubhouse</code> handles</td></tr>
+    <tr><td>Clubhouse Google listing</td><td class="ok">4.1★, correct address, correct website, hours updated by the business 8 weeks ago</td></tr>
   </table>
 
-  <p class="lede" style="margin-top:22px">All four hostname variants redirecting in one hop, with canonicals underneath as a backstop, is more care than most site moves get. Nothing below contradicts that.</p>
+  <p class="lede" style="margin-top:22px">All four hostname variants resolve in a single hop with canonicals underneath as a backstop, so the redirect layer itself is not in question. One clarification on the social row: the links on the site point to the Clubhouse handles, but the separate <code>@rookiescrafthouse</code> accounts still exist on both platforms. That is a different issue and it is covered in the audit under renaming rather than deleting.</p>
 
-  <div class="callout warn">
-    <h3>The pattern in the four items</h3>
-    <p>Each one is a place where the <strong>live</strong> Clubhouse site still reaches back to the retired domain. That is the opposite of the usual leftover, where the dead site keeps pointing at itself. It matters because the retired domain belongs to a business that is closed, and the natural next step with a closed business's domain is to stop paying for it.</p>
-    <p><code>rookiescrafthouseny.com</code> is registered through <strong>December 19, 2026</strong>. If it lapses, the items below stop being tidiness and start being outages.</p>
-  </div>
-
-  <h2>The four items</h2>
+  <h2>The five items</h2>
+  <p class="lede">Ordered by what we think is costing the most right now, not by effort.</p>
 
   <!-- 1 -->
   <div class="fix">
     <div class="fix-head">
       <div class="num">1</div>
-      <h3>The ORDER ONLINE button in the main menu points at the closed brand's domain</h3>
+      <h3>The phone number on the site displays one number and dials another</h3>
     </div>
     <div class="badges">
       <span class="badge time">15 minutes</span>
-      <span class="badge">One menu item</span>
+      <span class="badge">New since the audit</span>
       <span class="badge rev">Fully reversible</span>
     </div>
     <div class="fix-body">
 
       <div class="block">
         <div class="block-label">What we found</div>
-        <p>The <strong>ORDER ONLINE</strong> item in the main navigation is a custom menu link pointing to <code>https://rookiescrafthouseny.com/contact/</code>. It sits in the header of all seven pages, so it is on every page of the site.</p>
-        <p>Following it lands on the Clubhouse contact page served from the retired domain. That page has a phone number, an email address and an address on it. It has <strong>no online ordering of any kind</strong>. The only occurrence of the phrase "order online" anywhere on it is the navigation item that sent you there.</p>
-        <p>In total the live site carries 15 links to the retired domain across the seven pages. This is the one that appears on every one of them.</p>
+        <p>On the contact page, the phone number shown to visitors is <strong>(607) 486-1483</strong>, which is correct and matches the Clubhouse Google listing. The link behind it is not that number. The text, the phone icon above it, and the whole card around them are all wired to <code>tel:6075472767</code>.</p>
+        <p><strong>607-547-2767 is the number Google lists on the Rookie's Craft House profile</strong>, the one marked permanently closed. The same mismatch is in the footer, so it is on all seven pages.</p>
+        <p>The email beside it does the same thing in the other direction. The printed address is <code>restaurant@cooperstownexperience.com</code>, and the text links there correctly, but the envelope icon above it opens a message to <code>rookies4850@gmail.com</code>.</p>
+        <p>This one is new. It is not in the audit, which recorded the displayed number and did not check what the links underneath it pointed at.</p>
       </div>
 
       <div class="block">
         <div class="block-label">Why it's important to change</div>
-        <p>Of everything in this document, this is the one costing money today rather than eventually. A guest who wants to order food clicks the button labelled to let them do it, and arrives at a page that cannot take their order. That is a lost sale in the moment, with no error message to explain it and no reason for the guest to try again.</p>
-        <p>The domain question sits underneath it. Even once the ordering destination is right, a header link on every page routed through a closed business's domain is one renewal notice away from being a broken button.</p>
+        <p>On a phone, which is how most people reach a restaurant, tapping the number does not dial the number on the screen. It dials the retired brand's line. Anyone tapping to call about a team party is being routed somewhere other than where the page says they are going, and neither they nor you would have any way to notice.</p>
+        <p>We cannot tell from outside whether 607-547-2767 still rings the venue. If it does, this is untidy and nothing worse. If it has been given up along with the closed listing, then every tap-to-call from the website has been going nowhere, and the calls simply never arrive. That is the difference between a cosmetic fix and a leak, and it is why this is first on the list.</p>
       </div>
 
       <div class="block">
         <div class="block-label">How to verify it</div>
         <ol class="steps">
-          <li>Open <code>https://www.cooperstownclubhouse.com/</code> in a private browsing window. Hover over ORDER ONLINE in the header and read the destination in the status bar at the bottom of the browser. It reads <code>rookiescrafthouseny.com</code>.</li>
-          <li>Click it and read the page you land on. Confirm for yourself whether anything on it can take an order.</li>
-          <li>Check the header on the other pages, MENU, TEAMS, CONTACT, ACTIVITIES, CAREERS, BAR MENU. The same link is in all of them.</li>
+          <li>Open <code>https://www.cooperstownclubhouse.com/contact/</code> on a desktop browser. Hover over the phone number and read the destination in the status bar at the bottom of the window. It reads <code>tel:6075472767</code> while the text on screen reads (607) 486-1483.</li>
+          <li>Or right-click the number, copy the link address, and paste it somewhere you can read it.</li>
+          <li>On a phone, tap the number and look at what appears in the dialler before you connect it.</li>
+          <li>The question worth settling in the same sitting: call 607-547-2767 and find out where it rings, or whether it rings at all.</li>
+          <li>Repeat the hover check on the envelope icon, which reads <code>mailto:rookies4850@gmail.com</code> while the text below it reads restaurant@cooperstownexperience.com.</li>
         </ol>
       </div>
 
       <div class="block">
-        <div class="block-label">The steps</div>
+        <div class="block-label">The correction, if you agree</div>
         <ol class="steps">
-          <li>In WordPress go to <strong>Appearance → Menus</strong> and select the main header menu.</li>
-          <li>Find the <strong>ORDER ONLINE</strong> entry. It is a Custom Link, so it has a URL field you can edit directly.</li>
-          <li>Decide what it should point to. If there is a real ordering system, that URL. If ordering is by phone right now, the honest fix is to relabel it, ORDER BY PHONE with a <code>tel:</code> link, or remove it and let CONTACT do the work.</li>
-          <li>If it should stay pointed at the contact page for now, at minimum change the domain to <code>https://www.cooperstownclubhouse.com/contact/</code> so it no longer travels through the retired domain.</li>
-          <li>Save, then load the live homepage in a private window and hover the link again to confirm.</li>
+          <li>Edit the contact page in Divi. The phone number lives in a text module inside a column, and both the module and the column carry their own click destination, which is why changing one is not enough.</li>
+          <li>Check the link field in three places: the <strong>Icon module</strong> (the phone symbol), the <strong>Text module</strong> below it, and the <strong>Column</strong> containing them. In each, under <strong>Content → Link → Module Link URL</strong>, set <code>tel:6074861483</code>.</li>
+          <li>Do the same for the envelope icon, setting it to <code>mailto:restaurant@cooperstownexperience.com</code> to match the text beneath it.</li>
+          <li>The footer carries the same pair. It is in the Divi Theme Builder footer template rather than on the page itself.</li>
+          <li>Save, reload the live page, and hover both again to confirm the displayed and linked values now agree.</li>
+          <li>If 607-547-2767 is being given up, set call forwarding from it to the current line before it is released, and do the same with an auto-forward from the Gmail address.</li>
         </ol>
       </div>
 
@@ -204,11 +208,117 @@
   <div class="fix">
     <div class="fix-head">
       <div class="num">2</div>
-      <h3>21 images on the live site are loaded from the retired domain</h3>
+      <h3>The ORDER ONLINE menu item goes to the retired domain, and lands on a page with no ordering on it</h3>
+    </div>
+    <div class="badges">
+      <span class="badge time">15 minutes</span>
+      <span class="badge">In the audit, clarified here</span>
+      <span class="badge rev">Fully reversible</span>
+    </div>
+    <div class="fix-body">
+
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>The audit records three homepage navigation links still pointing at the Rookie's domain, at <code>/activities/</code>, <code>/contact/</code> and <code>/teams/</code>. That is accurate. Two things are worth adding to it.</p>
+        <p>First, the <code>/contact/</code> one is the <strong>ORDER ONLINE</strong> item in the main menu, and because the menu is shared it appears in the header of all seven pages rather than only the homepage. Across the whole site there are 15 links to the retired domain, and this is the one on every page.</p>
+        <p>Second, following it lands on the Clubhouse contact page served from the retired domain, and that page has <strong>no online ordering on it at all</strong>. The only occurrence of the phrase anywhere on it is the menu item that sent you there.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Why it's important to change</div>
+        <p>A guest who wants to order food clicks the button that says they can, and arrives somewhere that cannot take the order. There is no error to explain it and no obvious reason for them to try again. That is a lost sale in the moment, separate from anything to do with domains.</p>
+        <p>The domain half sits underneath it. The Google listing already carries a working Order Online action, so the site is currently the weaker of the two routes to the same thing.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open the live homepage in a private browsing window. Hover ORDER ONLINE in the header and read the destination in the status bar. It reads <code>rookiescrafthouseny.com</code>.</li>
+          <li>Click it and read the page you land on, to judge for yourself whether anything there can take an order.</li>
+          <li>Check the header on MENU, TEAMS, CONTACT, ACTIVITIES, CAREERS and BAR MENU. The same link is in all of them.</li>
+          <li>For the other two, hover the links to Activities and Teams on the homepage.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>Go to <strong>Appearance → Menus</strong> and open the main header menu.</li>
+          <li>The <strong>ORDER ONLINE</strong> entry is a Custom Link with an editable URL. Point it at whatever actually takes orders. If ordering is by phone today, the honest fix is to relabel it, or to remove it and let CONTACT carry that traffic.</li>
+          <li>If it stays pointed at the contact page for now, at least change the domain to <code>https://www.cooperstownclubhouse.com/contact/</code>.</li>
+          <li>Repoint the Activities and Teams links to the Clubhouse's own <code>/activities/</code> and <code>/teams/</code>, as the audit recommends.</li>
+          <li>Save and hover each one on the live site to confirm.</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">3</div>
+      <h3>The Rookie's Google listing is marked permanently closed rather than renamed</h3>
+    </div>
+    <div class="badges">
+      <span class="badge time">30 minutes, then waiting</span>
+      <span class="badge">Already in the audit</span>
+      <span class="badge">Outcome not guaranteed</span>
+    </div>
+    <div class="fix-body">
+
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>This is recommendation 01 in the Clubhouse audit and it is restated here because it belongs with everything else in this document, not because anything has changed. Re-checked signed out on 17 August 2026 and it still reads the same way.</p>
+        <table>
+          <tr><th></th><th>Rookie's Craft House</th><th>Cooperstown Clubhouse</th></tr>
+          <tr><td>Status</td><td class="no">Permanently closed</td><td class="ok">Open, hours updated 8 weeks ago</td></tr>
+          <tr><td>Rating</td><td>3.5★, stranded</td><td>4.1★</td></tr>
+          <tr><td>Address</td><td>4850 NY-28</td><td>4850 NY-28</td></tr>
+          <tr><td>Website</td><td>rookiescrafthouseny.com</td><td>cooperstownclubhouse.com</td></tr>
+          <tr><td>Phone</td><td>607-547-2767</td><td>607-486-1483</td></tr>
+        </table>
+        <p style="margin-top:12px">Two listings at one address, one of them announcing that the business shut down. The closed one is also where the phone number in item 1 comes from, which is how the two findings connect.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Why it's important to change</div>
+        <p>The venue did not close, it was renamed. But anyone searching the former name is told it shut down, and an assistant reading that listing next to a Yelp page still carrying the Rookie's name will report the venue as gone. At the same address as the operating restaurant, that is a confusing signal to leave standing.</p>
+        <p>It also strands the 3.5★ of review history. A rename carries reviews forward. Closing a listing and running a second one does not, which is why the two identities never compound.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>In a private browsing window, search Google Maps for <em>Rookie's Craft House Cooperstown NY</em>. The panel shows the permanently closed banner, the 3.5★ rating, the 4850 NY-28 address and the rookiescrafthouseny.com website.</li>
+          <li>Search <em>Cooperstown Clubhouse 4850 NY-28</em> in the same window and compare. Same address, different status, different phone.</li>
+          <li>Sign in to the Google Business Profile dashboard and check whether the Rookie's listing is still in the account. That determines whether any of the steps below are available to you directly.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li><strong>Do not delete the closed listing.</strong> Deleting surrenders control while Google may keep surfacing a cached copy.</li>
+          <li>Request a <strong>duplicate merge</strong> through Google Business Profile support, asking that the two listings be treated as one business at one address so the review history carries forward.</li>
+          <li>Set expectations honestly: merges involving a listing already marked closed are handled inconsistently. It is worth attempting, but the 3.5★ may not come back.</li>
+          <li>While the request is open, update the closed listing's website field to <code>cooperstownclubhouse.com</code> if the profile is still in your dashboard, so anyone who does find it is sent to the live site.</li>
+          <li>The audit's related step is worth doing first because it costs nothing: put a line on the website reading <em>Cooperstown Clubhouse, formerly Rookie's Craft House</em>. That is what lets search engines reconcile the two names, and it helps every other item here work properly.</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">4</div>
+      <h3>21 images on the live site load from the retired domain</h3>
     </div>
     <div class="badges">
       <span class="badge time">20 minutes</span>
-      <span class="badge">Find and replace</span>
+      <span class="badge">New since the audit</span>
       <span class="badge rev">Reversible with a backup</span>
     </div>
     <div class="fix-body">
@@ -216,34 +326,34 @@
       <div class="block">
         <div class="block-label">What we found</div>
         <p>Across the seven live pages, 21 distinct image files are referenced at addresses beginning <code>http://rookiescrafthouseny.com/wp-content/uploads/</code>. They include the team parties photo, the burger and beer sketches, the bartender shot, the cornhole photo and the section divider textures.</p>
-        <p>Two details make this straightforward to fix. They are referenced over plain <code>http</code> rather than <code>https</code>. And the identical files already exist on the Clubhouse domain at the same paths, so nothing needs re-uploading. We checked one directly: <code>/wp-content/uploads/2023/12/burger-300x300.png</code> returns the image on both domains.</p>
+        <p>Two details make this easy. They are referenced over plain <code>http</code> rather than <code>https</code>. And the same files already exist on the Clubhouse domain at the same paths, so nothing needs re-uploading. We checked one directly: <code>/wp-content/uploads/2023/12/burger-300x300.png</code> returns the image on both domains.</p>
         <p>They display correctly today. This is not a visible fault on the site right now.</p>
       </div>
 
       <div class="block">
         <div class="block-label">Why it's important to change</div>
-        <p>Because it is a dependency on a domain the business has retired, and it is invisible until the day it isn't. The registration runs to 19 December 2026. If nobody renews it, and there is no obvious reason to keep renewing a closed restaurant's domain, 21 images across the live site turn into broken image icons on the same day. Nothing in WordPress will warn anyone first.</p>
-        <p>The <code>http</code> prefix is the smaller half. A secure page pulling images over an insecure connection is untidy, and browsers handle it inconsistently. Since the files are already sitting on the right domain, both halves are fixed by the same edit.</p>
+        <p>The audit's guidance is to keep the Rookie's domain registered and redirecting indefinitely, and we agree with that. This item is not an argument against it. It is that the live site should not be <em>depending</em> on it either way.</p>
+        <p>As things stand, the Clubhouse site cannot survive the retired domain going away, and that turns a domain renewal into something nobody can safely skip. The registration runs to <strong>19 December 2026</strong>. Worth a calendar reminder regardless, but the site should be able to stand on its own before then rather than because of it. The <code>http</code> prefix is the smaller half, and the same edit fixes both.</p>
       </div>
 
       <div class="block">
         <div class="block-label">How to verify it</div>
         <ol class="steps">
-          <li>Open the live homepage, right-click and choose <strong>View Page Source</strong>, then search the page for <code>rookiescrafthouseny.com/wp-content</code>. The matches are the image references.</li>
-          <li>Or open the homepage, press F12 for developer tools, go to the <strong>Network</strong> tab, filter to <strong>Img</strong> and reload. The domain each image comes from is listed per row.</li>
-          <li>To confirm the replacement will work before making it, open <code>https://www.cooperstownclubhouse.com/wp-content/uploads/2023/12/burger-300x300.png</code> in a tab. The image loads, which is what makes this a find-and-replace rather than a re-upload.</li>
+          <li>Open the live homepage, View Page Source, and search for <code>rookiescrafthouseny.com/wp-content</code>. The matches are image references.</li>
+          <li>Or press F12 for developer tools, open the <strong>Network</strong> tab, filter to <strong>Img</strong>, and reload. The source domain is listed per row.</li>
+          <li>To confirm the replacement will work before making it, open <code>https://www.cooperstownclubhouse.com/wp-content/uploads/2023/12/burger-300x300.png</code>. It loads, which is what makes this a find-and-replace rather than a re-upload.</li>
         </ol>
       </div>
 
       <div class="block">
-        <div class="block-label">The steps</div>
+        <div class="block-label">The correction, if you agree</div>
         <ol class="steps">
-          <li><strong>Take a database backup first.</strong> This is a bulk edit and that is the one thing that makes it safely reversible.</li>
-          <li>Install <strong>Better Search Replace</strong>, a free plugin, or use the equivalent tool your host provides.</li>
-          <li>Run it with search <code>http://rookiescrafthouseny.com/wp-content</code> and replace <code>https://www.cooperstownclubhouse.com/wp-content</code>, across all tables, with <strong>Run as dry run</strong> ticked first so you can see the count before anything changes.</li>
-          <li>If the dry run count looks sane, untick it and run it for real.</li>
-          <li>Repeat with <code>https://rookiescrafthouseny.com/wp-content</code> in case any references use the secure prefix.</li>
-          <li>Clear any caching plugin and your CDN, then reload each of the seven pages and confirm the images still appear.</li>
+          <li><strong>Take a database backup first.</strong> This is a bulk edit, and the backup is what makes it reversible.</li>
+          <li>Use <strong>Better Search Replace</strong>, or the equivalent tool your host provides.</li>
+          <li>Search <code>http://rookiescrafthouseny.com/wp-content</code>, replace with <code>https://www.cooperstownclubhouse.com/wp-content</code>, across all tables, with <strong>Run as dry run</strong> ticked so you see the count first.</li>
+          <li>If the count looks sane, untick it and run it for real.</li>
+          <li>Repeat with the <code>https://</code> version of the search term in case any references use it.</li>
+          <li>Clear any caching plugin and CDN, then reload all seven pages and confirm the images still appear.</li>
         </ol>
         <div class="pre-label">Search for</div>
 <pre><code><span class="bad">http://rookiescrafthouseny.com/wp-content</span></code></pre>
@@ -254,140 +364,89 @@
     </div>
   </div>
 
-  <!-- 3 -->
+  <!-- 5 -->
   <div class="fix">
     <div class="fix-head">
-      <div class="num">3</div>
-      <h3>Only the homepage of the retired domain redirects. The interior pages still load.</h3>
+      <div class="num">5</div>
+      <h3>Interior pages on the retired domain load rather than forward</h3>
     </div>
     <div class="badges">
       <span class="badge time">10 minutes</span>
-      <span class="badge">One rule</span>
+      <span class="badge">An upgrade, not a defect</span>
       <span class="badge rev">Fully reversible</span>
     </div>
     <div class="fix-body">
 
       <div class="block">
         <div class="block-label">What we found</div>
-        <p>The root of the retired domain redirects correctly. The pages beneath it do not. Each returns a full page with a 200 response instead of forwarding to its Clubhouse equivalent.</p>
+        <p>The audit already established this and found the handling correct: the root redirects, and the interior pages that still load carry canonical tags pointing back to the Clubhouse. Re-verified on 17 August and unchanged. The table below is that finding in detail rather than a new one.</p>
         <table>
           <tr><th>Address on the retired domain</th><th>Response</th></tr>
           <tr><td><code>/</code></td><td class="ok">301 to the Clubhouse homepage</td></tr>
-          <tr><td><code>/menu/</code></td><td class="no">200, page loads</td></tr>
-          <tr><td><code>/bar-menu/</code></td><td class="no">200, page loads</td></tr>
-          <tr><td><code>/teams/</code></td><td class="no">200, page loads</td></tr>
-          <tr><td><code>/activities/</code></td><td class="no">200, page loads</td></tr>
-          <tr><td><code>/contact/</code></td><td class="no">200, page loads</td></tr>
-          <tr><td><code>/careers/</code></td><td class="no">200, page loads</td></tr>
+          <tr><td><code>/menu/</code>, <code>/bar-menu/</code>, <code>/teams/</code></td><td>200, page loads, canonical to the Clubhouse</td></tr>
+          <tr><td><code>/activities/</code>, <code>/contact/</code>, <code>/careers/</code></td><td>200, page loads, canonical to the Clubhouse</td></tr>
         </table>
-        <p style="margin-top:12px">Each of those pages does carry a canonical tag naming the Clubhouse version, which is a sensible backstop and is presumably why it was left this way. It is a reasonable choice rather than an oversight.</p>
       </div>
 
       <div class="block">
         <div class="block-label">Why it's important to change</div>
-        <p>A canonical tag is a hint. A 301 is an instruction. Search engines usually honour a canonical, but they are free to disregard it, and nothing else does anything with it at all. A person following an old link, a bookmark, a printed flyer or a link from another site simply arrives on the retired domain and stays there.</p>
-        <p>What that person sees is the current Clubhouse content under the old brand's web address, with no sign anything has changed. If they bookmark it or pass it on, the retired domain keeps circulating. And the same expiry risk applies. When the domain lapses those pages disappear rather than forwarding.</p>
+        <p>The canonical tags do the search-engine half of the job, which is why the audit treats this as handled. The gap is the human half. A canonical is a hint to a crawler and does nothing at all for a person, so someone following an old link, a bookmark or a printed flyer simply arrives on the retired domain and stays there, seeing current content under the old address with no sign anything changed.</p>
+        <p>This is the lowest-priority item here, and skipping it would be a defensible call.</p>
       </div>
 
       <div class="block">
         <div class="block-label">How to verify it</div>
         <ol class="steps">
-          <li>In a private browsing window, open <code>https://www.rookiescrafthouseny.com/menu/</code>. Watch the address bar. It stays on the retired domain rather than moving to cooperstownclubhouse.com, and a full menu page loads.</li>
-          <li>Compare with <code>https://www.rookiescrafthouseny.com/</code>, which does move to the Clubhouse address. That contrast is the whole finding.</li>
-          <li>To see the canonical backstop, View Page Source on the menu page and search for <code>canonical</code>. It names the Clubhouse URL.</li>
+          <li>In a private window, open <code>https://www.rookiescrafthouseny.com/menu/</code> and watch the address bar. It stays on the retired domain and a full menu page loads.</li>
+          <li>Compare with <code>https://www.rookiescrafthouseny.com/</code>, which does move across. That contrast is the whole finding.</li>
+          <li>View Page Source on the menu page and search for <code>canonical</code> to see the backstop that is already there.</li>
         </ol>
       </div>
 
       <div class="block">
-        <div class="block-label">The steps</div>
-        <p>The aim is for every address on the retired domain to forward to the matching address on the live one, rather than only the homepage.</p>
+        <div class="block-label">The correction, if you agree</div>
         <ul class="steps">
-          <li>If the redirect is currently set in the retired site's <code>.htaccess</code>, the rule below replaces a homepage-only redirect with one that carries the path across. Whoever manages the hosting will recognise it.</li>
-          <li>If it was set with a plugin or a hosting control-panel redirect, the same change is usually a checkbox worded something like <em>forward with path</em> or <em>wildcard redirect</em>, rather than <em>redirect to homepage</em>.</li>
-          <li>Test afterwards with <code>/menu/</code> and confirm the address bar lands on <code>cooperstownclubhouse.com/menu/</code>, not on the Clubhouse homepage. Landing everyone on the homepage regardless of what they asked for is the common way this gets done, and it is worse than what is there now.</li>
+          <li>The aim is for every address on the retired domain to forward to the matching address on the live one, not just the homepage. If the current redirect lives in <code>.htaccess</code>, the rule below carries the path across.</li>
+          <li>If it was set with a plugin or a control-panel redirect, the same change is usually a setting worded <em>forward with path</em> or <em>wildcard</em>, rather than <em>redirect to homepage</em>.</li>
+          <li>Test with <code>/menu/</code> and confirm it lands on <code>cooperstownclubhouse.com/menu/</code> rather than the homepage. Sending every request to the homepage regardless of what was asked for is worse than what is there now.</li>
         </ul>
-        <div class="pre-label">Path-preserving redirect for .htaccess on the retired domain</div>
+        <div class="pre-label">Path-preserving redirect, for the retired domain</div>
 <pre><code>RewriteEngine On
 RewriteCond %{HTTP_HOST} ^(www\.)?rookiescrafthouseny\.com$ [NC]
 RewriteRule ^(.*)$ https://www.cooperstownclubhouse.com/$1 [R=301,L]</code></pre>
-        <p style="margin-top:12px">One caveat worth handling in the same sitting. If item 2 has not been done yet, a blanket redirect will also catch the <code>/wp-content/uploads/</code> image addresses the live site is still using. Do item 2 first, or exclude that path, or the images will start redirecting instead of loading.</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 4 -->
-  <div class="fix">
-    <div class="fix-head">
-      <div class="num">4</div>
-      <h3>The email icon on the contact page writes to a different address than the one printed beside it</h3>
-    </div>
-    <div class="badges">
-      <span class="badge time">5 minutes</span>
-      <span class="badge">One field</span>
-      <span class="badge rev">Fully reversible</span>
-    </div>
-    <div class="fix-body">
-
-      <div class="block">
-        <div class="block-label">What we found</div>
-        <p>On the contact page there is an envelope icon with the email address printed directly underneath it. They do not go to the same place.</p>
-        <p>The printed address, and the link on that text, is <code>restaurant@cooperstownexperience.com</code>. The envelope icon immediately above it is a separate link that opens a message to <code>rookies4850@gmail.com</code>, the closed brand's address. Clicking the icon and clicking the words below it produce two different recipients.</p>
-        <p>The address appears on all seven pages, since the block is in the shared template.</p>
-      </div>
-
-      <div class="block">
-        <div class="block-label">Why it's important to change</div>
-        <p>Whether this costs anything depends on one fact we cannot see from outside: whether anyone still reads <code>rookies4850@gmail.com</code>. If that inbox is monitored, this is untidy. If it is not, every guest who clicks the icon rather than the text is writing to a mailbox nobody opens, and getting no reply to what may be a party booking enquiry. They will not know their message went nowhere and neither will you.</p>
-        <p>It is also the only place on the live site still carrying the closed brand's name in something a guest can act on.</p>
-      </div>
-
-      <div class="block">
-        <div class="block-label">How to verify it</div>
-        <ol class="steps">
-          <li>Open <code>https://www.cooperstownclubhouse.com/contact/</code>. Hover over the envelope icon and read the address in the status bar at the bottom of the browser. Then hover over the email text just below it. The two differ.</li>
-          <li>If the status bar is awkward to read, right-click the icon, copy the link address, and paste it somewhere. It reads <code>mailto:rookies4850@gmail.com</code>.</li>
-          <li>The separate question is worth answering while you are there: sign in to <code>rookies4850@gmail.com</code>, or ask whoever holds it, and see whether anything has arrived recently and gone unanswered.</li>
-        </ol>
-      </div>
-
-      <div class="block">
-        <div class="block-label">The steps</div>
-        <ol class="steps">
-          <li>Edit the contact page in Divi and select the envelope icon module sitting above the email text. It is an Icon module, not the text one.</li>
-          <li>Under <strong>Content → Link</strong>, its Module Link URL is <code>mailto:rookies4850@gmail.com</code>. Change it to <code>mailto:restaurant@cooperstownexperience.com</code> so it matches the text below it.</li>
-          <li>Save, then reload the live page and hover both to confirm they now agree.</li>
-          <li>Separately, if that Gmail account is going to be retired, set an auto-forward from it to the address you are keeping before you stop watching it. Anything already sent there is otherwise lost quietly.</li>
-        </ol>
+        <p style="margin-top:12px">Two cautions. The <code>RewriteCond</code> line matters, because both domains are served by the same WordPress installation and a rule without it would redirect the live site to itself. And <strong>do item 4 before this one</strong>, or the blanket redirect will catch the image addresses the live site is still using and the images will redirect instead of loading.</p>
       </div>
 
     </div>
   </div>
 
   <h2>Three things we could not check from outside</h2>
-  <p class="lede">These need an account we do not have. Each is quick from where you sit and all three bear on whether the conversion did what it was meant to do.</p>
+  <p class="lede">These need an account we do not have. Each is quick from where you sit, and all three bear on items above.</p>
 
   <table>
-    <tr><th>Question</th><th>Where to check</th></tr>
+    <tr><th>Question</th><th>Where to check</th><th>What it decides</th></tr>
     <tr>
-      <td>Is the retired domain still indexed, and are its pages competing with the live ones?</td>
-      <td>Search Console. If a property exists for rookiescrafthouseny.com, look at Pages. Without one, searching <code>site:rookiescrafthouseny.com</code> gives a rough read.</td>
+      <td>Does 607-547-2767 still ring the venue?</td>
+      <td>Call it</td>
+      <td>Whether item 1 is cosmetic or is losing calls</td>
     </tr>
     <tr>
-      <td>Is the Yelp listing still under the old brand?</td>
-      <td>Yelp blocks automated checks, so we genuinely do not know the current state. Worth a look while you are in the other accounts, since team bookings were reported to route through it.</td>
+      <td>Is <code>rookies4850@gmail.com</code> still read?</td>
+      <td>Whoever holds the credentials</td>
+      <td>Whether enquiries from the envelope icon are arriving</td>
     </tr>
     <tr>
-      <td>Is <code>rookies4850@gmail.com</code> still monitored?</td>
-      <td>Whoever holds the credentials. This determines whether item 4 is cosmetic or is losing enquiries.</td>
+      <td>Is the Yelp listing still under the Rookie's name?</td>
+      <td>Yelp blocks automated checks, so we genuinely do not know its current state</td>
+      <td>The audit recommends renaming rather than abandoning it, to keep the review history</td>
     </tr>
   </table>
 
   <div class="outro">
-    <h2 style="margin-top:0">If any of this is wrong, we want to know</h2>
-    <p>Everything above was checked against the live sites on 17 August 2026, and each item includes a way to reproduce it so nothing depends on taking our word for it. That said, we are reading this from the outside. We do not know what is planned, what is mid-change, or what was decided deliberately for reasons that are not visible in the markup.</p>
-    <p>If a check does not reproduce on your end, or if one of these is the way it is on purpose, please say so and we will correct the document. We would rather be told we have it wrong than have anyone spend an afternoon acting on a finding that does not hold. On more than one site we have looked at, the thing that appeared to be a defect turned out to be a decision once we asked.</p>
-    <p class="sig">Prepared by Doble AI · Verified against the live sites on August 17, 2026</p>
+    <h2 style="margin-top:0">If any of this is wrong, please tell us</h2>
+    <p>Everything above was checked against the live sites and the live Google listings on 17 August 2026, and every item includes a way to reproduce it so that nothing here depends on taking our word for it.</p>
+    <p>We are still reading this from the outside. We do not know what is planned, what is mid-change, or what was decided deliberately for reasons that do not show up in the markup. If a check does not reproduce on your end, or if one of these is the way it is on purpose, tell us and we will correct the document. We would rather be told we have something wrong than have anyone spend an afternoon acting on a finding that does not hold. More than once on other sites, the thing that looked like a defect turned out to be a decision as soon as we asked.</p>
+    <p class="sig">Prepared by Doble AI · Verified against the live sites and Google listings on August 17, 2026</p>
   </div>
 
 </div>
