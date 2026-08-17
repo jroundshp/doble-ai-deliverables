@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Concrete Warrior: The Opportunity, the Decision, and the Site We Built</title>
+<style>
+  @page { size: letter; margin: 0.6in 0.65in; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Charter", "Georgia", "Times New Roman", serif;
+    font-size: 12.25pt; line-height: 1.5; color: #14110f; background: #fff;
+    max-width: 7.3in; margin: 0 auto; padding: 0.5in 0.3in;
+  }
+  h1, h2, h3, h4, .lockup, th, .num, .tag, .stamp, .pill, .tl b, .lane h5 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* masthead */
+  .lockup { font-size: 8.5pt; font-weight: 700; letter-spacing: .14em;
+            text-transform: uppercase; color: #7a5c2e; margin-bottom: 4px; }
+  .lockup span { color: #999; font-weight: 500; }
+  h1 { font-size: 23pt; line-height: 1.15; margin: 0 0 6px; letter-spacing: -.01em; }
+  .sub { font-size: 12pt; color: #5a5148; margin: 0 0 10px; font-style: italic; }
+  .meta { font-size: 9.5pt; color: #6b625a; border-top: 2px solid #14110f;
+          border-bottom: 1px solid #d8d2ca; padding: 6px 0; margin-bottom: 18px;
+          display: flex; justify-content: space-between; gap: 12px;
+          font-family: "Helvetica Neue", Arial, sans-serif; }
+
+  /* structure */
+  h2 { font-size: 13.5pt; margin: 24px 0 8px; padding-bottom: 4px;
+       border-bottom: 1.5px solid #14110f; letter-spacing: -.01em; page-break-after: avoid; }
+  h2 .num { display: inline-block; background: #14110f; color: #fff;
+            width: 17px; height: 17px; line-height: 17px; text-align: center;
+            font-size: 9pt; border-radius: 3px; margin-right: 7px; }
+  h3 { font-size: 11.5pt; margin: 15px 0 5px; page-break-after: avoid; }
+  h4 { font-size: 10pt; margin: 13px 0 4px; letter-spacing: .04em;
+       text-transform: uppercase; color: #7a5c2e; page-break-after: avoid; }
+  p { margin: 0 0 8px; }
+  ul { margin: 0 0 9px; padding-left: 17px; }
+  li { margin-bottom: 3px; }
+
+  /* callouts */
+  .lede { background: #f7f4ef; border-left: 3px solid #7a5c2e;
+          padding: 11px 14px; margin: 0 0 14px; page-break-inside: avoid; }
+  .lede p:last-child { margin-bottom: 0; }
+  .box { border: 1px solid #c9c1b6; padding: 10px 13px; margin: 11px 0;
+         background: #fbfaf8; page-break-inside: avoid; }
+  .box .tag { font-size: 8.5pt; font-weight: 700; letter-spacing: .12em;
+              text-transform: uppercase; color: #7a5c2e; display: block; margin-bottom: 4px; }
+  .box p:last-child, .box ul:last-child { margin-bottom: 0; }
+  .flag { border-left: 3px solid #14110f; background: #f2efea; }
+  .flag .tag { color: #14110f; }
+
+  /* unconfirmed markers */
+  .need { display: inline-block; background: #fdf3d8; border: 1px solid #d9ab35;
+          color: #6b4e0a; font-family: "Helvetica Neue", Arial, sans-serif;
+          font-size: 8.5pt; font-weight: 700; padding: 1px 5px; border-radius: 3px; }
+  .needblock { border: 1px dashed #d9ab35; background: #fefbf2; padding: 9px 12px;
+               margin: 10px 0; page-break-inside: avoid; }
+  .needblock .tag { font-size: 8.5pt; font-weight: 700; letter-spacing: .12em;
+                    text-transform: uppercase; color: #a37a12; display: block; margin-bottom: 4px;
+                    font-family: "Helvetica Neue", Arial, sans-serif; }
+  .needblock p:last-child { margin-bottom: 0; }
+
+  /* stat row */
+  .stats { display: flex; gap: 9px; margin: 13px 0; page-break-inside: avoid; }
+  .stat { flex: 1; border: 1px solid #c9c1b6; padding: 8px 9px; text-align: center; background: #fff; }
+  .stat b { display: block; font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 19pt; line-height: 1.1; color: #7a5c2e; }
+  .stat span { font-size: 8.5pt; color: #5a5148; display: block; margin-top: 3px; line-height: 1.3; }
+
+  /* season timeline */
+  .timeline { display: flex; margin: 14px 0; border: 1px solid #c9c1b6; page-break-inside: avoid; }
+  .tl { flex: 1; padding: 9px 11px; border-right: 1px solid #c9c1b6; }
+  .tl:last-child { border-right: none; }
+  .tl.now { background: #f2efea; }
+  .tl b { display: block; font-size: 8.5pt; letter-spacing: .08em; text-transform: uppercase;
+          color: #7a5c2e; margin-bottom: 3px; }
+  .tl.now b { color: #14110f; }
+  .tl span { font-size: 9pt; color: #5a5148; line-height: 1.35; display: block; }
+  .tl em { font-style: normal; font-weight: 700; color: #14110f; }
+
+  /* two-clock split */
+  .split { display: flex; gap: 9px; margin: 12px 0; page-break-inside: avoid; }
+  .half { flex: 1; border: 1px solid #c9c1b6; padding: 10px 12px; background: #fff; }
+  .half.fast { border-left: 3px solid #14110f; background: #f2efea; }
+  .half h5 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 8.5pt;
+             letter-spacing: .1em; text-transform: uppercase; margin: 0 0 4px; color: #7a5c2e; }
+  .half.fast h5 { color: #14110f; }
+  .half p { font-size: 9.5pt; line-height: 1.42; margin: 0 0 6px; }
+  .half p:last-child { margin-bottom: 0; }
+
+  /* buyer lanes */
+  .lanes { display: flex; gap: 9px; margin: 13px 0; page-break-inside: avoid; }
+  .lane { flex: 1; border: 1px solid #c9c1b6; padding: 10px 12px; background: #fff; }
+  .lane.key { border: 2px solid #14110f; }
+  .lane h5 { font-size: 8.5pt; letter-spacing: .08em; text-transform: uppercase;
+             margin: 0 0 5px; color: #7a5c2e; }
+  .lane.key h5 { color: #14110f; }
+  .lane p { font-size: 9.5pt; line-height: 1.4; margin: 0 0 6px; }
+  .lane .does { border-top: 1px solid #e2ddd5; padding-top: 5px; font-size: 9.5pt;
+                line-height: 1.4; margin: 0; }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; margin: 9px 0 5px; font-size: 10.5pt; }
+  th { text-align: left; font-size: 8.5pt; letter-spacing: .07em; text-transform: uppercase;
+       border-bottom: 1.5px solid #14110f; padding: 5px 6px 5px 0; color: #14110f; }
+  td { padding: 5px 6px 5px 0; border-bottom: 1px solid #e2ddd5; vertical-align: top; }
+  td:first-child { font-weight: 700; width: 23%; }
+  .wide td:first-child { width: 19%; }
+
+  /* comparison mock */
+  .compare { font-size: 10pt; }
+  .compare td:first-child { width: 34%; }
+  .compare th.ours { background: #f2efea; }
+  .compare td.ours { font-weight: 700; color: #14110f; background: #f2efea; }
+  .compare td.blank { color: #a8a099; }
+  .capt { font-size: 8.5pt; color: #7d746b; margin: 3px 0 0; }
+
+  /* status pills */
+  .pill { display: inline-block; font-size: 8pt; font-weight: 700; letter-spacing: .05em;
+          padding: 1px 6px; border-radius: 3px; white-space: nowrap; }
+  .pill.done { background: #e9efe7; border: 1px solid #7d9b74; color: #3a5334; }
+  .pill.todo { background: #fdf3d8; border: 1px solid #d9ab35; color: #6b4e0a; }
+  .pill.first { background: #14110f; color: #fff; }
+
+  /* checklist */
+  .check { list-style: none; padding-left: 0; }
+  .check li { padding-left: 21px; position: relative; margin-bottom: 5px; }
+  .check li:before { content: ""; position: absolute; left: 0; top: 3px;
+                     width: 10px; height: 10px; border: 1.5px solid #14110f; }
+
+  /* thesis pull-quote */
+  .pull { margin: 16px 0 18px; padding: 13px 0; text-align: center;
+          border-top: 2px solid #14110f; border-bottom: 2px solid #14110f;
+          page-break-inside: avoid; }
+  .pull p { font-size: 15.5pt; line-height: 1.28; font-weight: 700;
+            margin: 0; letter-spacing: -.015em; }
+  .pull .attrib { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 8pt;
+                  font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+                  color: #7a5c2e; margin-top: 7px; }
+
+  .stamp { font-size: 9pt; color: #6b625a; border-top: 1px solid #d8d2ca;
+           margin-top: 22px; padding-top: 8px; }
+  .stamp b { color: #14110f; }
+  .src { font-size: 9pt; color: #7d746b; line-height: 1.42; }
+
+  /* wide content never forces the page to scroll sideways */
+  table { display: block; overflow-x: auto; }
+  @media (min-width: 700px) { table { display: table; } }
+
+  /* phones: stack every side-by-side block */
+  @media (max-width: 699px) {
+    body { font-size: 11.5pt; padding: 18px 16px; }
+    h1 { font-size: 20pt; }
+    .meta { flex-direction: column; gap: 2px; }
+    .stats, .timeline, .split, .lanes { display: block; }
+    .stat, .tl, .half, .lane { margin-bottom: 8px; }
+    .timeline { border: none; }
+    .tl { border: 1px solid #c9c1b6; border-right: 1px solid #c9c1b6; }
+    .pull p { font-size: 13.5pt; }
+    td:first-child, .wide td:first-child, .compare td:first-child { width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lockup">Concrete Warrior <span>/ New Town, North Dakota</span></div>
+<h1>The Opportunity, the Decision, and the Site We Built</h1>
+<p class="sub">Why Concrete Warrior needed a website, who it is for, and how it was designed to serve them.</p>
+<div class="meta">
+  <span>Working draft</span>
+  <span>17 August 2026</span>
+  <span>Circulation at Corey and John's discretion</span>
+</div>
+
+<div class="lede">
+  <p><strong>This puts the reasoning behind the website on the record, in order, before anyone evaluates the
+  result.</strong> What the business had in front of it, what was decided, who the site serves, how those
+  buyers actually buy, and what that produced. Items nobody has confirmed yet are marked in amber rather
+  than filled with plausible language.</p>
+</div>
+
+<div class="pull">
+  <p>The site does not win the sale.<br>Its absence can lose it.</p>
+  <p class="attrib">The whole argument, in one line</p>
+</div>
+
+<h2><span class="num">1</span>The business, in brief</h2>
+
+<p><strong>A vertically integrated construction materials operation in New Town, North Dakota, on the Fort
+Berthold Reservation.</strong> It owns the whole sequence from raw material to delivered product: pit,
+crusher, batch plant, trucks. That is unusual for an operation this size, and it is the most important fact
+about it.</p>
+
+<table>
+  <tr><td>Entity</td><td><strong>Concrete Warrior LLC</strong>, a North Dakota LLC, filed 12 June 2024.</td></tr>
+  <tr><td>Location</td><td>9702 ND-23, New Town, ND 58763, understood to be the batch plant site. <span class="need">CONFIRM: staffed yard and primary address?</span></td></tr>
+  <tr><td>Ownership</td><td><strong>Roger Grady</strong> and <strong>Richard Sargent</strong>. <span class="need">CONFIRM: the split, and how to describe each</span></td></tr>
+  <tr><td>Partnership</td><td><strong>Joint venture with Patriot Stone Supply LLC</strong>, a Texas materials operator with years of history in aggregate, crushing and recycling. Patriot is the JV counterparty, not a member.</td></tr>
+  <tr><td>Tribal standing</td><td><strong>Licensed contractor with the MHA Nation.</strong> <span class="need">CONFIRM: license vs. preference, and which TERO tier</span></td></tr>
+  <tr><td>Territory</td><td>Fort Berthold and the Bakken counties: Mountrail, McKenzie, Williams, Dunn.</td></tr>
+</table>
+
+<div class="box flag">
+  <span class="tag">The structural position</span>
+  <p>Nearest ready-mix is 60 miles at Tioga, then 150 to 200 miles at Dickinson and Bowman. West Dakota
+  Ready Mix in New Town is closed. Concrete has a <strong>90-minute placement window</strong>, which makes
+  distance decisive in a way it never is for gravel. <strong>A plant at New Town is the only practical
+  option for most of Fort Berthold, and no competitor can answer it without building one here.</strong></p>
+</div>
+
+<h2><span class="num">2</span>The opportunity, and the clock on it</h2>
+
+<div class="stats">
+  <div class="stat"><b>~$3M</b><span>Delivered and invoiced inside 90 days</span></div>
+  <div class="stat"><b>Nov 15</b><span>Weather stops placement and earthwork</span></div>
+  <div class="stat"><b>Apr 1</b><span>2027 season opens</span></div>
+</div>
+
+<div class="timeline">
+  <div class="tl now">
+    <b>Now → 15 Nov</b>
+    <span><em>The 90 days.</em> ~$3M of material moving and invoiced. Site goes live inside this window.</span>
+  </div>
+  <div class="tl">
+    <b>15 Nov → 1 Apr</b>
+    <span><em>Shutdown.</em> Ground frozen, but budgets, bids and vendor selection for 2027 run right through it.</span>
+  </div>
+  <div class="tl">
+    <b>1 Apr 2027</b>
+    <span><em>Season opens</em> with the site already indexed, populated and found.</span>
+  </div>
+</div>
+
+<p><strong>The 90 days is the rest of the season, not a rolling quarter.</strong> Work stops around
+15 November and does not resume until roughly 1 April. Weather ends placement and earthwork, not demand.
+So the $3 million is what is left on the table in 2026, and it is <strong>material moving and invoiced
+inside the window</strong>, not work awarded now and delivered later.</p>
+
+<div class="box">
+  <span class="tag">A sanity check, because a reader will run one</span>
+  <p>$3M over roughly thirteen working weeks is about <strong>$230,000 a week.</strong> Against stated
+  capacity of ~6,000 tons a week, thirteen weeks of aggregate alone at regional pricing of $22 to $26 a ton
+  covers a large share of it, before ready-mix and topsoil, which earn considerably more per unit.
+  <strong>The revenue and capacity figures corroborate each other.</strong> Both trace to the same source
+  and neither is yard-confirmed, so consistency is reassuring rather than conclusive. Confirming capacity
+  does double duty, since it substantiates the revenue figure too.</p>
+</div>
+
+<div class="needblock">
+  <span class="tag">What the $3M still needs behind it</span>
+  <p>One number invites one question: made of what. Break it into named lines, each with <strong>who is
+  buying, what material, how many tons, at what price, when it moves, and how firm it is.</strong> Five
+  lines like that are worth more than one total and are much harder to argue with.</p>
+</div>
+
+<h2><span class="num">3</span>The decision: why a website, and why now</h2>
+
+<p>One question was put plainly: <strong>can a buyer who has never met Richard confirm this operation is
+real, capable, and carrying what they need?</strong> Today the answer is no. No website, no published
+specifications, no price guidance, no materials list, no photographs, and effectively nothing findable for
+topsoil, gravel or concrete around New Town. A buyer who goes looking finds nothing, and so does a buyer
+who is given the name and goes to check.</p>
+
+<h3>The site does two jobs, on two different clocks</h3>
+
+<div class="split">
+  <div class="half fast">
+    <h5>Verification — works day one</h5>
+    <p>A buyer already wants to order and needs sign-off from a manager who has never met Richard. Or
+    someone who heard the name looks before calling.</p>
+    <p><strong>There is no indexing lag on a link somebody forwards.</strong> Live inside the current 90-day
+    window. With the majors working on and around Fort Berthold, a buyer there placing gravel, topsoil or
+    concrete is exactly this case.</p>
+    <p><strong>It will not win those sales. Its absence can lose them.</strong></p>
+  </div>
+  <div class="half">
+    <h5>Discovery — accrues over months</h5>
+    <p>Being found by a buyer who has never heard of Concrete Warrior and is searching for a supplier.</p>
+    <p>Search engines and AI assistants need time to index a new site, accumulate its content and treat it
+    as an established business rather than a new domain.</p>
+    <p><strong>This return lands in 2027, and it is the half that argues for building through the
+    shutdown.</strong></p>
+  </div>
+</div>
+
+<div class="box flag">
+  <span class="tag">Why now rather than in the spring</span>
+  <p><strong>The ground freezes; purchasing does not.</strong> Budgets, bid preparation, annual supply
+  arrangements and vendor selection for the coming season run right through the winter. The buyer told to
+  find three gravel suppliers for next year's program does it in January and February, not the week the
+  frost leaves. <strong>A site not findable until March misses the window in which the 2027 decisions get
+  made.</strong> <span class="need">CONFIRM with Richard: when buyers here actually line up next season's material</span></p>
+  <p>The shutdown is also the only stretch with time to gather photographs, confirm specifications and
+  settle prices. Standing this up in the spring means starting from zero in the same weeks the work returns.</p>
+  <p class="src">What this document will not claim: that the website generates the $3 million. That business
+  is already in motion and closes the way it always has, through Richard. The site protects deals rather
+  than creating them, and the distinction matters because anyone in this industry will test it.</p>
+</div>
+
+<h2><span class="num">4</span>What the company offers</h2>
+
+<table class="wide">
+  <tr><td>Ready-mix concrete</td>
+    <td>Batched on site and delivered. <strong>Concrete Warrior owns the batch plant outright</strong>, with no outside batching partner. Buyers: tribal programs, pad and road contractors, operators, local commercial and residential.</td></tr>
+  <tr><td>Aggregate</td>
+    <td>Crushed and screened from the pit: road gravel, scoria, sand, rip rap, DOT-classed material including Class 5 and Class 13. <span class="need">CONFIRM: full list, which classes are produced to spec</span></td></tr>
+  <tr><td>Crushed concrete</td>
+    <td>Recycled aggregate from reclaimed material. Roughly <strong>half the price of virgin aggregate</strong> for the same base applications, which makes it the strongest value argument in the line.</td></tr>
+  <tr><td>Certified topsoil</td>
+    <td>Trommel-screened, uncommon and expensive equipment here. Two markets: <strong>weed-free certified</strong> for tribal, federal and public bid work, and <strong>lab-verified reclamation soil</strong> for oil and gas, where the concern is salinity rather than weeds. <span class="need">CONFIRM: which certification, which county, can lab numbers be published</span></td></tr>
+</table>
+
+<p>The operating thesis is <strong>equipment utilization across two seasons</strong> rather than two
+businesses: crushers north May to October, emphasis back to Texas for the milder winter.
+<span class="need">CONFIRM: what iron is actually in New Town today</span></p>
+
+<div class="needblock">
+  <span class="tag">Capacity figures came from the original memo, not the yard</span>
+  <p>~6,000 tons a week retail, plus up to 3,000 to a batch plant partner at a discount. <strong>The second
+  half is known to be wrong</strong>, since they own their own plant and have no such partner. Treat the
+  6,000 as unverified, and publish neither until someone at the yard confirms it.</p>
+</div>
+
+<h2><span class="num">5</span>Who the customers are, and how they buy</h2>
+
+<p>Business arrives three ways. The site does a different job in each.</p>
+
+<div class="lanes">
+  <div class="lane">
+    <h5>1 · Direct trust</h5>
+    <p>Knows Richard personally. Calls, gets a quote, done. No searching, no comparing.</p>
+    <p class="does"><strong>Site:</strong> does not win this sale, the relationship did. But this buyer
+    often needs sign-off from someone who has never met Richard, and the site is what gets forwarded up.</p>
+  </div>
+  <div class="lane">
+    <h5>2 · Referred</h5>
+    <p>Knows <em>of</em> Richard, or was given the name. Wants to look the company over before calling.</p>
+    <p class="does"><strong>Site:</strong> credibility. Who owns it, what iron they run, what the yard looks
+    like. This reader is deciding whether to call at all, and there is no second chance.</p>
+  </div>
+  <div class="lane key">
+    <h5>3 · Procurement, under instruction</h5>
+    <p>Told by a boss: find three suppliers of topsoil, or concrete, or road gravel. Get quotes. Report back
+    on what each offers and what it costs.</p>
+    <p class="does"><strong>Site: everything. This is the case the build is for.</strong></p>
+  </div>
+</div>
+
+<h3>The buyer is often not the person who approves the purchase</h3>
+
+<p>Someone who knows Richard works for a major operator. They handle materials, they trust him, they want
+to place the order. But above a certain amount, or with a supplier the company has not used before,
+<strong>a manager has to sign off</strong> — a manager who has never met Richard and never will. They ask
+where the material is coming from, and the answer arrives as a link.</p>
+
+<div class="box flag">
+  <span class="tag">The site does not win that sale. Its absence can lose it.</span>
+  <p>At that moment the site is not marketing. It is <strong>evidence in an internal approval</strong>, read
+  by someone deciding whether to let a subordinate commit company money to a supplier they have never heard
+  of. That reader wants to verify, not be persuaded: a real business, real address, real equipment, plainly
+  does this for a living.</p>
+  <p><strong>A trusted relationship can still die in an approval queue.</strong> At large operators it
+  compounds, because vendor onboarding expects a supplier to be independently verifiable, and a company with
+  no findable presence can stall in setup before anyone has judged the material or the price.</p>
+  <p>So case 1 is not "the site does nothing." It is quiet work in the background of the largest revenue
+  line, in a room Richard is not in. Nobody will report a deal that closed because of the website. It is
+  simply one less reason for a manager to say no.</p>
+</div>
+
+<h3>Why case 3 decides the build</h3>
+
+<p>That buyer's deliverable to their boss is <strong>a comparison</strong>. Three suppliers side by side.
+Knowing they are building a table, not shopping, tells us exactly what the site must do.</p>
+
+<table class="compare">
+  <tr>
+    <th>What the boss asked for</th>
+    <th class="ours">Concrete Warrior</th>
+    <th>Supplier B</th>
+    <th>Supplier C</th>
+  </tr>
+  <tr><td>Material and class</td><td class="ours">Published</td><td class="blank">Not stated</td><td class="blank">Not stated</td></tr>
+  <tr><td>Gradation / spec sheet</td><td class="ours">Published</td><td class="blank">—</td><td class="blank">—</td></tr>
+  <tr><td>Price per ton</td><td class="ours">Published bracket</td><td class="blank">"Call for pricing"</td><td class="blank">—</td></tr>
+  <tr><td>Delivery radius</td><td class="ours">Published</td><td class="blank">—</td><td class="blank">—</td></tr>
+  <tr><td>Certifications</td><td class="ours">Published</td><td class="blank">—</td><td class="blank">—</td></tr>
+  <tr><td>Lead time</td><td class="ours">Published</td><td class="blank">—</td><td class="blank">—</td></tr>
+</table>
+<p class="capt">Illustrative. Competitor columns reflect what our national benchmark actually found, not
+invented weaknesses.</p>
+
+<p><strong>Two things have to be true.</strong> Be findable enough to be one of the three, because a
+supplier who cannot be found is not in the comparison at all. Then make our row fillable without a phone
+call. If they complete our row from the site and write "call for pricing" beside the other two, we are the
+supplier who made their job easy.</p>
+
+<div class="box flag">
+  <span class="tag">This is winnable, and the evidence is national</span>
+  <p>We graded <strong>26 materials-supplier websites</strong> across the country, including the largest
+  producers in the industry. <strong>Only two publish prices. Not one publishes what a given yard has in
+  stock.</strong> Vulcan, the largest US aggregate producer, answers its product page with a contact form.
+  The pattern holds at every size of company.</p>
+  <p><strong>Being the only complete row costs nothing but publishing what Richard already knows.</strong>
+  It does not require being the biggest supplier or the cheapest.</p>
+</div>
+
+<div class="needblock">
+  <span class="tag">Confirm with Richard</span>
+  <p>These three cases are our working model, plausible enough to build on. One question decides how much
+  weight case 3 carries: <strong>do operators buy material directly, or does their pad and road contractor
+  buy it and bill it through?</strong> If it is the contractor, the buyer is a short list of local firms and
+  the phone matters more than the search result. Simplest version: <em>how did the last twenty orders
+  actually arrive, and did anyone ever ask for a spec sheet?</em></p>
+</div>
+
+<h2><span class="num">6</span>What we built, and why it looks the way it does</h2>
+
+<div class="box flag">
+  <span class="tag">The standard this site should be held to</span>
+  <p>This is not a site selling luxury apartments, boutique coffee or a restaurant meal. Those sell
+  atmosphere and are fairly judged on taste and polish. <strong>This one represents a working materials
+  operation in western North Dakota, and it has a different job.</strong></p>
+  <p><strong>The honest measure is not whether the site looks impressive. It is whether Concrete Warrior was
+  one of the three, and whether its row came back complete.</strong></p>
+</div>
+
+<h3>The decisions that follow</h3>
+
+<ul>
+  <li><strong>Specifications over atmosphere.</strong> Every material gets a real page: what it is, what it
+  is for, the spec, how it is delivered. Not a paragraph and a phone number.</li>
+  <li><strong>Real photographs, never stock.</strong> Stock gravel imagery reads as a broker rather than a
+  producer, the one perception this business cannot afford.</li>
+  <li><strong>Legibility over decoration.</strong> The reader is on a phone, in a truck, on poor signal,
+  copying numbers into a spreadsheet.</li>
+  <li><strong>Published numbers wherever the business will stand behind them.</strong> The largest
+  competitive gap available, and it costs only the decision to publish.</li>
+  <li><strong>A quote form that captures the whole question</strong> — material, quantity, delivery location
+  and date, so Richard answers in one pass rather than three emails.</li>
+  <li><strong>A standing asset, not a campaign.</strong> Prices and availability change; the structure
+  holding them does not. Updated in an afternoon each spring rather than rebuilt.</li>
+</ul>
+
+<h3>Built to be found: three channels, not one</h3>
+
+<p>A supplier can be visible in one and invisible in the others, which is why they are treated as separate
+disciplines.</p>
+
+<h4>Search engines</h4>
+<ul>
+  <li><strong>Every material gets its own page</strong>, because that is how people search: road gravel, or
+  Class 5, or ready-mix concrete, with a place attached.</li>
+  <li><strong>Location in the content, not just the footer.</strong> A supplier's whole value here is being
+  close.</li>
+  <li><strong>Structured data on every page.</strong> A floor, not an advantage: it wins nothing by itself,
+  and its absence quietly costs everything built on top of it.</li>
+  <li><strong>Written in the buyer's words, not the company's.</strong> We recently audited a $191M paving
+  and concrete contractor that ranks first for the language it uses about itself and <strong>does not appear
+  at all for the plain phrase its customers type.</strong> Its pages were written in company voice.</li>
+  <li>Plus the unglamorous base: fast pages, correct titles and descriptions, clean internal linking, no
+  conflicting signals.</li>
+</ul>
+
+<h4>AI assistants</h4>
+<p>A growing share of this research never reaches a results page. The buyer asks an assistant who supplies
+gravel near New Town and acts on the answer. <strong>Being absent from that answer is a new way to lose a
+sale, and almost nobody in this industry builds for it.</strong></p>
+<ul>
+  <li><strong>Answers written the way buyers ask</strong>, since assistants extract specific answers rather
+  than brochure copy.</li>
+  <li><strong>Published, specific facts.</strong> An assistant repeats only what it can find. "Contact us
+  for details" gets left out of the answer entirely.</li>
+  <li><strong>An <code>llms.txt</code> file</strong> with usage rules, including an instruction
+  <strong>never to infer or fabricate a gradation, strength, sieve value or salinity number.</strong> On a
+  site publishing specifications, an invented figure is a liability, not a marketing problem. Already in
+  place.</li>
+</ul>
+
+<h4>The map, which here may outrank the website</h4>
+<p>A buyer on a job site searching for gravel near New Town sees <strong>map results before website
+results. Without a Google Business Profile, Concrete Warrior is not in that list at all</strong>, however
+good the site is.</p>
+
+<div class="box flag">
+  <span class="tag">A third clock, and the one to start first</span>
+  <p><strong>A verified profile can surface in days or weeks, against months for organic search</strong> —
+  the fastest findability asset available and the one most relevant to the current 90 days. But
+  <strong>verification is the bottleneck and is genuinely unpredictable:</strong> postcard, phone, or a video
+  walkthrough, and attempts fail and restart. We have a contractor client still unverified after months and
+  several attempts.</p>
+  <p><strong>If only one thing could be done this month, the profile would be a defensible choice over any
+  single page of the website.</strong> Both are being done. It goes first because it has the longest lead
+  time, the fastest payoff, and the highest chance of stalling on something outside our control.</p>
+</div>
+
+<ul>
+  <li><strong>One decision gates the filing.</strong> Staffed during posted hours means a standard listing
+  with an address; nobody there means a service-area business with a delivery radius and no pin.
+  <strong>Filing the wrong type is a common cause of suspension</strong>, and a suspension is far harder to
+  undo than a correct filing is to make.</li>
+  <li><strong>Entity standing lands here too</strong> — verifying a listing is harder when the registry shows
+  the company not in good standing. See section 7.</li>
+  <li><strong>Reviews are part of what the referred buyer sees.</strong> A competing local hauler carries
+  4.2 stars across 25 reviews; Concrete Warrior starts at zero.</li>
+  <li><strong>The map already shows the gap.</strong> West Dakota Ready Mix in New Town reads as permanently
+  closed. Buyers are being shown an empty slot with nothing filling it.</li>
+</ul>
+
+<div class="box">
+  <span class="tag">What the profile should be called</span>
+  <p><strong>Recommended: "Concrete Warrior Supply."</strong> It matches the domain, it reads as a materials
+  supplier rather than a concrete contractor, which is what buyers are searching for and what keeps the
+  listing in the right category, and it separates cleanly from <strong>Warrior LLC</strong>, an established
+  Fort Berthold company holding TERO Level 1 preference. In a market this small, that distinction is worth
+  making deliberately rather than leaving to chance.</p>
+  <p><strong>Google's rule is that the name must be the real-world name</strong> — what is on the sign, the
+  invoices and the truck doors. Adding materials or a town to it ("Concrete Warrior Supply Gravel &amp;
+  Topsoil New Town") is the single most common cause of a listing being edited or suspended.
+  <strong>The keywords belong in the categories, not the name.</strong></p>
+  <p><strong>Categories carry the search terms.</strong> Primary: ready-mix concrete supplier, which is the
+  strongest structural position. Additional: crushed stone, sand and gravel, topsoil, and concrete supplier.
+  A listing can hold several, and each one is a separate way to be found.
+  <span class="need">Confirm exact category names in the Google interface; the taxonomy changes</span></p>
+  <p><strong>One dependency, and it connects to the photographs.</strong> Verification is increasingly done
+  by video walkthrough, in which Google asks to see signage. <strong>The listing name should match what the
+  sign actually says</strong>, so the name is best finalised once the yard photographs arrive and we can see
+  what signage exists. If there is none, that is worth knowing early, because it makes verification harder.
+  Whatever is chosen should then match the sign, the invoices, the email domain and the website, since
+  consistency across those is itself a local ranking factor.
+  <span class="need">CONFIRM: is "Concrete Warrior Supply" a registered DBA, or is the legal name Concrete Warrior LLC only?</span></p>
+</div>
+
+<h3>Under the hood</h3>
+
+<ul>
+  <li><strong>Domain secured</strong>, with privacy and auto-renewal.</li>
+  <li><strong>Next.js on Vercel</strong> — fast by default, served globally, no plugin maintenance burden or
+  plugin attack surface.</li>
+  <li><strong>Every change version-controlled in a private repository.</strong> Reversible, and the site does
+  not exist in only one place. A materials business should not be one hosting account away from losing its
+  web presence.</li>
+  <li><strong>An automated watcher checks the site daily</strong> and alerts if it goes down, breaks or shows
+  signs of compromise. <strong>The failure it prevents is the common one:</strong> a small business site goes
+  down and stays down, because the only person who would notice is a customer, and that customer just calls
+  someone else.</li>
+  <li><strong>Sitemap, Search Console and Analytics at launch.</strong> Search Console reports what people
+  searched and clicked, the earliest signal available. Analytics reports which materials get read and where
+  people leave. <strong>The point is to learn, not to report</strong>: the 2027 site should be better because
+  a season of real data exists to shape it.</li>
+  <li><strong>Indexing is currently switched off on purpose.</strong> This looks like an error and is not. An
+  incomplete site indexed early makes a first impression that takes months to correct, so it stays off until
+  the content, photographs and specifications are in, then is switched on deliberately.</li>
+</ul>
+
+<h3>Where each item stands today</h3>
+
+<p>Stated plainly, because a document written to withstand scrutiny should not describe planned work in the
+past tense.</p>
+
+<table class="wide">
+  <tr><td>Domain</td><td><span class="pill done">IN PLACE</span> Registered 14 August 2026.</td></tr>
+  <tr><td>Platform and hosting</td><td><span class="pill done">IN PLACE</span> Next.js on Vercel, deployed and reachable.</td></tr>
+  <tr><td>Private code backup</td><td><span class="pill done">IN PLACE</span> Full version history.</td></tr>
+  <tr><td>Working concept site</td><td><span class="pill done">IN PLACE</span> Homepage plus a full ready-mix page, the model for every other material page, with a real specification table.</td></tr>
+  <tr><td><code>llms.txt</code></td><td><span class="pill done">IN PLACE</span> Including the no-inference clause.</td></tr>
+  <tr><td>Search blocking</td><td><span class="pill done">INTENTIONAL</span> Switched off at launch.</td></tr>
+  <tr><td>Google Business Profile</td><td><span class="pill first">START NOW</span> Not yet created. Longest and least controllable lead time. Gated on the staffed-address decision.</td></tr>
+  <tr><td>Remaining material pages</td><td><span class="pill todo">TO BUILD</span> Aggregate, crushed concrete, topsoil. Blocked on the confirmed material list and specs.</td></tr>
+  <tr><td>Answers section</td><td><span class="pill todo">TO BUILD</span> Questions drafted; answers need Richard.</td></tr>
+  <tr><td>Photography</td><td><span class="pill todo">PENDING</span> Awaiting photographs of the yard and equipment.</td></tr>
+  <tr><td>Sitemap, Search Console, Analytics</td><td><span class="pill todo">AT LAUNCH</span></td></tr>
+  <tr><td>Uptime and integrity watcher</td><td><span class="pill todo">AT LAUNCH</span> System already running for our other sites; this one is added when it goes live.</td></tr>
+</table>
+
+<h2><span class="num">7</span>Two items that need a decision from the team</h2>
+
+<p>Neither is a drafting problem, and neither is ours to settle. Both are facts anyone outside the business
+can check, which is why they are raised here rather than left to surface at a worse moment.</p>
+
+<div class="box flag">
+  <span class="tag">1 · Entity standing at the North Dakota Secretary of State</span>
+  <p>The registry currently shows <strong>Concrete Warrior LLC as Inactive, Involuntary, and not in good
+  standing.</strong> In North Dakota that is almost always a missed annual report rather than anything
+  substantive, and the registry itself indicates the record can be reinstated. Both Rhino Ready Mix records
+  show the same.</p>
+  <p><strong>Why it is first:</strong> any reader of this document can look the entity up in thirty seconds
+  and will. It also complicates holding a license, signing an agreement and verifying a Google listing.
+  Reinstatement is a form and a fee.</p>
+  <p class="src">Verified against the state's FirstStop registry directly, not a third-party directory. One
+  caveat: the registered agent and address could not be retrieved, so this is the only Concrete Warrior in
+  the registry on a matching timeline, not independently confirmed to be this one. The right way to raise it
+  is "the registry shows this, is it current," never "your company is dissolved."</p>
+</div>
+
+<div class="box flag">
+  <span class="tag">2 · How this document describes the Texas relationship</span>
+  <p>The Patriot joint venture is a genuine asset. Concrete Warrior has no operating history of its own;
+  Patriot has years of it on the same equipment and materials. That answers a question every new supplier
+  gets asked.</p>
+  <p><strong>But the wording carries risk in one direction.</strong> TERO reviews whether a qualified Indian
+  contractor genuinely self-performs or passes work through to a non-Native entity. Describing Concrete
+  Warrior as the northern arm of a Texas company is exactly the characterization that invites that scrutiny.
+  Described accurately as a joint venture between two separate companies, it is an asset and nothing more.
+  <strong>Get Richard's read before it is written either way.</strong></p>
+</div>
+
+<h2><span class="num">8</span>What is still needed</h2>
+
+<ul class="check">
+  <li><strong>The $3M broken into named lines</strong> as set out in section 2.</li>
+  <li><strong>The Google Business Profile decision</strong> — staffed address or service-area. Start this first.</li>
+  <li><strong>Confirmed product list</strong> with the classes actually produced to spec.</li>
+  <li><strong>Real capacity numbers</strong> from the yard, replacing the memo's figures.</li>
+  <li><strong>Founding or operating-since year.</strong> Every credible operator leads with one, and it separates an established operation from a startup.</li>
+  <li><strong>Equipment list</strong> as it stands in New Town today.</li>
+  <li><strong>Certifications</strong> held and in progress: weed-free, ISNetworld or equivalent, MSHA Part 46, NDDOT source approval, air permit.</li>
+  <li><strong>Entity standing resolved</strong>, or a sentence on where reinstatement stands.</li>
+  <li><strong>Photographs of the yard and the iron working.</strong></li>
+  <li><strong>Richard's answer on how orders actually arrive</strong>, which confirms or corrects section 5.</li>
+</ul>
+
+<div class="stamp">
+  <p><b>Status.</b> Working draft, 17 August 2026. Circulation at Corey and John's discretion. Confirmed
+  facts draw on the North Dakota Secretary of State registry, published MHA TERO preference lists, a
+  national benchmark of 26 materials-supplier websites, the original operations memo, and answers from the
+  Concrete Warrior group. Amber markers indicate items nobody has confirmed yet, left visible rather than
+  filled in.</p>
+</div>
+
+</body>
+</html>
