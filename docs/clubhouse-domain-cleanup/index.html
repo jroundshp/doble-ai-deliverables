@@ -116,22 +116,22 @@
   <div class="hero">
     <div class="tag">Cooperstown Clubhouse · Rookie's Conversion Review</div>
     <h1>What we were able to confirm, and what we think is worth cleaning up.</h1>
-    <p>This walks through how rookiescrafthouseny.com was converted over to cooperstownclubhouse.com. First, the parts of the setup we checked and confirmed are working the way they should. Then five items we think are worth cleaning up. A short closing section covers what would actually make these places easier for visiting families to find, since none of the five items do that on their own.</p>
+    <p>This walks through how rookiescrafthouseny.com was converted over to cooperstownclubhouse.com. First, the parts of the setup we checked and confirmed are working the way they should. Then ten items we think are worth cleaning up, in two groups: five that came out of the conversion, and five more on the site itself. A short closing section covers what would actually make these places easier for visiting families to find, since none of the five items do that on their own.</p>
     <p>Each item gives the evidence, then steps to check it yourself, and only then what we would change. The corrections are written as what to do <em>if you agree</em> with the finding, because several of these could be deliberate for reasons that are not visible from outside.</p>
     <div class="meta-row">
-      <div class="stat"><div class="stat-val">5</div><div class="stat-label">Items</div></div>
-      <div class="stat"><div class="stat-val">~2 hrs</div><div class="stat-label">Total effort</div></div>
+      <div class="stat"><div class="stat-val">10</div><div class="stat-label">Items</div></div>
+      <div class="stat"><div class="stat-val">~3 hrs</div><div class="stat-label">Total effort</div></div>
       <div class="stat"><div class="stat-val">2 new</div><div class="stat-label">Since the audit</div></div>
       <div class="stat"><div class="stat-val">Aug 17, 2026</div><div class="stat-label">Verified</div></div>
     </div>
     <div class="callout">
       <h3>How this relates to the audit</h3>
-      <p>Three of the five are already in the Clubhouse audit, restated here with steps rather than as findings. Two are new since it was last revised on August 13: the phone and email links in item 1, and the images in item 4. Where this document goes further than the audit, it says so in place.</p>
+      <p>Most of the ten are already in the Clubhouse audit or in the reply we sent to the August feedback, restated here with steps rather than as findings. Only two are genuinely new since the audit was last revised on August 13: the phone and email links in item 1, and the images in item 4. Everything else is here because knowing about something and having the steps for it are different things, and the steps were never sent. Where this document goes further than the audit, it says so in place.</p>
     </div>
   </div>
 
   <h2>What we confirmed is set up correctly</h2>
-  <p class="lede">We checked each of these against the live domains and profiles. They behave the way a conversion should, and nothing in the five items below contradicts any of them.</p>
+  <p class="lede">We checked each of these against the live domains and profiles. They behave the way a conversion should, and nothing in the items below contradicts any of them.</p>
 
   <table>
     <tr><th>Check</th><th>Result</th></tr>
@@ -148,7 +148,7 @@
 
   <p class="lede" style="margin-top:22px">All four hostname variants resolve in a single hop with canonicals underneath as a backstop, so the redirect layer itself is not in question. One clarification on the social row: the links on the site point to the Clubhouse handles, but the separate <code>@rookiescrafthouse</code> accounts still exist on both platforms. That is a different issue and it is covered in the audit under renaming rather than deleting.</p>
 
-  <h2>The five items</h2>
+  <h2>Five items from the conversion</h2>
   <p class="lede">Ordered by what we think is costing the most right now, not by effort.</p>
 
   <!-- 1 -->
@@ -420,6 +420,206 @@ RewriteRule ^(.*)$ https://www.cooperstownclubhouse.com/$1 [R=301,L]</code></pre
     </div>
   </div>
 
+  <h2>Five more on the site itself</h2>
+  <p class="lede">These are not about the conversion. Most of them were raised in the feedback that came back on these sites in August, and we confirmed them at the time without ever handing over the steps. All five were re-checked on the live homepage on 17 August 2026 and all five are still there. They are Clubhouse-specific unless noted.</p>
+
+  <!-- 6 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">6</div>
+      <h3>The site blocks pinch-to-zoom on phones</h3>
+    </div>
+    <div class="badges">
+      <span class="badge time">2 minutes</span>
+      <span class="badge">Raised in August</span>
+      <span class="badge rev">Fully reversible</span>
+    </div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>The homepage viewport tag reads <code>width=device-width, initial-scale=1.0, <strong>maximum-scale=1.0, user-scalable=0</strong></code>. The last two values switch off pinch-to-zoom entirely. Also present on fenimorestable.com, not on cooperstownexperience.com.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>It is a named accessibility failure, WCAG 1.4.4, and the people it affects are the ones you most want: parents and coaches reading a menu or an address on a phone between games, often outdoors in bad light. Worth saying clearly, because it was queried in August: the site <em>is</em> responsive. The Divi breakpoints are working. This one line is a separate setting that overrides the visitor's ability to zoom, and removing it changes nothing about the layout.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open the homepage on a phone and try to pinch-zoom. Nothing happens.</li>
+          <li>On a desktop, View Page Source and search for <code>user-scalable</code>.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>The tag is usually emitted by the theme or by a Divi setting rather than typed into a page. Search the theme files and any header-injection plugin for <code>user-scalable</code>.</li>
+          <li>Delete only <code>, maximum-scale=1.0, user-scalable=0</code>, leaving <code>width=device-width, initial-scale=1.0</code> in place.</li>
+          <li>Reload on a phone and confirm pinch-zoom works.</li>
+        </ol>
+        <div class="pre-label">Currently</div>
+<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0<span class="bad">, maximum-scale=1.0, user-scalable=0</span>" /&gt;</code></pre>
+        <div class="pre-label">Should be</div>
+<pre><code>&lt;meta name="viewport" content=<span class="good">"width=device-width, initial-scale=1.0"</span> /&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">7</div>
+      <h3>The homepage has five H1 headings and no H2</h3>
+    </div>
+    <div class="badges">
+      <span class="badge time">20 minutes</span>
+      <span class="badge">Raised in August</span>
+      <span class="badge rev">Fully reversible</span>
+    </div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>Five separate H1 headings on the homepage: <em>best place for your team party</em>, <em>Cooperstown Clubhouse</em>, <em>Team Parties</em>, <em>activities</em>, and <em>CONTACT US</em>. There are no H2 headings at all, and three H3s below them.</p>
+        <p>This one is Clubhouse-only, which is worth repeating because it was asked about in August. Fenimore's Table has one H1 and two H2s, which is correct. The complex site is also fine.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>An H1 is the page's single statement of what it is about. Five of them is the same as none, because nothing is being distinguished from anything else, and jumping from H1 straight to H3 leaves the outline with a level missing. This is how a search engine or an assistant works out the shape of the page, and right now it reads as five unrelated top-level topics stacked on one URL.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open the homepage, press F12 for developer tools, and in the Console tab run <code>document.querySelectorAll('h1').length</code>. It returns 5. Run it again with <code>'h2'</code> and it returns 0.</li>
+          <li>Or View Page Source and search for <code>&lt;h1</code>.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>Choose which one is the real H1. Our suggestion is <em>best place for your team party</em>, since it says what the venue is for rather than repeating the name that is already in the logo and the title tag. That is a judgment call and it is yours.</li>
+          <li>In Divi, open each of the other four heading modules and change the heading level dropdown from H1 to H2. The visual size is controlled separately in the Design tab, so nothing needs to look different afterwards.</li>
+          <li>Re-run the Console check and confirm one H1 and four H2s.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">8</div>
+      <h3>The scrolling hiring banner is the first thing a visitor sees</h3>
+    </div>
+    <div class="badges">
+      <span class="badge time">5 minutes</span>
+      <span class="badge">A question, not a defect</span>
+      <span class="badge rev">Fully reversible</span>
+    </div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>The homepage opens with a <code>&lt;marquee&gt;</code> element scrolling <em>JOIN OUR TEAM TODAY</em> repeated twelve times across the top of the page.</p>
+        <p>We are raising this as a question rather than listing it as a fault, the same way it was put in August. Hiring is clearly a real priority, and the site was edited on 6 August to add a careers page, so this may be exactly what you intend.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>The question is whether the most valuable space on the site should be carrying a recruitment message, given that most people arriving are families and coaches looking for somewhere to eat rather than a job. Both audiences are real. Only one of them books a party.</p>
+        <p>Separately, and this part is not a judgment call: <code>&lt;marquee&gt;</code> is an obsolete HTML element. It has been formally deprecated for years, browsers keep it working out of goodwill, and screen readers handle moving text poorly. If the banner stays, it is worth rebuilding as a normal styled banner rather than a marquee.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Load the homepage and watch the top of the page.</li>
+          <li>View Page Source and search for <code>marquee</code> to confirm the element type.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>If hiring stays on the homepage, consider moving it below the first screen so the venue introduces itself first, and link it to the careers page you already built.</li>
+          <li>Replace the <code>&lt;marquee&gt;</code> with a standard Divi text or call-to-action module. Static reads better than scrolling for a single short line, and it removes the deprecated element.</li>
+          <li>If the answer is that it should stay exactly as it is, that is a legitimate answer and this item can be closed.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">9</div>
+      <h3>The homepage meta description is an empty tag</h3>
+    </div>
+    <div class="badges">
+      <span class="badge time">5 minutes</span>
+      <span class="badge">One field</span>
+      <span class="badge rev">Fully reversible</span>
+    </div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>The tag is present but carries nothing: <code>&lt;meta name="description" content="" /&gt;</code>. An empty tag rather than a missing one usually means the field exists in the SEO plugin and was never filled in.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>This is the sentence under your link in search results. Left empty, the search engine writes its own from whatever text it finds on the page, which on this homepage means it may well pull from the scrolling hiring banner in item 8. Two minutes of writing replaces a sentence you did not choose with one you did.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>View Page Source and search for <code>name="description"</code>. The <code>content</code> attribute is empty.</li>
+          <li>Search Google for <code>site:cooperstownclubhouse.com</code> and read the description lines it has written for you.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>Edit the homepage, open the SEO plugin panel, and write roughly 150 characters covering what the venue is, who it is for, and where it is.</li>
+          <li>Do the same on the other six pages while you are there, since the same field is likely empty on all of them.</li>
+          <li>This is the same underlying gap as the machine-readability row in the closing section, but this part is one field per page rather than a project.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">10</div>
+      <h3>14 of the 15 homepage images have no alt text</h3>
+    </div>
+    <div class="badges">
+      <span class="badge time">30 minutes</span>
+      <span class="badge">Raised in August</span>
+      <span class="badge rev">Fully reversible</span>
+    </div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>The homepage carries 15 image tags. Fourteen have no alt attribute or an empty one. Counted on the live page on 17 August.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>Two reasons that pull the same way. Anyone using a screen reader gets nothing from fourteen of your fifteen images, and image search has no idea what any of them show. For a venue whose appeal is visual, the food, the arcade, the cornhole, the room set up for a team, that is the part of the story machines currently cannot read at all.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open the homepage, press F12, and in the Console run <code>document.querySelectorAll('img:not([alt]), img[alt=""]').length</code>.</li>
+          <li>Compare with <code>document.querySelectorAll('img').length</code> for the total.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>In the WordPress Media Library, add an Alt Text value to each image. Setting it there carries to every place the image is used.</li>
+          <li>Describe what is actually in the shot in plain words, as if to someone who cannot see it. "Team celebrating with pizza in the party room" rather than "clubhouse-photo-4".</li>
+          <li>Skip purely decorative images such as the divider textures. Those are the correct use of an empty alt attribute, so one of the fifteen may legitimately stay as it is.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
   <h2>Three things we could not check from outside</h2>
   <p class="lede">These need an account we do not have. Each is quick from where you sit, and all three bear on items above.</p>
 
@@ -443,7 +643,7 @@ RewriteRule ^(.*)$ https://www.cooperstownclubhouse.com/$1 [R=301,L]</code></pre
   </table>
 
   <h2>Once these are cleaned up, what actually makes these places findable</h2>
-  <p class="lede">Everything above is hygiene. It stops losses from people who already found you, and none of it makes a new family in town for a tournament discover the Clubhouse, Fenimore's or the complex. That is a different list, and it is worth writing down while the first one is in front of you.</p>
+  <p class="lede">Everything above is hygiene. It stops losses from people who already found you, and none of the ten items above makes a new family in town for a tournament discover the Clubhouse, Fenimore's or the complex. That is a different list, and it is worth writing down while the first one is in front of you.</p>
   <p class="lede">We have marked which items are website work and which are business decisions, because they are not the same job and they do not sit with the same person.</p>
 
   <table>
