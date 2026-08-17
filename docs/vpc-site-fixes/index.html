@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>VPC Fiberglass — Site Fix Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF;
+    color: #1F2622;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  .page { max-width: 880px; margin: 0 auto; padding: 0 24px 100px; }
+
+  /* Header */
+  .hero { padding: 64px 0 40px; border-bottom: 1px solid rgba(47,111,106,0.2); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #2F6F6A; margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #2F6F6A; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(34px, 5.5vw, 56px); font-weight: 500;
+    line-height: 1.05; margin-bottom: 18px;
+  }
+  .hero p { font-size: 19px; color: #46524C; line-height: 1.65; max-width: 660px; }
+  .hero p + p { margin-top: 14px; }
+
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 0; margin-top: 32px;
+  }
+  .stat { padding-right: 26px; margin-right: 26px; margin-bottom: 10px; border-right: 1px solid rgba(47,111,106,0.25); }
+  .stat:last-child { border-right: none; margin-right: 0; }
+  .stat-val { font-family: 'Playfair Display', serif; font-size: 24px; line-height: 1; margin-bottom: 5px; }
+  .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7C8C84; }
+
+  .note {
+    margin-top: 36px; background: #eefaf6; border: 1px solid #99e2d0;
+    border-left: 4px solid #0f766e; border-radius: 8px; padding: 20px 24px;
+    font-size: 16px; color: #1F2622;
+  }
+  .note strong { font-weight: 600; }
+
+  /* Sections */
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px; font-weight: 500; margin: 64px 0 8px;
+  }
+  .lede { font-size: 17px; color: #46524C; max-width: 680px; margin-bottom: 12px; }
+
+  /* Fix cards */
+  .fix {
+    background: #fff; border: 1px solid rgba(31,38,34,0.1); border-radius: 10px;
+    padding: 28px 30px; margin-top: 24px;
+  }
+  .fix-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+  .num {
+    font-family: 'Playfair Display', serif; font-size: 30px; color: #2F6F6A; line-height: 1;
+  }
+  .fix h3 { font-size: 21px; font-weight: 600; line-height: 1.3; flex: 1; min-width: 260px; }
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 18px 44px; }
+  .badge {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 20px; background: #EDF2F0; color: #46524C;
+  }
+  .badge.rev { background: #eefaf6; color: #0f766e; }
+  .fix-body { margin-left: 44px; }
+  @media (max-width: 640px) { .fix-body, .badges { margin-left: 0; } }
+
+  .block { margin-bottom: 22px; }
+  .block:last-child { margin-bottom: 0; }
+  .block-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
+    color: #2F6F6A; margin-bottom: 8px;
+  }
+  .block p { font-size: 16px; color: #33403A; }
+  .block p + p { margin-top: 10px; }
+
+  ol.steps, ul.steps { margin: 0 0 0 20px; font-size: 16px; color: #33403A; }
+  ol.steps li, ul.steps li { margin-bottom: 8px; }
+  ol.steps li:last-child, ul.steps li:last-child { margin-bottom: 0; }
+
+  code {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 0.9em; background: #EDF2F0; padding: 2px 6px; border-radius: 4px;
+    word-break: break-word;
+  }
+  pre {
+    background: #1F2622; color: #E8EDEA; border-radius: 8px;
+    padding: 18px 20px; overflow-x: auto; font-size: 13.5px; line-height: 1.6;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+  pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+  pre + pre { margin-top: 10px; }
+  .pre-label { font-size: 12px; font-weight: 600; color: #7C8C84; margin: 12px 0 6px; }
+  .bad { color: #ff9d9d; }
+  .good { color: #8ce6c4; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(31,38,34,0.1); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84; font-weight: 600; }
+
+  a { color: #2F6F6A; }
+
+  .outro {
+    margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(47,111,106,0.2);
+  }
+  .outro p { font-size: 16px; color: #46524C; max-width: 700px; }
+  .outro p + p { margin-top: 14px; }
+  .sig { margin-top: 28px; font-size: 15px; color: #7C8C84; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="tag">VPC Fiberglass · Site Fix Guide</div>
+    <h1>Five things we found, and how to check them yourself.</h1>
+    <p>These are small, contained changes to vpcfiberglass.com. Nothing here is a redesign and nothing here is urgent enough to interrupt anyone's week. They are the kind of items that sit quietly in a WordPress site for years without anyone having a reason to look.</p>
+    <p>Every item below is written the same way. What we have identified, how you can verify whether it is accurate without taking our word for it, why it matters, and what to do about it. The checking step comes second on purpose. If one of these does not reproduce on your end, that matters more than our finding does, and we would rather hear it than have you act on something we got wrong.</p>
+    <div class="meta-row">
+      <div class="stat"><div class="stat-val">5</div><div class="stat-label">Items</div></div>
+      <div class="stat"><div class="stat-val">~1 hr</div><div class="stat-label">Total effort</div></div>
+      <div class="stat"><div class="stat-val">All</div><div class="stat-label">Reversible</div></div>
+      <div class="stat"><div class="stat-val">Aug 17, 2026</div><div class="stat-label">Verified</div></div>
+    </div>
+    <div class="note">
+      <strong>On the checking steps.</strong> Where we could, the verification uses a public tool or your browser's View Source, so you can confirm a finding without logging into anything. Google's own testing tools are the arbiter on the schema item, not us.
+    </div>
+  </div>
+
+  <h2>The list</h2>
+  <p class="lede">Ordered by what we think returns the most for the time spent. Item 1 is the one worth doing first.</p>
+
+  <table>
+    <tr><th>#</th><th>Item</th><th>Effort</th></tr>
+    <tr><td>1</td><td>The LocalBusiness schema block has two typos that may void it</td><td>5 min</td></tr>
+    <tr><td>2</td><td>No social share image, so every shared link renders as plain text</td><td>10 min</td></tr>
+    <tr><td>3</td><td>Four near-identical Enduro enclosure pages, each pointing at itself</td><td>20 min</td></tr>
+    <tr><td>4</td><td>A page called "test location" is live and in the public sitemap</td><td>5 min</td></tr>
+    <tr><td>5</td><td>An author archive page for a vendor admin account is indexable</td><td>5 min</td></tr>
+  </table>
+
+  <!-- 1 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">1</div>
+      <h3>The LocalBusiness schema block has two typos that may void it</h3>
+    </div>
+    <div class="badges">
+      <span class="badge">5 minutes</span>
+      <span class="badge">Two-word edit</span>
+      <span class="badge rev">Fully reversible</span>
+    </div>
+    <div class="fix-body">
+
+      <div class="block">
+        <div class="block-label">What we've identified</div>
+        <p>The homepage carries three blocks of structured data. Two of them are clean. The third is the one that states the company name, phone number and street address together, and it has two problems in its first two lines.</p>
+        <p>The context is written as <code>https://www.schema.org</code>. The vocabulary lives at <code>https://schema.org</code>, without the <code>www</code>. And the type is written as <code>localbusiness</code> in lowercase, where schema.org type names are case sensitive and the defined type is <code>LocalBusiness</code>.</p>
+        <p>Either one on its own is enough for a parser to fail to recognize the block. We have not asserted what Google does with it, because Google's own tool will tell you that directly. See the checking step.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open <a href="https://search.google.com/test/rich-results">Google's Rich Results Test</a>, paste in <code>https://www.vpcfiberglass.com/</code> and run it. Look at what it detects. If <code>LocalBusiness</code> is not in the detected list while the other blocks are, that is the finding.</li>
+          <li>Cross-check on <a href="https://validator.schema.org/">validator.schema.org</a> with the same URL. It is more literal about the vocabulary than Google is and will show the unrecognized type.</li>
+          <li>To see the source yourself: open the homepage, right-click and choose View Page Source, then search the page for <code>www.schema.org</code>. It appears once, in the block in question.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>This block is the only place on the site where the name, phone and address are stated together in a form built for machines to read. When an AI assistant or a search engine wants to confirm that VPC is a real company at a real address with a real phone number, this is the record it reads. Two typos is a low price for having it work.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">What to do</div>
+        <p>Two strings change. Nothing else in the block needs touching.</p>
+        <div class="pre-label">Currently</div>
+<pre><code>{
+<span class="bad">"@context": "https://www.schema.org",</span>
+<span class="bad">"@type": "localbusiness",</span>
+"name": "Virtual Polymer Compounds, LLC",
+"telephone": "585-735-9668",
+...</code></pre>
+        <div class="pre-label">Should be</div>
+<pre><code>{
+<span class="good">"@context": "https://schema.org",</span>
+<span class="good">"@type": "LocalBusiness",</span>
+"name": "Virtual Polymer Compounds, LLC",
+"telephone": "585-735-9668",
+...</code></pre>
+        <p>This block is hand-placed rather than generated by Rank Math, so it will not be in the plugin's settings. The fastest way to find it is to search the theme files or your header-injection plugin for the string <code>priceRange</code> or <code>www.schema.org</code>. Likely homes are the Divi theme header, a Divi code module on the homepage, or whatever plugin injects header scripts.</p>
+        <p>After saving, re-run the Rich Results Test on the live URL to confirm the type is picked up.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">2</div>
+      <h3>No social share image, so every shared link renders as plain text</h3>
+    </div>
+    <div class="badges">
+      <span class="badge">10 minutes</span>
+      <span class="badge">Settings only</span>
+      <span class="badge rev">Fully reversible</span>
+    </div>
+    <div class="fix-body">
+
+      <div class="block">
+        <div class="block-label">What we've identified</div>
+        <p>The homepage has most of the Open Graph tags in place: <code>og:title</code>, <code>og:description</code>, <code>og:url</code>, <code>og:type</code>, <code>og:site_name</code>, <code>og:locale</code>. The one that is absent is <code>og:image</code>. There are also no Twitter card tags at all.</p>
+        <p>The practical effect is that when anyone pastes a vpcfiberglass.com link into LinkedIn, Teams, Outlook, Slack or a text message, it renders as a text box with no picture.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>The fastest check needs no tools. Paste <code>https://www.vpcfiberglass.com/</code> into a Teams or LinkedIn message box, wait for the preview to build, and look at whether an image appears. Do not send it.</li>
+          <li>Or open the homepage, View Page Source, and search for <code>og:image</code>. You will find <code>og:title</code> and <code>og:description</code> but no image tag.</li>
+          <li>Or run the URL through a preview debugger such as <a href="https://www.opengraph.xyz/">opengraph.xyz</a>, which shows exactly what each platform will render.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>VPC's sales cycle runs through email and increasingly through Teams. A link to a product page that arrives as a bare grey box is a weaker artifact than the same link with a photograph of the actual product on it, and the difference is one settings field.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">What to do</div>
+        <ul class="steps">
+          <li>In WordPress, go to <strong>Rank Math → Titles &amp; Meta → Global Meta</strong> and set a default Open Graph image. That one setting covers every page that does not specify its own.</li>
+          <li>Size it 1200 × 630 pixels. A photograph of finished FRP work will carry further than a logo on white, since the logo will already appear next to it in most previews.</li>
+          <li>For pages worth a specific image, the per-page override is in the Rank Math box on the edit screen, under the <strong>Social</strong> tab.</li>
+          <li>Re-run the preview debugger afterwards. Some platforms cache the old result, so use the debugger's refresh or scrape button rather than assuming it did not work.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">3</div>
+      <h3>Four near-identical Enduro enclosure pages, each pointing at itself</h3>
+    </div>
+    <div class="badges">
+      <span class="badge">20 minutes</span>
+      <span class="badge">One judgment call</span>
+      <span class="badge rev">Reversible</span>
+    </div>
+    <div class="fix-body">
+
+      <div class="block">
+        <div class="block-label">What we've identified</div>
+        <p>Four live URLs carry the same page title, <em>Enduro Standard Equipment Enclosure</em>:</p>
+        <ul class="steps">
+          <li><code>/enduro-standard-equipment-enclosure/</code></li>
+          <li><code>/enduro-standard-equipment-enclosure-2/</code></li>
+          <li><code>/enduro-standard-equipment-enclosure-3/</code></li>
+          <li><code>/vpc-case-studies/enduro-standard-equipment-enclosure-5/</code></li>
+        </ul>
+        <p>All four return 200 and all four appear in the sitemaps. More to the point, each one has a canonical tag pointing at itself, so none of them defers to a primary version. As far as a search engine can tell, these are four separate pages competing with each other for the same term.</p>
+        <p>The <code>-2</code> and <code>-3</code> suffixes are what WordPress adds when a page is duplicated, which suggests these are drafts or copies that were never cleaned up rather than deliberate variants. That is a guess and you would know better than we would.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open all four URLs in tabs and compare them. Confirm whether they are genuinely the same page or whether some carry content the others do not.</li>
+          <li>On each one, View Page Source and search for <code>rel="canonical"</code>. You will see each page naming itself. That is what confirms none of them is set as the primary.</li>
+          <li>In Search Console, use URL Inspection on all four to see which are actually indexed and which Google has already picked as its own preferred version.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>Right now any authority the Enduro enclosure has earned is split four ways. Consolidating puts it on one page. It also means a buyer who finds the page from a search lands on the maintained version rather than a copy nobody has updated.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">What to do</div>
+        <p>Decide which URL is the real product page. Then for the two duplicate copies:</p>
+        <ul class="steps">
+          <li>Set up a 301 redirect from each duplicate to the chosen primary. <strong>Rank Math → General Settings → Redirections</strong> handles this without touching any files. Use 301, not 302.</li>
+          <li>If you would rather keep the pages live for any reason, the softer option is to set their canonical to the primary URL instead: on each page's edit screen, <strong>Rank Math → Advanced → Canonical URL</strong>.</li>
+          <li>Afterwards, check that nothing in the menus or internal links still points at the retired URLs.</li>
+        </ul>
+        <p><strong>The one to confirm before touching:</strong> the fourth URL sits under <code>/vpc-case-studies/</code>. If that is a genuine case study about an Enduro install, it should stay, and the fix there is just to give it a distinct title so it stops reading as a fourth copy of the product page. We would not change that one without asking you first.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">4</div>
+      <h3>A page called "test location" is live and in the public sitemap</h3>
+    </div>
+    <div class="badges">
+      <span class="badge">5 minutes</span>
+      <span class="badge">Delete or noindex</span>
+      <span class="badge rev">Reversible</span>
+    </div>
+    <div class="fix-body">
+
+      <div class="block">
+        <div class="block-label">What we've identified</div>
+        <p><code>/locations/test-location/</code> returns 200, has the page title <em>test location</em>, has no noindex tag, and is listed in the public locations sitemap. The locations sitemap contains two URLs in total, so this test page is half of it.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open <code>https://www.vpcfiberglass.com/locations/test-location/</code> in a private browsing window, so you are seeing it as a logged-out visitor rather than as an admin.</li>
+          <li>Open <code>https://www.vpcfiberglass.com/locations-sitemap.xml</code> and read the entries. There are two, and this is one of them.</li>
+          <li>In Search Console, run URL Inspection on it to see whether Google has indexed it.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>It is a small thing, but the locations sitemap is one of the files a search engine reads to understand where VPC physically operates. Half of it currently says "test location". Clearing it is a minute of work and it makes the remaining entry the whole signal.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">What to do</div>
+        <ul class="steps">
+          <li>If it is genuinely a leftover test, delete it in WordPress and empty the trash. The URL will then return 404, which is the correct answer for a page that should not exist.</li>
+          <li>If it needs to stay for some internal reason, open it in the editor and set <strong>Rank Math → Advanced → Robots Meta → No Index</strong>, which also removes it from the sitemap.</li>
+          <li>Either way, re-load <code>locations-sitemap.xml</code> afterwards and confirm it is gone.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="fix">
+    <div class="fix-head">
+      <div class="num">5</div>
+      <h3>An author archive page for a vendor admin account is indexable</h3>
+    </div>
+    <div class="badges">
+      <span class="badge">5 minutes</span>
+      <span class="badge">Settings only</span>
+      <span class="badge rev">Fully reversible</span>
+    </div>
+    <div class="fix-body">
+
+      <div class="block">
+        <div class="block-label">What we've identified</div>
+        <p><code>/author/tmswebsiteadminthomasnet-com/</code> returns 200 and appears in the sitemap. It is a WordPress author archive, generated automatically, and its only real content is a username. That username also happens to disclose which vendor account publishes to the site.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open the URL in a private window and confirm it loads rather than 404s.</li>
+          <li>Open <code>https://www.vpcfiberglass.com/sitemap_index.xml</code>, follow the author sitemap, and confirm the URL is listed there.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>Two reasons, one minor and one worth a moment's thought. The minor one is that it is a thin page in the index that says nothing about what VPC makes. The other is that the URL itself publishes the name of an administrative account, which is information that does not need to be public.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-label">What to do</div>
+        <ul class="steps">
+          <li>Go to <strong>Rank Math → Titles &amp; Meta → Misc Pages</strong> and turn off author archives. On a site with a single publishing account they serve no purpose, and disabling them removes the URL and drops it from the sitemap in one step.</li>
+          <li>If you would rather keep archives on, set author pages to noindex in the same panel instead.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <h2>What we deliberately left off this list</h2>
+  <p class="lede">There are a few larger items we found, and they are not here on purpose. They are not things one person can action alone in an afternoon, and they involve decisions that are not a webmaster's to make.</p>
+
+  <table>
+    <tr><th>Item</th><th>Why it's not here</th></tr>
+    <tr>
+      <td>Product structured data on <code>products.vpcfiberglass.com</code></td>
+      <td>This is the single highest-value change available to the site, and it is also the one we cannot scope until we know who can edit that subdomain. It is ThomasNet-hosted. If it turns out VPC cannot change it, the answer is a different and much larger conversation, so it belongs on a call rather than on a fix list.</td>
+    </tr>
+    <tr>
+      <td>Customer reviews</td>
+      <td>A real gap, but it is a business process rather than a website change. Not something to hand to whoever manages the site.</td>
+    </tr>
+    <tr>
+      <td>How much of the catalog lives on a channel VPC does not control</td>
+      <td>A strategy question for the group, not a task.</td>
+    </tr>
+  </table>
+
+  <div class="outro">
+    <h2 style="margin-top:0">If something here doesn't hold up</h2>
+    <p>We would rather be corrected than be polite about it. If a verification step does not reproduce, or if one of these is the way it is on purpose and we have simply read it wrong from the outside, that is useful to know and it changes what we recommend next. Several of the things that looked like problems on other sites we have looked at turned out to be deliberate decisions once we asked.</p>
+    <p>The same goes for anything on this list you cannot change from where you sit. Knowing where the edit boundaries actually are is genuinely more useful to us than getting the fixes done quickly.</p>
+    <p class="sig">Prepared by Doble AI · Verified against the live site on August 17, 2026</p>
+  </div>
+
+</div>
+</body>
+</html>
