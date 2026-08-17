@@ -458,7 +458,9 @@ RewriteRule ^(.*)$ https://www.cooperstownclubhouse.com/$1 [R=301,L]</code></pre
           <li>Reload on a phone and confirm pinch-zoom works.</li>
         </ol>
         <div class="pre-label">Currently</div>
-<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0<span class="bad">, maximum-scale=1.0, user-scalable=0</span>" /&gt;</code></pre>
+<pre><code>&lt;meta name="viewport"
+      content="width=device-width, initial-scale=1.0<span class="bad">,
+               maximum-scale=1.0, user-scalable=0</span>" /&gt;</code></pre>
         <div class="pre-label">Should be</div>
 <pre><code>&lt;meta name="viewport" content=<span class="good">"width=device-width, initial-scale=1.0"</span> /&gt;</code></pre>
       </div>
