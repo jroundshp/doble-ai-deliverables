@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Tiveron Law: Site Fix Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF; color: #1F2622;
+    -webkit-font-smoothing: antialiased; min-height: 100vh; line-height: 1.6;
+  }
+  .page { max-width: 880px; margin: 0 auto; padding: 0 24px 100px; }
+
+  .hero { padding: 64px 0 40px; border-bottom: 1px solid rgba(47,111,106,0.2); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #2F6F6A; margin-bottom: 20px;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #2F6F6A; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(34px, 5.5vw, 54px); font-weight: 500;
+    line-height: 1.06; margin-bottom: 18px;
+  }
+  .hero p { font-size: 19px; color: #46524C; line-height: 1.65; max-width: 680px; }
+  .hero p + p { margin-top: 14px; }
+
+  .meta-row { display: flex; flex-wrap: wrap; margin-top: 32px; }
+  .stat { padding-right: 26px; margin-right: 26px; margin-bottom: 10px; border-right: 1px solid rgba(47,111,106,0.25); }
+  .stat:last-child { border-right: none; margin-right: 0; }
+  .stat-val { font-family: 'Playfair Display', serif; font-size: 24px; line-height: 1; margin-bottom: 5px; }
+  .stat-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #7C8C84; }
+
+  .callout {
+    margin-top: 36px; background: #eefaf6; border: 1px solid #99e2d0;
+    border-left: 4px solid #0f766e; border-radius: 8px; padding: 22px 26px;
+    font-size: 16px;
+  }
+  .callout.warn { background: #fdf6ec; border-color: #f0d3a3; border-left-color: #b4801f; }
+  .callout h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .callout p + p { margin-top: 10px; }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px; font-weight: 500; margin: 64px 0 8px;
+  }
+  .lede { font-size: 17px; color: #46524C; max-width: 700px; margin-bottom: 12px; }
+
+  .fix {
+    background: #fff; border: 1px solid rgba(31,38,34,0.1); border-radius: 10px;
+    padding: 28px 30px; margin-top: 24px;
+  }
+  .fix-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 6px; }
+  .num { font-family: 'Playfair Display', serif; font-size: 30px; color: #2F6F6A; line-height: 1; }
+  .fix h3 { font-size: 21px; font-weight: 600; line-height: 1.3; flex: 1; min-width: 260px; }
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 18px 44px; }
+  .badge {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 20px; background: #EDF2F0; color: #46524C;
+  }
+  .badge.rev { background: #eefaf6; color: #0f766e; }
+  .badge.time { background: #fdf6ec; color: #8a6414; }
+  .fix-body { margin-left: 44px; }
+  @media (max-width: 640px) { .fix-body, .badges { margin-left: 0; } }
+
+  .block { margin-bottom: 22px; }
+  .block:last-child { margin-bottom: 0; }
+  .block-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
+    color: #2F6F6A; margin-bottom: 8px;
+  }
+  .block p { font-size: 16px; color: #33403A; }
+  .block p + p { margin-top: 10px; }
+
+  ol.steps, ul.steps { margin: 0 0 0 20px; font-size: 16px; color: #33403A; }
+  ol.steps li, ul.steps li { margin-bottom: 8px; }
+  ol.steps li:last-child, ul.steps li:last-child { margin-bottom: 0; }
+
+  code {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 0.9em; background: #EDF2F0; padding: 2px 6px; border-radius: 4px; word-break: break-word;
+  }
+  pre {
+    background: #1F2622; color: #E8EDEA; border-radius: 8px;
+    padding: 18px 20px; overflow-x: auto; font-size: 13.5px; line-height: 1.6;
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+  pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+  .pre-label { font-size: 12px; font-weight: 600; color: #7C8C84; margin: 12px 0 6px; }
+  .bad { color: #ff9d9d; }
+  .good { color: #8ce6c4; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(31,38,34,0.1); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84; font-weight: 600; }
+  td.ok { color: #0f766e; font-weight: 600; }
+  td.no { color: #a33; font-weight: 600; }
+
+  a { color: #2F6F6A; }
+
+  .outro { margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(47,111,106,0.2); }
+  .outro p { font-size: 16px; color: #46524C; max-width: 700px; }
+  .outro p + p { margin-top: 14px; }
+  .sig { margin-top: 28px; font-size: 15px; color: #7C8C84; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="tag">Tiveron Law · Site Fix Guide</div>
+    <h1>What we were able to confirm, and what we think is worth cleaning up.</h1>
+    <p>A working document on tiveronlaw.com. First, the parts of the setup we checked and confirmed are working the way they should. Then six items worth cleaning up, all of them small. A closing section covers the larger work that would actually make the firm findable, which none of the six do on their own.</p>
+    <p>Each item gives the evidence, then why it matters, then steps to check it yourself, and only then what we would change. The corrections are written as what to do <em>if you agree</em>, because some of these could be deliberate for reasons that are not visible from outside.</p>
+    <div class="meta-row">
+      <div class="stat"><div class="stat-val">6</div><div class="stat-label">Items</div></div>
+      <div class="stat"><div class="stat-val">~2 hrs</div><div class="stat-label">Total effort</div></div>
+      <div class="stat"><div class="stat-val">2 new</div><div class="stat-label">Since the audit</div></div>
+      <div class="stat"><div class="stat-val">Aug 17, 2026</div><div class="stat-label">Verified</div></div>
+    </div>
+    <div class="callout">
+      <h3>Where this comes from, and two corrections</h3>
+      <p>Most of these are already in the audit from 5 August, restated with steps because the steps were never handed over. Two are new: the broken image reference in item 4, and the fact that the phone mismatch in item 6 affects every branch office rather than just Buffalo.</p>
+      <p>Re-checking also corrected the audit in two places, and we would rather say so than leave it standing. The audit reported that all posts shared a single flattened <code>lastmod</code> date; they now carry real dates spread across 2022, so that finding is withdrawn. It also reported no Google profile for Lockport; one exists, at 4.0 stars. Both corrections have been made in the audit itself.</p>
+    </div>
+  </div>
+
+  <h2>What we confirmed is set up correctly</h2>
+  <p class="lede">Checked against the live site on 17 August 2026. This is a well-engineered site, and almost everything below is follow-through rather than construction.</p>
+
+  <table>
+    <tr><th>Check</th><th>Result</th></tr>
+    <tr><td>Apex to www redirect</td><td class="ok">301, single hop, correct target</td></tr>
+    <tr><td>SSL certificate</td><td class="ok">Valid</td></tr>
+    <tr><td>Server response</td><td class="ok">234ms to first byte</td></tr>
+    <tr><td>Mobile viewport</td><td class="ok">Correct, and pinch-to-zoom is <em>not</em> blocked</td></tr>
+    <tr><td>Homepage title and description</td><td class="ok">Real, written, correctly branded to Tiveron</td></tr>
+    <tr><td>Sitemap</td><td class="ok"><code>sitemap_index.xml</code> works: 8 child sitemaps, 964 URLs</td></tr>
+    <tr><td>Post dates</td><td class="ok">Real published dates across 2022, not flattened</td></tr>
+    <tr><td>Google profiles</td><td class="ok">Amherst 4.2★, Lockport 4.0★, Buffalo 3.6★, all live</td></tr>
+  </table>
+
+  <p class="lede" style="margin-top:22px">The library underneath this is substantial: 689 posts, 108 FAQ pages each answering a real client question, 103 practice pages, 23 attorney bios. Almost none of the work below is about producing anything new. It is about making what already exists legible to a machine.</p>
+
+  <h2>Six items to confirm or correct</h2>
+  <p class="lede">Ordered by return for the time spent. The first two are single edits with site-wide effect.</p>
+
+  <!-- 1 -->
+  <div class="fix">
+    <div class="fix-head"><div class="num">1</div><h3>robots.txt points search engines at a sitemap on the old domain, which 404s</h3></div>
+    <div class="badges"><span class="badge time">2 minutes</span><span class="badge">One line</span><span class="badge rev">Fully reversible</span></div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>The last line of <code>tiveronlaw.com/robots.txt</code> reads:</p>
+<pre><code>Sitemap: <span class="bad">https://www.hoganwillig.com/sitemap_index.xml</span></code></pre>
+        <p>That URL returns <strong>404</strong>. Meanwhile the site's own <code>https://www.tiveronlaw.com/sitemap_index.xml</code> works perfectly, returns 200, and lists all 964 URLs across eight child sitemaps. It is simply never declared.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>robots.txt is the first file a crawler reads, and the sitemap line is how a site says "here is the complete list of everything I have." Tiveron currently points that instruction at a dead address on a domain the firm no longer trades under. Every crawler that follows it finds nothing and has to discover 964 URLs by following links instead.</p>
+        <p>Of everything in this document this is the smallest edit with the widest reach. It is one line.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open <code>https://www.tiveronlaw.com/robots.txt</code> in a browser and read the last line.</li>
+          <li>Open <code>https://www.hoganwillig.com/sitemap_index.xml</code>. It returns Not Found.</li>
+          <li>Open <code>https://www.tiveronlaw.com/sitemap_index.xml</code> and confirm it loads a full index.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>In Yoast, go to <strong>Yoast SEO → Tools → File editor</strong>, where robots.txt can be edited directly.</li>
+          <li>Change the sitemap line to the working address:</li>
+        </ol>
+<pre><code>Sitemap: <span class="good">https://www.tiveronlaw.com/sitemap_index.xml</span></code></pre>
+        <ol class="steps" start="3">
+          <li>Save, reload robots.txt in a browser, and confirm the new line is live.</li>
+          <li>While you are there, submit the working sitemap in Search Console so the discovery is not left to chance.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="fix">
+    <div class="fix-head"><div class="num">2</div><h3>The blog still tells search engines it belongs to HoganWillig</h3></div>
+    <div class="badges"><span class="badge time">15 minutes</span><span class="badge">One template</span><span class="badge rev">Fully reversible</span></div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>We sampled 25 blog posts at random from the sitemap. <strong>24 of the 25</strong> carry a title tag ending:</p>
+<pre><code>... : <span class="bad">HoganWillig Law Firm - Amherst, Buffalo, Ellicottville, Lancaster, Lockport New York</span></code></pre>
+        <p>There are 689 posts in the sitemap. The rebrand was November 2022, so this has been the case for nearly four years. The visible page is correctly branded; it is the title tag, which is what a search engine displays and reads, that was never updated.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>The title tag is the strongest single on-page signal of what a page is and who it belongs to. Across roughly 689 pages, the site is telling search engines that the firm's largest body of content belongs to a firm that no longer exists under that name. It is also the headline a searcher sees before deciding whether to click.</p>
+        <p>Because it is generated from a template rather than typed per post, the fix is one edit, not 689.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open any blog post and look at the browser tab, which shows the title tag.</li>
+          <li>Or search Google for <code>site:tiveronlaw.com HoganWillig</code> and read the blue headlines in the results.</li>
+          <li>Or View Page Source on a post and search for <code>&lt;title</code>.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>In Yoast, go to <strong>Search Appearance → Content Types → Posts</strong>.</li>
+          <li>The SEO title field will contain a template with the old firm name in it. Replace the HoganWillig portion with the current branding, keeping the variable that inserts the post title.</li>
+          <li>Save, then reload a post and check the tab. The change applies to every post at once.</li>
+          <li>Check the other content types in the same panel, since practice pages, FAQs, attorneys and offices each have their own template and may carry the same text.</li>
+          <li>One post slug also still reads <code>hoganwillig-pllc-attorneys-receive-super-lawyers-recognition</code>. Leave it. Changing a live URL costs more than it gains unless it is redirected properly.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="fix">
+    <div class="fix-head"><div class="num">3</div><h3>The site's structured data names the old firm's social accounts as official, and one of them is dead</h3></div>
+    <div class="badges"><span class="badge time">10 minutes</span><span class="badge">Settings only</span><span class="badge rev">Fully reversible</span></div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>The Organization block in the homepage structured data declares these as the firm's official accounts:</p>
+<pre><code>"sameAs": [
+  <span class="bad">"https://www.facebook.com/hoganwillig/",
+  "https://x.com/hoganwillig"</span>
+]</code></pre>
+        <p>The same old account is declared again in the page's <code>article:publisher</code> tag. <strong><code>x.com/hoganwillig</code> returns 404.</strong> The current Tiveron accounts appear in the visible footer, but not in the structured data.</p>
+        <p>One qualification: Facebook blocks automated checks, so we could not determine the state of <code>facebook.com/hoganwillig</code> from outside. We are reporting what the markup declares, not what that page currently contains.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p><code>sameAs</code> is how a site tells search engines and AI systems which other profiles on the internet are the same entity. It is the main mechanism for consolidating a firm's identity across the web. Tiveron currently uses it to point at the previous firm's accounts, one of which no longer exists.</p>
+        <p>The pattern is the same one running through this whole document: a human reading the site sees Tiveron everywhere, and a machine reading the same page is told HoganWillig.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open <a href="https://validator.schema.org/">validator.schema.org</a>, enter <code>https://www.tiveronlaw.com/</code>, and look at the Organization block's <code>sameAs</code> values.</li>
+          <li>Or View Page Source and search for <code>sameAs</code>.</li>
+          <li>Open <code>https://x.com/hoganwillig</code> and confirm the account is gone.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>In Yoast, go to <strong>Settings → Site representation</strong> (older versions call it Social). The social account URLs entered there populate <code>sameAs</code> and <code>article:publisher</code>.</li>
+          <li>Replace the HoganWillig entries with the current accounts already listed in the site footer: the Tiveron Facebook page, the Tiveron X account, and the Tiveron LinkedIn company page.</li>
+          <li>Save, then re-run the schema validator on the homepage and confirm the new values appear.</li>
+          <li>If any HoganWillig social accounts are still under the firm's control, rename rather than delete them, so their history and any inbound links survive.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="fix">
+    <div class="fix-head"><div class="num">4</div><h3>All five office listings declare an image that does not exist</h3></div>
+    <div class="badges"><span class="badge time">10 minutes</span><span class="badge">New since the audit</span><span class="badge rev">Fully reversible</span></div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>Each of the five office blocks on the site carries structured data marking it as a business location. Inside each one is a hidden image declaration:</p>
+<pre><code>&lt;img class="hide" alt="" itemprop="image"
+     src="<span class="bad">.../themes/paperstreet/images/logo.png</span>" /&gt;</code></pre>
+        <p>That file returns <strong>404 Not Found</strong>. Because the tag is marked <code>class="hide"</code> it is invisible on the page, so nothing looks broken to a visitor. It appears five times on the homepage, once per office.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>The image is the declared visual identity for each office in the firm's machine-readable record. Every office currently points at a file that is not there, so the one image each location offers a search engine is missing. It is a small thing, but it is five out of five, and it is invisible precisely because it was designed to be hidden.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open <code>https://www.tiveronlaw.com/wp-content/themes/paperstreet/images/logo.png</code> directly. It returns a 404 page.</li>
+          <li>View Page Source on the homepage and search for <code>images/logo.png</code>. It appears five times.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>Either restore a <code>logo.png</code> at that path in the theme's images folder, or update the template to point at a logo file that exists. The site already serves working SVG logos, so the asset is available.</li>
+          <li>This lives in the PaperStreet theme template that renders the office blocks, so it is a developer edit rather than a settings change.</li>
+          <li>Afterwards, load the URL again and confirm an image returns instead of a 404.</li>
+          <li>Worth pairing with the note in the closing section about giving these office blocks proper structured data, since the same template is involved.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="fix">
+    <div class="fix-head"><div class="num">5</div><h3>108 FAQ pages, each answering a real question, and none of them marked up as one</h3></div>
+    <div class="badges"><span class="badge time">Varies, start with the template</span><span class="badge">Biggest opportunity here</span><span class="badge rev">Reversible</span></div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>The site has 108 FAQ pages. We sampled ten. All ten showed the same three things:</p>
+        <table>
+          <tr><th>What we checked</th><th>Result across 10 sampled</th></tr>
+          <tr><td>The <code>&lt;h1&gt;</code> heading</td><td class="no">"Frequently Asked Questions" on all 10, identical. The actual question is only an H2</td></tr>
+          <tr><td>Meta description</td><td class="no">Literally <code>..</code> on all 10</td></tr>
+          <tr><td>FAQ structured data</td><td class="no">None on any of the 10</td></tr>
+        </table>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>This is the most valuable asset on the site and the one being wasted most completely. Someone at the firm wrote 108 answers to questions real clients actually ask, which is exactly the material an AI assistant looks for when someone types a legal question. Three things stop it being usable.</p>
+        <p>Every page claims to be about "Frequently Asked Questions" rather than about its own question, so 108 pages compete as near-duplicates instead of each owning its topic. The meta description is two full stops, which is what a search engine shows under the link. And without FAQ markup, nothing tells a machine that this page is a question with an answer, which is the format most likely to be quoted directly.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>Open any FAQ page and look at the largest heading. It reads "Frequently Asked Questions" rather than the question.</li>
+          <li>View Page Source and search for <code>name="description"</code>. The content is <code>..</code>.</li>
+          <li>Run the page through <a href="https://search.google.com/test/rich-results">Google's Rich Results Test</a>. No FAQ type is detected.</li>
+          <li>Search Google for <code>site:tiveronlaw.com/faqs/</code> and look at how many results share the same headline.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>Start with the template, not the 108 pages. In Yoast under <strong>Search Appearance → Content Types</strong>, find the FAQ post type and set the SEO title to use the page's own question rather than a fixed string.</li>
+          <li>Fix the heading level in the theme template so the question is the H1 and "Frequently Asked Questions" becomes a label or is dropped.</li>
+          <li>The meta descriptions are stored per page and will need writing, which is the one genuinely slow part. The first sentence of each answer is usually a serviceable description, so this is editing rather than authoring.</li>
+          <li>Add FAQ structured data. A schema plugin can generate it from the question and answer already on the page, which avoids touching 108 pages by hand.</li>
+          <li>Do a handful first and re-test with the Rich Results Test before running the whole set.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="fix">
+    <div class="fix-head"><div class="num">6</div><h3>Every Google profile lists the Amherst main line, while the site lists local numbers</h3></div>
+    <div class="badges"><span class="badge time">15 minutes</span><span class="badge">Broader than the audit said</span><span class="badge rev">Fully reversible</span></div>
+    <div class="fix-body">
+      <div class="block">
+        <div class="block-label">What we found</div>
+        <p>The audit reported this for the Buffalo office. Re-checking on 17 August shows it affects every branch, and that a Lockport profile exists which the audit said did not.</p>
+        <table>
+          <tr><th>Office</th><th>Google profile</th><th>Phone on the profile</th><th>Phone on the website</th></tr>
+          <tr><td>Amherst</td><td>4.2★, 2410 N Forest Rd Ste 301, Getzville</td><td>716-636-7600</td><td class="ok">716.636.7600 — match</td></tr>
+          <tr><td>Buffalo</td><td>3.6★, 155 Summer St</td><td>716-636-7600</td><td class="no">716.332.3442</td></tr>
+          <tr><td>Lockport</td><td>4.0★, 770 Davison Rd # A</td><td>716-636-7600</td><td class="no">716.434.7766</td></tr>
+        </table>
+        <p style="margin-top:12px">One further detail worth a decision rather than a fix: the Amherst profile's address resolves to <strong>Getzville</strong>, which is the postal designation for that building, while the site and the office name both say Amherst.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">Why it matters</div>
+        <p>Name, address and phone consistency is one of the few things local search treats as a direct trust signal, and the phone number is the field it weighs most. When a profile and the website disagree about how to reach an office, a search engine has to decide which to believe, and the confidence it has in both drops.</p>
+        <p>There is a practical side too. Someone finding the Buffalo office in Maps calls the Amherst switchboard, and someone finding the same office on the website calls a Buffalo number. Whether that is intended routing or drift is something only the firm can say, which is why this is a confirm-or-deny rather than a defect.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">How to verify it</div>
+        <ol class="steps">
+          <li>In a private browsing window, search Google Maps for <em>Tiveron Law 155 Summer Street Buffalo NY</em> and read the phone number on the profile.</li>
+          <li>Compare with the Buffalo entry in the website footer.</li>
+          <li>Repeat for <em>Tiveron Law 770 Davison Road Lockport NY</em>.</li>
+          <li>Note that the Buffalo office page itself publishes the address without a phone number; the local number appears only in the footer office list.</li>
+        </ol>
+      </div>
+      <div class="block">
+        <div class="block-label">The correction, if you agree</div>
+        <ol class="steps">
+          <li>Decide first whether each branch should publish its own line or route everything through the main number. Either is defensible. What costs you is publishing both.</li>
+          <li>Once decided, make the Google profile and the website agree, office by office.</li>
+          <li>Add the office's phone number to its own page, not only the footer, so each location page states its full details.</li>
+          <li>Settle the Amherst and Getzville question the same way, and use the chosen version everywhere including the directory listings.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <h2>Four things we could not check from outside</h2>
+  <p class="lede">These need access we do not have. The first three are the questions attached to the audit in August, and they still gate the larger work.</p>
+
+  <table>
+    <tr><th>Question</th><th>What it decides</th></tr>
+    <tr><td>Is there Search Console access for tiveronlaw.com, and for the old hoganwillig.com?</td><td>Whether the redirect work in the closing section can be measured, and whether anyone can see what old URLs are still being requested</td></tr>
+    <tr><td>Who maintains the site now, and is PaperStreet still engaged?</td><td>Whether items 4 and 5 are a support ticket or an internal job</td></tr>
+    <tr><td>Does the firm manage its own Google profiles?</td><td>Whether item 6 is a fifteen-minute fix or a claim process</td></tr>
+    <tr><td>What is the state of the old Facebook page?</td><td>Facebook blocks automated checks, so we could not see it. It decides whether item 3 is a rename or a removal</td></tr>
+  </table>
+
+  <h2>Once these are cleaned up, what actually makes the firm findable</h2>
+  <p class="lede">The six items above are hygiene. They stop the site working against itself, and none of them will put Tiveron in front of someone searching for a lawyer. That is this list, and it is deliberately separate because most of it is not a quick edit.</p>
+
+  <table>
+    <tr><th>What</th><th>Why it matters here</th><th>Size</th></tr>
+    <tr>
+      <td><strong>Every deep URL on hoganwillig.com returns 404</strong></td>
+      <td>The old homepage redirects correctly, but <code>/amherst/</code>, <code>/lockport/</code>, <code>/real-estate-law/</code> and <code>/attorneys/</code> all 404, checked again on 17 August. Those addresses accumulated links and citations over decades under the old name, and every one of them is currently a dead end rather than a path to the equivalent Tiveron page. A redirect map from the old URLs to their current counterparts is the single largest recoverable asset here.</td>
+      <td>Real project, needs the old URL list</td>
+    </tr>
+    <tr>
+      <td><strong>The firm's structured data is a stub</strong></td>
+      <td>The Organization block carries only name, url, logo, image and sameAs. There is no address, no telephone, no service area, and it is typed as a generic Organization rather than as a legal practice. The office blocks use an older markup style with an address but no phone or hours. For a five-office firm, almost nothing that makes it locatable is expressed in a form a machine reads.</td>
+      <td>Moderate, one-time</td>
+    </tr>
+    <tr>
+      <td><strong>191 reviews, invisible to machines; 23 attorneys, unidentified</strong></td>
+      <td>The Amherst profile alone carries 4.2 stars across 191 reviews, the highest volume of any business we have looked at in this group. None of that is expressed on the site in a form search engines read. The 23 attorney biographies likewise carry no markup identifying them as people with credentials, which is the material that makes an individual lawyer findable by name and specialty.</td>
+      <td>Moderate</td>
+    </tr>
+    <tr>
+      <td><strong>The directories still list the old firm</strong></td>
+      <td>The sources AI systems lean on for legal recommendations in this region are Expertise, Justia, Super Lawyers, Lawyers.com, Avvo and Yelp. Several still resolve the firm under <code>hoganwillig-pllc</code> addresses. Being listed correctly and under the current name in those is off-site work, and for legal in particular it carries more weight than anything on your own pages.</td>
+      <td>Ongoing, not a website job</td>
+    </tr>
+    <tr>
+      <td><strong>The firm is absent from AI answers on the questions that bring clients</strong></td>
+      <td>On buyer-intent questions about divorce, residential closings and estate planning, the firm did not appear; only a direct search for the name surfaced it. The instructive part is who does appear. The firm states it handles more residential closings than any other group in the area, and the answers name much smaller practices instead, including one that publishes a flat closing fee on its website. In traditional search Tiveron competes with the large Buffalo firms. In AI answers it is losing to small shops that publish specific, structured, plainly priced answers, which is exactly what the 108 FAQ pages already are before they are marked up.</td>
+      <td>Follows from the rest</td>
+    </tr>
+  </table>
+
+  <p class="lede" style="margin-top:22px">Worth stating plainly, since it is the thread running through both lists: the underlying work here is not missing. The answers are written, the offices are real, the reviews were earned, the attorneys have credentials. What is missing is the layer that tells a machine any of it exists, and in several places that layer still names a firm that closed in 2022.</p>
+
+  <div class="outro">
+    <h2 style="margin-top:0">If any of this is wrong, please tell us</h2>
+    <p>Everything above was checked against the live site and the live Google profiles on 17 August 2026, and every item includes a way to reproduce it so nothing depends on taking our word for it. Where we could not check something, it is in the table above rather than stated as fact.</p>
+    <p>Re-checking also turned up two places where our own August audit had gone stale, and we have corrected both in that document rather than leaving them to be found. If a check here does not reproduce on your end, or if one of these is the way it is on purpose, tell us and we will correct this one the same way.</p>
+    <p class="sig">Prepared by Doble AI · Verified against the live site and Google profiles on August 17, 2026</p>
+  </div>
+
+</div>
+</body>
+</html>
