@@ -1,0 +1,28 @@
+<!--
+  CANONICAL "run the AI test yourself" instructions.
+  Single source of truth. Paste into any audit that asks a client to test their own
+  AI visibility, then adapt only the five prompts to their business.
+
+  WHY THIS FILE EXISTS: three published audits (tiveron-law, vpc-fiberglass,
+  homestead-realty-wny) shipped telling clients to "use a private or logged-out
+  window." That is correct for Google and Perplexity ONLY. Anyone who followed it on
+  ChatGPT was reading their own personalised memory back as if it were the market,
+  and on Grok they just hit a login wall. Corrected 2026-08-18.
+
+  Verify before reuse: all four vendors change these controls often.
+  Methodology lives in memory: workflow_ai_visibility_audit.
+-->
+
+<p><strong>Set each engine up properly, because "use a private window" is only correct for two of the four.</strong></p>
+
+<p><strong>Google</strong> and <strong>Perplexity</strong>: an incognito window is the right control. It drops your account and your search history. On Google it will <em>not</em> change your location, which it reads from your internet connection, so results still reflect where the browser physically is.</p>
+
+<p><strong>ChatGPT</strong>: incognito will not do it. ChatGPT's Memory is attached to the account rather than the browser, it is switched on by default, and a private window does not touch it. Use <strong>Temporary Chat</strong> instead, the mode that ignores memory and history entirely. If you are signed in, also open Settings and read what Memory has stored about the business, which is worth knowing in its own right.</p>
+
+<p><strong>Grok</strong>: it requires a sign-in, so incognito only produces a login screen. Sign in and <strong>start a brand new conversation</strong> rather than continuing an existing thread, since an open thread carries its own context.</p>
+
+<p><strong>Have five different people run it, not one.</strong> These systems are not deterministic. The same question asked twice can name different businesses, so one person running it once is a sample of one and can mislead in either direction. Five people means five different accounts, histories and connections, and what comes back is the range rather than a single reading.</p>
+
+<p><strong>Keep it comparable.</strong> Use the prompts word for word, since rephrasing changes the answer. Same order, same day. Screenshot every answer, including the sources or citations panel where the engine shows one, because who gets <em>cited</em> matters as much as who gets named. Put everything in one shared folder labelled by person and engine. If everyone is on the same office connection, Google sees one location for all of them, which is fine as long as you know it.</p>
+
+<p>Re-run the identical set monthly. The movement in those answers is the scoreboard for the rest of the work.</p>
