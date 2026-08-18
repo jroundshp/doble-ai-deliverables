@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Six Thousand Dollar Week &middot; Doble AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>*{box-sizing:border-box}html,body{margin:0;padding:0}</style>
+</head>
+<body>
+
+<style>
+:root{
+  --paper:#F4F2EC;
+  --card:#FFFFFF;
+  --ink:#1E1A15;
+  --ink-2:#4A443B;
+  --mute:#8B8378;
+  --rule:#DED8CC;
+  --amber:#A9671A;
+  --amber-soft:#F0E0C8;
+  --pine:#2E5A4C;
+  --slate:#5A6A72;
+  --slate-soft:#DDE3E5;
+  --shadow:0 1px 2px rgba(30,26,21,.06), 0 8px 24px -16px rgba(30,26,21,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141210;
+    --card:#1D1A16;
+    --ink:#EFEAE0;
+    --ink-2:#B8B0A3;
+    --mute:#867E72;
+    --rule:#332E27;
+    --amber:#D79A45;
+    --amber-soft:#3A2C17;
+    --pine:#6FAF98;
+    --slate:#8FA2AB;
+    --slate-soft:#262E32;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141210;
+  --card:#1D1A16;
+  --ink:#EFEAE0;
+  --ink-2:#B8B0A3;
+  --mute:#867E72;
+  --rule:#332E27;
+  --amber:#D79A45;
+  --amber-soft:#3A2C17;
+  --pine:#6FAF98;
+  --slate:#8FA2AB;
+  --slate-soft:#262E32;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Karla, "Helvetica Neue", Arial, sans-serif;
+  font-size:16.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding:56px 26px 96px}
+@media(max-width:620px){.wrap{padding:36px 18px 72px}}
+
+h1,h2,h3{font-family:Fraunces, Georgia, serif;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.5rem,6.4vw,4.1rem);font-weight:800;line-height:1.02;letter-spacing:-.022em}
+h2{font-size:clamp(1.5rem,3.2vw,2rem);font-weight:600;letter-spacing:-.012em;line-height:1.15}
+h3{font-size:1.075rem;font-weight:600;letter-spacing:-.005em}
+p{margin:0}
+.lede{font-size:1.16rem;line-height:1.55;color:var(--ink-2);max-width:63ch}
+.prose{max-width:66ch;display:flex;flex-direction:column;gap:14px;color:var(--ink-2)}
+.prose strong{color:var(--ink);font-weight:700}
+
+.eyebrow{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.685rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--mute);font-weight:500;
+}
+.num{font-family:"IBM Plex Mono", ui-monospace, monospace;font-variant-numeric:tabular-nums}
+
+/* ---------- masthead ---------- */
+header.mast{display:flex;flex-direction:column;gap:18px;padding-bottom:34px;border-bottom:2px solid var(--ink)}
+.mast .who{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline}
+.biz{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;font-size:.7rem;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 8px;background:var(--card);
+}
+.target{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  margin-top:6px;
+}
+.target .big{
+  font-family:Fraunces, Georgia, serif;font-weight:800;
+  font-size:clamp(3.6rem,12vw,6.6rem);line-height:.86;letter-spacing:-.04em;
+  color:var(--amber);font-variant-numeric:tabular-nums;
+}
+.target .cap{font-size:.95rem;color:var(--ink-2);max-width:22ch;line-height:1.35}
+
+section{margin-top:58px;display:flex;flex-direction:column;gap:20px}
+.sechead{display:flex;flex-direction:column;gap:7px}
+
+/* ---------- three headline units ---------- */
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.unit{
+  background:var(--card);border:1px solid var(--rule);border-radius:3px;box-shadow:var(--shadow);
+  padding:22px 22px 18px;display:flex;flex-direction:column;gap:4px;position:relative;overflow:hidden;
+}
+.unit::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--amber)}
+.unit .n{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.unit .name{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.12rem;line-height:1.2;letter-spacing:-.01em}
+.unit .price{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--mute);margin-bottom:12px}
+.unit .qty{
+  font-family:Fraunces,Georgia,serif;font-weight:800;font-size:3.3rem;line-height:.9;
+  letter-spacing:-.035em;color:var(--amber);font-variant-numeric:tabular-nums;
+}
+.unit .qlab{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);margin-top:5px}
+.unit .daily{
+  margin-top:13px;padding-top:11px;border-top:1px solid var(--rule);
+  font-size:.86rem;color:var(--ink-2);font-variant-numeric:tabular-nums;
+}
+.unit .daily b{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--ink);font-size:.98rem}
+
+/* ---------- ledger ---------- */
+.ledger{background:var(--card);border:1px solid var(--rule);border-radius:3px;box-shadow:var(--shadow);overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:right;padding:11px 16px;border-bottom:1px solid var(--rule)}
+th{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;font-weight:500;
+  font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);
+  border-bottom:1px solid var(--ink);
+}
+td:first-child,th:first-child{text-align:left}
+tbody tr:last-child td{border-bottom:none}
+.item{font-weight:500;color:var(--ink)}
+.where{font-family:"IBM Plex Mono", ui-monospace, monospace;font-size:.66rem;letter-spacing:.06em;color:var(--mute);display:block;text-transform:uppercase;margin-top:2px}
+td.qty{font-family:"IBM Plex Mono", ui-monospace, monospace;font-variant-numeric:tabular-nums;font-weight:600;font-size:1.02rem}
+td.per{font-family:"IBM Plex Mono", ui-monospace, monospace;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+tr.est td{color:var(--slate)}
+tr.est .item{color:var(--slate)}
+.flag{color:var(--slate);font-weight:700}
+.note{font-size:.86rem;color:var(--mute);max-width:70ch}
+
+/* ---------- week grid ---------- */
+.grid-card{background:var(--card);border:1px solid var(--rule);border-radius:3px;box-shadow:var(--shadow);padding:22px;overflow-x:auto}
+.wk{display:grid;grid-template-columns:36px repeat(17,1fr);gap:3px;min-width:600px}
+.wk .hr{font-family:"IBM Plex Mono",monospace;font-size:.58rem;color:var(--mute);text-align:center;padding-bottom:5px}
+.wk .day{font-family:"IBM Plex Mono",monospace;font-size:.64rem;color:var(--ink-2);display:flex;align-items:center;letter-spacing:.05em}
+.cell{height:15px;border-radius:1px;background:var(--slate-soft)}
+.cell.bake{background:var(--pine)}
+.cell.bistro{background:var(--amber)}
+.cell.both{background:linear-gradient(180deg,var(--pine) 0 50%,var(--amber) 50% 100%)}
+.cell.dark{background:var(--slate-soft);opacity:.55}
+.key{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:.78rem;color:var(--ink-2)}
+.key span{display:flex;align-items:center;gap:7px}
+.sw{width:13px;height:13px;border-radius:2px;display:inline-block}
+
+/* ---------- stat row ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.stat{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--amber);border-radius:3px;padding:16px 18px;display:flex;flex-direction:column;gap:5px}
+.stat .v{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.95rem;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .l{font-size:.85rem;color:var(--ink-2);line-height:1.35}
+
+/* ---------- lanes ---------- */
+.lanes{display:flex;flex-direction:column;gap:0;background:var(--card);border:1px solid var(--rule);border-radius:3px;box-shadow:var(--shadow);overflow:hidden}
+.lane{display:grid;grid-template-columns:1fr 118px;gap:18px;padding:22px;border-bottom:1px solid var(--rule);align-items:start}
+.lane:last-of-type{border-bottom:none}
+.lane .body{display:flex;flex-direction:column;gap:9px}
+.lane .math{
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--ink-2);
+  background:var(--paper);border-left:2px solid var(--amber);padding:8px 12px;border-radius:0 2px 2px 0;
+  line-height:1.6;
+}
+.lane .amt{text-align:right;display:flex;flex-direction:column;gap:3px}
+.lane .amt .v{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.55rem;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.lane .amt .run{font-family:"IBM Plex Mono",monospace;font-size:.64rem;color:var(--mute);letter-spacing:.05em}
+.lane p{color:var(--ink-2);font-size:.94rem;line-height:1.55}
+.lane-total{display:grid;grid-template-columns:1fr 118px;gap:18px;padding:18px 22px;background:var(--ink);color:var(--paper);align-items:center}
+.lane-total .t{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.05rem}
+.lane-total .v{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.55rem;text-align:right;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+@media(max-width:620px){
+  .lane,.lane-total{grid-template-columns:1fr;gap:12px}
+  .lane .amt,.lane-total .v{text-align:left}
+}
+
+/* ---------- checklist ---------- */
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:12px}
+.check{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:15px 17px;display:flex;flex-direction:column;gap:6px}
+.check .h{font-weight:700;font-size:.94rem;color:var(--ink);display:flex;gap:9px;align-items:baseline}
+.check .h .mk{font-family:"IBM Plex Mono",monospace;color:var(--amber);font-size:.8rem}
+.check p{font-size:.87rem;color:var(--ink-2);line-height:1.5}
+
+/* ---------- asks ---------- */
+ol.asks{margin:0;padding-left:0;list-style:none;counter-reset:a;display:flex;flex-direction:column;gap:11px}
+ol.asks li{counter-increment:a;display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:baseline;color:var(--ink-2);font-size:.96rem;line-height:1.5}
+ol.asks li::before{content:counter(a,decimal-leading-zero);font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--amber);font-weight:600}
+ol.asks strong{color:var(--ink)}
+
+ul.plain{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+ul.plain li{position:relative;padding-left:22px;color:var(--ink-2);font-size:.94rem;line-height:1.55;max-width:74ch}
+ul.plain li::before{content:"";position:absolute;left:2px;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--slate)}
+ul.plain strong{color:var(--ink)}
+
+footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;align-items:baseline}
+footer .f{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+</style>
+
+<style>
+/* ---------- short version ---------- */
+.tldr{
+  background:var(--ink);color:var(--paper);border-radius:4px;
+  padding:32px 34px;margin-top:42px;display:flex;flex-direction:column;gap:20px;
+}
+.tldr .lab{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600}
+.tldr h2{font-family:Fraunces,Georgia,serif;font-size:clamp(1.4rem,3.4vw,1.9rem);font-weight:600;letter-spacing:-.015em;color:var(--paper)}
+.tldr p{font-size:.98rem;line-height:1.6;color:rgba(244,242,236,.82);max-width:66ch}
+.tldr strong{color:var(--paper);font-weight:700}
+.tldr .rule{height:1px;background:rgba(244,242,236,.18)}
+.tldr ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px;counter-reset:t}
+.tldr ol li{
+  counter-increment:t;display:grid;grid-template-columns:26px 1fr auto;gap:14px;
+  align-items:baseline;font-size:.97rem;line-height:1.5;color:rgba(244,242,236,.82);
+}
+.tldr ol li::before{content:counter(t);font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--amber);font-weight:600}
+.tldr ol li b{color:var(--paper);font-weight:700}
+.tldr ol li .txt{min-width:0}
+.tldr ol li .amt{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;color:var(--amber);font-weight:600;font-size:.95rem;white-space:nowrap}
+.tldr .foot{font-size:.87rem;color:rgba(244,242,236,.6)}
+@media(max-width:620px){
+  .tldr{padding:24px 20px}
+  .tldr ol li{grid-template-columns:22px 1fr;gap:10px}
+  .tldr ol li .amt{grid-column:2}
+}
+
+/* ---------- part divider ---------- */
+.part{margin-top:80px;padding-top:26px;border-top:2px solid var(--ink);display:flex;flex-direction:column;gap:9px}
+.part .lab{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:600}
+.part h2{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-.02em}
+.part p{color:var(--ink-2);font-size:1.02rem;line-height:1.55;max-width:62ch}
+.part + section{margin-top:40px}
+
+/* ---------- evidence ---------- */
+.ev{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--pine);border-radius:3px;padding:18px 20px;display:flex;flex-direction:column;gap:11px}
+.ev .h{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pine);font-weight:600}
+.ev dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:.9rem}
+.ev dt{font-weight:700;color:var(--ink)}
+.ev dd{margin:0;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.ev .src{font-size:.78rem;color:var(--mute)}
+
+/* ---------- ask cards ---------- */
+.askgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.ask{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:16px 18px;display:flex;flex-direction:column;gap:7px}
+.ask .k{font-family:"IBM Plex Mono",monospace;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:var(--amber);font-weight:600}
+.ask .q{font-weight:700;font-size:.98rem;color:var(--ink);line-height:1.35}
+.ask .w{font-size:.87rem;color:var(--ink-2);line-height:1.5}
+
+/* ---------- comparison table ---------- */
+.cmp td.gap{color:var(--amber);font-weight:700;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.cmp td.ok{color:var(--pine);font-family:"IBM Plex Mono",monospace}
+.cmp td.pr{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.cmp th{white-space:nowrap}
+.cmp td{white-space:nowrap}
+.cmp{min-width:720px}
+.cmp td.item{white-space:normal}
+
+/* ---------- idea blocks ---------- */
+.ideas{display:flex;flex-direction:column;gap:14px}
+.idea{background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
+.idea h3{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
+.idea h3 .tag{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:var(--amber);padding:3px 7px;border-radius:2px;font-weight:600}
+.idea p{color:var(--ink-2);font-size:.94rem;line-height:1.55}
+.idea .who{font-family:"IBM Plex Mono",monospace;font-size:.79rem;color:var(--ink-2);background:var(--paper);border-left:2px solid var(--pine);padding:9px 12px;border-radius:0 2px 2px 0;line-height:1.65}
+.idea .who b{color:var(--ink)}
+
+/* ---------- event table ---------- */
+.evt td.d{font-family:"IBM Plex Mono",monospace;font-size:.83rem;color:var(--ink-2);white-space:nowrap}
+.evt td.hook{color:var(--ink-2);font-size:.9rem;text-align:left}
+.evt td.n{font-weight:600;color:var(--ink)}
+</style>
+<div class="wrap">
+
+<header class="mast">
+  <div class="who">
+    <span class="eyebrow">Prepared for Corey Hogan</span>
+    <span class="biz">Alpine Bistro</span>
+    <span class="biz">Ellicottville Bake Shop</span>
+    <span class="biz">Alpine Overlook</span>
+  </div>
+  <h1>The six thousand<br>dollar week.</h1>
+  <p class="lede">Costs are already tight, so the whole gap has to come from the top line. This page starts by making $6,000 a week concrete, then argues about where it can realistically come from.</p>
+  <p class="lede" style="font-size:1rem;color:var(--mute)">It comes in two parts. <strong style="color:var(--ink-2)">Part one</strong> is where the growth is: four lanes that add up to the number. <strong style="color:var(--ink-2)">Part two</strong> is what turned up while checking the menus and prices to build part one, and it is here because several of those things are holding sales down today.</p>
+  <div class="target">
+    <span class="big">$6,000</span>
+    <span class="cap">more in weekly sales across the bake shop and the bistro.</span>
+  </div>
+</header>
+
+<div class="tldr">
+  <span class="lab">The short version</span>
+  <h2>Ninety seconds, then the detail.</h2>
+
+  <p><strong>$6,000 a week is 667 sourdough loaves, 1,143 lattes, or 429 Greek salads.</strong> Nobody sells that across a counter that shuts at half past two. So this is not a traffic problem. It is a capacity and channel problem, and both businesses have unsold capacity in plain sight.</p>
+
+  <div class="rule"></div>
+
+  <p><strong>Four lanes get to the number:</strong></p>
+  <ol>
+    <li><span class="txt"><b>Stop closing early Thursday to Saturday.</b> Bar only. Mostly an extension of nights already open.</span><span class="amt">$2,000</span></li>
+    <li><span class="txt"><b>Sell bread wholesale.</b> Starting with Holiday Valley, Trattoria Partenope and his own bistro.</span><span class="amt">$1,500</span></li>
+    <li><span class="txt"><b>Book the rooms.</b> Three private spaces that have never published a price.</span><span class="amt">$1,500</span></li>
+    <li><span class="txt"><b>Lift the ticket.</b> Forty eight cents on every order, and gift cards people can find.</span><span class="amt">$1,000</span></li>
+  </ol>
+
+  <div class="rule"></div>
+
+  <p><strong>The single biggest one:</strong> on Friday the bistro shuts at eight while the Gin Mill runs to eleven, and on Saturday it shuts at nine while Balloons runs to two in the morning. Add Thursday, the night the village's evening rooms open their week, and that is <strong>eleven hours a week of trade walking past a fifty seat bourbon bar.</strong> Two of those three nights are already open and already staffed, so most of this is staying later rather than opening new. Sunday to Wednesday stays shut, because outside holiday weeks the town is quiet and the operators who know it best are closed too.</p>
+
+  <p><strong>Nine things are already built and not switched on,</strong> among them a loyalty program the bake shop runs and never mentions, gift cards no page links to, and a bakery three blocks from a bistro whose entire bread range is one bagel.</p>
+
+  <p><strong>One structural decision sits under all of it.</strong> The bake shop runs on Toast and the bistro runs on Square, so a single gift card and a single loyalty account across both shops is currently impossible. That is a project, not a switch, and it is worth starting the conversation now.</p>
+
+  <div class="rule"></div>
+
+  <p class="foot">Everything below is the working. Part one is where the growth is. Part two is what turned up while checking the menus and prices to build part one. Two numbers from Corey would sharpen all of it: tickets and average ticket per shop, and why the evenings are closed.</p>
+</div>
+
+<div class="part">
+  <span class="lab">Part one</span>
+  <h2>Where the growth is.</h2>
+  <p>Four lanes that add up to $6,000 a week, the assets already sitting unsold, and the demand the village and the mountain publish a year in advance.</p>
+</div>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">01 &nbsp;/&nbsp; What the number looks like</span>
+    <h2>Six thousand dollars, counted out.</h2>
+  </div>
+  <p class="prose">A weekly dollar target is abstract until you put it in things you actually make. Three ways to say the same $6,000:</p>
+
+  <div class="three">
+    <div class="unit">
+      <span class="n">Bake Shop</span>
+      <span class="name">Sourdough loaves</span>
+      <span class="price">$9.00 each</span>
+      <span class="qty">667</span>
+      <span class="qlab">more loaves a week</span>
+      <span class="daily"><b>95</b> a day, every day, on top of what is already going out the door</span>
+    </div>
+    <div class="unit">
+      <span class="n">Bake Shop</span>
+      <span class="name">Lattes</span>
+      <span class="price">$5.25 each &nbsp;·&nbsp; 16 oz</span>
+      <span class="qty">1,143</span>
+      <span class="qlab">more lattes a week</span>
+      <span class="daily"><b>163</b> a day, or about 23 an hour for all seven open hours</span>
+    </div>
+    <div class="unit">
+      <span class="n">Bistro</span>
+      <span class="name">Greek salads</span>
+      <span class="price">$13.99 each</span>
+      <span class="qty">429</span>
+      <span class="qlab">more salads a week</span>
+      <span class="daily"><b>61</b> a day, seven days a week, on the current hours</span>
+    </div>
+  </div>
+
+  <p class="prose">Same number in the rest of the case, at current menu prices:</p>
+
+  <div class="ledger">
+    <table>
+      <thead>
+        <tr><th>If it all came from</th><th>Price</th><th>Per week</th><th>Per day</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="item">Chocolate chip cookie <span class="where">Bake Shop</span></td><td class="per">$1.75</td><td class="qty">3,429</td><td class="qty">490</td></tr>
+        <tr><td class="item">The Ellicottville <span class="where">Bake Shop &nbsp;·&nbsp; breakfast sandwich</span></td><td class="per">$11.75</td><td class="qty">511</td><td class="qty">73</td></tr>
+        <tr><td class="item">Turkey Bacon Italiano <span class="where">Bake Shop &nbsp;·&nbsp; lunch</span></td><td class="per">$12.25</td><td class="qty">490</td><td class="qty">70</td></tr>
+        <tr><td class="item">Greek flatbread <span class="where">Bistro</span></td><td class="per">$8.00</td><td class="qty">750</td><td class="qty">107</td></tr>
+        <tr><td class="item">Caprese Chicken <span class="where">Bistro &nbsp;·&nbsp; handheld</span></td><td class="per">$12.50</td><td class="qty">480</td><td class="qty">69</td></tr>
+        <tr><td class="item">Glass of Johnson Family Cabernet <span class="where">Bistro &nbsp;·&nbsp; bar</span></td><td class="per">$15.00</td><td class="qty">400</td><td class="qty">57</td></tr>
+        <tr><td class="item">Build your own rice bowl <span class="where">Bistro</span></td><td class="per">$15.99</td><td class="qty">375</td><td class="qty">54</td></tr>
+        <tr><td class="item">Catering sandwich platter <span class="where">Bistro &nbsp;·&nbsp; serves 10</span></td><td class="per">$125.00</td><td class="qty">48</td><td class="qty">7</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">02 &nbsp;/&nbsp; The turn</span>
+    <h2>None of those are counter numbers.</h2>
+  </div>
+  <div class="prose">
+    <p>Read that table as a to-do list and it falls apart. Nobody is pulling 163 extra lattes a day out of a shop that closes at 2:30, and 490 extra cookies a day is a different business entirely. <strong>The counter is already doing what the counter can do.</strong></p>
+    <p>Which is the useful finding, because it means the $6,000 is not a traffic problem. It is a <strong>capacity and channel problem</strong>, and both businesses have unsold capacity sitting in plain sight.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="v">11 hrs</span><span class="l">of Thursday to Saturday evening trade, missed every week</span></div>
+    <div class="stat"><span class="v">50 seats</span><span class="l">in the bourbon bar, unlisted on the bistro's own navigation</span></div>
+    <div class="stat"><span class="v">1 mile</span><span class="l">from a resort running lifts until 9 or 10 every night</span></div>
+    <div class="stat"><span class="v">$0</span><span class="l">of bread priced on the menu the website hands out</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">03 &nbsp;/&nbsp; Where the capacity is</span>
+    <h2>Closing two hours before the village does.</h2>
+  </div>
+  <p class="prose">Every hour of the week, by posted hours. The bistro is closed by four o'clock Sunday through Thursday, and the bake shop by half past two, seven days a week.</p>
+
+  <div class="grid-card">
+    <div class="wk" role="img" aria-label="Weekly hours grid showing the bake shop open 7:30am to 2:30pm daily and the bistro open 8am to 4pm Sunday through Thursday, 8pm Friday and 9pm Saturday, leaving evenings closed">
+      <div></div>
+      <div class="hr">7a</div><div class="hr">8</div><div class="hr">9</div><div class="hr">10</div><div class="hr">11</div><div class="hr">12p</div><div class="hr">1</div><div class="hr">2</div><div class="hr">3</div><div class="hr">4</div><div class="hr">5</div><div class="hr">6</div><div class="hr">7</div><div class="hr">8</div><div class="hr">9</div><div class="hr">10</div><div class="hr">11</div>
+      <div class="day">SUN</div>
+      <div class="cell bake"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell bistro"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div>
+
+      <div class="day">MON</div>
+      <div class="cell bake"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell bistro"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div>
+
+      <div class="day">TUE</div>
+      <div class="cell bake"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell bistro"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div>
+
+      <div class="day">WED</div>
+      <div class="cell bake"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell bistro"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div>
+
+      <div class="day">THU</div>
+      <div class="cell bake"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell bistro"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div>
+
+      <div class="day">FRI</div>
+      <div class="cell bake"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell bistro"></div><div class="cell bistro"></div><div class="cell bistro"></div><div class="cell bistro"></div><div class="cell bistro"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div>
+
+      <div class="day">SAT</div>
+      <div class="cell bake"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell both"></div><div class="cell bistro"></div><div class="cell bistro"></div><div class="cell bistro"></div><div class="cell bistro"></div><div class="cell bistro"></div><div class="cell bistro"></div><div class="cell dark"></div><div class="cell dark"></div><div class="cell dark"></div>
+    </div>
+    <div class="key">
+      <span><i class="sw" style="background:var(--pine)"></i> Bake Shop open</span>
+      <span><i class="sw" style="background:var(--amber)"></i> Bistro open</span>
+      <span><i class="sw" style="background:var(--slate-soft)"></i> Both closed</span>
+    </div>
+  </div>
+
+  <p class="prose">That headline is a claim, so here is what it rests on. Every figure below is posted publicly by somebody else.</p>
+
+  <div class="ev">
+    <span class="h">The evidence</span>
+    <dl>
+      <dt>Holiday Valley lifts</dt><dd>Mon to Wed 9am to <strong>9pm</strong> &nbsp;·&nbsp; Thu and Fri 9am to <strong>10pm</strong> &nbsp;·&nbsp; Sat and Sun 8:30am to <strong>10pm</strong></dd>
+      <dt>Night skiing</dt><dd>Runs from 3:30pm, about 37 trails lit, through mid March</dd>
+      <dt>College night</dt><dd>$39 lift ticket with a college ID, <strong>Sunday through Thursday nights</strong></dd>
+    </dl>
+    <p class="src">Source: holidayvalley.com hours and season pass pages. Pulled 18 August 2026.</p>
+  </div>
+
+  <div class="ev">
+    <span class="h">The nights the village actually trades</span>
+    <dl>
+      <dt>The Gin Mill<br><span style="font-weight:400;font-size:.82rem;color:var(--mute)">seven nights</span></dt><dd>Mon to Thu to <strong>10pm</strong> &nbsp;·&nbsp; Fri and Sat to <strong>11pm</strong> &nbsp;·&nbsp; Sun to <strong>10pm</strong><br><span style="color:var(--mute)">An anchor with the volume to justify seven nights. Its Carriage House is a bourbon bar with 65 plus bourbons, in a small private room.</span></dd>
+      <dt>Ellicottville Brewing<br><span style="font-weight:400;font-size:.82rem;color:var(--mute)">seven nights</span></dt><dd>Sun to Thu to <strong>9:30pm</strong> &nbsp;·&nbsp; Fri and Sat to <strong>10pm</strong><br><span style="color:var(--mute)">The other anchor, also carrying seven nights on volume.</span></dd>
+      <dt>Balloons<br><span style="font-weight:400;font-size:.82rem;color:var(--mute)">seven nights</span></dt><dd>Most nights to <strong>11pm</strong> &nbsp;·&nbsp; Sat to <strong>2am</strong><br><span style="color:var(--mute)">Dinner shows at 5:30pm and a late DJ from 9pm most weekends.</span></dd>
+      <dt style="color:var(--pine)">The Banq<br><span style="font-weight:400;font-size:.82rem;color:var(--mute)">four nights, Wed to Sat</span></dt><dd style="color:var(--pine)">Wed and Thu <strong>4pm to 11pm</strong> &nbsp;·&nbsp; Fri and Sat <strong>4pm to midnight</strong> &nbsp;·&nbsp; <strong>closed Sun, Mon and Tue</strong><br><span style="color:var(--mute)">Speakeasy style cocktail lounge in the old bank building, owned by Dina DiPasquale of Dina's. Opens at four, no daytime at all, and does not bother with the dead half of the week.</span></dd>
+      <dt style="color:var(--pine)">Villaggio<br><span style="font-weight:400;font-size:.82rem;color:var(--mute)">four nights, Thu to Sun</span></dt><dd style="color:var(--pine)">Thu to Sat <strong>5pm to 10pm</strong> &nbsp;·&nbsp; Sun 4pm to 9pm &nbsp;·&nbsp; <strong>closed Mon, Tue and Wed</strong> &nbsp;·&nbsp; live music from 5:30pm</dd>
+      <dt style="color:var(--amber)">Alpine Bistro<br><span style="font-weight:400;font-size:.82rem;color:var(--mute)">16 Washington St</span></dt><dd style="color:var(--amber)">Closes <strong>4pm</strong> Sun to Thu &nbsp;·&nbsp; 8pm Fri &nbsp;·&nbsp; 9pm Sat</dd>
+    </dl>
+    <p class="src">Sources: each venue's own posted hours and Google Business Profile. Pulled 18 August 2026. The two rooms closest in kind to Alpine Roots are marked in green, and neither of them opens seven nights.</p>
+  </div>
+
+  <div class="prose">
+    <p>In winter the mountain a mile away keeps its lifts running <strong>five to six hours past the bistro's closing time.</strong> Night skiing starts at 3:30, half an hour before the bistro locks up, and runs to mid March. That is a seasonal argument rather than a year round one, and it is worth treating as the upside case rather than the base case.</p>
+    <p>But the village does not answer that demand every night, and it matters which nights it does. <strong>The two venues closest in kind to Alpine Roots both run four nights, not seven.</strong> The Banq opens Wednesday to Saturday and is dark Sunday, Monday and Tuesday. Villaggio opens Thursday to Sunday and is dark Monday to Wednesday. Only the big anchors, the Gin Mill and Ellicottville Brewing, carry seven nights, and they have the volume to justify it.</p>
+    <p>That is the real shape of this town. Outside holiday weeks, Sunday through Wednesday nights are thin and the operators who know the market do not fight it. <strong>So the lane is not five nights. It is Thursday, Friday and Saturday.</strong></p>
+    <p>And here is the part that makes it easy: <strong>on two of those three nights the bistro is already open and already staffed.</strong> It simply closes early. Friday it shuts at eight while the Gin Mill runs to eleven. Saturday it shuts at nine while Balloons runs to two in the morning. Thursday it shuts at four, which is the night the village's evening rooms start their week.</p>
+    <p>The uncomfortable part is what those two four-night rooms actually are. The Gin Mill's Carriage House is a small private bourbon bar with sixty five bourbons. The Banq is a speakeasy style cocktail lounge. <strong>Those are Alpine Roots and the cocktail room, already built, already trading, four blocks away, on exactly the nights Corey is closed.</strong></p>
+    <p>Corey owns a fifty seat bourbon bar, a fifteen seat cocktail room, a wine list and a liquor license, and on the three nights that matter it is either locked by four or closes two to three hours before everybody else. <strong>Bar revenue is also the best margin in the building.</strong> A $15 glass of Cabernet does not carry the labor or the food cost of a $13.99 salad, which means evening dollars close the gap faster than counter dollars of the same size.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">04 &nbsp;/&nbsp; Already paid for</span>
+    <h2>Nine things they own and are not selling.</h2>
+  </div>
+  <div class="prose">
+    <p>Before any of the bigger lanes, there is a shorter list worth walking through, because everything on it already exists. It has been built, paid for and staffed. It is simply not switched on, not signposted, or buried where nobody scrolls.</p>
+    <p><strong>This is the cheapest revenue in the business,</strong> and most of it can be done in an afternoon by one person.</p>
+  </div>
+  <div class="checks">
+    <div class="check"><span class="h"><span class="mk">01</span> A fifty seat bourbon bar</span><p>Alpine Roots exists, seats fifty, and appears nowhere in the bistro's site navigation. The only public mention is a line of fine print in the Airbnb listing, and it is shut on the nights the village drinks.</p></div>
+    <div class="check"><span class="h"><span class="mk">02</span> A loyalty program</span><p>The bake shop already awards a point per dollar. It is on no sign, no menu, no website and no receipt that could be found from outside. A running rewards scheme with no promotion is the cheapest repeat-visit mechanism they have.</p></div>
+    <div class="check"><span class="h"><span class="mk">03</span> Gift cards</span><p>Alpine Bistro sells Square eGift cards at $10, $20, $25, $50 and custom. Not one page on either website links to them. The bake shop has none at all.</p></div>
+    <div class="check"><span class="h"><span class="mk">04</span> A bundle that works</span><p>"The Board and Brew," a sandwich plus a 16 oz mocha for $14.25, with its own artwork. It is the only cross-sell product either business sells, and it sits at the bottom of a category nobody scrolls to.</p></div>
+    <div class="check"><span class="h"><span class="mk">05</span> A group product</span><p>A 96 oz coffee carafe at $32.25 with cups, lids, sugars and creamers. Exactly what a ski bus, a lacrosse team or a Holiday Valley conference room buys, and it is unpromoted.</p></div>
+    <div class="check"><span class="h"><span class="mk">06</span> Three private rooms</span><p>Bourbon bar, cocktail room and cafe, all described on the events page, none with a price, a minimum or a deposit. Every prospect has to call to find out whether they can afford it.</p></div>
+    <div class="check"><span class="h"><span class="mk">07</span> A wholesale program</span><p>The page exists. It has no form, no product list, no prices and no minimums, in a village where every restaurant buys bread from somebody.</p></div>
+    <div class="check"><span class="h"><span class="mk">08</span> A bakery three blocks away</span><p>The bistro's entire bread range is one $3.00 bagel that stops selling at 2:29pm. The bake shop closes at 2:30. From half past two nobody in the village can buy a loaf, while the bistro trades on for hours.</p></div>
+    <div class="check"><span class="h"><span class="mk">09</span> An apartment upstairs</span><p>Alpine Overlook already sends its guests into both shops. Nothing sends shop customers back the other way, and no guest leaves an email address behind.</p></div>
+  </div>
+  <p class="note">Not one of these needs a budget, a vendor or a new product. Every one of them needs somebody to be given the job.</p>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">05 &nbsp;/&nbsp; The stack</span>
+    <h2>Four lanes that add up to it.</h2>
+  </div>
+  <p class="prose">No single change gets to $6,000. Four do, and they are independent, so a shortfall in one does not sink the others. Every figure below is arithmetic, not a forecast. Swap in Corey's real numbers and it re-solves.</p>
+
+  <div class="lanes">
+
+    <div class="lane">
+      <div class="body">
+        <h3>Stop closing early on the nights that already work</h3>
+        <p>Thursday, Friday and Saturday. Bar only, no kitchen, no full dinner service. Two of the three are nights the bistro already trades and simply shuts two to three hours before the village does, so most of this is an extension rather than a new opening. Sunday through Wednesday stays closed, because outside holiday weeks the town is genuinely quiet and the operators who know it best do not open either.</p>
+        <div class="math">Thu 5 to 10pm &nbsp; 25 guests &times; $22 = $550<br>Fri, extend 8 to 11pm &nbsp; 35 &times; $23 = $805<br>Sat, extend 9 to 11pm &nbsp; 30 &times; $23 = $690<br><strong>$2,045 a week</strong> &nbsp;·&nbsp; holiday weeks and Mardi Gras run wider</div>
+      </div>
+      <div class="amt"><span class="v">$2,000</span><span class="run">running $2,000</span></div>
+    </div>
+
+    <div class="lane">
+      <div class="body">
+        <h3>Sell bread wholesale</h3>
+        <p>Ellicottville Bake Shop is the only scratch bakery in the village, and every restaurant on Washington Street buys bread from somebody. Restaurant accounts are contracted, recurring and forecastable, which is exactly the kind of revenue a fixed cost business needs. Section 06 has the specific targets.</p>
+        <p><strong>The first account is his own bistro.</strong> The bake shop closes at 2:30 and the bistro stays open until four, eight or nine. Put the loaves on the bistro counter and the village can buy bread in the afternoon for the first time.</p>
+        <div class="math">4 accounts &times; $375/wk = <strong>$1,500</strong><br>or 30 loaves/day &times; 6 days &times; $6.50 = $1,170 from one hill account<br>or 15 afternoon loaves/day at the bistro &times; $9.00 = <strong>$945</strong></div>
+      </div>
+      <div class="amt"><span class="v">$1,500</span><span class="run">running $3,500</span></div>
+    </div>
+
+    <div class="lane">
+      <div class="body">
+        <h3>Book the rooms</h3>
+        <p>The events page already lists three spaces and a full catering menu, and it never states a price, a minimum or a deposit. Every prospect has to call to learn whether they can afford it, and most will not. Publishing terms converts browsers into bookings without adding a single seat.</p>
+        <p><strong>Three ways to price it, and all three work:</strong> a <strong>flat room fee</strong>, which is simplest and reads as fair. <strong>No room charge against a minimum spend</strong>, which feels generous to the guest and protects the night for the house. Or a <strong>hybrid</strong>, a smaller fee with a lower minimum, which is safest on a marquee weekend. Pick one per room and per season, and put the number on the page.</p>
+        <div class="math">1 event: 30 guests &times; $16 pp/hr &times; 3 hrs + 3 pans = <strong>$1,560</strong><br>two a week = $3,120 &nbsp;·&nbsp; or 12 catering platters = $1,500</div>
+      </div>
+      <div class="amt"><span class="v">$1,500</span><span class="run">running $5,000</span></div>
+    </div>
+
+    <div class="lane">
+      <div class="body">
+        <h3>Lift the ticket</h3>
+        <p>The cheapest lane on the page, because the customer is already at the register. A trained add-on prompt, a loaf on the way out, and gift cards that people can actually find. <strong>Two of the pieces are already built and neither is switched on.</strong> The bake shop sells "The Board and Brew," a staff-pick combo of a breakfast sandwich with avocado plus a 16 oz mocha for $14.25, with its own artwork, buried at the bottom of a category. And it runs a loyalty program, one point per dollar, that no sign, no menu and no web page mentions.</p>
+        <div class="math">At 300 tickets/day, this needs <strong>$0.48 per ticket</strong><br>roughly one cookie on every fourth order</div>
+      </div>
+      <div class="amt"><span class="v">$1,000</span><span class="run">running $6,000</span></div>
+    </div>
+
+    <div class="lane-total">
+      <span class="t">Target closed</span>
+      <span class="v">$6,000</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">06 &nbsp;/&nbsp; The mountain</span>
+    <h2>Three ways into Holiday Valley.</h2>
+  </div>
+  <p class="prose">Holiday Valley is a mile up the road and it is the reason most of the traffic exists. It already sends people to both businesses: the resort's own Village Options dining page names Alpine Bistro and Ellicottville Bake Shop. That is a warm relationship to trade on rather than a cold call.</p>
+
+  <div class="ideas">
+
+    <div class="idea">
+      <h3><span class="tag">Wholesale</span> Sell them the one thing they cannot buy</h3>
+      <p>The resort is not short of a bakery vendor, and it will not switch its whole bread program for a village shop. But its lodge coffee and pastry counter runs on <strong>Starbucks</strong> and a broadline supplier, and that supplier does not make handmade sourdough a mile down the hill. Do not pitch a bread contract. Pitch one or two signature items that Holiday Valley cannot source anywhere else and can put a local name on.</p>
+      <div class="who"><b>Open with:</b> the Ellicottville sourdough loaf and one signature pastry, named as local on their menu.<br><b>Three doors, not one:</b> lodge food service &nbsp;·&nbsp; the Cabana Bar &nbsp;·&nbsp; the conference and banquet program, which buys bread by the tray and books months ahead.</div>
+    </div>
+
+    <div class="idea">
+      <h3><span class="tag">Buses</span> Get the coach to stop in the village first</h3>
+      <p>Chartered ski buses run to Holiday Valley all winter from Cleveland, Toronto and the Buffalo suburbs. Those coaches arrive with forty to fifty people who have been on a bus for two or three hours and have not eaten. Right now they roll straight past Washington Street to the base lodge. A fifteen minute coffee and pastry stop on the way in is a standing pre-order, not a walk-in gamble.</p>
+      <div class="who"><b>Named operators to approach:</b> Chagrin Valley Ski Club (Cleveland, four chartered Sunday buses a season) &nbsp;·&nbsp; High Park Ski Club (Toronto, multi-day coach trips) &nbsp;·&nbsp; Suburban Ski Club &nbsp;·&nbsp; Fullington Trailways, which runs a scheduled Buffalo to Ellicottville service daily.<br><b>The offer:</b> a fixed per-head coffee and pastry package, pre-ordered and pre-paid by the trip organizer, bagged and ready when the coach pulls in.</div>
+    </div>
+
+    <div class="idea">
+      <h3><span class="tag">Colleges</span> Follow the student nights</h3>
+      <p>Holiday Valley prices a college night lift ticket at $39 Sunday through Thursday, runs a College Daze weekend package out of The Inn, and university ski clubs bus in on Friday nights. That is a large, organized, repeat audience that arrives on a schedule somebody publishes in advance. Reaching thirty club officers is a far cheaper way to fill a room than reaching thirty thousand strangers. <strong>This one does not depend on opening extra nights,</strong> because a booked club night fills a private room on a date the group picks, which is usually the Friday or Saturday they are already in town.</p>
+      <div class="who"><b>Who to contact:</b> ski and snowboard club officers at Buffalo, Canisius, St. Bonaventure, RIT, Pitt, Toronto and the Cleveland area schools, plus Holiday Valley's own group sales desk.<br><b>The offer:</b> a fixed price bus package, and the bourbon bar or cocktail room booked out for a club night, which is exactly the private room product already sitting on the events page.</div>
+    </div>
+
+  </div>
+  <p class="note">These three lanes all feed the same fact: the demand is already organized into groups, with a named person who books for the group. Group revenue is forecastable in a way that walk-in revenue never is.</p>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">07 &nbsp;/&nbsp; The calendar</span>
+    <h2>Every event on the calendar gets a plan.</h2>
+  </div>
+  <div class="prose">
+    <p>Ellicottville publishes its own demand schedule a year in advance, and it is not only the ski season. Two resorts, a chamber, a lacrosse festival and a bike park all put dated, ticketed, organized traffic into a four block village. Right now each of those weekends is treated as weather: it arrives, the shops get busy, nothing was prepared for it.</p>
+    <p><strong>The initiative is to work the calendar rather than react to it.</strong> One named owner, one page per event, and a standing rhythm: four weeks out decide the offer, two weeks out post and email it, the week of it is on the counter and in the windows.</p>
+    <p>Read the right hand column below as a pattern rather than a list. <strong>A striking number of these events run into the evening,</strong> and the bistro is shut before they start.</p>
+  </div>
+
+  <div class="ledger">
+    <table class="evt">
+      <thead><tr><th>Event</th><th>When</th><th>Why it matters to these two shops</th></tr></thead>
+      <tbody>
+        <tr><td class="n">HoliMont Women's Weekend</td><td class="d">Aug 7 to 9, 2026</td><td class="hook">First ever. Clinics, group rides and après for women riders. A defined audience with an organizer to call.</td></tr>
+        <tr><td class="n">Taste of Ellicottville</td><td class="d">Aug 8 to 9, 2026</td><td class="hook">The village's restaurants take over Monroe and Washington. Being absent from the town's own food festival is a decision.</td></tr>
+        <tr><td class="n">HoliMont DH Race #3</td><td class="d">Aug 23, 2026 &nbsp;·&nbsp; 4 to 7pm</td><td class="hook">Racing finishes at seven. Both shops have been closed for hours.</td></tr>
+        <tr><td class="n">Kids mountain bike camps</td><td class="d">Aug 29 to 30 &nbsp;·&nbsp; Sep 26 to 27</td><td class="hook">Parents parked in the village all day with nothing to do. Predictable coffee and lunch demand on a published schedule.</td></tr>
+        <tr><td class="n">Ladies Wine and Nine</td><td class="d">Sep 3, 2026 &nbsp;·&nbsp; 5pm start</td><td class="hook">Golf, two-lady teams, five o'clock shotgun. A group that finishes thirsty at exactly the wrong hour.</td></tr>
+        <tr><td class="n">Rock N' Roll Weekend</td><td class="d">Sep 11 to 13, 2026</td><td class="hook">The next chamber weekend on the board, and the closest one to act on.</td></tr>
+        <tr><td class="n">Ellicottville Lacrosse Festival</td><td class="d">September, dates to confirm</td><td class="hook">Eighth year, at Chamber Fields on Holiday Valley, and the organizers expect to double it in 2026 with Premier Lacrosse League. Teams travel with parents and eat three meals a day for a whole weekend.</td></tr>
+        <tr><td class="n">Roots, Rocks &amp; Ridges</td><td class="d">Sep 25 to 27, 2026</td><td class="hook">Cross country, short track and downhill to close the bike season.</td></tr>
+        <tr><td class="n">Nightmare Hayrides</td><td class="d">Fri to Sun, Oct 2 to Nov 1 &nbsp;·&nbsp; 7:30 to 9:30pm</td><td class="hook">Every weekend night for a month, ending at half past nine, in a village where both shops are dark.</td></tr>
+        <tr><td class="n">Fall Festival</td><td class="d">Oct 10 to 11, 2026</td><td class="hook">Biggest weekend of the year, and it runs into Canadian Thanksgiving on Monday the 12th. Pre-order boxes, extended hours, apartment booked long ago.</td></tr>
+        <tr><td class="n">EVL Halloween Half and 5K</td><td class="d">Oct 24, 2026</td><td class="hook">Runners eat before and after. Early open, carb pre-order, finish line coffee.</td></tr>
+        <tr><td class="n">Crawl Outta Fall</td><td class="d">Nov 6, 2026 &nbsp;·&nbsp; evening</td><td class="hook">A bar crawl that starts at the Tamarack Club and walks into town. Alpine Roots should be a stop on it.</td></tr>
+        <tr><td class="n">Beer &amp; Wine Festival</td><td class="d">Nov 7 to 8, 2026</td><td class="hook">A wine bar with a bourbon room should not be a bystander at the wine festival.</td></tr>
+        <tr><td class="n">Christmas in Ellicottville</td><td class="d">Nov 28 to 29, 2026</td><td class="hook">Gift card weekend. Holiday bread and pastry pre-orders open here.</td></tr>
+        <tr><td class="n">A Christmas Stroll</td><td class="d">Dec 12, 2026 &nbsp;·&nbsp; evening</td><td class="hook">An evening event the bistro is currently shut before.</td></tr>
+        <tr><td class="n">Winter Blues Weekend</td><td class="d">Jan 15 to 17, 2027</td><td class="hook">Live music weekend. The bourbon bar is the room for it.</td></tr>
+        <tr><td class="n">Winter Music Jam</td><td class="d">Feb 12 to 14, 2027</td><td class="hook">Friday to Sunday over Valentine's. Couples, private cocktail room, apartment at peak.</td></tr>
+        <tr><td class="n">Mardi Gras Weekend</td><td class="d">Mar 12 to 14, 2027</td><td class="hook">Now confirmed by the chamber, which settles an open date in the apartment pricing model.</td></tr>
+        <tr><td class="n">HoliMont Canadian March Break</td><td class="d">Mar 15 to 19, 2027</td><td class="hook">The mountain sells lift tickets at par to Canadians that week. See below.</td></tr>
+        <tr><td class="n">Locals Day at HoliMont</td><td class="d">Mar 25 to 26, 2027</td><td class="hook">Chamber members and their staff ski from 9:30 to après. Corey's own peer group, in one place, in a buying mood.</td></tr>
+        <tr><td class="n">Nashville Nights</td><td class="d">Apr 16 to 18, 2027</td><td class="hook">Shoulder season weekend that carries a soft month.</td></tr>
+        <tr><td class="n">Happy Half Marathon</td><td class="d">May 9, 2027</td><td class="hook">Half, 5K and a Beer Mile at the resort. Another early morning feeding opportunity.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Dates from ellicottvilleoutside.com, which already aggregates Holiday Valley, HoliMont and the chamber into one calendar, cross-checked against the chamber's own listings on 18 August 2026. Lacrosse festival dates are not published yet. Note that HoliMont's bike park runs Fridays until 7pm and sells a promotion for riding after 2:50pm, so summer keeps an evening too.</p>
+
+  <div class="ev">
+    <span class="h">The Canadian calendar, and the exchange rate problem</span>
+    <p style="color:var(--ink-2);font-size:.93rem;line-height:1.55">Ellicottville runs on Ontario traffic, and the dollar is working against it right now, so this is a smaller prize than it was five years ago. It is not nothing. The answer is not to discount the product, it is to take the exchange rate off the table with a specific offer, and the mountain has already proved it works here.</p>
+    <dl>
+      <dt>Canadian Thanksgiving</dt><dd>Mon <strong>Oct 12, 2026</strong> &nbsp;·&nbsp; the Monday right after Fall Festival, so Canadians get a three day weekend on the biggest weekend of the year</dd>
+      <dt>Ontario Family Day</dt><dd>Mon <strong>Feb 15, 2027</strong> &nbsp;·&nbsp; the same day as US Presidents' Day, so both countries are on holiday at once</dd>
+      <dt>Ontario March Break</dt><dd><strong>Mar 15 to 19, 2027</strong> &nbsp;·&nbsp; HoliMont already sells lift tickets at par that week, plus a gift card offer</dd>
+      <dt>Victoria Day</dt><dd>Mon <strong>May 24, 2027</strong></dd>
+      <dt>Civic Holiday</dt><dd>Mon <strong>Aug 3, 2026</strong></dd>
+    </dl>
+    <p class="src">The move to copy: <strong>at par pricing on named days</strong>, or a fixed Canadian dollar price on a coffee and pastry bundle. It reads as generous, it costs less than a headline discount, and HoliMont has already trained Canadian visitors to expect it in this village.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">08 &nbsp;/&nbsp; Who owns this</span>
+    <h2>Somebody has to hold the whole picture.</h2>
+  </div>
+  <div class="prose">
+    <p>Nearly everything in this document is a small job that nobody currently has. Price the bread on the menu. Reset the shelf in the morning. Link the gift card. Answer on Airbnb. Call Trattoria about bread. Individually they are afternoons. Collectively they are a role.</p>
+    <p><strong>An extra $6,000 a week is $312,000 a year.</strong> A target that size does not get hit by a list of tidy-ups shared out among people who each own a slice. It needs one person who can see across the bakery, the bistro, the bar, the rooms and the apartment at once, who owns the process and is accountable for the result. That is worth an honest look at how the Ellicottville team is structured before any of the lanes get started.</p>
+    <p>Underneath that sits the cheapest lever in the building. Every idea here dies at the counter if the person working it does not know about it. A customer asks the barista about a birthday party and gets a shrug. Somebody buying four loaves is never asked whether their restaurant wants a standing order. A family checking out of the apartment is never told there is a bourbon bar downstairs.</p>
+    <p><strong>The fix is a standing ten minute huddle, weekly or every other week, at both shops.</strong> Not a meeting about the schedule. A meeting about what we sell.</p>
+  </div>
+  <div class="checks">
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> The whole menu, both shops</span><p>Every person at the bake shop should be able to describe what the bistro does, and the reverse. They are one customer base in a four block village.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> The event spaces</span><p>Three rooms, capacities, who to hand the enquiry to, and a card to give out. Every staff member should know this cold.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> The apartment upstairs</span><p>What it sleeps, what it costs, where to send someone who asks. It is directly above the bistro and most guests do not know it exists.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> The wholesale program</span><p>Anyone buying in volume is a lead. Staff need one sentence and a contact to hand over.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> This week's add-on</span><p>One item, one line, everybody says it. This is the mechanic behind the $0.48 a ticket in lane four.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> What is coming</span><p>The next event on the calendar and what we are doing about it, so the staff hear it before the customers do.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">09 &nbsp;/&nbsp; The apartment</span>
+    <h2>The cross sell only runs one way.</h2>
+  </div>
+  <div class="prose">
+    <p>Alpine Overlook already does the hard part. Guests get breakfast downstairs and a $20 bakery credit, so every stay pushes traffic into both shops. It works, it is rated 5.0, and it is a genuine advantage no other rental in the village has.</p>
+    <p>What is missing is the return trip. <strong>Nothing flows the other direction.</strong> The bake shop has hundreds of customers a day and none of them are told there is an apartment above the bistro. Guests leave without an email address on file, so a family that came for Fall Festival never hears about a February weekend. And a guest who spends the $20 credit and nothing more is a cost, not a channel.</p>
+    <p>Three fixes: capture the guest email at booking and run one seasonal offer a year, put a card in the room and a sign at both registers pointing each way, and set the credit high enough that guests walk out having spent past it.</p>
+  </div>
+</section>
+
+<div class="part">
+  <span class="lab">Part two</span>
+  <h2>What we found along the way.</h2>
+  <p>None of this was what we set out to look for. It surfaced while checking prices and menus to build the numbers above. It is here because several of these are holding sales down today, and because a few of them are quick.</p>
+</div>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">10 &nbsp;/&nbsp; The one structural decision</span>
+    <h2>Two shops, two systems, three blocks apart.</h2>
+  </div>
+<div class="ev" style="border-left-color:var(--ink)">
+    <span class="h" style="color:var(--ink)">What the split actually costs</span>
+    <p style="color:var(--ink-2);font-size:.93rem;line-height:1.58">The bake shop runs on <strong>Toast</strong>. The bistro runs on <strong>Square</strong>. Two tills, two apps, two back offices, two sets of reports, two logins, for one owner with two shops three blocks apart. Both are closed systems, so this is not a branding quibble, it is a wall:</p>
+    <dl>
+      <dt>Gift cards</dt><dd>A Square card sold at the bistro cannot be spent at the bake shop, and the bake shop has no card at all</dd>
+      <dt>Loyalty</dt><dd>Points earned at the bake shop do not exist at the bistro, so the customer has to care about two schemes to be rewarded for one relationship</dd>
+      <dt>Customers</dt><dd>Two separate databases, so nobody can see that the person buying bread every Saturday is also the one booking the apartment</dd>
+      <dt>Pricing</dt><dd>Two catalogues maintained by hand, which is why a sticky bun costs $1.25 more four blocks away</dd>
+    </dl>
+    <p class="src" style="color:var(--ink-2);font-size:.9rem;line-height:1.55">One card and one account spendable at both counters is the single most valuable thing these two businesses could share, and it is the one thing the current setup makes impossible. <strong>Getting there means picking one platform and moving the other onto it.</strong> That is a real project rather than a switch: menus rebuilt, staff retrained, hardware swapped, contracts timed. It does not belong on the list below. It belongs on a decision list, and the longer it waits the more history has to be migrated.<br><br><strong>What works in the meantime, and needs no integration at all:</strong> make each store carry the other's range. A customer browsing the bistro menu should be able to see the sourdough, the honey wheat and the stuffed focaccia, with the price, the photograph and a plain line saying it is collected three blocks away at the bake shop, and a link straight to it. The checkout stays separate. The <em>knowing</em> does not have to. Right now somebody on the bistro site has no way to learn that a scratch bakery under the same ownership is a three minute walk away, and that is a discovery problem rather than a technology one. Run the same trick in reverse: the bake shop's store should show the bistro's bowls, flatbreads and the bourbon bar. Add a paper cross-shop offer honoured at both counters and you have most of the benefit of one system, for the price of an afternoon.<br><br>It is also worth asking how this happened, because the answer usually decides how hard it is to undo. Two systems three blocks apart is rarely a decision anybody made. It is normally what is left over when two businesses were set up at different times by different people, and nobody has since been given the job of choosing.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">11 &nbsp;/&nbsp; Where the numbers disagree</span>
+    <h2>Three brands, four sets of hours, five price lists.</h2>
+  </div>
+  <div class="prose">
+    <p>There are three separate web presences here, not two. <strong>alpinebistrony.com</strong>, <strong>ellicottvillebakeshop.com</strong>, and <strong>ellicottvillecoffee.com</strong>, which is the Square store the bistro's Order Online button opens. The third one carries its own name, its own email address, its own hours and its own story, and it lists the same street address as the bistro.</p>
+    <p>Between them these sites publish prices in five places and opening hours in four, and they do not agree.</p>
+    <p>The clearest problem is the barista menu. <strong>Every drink on the 2024 PDF is fifty cents to a dollar behind what the tills actually charge,</strong> and that file is still linked from the bake shop website today. A customer deciding on their phone is reading last year's prices.</p>
+    <p>The pattern on hours is worse, because there is no pattern. <strong>Two sites publish different closing times for the same address.</strong></p>
+  </div>
+
+  <div class="ev" style="border-left-color:var(--amber)">
+    <span class="h" style="color:var(--amber)">16 Washington Street, according to its own websites</span>
+    <dl>
+      <dt>alpinebistrony.com</dt><dd>Sun to Thu 8am to <strong>4pm</strong> &nbsp;·&nbsp; Fri 8am to <strong>8pm</strong> &nbsp;·&nbsp; Sat 8am to <strong>9pm</strong></dd>
+      <dt>ellicottvillecoffee.com</dt><dd>Sun to Thu 8am to <strong>5pm</strong> &nbsp;·&nbsp; Fri 8am to <strong>7pm</strong> &nbsp;·&nbsp; Sat 8am to <strong>7pm</strong></dd>
+      <dt>Bake shop website</dt><dd>Daily 7:30am to <strong>2:30pm</strong></dd>
+      <dt>Bake shop menu PDF</dt><dd>Daily 7:30am to <strong>3:30pm</strong></dd>
+    </dl>
+    <p class="src">Every one of these is live today. Saturday is the widest gap: two hours between what the two bistro sites promise.</p>
+  </div>
+
+    <div class="ledger">
+    <table class="cmp">
+      <thead><tr><th>Same drink, both shops</th><th>Bake Shop<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Toast</span></th><th>Bistro<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Square</span></th><th>2024 PDF<br><span style="font-weight:400;text-transform:none;letter-spacing:0">still on the site</span></th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td class="item">Coffee, 16 oz</td><td class="pr">$4.75</td><td class="pr">$4.50</td><td class="pr">$4.00</td><td class="gap">25&cent; apart</td></tr>
+        <tr><td class="item">Mocha, 16 oz</td><td class="pr">$6.25</td><td class="pr">$6.00</td><td class="pr">$5.25</td><td class="gap">25&cent; apart</td></tr>
+        <tr><td class="item">Latte, 16 oz</td><td class="pr">not listed</td><td class="pr">$5.25</td><td class="pr">$4.50</td><td class="gap">missing</td></tr>
+        <tr><td class="item">Cappuccino, 12 oz</td><td class="pr">$4.75</td><td class="pr">$4.75</td><td class="pr">$4.00</td><td class="ok">agree</td></tr>
+        <tr><td class="item">Chai latte, 16 oz</td><td class="pr">$5.50</td><td class="pr">$5.50</td><td class="pr">$4.75</td><td class="ok">agree</td></tr>
+        <tr><td class="item">Macchiato, 16 oz</td><td class="pr">$5.25</td><td class="pr">$5.25</td><td class="pr">$4.50</td><td class="ok">agree</td></tr>
+        <tr><td class="item">Coffee, 12 oz</td><td class="pr">$3.50</td><td class="pr">$3.50</td><td class="pr">$3.00</td><td class="ok">agree</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ledger">
+    <table class="cmp">
+      <thead><tr><th>Pastry and bread</th><th>Bistro<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Square</span></th><th>Bake Shop<br><span style="font-weight:400;text-transform:none;letter-spacing:0">Toast</span></th><th>Jan 2026 PDF</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td class="item">Sticky bun</td><td class="pr">$5.25</td><td class="pr">$4.00</td><td class="pr">$4.00</td><td class="gap">bistro $1.25 high</td></tr>
+        <tr><td class="item">Savory croissant</td><td class="pr">$5.50</td><td class="pr">$5.50</td><td class="pr">$6.50</td><td class="gap">PDF $1.00 high</td></tr>
+        <tr><td class="item">Muffin</td><td class="pr">$4.00 to $4.25</td><td class="pr">$4.00</td><td class="pr">$3.50</td><td class="gap">PDF 50&cent; low</td></tr>
+        <tr><td class="item">Scone</td><td class="pr">$4.25</td><td class="pr">$4.00</td><td class="pr">$4.00</td><td class="gap">bistro 25&cent; high</td></tr>
+        <tr><td class="item">Brownie</td><td class="pr">$4.75</td><td class="pr">$4.75</td><td class="pr">$4.75</td><td class="ok">agree</td></tr>
+        <tr><td class="item">Cinnamon roll</td><td class="pr">$5.75</td><td class="pr">$5.75</td><td class="pr">$5.75</td><td class="ok">agree</td></tr>
+        <tr><td class="item">Croissant</td><td class="pr">$4.75</td><td class="pr">$4.75</td><td class="pr">$4.75</td><td class="ok">agree</td></tr>
+        <tr><td class="item">Danish</td><td class="pr">$5.25</td><td class="pr">$5.25</td><td class="pr">$5.25</td><td class="ok">agree</td></tr>
+        <tr><td class="item">Ellicottville sourdough loaf</td><td class="pr">not sold</td><td class="pr">$9.00</td><td class="pr">no price</td><td class="gap">Toast only</td></tr>
+        <tr><td class="item">Honey Wheat loaf</td><td class="pr">not sold</td><td class="pr">$9.75</td><td class="pr">no price</td><td class="gap">Toast only</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ul class="plain">
+    <li><strong>The two shops charge differently for the same drink, on two items out of seven.</strong> A 16 oz coffee is $4.75 at the bake shop and $4.50 at the bistro. A 16 oz mocha is $6.25 and $6.00. Everything else lines up exactly, which suggests the gap is drift rather than policy. Either is fine, so long as it is a decision.</li>
+<li><strong>The bake shop's online store does not appear to sell a latte.</strong> Its beverage list runs alphabetically through cappuccino, chai, coffee and the coffee carafe, then jumps to macchiato and mocha. Worth confirming, because the latte is the drink most people walk in for.</li>
+    <li><strong>A sticky bun is $4.00 at the bakery and $5.25 at the bistro.</strong> That is the widest gap of any shared item, on a pastry that comes out of the same oven and travels four blocks. The scone is 25 cents apart the same way.</li>
+<li><strong>The January 2026 menu PDF is stale on pastry too, in both directions.</strong> It underprices the muffin by fifty cents and overprices the savory croissant by a dollar against what both tills actually charge.</li>
+    <li><strong>The store quotes a 40 to 45 minute pickup wait.</strong> That is a long time to be told you will wait for a coffee and a pastry, and it is the first thing a new customer sees. Worth checking whether that reflects the real kitchen or is a default nobody has revisited, because at that number most impulse orders never get placed.</li>
+    <li><strong>The bistro sells food online that its website never mentions, and advertises food online that it will not sell.</strong> Its Square store carries seven categories and is properly stocked. But the catalog also holds Appetizers, Mediterranean Lunch and Flatbread Pizzas, and none of those three appear in the store menu, so the Greek salad, the flatbreads and the build-your-own bowls that headline the website cannot actually be ordered.</li>
+    <li><strong>The bread is priced in the ordering app and nowhere else.</strong> Toast has the full range with prices: Ellicottville Sourdough $9.00, Honey Wheat $9.75, stuffed Focaccia $9.50, Farmhouse White and Cinnamon Swirl $8.25, bagels $3.00, six assorted bagels $16.00 on a day's notice. The menu PDF the website hands out lists twelve breads and prices none of them. A customer who downloads the menu, and anyone asking for a wholesale quote, is looking at a blank column.</li>
+    <li><strong>The third site tells a different company's story.</strong> The About section on ellicottvillecoffee.com describes an outdoor gear store with fly fishing trips and snowshoe excursions, and names a founder who is not Corey. It reads as inherited copy from a business that used to occupy the brand, still live at the bistro's address, still collecting mail at its own domain.</li>
+    <li><strong>A customer clicking Order Online at Alpine Bistro lands on a store called Ellicottville Coffee Co.</strong> The gift card sold there is titled Alpine Bistro. Three names, two ordering platforms, two email domains, one building.</li>
+    <li><strong>The bakery's online store looks half sold out twenty minutes before it opens.</strong> At ten past seven on a Tuesday, seven items were struck through as OUT OF STOCK: Sticky Buns, Savory Croissant, Chocolate Almond Croissant, the cookie butter cinnamon roll, the Maple Walnut Vegan Muffin, the Seasonal Muffin and the Cinnamon Swirl loaf. That is four of the eight Specialty Items and half the muffins. Either the day's bake has not been marked back in, or nobody resets the store in the morning. Somebody browsing at breakfast sees a bakery with nothing left, and this is the most expensive thing on the page to leave alone, because it suppresses orders silently.</li>
+    <li><strong>Item names are inconsistent.</strong> "chocchip scone" and "cookie butter cinnamon roll" sit in lower case beside Blueberry Lemon Scone and Cinnamon Rolls. Small on its own, but it reads as a store nobody has tidied.</li>
+    <li><strong>Two items are selling with no photograph and no description.</strong> The stuffed Focaccia at $9.50 and the Veggie Ellicottville Sandwich at $8.75 are blank cards next to a page of good food photography. On an ordering screen the picture is the sales pitch.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">12 &nbsp;/&nbsp; The fix list</span>
+    <h2>Tidy-ups, none of which cost anything.</h2>
+  </div>
+  <div class="checks">
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Price the bread on the menu</span><p>Toast has every loaf priced. The PDF the website links to has none of them. Copy the prices across so the menu people actually read is complete.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Repost the barista menu</span><p>The coffee menu on the site is the 2024 file and every drink on it is fifty cents to a dollar behind the till.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Check the 45 minute wait</span><p>The ordering page quotes 40 to 45 minutes for pickup. If that is a stale default it is quietly turning away every quick order.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Cross-list both menus</span><p>Show the bakery's loaves on the bistro store and the bistro's bowls on the bakery store, each marked "collect at the other shop" with a link. Separate checkouts, one visible range.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Reset the shelf each morning</span><p>Seven items were struck out at 7:10am on a Tuesday, before opening. Marking the day's bake back in should be somebody's named opening task.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Stock the online store</span><p>Appetizers, Mediterranean Lunch and Flatbread Pizzas sit in the catalog but never appear in the store menu. The website sells them, the store will not.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Fix the catering PDF</span><p>The email field on the live catering menu prints the phone number instead of an email address.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Reconcile the hours</span><p>Four published closing times across three sites. Pick the true ones, put them everywhere, and match Google.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Answer on Airbnb</span><p>Response rate is showing 67%. Airbnb demotes listings below roughly 90% in search, so this is costing bookings quietly.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Fix the third bedroom</span><p>The listing sells three bedrooms but the sleeping section shows a bed in only two. A family of eight comparing options will skip it.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Decide on the French site</span><p>alpinebistrony.com/fr/ serves English text under a French language tag. Given how much Ontario traffic the village gets, translate it properly or take it down.</p></div>
+    <div class="check"><span class="h"><span class="mk">&#9633;</span> Decide on the third brand</span><p>Keep Ellicottville Coffee as a real brand and give it its own story, or fold it into Alpine Bistro. Either is fine. Leaving it half-alive with another company's About page is not. Related to, but separate from, the Toast and Square decision above.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">13 &nbsp;/&nbsp; To sharpen this</span>
+    <h2>What we need from Corey.</h2>
+  </div>
+  <p class="prose">Six answers. Each one turns an estimate on this page into his actual number.</p>
+  <div class="askgrid">
+    <div class="ask">
+      <span class="k">Sales</span>
+      <span class="q">Ticket count and average ticket, at each shop, on a normal weekday and a Saturday.</span>
+      <span class="w">Every estimate on this page rests on assumed volume. This one answer re-solves the whole model.</span>
+    </div>
+    <div class="ask">
+      <span class="k">Pricing</span>
+      <span class="q">Which latte price is real, and does the bake shop charge the same as the bistro?</span>
+      <span class="w">Three published prices, and Corey quoted a fourth. One of them is being rung up wrong.</span>
+    </div>
+    <div class="ask">
+      <span class="k">Bread</span>
+      <span class="q">Wholesale cost per loaf, and the capacity of the ovens beyond current retail demand.</span>
+      <span class="w">Decides whether the wholesale lane is worth $1,500 a week or considerably more.</span>
+    </div>
+    <div class="ask">
+      <span class="k">Evenings</span>
+      <span class="q">Why is the bistro closed by four, five nights a week? Staffing, or tested and no demand?</span>
+      <span class="w">If it is staffing the lane changes shape. If demand was genuinely tested, the other three lanes have to carry more.</span>
+    </div>
+    <div class="ask">
+      <span class="k">Neighbors</span>
+      <span class="q">Does Trattoria Partenope buy bread from the bake shop?</span>
+      <span class="w">If the tenant in his own building buys from a distributor, that is the first phone call and the easiest one.</span>
+    </div>
+    <div class="ask">
+      <span class="k">Systems</span>
+      <span class="q">Why is the bake shop on Toast and the bistro on Square, and is either under contract?</span>
+      <span class="w">Decides whether one card and one loyalty account across both shops is a this-year project or a next-year one.</span>
+    </div>
+    <div class="ask">
+      <span class="k">Events</span>
+      <span class="q">How many private events booked in the last twelve months, and the average value?</span>
+      <span class="w">Tells us whether the room product is under-marketed or genuinely unwanted.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sechead">
+    <span class="eyebrow">14 &nbsp;/&nbsp; Worth saying plainly</span>
+    <h2>Two cautions.</h2>
+  </div>
+  <ul class="plain">
+    <li><strong>This is revenue, not profit.</strong> $6,000 of sourdough and $6,000 of bourbon do not leave the same amount behind. If the real target is $6,000 of margin, the lanes reorder and the bar moves further up the list.</li>
+    <li><strong>Later hours add labor,</strong> which is the one cost line Corey said is already tight. The lane only works if a bar shift is genuinely cheaper than a kitchen shift. Test it by staying open later on Friday and Saturday first, since the room is already staffed on those nights, and only add Thursday once the first two pay.</li>
+  </ul>
+</section>
+
+<footer>
+  <span class="f">Doble AI &nbsp;·&nbsp; Eagle River Base Camp</span>
+  <span class="f">Discussion draft &nbsp;·&nbsp; 18 August 2026</span>
+</footer>
+
+</div>
+</body>
+</html>
