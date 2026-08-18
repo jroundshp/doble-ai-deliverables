@@ -168,7 +168,8 @@
   .position-intro { font-size: 17px; color: #46524C; line-height: 1.7; margin-bottom: 20px; }
   .position-intro strong { color: #1F2622; }
   .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .card-grid.two-up { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  @media (max-width: 640px) { .card-grid, .card-grid.two-up { grid-template-columns: 1fr; } }
   .pos-card { border-radius: 8px; padding: 16px; }
   .pos-card-label {
     font-size: 12px; font-weight: 700; text-transform: uppercase;
@@ -457,7 +458,7 @@
         <p>Every one of those pages does three jobs at once. It sells a spot, it proves the break happened and what came out of it, and it gives search engines and AI assistants something specific to index and quote. Break'n Bad runs breaks every day and publishes none of this. <strong>The rips are already happening. The output is simply not being written down anywhere the business owns.</strong></p>
       </div>
 
-      <div class="card-grid" style="margin-top:26px">
+      <div class="card-grid two-up" style="margin-top:26px">
         <div class="pos-card" style="background:rgba(185,28,28,0.08);border:1px solid rgba(185,28,28,0.22)">
           <div class="pos-card-label" style="color:#b91c1c">What They Are Doing Better</div>
           <div class="pos-card-text">
