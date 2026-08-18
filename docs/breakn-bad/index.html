@@ -335,7 +335,7 @@
         </div>
         <div>
           <div class="fact-label">The Instagram Asset</div>
-          <div class="fact-val"><strong>@break.n.bad carries roughly 16,000 followers across more than 1,500 posts</strong>, and it is doing most of the work the website is not. It carries the bio link, the SMS join, the platform handles and offers such as the buyback on repacks that appear nowhere on breaknbad.com. It is the busiest owned-adjacent channel in the operation. Two things follow from that, and both matter: the destination it points at is the single most valuable fix in this report (Section 03), and the website currently links back to it with a dead anchor.</div>
+          <div class="fact-val"><strong>@break.n.bad carries roughly 16,000 followers across more than 1,500 posts</strong>, and it is doing most of the work the website is not. It carries the bio link, the SMS join, the platform handles and offers such as the buyback on repacks. It is the busiest owned-adjacent channel in the operation, and the homepage carries a live feed of it that updates as the team posts. Two things follow from that, and both matter: the destination it points at is the single most valuable fix in this report (Section 03), and the website currently links back to it with a dead anchor.</div>
         </div>
         <div>
           <div class="fact-label">The Site Itself</div>
@@ -488,9 +488,12 @@
       </div>
 
       <div class="key-finding" style="margin-top:20px">
-        <div class="key-finding-label">The Website Does Not Reciprocate</div>
-        <p>The traffic flows one way. Instagram sends people outward; the site sends nobody onward. In the footer, the <strong>Instagram, X and TikTok icons are anchors with <code>href=""</code></strong>, so a click reloads the page. The only working social links are Facebook, on an un-vanitied <code>profile.php?id=</code> URL, and a dormant YouTube channel. The Instagram account is linked from exactly one place on the whole site: the eight product pages, which are the pages fewest visitors ever reach.</p>
-        <p>The offers do not cross over either. Promotions that run on Instagram, including the buyback on repacks, appear nowhere on breaknbad.com. Neither does the SMS list. <strong>The eight product pages contain no link to Whatnot, Fanatics Live or eBay Live at all</strong>, which we verified page by page. The pages whose job is to push a browser toward a live rip contain no route to one.</p>
+        <div class="key-finding-label">The One Bridge That Works Is Invisible to Machines</div>
+        <p>The homepage runs a live Instagram feed. It auto-populates as the team posts, and on the day we looked it was carrying the 2026 Topps Chrome Logofractor promo, the Monday giveaway, a Justin Herbert pull and the Sunday "Pulls of the Week" recap. <strong>This is the site's best feature and the one place the funnel genuinely reciprocates.</strong> A visitor landing on breaknbad.com sees current activity rather than a static page.</p>
+        <p>The problem is who can see it. <strong>The feed is built entirely in the browser after the page loads.</strong> Fetch breaknbad.com the way a crawler does and the homepage contains no Instagram content at all, not one reference. Render it in a browser and there are more than 250. Everything in that feed, every promotion and every pull, is invisible to Google, to Bing and to every AI assistant, because none of them execute the script that builds it.</p>
+        <p>So the most current, most persuasive material on the whole website is doing nothing whatsoever for findability. That is not an argument for removing it. It is an argument for <strong>writing the same information into the page itself</strong>, where a machine can read it: the current promotion in text, the live schedule in text, the recent hits in text, with the feed sitting alongside as the visual proof.</p>
+        <p>Underneath that feed sits the contradiction. <strong>The Instagram, X and TikTok icons in the footer are anchors with <code>href=""</code></strong>, verified in the rendered page, so a click reloads instead of going anywhere. The site has a working Instagram bridge on the homepage and three dead Instagram-and-friends links in the footer of that same page. Facebook, LinkedIn and a dormant YouTube channel are the only footer icons that lead anywhere.</p>
+        <p>One gap is real and unchanged. <strong>The eight product pages carry no link to Fanatics Live, eBay Live or Whatnot at all</strong>, which we checked page by page. A visitor deep in the merch catalogue has no route to a live rip from where they are standing.</p>
       </div>
 
       <div class="key-finding" style="margin-top:20px">
@@ -630,7 +633,7 @@
 
         <div class="audit-card">
           <div class="audit-card-top"><span class="audit-channel">Social Footprint</span><span class="grade grade-d">D</span></div>
-          <div class="audit-note">Bigger and healthier than the website suggests. <strong>Instagram (<code>@break.n.bad</code>) runs roughly 16,000 followers across more than 1,500 posts</strong> and is the real hub: bio link, SMS join, platform handles and promotional offers that appear nowhere on the site. The site does not keep up with it. The footer offers Facebook on a raw <code>profile.php?id=</code> URL, LinkedIn, and a YouTube channel the company confirms is dormant, while <strong>the Instagram, X and TikTok icons are anchors pointing at <code>href=""</code></strong>. A click reloads the page. So the one account doing the most work is linked from exactly one place on the whole site, the eight product pages, which are the pages fewest visitors ever reach.</div>
+          <div class="audit-note">Bigger and healthier than the website suggests. <strong>Instagram (<code>@break.n.bad</code>) runs roughly 16,000 followers across more than 1,500 posts</strong> and is the real hub: bio link, SMS join, platform handles and promotional offers that appear nowhere on the site. The site does not keep up with it. The footer offers Facebook on a raw <code>profile.php?id=</code> URL, LinkedIn, and a YouTube channel the company confirms is dormant, while <strong>the Instagram, X and TikTok icons are anchors pointing at <code>href=""</code></strong>. A click reloads the page. The homepage does carry a live Instagram feed, which is the real bridge between the two, though it is built in the browser and so is invisible to every crawler and AI assistant that reads the page.</div>
         </div>
 
         <div class="audit-card">
