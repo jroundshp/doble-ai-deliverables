@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Break'n Bad — Fix List</title>
+<meta name="description" content="Companion to the Break'n Bad Digital Presence Audit: 21 fixes, what each one takes, and the access anyone doing the work will need.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+<style>
+  :root {
+    --ground: #FAFAFC;
+    --surface: #FFFFFF;
+    --surface-2: #F3F3F8;
+    --border: #E1E2EC;
+    --border-strong: #CBCDDD;
+    --ink: #14162E;
+    --ink-2: #3C3F5C;
+    --muted: #64678A;
+    --accent: #2A33AD;
+    --accent-soft: #ECEDFA;
+    --ok: #1B6B45;
+    --ok-soft: #E4F1EA;
+    --warn: #8A5A00;
+    --warn-soft: #F8EEDA;
+    --crit: #A62F27;
+    --crit-soft: #FAE7E5;
+    --shadow: 0 1px 2px rgba(20,22,46,.05), 0 8px 24px -12px rgba(20,22,46,.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0D0F1E; --surface: #16192C; --surface-2: #1D2138;
+      --border: #2B3050; --border-strong: #3D4368;
+      --ink: #E8E9F3; --ink-2: #C0C3D8; --muted: #949ABB;
+      --accent: #8A93F7; --accent-soft: #1E2247;
+      --ok: #5FCE9B; --ok-soft: #12301F;
+      --warn: #E0AC55; --warn-soft: #33260D;
+      --crit: #F0857A; --crit-soft: #35181A;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0D0F1E; --surface: #16192C; --surface-2: #1D2138;
+    --border: #2B3050; --border-strong: #3D4368;
+    --ink: #E8E9F3; --ink-2: #C0C3D8; --muted: #949ABB;
+    --accent: #8A93F7; --accent-soft: #1E2247;
+    --ok: #5FCE9B; --ok-soft: #12301F;
+    --warn: #E0AC55; --warn-soft: #33260D;
+    --crit: #F0857A; --crit-soft: #35181A;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem 6rem; }
+
+  .masthead { border-bottom: 2px solid var(--ink); padding: 3.5rem 0 1.75rem; margin-bottom: 2rem; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .72rem; font-weight: 500; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 1rem;
+  }
+  h1 {
+    font-family: "Archivo", ui-sans-serif, system-ui, sans-serif; font-weight: 700;
+    font-size: clamp(2.1rem, 5.5vw, 3.4rem); line-height: 1.02;
+    letter-spacing: -.028em; margin: 0 0 1rem; text-wrap: balance;
+  }
+  .standfirst { font-size: 1.075rem; color: var(--ink-2); max-width: 46rem; margin: 0 0 1.5rem; }
+  .standfirst strong { color: var(--ink); font-weight: 600; }
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: .5rem 1.5rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .76rem; color: var(--muted);
+  }
+
+  .totals {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: 1px; background: var(--border); border: 1px solid var(--border);
+    border-radius: 3px; overflow: hidden; margin-bottom: 2.5rem;
+  }
+  .total { background: var(--surface); padding: 1.1rem 1.15rem 1.15rem; display: flex; flex-direction: column; gap: .3rem; }
+  .total-num {
+    font-family: "Archivo", sans-serif; font-weight: 700; font-size: 1.85rem;
+    line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums;
+  }
+  .total-lab {
+    font-family: "IBM Plex Mono", monospace; font-size: .69rem;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  }
+  .total.hero { background: var(--accent-soft); }
+  .total.hero .total-num { color: var(--accent); }
+
+  .callout {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent); border-radius: 3px;
+    padding: 1.4rem 1.5rem; margin-bottom: 3rem; box-shadow: var(--shadow);
+  }
+  .callout h2 {
+    font-family: "Archivo", sans-serif; font-size: 1.05rem;
+    font-weight: 600; letter-spacing: -.01em; margin: 0 0 .6rem;
+  }
+  .callout p { margin: 0 0 .7rem; color: var(--ink-2); font-size: .95rem; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout ol { margin: .5rem 0 0; padding-left: 1.2rem; color: var(--ink-2); font-size: .95rem; }
+  .callout li { margin-bottom: .35rem; }
+
+  .lane { margin-bottom: 3.25rem; }
+  .lane-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap; padding-bottom: .7rem;
+    border-bottom: 1px solid var(--border-strong); margin-bottom: 1.5rem;
+  }
+  .lane-head h2 {
+    font-family: "Archivo", sans-serif; font-size: 1.4rem;
+    font-weight: 600; letter-spacing: -.02em; margin: 0;
+  }
+  .lane-who { font-family: "IBM Plex Mono", monospace; font-size: .74rem; color: var(--muted); letter-spacing: .04em; }
+  .lane-sub { font-size: .93rem; color: var(--muted); margin: -.75rem 0 1.5rem; max-width: 46rem; }
+
+  .items { display: flex; flex-direction: column; gap: 1rem; }
+  .item {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 3px; padding: 1.25rem 1.4rem 1.35rem; box-shadow: var(--shadow);
+  }
+  .item-top {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap; margin-bottom: .85rem;
+  }
+  .item h3 {
+    font-family: "Archivo", sans-serif; font-size: 1.02rem; font-weight: 600;
+    letter-spacing: -.012em; margin: 0; flex: 1 1 20rem; text-wrap: balance;
+  }
+  .effort {
+    font-family: "IBM Plex Mono", monospace; font-size: .74rem; font-weight: 500;
+    color: var(--accent); background: var(--accent-soft);
+    border-radius: 2px; padding: .22rem .55rem; white-space: nowrap;
+  }
+  .effort.free { color: var(--ok); background: var(--ok-soft); }
+
+  dl { margin: 0; display: grid; gap: .7rem; }
+  dt {
+    font-family: "IBM Plex Mono", monospace; font-size: .67rem;
+    letter-spacing: .11em; text-transform: uppercase; color: var(--muted); margin-bottom: .18rem;
+  }
+  dd { margin: 0; font-size: .94rem; color: var(--ink-2); }
+  dd strong { color: var(--ink); font-weight: 600; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .95rem; }
+  .chip {
+    font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .04em;
+    padding: .2rem .5rem; border-radius: 2px; border: 1px solid var(--border-strong);
+    color: var(--muted); background: var(--surface-2);
+  }
+  .chip.block { color: var(--warn); background: var(--warn-soft); border-color: transparent; }
+  .chip.win { color: var(--ok); background: var(--ok-soft); border-color: transparent; }
+
+  code {
+    font-family: "IBM Plex Mono", monospace; font-size: .87em;
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 2px; padding: .06em .32em; color: var(--ink); overflow-wrap: anywhere;
+  }
+
+  .t-scroll {
+    overflow-x: auto; border: 1px solid var(--border); border-radius: 3px;
+    background: var(--surface); box-shadow: var(--shadow);
+  }
+  table { border-collapse: collapse; width: 100%; min-width: 44rem; }
+  thead th {
+    font-family: "IBM Plex Mono", monospace; font-size: .67rem; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--muted); text-align: left; font-weight: 500;
+    padding: .8rem 1rem; background: var(--surface-2);
+    border-bottom: 1px solid var(--border-strong); white-space: nowrap;
+  }
+  tbody td {
+    padding: .85rem 1rem; border-bottom: 1px solid var(--border);
+    font-size: .9rem; color: var(--ink-2); vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody th {
+    padding: .85rem 1rem; border-bottom: 1px solid var(--border);
+    font-family: "Archivo", sans-serif; font-weight: 600; font-size: .9rem;
+    color: var(--ink); text-align: left; vertical-align: top; white-space: nowrap;
+  }
+  tbody tr:last-child th { border-bottom: none; }
+  .lvl {
+    font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .04em;
+    padding: .16rem .45rem; border-radius: 2px; white-space: nowrap; display: inline-block;
+  }
+  .lvl.have { color: var(--ok); background: var(--ok-soft); }
+  .lvl.need { color: var(--accent); background: var(--accent-soft); }
+  .lvl.their { color: var(--warn); background: var(--warn-soft); }
+
+  .boundary {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--ok); border-radius: 3px;
+    padding: 1.3rem 1.5rem; margin-top: 1.5rem;
+  }
+  .boundary h3 {
+    font-family: "Archivo", sans-serif; font-size: .98rem;
+    font-weight: 600; margin: 0 0 .55rem; color: var(--ink);
+  }
+  .boundary p { margin: 0 0 .6rem; font-size: .93rem; color: var(--ink-2); }
+  .boundary p:last-child { margin-bottom: 0; }
+
+  footer {
+    margin-top: 4rem; padding-top: 1.5rem; border-top: 2px solid var(--ink);
+    font-family: "IBM Plex Mono", monospace; font-size: .74rem; color: var(--muted); line-height: 1.8;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  @media (max-width: 34rem) { .item { padding: 1.1rem 1.05rem 1.2rem; } .masthead { padding-top: 2.5rem; } }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Companion to the Digital Presence Audit</p>
+    <h1>Break'n Bad Fix List</h1>
+    <p class="standfirst">Every finding from the audit, turned into a job with a beginning and an end. What is wrong, what it takes to fix, and roughly how long it sits on someone's desk. <strong>Written so your own developer can work straight from it</strong> — nothing here assumes we do it.</p>
+    <div class="meta-row">
+      <span>19 August 2026</span>
+      <span>Verified against the live site 18 August</span>
+      <span>Shopify · custom theme</span>
+    </div>
+  </header>
+
+  <section class="totals" aria-label="Summary">
+    <div class="total hero">
+      <span class="total-num">21</span>
+      <span class="total-lab">Jobs in total</span>
+    </div>
+    <div class="total">
+      <span class="total-num">6</span>
+      <span class="total-lab">No code needed</span>
+    </div>
+    <div class="total">
+      <span class="total-num">4</span>
+      <span class="total-lab">Same-day fixes</span>
+    </div>
+    <div class="total">
+      <span class="total-num">3</span>
+      <span class="total-lab">Cost nothing</span>
+    </div>
+    <div class="total">
+      <span class="total-num">1</span>
+      <span class="total-lab">Blocks the rest</span>
+    </div>
+  </section>
+
+  <div class="callout">
+    <h2>If you do nothing else this week</h2>
+    <p>Four items, roughly an afternoon between them, and every one of them changes what a paying collector actually hits. None needs a budget or a meeting.</p>
+    <ol>
+      <li><strong>Switch the pre-order on.</strong> It was promoted in August and the button still says Sold Out.</li>
+      <li><strong>Replace the phone number.</strong> <code>+1 (555) 010-2026</code> is live on every page, and AI search repeats it as the way to reach you.</li>
+      <li><strong>Pull the convention banner.</strong> The first block on the homepage still promotes a show that ended on 2 August.</li>
+      <li><strong>Fix the three empty footer links and the broken menu item.</strong> Same file as the two above.</li>
+    </ol>
+  </div>
+
+  <!-- ============ LANE A ============ -->
+  <section class="lane">
+    <div class="lane-head">
+      <h2>Inside Shopify</h2>
+      <span class="lane-who">No developer · no deploy · start today</span>
+    </div>
+    <p class="lane-sub">Settings and product records. Anyone with admin access can do all six, and none of them can break the storefront.</p>
+
+    <div class="items">
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Turn the pre-order on for real</h3>
+          <span class="effort">An afternoon</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>All <strong>30 variants across your 8 products</strong> are marked unavailable, so the product page shows a greyed-out <strong>Sold Out</strong> button and the word "pre-order" does not appear on it anywhere. The Instagram launch — <em>"Merch is now LIVE for preorder!!!!"</em> — sends people to that page. Nobody could pre-order even if they wanted to. The video in that post is a screen recording of the products page, and the recording itself shows the filter reading <strong>In stock (0) · Out of stock (8)</strong>.</dd>
+          <dt>Why it matters more than the lost sales</dt>
+          <dd>The point of the campaign was to find out which designs deserve a run of 100 and which deserve 25. Because nothing was buyable, <strong>it produced no demand data at all</strong> — the decision it was meant to inform is still open.</dd>
+          <dt>What it takes</dt>
+          <dd>Set each variant to <em>continue selling when out of stock</em>, which turns Sold Out into Add to Cart. Then switch on Restock Rocket's pre-order mode — it is already on the account and currently off — so the button reads Pre-order and sets expectations properly. <strong>One thing must change in the same pass:</strong> the page currently says <code>Ships within 24 hrs from South Bend, IN</code>, which contradicts a pre-order. Swap it for a real expected ship date before any money is taken.</dd>
+        </dl>
+        <div class="chips"><span class="chip win">Biggest single return on this list</span><span class="chip">Ship all three parts together</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Fill in the product search fields</h3>
+          <span class="effort">An hour</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>Your product <strong>names</strong> are good and distinct — BnB Collector's Club, BnB T-Shirt Archive Collection, BnB Archive Collection 1/100. But there is a second, separate box further down each product page that Google and every AI assistant actually read, and it was never updated. Three products still carry <code>BnB Sweatshirt</code> there and three more carry <code>BnB T-Shirt</code>.</dd>
+          <dt>What it takes</dt>
+          <dd>Open each of the eight products, scroll to <strong>Search engine listing</strong>, and write a distinct title and description. Whoever named these products did the job properly one box higher up; this is the box underneath it.</dd>
+        </dl>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Write the eight product descriptions</h3>
+          <span class="effort">An hour or two</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>Products run around 250 words each and most of it is template furniture repeated across all eight. Three tees share a single line of copy between them.</dd>
+          <dt>What it takes</dt>
+          <dd>One real description each, written to a collector: the fabric, the fit, what the Archive Collection sleeve print actually is, what the Collector's Club means. Worth a look at pricing too — the beanie is $30 and everything else is $35, including both a cap and a heavyweight crewneck.</dd>
+        </dl>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Sort out the collections</h3>
+          <span class="effort">An hour</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>The NFL collection is headed "What We Break," MLB is headed "Contact," and NBA is headed "Testimonials." Six of the seven hold no products. A leftover Shopify demo collection is live and listed in your sitemap. And <code>/collections/collecting-supplies</code> <strong>returns a 404 while being linked from seven pages</strong> — it is the "Collecting Supplies" menu item visible in your own pre-order video.</dd>
+          <dt>What it takes</dt>
+          <dd>Rename three, delete the demo collection, then make a call on Collecting Supplies: build it or take the link out. It cannot stay as it is.</dd>
+        </dl>
+        <div class="chips"><span class="chip win">Visible in your own promo</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Move the policies into Shopify's own fields</h3>
+          <span class="effort">An hour</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>Refund, shipping, privacy and terms exist as ordinary pages. The standard <code>/policies/</code> addresses all return 404, and none of them attach to checkout — so a collector about to spend $20 cannot find your refund terms at the moment they want them.</dd>
+          <dt>What it takes</dt>
+          <dd>Paste each into Settings → Policies. Shopify then serves them at the right addresses and links them from checkout automatically.</dd>
+        </dl>
+        <div class="chips"><span class="chip block">Easiest alongside the template fix</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Repoint the bio link</h3>
+          <span class="effort free">Ten minutes</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>Your Linktree has nine tiles and all nine are yours, which is better than most. But three go nowhere useful — the TikTok tile returns "Couldn't find this account," and the YouTube and Twitch tiles lead to channels you do not stream on. The only tile carrying an offer is <em>"$10 Off Your First Whatnot Purchase,"</em> and eBay Live has none.</dd>
+          <dt>What it takes</dt>
+          <dd>Remove or repoint three tiles and move the incentive onto the platform you actually want the traffic on. Worth deciding what you want that link to <em>do</em> first, since it is the first thing a collector touches after watching a break.</dd>
+        </dl>
+        <div class="chips"><span class="chip win">Free</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ LANE B ============ -->
+  <section class="lane">
+    <div class="lane-head">
+      <h2>In the theme</h2>
+      <span class="lane-who">Needs a Shopify developer</span>
+    </div>
+    <p class="lane-sub">Six jobs in the theme files. Whoever does them should work on a duplicated copy of the theme and publish only once it is checked, so the live store is never exposed.</p>
+
+    <div class="items">
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Fix the one template hiding 22 pages</h3>
+          <span class="effort">One template file</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd><strong>22 of your 26 pages show the same fifteen words</strong> — "Join Our Lives / Watch on Fanatics / Watch on WhatNot / Watch on eBay Live" — and nothing else. That includes all four policies, the FAQ, the testimonials, the card breaking glossary, the live schedule and What We Break. <strong>The writing is not lost.</strong> It is sitting in your Shopify admin right now and still reaching the page's description tag; the template simply never prints it.</dd>
+          <dt>What it takes</dt>
+          <dd>Restore the content output in a single template file. All 22 pages come back at once. This is one fix, not twenty-two, and it is the highest-value technical job on the list — several items below only work once it is done.</dd>
+        </dl>
+        <div class="chips"><span class="chip">Unblocks four other jobs</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>The same-day list</h3>
+          <span class="effort">An afternoon</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>Four small defects in the same files. <code>+1 (555) 010-2026</code> sits in a live click-to-call link on every page — that prefix is reserved for use in films, and AI-summarised search now repeats it back as your contact number. A copyright line renders literally as <code>[2026]</code>. The Instagram, X and TikTok icons in the footer are links that point nowhere. And the broken Collecting Supplies menu item.</dd>
+          <dt>What it takes</dt>
+          <dd>One afternoon, four edits. Your real SMS line is already published on Instagram, so nothing needs tracking down.</dd>
+        </dl>
+        <div class="chips"><span class="chip win">This week</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Replace the homepage hero</h3>
+          <span class="effort">An hour</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>The first thing on the homepage is still a <strong>$2,000 drawing for the National Sports Card Convention</strong>, which ended on 2 August. The heading underneath reads "The Ultimate Break'n Bad Experience," which does not tell a first-time visitor what you do.</dd>
+          <dt>What it takes</dt>
+          <dd>Pull the expired block and put the live schedule where it was. The words that go in it are in the writing section below.</dd>
+        </dl>
+        <div class="chips"><span class="chip win">This week</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Add the identity markup</h3>
+          <span class="effort">Half a day</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>There is <strong>no structured data anywhere on the site</strong>. Most Shopify themes ship with it; this one has had it removed. It is the machine-readable summary that tells Google and the AI assistants who you are, and without it they are guessing from raw page text.</dd>
+          <dt>What it takes</dt>
+          <dd>Four blocks, in order of payback. <strong>Organization</strong> — legal name, logo, the real phone number, and links to your Fanatics Live, eBay, Whatnot, Instagram and Facebook accounts, so machines understand seven scattered profiles as one business. <strong>Product</strong> on product pages, which is what lets a search result carry a price. <strong>FAQ</strong> markup, the single strongest driver of getting quoted by an AI assistant. <strong>Breadcrumbs</strong> last.</dd>
+        </dl>
+        <div class="chips"><span class="chip block">FAQ part needs the template fix first</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Fix how your links look when shared</h3>
+          <span class="effort">Half a day</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>No description tag and no share image on the homepage, and the page title reads "Break'n Bad – Break'n Bad." Every link posted into a group chat, a Discord or a text renders as bare grey text with no picture.</dd>
+          <dt>What it takes</dt>
+          <dd>Template defaults plus written descriptions for the homepage and each article, and one share image designed. Add time if you want a proper branded card rather than the logo on a colour field — and you clearly have someone who can design one.</dd>
+        </dl>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Link the site to itself</h3>
+          <span class="effort">Half a day</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd><strong>34 of your 54 pages have no link pointing to them from anywhere on the site</strong> — every policy, the FAQ, the glossary, the live schedule. Each product hangs off a single link from one collection. And the <strong>eight product pages carry no link to Fanatics Live, eBay Live or Whatnot at all</strong>, so somebody deep in the merch has no route back to a live rip.</dd>
+          <dt>What it takes</dt>
+          <dd>Footer links to the policies, FAQ and glossary once they render again. Articles cross-linked to each other. A standing "watch live" block on product and collection pages. This is the job that most directly serves how your business actually works — the site feeding the streams.</dd>
+        </dl>
+        <div class="chips"><span class="chip block">Needs the template fix first</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ LANE C ============ -->
+  <section class="lane">
+    <div class="lane-head">
+      <h2>Words</h2>
+      <span class="lane-who">No technical skill required</span>
+    </div>
+    <p class="lane-sub">Nothing in this section is technical. It is the difference between a site that lists products and one that answers what a collector wants to know before sending $20 to a stranger.</p>
+
+    <div class="items">
+
+      <div class="item">
+        <div class="item-top">
+          <h3>A page for the Buyback Program and where you rank</h3>
+          <span class="effort">A day of writing</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>The <strong>100% Buyback Program does not appear anywhere on breaknbad.com.</strong> We checked every page. It is the thing no other breaker offers, it is the direct answer to the fear that stops a first-time $20 buy-in, and your own Fanatics Live shows are <em>named</em> after it — "100% BUYBACK BREAKS ALL NIGHT." Someone hears that in a stream, searches for it, and finds nothing on your own site confirming it is real. The same goes for standing: the homepage does not contain the word "Fanatics," the #3 ranking, the 116,000 buyers, the 94+ employees or the $20M. Your media kit leads with every one of them.</dd>
+          <dt>What it takes</dt>
+          <dd>One page, written plainly: what the buyback is, how it works, who is eligible, and where you rank with the source named. That is the page a search engine quotes, the page an assistant reads when somebody asks whether you are legitimate, and the page a sponsor lands on after the kit. <strong>The single most valuable thing missing from this site.</strong></dd>
+        </dl>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Rewrite the homepage</h3>
+          <span class="effort">Half a day to a day</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>In <strong>174 words</strong>, the homepage never says what a break is, when the streams run, how a $20 flat-rate buy-in works, or what happens if your team hits nothing.</dd>
+          <dt>What it takes</dt>
+          <dd>Words for the hero, a plain "how a break works" block, the schedule, and the proof numbers. Goes in alongside the hero fix above.</dd>
+        </dl>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Put the Instagram feed into words</h3>
+          <span class="effort">An afternoon, then a habit</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>Your homepage carries a live Instagram feed that fills itself as you post, and it is genuinely the best thing on the site. But it is drawn in by the browser after the page loads, which means <strong>search engines and AI assistants see none of it</strong> — the most current and most convincing material you have does nothing for you in search.</dd>
+          <dt>What it takes</dt>
+          <dd>Write the schedule, the current promo and the recent big pulls into the page as actual text, and keep the feed there as the visual proof. Then a standing habit so it stays current.</dd>
+        </dl>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Tidy up the blog</h3>
+          <span class="effort">Half a day</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>You have five articles live and they all work. <strong>Staff did not know they existed</strong> — and that is fair, because the homepage links to the blog zero times. There are also four separate blog sections, three empty index pages, and the grading guide appearing at five different addresses. No article carries a description, an author or a visible date.</dd>
+          <dt>What it takes</dt>
+          <dd>Merge into one section, delete the empty indexes, pick one address for the grading guide, add the missing details, and link it from the homepage. If your own team cannot find it, neither can a customer or a search engine.</dd>
+        </dl>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Publish what the breaks produce</h3>
+          <span class="effort">A programme, not a fix</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>You run breaks daily and publish none of the results. The one company that has genuinely solved search in this category did it by publishing a page for every completed break — thousands of them — each proving what came out of the box.</dd>
+          <dt>What it takes</dt>
+          <dd>A template and a repeatable routine, then volume. <strong>This is the one item here that is ongoing rather than a repair</strong>, so treat it as a separate decision from everything above. Worth talking through before committing to it either way.</dd>
+        </dl>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ LANE D ============ -->
+  <section class="lane">
+    <div class="lane-head">
+      <h2>Accounts and measurement</h2>
+      <span class="lane-who">Mostly decisions and logins</span>
+    </div>
+
+    <div class="items">
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Install measurement</h3>
+          <span class="effort">Half a day</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>There is no Google Analytics, no tag manager and no Meta pixel on the site — only Shopify's own basic tracking. <strong>Not one of the handoffs to Fanatics Live, eBay Live or Whatnot is measured.</strong> There is currently no way to tell whether anything on this list worked.</dd>
+          <dt>What it takes</dt>
+          <dd>Analytics and a pixel installed, plus click tracking on every platform link so you can finally see the site-into-streams funnel. <strong>Do this before the merch relaunch</strong>, or you will lose the baseline a second time.</dd>
+        </dl>
+        <div class="chips"><span class="chip win">Do first — it scores everything else</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Bring the Collector's Club onto your own site</h3>
+          <span class="effort">A day or two</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>Strong idea, wrong address. The QR code on your shirts leads to a signup at <code>collectors-club-henna.vercel.app</code>, collecting name, email, mobile, birthday and zip. To a collector who has just met the brand that reads like a phishing link, it sits outside your own privacy policy and analytics, and none of its value comes back to breaknbad.com.</dd>
+          <dt>What it takes</dt>
+          <dd>Rebuild the form at <code>breaknbad.com/collectors-club</code> and move the existing signups across. The estimate firms up once whoever does it can see how the current one is built.</dd>
+        </dl>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Verify the site with Bing</h3>
+          <span class="effort free">One tag</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>The domain is not verified in Bing Webmaster Tools. ChatGPT's search is built on Bing's index, so watching only Google means missing half of where people now look.</dd>
+          <dt>What it takes</dt>
+          <dd>A single tag on the site. Free.</dd>
+        </dl>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Settle on one version of the business</h3>
+          <span class="effort">A decision, then an hour</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>Right now there are three answers to "where is this company." Your media kit prints a full South Bend street address. The website prints none. The product pages say <code>Ships within 24 hrs from South Bend, IN</code>. Separately, the eBay storefront trades as <strong>breaknsupplies</strong>, so to anyone arriving there it reads as a different company.</dd>
+          <dt>What it takes</dt>
+          <dd><strong>The finding is the inconsistency, not the address.</strong> Whichever way you go — publish it or remove it — is fine, as long as all three say the same thing. Then align the eBay name in the same pass.</dd>
+        </dl>
+        <div class="chips"><span class="chip block">Your call to make first</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Point the AI shopping rails at a real catalogue</h3>
+          <span class="effort free">Free — already installed</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>Shopify has <em>already</em> fitted your store for AI shopping assistants at no cost — the endpoints and the discovery file are live and advertised right now. An assistant that follows them today arrives at eight unbuyable products and six empty collections.</dd>
+          <dt>What it takes</dt>
+          <dd>Nothing at all. The plumbing is installed, free, and maintained by Shopify. It starts working the moment the pre-order and collection jobs above put a real catalogue behind it — which is the clearest argument for doing the merch work first.</dd>
+        </dl>
+        <div class="chips"><span class="chip win">Costs nothing, but only pays once the catalogue lands</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-top">
+          <h3>Run the AI visibility test yourselves</h3>
+          <span class="effort">An afternoon, five people</span>
+        </div>
+        <dl>
+          <dt>What's wrong</dt>
+          <dd>Nobody currently knows what ChatGPT, Perplexity, Grok and Google say when a collector asks them for a breaker. Expect the fictional phone number to come back.</dd>
+          <dt>What it takes</dt>
+          <dd>Five people, five fixed questions, four engines, screenshots of everything including the sources panel. Setup matters more than it sounds: a private window is the right control for Google and Perplexity only — <strong>ChatGPT needs Temporary Chat</strong>, because its memory is tied to the account rather than the browser, and <strong>Grok needs you signed in</strong>. Run the identical set monthly; the movement is your scoreboard.</dd>
+        </dl>
+        <div class="chips"><span class="chip win">We'll run the session with your crew at no charge</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ ACCESS ============ -->
+  <section class="lane">
+    <div class="lane-head">
+      <h2>What anyone doing this work will need</h2>
+      <span class="lane-who">Gather it once, up front</span>
+    </div>
+    <p class="lane-sub">This applies whether the work goes to your own developer, to us, or to somebody else. Gathering it in one pass rather than one login at a time is the single biggest thing that keeps a job like this from dragging. Wherever possible, create an account <strong>in the person's name rather than sharing a password</strong> — it leaves a trail and you can revoke it in one click when the work ends.</p>
+
+    <div class="t-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">System</th>
+            <th scope="col">Level</th>
+            <th scope="col">What it unlocks</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Shopify admin</th>
+            <td><span class="lvl need">Staff account</span></td>
+            <td>Everything in the first section — pre-orders, products, collections, policies</td>
+            <td>Permissions for Products, Online Store, Themes, Settings, Apps and Analytics. <strong>Almost nothing starts without this.</strong></td>
+          </tr>
+          <tr>
+            <th scope="row">Shopify theme</th>
+            <td><span class="lvl need">Edit code</span></td>
+            <td>The template fix and everything else in the theme</td>
+            <td>Work happens on a duplicate and you publish it once you have seen it. The live store is never at risk.</td>
+          </tr>
+          <tr>
+            <th scope="row">Restock Rocket</th>
+            <td><span class="lvl need">App + plan check</span></td>
+            <td>The pre-order button</td>
+            <td>Reached through Shopify Apps. Worth confirming your current plan includes pre-orders — it may be switched off because it is not on your tier.</td>
+          </tr>
+          <tr>
+            <th scope="row">Google Search Console</th>
+            <td><span class="lvl need">Full user</span></td>
+            <td>Indexing data and the before-and-after on every fix</td>
+            <td>If no account exists yet, one gets created and verified. This is how the work gets proved.</td>
+          </tr>
+          <tr>
+            <th scope="row">Google Analytics</th>
+            <td><span class="lvl need">Editor</span></td>
+            <td>Installing analytics and click tracking</td>
+            <td><strong>Check whether an account already exists.</strong> If one has been quietly collecting, that history is worth keeping.</td>
+          </tr>
+          <tr>
+            <th scope="row">Meta Business</th>
+            <td><span class="lvl need">Partner access</span></td>
+            <td>The Meta pixel</td>
+            <td>Partner access to the business account, never a personal login.</td>
+          </tr>
+          <tr>
+            <th scope="row">Bing Webmaster Tools</th>
+            <td><span class="lvl have">Nothing to hand over</span></td>
+            <td>Verification for ChatGPT-grounded search</td>
+            <td>Done with the tag already being added to the site. Only needs an email to hold the account.</td>
+          </tr>
+          <tr>
+            <th scope="row">Linktree</th>
+            <td><span class="lvl need">Login</span></td>
+            <td>Repointing the three dead tiles</td>
+            <td>The free tier has no team seats, so this is a shared login. Change the password afterwards.</td>
+          </tr>
+          <tr>
+            <th scope="row">Collector's Club host</th>
+            <td><span class="lvl need">View access</span></td>
+            <td>Moving the club onto your domain</td>
+            <td>Whoever set up <code>collectors-club-henna.vercel.app</code>, plus <strong>where its signups currently land</strong>. That second part matters most.</td>
+          </tr>
+          <tr>
+            <th scope="row">Email / SMS platform</th>
+            <td><span class="lvl need">Editor</span></td>
+            <td>Pre-order confirmations and the club welcome</td>
+            <td>Whatever you use — Klaviyo, Shopify Email, or nothing yet.</td>
+          </tr>
+          <tr>
+            <th scope="row">eBay storefront</th>
+            <td><span class="lvl their">You do this one</span></td>
+            <td>Aligning the <code>breaknsupplies</code> name</td>
+            <td>A seller account is not something an outside party should hold.</td>
+          </tr>
+          <tr>
+            <th scope="row">Your Fanatics / eBay Live numbers</th>
+            <td><span class="lvl their">Exports, not logins</span></td>
+            <td>The standing page</td>
+            <td><strong>Screenshots or a spreadsheet, never account access.</strong> Your own figures beat anything anyone can gather from outside, and this is the one thing no competitor can copy.</td>
+          </tr>
+          <tr>
+            <th scope="row">Brand files</th>
+            <td><span class="lvl need">The files</span></td>
+            <td>Share images, product photography, the logo in the markup</td>
+            <td>Vector logo, brand colours, media kit source. The merch and the kit are well designed, so these exist somewhere.</td>
+          </tr>
+          <tr>
+            <th scope="row">Whoever built the theme</th>
+            <td><span class="lvl their">A name</span></td>
+            <td>Makes the template fix faster and safer</td>
+            <td>Not access — a contact. Ten minutes with the person who built it is worth a lot on a custom theme.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="boundary">
+      <h3>What nobody doing this work should need</h3>
+      <p>Worth stating plainly, and worth holding any outside party to — including us.</p>
+      <p><strong>No banking, no payment processor, no Shopify Payments or payout settings, and no customer personal data.</strong> Nothing on this list requires seeing a customer record or a transaction. Even the one job that touches buying — switching on pre-orders — changes a product setting, never a payment setting.</p>
+      <p>Every account you grant should be in your name, on your billing, and revocable by you in one click. That includes anything set up on your behalf, like an analytics or Bing account.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Break'n Bad · Fix List · 19 August 2026<br>
+    Companion to the Digital Presence Audit. Every item was verified against the live site on 18 August 2026, loaded in a real browser rather than read from the raw code.<br>
+    Timings are how long a job sits on someone's desk, not a quote. Happy to take on any part of this, or none of it — the list works either way.</p>
+  </footer>
+
+</div>
+</body>
+</html>
