@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>VPC: The GMP Email, Checked</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --ground:   #F1F3F1;
+    --surface:  #FBFCFB;
+    --sunken:   #E7EAE8;
+    --ink:      #141817;
+    --muted:    #5A6462;
+    --hair:     #CBD2CF;
+    --accent:   #14514E;
+    --accent-soft: #DCE8E6;
+    --blocked:  #92600A;
+    --blocked-soft: #F2E7CE;
+    --confirmed:#2C6340;
+    --confirmed-soft: #DCE9DF;
+    --open:     #6B5A7A;
+    --open-soft:#E6E1EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:   #0F1413;
+      --surface:  #171D1C;
+      --sunken:   #1E2524;
+      --ink:      #E6EAE8;
+      --muted:    #98A29F;
+      --hair:     #2E3836;
+      --accent:   #62B7AF;
+      --accent-soft: #17322F;
+      --blocked:  #D6A44A;
+      --blocked-soft: #322611;
+      --confirmed:#77B98C;
+      --confirmed-soft: #172A1D;
+      --open:     #B49FC7;
+      --open-soft:#241E2B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:   #0F1413;
+    --surface:  #171D1C;
+    --sunken:   #1E2524;
+    --ink:      #E6EAE8;
+    --muted:    #98A29F;
+    --hair:     #2E3836;
+    --accent:   #62B7AF;
+    --accent-soft: #17322F;
+    --blocked:  #D6A44A;
+    --blocked-soft: #322611;
+    --confirmed:#77B98C;
+    --confirmed-soft: #172A1D;
+    --open:     #B49FC7;
+    --open-soft:#241E2B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.62;
+    margin: 0;
+    padding: 0 24px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  header.masthead {
+    padding-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  h1 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(34px, 6vw, 48px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .standfirst {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  .stamp {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--muted);
+    border-top: 1px solid var(--hair);
+    padding-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 28px;
+  }
+  .stamp b { color: var(--ink); font-weight: 500; }
+
+  /* ---------- sections ---------- */
+
+  section { display: flex; flex-direction: column; gap: 18px; }
+
+  h2 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    text-wrap: balance;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  p { margin: 0; max-width: 66ch; }
+  p + p { margin-top: -4px; }
+
+  strong { font-weight: 600; }
+
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  code, .mono {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 0.86em;
+  }
+  code {
+    background: var(--sunken);
+    padding: 1px 5px;
+    border-radius: 3px;
+    word-break: break-word;
+  }
+
+  /* ---------- claim blocks ---------- */
+
+  .claims { display: flex; flex-direction: column; gap: 22px; }
+
+  .claim {
+    background: var(--surface);
+    border: 1px solid var(--hair);
+    border-left: 4px solid var(--accent);
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .claim.is-unverified { border-left-color: var(--open); }
+
+  .claim-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px 14px;
+    justify-content: space-between;
+  }
+
+  .claim-quote {
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.45;
+    margin: 0;
+    flex: 1 1 340px;
+  }
+
+  .chip {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  .chip.confirmed { background: var(--confirmed-soft); color: var(--confirmed); }
+  .chip.unchecked { background: var(--open-soft);      color: var(--open); }
+  .chip.blocked   { background: var(--blocked-soft);   color: var(--blocked); }
+
+  .finding-label {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .evidence {
+    background: var(--sunken);
+    border-radius: 3px;
+    padding: 14px 16px;
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 12.5px;
+    line-height: 1.85;
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  .already {
+    border-top: 1px solid var(--hair);
+    padding-top: 12px;
+    font-size: 15.5px;
+    color: var(--muted);
+  }
+  .already b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- table ---------- */
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--hair); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 540px; }
+  th, td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--hair);
+    vertical-align: top;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+  th {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--sunken);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+
+  /* ---------- question list ---------- */
+
+  ul.qs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+  ul.qs li {
+    padding-left: 20px;
+    border-left: 2px solid var(--hair);
+    max-width: 66ch;
+  }
+  ul.qs .q { font-weight: 600; display: block; margin-bottom: 3px; }
+  ul.qs .why { color: var(--muted); font-size: 15.5px; }
+
+  /* ---------- closing note ---------- */
+
+  .closer {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .closer p { max-width: 62ch; }
+
+  footer {
+    border-top: 1px solid var(--hair);
+    padding-top: 16px;
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11.5px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; padding: 0 18px 72px; }
+    .claim, .closer { padding: 18px 16px; }
+  }
+
+  ol.unblock { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 12px; }
+  ol.unblock li { max-width: 60ch; }
+  ol.unblock b { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <p class="eyebrow">Internal note · Doble AI · not for forwarding to GMP</p>
+    <h1>The GMP Email</h1>
+    <p class="standfirst">Hailey's three claims about the VPC website, checked against the live site this morning — and against the two documents VPC already has.</p>
+    <div class="stamp">
+      <span>Email received <b>19 Aug 2026</b></span>
+      <span>Site re-checked <b>20 Aug 2026</b></span>
+      <span>Prepared for <b>Corey and Breanna</b></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>The short version</h2>
+    <p>Her read of the site is broadly correct. The commercial half of VPC's web presence does not rank, and the educational half does. That is a real gap and it is worth taking seriously.</p>
+    <p>It is also the gap our July audit described and our 17 August fix guide put step-by-step instructions against. Two of her three claims trace back to specific defects already written down and already sent to the VPC group. The third one I could not check.</p>
+    <p>Nothing here argues against talking to her. It sets out what VPC already knows about the gap she is offering to close, and what still has to be decided internally before anyone can act on it.</p>
+  </section>
+
+  <section>
+    <h2>Her three claims, checked</h2>
+
+    <div class="claims">
+
+      <article class="claim is-unverified">
+        <div class="claim-head">
+          <p class="claim-quote">“You rank #3 on Google for <span class="mono">what is fiberglass</span>.”</p>
+          <span class="chip unchecked">Not verified</span>
+        </div>
+        <p>I did not confirm this and I would not repeat it as fact. Rank claims are the cheapest thing in a prospecting email to generate and the hardest thing for the recipient to check.</p>
+        <p>What is true is the shape of it: VPC's ranking content is educational. The closest page is <code>/resources/why-fiberglass/</code>. But the blog behind that authority has <strong>seven posts and has not been touched since 6 August 2022</strong> — and three of the seven are the same post published three times, below.</p>
+        <p class="already"><b>Worth noting on any call:</b> she is complimenting the residue of work that stopped four years ago.</p>
+      </article>
+
+      <article class="claim">
+        <div class="claim-head">
+          <p class="claim-quote">“<span class="mono">FRP enclosures</span> barely shows up in your rankings.”</p>
+          <span class="chip confirmed">Confirmed — and known</span>
+        </div>
+        <p>Correct, and the reason is mechanical. VPC's only enclosure content is one blog post published three separate times, each copy telling Google it is the original:</p>
+        <div class="evidence">/enduro-standard-equipment-enclosure/     canonical → itself
+/enduro-standard-equipment-enclosure-2/   canonical → itself
+/enduro-standard-equipment-enclosure-3/   canonical → itself</div>
+        <p>Three identical pages competing with each other for the same search. Google splits the signal and none of them wins. A fourth copy sits under <code>/vpc-case-studies/</code> and may be a genuine case study, which is why the fix guide flags it as confirm-before-touching rather than delete.</p>
+        <p class="already">This is <b>item 3 of 6 in the fix guide</b> sent to the VPC group on 17 August, with the fix written out — two days before her email arrived.</p>
+      </article>
+
+      <article class="claim">
+        <div class="claim-head">
+          <p class="claim-quote">“<span class="mono">custom fiberglass fabrication</span> barely shows up.”</p>
+          <span class="chip blocked">Confirmed — and blocked</span>
+        </div>
+        <p>Also correct, and this one is the real story. VPC's product catalog is not on <code>vpcfiberglass.com</code>. It lives on the separate ThomasNet-hosted subdomain <code>products.vpcfiberglass.com</code>, which the homepage links to more than fifty times.</p>
+        <p>Re-checked this morning: the catalog returns HTTP 200 and carries <strong>zero structured data</strong> — no product markup of any kind. The main site is 23 pages. Every high-intent commercial page a buyer would search for sits on a subdomain that is not marked up for search engines or AI tools to read.</p>
+        <p class="already">Adding product markup there is <b>the audit's single highest-leverage recommendation</b>. It has been sitting behind one unanswered question since 14 August: <b>can VPC edit that subdomain, or does ThomasNet control it?</b> If VPC cannot edit it, the recommendation dies and is replaced by a much larger project — building an owned catalog. No agency, ours or GMP's, can price this work honestly without that answer.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>What her email does not cover</h2>
+    <p>The pitch looks at one domain. VPC runs <strong>five divisions across three</strong>:</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Division</th><th>Sells</th><th>Domain</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>VPC Traditional</td><td>FRP shelters, flumes, manholes</td><td class="mono">vpcfiberglass.com</td></tr>
+          <tr><td>Primary Plastics</td><td>FRP ductwork</td><td class="mono">vpcfiberglass.com</td></tr>
+          <tr><td>Composite Fan Technology</td><td>FRP fans</td><td class="mono">vpcfiberglass.com</td></tr>
+          <tr><td>EasyRec</td><td>ADA pool ladders, benches</td><td class="mono">easyrecreation.com</td></tr>
+          <tr><td>InterActive Play</td><td>Splash pads, aquatic play</td><td class="mono">interactivewaterparks.com</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The buyers have nothing in common. A consulting engineer specifying corrosion ratings and a campground owner buying a splash pad they expect to earn back in bookings are not the same customer and do not search the same way. A program scoped and priced off <code>vpcfiberglass.com</code> alone is scoped off part of the business.</p>
+  </section>
+
+  <section>
+    <h2>If you take the call</h2>
+    <p>Two questions separate a firm that has actually studied VPC from one running a template. Both are things we have had to work out ourselves, so the answers are checkable.</p>
+    <ul class="qs">
+      <li><span class="q">What is your plan for <span class="mono">products.vpcfiberglass.com</span>?</span><span class="why">If the answer does not acknowledge that the catalog is on a third-party subdomain VPC may not control, they have not looked past the homepage.</span></li>
+      <li><span class="q">What did you make of the other two domains?</span><span class="why">If EasyRec and InterActive Play are news to them, the proposal covers one third of the company.</span></li>
+      <li><span class="q">Who at VPC would you need, and how often?</span><span class="why">The honest answer is a named internal owner with authority over the site. That is the same thing every version of this work needs, from any vendor.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What has to be answered first</h2>
+    <div class="closer">
+      <p>The findings above are not new. VPC has had a full scored audit since July and a step-by-step fix guide since 17 August, and the questions that unblock the work went to the VPC group on 14 August.</p>
+      <p>So the constraint here is not a shortage of findings or instructions. Two answers decide what happens next, and they decide it the same way no matter which firm does the work:</p>
+      <ol class="unblock">
+        <li><b>Who controls <span class="mono">products.vpcfiberglass.com</span>, VPC or ThomasNet?</b> This decides whether the highest-value fix is a markup change or a catalog rebuild. Nobody can price the work honestly without it.</li>
+        <li><b>Who at VPC owns the website and can approve a change?</b> Every version of this work needs one named person with that authority.</li>
+      </ol>
+      <p>Worth getting both before anyone signs anything with anyone.</p>
+    </div>
+  </section>
+
+  <footer>
+    Audit · jroundshp.github.io/doble-ai-deliverables/vpc-fiberglass/<br>
+    Fix guide · jroundshp.github.io/doble-ai-deliverables/vpc-site-fixes/<br>
+    Site facts verified live 20 Aug 2026. Ranking claim not verified and marked as such.
+  </footer>
+
+</div>
+</body>
+</html>
