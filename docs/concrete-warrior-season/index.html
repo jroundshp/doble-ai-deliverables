@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Concrete Warrior — North Dakota Season Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#E8E5DE; --surface:#F4F2ED; --surface2:#DCD8CF; --raise:#FBFAF8;
+  --ink:#1A1C1D; --ink2:#54595B; --ink3:#82878A;
+  --rule:#C9C4B9; --rule2:#B4AEA1;
+  --accent:#A63A28; --accent-deep:#7E2C1E; --accent-wash:#F1E0DA;
+  --good:#2F6B4F; --good-wash:#DDE9E1;
+  --warn:#8A6410; --warn-wash:#F3E7CD;
+  --crit:#9B2C1E; --crit-wash:#F3DDD8;
+  --c-topsoil:#A07C0A; --c-concrete:#B0452C; --c-demo:#1F6FC4;
+  --plan:#9A968C;
+  --grid:#D6D1C6;
+  --shadow:0 1px 2px rgba(26,28,29,.05), 0 10px 28px -20px rgba(26,28,29,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#141618; --surface:#1E2124; --surface2:#282C2F; --raise:#252A2D;
+    --ink:#E9E5DD; --ink2:#A9AEB0; --ink3:#7D8285;
+    --rule:#34383B; --rule2:#454A4D;
+    --accent:#D4634B; --accent-deep:#E8836D; --accent-wash:#3A211B;
+    --good:#6EA687; --good-wash:#1D2A23;
+    --warn:#C9962E; --warn-wash:#32270F;
+    --crit:#D9614A; --crit-wash:#37201B;
+    --c-topsoil:#AE8829; --c-concrete:#CC5F42; --c-demo:#4A8FDD;
+    --plan:#6E7376;
+    --grid:#2E3336;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -20px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141618; --surface:#1E2124; --surface2:#282C2F; --raise:#252A2D;
+  --ink:#E9E5DD; --ink2:#A9AEB0; --ink3:#7D8285;
+  --rule:#34383B; --rule2:#454A4D;
+  --accent:#D4634B; --accent-deep:#E8836D; --accent-wash:#3A211B;
+  --good:#6EA687; --good-wash:#1D2A23;
+  --warn:#C9962E; --warn-wash:#32270F;
+  --crit:#D9614A; --crit-wash:#37201B;
+  --c-topsoil:#AE8829; --c-concrete:#CC5F42; --c-demo:#4A8FDD;
+  --plan:#6E7376;
+  --grid:#2E3336;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -20px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Barlow",-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px 110px}
+.col{max-width:760px}
+
+/* masthead */
+.mast{border-bottom:3px solid var(--ink);padding:40px 0 16px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+h1{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:clamp(36px,6.4vw,60px);line-height:.97;letter-spacing:-.012em;margin:0 0 14px;text-wrap:balance}
+h1 .thin{display:block;font-weight:500;color:var(--ink2);font-size:.5em;letter-spacing:.01em;margin-top:8px;text-transform:none}
+.mast-meta{display:flex;flex-wrap:wrap;gap:5px 24px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3)}
+.mast-meta b{color:var(--ink2);font-weight:500}
+
+h2{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:clamp(23px,3.2vw,30px);line-height:1.07;margin:0 0 5px;text-wrap:balance}
+h3{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:20px;line-height:1.2;margin:26px 0 8px}
+h4{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink3);margin:0 0 8px}
+p{margin:0 0 15px}
+a{color:var(--accent-deep)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+code{font-family:"IBM Plex Mono",monospace;font-size:.87em;background:var(--surface2);padding:1px 5px;border-radius:3px}
+.lede{font-size:18.5px;line-height:1.55;color:var(--ink2)}
+.lede strong{color:var(--ink)}
+section{padding:46px 0 0;border-top:1px solid var(--rule);margin-top:46px}
+section:first-of-type{border-top:none;margin-top:0}
+.sec-head{display:flex;gap:15px;align-items:flex-start;margin-bottom:22px}
+.sec-num{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--accent);padding-top:8px;flex:none}
+.sec-sub{color:var(--ink3);font-size:14px;margin:2px 0 0;font-family:"IBM Plex Mono",monospace}
+
+/* stat tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px;margin:0 0 22px}
+.tile{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:15px 16px;box-shadow:var(--shadow)}
+.tile .lab{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink3);margin:0 0 7px;line-height:1.35}
+.tile .val{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:33px;line-height:1;
+  letter-spacing:-.01em;font-variant-numeric:tabular-nums;margin:0 0 5px}
+.tile .sub{font-size:13px;color:var(--ink2);line-height:1.4;margin:0}
+.tile.hero{background:var(--accent-wash);border-color:var(--accent)}
+.tile.hero .val{color:var(--accent-deep)}
+
+/* progress */
+.prog{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:17px 18px;margin:0 0 22px;box-shadow:var(--shadow)}
+.prog-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:11px}
+.prog-top .n{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink2);font-variant-numeric:tabular-nums}
+.bar{height:11px;background:var(--surface2);border-radius:2px;overflow:hidden;display:flex;gap:2px}
+.bar .fill{background:var(--accent);border-radius:2px 0 0 2px}
+.bar .rest{flex:1;background:transparent}
+.prog-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:12.5px;color:var(--ink3);
+  font-family:"IBM Plex Mono",monospace}
+
+/* cards + charts */
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:19px 20px 15px;
+  margin:0 0 16px;box-shadow:var(--shadow)}
+.card-head{margin-bottom:14px}
+.card-head .t{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:19px;line-height:1.2;margin:0 0 3px}
+.card-head .d{font-size:13px;color:var(--ink3);margin:0;line-height:1.45}
+.chart-scroll{overflow-x:auto}
+svg{display:block;max-width:100%;height:auto}
+svg text{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:12.5px;color:var(--ink2)}
+.legend .k{display:flex;align-items:center;gap:6px}
+.legend .sw{width:11px;height:11px;border-radius:2px;flex:none}
+.legend .swl{width:15px;height:0;border-top:2px dashed var(--plan);flex:none}
+
+/* tooltip */
+.tip{position:fixed;pointer-events:none;z-index:60;background:var(--raise);border:1px solid var(--rule2);
+  border-radius:3px;padding:9px 11px;font-size:12.5px;line-height:1.5;box-shadow:var(--shadow);
+  opacity:0;transition:opacity .1s;max-width:250px;color:var(--ink)}
+.tip.on{opacity:1}
+.tip .th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:5px}
+.tip .r{display:flex;justify-content:space-between;gap:14px;font-variant-numeric:tabular-nums}
+.tip .r span:first-child{display:flex;align-items:center;gap:6px}
+.tip .d{width:9px;height:9px;border-radius:2px;flex:none}
+
+/* tables */
+.tw{overflow-x:auto;margin:16px 0;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:660px}
+th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink3);padding:10px 12px;border-bottom:1px solid var(--rule2);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45}
+tr:last-child td{border-bottom:none}
+td.n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+th.n{text-align:right}
+tr.now td{background:var(--accent-wash)}
+tr.done td{color:var(--ink3)}
+tfoot td{font-weight:600;border-top:2px solid var(--rule2);background:var(--surface2)}
+
+.chip{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.chip-done{background:var(--good-wash);color:var(--good);border:1px solid var(--good)}
+.chip-now{background:var(--accent-wash);color:var(--accent-deep);border:1px solid var(--accent)}
+.chip-next{background:var(--surface2);color:var(--ink3);border:1px solid var(--rule2)}
+.chip-risk{background:var(--warn-wash);color:var(--warn);border:1px solid var(--warn)}
+
+.note{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--rule2);
+  padding:15px 17px;margin:16px 0;border-radius:3px;box-shadow:var(--shadow)}
+.note.warn{border-left-color:var(--warn);background:var(--warn-wash);border-color:var(--warn)}
+.note.acc{border-left-color:var(--accent);background:var(--accent-wash);border-color:var(--accent)}
+.note.good{border-left-color:var(--good);background:var(--good-wash);border-color:var(--good)}
+.note p:last-child{margin-bottom:0}
+.note h4{margin-top:0}
+
+ul.plain{padding-left:18px;margin:12px 0}
+ul.plain li{margin-bottom:8px}
+ol.pri{list-style:none;counter-reset:p;padding:0;margin:14px 0}
+ol.pri li{counter-increment:p;display:grid;grid-template-columns:30px 1fr;gap:0 13px;
+  padding:12px 0;border-bottom:1px dotted var(--rule)}
+ol.pri li:last-child{border-bottom:none}
+ol.pri li::before{content:counter(p);font-family:"Barlow Condensed",sans-serif;font-weight:700;
+  font-size:24px;line-height:1;color:var(--rule2);font-variant-numeric:tabular-nums}
+ol.pri .pt{font-weight:600;margin-bottom:2px}
+ol.pri .pd{font-size:14px;color:var(--ink2);line-height:1.5}
+ol.pri .pw{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink3);margin-top:4px}
+
+.split2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:18px 0}
+footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-size:13px;color:var(--ink3);
+  font-family:"IBM Plex Mono",monospace;line-height:1.7}
+@media print{
+  body{background:#fff;color:#000;font-size:10.5pt}
+  section,.card,.note,.tile{page-break-inside:avoid}
+  .tip{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body data-palette="#A07C0A,#B0452C,#1F6FC4">
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Concrete Warrior LLC &middot; New Town, North Dakota</p>
+  <h1>Season Dashboard
+    <span class="thin">2026 season &middot; 17 August to 15 November</span>
+  </h1>
+  <div class="mast-meta">
+    <span><b>Prepared for</b> Corey Hogan</span>
+    <span><b>By</b> Doble AI</span>
+    <span><b>Updated</b> 23 August 2026</span>
+    <span><b>Cadence</b> Refreshed Mondays</span>
+    <span><b>Confidential</b></span>
+  </div>
+</header>
+
+<!-- ======== 01 WHERE WE ARE ======== -->
+<section id="now">
+<div class="sec-head"><span class="sec-num">01</span><div>
+<h2>Where we are</h2>
+<p class="sec-sub">Week 2 of 13 &middot; season ends 15 November, weather dependent</p>
+</div></div>
+
+<div class="tiles">
+  <div class="tile hero">
+    <p class="lab">Weeks left in season</p>
+    <p class="val">12</p>
+    <p class="sub">Last full week ends Sunday 15 November</p>
+  </div>
+  <div class="tile">
+    <p class="lab">Season net target</p>
+    <p class="val">$3.67M</p>
+    <p class="sub">13 weeks, from the production model</p>
+  </div>
+  <div class="tile">
+    <p class="lab">Banked, week 1</p>
+    <p class="val">$174K</p>
+    <p class="sub">4.7% of the season</p>
+  </div>
+  <div class="tile">
+    <p class="lab">Still to earn</p>
+    <p class="val">$3.50M</p>
+    <p class="sub">Across the remaining 12 weeks</p>
+  </div>
+  <div class="tile">
+    <p class="lab">Required pace</p>
+    <p class="val">7,892</p>
+    <p class="sub">Topsoil yards per week, every week</p>
+  </div>
+</div>
+
+<div class="prog">
+  <div class="prog-top">
+    <div><h4 style="margin:0">Season progress</h4></div>
+    <div class="n">1 of 13 weeks complete &middot; $173,989 of $3,669,377</div>
+  </div>
+  <div class="bar"><div class="fill" style="width:4.7%"></div><div class="rest"></div></div>
+  <div class="prog-legend">
+    <span>Elapsed 7.7%</span>
+    <span>Net banked 4.7%</span>
+    <span>Topsoil delivered 6,300 of 101,000 yd</span>
+  </div>
+</div>
+
+<div class="note acc">
+<h4>The one number that matters</h4>
+<p>Week 1 delivered <strong>6,300 topsoil yards</strong>, exactly on its 6,300 target. To finish the season on plan the operation now has to average <strong>7,892 yards a week for twelve straight weeks</strong>. The required pace from here is about 25% above the only week actually on the board.</p>
+</div>
+</section>
+
+<!-- ======== 02 CUMULATIVE ======== -->
+<section id="cume">
+<div class="sec-head"><span class="sec-num">02</span><div>
+<h2>Net against plan</h2>
+<p class="sec-sub">Cumulative, 13 weeks</p>
+</div></div>
+<div class="card">
+  <div class="card-head">
+    <p class="t">Cumulative net dollars</p>
+    <p class="d">The plan curve flattens in week 4 when the operation moves to the pit, then steepens once aggregate and concrete come online.</p>
+  </div>
+  <div class="chart-scroll"><svg id="c-cume" role="img" aria-label="Cumulative net dollars against plan across 13 weeks"></svg></div>
+  <div class="legend">
+    <span class="k"><span class="swl"></span> Plan</span>
+    <span class="k"><span class="sw" style="background:var(--accent)"></span> Actual</span>
+  </div>
+</div>
+</section>
+
+<!-- ======== 03 TOPSOIL ======== -->
+<section id="topsoil">
+<div class="sec-head"><span class="sec-num">03</span><div>
+<h2>Topsoil, week by week</h2>
+<p class="sec-sub">The metric the yard actually logs</p>
+</div></div>
+<div class="card">
+  <div class="card-head">
+    <p class="t">Topsoil yards, plan against actual</p>
+    <p class="d">Week 4 is a planned dip to 2,700 yards during the move to the pit. Every other week from here carries 8,000.</p>
+  </div>
+  <div class="chart-scroll"><svg id="c-top" role="img" aria-label="Topsoil yards planned against actual, by week"></svg></div>
+  <div class="legend">
+    <span class="k"><span class="sw" style="background:var(--c-topsoil)"></span> Actual delivered</span>
+    <span class="k"><span class="sw" style="background:var(--surface2);border:1px solid var(--rule2)"></span> Planned</span>
+  </div>
+</div>
+</section>
+
+<!-- ======== 04 MIX ======== -->
+<section id="mix">
+<div class="sec-head"><span class="sec-num">04</span><div>
+<h2>Where the revenue comes from</h2>
+<p class="sec-sub">Weekly revenue by line</p>
+</div></div>
+<div class="card">
+  <div class="card-head">
+    <p class="t">Revenue by product line</p>
+    <p class="d">Demo runs out after week 8. From week 9 the season is topsoil and concrete only.</p>
+  </div>
+  <div class="chart-scroll"><svg id="c-mix" role="img" aria-label="Weekly revenue split between topsoil, concrete and demolition"></svg></div>
+  <div class="legend">
+    <span class="k"><span class="sw" style="background:var(--c-topsoil)"></span> Topsoil</span>
+    <span class="k"><span class="sw" style="background:var(--c-concrete)"></span> Concrete</span>
+    <span class="k"><span class="sw" style="background:var(--c-demo)"></span> Demo</span>
+  </div>
+</div>
+
+<div class="note warn">
+<h4>Topsoil is the business, and the website was built around concrete</h4>
+<p>Topsoil is <strong>60% of season revenue</strong> and throws roughly <strong>three times the weekly net</strong> that concrete does: $208,814 a week against $66,976. Concrete is the more defensible position, since there is no ready-mix plant within 60 miles and West Dakota Ready Mix is permanently closed. But the cash is in dirt.</p>
+<p>The site architecture and the Google categories were both built to lead with concrete. That needs revisiting before launch, and it answers a question that has been sitting open with Richard since 7 August.</p>
+</div>
+</section>
+
+<!-- ======== 05 TABLE ======== -->
+<section id="weeks">
+<div class="sec-head"><span class="sec-num">05</span><div>
+<h2>The thirteen weeks</h2>
+<p class="sec-sub">Plan as modelled, cut to the 15 November stop</p>
+</div></div>
+<div class="tw"><table id="wk-table">
+<thead><tr>
+  <th>Wk</th><th>Dates</th><th class="n">Topsoil yd</th><th class="n">Concrete yd</th>
+  <th class="n">Demo $</th><th class="n">Revenue</th><th class="n">Net</th><th class="n">Cume net</th><th>Status</th>
+</tr></thead>
+<tbody></tbody>
+<tfoot><tr>
+  <td colspan="2">Season</td>
+  <td class="n">101,000</td><td class="n">5,600</td><td class="n">$525,000</td>
+  <td class="n">$5,437,000</td><td class="n">$3,669,377</td><td class="n">&mdash;</td><td></td>
+</tr></tfoot>
+</table></div>
+
+<div class="note warn">
+<h4>Week 4 is the fragile one</h4>
+<p>The week of 7 September carries a planned topsoil drop to 2,700 yards, a one-off <strong>$25,000</strong> to repair and move the JD loader to the pit, and the highest expense week of the season at $193,898. Net falls to <strong>$92,502</strong>, a quarter of the week before. Everything after it assumes aggregate production is running. If that move slips a week, the back half of the season slips with it.</p>
+</div>
+</section>
+
+<!-- ======== 06 PRIORITIES ======== -->
+<section id="priorities">
+<div class="sec-head"><span class="sec-num">06</span><div>
+<h2>Priorities, week of 24 August</h2>
+<p class="sec-sub">What has to move in the next seven days</p>
+</div></div>
+<ol class="pri">
+  <li><div>
+    <p class="pt">Phone number for the Google listing</p>
+    <p class="pd">Google will not accept the profile without one, and the Patriot number cannot be reused because pointing one number at two businesses in two states makes Google treat them as one company. Nothing on the digital side moves until this exists.</p>
+    <p class="pw">Richard or Corey &middot; blocking</p>
+  </div></li>
+  <li><div>
+    <p class="pt">Sign and magnet wording, which sets the business name</p>
+    <p class="pd">Concrete Warrior or Concrete Warrior Supply. Whatever goes on the sign and the truck magnets is the name the Google listing has to match. Recommendation is Supply if signage is being ordered anyway, because it separates a supplier from the field of concrete contractors named Warrior.</p>
+    <p class="pw">Richard and Roger &middot; blocking</p>
+  </div></li>
+  <li><div>
+    <p class="pt">Photographs and drone footage at the yard</p>
+    <p class="pd">Scheduled 24 August with Amanda and Richard. The aerial and a clean shot of the crusher running are the two gaps holding the website. Truck magnets on the doors if they can be printed in time.</p>
+    <p class="pw">Amanda and Richard &middot; 24 August</p>
+  </div></li>
+  <li><div>
+    <p class="pt">Confirm what the production model excludes</p>
+    <p class="pd">The 67.7% net margin is well outside what aggregate operations normally run. See section 08. Worth an hour with Richard to establish whether these are contribution margins or true net.</p>
+    <p class="pw">Richard &middot; this week</p>
+  </div></li>
+  <li><div>
+    <p class="pt">Decide who pays for the business email account</p>
+    <p class="pd">About $168 a year. Putting it on the Buffalo side from day one avoids a handover later, since the domain has to transfer anyway.</p>
+    <p class="pw">Corey &middot; this week</p>
+  </div></li>
+  <li><div>
+    <p class="pt">Add dollar fields to the daily log</p>
+    <p class="pd">The log currently captures topsoil yards and rubble trucks. That is enough to track volume but not enough to track money, so this dashboard cannot show actual revenue or net against plan yet. See section 08.</p>
+    <p class="pw">Richard &middot; before Friday</p>
+  </div></li>
+</ol>
+</section>
+
+<!-- ======== 07 THE WINTER CASE ======== -->
+<section id="winter">
+<div class="sec-head"><span class="sec-num">07</span><div>
+<h2>The case for building findability now</h2>
+<p class="sec-sub">Why the digital work should not wait for spring</p>
+</div></div>
+<div class="col">
+
+<p class="lede">Production stops 15 November and does not restart until the middle of March. That is roughly <strong>17 weeks of no revenue in North Dakota</strong>. It is also the only stretch of the year when the website and the Google listing are the entire business.</p>
+
+<h3>Search does not take the winter off</h3>
+<p>A contractor bidding a spring pour, a county planning its 2027 road program, an oilfield operator scheduling reclamation, all of them do that work in January and February. They search while nothing is running and nobody is answering the phone at the yard. Whatever is findable in February decides who gets the call in April.</p>
+
+<h3>A profile built in March is brand new in March</h3>
+<p>Google listings do not switch on at full strength. Reviews accumulate, photographs accumulate, questions get asked and answered, and local ranking builds with the age and activity of the profile. A listing created in March has none of that during the exact weeks it would be worth the most.</p>
+<p>Built now, it spends the winter quietly maturing and arrives at the March restart already established. Built in March, the 2027 season opens with roughly six weeks of being invisible.</p>
+
+<div class="split2">
+  <div class="note">
+    <h4>Build now</h4>
+    <p>Listing verified during the season while people are on site to answer Google's video check. Photographs taken while equipment is running and the ground is not frozen. Four months of quiet maturing. Findable when the February planning happens.</p>
+  </div>
+  <div class="note">
+    <h4>Build in March</h4>
+    <p>Verification needs somebody at a yard that is just reopening. No summer photographs available. Profile is brand new during the season's first six weeks. February searches find nothing.</p>
+  </div>
+</div>
+
+<div class="note good">
+<h4>The cost sits next to the wrong number to argue about</h4>
+<p>The business email account runs about <strong>$168 a year</strong> and the domain renewal is <strong>$11.25</strong>. The Google listing itself is free. Measured against a season modelled at <strong>$3.67 million net</strong>, the recurring digital cost is roughly <strong>five thousandths of one percent</strong>.</p>
+<p>It is also the only line on this dashboard that keeps working after 15 November.</p>
+</div>
+
+<h3>What the winter is actually for</h3>
+<p>The equipment goes south, and the North Dakota crew stands down. The work that can only be done when nobody is busy is exactly this: finishing the website, letting the listing age, publishing the material specifications and gradations, and answering the questions buyers ask before they call. None of it competes with production, because there is no production.</p>
+<p>The 2027 season runs from roughly mid-March to 15 November, about <strong>35 weeks</strong>. Opening that season already findable is worth more than anything that can be done to the site once it has started.</p>
+
+</div>
+</section>
+
+<!-- ======== 08 ASSUMPTIONS ======== -->
+<section id="assumptions">
+<div class="sec-head"><span class="sec-num">08</span><div>
+<h2>What this is built on</h2>
+<p class="sec-sub">Read before circulating any figure here</p>
+</div></div>
+<div class="col">
+
+<h3>The margin needs a conversation</h3>
+<p>The model shows <strong>67.7% net</strong>. Aggregate producers typically run 20 to 35% EBITDA. Going through the expense side line by line, the following are absent:</p>
+<ul class="plain">
+  <li><strong>No hauling cost on topsoil at all.</strong> Concrete carries a $130 delivery line; topsoil carries none. If topsoil is sold at the pit and the customer hauls it, that is correct and the margin stands. Nobody has confirmed which.</li>
+  <li>No insurance, bonding or workers compensation beyond flat wage lines</li>
+  <li>No TERO fees, which apply on Fort Berthold</li>
+  <li>No taxes, and no royalty beyond $4,000 a month of land rent</li>
+  <li>General and administrative expense is a single $5,000 a week line</li>
+</ul>
+<p>This reads as a <strong>contribution margin model rather than a full profit and loss</strong>. That is a normal thing for an operator to build and a useful thing to run a yard against. It is not the number to put in front of a lender or a partner without saying what it excludes.</p>
+
+<h3>What the dashboard cannot yet show</h3>
+<p>The daily log captures topsoil yards and rubble trucks. Those are real and they are enough to track volume against plan. It does not capture concrete yards produced, tons crushed, demo dollars billed, or actual costs, which is why every dollar figure above is <em>plan</em> rather than <em>plan against actual</em>. Adding four fields to the sheet closes that gap and costs whoever fills it in about a minute a day.</p>
+
+<h3>Prices, derived rather than stated</h3>
+<p>Unit prices appear nowhere in the workbook. Working backward from three separate weeks gives <strong>$32 a yard for topsoil</strong> and <strong>$300 a yard for concrete</strong>, and both reconcile exactly across all thirteen weeks. The concrete figure is well above a typical ready-mix price, which is plausible given the nearest plant is 60 miles away, but it is an assumption worth confirming rather than a quoted rate.</p>
+
+<h3>The season stop</h3>
+<p>The workbook runs fifteen weeks to 29 November. Cutting at the 15 November shutdown removes two weeks, <strong>$812,000 of revenue and $564,080 of net</strong>. Everything on this page is the thirteen-week version. Weather moves this date in both directions.</p>
+
+<div class="note">
+<p>Source: <code>ND Production summary.xlsx</code>, received 23 August 2026. Figures are read directly from that workbook or derived from it, never estimated. Anything not in the workbook is marked as unconfirmed above.</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+  Concrete Warrior LLC &middot; 2026 season dashboard<br>
+  Prepared by Doble AI, 23 August 2026 &middot; Confidential, prepared for Corey Hogan<br>
+  Refreshed Mondays from the Friday production workbook.
+</footer>
+</div>
+
+<div class="tip" id="tip"></div>
+
+<script>
+const WK = [
+ {w:1, s:"Aug 17", e:"Aug 23", top:6300, topA:6300, con:0,   demo:25000,  rev:226600, net:173989.25, st:"done"},
+ {w:2, s:"Aug 24", e:"Aug 30", top:10000,topA:null, con:200, demo:50000,  rev:430000, net:317614.25, st:"now"},
+ {w:3, s:"Aug 31", e:"Sep 6",  top:10000,topA:null, con:400, demo:100000, rev:540000, net:368789.25, st:"next"},
+ {w:4, s:"Sep 7",  e:"Sep 13", top:2700, topA:null, con:500, demo:50000,  rev:286400, net:92501.75,  st:"risk"},
+ {w:5, s:"Sep 14", e:"Sep 20", top:8000, topA:null, con:500, demo:75000,  rev:481000, net:333289.75, st:"next"},
+ {w:6, s:"Sep 21", e:"Sep 27", top:8000, topA:null, con:500, demo:100000, rev:506000, net:356289.75, st:"next"},
+ {w:7, s:"Sep 28", e:"Oct 4",  top:8000, topA:null, con:500, demo:100000, rev:506000, net:356289.75, st:"next"},
+ {w:8, s:"Oct 5",  e:"Oct 11", top:8000, topA:null, con:500, demo:25000,  rev:431000, net:287289.75, st:"next"},
+ {w:9, s:"Oct 12", e:"Oct 18", top:8000, topA:null, con:500, demo:0,      rev:406000, net:275789.75, st:"next"},
+ {w:10,s:"Oct 19", e:"Oct 25", top:8000, topA:null, con:500, demo:0,      rev:406000, net:275789.75, st:"next"},
+ {w:11,s:"Oct 26", e:"Nov 1",  top:8000, topA:null, con:500, demo:0,      rev:406000, net:275789.75, st:"next"},
+ {w:12,s:"Nov 2",  e:"Nov 8",  top:8000, topA:null, con:500, demo:0,      rev:406000, net:275789.75, st:"next"},
+ {w:13,s:"Nov 9",  e:"Nov 15", top:8000, topA:null, con:500, demo:0,      rev:406000, net:280164.75, st:"next"}
+];
+const TOPSOIL_RATE = 32, CONCRETE_RATE = 300;
+const cs = getComputedStyle(document.documentElement);
+const C = n => cs.getPropertyValue(n).trim();
+const usd = v => "$" + Math.round(v).toLocaleString("en-US");
+const usdK = v => v === 0 ? "$0" : (v >= 1e6 ? "$" + (v/1e6).toFixed(v % 1e6 === 0 ? 0 : 2) + "M" : "$" + Math.round(v/1000) + "K");
+const num = v => Math.round(v).toLocaleString("en-US");
+
+/* ---------- tooltip ---------- */
+const tip = document.getElementById("tip");
+function showTip(evt, html){
+  tip.innerHTML = html; tip.classList.add("on");
+  const r = tip.getBoundingClientRect();
+  let x = evt.clientX + 14, y = evt.clientY - 10;
+  if (x + r.width > innerWidth - 8) x = evt.clientX - r.width - 14;
+  if (y + r.height > innerHeight - 8) y = innerHeight - r.height - 8;
+  if (y < 8) y = 8;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+function hideTip(){ tip.classList.remove("on"); }
+
+function svgEl(t, a){ const e = document.createElementNS("http://www.w3.org/2000/svg", t);
+  for (const k in a) e.setAttribute(k, a[k]); return e; }
+
+/* ---------- chart 1: cumulative net ---------- */
+function drawCume(){
+  const svg = document.getElementById("c-cume");
+  const W = 900, H = 330, mL = 66, mR = 18, mT = 16, mB = 40;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("width", W); svg.innerHTML = "";
+  const pw = W - mL - mR, ph = H - mT - mB;
+  let run = 0; const cum = WK.map(d => (run += d.net));
+  const max = 4000000;
+  const X = i => mL + (pw * i) / (WK.length - 1);
+  const Y = v => mT + ph - (v / max) * ph;
+
+  for (let t = 0; t <= 4; t++){
+    const v = (max / 4) * t, y = Y(v);
+    svg.appendChild(svgEl("line", {x1:mL, x2:W-mR, y1:y, y2:y, stroke:C("--grid"), "stroke-width":1}));
+    const lb = svgEl("text", {x:mL-10, y:y+4, "text-anchor":"end", "font-size":11, fill:C("--ink3")});
+    lb.textContent = usdK(v); svg.appendChild(lb);
+  }
+  WK.forEach((d, i) => {
+    const lb = svgEl("text", {x:X(i), y:H-mB+18, "text-anchor":"middle", "font-size":10.5, fill:C("--ink3")});
+    lb.textContent = d.s.replace(" ", " "); svg.appendChild(lb);
+  });
+
+  svg.appendChild(svgEl("path", {d:"M" + cum.map((v,i)=>`${X(i)},${Y(v)}`).join("L"),
+    fill:"none", stroke:C("--plan"), "stroke-width":2, "stroke-dasharray":"6 4",
+    "stroke-linejoin":"round", "stroke-linecap":"round"}));
+
+  const act = WK.filter(d => d.st === "done");
+  let ar = 0; const acum = act.map(d => (ar += d.net));
+  if (acum.length){
+    svg.appendChild(svgEl("path", {d:`M${X(0)},${Y(0)}L` + acum.map((v,i)=>`${X(i)},${Y(v)}`).join("L"),
+      fill:"none", stroke:C("--accent"), "stroke-width":2.5, "stroke-linejoin":"round", "stroke-linecap":"round"}));
+    acum.forEach((v,i) => {
+      svg.appendChild(svgEl("circle", {cx:X(i), cy:Y(v), r:5.5, fill:C("--accent"),
+        stroke:C("--surface"), "stroke-width":2}));
+    });
+    const dl = svgEl("text", {x:X(acum.length-1)+11, y:Y(acum[acum.length-1])+4,
+      "font-size":11.5, "font-weight":600, fill:C("--accent-deep")});
+    dl.textContent = usd(acum[acum.length-1]); svg.appendChild(dl);
+  }
+
+  WK.forEach((d, i) => {
+    const hit = svgEl("rect", {x:X(i)-pw/(WK.length-1)/2, y:mT, width:pw/(WK.length-1), height:ph,
+      fill:"transparent", style:"cursor:crosshair"});
+    hit.addEventListener("mousemove", e => showTip(e,
+      `<div class="th">Week ${d.w} &middot; ${d.s}&ndash;${d.e}</div>
+       <div class="r"><span><span class="d" style="background:${C("--plan")}"></span>Plan cume</span><span>${usd(cum[i])}</span></div>
+       ${d.st==="done" ? `<div class="r"><span><span class="d" style="background:${C("--accent")}"></span>Actual cume</span><span>${usd(cum[i])}</span></div>` : `<div class="r"><span style="color:${C("--ink3")}">Actual</span><span style="color:${C("--ink3")}">not reported</span></div>`}
+       <div class="r" style="margin-top:4px"><span>Week net</span><span>${usd(d.net)}</span></div>`));
+    hit.addEventListener("mouseleave", hideTip);
+    svg.appendChild(hit);
+  });
+}
+
+/* ---------- chart 2: topsoil bars ---------- */
+function drawTop(){
+  const svg = document.getElementById("c-top");
+  const W = 900, H = 300, mL = 58, mR = 18, mT = 16, mB = 40;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("width", W); svg.innerHTML = "";
+  const pw = W - mL - mR, ph = H - mT - mB;
+  const max = 11000;
+  const band = pw / WK.length, bw = Math.min(34, band * 0.6);
+  const Y = v => mT + ph - (v / max) * ph;
+
+  for (let t = 0; t <= 4; t++){
+    const v = (max/4)*t, y = Y(v);
+    svg.appendChild(svgEl("line", {x1:mL, x2:W-mR, y1:y, y2:y, stroke:C("--grid"), "stroke-width":1}));
+    const lb = svgEl("text", {x:mL-10, y:y+4, "text-anchor":"end", "font-size":11, fill:C("--ink3")});
+    lb.textContent = num(v); svg.appendChild(lb);
+  }
+  const ty = Y(7892);
+  svg.appendChild(svgEl("line", {x1:mL, x2:W-mR, y1:ty, y2:ty, stroke:C("--accent"),
+    "stroke-width":1.5, "stroke-dasharray":"5 4"}));
+  const tl = svgEl("text", {x:W-mR, y:ty-7, "text-anchor":"end", "font-size":10.5,
+    "font-weight":600, fill:C("--accent-deep")});
+  tl.textContent = "7,892 required pace"; svg.appendChild(tl);
+
+  WK.forEach((d, i) => {
+    const cx = mL + band*i + band/2;
+    const py = Y(d.top), pht = mT+ph-py;
+    svg.appendChild(svgEl("rect", {x:cx-bw/2, y:py, width:bw, height:pht, rx:4,
+      fill:C("--surface2"), stroke:C("--rule2"), "stroke-width":1}));
+    if (d.topA != null){
+      const ay = Y(d.topA), aht = mT+ph-ay;
+      svg.appendChild(svgEl("rect", {x:cx-bw/2+2, y:ay, width:bw-4, height:aht, rx:4, fill:C("--c-topsoil")}));
+      const vl = svgEl("text", {x:cx, y:ay-8, "text-anchor":"middle", "font-size":10.5,
+        "font-weight":600, fill:C("--ink")});
+      vl.textContent = num(d.topA); svg.appendChild(vl);
+    }
+    const lb = svgEl("text", {x:cx, y:H-mB+18, "text-anchor":"middle", "font-size":10.5, fill:C("--ink3")});
+    lb.textContent = d.s.replace(" ", " "); svg.appendChild(lb);
+
+    const hit = svgEl("rect", {x:mL+band*i, y:mT, width:band, height:ph, fill:"transparent", style:"cursor:pointer"});
+    hit.addEventListener("mousemove", e => showTip(e,
+      `<div class="th">Week ${d.w} &middot; ${d.s}&ndash;${d.e}</div>
+       <div class="r"><span>Planned</span><span>${num(d.top)} yd</span></div>
+       <div class="r"><span><span class="d" style="background:${C("--c-topsoil")}"></span>Actual</span><span>${d.topA!=null?num(d.topA)+" yd":"not reported"}</span></div>
+       <div class="r" style="margin-top:4px"><span>At $32/yd</span><span>${usd(d.top*TOPSOIL_RATE)}</span></div>`));
+    hit.addEventListener("mouseleave", hideTip);
+    svg.appendChild(hit);
+  });
+}
+
+/* ---------- chart 3: revenue mix ---------- */
+function drawMix(){
+  const svg = document.getElementById("c-mix");
+  const W = 900, H = 300, mL = 62, mR = 18, mT = 16, mB = 40;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("width", W); svg.innerHTML = "";
+  const pw = W - mL - mR, ph = H - mT - mB;
+  const max = 560000;
+  const band = pw / WK.length, bw = Math.min(38, band * 0.66);
+  const Y = v => mT + ph - (v / max) * ph;
+  const HH = v => (v / max) * ph;
+
+  for (let t = 0; t <= 4; t++){
+    const v = (max/4)*t, y = Y(v);
+    svg.appendChild(svgEl("line", {x1:mL, x2:W-mR, y1:y, y2:y, stroke:C("--grid"), "stroke-width":1}));
+    const lb = svgEl("text", {x:mL-10, y:y+4, "text-anchor":"end", "font-size":11, fill:C("--ink3")});
+    lb.textContent = usdK(v); svg.appendChild(lb);
+  }
+
+  WK.forEach((d, i) => {
+    const cx = mL + band*i + band/2;
+    const segs = [
+      {v:d.top*TOPSOIL_RATE,  c:C("--c-topsoil"),  n:"Topsoil"},
+      {v:d.con*CONCRETE_RATE, c:C("--c-concrete"), n:"Concrete"},
+      {v:d.demo,              c:C("--c-demo"),     n:"Demo"}
+    ];
+    let acc = 0;
+    segs.forEach(s => {
+      if (s.v <= 0) return;
+      const h = HH(s.v), y = Y(acc + s.v);
+      svg.appendChild(svgEl("rect", {x:cx-bw/2, y:y+1, width:bw, height:Math.max(h-2,1), rx:3, fill:s.c}));
+      acc += s.v;
+    });
+    const lb = svgEl("text", {x:cx, y:H-mB+18, "text-anchor":"middle", "font-size":10.5, fill:C("--ink3")});
+    lb.textContent = d.s.replace(" ", " "); svg.appendChild(lb);
+
+    const hit = svgEl("rect", {x:mL+band*i, y:mT, width:band, height:ph, fill:"transparent", style:"cursor:pointer"});
+    hit.addEventListener("mousemove", e => showTip(e,
+      `<div class="th">Week ${d.w} &middot; ${d.s}&ndash;${d.e}</div>` +
+      segs.map(s => `<div class="r"><span><span class="d" style="background:${s.c}"></span>${s.n}</span><span>${usd(s.v)}</span></div>`).join("") +
+      `<div class="r" style="margin-top:4px"><span>Total</span><span>${usd(d.rev)}</span></div>`));
+    hit.addEventListener("mouseleave", hideTip);
+    svg.appendChild(hit);
+  });
+}
+
+/* ---------- table ---------- */
+function drawTable(){
+  const tb = document.querySelector("#wk-table tbody");
+  const chip = {done:['chip-done','Complete'], now:['chip-now','This week'],
+                next:['chip-next','Upcoming'], risk:['chip-risk','Pivot week']};
+  let run = 0;
+  tb.innerHTML = WK.map(d => {
+    run += d.net;
+    const [cc, ct] = chip[d.st];
+    return `<tr class="${d.st==='now'?'now':(d.st==='done'?'done':'')}">
+      <td class="n">${d.w}</td>
+      <td>${d.s} &ndash; ${d.e}</td>
+      <td class="n">${num(d.top)}${d.topA!=null?` <span style="color:var(--c-topsoil);font-weight:600">/ ${num(d.topA)}</span>`:''}</td>
+      <td class="n">${d.con?num(d.con):'&ndash;'}</td>
+      <td class="n">${d.demo?usd(d.demo):'&ndash;'}</td>
+      <td class="n">${usd(d.rev)}</td>
+      <td class="n">${usd(d.net)}</td>
+      <td class="n">${usd(run)}</td>
+      <td><span class="chip ${cc}">${ct}</span></td>
+    </tr>`;
+  }).join("");
+}
+
+function drawAll(){ drawCume(); drawTop(); drawMix(); }
+drawTable(); drawAll();
+addEventListener("resize", () => { clearTimeout(window._rt); window._rt = setTimeout(drawAll, 150); });
+if (window.matchMedia) matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);
+</script>
+</body>
+</html>
