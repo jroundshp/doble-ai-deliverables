@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Ellicottville Bake Shop &amp; Alpine Bistro — Audit Refresh, August 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F7F3EA;
+    color: #2B2019;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(180,83,9,0.18);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B45309;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #B45309;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #2B2019;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #5A4636;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(180,83,9,0.22);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #2B2019;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9C7C5A;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #fff0f0;
+    border: 1px solid #fca5a5;
+    border-left: 4px solid #dc2626;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #dc2626;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #7f1d1d; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(220,38,38,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(180,83,9,0.14);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FCF8F1; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #9C7C5A; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #2B2019; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(180,83,9,0.18); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #9C7C5A;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(180,83,9,0.09); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #5A4636; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #2B2019; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(120,53,15,0.12); color: #78350f; }
+  .badge-sister { background: rgba(21,128,61,0.12); color: #15803d; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #5A4636; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #2B2019; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #5A4636; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #F3E9DA; border: 1px solid rgba(180,83,9,0.14);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #2B2019; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #5A4636; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(180,83,9,0.05); border: 1px solid rgba(180,83,9,0.22);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #B45309; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #5A4636; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FCF8F1; border-bottom: 1px solid rgba(180,83,9,0.1); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #B45309; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #2B2019; }
+  .rec-detail { font-size: 14px; color: #5A4636; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #3d1f0e 0%, #B45309 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #f3ddc4; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #B45309;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #e7c9a6; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(180,83,9,0.14);
+    font-size: 11px; color: #9C7C5A;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+<style>
+  a { color:#B45309; text-decoration:underline; text-underline-offset:2px; }
+  .win { background:#f0fdf4; border:1px solid #86efac; border-left:4px solid #16a34a; border-radius:8px; padding:16px 20px; margin-bottom:14px; }
+  .win-label { font-size:12px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#15803d; margin-bottom:6px; }
+  .win p { font-size:15px; color:#14532d; line-height:1.6; }
+  .biz-head { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; }
+  .biz-name { font-family:'Playfair Display',serif; font-size:26px; font-weight:500; color:#2B2019; }
+  .score-pill { font-size:13px; font-weight:800; color:#fff; background:#B45309; padding:3px 12px; border-radius:20px; }
+  .delta-up { font-size:13px; font-weight:700; color:#15803d; }
+  .claim { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:2px 7px; border-radius:4px; margin-right:8px; white-space:nowrap; }
+  .claim-render { background:rgba(21,128,61,.12); color:#15803d; }
+  .claim-third  { background:rgba(37,99,235,.12); color:#1d4ed8; }
+  .claim-self   { background:rgba(180,83,9,.12);  color:#B45309; }
+  .claim-infer  { background:rgba(126,34,206,.12); color:#7e22ce; }
+  .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; background:rgba(180,83,9,.09); padding:1px 6px; border-radius:4px; }
+  .hours-tbl td { font-size:14px; }
+  .hours-bad { color:#b91c1c; font-weight:600; }
+  .route { border:1px solid rgba(180,83,9,.18); border-radius:8px; padding:16px 20px; margin-bottom:12px; background:#FCF8F1; }
+  .route h4 { font-size:16px; color:#2B2019; margin-bottom:6px; }
+  .route p { font-size:14px; color:#5A4636; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div style="margin:0 0 4px;background:#f0fdf4;border:1px solid #86efac;border-left:4px solid #16a34a;border-radius:8px;padding:16px 20px">
+    <div style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#15803d;font-weight:700;margin-bottom:8px">Fresh audit &middot; 24 August 2026 &middot; supersedes the July audits</div>
+    <p style="font-size:14px;line-height:1.6;color:#14532d;margin:0">Both websites were re-audited from scratch on <strong>24 August 2026</strong>. Every figure below was pulled that day. This replaces the July audits for <a href="../ellicottville-bake-shop/">the Bake Shop</a> and <a href="../alpine-bistro-ellicottville/">Alpine Bistro</a>, which are kept online for the record. <strong>A lot has been fixed since we last looked, and the first section is about that.</strong></p>
+  </div>
+
+  <div class="hero">
+    <div class="tag">Audit Refresh &middot; 24 August 2026 &middot; Ellicottville, New York</div>
+    <h1>Bake Shop<br>&amp; Alpine Bistro</h1>
+    <p>Two businesses, one village, one audit. The Bake Shop launched a completely new website three days ago and Alpine had an SEO layer installed last week, so both July audits went out of date at once. This is what the two sites look like today, what changed, and the short list of things still worth doing. It also answers the question that came through on the group text on 22 August.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">6.0 / 10</div><div class="stat-label">Bake Shop <span style="color:#15803d">&uarr; from 5.5</span></div></div>
+      <div class="stat"><div class="stat-val">5.5 / 10</div><div class="stat-label">Alpine <span style="color:#15803d">&uarr; from 5.0</span></div></div>
+      <div class="stat"><div class="stat-val">14</div><div class="stat-label">Items Fixed Since 18 Aug</div></div>
+      <div class="stat"><div class="stat-val">29</div><div class="stat-label">Bake Shop Pages Unlisted</div></div>
+    </div>
+  </div>
+
+  <!-- 00 WHAT GOT FIXED -->
+  <div class="section">
+    <div class="section-head" style="background:#f0fdf4;border-bottom:1px solid rgba(22,163,74,.22)">
+      <span class="section-num" style="color:#15803d">00</span>
+      <span class="section-title" style="color:#15803d">Start Here — What Got Fixed</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">Both July audits are now substantially out of date, and that is a good problem. Between 18 and 21 August the Bake Shop replaced its entire website, and between 18 and 20 August Alpine had a full SEO layer installed. <strong>Fourteen separate items we had written up as defects are simply gone.</strong> We re-checked every one of them at source on 24 August.</p>
+
+      <div class="win">
+        <div class="win-label">Ellicottville Bake Shop — the new site shipped</div>
+        <p>The old <span class="mono">anima</span> build is gone. The live site is a new Elementor build on the <span class="mono">foodie</span> theme with <strong>real, specific meta descriptions on six of seven pages</strong> (there were none at all), <strong>Open Graph and Twitter cards</strong> (there were none), <strong>structured data</strong>, and a mobile viewport that <strong>no longer blocks pinch-to-zoom</strong>. The three leftover 2022 demo pages are gone. The homepage has an H1 where it previously had none. Server response is fast at 0.32&thinsp;s to first byte.</p>
+      </div>
+
+      <div class="win">
+        <div class="win-label">Ellicottville Bake Shop — the staging site closed itself cleanly</div>
+        <p>Through late July and August a full copy of the rebuild sat at <span class="mono">new.ellicottvillebakeshop.com</span>, open to Google, with its own sitemap and a canonical pointing at itself. That was the one genuinely expensive thing on either site, because a half-built duplicate can outrank the real one. <strong>At launch it went to 404 completely.</strong> Nothing needs doing. One optional tidy-up is in the shared list below.</p>
+      </div>
+
+      <div class="win">
+        <div class="win-label">Alpine Bistro — the technical SEO gap is closed</div>
+        <p>The July audit graded Alpine's technical SEO <strong>F</strong> and said there were no meta descriptions, no Open Graph tags, no Twitter cards and no structured data anywhere. <strong>That is no longer true of any of it.</strong> Rank Math is now installed and configured: all six pages carry specific, well-written meta descriptions, Open Graph and Twitter cards are present, and there is real structured data including a postal address, a phone number and opening hours. The page titles have been rewritten from generic labels into the phrasing people actually search. That grade moves <strong>F to C</strong>, which is the largest single jump anywhere in the portfolio.</p>
+      </div>
+
+      <div class="key-finding" style="margin-top:18px">
+        <div class="key-finding-label">Worth saying plainly</div>
+        <p>Across nine audits in this portfolio, website findings had never been actioned by anyone. These two are the first sites where that changed, and on both of them it changed fast. Everything that follows is written on the assumption that it will be read by someone who fixes things, so it is specific about where each item lives.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 THE QUESTION -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,.18)">
+      <span class="section-num" style="color:#2563eb">01</span>
+      <span class="section-title" style="color:#2563eb">The Question From 22 August, Answered</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">On 22 August the group asked why neither business appeared in a Google AI answer to <strong>&ldquo;what activities are going on in Ellicottville New York this weekend.&rdquo;</strong> We went and looked. <strong>The cause is not technical and nothing is broken.</strong> It is that neither website contains a single dated event.</p>
+
+      <div class="key-finding" style="margin-bottom:18px">
+        <div class="key-finding-label">The Bake Shop has an events page. Here is what it says.</div>
+        <p><span class="claim claim-render">Verified by render</span> The page at <span class="mono">/portfolio/bakery-events/</span> reads, in full: <strong>&ldquo;There are no scheduled events at this time. Check back soon!&rdquo;</strong> Underneath it says the shop hosts seasonal and holiday events through the year. <strong>That page is also not listed in the sitemap</strong>, so Google may not know it exists at all. Alpine's only events URL is <span class="mono">/event/</span>, which is a private-party and catering enquiry page, not a calendar.</p>
+      </div>
+
+      <p style="font-size:16px;color:#5A4636;line-height:1.7;margin-bottom:16px">For comparison, here is what the businesses that <em>did</em> appear are doing. Both were checked the same day.</p>
+
+      <table style="margin-bottom:18px">
+        <thead><tr><th>Business</th><th>What they publish</th><th>Event schema</th></tr></thead>
+        <tbody>
+          <tr><td>Villaggio</td><td>One page per show, artist in the page title, date and time in the body</td><td>None at all</td></tr>
+          <tr><td>Balloons</td><td>One page per act, date in the URL <em>and</em> the title, three events up for one weekend</td><td>Full markup</td></tr>
+          <tr><td>Bake Shop</td><td>An events page saying there are no events</td><td>None</td></tr>
+          <tr><td>Alpine Bistro</td><td>A private-party enquiry page</td><td>None</td></tr>
+        </tbody>
+      </table>
+
+      <div class="alert" style="margin-top:0;background:#fffbeb;border-color:#fcd34d;border-left-color:#d97706">
+        <div class="alert-label" style="color:#92400e">The honest version, because it matters for what you decide to do</div>
+        <p style="color:#78350f">Villaggio has <strong>no event markup whatsoever</strong> and was named anyway. Balloons does everything correctly and was <strong>not</strong> in the visible part of that answer, though the screenshot was cut off, so we cannot say it was absent. <strong>So this is not a structured-data problem and we are not going to tell you it is.</strong> Dated pages get you into the pool Google draws from. They do not buy you the slot. What separates Villaggio from you is not markup, it is that a page exists at all saying something happens on a specific date.</p>
+      </div>
+
+      <div class="key-finding" style="margin-top:18px">
+        <div class="key-finding-label">The opening nobody in the village has taken</div>
+        <p>We checked Balloons, Villaggio, Ellicottville Brewing and Alpine. <strong>Not one of them publishes weekend tie-in content.</strong> A page that says &ldquo;Racing at HoliMont on Sunday? We open at 7:30 so you can eat before the first run&rdquo; is content about this weekend, on your own site, using the proper nouns and dates the engine is already trying to resolve. The village generates a free event calendar every single week and any business willing to write two sentences becomes content about it. Roughly fifteen minutes a week.</p>
+        <p style="margin-top:10px">And it is not only live music. A Saturday-only sourdough out of the oven at eight, a seasonal drink, a dated autumn menu, extended hours for race weekend — all of it counts, and the Bake Shop already has a <span class="mono">/portfolio/seasonal-specialty-coffee-menu/</span> page that is <strong>currently invisible to Google for the same reason as the events page</strong>.</p>
+      </div>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-top:18px"><span class="claim claim-infer">Our reading, offered as a question</span> Our honest guess is that this is the highest-volume search there is in a destination town, and that the five prompts in the July audits would never have caught it because every one of them assumes the searcher already knows they want coffee, or breakfast, or a bakery. This one names no category and carries a time window. We have added it to how we test both businesses from now on. <strong>Does that match how you think visitors actually arrive?</strong></p>
+    </div>
+  </div>
+
+  <!-- 02 BAKE SHOP -->
+  <div class="section">
+    <div class="section-head" style="background:#f7ecdc;border-bottom:1px solid rgba(180,83,9,.22)">
+      <span class="section-num" style="color:#B45309">02</span>
+      <span class="section-title" style="color:#B45309">Ellicottville Bake Shop</span>
+    </div>
+    <div class="section-body">
+      <div class="biz-head">
+        <span class="biz-name">Ellicottville Bake Shop</span>
+        <span class="score-pill">6.0 / 10</span>
+        <span class="delta-up">&uarr; from 5.5 in July</span>
+      </div>
+      <p class="position-intro">The new site is genuinely good. It is fast, it is well written, the mobile zoom lock is gone, and it carries far more real content than the old one. <strong>Second-highest score in the portfolio.</strong> The problems that remain are all in one area: what the site tells Google exists.</p>
+
+      <div class="alert" style="margin-top:0">
+        <div class="alert-label">The main finding — the sitemap is pointing the wrong way round</div>
+        <p><span class="claim claim-render" style="background:rgba(255,255,255,.55)">Verified at source</span> The sitemap submits <strong>23 URLs. Sixteen of them are theme furniture</strong> — <span class="mono">/layouts/slide-1/</span>, <span class="mono">/layouts/mailchimp-popup/</span>, <span class="mono">/layouts/restaurant-header-default/</span>, <span class="mono">/testimonials_group/clients/</span> and similar. Every one loads as a real page carrying two to three thousand words of duplicated header and footer, and nothing on the site links to any of them.</p>
+        <p style="margin-top:10px">Meanwhile <strong>29 real content pages are missing from every sitemap</strong>, including <strong>25 individual menu-item pages</strong> — one each for the Smoked Salmon on Everything Bagel, The Ellicottville, Pain au Chocolat, Cinnamon Buns, Burrata Toast, the Berry Vinaigrette Salad and twenty more. They are live, they are indexable, and each one carries its own unique description. The bagel page reads &ldquo;smoked salmon layered with red onion, tomato, capers, and fresh spinach, finished with creamy lemon dill cream cheese on your choice of bagel.&rdquo; <strong>That is exactly the text an AI assistant would quote to somebody asking where to get a smoked salmon bagel in Ellicottville, and Google is not being told the page exists.</strong></p>
+      </div>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin:18px 0 8px"><strong>Also missing from the sitemap:</strong> the four <span class="mono">/portfolio/</span> pages — Private Events, Events, Brunch Sips and the Seasonal Coffee menu — plus both catering PDFs. None of those 29 pages carries a canonical tag or a meta description either, so even where Google finds them it is given very little to work with.</p>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-bottom:18px"><strong>The fix is small.</strong> In Yoast, exclude the layout, services-group, portfolio-group and testimonials post types from the sitemap and set them to noindex, then include the services and portfolio post types. Two settings screens. It is not a project.</p>
+
+      <div class="key-finding" style="margin-bottom:18px">
+        <div class="key-finding-label">Second finding — the structured data does not contain the bakery</div>
+        <p><span class="claim claim-render">Verified on all seven pages</span> The site's structured data has <strong>no address, no phone number, no opening hours and no bakery or local-business type anywhere on it</strong>. What is there is the WordPress default set describing a generic organisation and a website. All of that information is on the page for a human to read — the footer carries 5 E Washington St., Suite 5a, the phone number and &ldquo;Daily: 7:30&thinsp;AM &ndash; 2:30&thinsp;PM&rdquo; — it is simply not in the machine-readable layer. For a single-location bakery this is the highest-value markup available and it is the one thing absent. <strong>Alpine, a block away, already has it.</strong></p>
+      </div>
+
+      <div class="key-finding" style="margin-bottom:18px">
+        <div class="key-finding-label">Third finding — nine good answers, none of them marked as answers</div>
+        <p><span class="claim claim-render">Verified by render</span> The About page carries a <strong>genuinely excellent FAQ</strong> written in exactly the phrasing people search: &ldquo;What is the best bakery in Ellicottville for fresh, from-scratch baked goods?&rdquo;, &ldquo;How do I keep pastries fresh?&rdquo;, &ldquo;Why do preservative-free baked goods have a shorter shelf life?&rdquo; Nine questions, real answers, well written. <strong>Nothing on the page marks them as questions and answers</strong>, so none of it is eligible to be surfaced or quoted. This is the same finding as Alpine's, on a different site, and in both cases the writing is done and only the wiring is missing.</p>
+      </div>
+
+      <div class="audit-grid">
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Website</span><span class="grade grade-bm">B&minus;</span></div><div class="audit-note">New Elementor build, fast (0.32&thinsp;s TTFB), well written, zoom lock removed. Deductions: <span class="mono">/contact/</span> and <span class="mono">/catering-and-special-orders/</span> have no H1 at all, the homepage has five H1s and no H2, and the mobile cookie banner overflows the screen.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Technical SEO</span><span class="grade grade-c">C</span></div><div class="audit-note">Meta descriptions, Open Graph and canonicals all present on the main seven pages, HTTPS clean, apex and www resolved consistently. Held back by the sitemap inversion above, 29 pages with no canonical, and <span class="mono">crawl-delay: 60</span> in robots.txt, which Google ignores and Bing obeys.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Structured Data</span><span class="grade grade-d">D</span></div><div class="audit-note">Present but generic. No Bakery or LocalBusiness type, no address, no hours, no phone, no menu markup, no FAQ markup, no events. Everything needed is already visible on the pages.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-bm">B&minus;</span></div><div class="audit-note">4.4&#9733;, claimed, categorised Bakery, correct address and phone, website linked, order-online live. One flag: Google shows the hours were <strong>&ldquo;updated by others 8 weeks ago&rdquo;</strong>, meaning the public edited them rather than the owner. Worth confirming they are right.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Content</span><span class="grade grade-b">B</span></div><div class="audit-note">Much the strongest content in the portfolio. Nine-question FAQ, 25 menu-item pages with individual descriptions, catering, employment, seasonal coffee. The problem is entirely distribution, not writing.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-cp">C+</span></div><div class="audit-note">4.4&#9733; on Google, re-confirmed 24 August. The review count is not visible signed out, so we are not quoting one. TripAdvisor was unclaimed with zero reviews at last check.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Events &amp; Timeliness</span><span class="grade grade-f">F</span></div><div class="audit-note">An events page stating there are no events, not in the sitemap, no dated content anywhere on the site, no event markup. This is the channel the 22 August question was actually about.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Housekeeping</span><span class="grade grade-c">C</span></div><div class="audit-note"><span class="mono">/author/admin/</span> loads and publishes the WordPress username as <strong>&ldquo;admin&rdquo;</strong>. A dead <span class="mono">new.ellicottvillebakeshop.com</span> logo reference survives in the slide-out menu panel on all seven pages. No Bing verification.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 ALPINE -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(126,34,206,.2)">
+      <span class="section-num" style="color:#7e22ce">03</span>
+      <span class="section-title" style="color:#7e22ce">Alpine Bistro</span>
+    </div>
+    <div class="section-body">
+      <div class="biz-head">
+        <span class="biz-name">Alpine Bistro</span>
+        <span class="score-pill" style="background:#7e22ce">5.5 / 10</span>
+        <span class="delta-up">&uarr; from 5.0 in July</span>
+      </div>
+      <p class="position-intro">Alpine went from having no search layer at all to having a properly configured one in about two days. The Google profile remains the strongest single asset either business owns, at <strong>4.6&#9733;</strong>. <strong>The catch is that the new structured data contradicts itself, and the version Google is most likely to believe says you close at five o'clock every day.</strong></p>
+
+      <div class="alert" style="margin-top:0">
+        <div class="alert-label">The main finding — three different sets of opening hours</div>
+        <p><span class="claim claim-render" style="background:rgba(255,255,255,.55)">Verified on all six pages</span> Every page emits <strong>two separate business descriptions in the same block of structured data</strong>, and they disagree with each other and with the page itself.</p>
+      </div>
+
+      <table class="hours-tbl" style="margin:18px 0">
+        <thead><tr><th>Source</th><th>Sun&ndash;Thu</th><th>Friday</th><th>Saturday</th></tr></thead>
+        <tbody>
+          <tr><td>The page itself, and Google</td><td>8&thinsp;AM &ndash; 4&thinsp;PM</td><td>8&thinsp;AM &ndash; 8&thinsp;PM</td><td>8&thinsp;AM &ndash; 9&thinsp;PM</td></tr>
+          <tr><td>Structured data, block one</td><td class="hours-bad">9&thinsp;AM &ndash; 4&thinsp;PM</td><td class="hours-bad">9&thinsp;AM &ndash; 8&thinsp;PM</td><td class="hours-bad">9&thinsp;AM &ndash; 9&thinsp;PM</td></tr>
+          <tr><td>Structured data, block two</td><td class="hours-bad">9&thinsp;AM &ndash; 5&thinsp;PM</td><td class="hours-bad">9&thinsp;AM &ndash; 5&thinsp;PM</td><td class="hours-bad">9&thinsp;AM &ndash; 5&thinsp;PM</td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-bottom:16px"><strong>Every single day is wrong in at least one of the two blocks.</strong> Both say you open an hour later than you do, which quietly costs the entire eight-to-nine morning coffee run. The second block is worse: it tells Google the bistro shuts at five o'clock <em>every day including Friday and Saturday</em>, which is precisely the après-ski and evening bourbon trade the downstairs bar exists for. Somebody checking on their phone at seven on a Saturday can be told you are closed while you are serving.</p>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-bottom:18px"><strong>Where it lives:</strong> Rank Math is emitting both. Block one comes from its Local SEO business settings, block two from a Restaurant schema template on the pages. They need to be reconciled to one, matching the Google profile. Two related errors sit in the same place: <strong>block one has no town in the address at all</strong> — it carries the street, state and ZIP but never the word Ellicottville — and the second block's <span class="mono">hasMenu</span> field points at whichever page you happen to be on, so the About page tells Google the menu is at <span class="mono">/about-us/</span>. <span class="claim claim-render">Verified by render</span> The visible address on the homepage has the same gap: it reads &ldquo;16 Washington Street, NY 14731&rdquo; with no town.</p>
+
+      <div class="key-finding" style="margin-bottom:18px">
+        <div class="key-finding-label">Second finding — six duplicate pages presented to Google as French</div>
+        <p><span class="claim claim-render">Verified by character comparison</span> Weglot is installed with one target language, French, and automatic translation switched on. It has generated <span class="mono">/fr/</span>, <span class="mono">/fr/menu/</span>, <span class="mono">/fr/about-us/</span>, <span class="mono">/fr/bar/</span>, <span class="mono">/fr/event/</span> and <span class="mono">/fr/ellicottville-coffee/</span>. Each one returns 200, declares itself French in the page code, canonicals to itself, and is pointed at from every English page by an <span class="mono">hreflang</span> tag, so Google will find all six.</p>
+        <p style="margin-top:10px"><strong>None of them is in French.</strong> We compared the French homepage against the English one: identical length to the character, 99.6% identical text, and not one French word in the body. So the site currently has six duplicates of itself declared as a language edition that does not exist, and none of them is in the sitemap.</p>
+        <p style="margin-top:10px"><span class="claim claim-infer">Question rather than a finding</span> Somebody enabled this deliberately and the strategy may well be sound — but we do not know who it was aimed at, so we are not going to tell you whether to keep it. <strong>Who was the French for?</strong> If there is a real audience, the translation needs to actually run and the pages belong in the sitemap. If there is not, removing the language is one setting. What should not continue is the current state, which carries the duplicate-content cost of a second language without delivering a second language.</p>
+      </div>
+
+      <div class="key-finding" style="margin-bottom:18px">
+        <div class="key-finding-label">Third finding — the bar page weighs 7.2 megabytes</div>
+        <p><span class="claim claim-render">Measured 24 August</span> The <span class="mono">/bar/</span> page loads <strong>25 images, every one a PNG, totalling 7.2&thinsp;MB</strong>, and <strong>not one of them has alt text</strong>. They are also all requested over <span class="mono">http://</span> rather than https, which is true of 34 image references across the site. Converting those to JPEG or WebP would cut the page by roughly ninety per cent. On ski-town mobile signal this is the slowest thing either business owns, and it is the page selling the highest-margin drinks.</p>
+      </div>
+
+      <div class="audit-grid">
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Website</span><span class="grade grade-c">C</span></div><div class="audit-note">Clean, attractive, well-photographed, fast to first byte. But it is only six pages and four of them are under 350 words, so there is very little for search to hold on to. The mobile viewport <strong>still blocks pinch-to-zoom</strong> — the Bake Shop rebuild fixed exactly this, so there is a working example a block away.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Technical SEO</span><span class="grade grade-c">C</span></div><div class="audit-note"><strong>Was F in July.</strong> Rank Math now supplies specific meta descriptions on all six pages, Open Graph, Twitter cards and rewritten buyer-intent titles. Remaining: the hreflang set points at six URLs absent from the sitemap, there is no x-default, and no Bing verification.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Structured Data</span><span class="grade grade-cp">C+</span></div><div class="audit-note">Real and substantial — Restaurant, CafeOrCoffeeShop, Place, postal address, phone, cuisine, price range. Ahead of the Bake Shop. Marked down only because the two blocks contradict each other on hours and address, which makes it actively misleading rather than merely absent.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Google Business Profile</span><span class="grade grade-b">B</span></div><div class="audit-note">4.6&#9733;, claimed, complete, correct address including the town, website linked, order-online live, LGBTQ+ friendly attribute set. Re-confirmed 24 August. The strongest asset either business has, and the site should be made to agree with it rather than the other way round.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Content</span><span class="grade grade-c">C</span></div><div class="audit-note">The About page FAQ is still there and still good — ten questions covering hours, seating, walk-ins, allergies, Wi-Fi, dogs and what Alpine Roots is. Still <strong>nothing marks it as an FAQ</strong>, so none of it can be surfaced. Vegan and gluten-free remain unanswered. No blog, no dated content.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Reviews &amp; Reputation</span><span class="grade grade-cp">C+</span></div><div class="audit-note">4.6&#9733; on Google, re-confirmed 24 August; count not visible signed out. TripAdvisor is claimed but empty. Facebook recommendations light. The reputation sits almost entirely on one platform.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Mobile &amp; Speed</span><span class="grade grade-d">D</span></div><div class="audit-note">Zoom still disabled, 7.2&thinsp;MB of PNGs on the bar page, 34 assets on http. Fast server, heavy pages.</div></div>
+        <div class="audit-card"><div class="audit-card-top"><span class="audit-channel">Housekeeping</span><span class="grade grade-c">C</span></div><div class="audit-note"><span class="mono">/author/Alpineadmin/</span> loads and publishes the WordPress username. 37 of 61 images across the site have no alt text.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 SHARED -->
+  <div class="section">
+    <div class="section-head" style="background:#f7ecdc;border-bottom:1px solid rgba(180,83,9,.22)">
+      <span class="section-num" style="color:#B45309">04</span>
+      <span class="section-title" style="color:#B45309">True of Both Sites</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">A good FAQ that no machine can read</div>
+          <div class="fact-val">Both sites carry a real FAQ written in buyer-intent phrasing — nine questions on the Bake Shop's About page, ten on Alpine's. <strong>Neither is marked up</strong>, so neither can be surfaced as an answer or quoted by an assistant. This is the single cheapest win available on either site, because the hard part, writing good answers, is already done on both.</div>
+        </div>
+        <div>
+          <div class="fact-label">Neither site is verified with Bing</div>
+          <div class="fact-val">No <span class="mono">msvalidate.01</span> tag and no <span class="mono">BingSiteAuth.xml</span> on either domain. This matters more than it used to: <strong>ChatGPT's search runs on Bing's index.</strong> Verification is free and takes about five minutes per site.</div>
+        </div>
+        <div>
+          <div class="fact-label">Both publish a WordPress username</div>
+          <div class="fact-val"><span class="mono">/author/admin/</span> on the Bake Shop and <span class="mono">/author/Alpineadmin/</span> on Alpine both load and print the account name. The Bake Shop's is the default <strong>&ldquo;admin&rdquo;</strong>, which is the one worth changing, since publishing it hands over half of a login. Disable author archives in the SEO plugin.</div>
+        </div>
+        <div>
+          <div class="fact-label">Neither has a single dated page</div>
+          <div class="fact-val">No events, no seasonal posts, no weekend content, and no event markup on either site. Covered in section 01 — this is the one that answers the 22 August question, and it is the only item on this list that needs a habit rather than a fix.</div>
+        </div>
+        <div>
+          <div class="fact-label">The two sisters barely acknowledge each other</div>
+          <div class="fact-val">Alpine's menu page credits &ldquo;bread baked daily at our sister bakery, Ellicottville Bake Shop&rdquo; in its description, which is good. Beyond that the cross-linking is thin in both directions. Two well-reviewed businesses a block apart, sharing owners and an audience, still pass each other very little.</div>
+        </div>
+        <div>
+          <div class="fact-label">One optional tidy-up</div>
+          <div class="fact-val"><span class="mono">new.ellicottvillebakeshop.com</span> now returns 404 rather than redirecting. If Google indexed it during the weeks it was open, that credit is dropped rather than passed to the live site. Whether it was ever indexed we cannot see from outside. A redirect from the old subdomain to the live site is free and correct either way.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 PRIORITIES -->
+  <div class="section">
+    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,.18)">
+      <span class="section-num" style="color:#2563eb">05</span>
+      <span class="section-title" style="color:#2563eb">What We'd Do, In Order</span>
+    </div>
+    <div class="rec-list">
+      <div class="rec-item"><div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Fix the Bake Shop sitemap &mdash; Yoast, two settings screens</span></div><div class="rec-detail">Exclude the layouts, layouts-group, portfolio-group, services-group and testimonials-group post types from the sitemap and set them to noindex. Then include the services and portfolio post types. That removes 16 pieces of furniture and adds 29 real pages, including 25 menu items. <strong>Highest ratio of value to effort on either site by a wide margin, and free.</strong></div></div>
+      <div class="rec-item"><div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Reconcile Alpine's opening hours to one set</span></div><div class="rec-detail">In Rank Math, make the Local SEO business hours and the Restaurant schema template agree with each other and with the Google profile: open 8&thinsp;AM, close 4&thinsp;PM Sunday to Thursday, 8&thinsp;PM Friday, 9&thinsp;PM Saturday. While in there, add Ellicottville to the address and point <span class="mono">hasMenu</span> at the menu page. <strong>This is the only item on either site that is currently telling people something untrue.</strong> Free.</div></div>
+      <div class="rec-item"><div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Give the Bake Shop a Bakery listing in its structured data</span></div><div class="rec-detail">Address, opening hours, phone, geo, and a link to the menu. Every value is already visible in the site footer. Yoast's local-business settings will do it, or Rank Math if the Bake Shop moves to it for consistency with Alpine. Free.</div></div>
+      <div class="rec-item"><div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Mark up both FAQs</span></div><div class="rec-detail">Nineteen good answers already written across the two sites, none of them currently eligible to be surfaced. Both SEO plugins have an FAQ block that does this. While you are there, add vegan and gluten-free to Alpine's, which are the two questions genuinely not answered anywhere. Free.</div></div>
+      <div class="rec-item"><div class="rec-header"><span class="rec-num">05</span><span class="rec-title">Publish one dated page a week, on either site</span></div><div class="rec-detail">This is the answer to the 22 August question and the only recommendation here that is a habit rather than a task. One URL, who and what and when in the title, a few sentences in the body. A Saturday sourdough, a seasonal drink, race-weekend hours, a holiday order deadline. The Bake Shop's events page is already built and currently says there are no events. <strong>Fifteen minutes a week, and it is the item most likely to change what an AI answer says about Ellicottville.</strong></div></div>
+      <div class="rec-item"><div class="rec-header"><span class="rec-num">06</span><span class="rec-title">Verify both domains with Bing</span></div><div class="rec-detail">Free, five minutes each, and it is the index ChatGPT searches. Do the same in Google Search Console if it is not already set up, because it is the only way any of this becomes measurable rather than inferred.</div></div>
+      <div class="rec-item"><div class="rec-header"><span class="rec-num">07</span><span class="rec-title">Cut the weight of Alpine's bar page and re-enable pinch-to-zoom</span></div><div class="rec-detail">25 PNGs at 7.2&thinsp;MB converted to WebP or JPEG, alt text added, and the image URLs switched from http to https. Then remove <span class="mono">maximum-scale=1.0, user-scalable=0</span> from the viewport tag so the site can be zoomed. The Bake Shop rebuild already did the viewport half.</div></div>
+      <div class="rec-item"><div class="rec-header"><span class="rec-num">08</span><span class="rec-title">Housekeeping on both</span></div><div class="rec-detail">Turn off author archives so the usernames stop being published. Replace the dead <span class="mono">new.ellicottvillebakeshop.com</span> logo reference in the Bake Shop's slide-out menu. Add canonicals and meta descriptions to the menu-item pages. Redirect the old staging subdomain to the live site. Confirm the Bake Shop's Google hours, since Google says somebody other than the owner last edited them.</div></div>
+    </div>
+  </div>
+
+  <!-- 06 DECISIONS -->
+  <div class="section">
+    <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(126,34,206,.2)">
+      <span class="section-num" style="color:#7e22ce">06</span>
+      <span class="section-title" style="color:#7e22ce">Two Things That Are Decisions, Not Website Jobs</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">These are deliberately kept out of the list above, because neither is ours to answer and both need a person rather than a plugin.</p>
+      <div class="fact-grid">
+        <div>
+          <div class="fact-label">Who was the French for?</div>
+          <div class="fact-val">Six French URLs exist, none of them in French. Finishing it and removing it are both defensible; leaving it as it is is the only option that costs something and returns nothing. <strong>That decision depends on an audience we cannot see from outside the site.</strong></div>
+        </div>
+        <div>
+          <div class="fact-label">Is anybody going to keep an events page fed?</div>
+          <div class="fact-val">Recommendation 05 works only if somebody owns it weekly. An events page that says there are no events is worse than not having one, and that is the current state. <strong>Better to decide who does it, or decide not to, than to build the page again and let it go quiet.</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 RUN IT YOURSELF -->
+  <div class="section">
+    <div class="section-head" style="background:#f7ecdc;border-bottom:1px solid rgba(180,83,9,.22)">
+      <span class="section-num" style="color:#B45309">07</span>
+      <span class="section-title" style="color:#B45309">Run the AI Test Yourselves</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">Do not take our word for any of this. Ten minutes and you can see what we see. <strong>We have deliberately not scored a full AI-visibility sweep in this refresh</strong>, and the reason is worth knowing: the Bake Shop's website is three days old, and the assistants are still serving answers built from the previous site. Measuring now would produce a number about a website that no longer exists. <strong>The right time is mid-September</strong>, once the engines have re-crawled. What follows is the method, so you can run it whenever you like and so the September numbers mean something.</p>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-bottom:8px"><strong>Ask these, exactly as written.</strong> Never search the business name until the last one, because that only proves the name exists.</p>
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-bottom:6px"><strong>For the Bake Shop:</strong> best bakery in Ellicottville NY &middot; where can I get fresh bread in Ellicottville &middot; recommend somewhere for breakfast near Holiday Valley &middot; where can I get a smoked salmon bagel in Ellicottville &middot; what do you know about Ellicottville Bake Shop</p>
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-bottom:6px"><strong>For Alpine:</strong> best coffee in Ellicottville NY &middot; where to get breakfast in Ellicottville &middot; recommend a bourbon bar near Holiday Valley &middot; where can I get a drink after skiing in Ellicottville &middot; what do you know about Alpine Bistro in Ellicottville</p>
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-bottom:18px"><strong>And the one from 22 August, for both:</strong> what is going on in Ellicottville New York this weekend. <em>Score that one separately from the rest — it is a different kind of question and averaging it in would hide what it tells you.</em></p>
+
+      <p><strong>Set each engine up properly, because &ldquo;use a private window&rdquo; is only correct for two of the four.</strong></p>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-top:10px"><strong>Google</strong> and <strong>Perplexity</strong>: an incognito window is the right control. It drops your account and your search history. On Google it will <em>not</em> change your location, which it reads from your internet connection, so results still reflect where the browser physically is.</p>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-top:10px"><strong>ChatGPT</strong>: incognito will not do it. ChatGPT's Memory is attached to the account rather than the browser, it is switched on by default, and a private window does not touch it. Use <strong>Temporary Chat</strong> instead, the mode that ignores memory and history entirely. If you are signed in, also open Settings and read what Memory has stored about the business, which is worth knowing in its own right.</p>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-top:10px"><strong>Grok</strong>: it requires a sign-in, so incognito only produces a login screen. Sign in and <strong>start a brand new conversation</strong> rather than continuing an existing thread, since an open thread carries its own context.</p>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-top:10px"><strong>Have five different people run it, not one.</strong> These systems are not deterministic. The same question asked twice can name different businesses, so one person running it once is a sample of one and can mislead in either direction. Five people means five different accounts, histories and connections, and what comes back is the range rather than a single reading.</p>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-top:10px"><strong>Keep it comparable.</strong> Use the prompts word for word, since rephrasing changes the answer. Same order, same day. Screenshot every answer, including the sources or citations panel where the engine shows one, because who gets <em>cited</em> matters as much as who gets named. Put everything in one shared folder labelled by person and engine. If everyone is on the same office connection, Google sees one location for all of them, which is fine as long as you know it.</p>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-top:10px">Re-run the identical set monthly. The movement in those answers is the scoreboard for the rest of the work.</p>
+    </div>
+  </div>
+
+  <!-- 08 HOW WE CHECKED -->
+  <div class="section">
+    <div class="section-head" style="background:#f6f6f4;border-bottom:1px solid rgba(120,113,108,.25)">
+      <span class="section-num" style="color:#57534e">08</span>
+      <span class="section-title" style="color:#57534e">How We Checked, and What We Don't Know</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">Every claim above is tagged with how we know it, so you can tell our observations from our opinions.</p>
+      <div class="fact-grid">
+        <div><div class="fact-label"><span class="claim claim-render">Verified by render</span></div><div class="fact-val">We loaded the page in a real browser and looked at it, or measured the file directly. Everything about hours, addresses, page weight, the FAQ text and the events page is this.</div></div>
+        <div><div class="fact-label"><span class="claim claim-infer">Inferred</span></div><div class="fact-val">Our reading of why something is the way it is. There are two in this document, both written as questions, both in section 06.</div></div>
+        <div><div class="fact-label">What we cannot see</div><div class="fact-val"><strong>We hold no Search Console or Analytics access for either site.</strong> That means we can tell you what the sites say and what Google's public surfaces show, but not what anybody actually searched, how many impressions you got, or which pages Google has indexed. Read access turns most of the inferences in this document into measurements, and it is the single thing that would most improve the September re-run.</div></div>
+        <div><div class="fact-label">One thing we deliberately did not do</div><div class="fact-val">We did not score AI visibility this month, for the reason in section 07. We would rather report nothing than report a number that measures a website you have already replaced.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 ROUTES -->
+  <div class="section">
+    <div class="section-head" style="background:#f0fdf4;border-bottom:1px solid rgba(22,163,74,.22)">
+      <span class="section-num" style="color:#15803d">09</span>
+      <span class="section-title" style="color:#15803d">Three Ways To Do This</span>
+    </div>
+    <div class="section-body">
+      <p class="position-intro">Nothing in this document is withheld. Every finding names the file, the setting or the page it lives in, and it is written that way on purpose.</p>
+
+      <div class="route">
+        <h4>1. Take it and run it yourselves</h4>
+        <p><strong>If you have somebody technical with the hours, this is the right answer and we will say so.</strong> Recommendations 01 through 04 and 06 are all free, all live inside settings screens you already have, and between them they carry most of the value in this document. Whoever rebuilt the Bake Shop site in a fortnight can do every one of them. Recommendation 05 is a habit and no outside party can own it for you anyway.</p>
+      </div>
+      <div class="route">
+        <h4>2. We specify, your people build</h4>
+        <p>We turn each finding into something buildable — the exact settings, the exact values, the exact markup — and then check the result against the original finding once it ships. You keep the work and the keys. Quoted once we agree the scope.</p>
+      </div>
+      <div class="route">
+        <h4>3. Hand us the keys</h4>
+        <p>We do the work, you review everything before it goes live, and every account stays in your name. Quoted once we agree the scope.</p>
+      </div>
+
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-top:6px"><strong>Do the free items first regardless of which route you pick.</strong> There is no version of this where paying somebody to tick two Yoast checkboxes is a good use of money.</p>
+    </div>
+  </div>
+
+
+  <div class="section">
+    <div class="section-head" style="background:#f6f6f4;border-bottom:1px solid rgba(120,113,108,.25)">
+      <span class="section-num" style="color:#57534e">10</span>
+      <span class="section-title" style="color:#57534e">Where the Rest of This Detail Lives</span>
+    </div>
+    <div class="section-body">
+      <div class="fact-grid">
+        <div><div class="fact-label">The portfolio hub</div><div class="fact-val"><a href="../hogan-portfolio/">All nine audits in one place</a>, with scores and the revision history.</div></div>
+        <div><div class="fact-label">The Six Thousand Dollar Week</div><div class="fact-val"><a href="../hogan-6k-week/">The sales-growth document</a> for the Bistro and the Bake Shop. Section 14 covers findability and should now be read alongside this refresh.</div></div>
+        <div><div class="fact-label">The July audits</div><div class="fact-val">Kept for the record: <a href="../ellicottville-bake-shop/">Bake Shop</a> and <a href="../alpine-bistro-ellicottville/">Alpine Bistro</a>. Both now carry a dated notice saying what has changed.</div></div>
+        <div><div class="fact-label">Next re-run</div><div class="fact-val"><strong>Mid-September 2026</strong>, for the scored AI-visibility sweep once the engines have re-crawled the new Bake Shop site.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>The writing is done. The wiring isn't.</h2>
+    <p>Both sites got materially better this month, and the remaining list is unusually short and unusually cheap. Most of what's left is telling Google about content that already exists.</p>
+    <a class="cta-btn" href="mailto:john@dobleai.com">Talk it through</a>
+    <div class="cta-sub">Doble AI &middot; Audit refresh, 24 August 2026 &middot; Every figure re-verified that day</div>
+  </div>
+
+  <div class="footer">
+    <span>Doble AI &middot; Ellicottville audit refresh &middot; 24 August 2026</span>
+    <span>Supersedes the July 2026 audits &middot; Link-shared, not indexed</span>
+  </div>
+
+</div>
+</body>
+</html>
