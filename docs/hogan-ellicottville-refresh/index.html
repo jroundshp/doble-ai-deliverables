@@ -287,6 +287,7 @@
       <div class="stat"><div class="stat-val">5.5 / 10</div><div class="stat-label">Alpine <span style="color:#15803d">&uarr; from 5.0</span></div></div>
       <div class="stat"><div class="stat-val">14</div><div class="stat-label">Items Fixed Since 18 Aug</div></div>
       <div class="stat"><div class="stat-val">29</div><div class="stat-label">Bake Shop Pages Unlisted</div></div>
+      <div class="stat"><div class="stat-val">3</div><div class="stat-label">Menu Pages Still On Lorem Ipsum</div></div>
     </div>
   </div>
 
@@ -384,7 +385,13 @@
 
       <p style="font-size:15px;color:#5A4636;line-height:1.7;margin:18px 0 8px"><strong>Also missing from the sitemap:</strong> the four <span class="mono">/portfolio/</span> pages — Private Events, Events, Brunch Sips and the Seasonal Coffee menu — plus both catering PDFs. None of those 29 pages carries a canonical tag or a meta description either, so even where Google finds them it is given very little to work with.</p>
 
-      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-bottom:18px"><strong>The fix is small.</strong> In Yoast, exclude the layout, services-group, portfolio-group and testimonials post types from the sitemap and set them to noindex, then include the services and portfolio post types. Two settings screens. It is not a project.</p>
+      <p style="font-size:15px;color:#5A4636;line-height:1.7;margin-bottom:14px"><strong>The fix is small.</strong> In Yoast, exclude the layout, services-group, portfolio-group and testimonials post types from the sitemap and set them to noindex, then include the services and portfolio post types. Two settings screens. It is not a project.</p>
+
+      <div class="key-finding" style="margin-bottom:18px;background:rgba(37,99,235,.04);border-color:rgba(37,99,235,.25)">
+        <div class="key-finding-label" style="color:#1d4ed8">The fair objection to this, and our answer</div>
+        <p>Somebody could reasonably push back that these menu pages are thin. <strong>They would have a point and we want to put the number on the table rather than have it found later.</strong> We compared four of them line by line: each page shares <strong>49 lines of identical header, footer and navigation</strong>, and carries only <strong>22 to 37 words of its own</strong> &mdash; the item name and one description sentence. That is genuinely thin by any measure.</p>
+        <p style="margin-top:10px"><strong>We still think submitting them is right, for two reasons.</strong> The unique sentence is the part that matters, and it is the exact language somebody types when they want that thing. And a product or menu-item page with a real, unique description is a normal, legitimate page type &mdash; this is how every restaurant and retail site on the internet is structured. <strong>What would make us wrong is if the copy were not unique, and on 22 of 25 it is.</strong> So: fix the three placeholder pages, give all 25 a meta description and a canonical, and submit them. If you would rather be cautious, submit the four <span class="mono">/portfolio/</span> pages and the strongest dozen menu items first and watch what happens.</p>
+      </div>
 
       <div class="key-finding" style="margin-bottom:18px">
         <div class="key-finding-label">Second finding — the structured data does not contain the bakery</div>
@@ -394,6 +401,12 @@
       <div class="key-finding" style="margin-bottom:18px">
         <div class="key-finding-label">Third finding — nine good answers, none of them marked as answers</div>
         <p><span class="claim claim-render">Verified by render</span> The About page carries a <strong>genuinely excellent FAQ</strong> written in exactly the phrasing people search: &ldquo;What is the best bakery in Ellicottville for fresh, from-scratch baked goods?&rdquo;, &ldquo;How do I keep pastries fresh?&rdquo;, &ldquo;Why do preservative-free baked goods have a shorter shelf life?&rdquo; Nine questions, real answers, well written. <strong>Nothing on the page marks them as questions and answers</strong>, so none of it is eligible to be surfaced or quoted. This is the same finding as Alpine's, on a different site, and in both cases the writing is done and only the wiring is missing.</p>
+      </div>
+
+      <div class="key-finding" style="margin-bottom:18px">
+        <div class="key-finding-label">Fourth finding &mdash; a caf&eacute; with no coffee prices on its website</div>
+        <p><span class="claim claim-render">Verified across every page</span> The Bake Shop's site publishes <strong>no espresso menu at all</strong>. There is no cappuccino, no latte, no americano, no drip coffee price anywhere on the site. The only coffee page is <span class="mono">/portfolio/seasonal-specialty-coffee-menu/</span>, which lists five seasonal drinks at $6.25 &mdash; and that page is one of the 29 <strong>missing from the sitemap</strong>, so even it is not being offered to Google.</p>
+        <p style="margin-top:10px">Alpine, a block away, publishes a full one: espresso $3.50, brewed coffee $3.50 / $4.50, cappuccino and latte $4.75 / $5.25, americano $4.00 / $4.75, cold brew $5.50. <strong>Somebody searching &ldquo;how much is a coffee in Ellicottville&rdquo; can find out about Alpine and cannot find out about the Bake Shop</strong>, which matters for a bakery whose morning trade is coffee.</p>
       </div>
 
       <div class="audit-grid">
@@ -509,7 +522,8 @@
       <span class="section-title" style="color:#2563eb">What We'd Do, In Order</span>
     </div>
     <div class="rec-list">
-      <div class="rec-item"><div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Fix the Bake Shop sitemap &mdash; Yoast, two settings screens</span></div><div class="rec-detail">Exclude the layouts, layouts-group, portfolio-group, services-group and testimonials-group post types from the sitemap and set them to noindex. Then include the services and portfolio post types. That removes 16 pieces of furniture and adds 29 real pages, including 25 menu items. <strong>Highest ratio of value to effort on either site by a wide margin, and free.</strong></div></div>
+      <div class="rec-item"><div class="rec-header"><span class="rec-num">01</span><span class="rec-title">Fix the Bake Shop sitemap &mdash; Yoast, two settings screens</span></div><div class="rec-detail">Exclude the layouts, layouts-group, portfolio-group, services-group and testimonials-group post types from the sitemap and set them to noindex. Then include the services and portfolio post types. That removes 16 pieces of furniture and adds 29 real pages, including 25 menu items. <strong>Highest ratio of value to effort on either site by a wide margin, and free.</strong>
+        <br><br><strong style="color:#b91c1c">Do one thing first, though.</strong> We read all 25 menu pages rather than a sample, and <strong>three of them still carry template placeholder text</strong> &mdash; the &ldquo;Lorem ipsum dolor sit amet&rdquo; filler &mdash; where the product description should be: <span class="mono">/services/pesto-melt/</span>, <span class="mono">/services/almond-croissants/</span> and <span class="mono">/services/cinnamon-buns/</span>. The other 22 are clean and have real copy. <strong>Write three sentences before you submit the set</strong>, or you will be handing Google three placeholder pages. This took us a scan of all 25 to find and it is exactly the kind of thing that only shows up if you look at every one.</div></div>
       <div class="rec-item"><div class="rec-header"><span class="rec-num">02</span><span class="rec-title">Reconcile Alpine's opening hours to one set</span></div><div class="rec-detail">In Rank Math, make the Local SEO business hours and the Restaurant schema template agree with each other and with the Google profile: open 8&thinsp;AM, close 4&thinsp;PM Sunday to Thursday, 8&thinsp;PM Friday, 9&thinsp;PM Saturday. While in there, add Ellicottville to the address and point <span class="mono">hasMenu</span> at the menu page. <strong>This is the only item on either site that is currently telling people something untrue.</strong> Free.</div></div>
       <div class="rec-item"><div class="rec-header"><span class="rec-num">03</span><span class="rec-title">Give the Bake Shop a Bakery listing in its structured data</span></div><div class="rec-detail">Address, opening hours, phone, geo, and a link to the menu. Every value is already visible in the site footer. Yoast's local-business settings will do it, or Rank Math if the Bake Shop moves to it for consistency with Alpine. Free.</div></div>
       <div class="rec-item"><div class="rec-header"><span class="rec-num">04</span><span class="rec-title">Mark up both FAQs</span></div><div class="rec-detail">Nineteen good answers already written across the two sites, none of them currently eligible to be surfaced. Both SEO plugins have an FAQ block that does this. While you are there, add vegan and gluten-free to Alpine's, which are the two questions genuinely not answered anywhere. Free.</div></div>
@@ -524,14 +538,18 @@
   <div class="section">
     <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(126,34,206,.2)">
       <span class="section-num" style="color:#7e22ce">06</span>
-      <span class="section-title" style="color:#7e22ce">Two Things That Are Decisions, Not Website Jobs</span>
+      <span class="section-title" style="color:#7e22ce">Three Things That Are Decisions, Not Website Jobs</span>
     </div>
     <div class="section-body">
-      <p class="position-intro">These are deliberately kept out of the list above, because neither is ours to answer and both need a person rather than a plugin.</p>
+      <p class="position-intro">These are deliberately kept out of the list above, because none of them is ours to answer and each needs a person rather than a plugin.</p>
       <div class="fact-grid">
         <div>
           <div class="fact-label">Who was the French for?</div>
           <div class="fact-val">Six French URLs exist, none of them in French. Finishing it and removing it are both defensible; leaving it as it is is the only option that costs something and returns nothing. <strong>That decision depends on an audience we cannot see from outside the site.</strong></div>
+        </div>
+        <div>
+          <div class="fact-label">Are the two price lists meant to differ?</div>
+          <div class="fact-val">The one item class both businesses publish is seasonal specialty drinks, and they are <strong>$7.00 at Alpine and $6.25 at the Bake Shop</strong> &mdash; a 12% gap, two doors apart, same owners. On the everyday espresso menu no comparison is possible at all, because only Alpine publishes one. <strong>A deliberate difference is completely defensible</strong>; the two rooms are different and Alpine pours into the evening. <span class="claim claim-infer">Question, not a finding</span> We simply cannot tell from outside whether it is deliberate or drift, and it is the sort of thing that is easier to answer now than after a customer asks. Worth ten minutes with both menus side by side.</div>
         </div>
         <div>
           <div class="fact-label">Is anybody going to keep an events page fed?</div>
