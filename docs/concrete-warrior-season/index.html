@@ -227,9 +227,9 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
     <p class="sub">Across the remaining 12 weeks</p>
   </div>
   <div class="tile">
-    <p class="lab">If weather allows</p>
+    <p class="lab">Workbook tail</p>
     <p class="val">$5.33M</p>
-    <p class="sub">Two further weeks are modelled, to 29 November</p>
+    <p class="sub">Two further weeks sit in the model, not in the plan</p>
   </div>
   <div class="tile">
     <p class="lab">Required pace</p>
@@ -241,7 +241,7 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
 <div class="prog">
   <div class="prog-top">
     <div><h4 style="margin:0">Season progress</h4></div>
-    <div class="n">1 of 13 weeks complete &middot; $173,989 of $4,568,027 &middot; target 15 Nov</div>
+    <div class="n">1 of 13 weeks complete &middot; $173,989 of $4,568,027 &middot; planned to 15 Nov</div>
   </div>
   <div class="bar"><div class="fill" style="width:3.8%"></div><div class="rest"></div></div>
   <div class="prog-legend">
@@ -254,7 +254,7 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
 <div class="note acc">
 <h4>The one number that matters</h4>
 <p>Week 1 delivered <strong>6,300 topsoil yards</strong>, exactly on its 6,300 target. To finish the season on plan the operation now has to average <strong>7,892 yards a week for twelve straight weeks</strong>. The required pace from here is about 25% above the only week actually on the board.</p>
-<p><strong>On the season end date.</strong> Everything above is measured to <strong>Sunday 15 November</strong>, which is the date the operating side is working to. The workbook models two further weeks at full production, to 29 November, worth another $763,780 of net. Those are carried in the table and the charts so this page always reconciles with the workbook, and they are kept out of every headline figure here because the end of the season is a weather question rather than a planning one.</p>
+<p><strong>On the season end date.</strong> <strong>Confirmed with Richard on 24 August: the season is planned to Sunday 15 November</strong>, and everyone is working to that date. Every figure on this page is measured to it. The workbook carries two further weeks at full production, to 29 November, worth another $763,780 of net. Those are shown in the table and the charts so this page always reconciles with Richard's sheet, and they are kept out of every headline here because <strong>they are model tail rather than plan</strong>. If the weather moves the date, the plan gets adjusted rather than the tail getting counted.</p>
 </div>
 </section>
 
@@ -341,7 +341,7 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
   <td class="n">$6,787,000</td><td class="n">$4,568,027</td><td class="n">&mdash;</td><td></td>
 </tr>
 <tr style="opacity:.72">
-  <td colspan="2">Plus two modelled weeks, if weather allows</td>
+  <td colspan="2">Plus two weeks carried in the workbook, not in the plan</td>
   <td class="n">16,000</td><td class="n">2,000</td><td class="n">$0</td>
   <td class="n">$1,112,000</td><td class="n">$763,780</td><td class="n">&mdash;</td><td></td>
 </tr>
@@ -509,8 +509,9 @@ const WK = [
 ];
 /* Weeks 14 and 15 are in Richard's workbook and are carried here so this dashboard always
    totals to the same figures as his sheet. They sit past the mid-November target everyone
-   is working to, so they are shown as a weather-dependent extension and are excluded from
-   the headline numbers. TARGET_WEEKS is the line; SEASON is everything modelled. */
+   is working to. Richard confirmed the 15 November plan on 24 August, so these two are model
+   tail rather than forecast: carried for reconciliation, excluded from every headline.
+   TARGET_WEEKS is the planned season; WK is everything the workbook models. */
 const TARGET_WEEKS = 13;
 const TGT = WK.slice(0, TARGET_WEEKS);
 const sum = (a,k) => a.reduce((t,d)=>t+d[k],0);
@@ -570,7 +571,7 @@ function drawCume(){
     lb.textContent = d.s.replace(" ", " "); svg.appendChild(lb);
   });
 
-  drawTargetLine(svg, X(TARGET_WEEKS-1), mT, ph, "15 Nov target");
+  drawTargetLine(svg, X(TARGET_WEEKS-1), mT, ph, "15 Nov, planned end");
 
   svg.appendChild(svgEl("path", {d:"M" + cum.map((v,i)=>`${X(i)},${Y(v)}`).join("L"),
     fill:"none", stroke:C("--plan"), "stroke-width":2, "stroke-dasharray":"6 4",
@@ -626,7 +627,7 @@ function drawTop(){
     "font-weight":600, fill:C("--accent-deep")});
   tl.textContent = "7,892 required pace"; svg.appendChild(tl);
 
-  drawTargetLine(svg, mL + band*TARGET_WEEKS, mT, ph, "15 Nov target");
+  drawTargetLine(svg, mL + band*TARGET_WEEKS, mT, ph, "15 Nov, planned end");
 
   WK.forEach((d, i) => {
     const cx = mL + band*i + band/2;
@@ -708,7 +709,7 @@ function drawTable(){
   let run = 0;
   tb.innerHTML = WK.map(d => {
     run += d.net;
-    const [cc, ct] = d.ext ? ['chip-next','If weather allows'] : chip[d.st];
+    const [cc, ct] = d.ext ? ['chip-next','Model tail'] : chip[d.st];
     return `<tr class="${d.st==='now'?'now':(d.st==='done'?'done':'')}" style="${d.ext?'opacity:.72':''}">
       <td class="n">${d.w}</td>
       <td>${d.s} &ndash; ${d.e}</td>
