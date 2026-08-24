@@ -108,6 +108,17 @@
   .audit-note code { font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; background: rgba(47,111,106,0.09); padding: 1px 5px; border-radius: 3px; }
 
   /* ── Key finding ── */
+  .conf {
+    margin: 22px 0 0; padding: 12px 18px; border-radius: 8px;
+    background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.22);
+    border-left: 3px solid #2F6F6A;
+    font-size: 14px; line-height: 1.6; color: #46524C;
+  }
+  .conf strong { color: #1F2622; }
+  .conf .conf-lab {
+    display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: #2F6F6A; margin-bottom: 5px;
+  }
   .key-finding { background: rgba(47,111,106,0.06); border: 1px solid rgba(47,111,106,0.24); border-radius: 8px; padding: 16px 20px; margin-top: 20px; }
   .key-finding-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #2F6F6A; margin-bottom: 8px; }
   .key-finding p { font-size: 16px; color: #46524C; line-height: 1.65; }
@@ -155,6 +166,11 @@
     <p>Before anything gets built, this is where the North Dakota operation would be starting from. Who already sells aggregate into New Town, how strong their hold actually is, and what turned up from looking at their listings and their sites directly rather than taking anyone's word for it.</p>
     <p style="font-size:16px;color:#46524C;margin-top:-24px;margin-bottom:32px"><strong>For the Texas side:</strong> Section 05 is about you. The company outranking Patriot Stone in Denton is the same one holding New Town, and what it is doing in both markets is the single most useful thing in this document.</p>
 
+    <div class="conf">
+      <span class="conf-lab">Confidential · Concrete Warrior group only</span>
+      This is original market research: where the gaps are, which competitors are weak and how. That is an advantage precisely because nobody else holds it. <strong>Keep it inside this group.</strong> The build specification is the document to work from day to day; this one explains why the market is open, which is not something to put in front of anyone else.
+    </div>
+
     <div class="stats">
       <div class="stat"><div class="stat-val">New Town, ND</div><div class="stat-label">Market</div></div>
       <div class="stat"><div class="stat-val">5</div><div class="stat-label">Competitors Reviewed</div></div>
@@ -165,7 +181,8 @@
 
     <div class="key-finding" style="margin-top:36px;background:rgba(21,128,61,0.06);border-color:rgba(21,128,61,0.28)">
       <div class="key-finding-label" style="color:#15803d">Updated August 6 with Breanna's answers</div>
-      <p>Section 08 now records what came back: Concrete Warrior LLC is a separate entity in a joint venture with Patriot Stone Supply LLC, the site is 9702 ND-23 in New Town, and the company is a licensed contractor with the MHA Nation. One answer changed the strategy outright. <strong>Concrete Warrior owns the batch plant rather than supplying someone else's</strong>, and there is no ready mix plant left in New Town, which makes concrete the strongest position in this business rather than a side line.</p>
+      <p>Section 08 now records what came back: Concrete Warrior LLC is a separate entity in a joint venture with Patriot Stone Supply LLC, the site is 9702 ND-23 in New Town, and the company is a licensed contractor with the MHA Nation. One answer changed the strategy outright. <strong>Concrete Warrior owns the batch plant rather than supplying someone else's.</strong></p>
+      <p><strong>Superseded August 24.</strong> The rest of that reading, that no ready mix plant is left in New Town and concrete is therefore the strongest position in the business, no longer holds. Knife River inherited Strata's position here in March 2025 and operates ready mix and aggregate in New Town itself, at 8790 39th St NW. The field is not empty, and it is not even distant. Concrete is a contested line and, on the current reading, the harder of the two. <strong>Topsoil is the lead product</strong>, per the build specification of the same date. Two points from August 6 still need reconciling against the operating call: whether the batch plant is built and running today or is still the 500 to 1,000 yard a week model the call describes, and where exactly the Knife River plant sits.</p>
       <p>Section 09 lists what is still needed. The most urgent is a naming question that was not in the original set.</p>
     </div>
 
@@ -223,8 +240,13 @@
         </thead>
         <tbody>
           <tr>
+            <td>Knife River</td>
+            <td><strong>Revised August 24, 2026. This entry previously read "low direct" and treated the company as a distant giant on the Fisher pattern. That was wrong, and the correction matters.</strong> Knife River completed its $454 million acquisition of Strata Corporation in March 2025 and inherited Strata's position in this market with it. The operating side names Knife River as the main competitor on concrete and has since given the location: it runs <strong>ready mix and aggregate in New Town itself, through the Strata division, at 8790 39th St NW</strong>. That is the same address this document already recorded in Section 03 from the map research of August 5, filed there under the category Google gives it, "concrete contractor." We had the pin and read it as a contractor rather than an operating plant. So Knife River is not a distant giant and not merely nearby. <strong>It is in town, on both concrete and aggregate.</strong> Its exposure is visibility rather than scale: seventeen months on, the New Town listing still reads "Strata Corporation," carries no website and holds a single review, from a customer explaining the business was sold. Topsoil is the one line where it holds no comparable position, which is now the clearest single reason topsoil leads.</td>
+            <td><span class="badge badge-high">High on concrete</span><br><span class="badge badge-low" style="margin-top:6px">Low on topsoil</span></td>
+          </tr>
+          <tr>
             <td>Ruach Resources</td>
-            <td>The real local competitor. Aggregate and ready mix across the Williston Basin since 2011, formed when Triple Aggregate and Oil Capital Ready Mix merged. Plants in Tioga and Williston, multiple pits, own trucking. Lists New Town in its service area and runs a landing page per town.</td>
+            <td>The other real local competitor. Aggregate and ready mix across the Williston Basin since 2011, formed when Triple Aggregate and Oil Capital Ready Mix merged. Plants in Tioga and Williston, multiple pits, own trucking. Lists New Town in its service area and runs a landing page per town.</td>
             <td><span class="badge badge-high">High</span></td>
           </tr>
           <tr>
@@ -240,11 +262,6 @@
           <tr>
             <td>Fisher Industries</td>
             <td>The giant. Dickinson ND, founded 1952, over 30 million tons a year, a top 25 US sand and gravel producer with 12 commercial and 45 portable crushing plants. Not competing for a 40 ton delivery in New Town.</td>
-            <td><span class="badge badge-low">Low direct</span></td>
-          </tr>
-          <tr>
-            <td>Knife River</td>
-            <td>Publicly traded construction materials and contracting. Same story as Fisher. Different weight class, worth knowing so nobody tries to fight them head on.</td>
             <td><span class="badge badge-low">Low direct</span></td>
           </tr>
           <tr>
@@ -585,7 +602,8 @@
         <div class="key-finding-label" style="color:#15803d">The batch plant is the strongest asset here, and the memo undersold it</div>
         <p>Look again at the ready mix results in Section 03. The nearest plants to New Town are Tioga at roughly 60 miles, then Dickinson and Bowman at 150 to 200. <strong>There is no ready mix plant in New Town.</strong></p>
         <p>There used to be. <strong>West Dakota Ready Mix, of New Town, is closed</strong>, which is why it appears as permanently closed on the map. This is not a category the town never had. It is one the town lost, and now gets served from an hour away.</p>
-        <p>Ready mix is the one product where distance decides the sale. Concrete has roughly a ninety minute working window from batching to placement, so a sixty mile haul is a handicap and a hundred and fifty mile haul is disqualifying. A plant at 9702 ND-23 would not be competing on price against those operators. For most of Fort Berthold it would be the only practical option.</p>
+        <p>Ready mix is the one product where distance decides the sale. Concrete has roughly a ninety minute working window from batching to placement, and the operating side puts the commercial limit tighter still, at about an hour of drive time. So a sixty mile haul is a handicap and a hundred and fifty mile haul is disqualifying, and a plant at 9702 ND-23 is well placed for Fort Berthold work.</p>
+        <p><strong>Revised August 24.</strong> This section previously concluded that such a plant would be <em>the only practical option</em> for most of Fort Berthold. That is withdrawn. Knife River runs ready mix and aggregate in New Town itself, at 8790 39th St NW, so proximity is table stakes here rather than an advantage, and the concrete argument has to be won on being findable, on local ownership and TERO standing, on taking the work a national plant schedules around, and on the bundle. The distance point still helps. It no longer does the job by itself.</p>
         <p>That reframes the business. <strong>Lead with concrete, not gravel.</strong> Aggregate, crushing and topsoil are open fields worth taking, but ready mix is the position that is structural rather than earned, and it is the one no competitor can answer without building a plant here.</p>
       </div>
     </div>
@@ -628,7 +646,7 @@
   </div>
 
   <div class="method">
-    <strong>Method and limits.</strong> Entity, address, TERO and batch plant ownership in Section 08 come from Breanna Murphy on August 6, 2026 and are recorded as given. The Rhino Ready Mix, LLC registration details come from North Dakota company records, and the Houston company of the same name from its own public listings. Everything else: every competitor claim here was verified directly at the source on August 5, 2026, by pulling the live pages rather than relying on directories. The Ruach page titles, headings and state labels were read from the raw HTML across four of their town pages. Domain availability was checked at the Verisign registry. TERO requirements come from mhatero.com. Market figures come from public Bakken reporting as of spring 2026 and should be refreshed before any external use. Hello Gravel's funding and founding details come from its own public pages and from PitchBook. Its supplier directory figures, the three North Dakota listings and the absence of Patriot Stone from the 154 Texas listings, were read off their live state directory pages in a browser on August 5 and are confirmed rather than inferred. Two limits worth stating plainly: Hello Gravel's site returns a 403 to automated requests, so its page HTML was never audited and its grade reflects only its published agent interfaces and directory; and the Google Maps research in Section 03 was run on August 5 from Colorado with the map centered on New Town, rather than from a phone in Mountrail County, so category membership should hold but exact ordering may vary locally. The Knife River acquisition of Strata Corporation is confirmed from Knife River's own investor announcements, completed March 10, 2025 at $454 million.
+    <strong>Correction, August 24, 2026.</strong> The Knife River row in Section 02 was rewritten. The original rating of "low direct" was reasoned from company size rather than from local presence, and it was reached without asking the operating side who they actually compete with. They were asked on August 24 and named Knife River first on concrete. The sharper lesson is that <strong>the evidence was already in this document.</strong> Section 03 recorded the New Town listing at 8790 39th St NW on August 5, under Google's own category label of "concrete contractor." Having already decided Knife River was a distant giant, we read that pin as a contractor rather than as the incumbent's operating plant, and did not reconcile the two sections. The rule that follows: <strong>search measures who ranks, not who competes, the client is the authority on the competitive set, and a classification made early will quietly bend later evidence to fit it.</strong> The build specification's concrete argument has been rewritten in consequence, and this is the second time that ordering has cost a rewrite.<br><br><strong>Method and limits.</strong> Entity, address, TERO and batch plant ownership in Section 08 come from Breanna Murphy on August 6, 2026 and are recorded as given. The Rhino Ready Mix, LLC registration details come from North Dakota company records, and the Houston company of the same name from its own public listings. Everything else: every competitor claim here was verified directly at the source on August 5, 2026, by pulling the live pages rather than relying on directories. The Ruach page titles, headings and state labels were read from the raw HTML across four of their town pages. Domain availability was checked at the Verisign registry. TERO requirements come from mhatero.com. Market figures come from public Bakken reporting as of spring 2026 and should be refreshed before any external use. Hello Gravel's funding and founding details come from its own public pages and from PitchBook. Its supplier directory figures, the three North Dakota listings and the absence of Patriot Stone from the 154 Texas listings, were read off their live state directory pages in a browser on August 5 and are confirmed rather than inferred. Two limits worth stating plainly: Hello Gravel's site returns a 403 to automated requests, so its page HTML was never audited and its grade reflects only its published agent interfaces and directory; and the Google Maps research in Section 03 was run on August 5 from Colorado with the map centered on New Town, rather than from a phone in Mountrail County, so category membership should hold but exact ordering may vary locally. The Knife River acquisition of Strata Corporation is confirmed from Knife River's own investor announcements, completed March 10, 2025 at $454 million.
   </div>
 
   <div class="footer">
