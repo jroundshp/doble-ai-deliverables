@@ -375,6 +375,18 @@
             <td><span class="badge badge-high">High</span></td>
           </tr>
           <tr>
+            <td>Dyer Fiberglass</td>
+            <td class="geo">Tennessee</td>
+            <td><strong>Added 24 August 2026 &mdash; named by Perplexity in a clean logged-out session where VPC was not.</strong> Custom fabricated fiberglass buildings and molded covers. <strong>Carries FAQPage markup;</strong> VPC does not. Second of the two named competitors doing exactly what this audit recommends.</td>
+            <td><span class="badge badge-med">Med</span></td>
+          </tr>
+          <tr>
+            <td>Americhem Systems · MFG Construction &amp; Water</td>
+            <td class="geo">National</td>
+            <td>Added 24 August 2026, both named in clean sessions on 24 August. Americhem builds custom FRP and steel enclosures for limited-space and harsh environments &mdash; cooling tower buildings, RO structures, sodium hypochlorite shelters. MFG Construction &amp; Water Products was named by Perplexity alongside them. Neither carries FAQ markup, which is the point of the table in section 04: being named is not purely a markup contest.</td>
+            <td><span class="badge badge-lowmed">Low–Med</span></td>
+          </tr>
+          <tr>
             <td>EJ · Fibrelite / OPW</td>
             <td class="geo">National</td>
             <td>Added 24 August 2026, specific to the composite manhole cover line rather than shelters. EJ sells Durostreet and Durowalk to AASHTO M306 H25; Fibrelite is the established GRP cover and trench brand. Both are national names a municipal buyer already knows, and both outrank VPC's catalog page for the category.</td>
@@ -414,7 +426,7 @@
         </div>
         <div class="pos-card" style="background:rgba(180,83,9,0.07);border:1px solid rgba(194,65,12,0.25)">
           <div class="pos-card-label" style="color:#c2410c">Current Position</div>
-          <div class="pos-card-text">Zero FAQ content and zero <code>FAQPage</code> schema across every commercial page. No <code>Product</code> schema anywhere, including a catalog subdomain with no structured data at all. A test page and duplicate product pages are publicly indexed. Three reviews total, one of which is a delivery driver's GPS coordinates. Amherst has no Google profile. Absent from buyer-intent AI answers.</div>
+          <div class="pos-card-text">Zero FAQ content and zero <code>FAQPage</code> schema across every commercial page. No <code>Product</code> schema anywhere, including a catalog subdomain with no structured data at all. <strong>The test page and the duplicate product pages have since been cleaned up (24 Aug).</strong> Three reviews total, one of which is a delivery driver's GPS coordinates. Amherst has no Google profile. Absent from buyer-intent AI answers.</div>
         </div>
         <div class="pos-card" style="background:rgba(21,128,61,0.07);border:1px solid rgba(21,128,61,0.2)">
           <div class="pos-card-label" style="color:#15803d">Biggest Opportunity</div>
@@ -457,10 +469,24 @@
         <div class="audit-card">
           <div class="audit-card-top"><span class="audit-channel">AI Search Visibility (GEO)</span><span class="grade grade-d">D</span></div>
           <div class="audit-note">Asked to name manufacturers of custom fiberglass equipment enclosures for water treatment, the engines return Augusta Fiberglass, Warminster Fiberglass, Signature Enclosures, RM Products, GTOFRP and LF Manufacturing. VPC does not appear. It surfaces only when a query already contains its product names — which means it is retrievable but not recommendable. With no FAQ, no product markup and a silent catalog, there is little for an engine to quote.</div>
-          <div style="margin-top:12px;padding:12px 14px;background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.25);border-radius:6px">
-            <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d4ed8;margin-bottom:6px">Added 24 August 2026 — the exhibit, and the caveat that goes with it</div>
-            <p style="font-size:14px;line-height:1.6;color:#5A4636;margin:0 0 8px"><strong>The exhibit.</strong> <strong>Tracom</strong>, a direct competitor making the same one-piece FRP shelters and flumes, carries a live <code>FAQPage</code> block with six buyer-intent questions on its site. VPC carries zero. That is the recommendation in this audit, already implemented by somebody VPC competes with, and it can be checked in ten seconds with Google's Rich Results Test.</p>
-            <p style="font-size:14px;line-height:1.6;color:#5A4636;margin:0"><strong>The caveat, and we would rather state it than have it found.</strong> <strong>Shelter Works carries no structured data at all &mdash; zero JSON-LD blocks &mdash; and is still named first for municipal wastewater shelters.</strong> So markup is not what wins these answers on its own, and any consultant who tells you otherwise is overselling. Schema is a readability floor, not a ranking lever: it makes the content you already have eligible to be quoted. VPC's problem is that it has the content and is not eligible. Fixing that is necessary, and on its own it will not be sufficient.</p>
+          <div style="margin-top:12px;padding:14px 16px;background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.25);border-radius:6px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1d4ed8;margin-bottom:8px">Re-measured 24 August 2026 in clean sessions — the finding holds</div>
+            <p style="font-size:14px;line-height:1.6;color:#5A4636;margin:0 0 10px">The prompt <em>&ldquo;who manufactures custom fiberglass equipment enclosures for water treatment plants&rdquo;</em> was re-run on <strong>Perplexity logged out</strong> and on <strong>Grok in a new conversation</strong>, on 24 August. <strong>VPC was named in neither.</strong> Perplexity returned Shelter Works, Warminster Fiberglass, RM Products, Dyer Fiberglass and MFG Construction &amp; Water Products across 15 sources. Grok returned Shelter Works, Warminster Fiberglass, Americhem Systems and MEKCO. <strong>Warminster appears in every run; VPC appears in none.</strong></p>
+            <p style="font-size:14px;line-height:1.6;color:#5A4636;margin:0 0 10px"><strong>Then we checked whether the named companies are simply better marked up. They are not, and this is the part worth reading carefully.</strong></p>
+            <table style="width:100%;font-size:13px;margin:0 0 10px">
+              <thead><tr><th style="text-align:left;padding:4px 8px 6px 0">Named in a clean run</th><th style="text-align:left;padding:4px 8px 6px">FAQPage</th><th style="text-align:left;padding:4px 8px 6px">JSON-LD blocks</th></tr></thead>
+              <tbody>
+                <tr><td style="padding:4px 8px 4px 0">Shelter Works <em>(named first, twice)</em></td><td style="padding:4px 8px">none</td><td style="padding:4px 8px"><strong>none at all</strong></td></tr>
+                <tr><td style="padding:4px 8px 4px 0">Dyer Fiberglass</td><td style="padding:4px 8px">yes</td><td style="padding:4px 8px">2</td></tr>
+                <tr><td style="padding:4px 8px 4px 0">MFG Construction &amp; Water</td><td style="padding:4px 8px">none</td><td style="padding:4px 8px">1</td></tr>
+                <tr><td style="padding:4px 8px 4px 0">Americhem Systems</td><td style="padding:4px 8px">none</td><td style="padding:4px 8px">1</td></tr>
+                <tr><td style="padding:4px 8px 4px 0">Tracom</td><td style="padding:4px 8px">yes</td><td style="padding:4px 8px">2</td></tr>
+                <tr><td style="padding:4px 8px 4px 0">Warminster · RM Products</td><td style="padding:4px 8px" colspan="2"><em>not checked — both blocked our request, and a block is not a measurement</em></td></tr>
+                <tr style="border-top:1px solid rgba(180,83,9,.25)"><td style="padding:6px 8px 4px 0"><strong>VPC Fiberglass</strong></td><td style="padding:6px 8px"><strong>none</strong></td><td style="padding:6px 8px"><strong>3</strong></td></tr>
+              </tbody>
+            </table>
+            <p style="font-size:14px;line-height:1.6;color:#5A4636;margin:0 0 10px"><strong>VPC carries more structured data than Shelter Works, which carries none and is named first.</strong> So markup does not buy the mention, and we are not going to tell you it does. What separates them is that Shelter Works has deep, specific, single-purpose shelter content on its own domain, and VPC's equivalent depth sits in a catalog on a subdomain with no markup at all &mdash; while its own enclosure page existed until this month as three duplicates of one post.</p>
+            <p style="font-size:14px;line-height:1.6;color:#5A4636;margin:0"><strong>The correct way to state the recommendation, then:</strong> schema is a readability floor that makes existing content eligible to be quoted, not a lever that ranks it. VPC's problem is upstream of markup &mdash; the content that would earn the mention is either thin, duplicated, or parked where it does the brand no good. Fix the content and the markup together, or neither will pay. <strong>Two of the five named competitors do carry FAQ markup and VPC carries none, so the floor is worth building &mdash; just do not expect the floor to be the building.</strong></p>
           </div>
         </div>
         <div class="audit-card">
