@@ -153,7 +153,7 @@
   <div class="hero">
     <div class="tag">Build Specification · Draft v3 · Revised August 24, 2026</div>
     <h1>Concrete Warrior<br>Supply</h1>
-    <p>What the website needs to do, page by page, written so any competent builder can quote it. This is a requirements document, not a design. It deliberately does not specify a platform, a framework or a look, so that quotes are comparable and every bidder is pricing the same outcome.</p>
+    <p>The current version of what we are building, why it is built that way, and who it is for. Page by page, with the reasoning kept alongside each decision so it can be argued with rather than just followed. <strong>We are building this ourselves</strong>, so this is a working plan rather than a document written to be priced. It is written to be read by the operating side as much as by whoever is at the keyboard.</p>
 
     <div class="stats">
       <div class="stat"><div class="stat-val">~25</div><div class="stat-label">Pages At Launch</div></div>
@@ -165,7 +165,7 @@
     <div class="alert">
       <div class="alert-label">Read this first</div>
       <p>The trading name and domain are <strong>settled as of August 13, 2026</strong>, see section 02. <strong>v3 carries one substantial change of direction:</strong> the operating calls of August 23 and 24 established that <strong>topsoil, not ready mix concrete, is the lead product line</strong>, and that the argument which sells it is freight cost rather than material quality. Sections 01, 03 and 05 have been revised accordingly.</p>
-      <p><strong>Section 10 is new and it is the one to read if you are on the operating side.</strong> It gathers every open question in one list, with the person who owns each one. Several of them block pages rather than merely delay them. Everything marked <code>[TBC]</code> is a client input, not a builder decision.</p>
+      <p><strong>Section 08 is new and it is the one to read if you are on the operating side.</strong> It gathers every open question in one list, with the person who owns each one. Several of them block pages rather than merely delay them. Everything marked <code>[TBC]</code> comes from the operating side. It is not something we can settle at the keyboard.</p>
     </div>
   </div>
 
@@ -217,7 +217,7 @@
       <div class="key-finding">
         <div class="key-finding-label">The single most important constraint</div>
         <p>This is a market where almost no competitor publishes anything useful. The advantage available here is <strong>specificity</strong>: real material specs, real price brackets, real photographs, real answers to real questions. A handsome site with vague copy loses to a plain site with numbers on it.</p>
-        <p>Bidders should read that as licence to spend effort on content structure rather than on visual novelty.</p>
+        <p>Read that as licence to spend the effort on content structure rather than on visual novelty. A plain page carrying real numbers beats a handsome one carrying adjectives, and this market has no shortage of the second kind.</p>
       </div>
     </div>
   </div>
@@ -360,7 +360,7 @@
         <li><strong>Price bracket</strong>, per ton or per cubic yard <code>[TBC]</code></li>
         <li>Typical quantity guidance, for example tons per truckload and coverage</li>
         <li>At least one real photograph of that material at this yard</li>
-        <li><strong>Added v3. No material page is built for material the operation cannot deliver.</strong> Some of what appears on a materials list is produced here, some would be resold from a third party pit under an arrangement that does not exist yet, and some is not currently in stock at all. Those are three different things and a buyer discovers the difference the hard way. Section 10 carries this as the first open question, and it decides how many material pages there are.</li>
+        <li><strong>Added v3. No material page is built for material the operation cannot deliver.</strong> Some of what appears on a materials list is produced here, some would be resold from a third party pit under an arrangement that does not exist yet, and some is not currently in stock at all. Those are three different things and a buyer discovers the difference the hard way. Section 08 carries this as the first open question, and it decides how many material pages there are.</li>
         <li>Five FAQs with structured data</li>
         <li><strong>On the reclamation topsoil page specifically: the lab numbers, published.</strong> Electrical conductivity, sodium adsorption ratio, pH, organic matter and coarse fragments. Bakken reclamation is a salt problem rather than a weed problem, so an operator is checking the material is not saline or sodic. Published figures of the form <em>"EC 1.2, SAR 1.8, pH 7.4, 4% organic matter, weed free certified under NDCC 4.1-47"</em> are the single most citable thing this site can carry, and no competitor in the region publishes anything like it. <code>[TBC — client to supply, and to confirm the numbers may be published]</code></li>
       </ul>
@@ -388,7 +388,7 @@
       <span class="section-title" style="color:#7c3aed">Technical Requirements</span>
     </div>
     <div class="section-body">
-      <p>Platform is the builder's choice. These are the outcomes it has to deliver. Every item is objectively checkable at handover.</p>
+      <p>The stack is settled: Next.js, deployed on Vercel, the same as the other sites we run. These are the outcomes it has to deliver regardless, and every item below is objectively checkable rather than a matter of opinion.</p>
 
       <table>
         <thead><tr><th>Area</th><th>Requirement</th></tr></thead>
@@ -423,7 +423,7 @@
     <div class="section-body">
       <h3 class="sub">Photography</h3>
       <p><strong>Real photographs of this operation. No stock imagery and no AI generated images.</strong> That is the finished state and it is a firm requirement rather than a preference. <strong>v3 permits one narrow interim exception on the way there</strong>, set out immediately below.</p>
-      <p>The client will supply roughly thirty daylight phone photographs of the plant, the pit, stockpiles, trucks, loading and finished pours. Slightly rough, real photographs of this yard outperform polished stock photography in this trade, because they are the one thing a competitor cannot copy and a template cannot fake. The builder is responsible for cropping, compressing and sizing them properly, not for replacing them.</p>
+      <p>The client will supply roughly thirty daylight phone photographs of the plant, the pit, stockpiles, trucks, loading and finished pours. Slightly rough, real photographs of this yard outperform polished stock photography in this trade, because they are the one thing a competitor cannot copy and a template cannot fake. They get cropped, compressed and sized properly. They do not get replaced with something tidier.</p>
 
       <div class="key-finding" style="background:rgba(180,83,9,0.06);border-color:rgba(180,83,9,0.3)">
         <div class="key-finding-label">Revised v3, August 24, 2026: photography no longer holds the launch</div>
@@ -435,7 +435,7 @@
           <li><strong>An empty, labelled slot beats a misleading photograph.</strong> The benchmark review of twenty six supplier sites found borrowed and stock imagery reads as broker rather than producer, which is precisely the impression this business must avoid.</li>
           <li><strong>Every interim image is logged with its swap target</strong> so that no borrowed frame quietly becomes permanent, which is the ordinary failure mode here.</li>
         </ul>
-        <p style="margin-top:10px"><strong>One question has to be settled before any of it goes public, and it is in section 10.</strong> The Texas stills carry the marks of a stock library rather than photographs of that yard: uniform dimensions, studio lighting, cloudless skies, no branding and no signage anywhere in frame. One confirmed background image on that site is a theme demo asset showing an excavator with a palm tree and a city skyline behind it. Owning the affiliated company is not the same as holding the web vendor's stock licence. <strong>Someone has to confirm which of those photographs were actually taken by or for the operation.</strong></p>
+        <p style="margin-top:10px"><strong>One question has to be settled before any of it goes public, and it is in section 08.</strong> The Texas stills carry the marks of a stock library rather than photographs of that yard: uniform dimensions, studio lighting, cloudless skies, no branding and no signage anywhere in frame. One confirmed background image on that site is a theme demo asset showing an excavator with a palm tree and a city skyline behind it. Owning the affiliated company is not the same as holding the web vendor's stock licence. <strong>Someone has to confirm which of those photographs were actually taken by or for the operation.</strong></p>
       </div>
 
       <h3 class="sub">Shot list, in priority order</h3>
@@ -507,8 +507,8 @@
           <div class="pos-card-text">The ~24 pages. Six answer articles at launch. Structured data, metadata, sitemap, analytics, Search Console. Quote form. Photo processing. Handover docs and training.</div>
         </div>
         <div class="pos-card" style="background:#fffbeb;border:1px solid rgba(180,83,9,0.2)">
-          <div class="pos-card-label" style="color:#b45309">Quote separately</div>
-          <div class="pos-card-text">Google Business Profile creation and verification. Trade directory listings. The four later articles. Ongoing content. Logo and brand identity, if none exists.</div>
+          <div class="pos-card-label" style="color:#b45309">After launch, not before</div>
+          <div class="pos-card-text">Google Business Profile creation and verification, which has its own lead time and should start in parallel. Trade directory listings. The four later articles. Ongoing content. Logo and brand identity, if none exists.</div>
         </div>
         <div class="pos-card" style="background:#fef2f2;border:1px solid rgba(185,28,28,0.18)">
           <div class="pos-card-label" style="color:#b91c1c">Explicitly out</div>
@@ -535,49 +535,10 @@
     </div>
   </div>
 
-  <!-- 06 -->
-  <div class="section">
-    <div class="section-head" style="background:#eff6ff;border-bottom:1px solid rgba(37,99,235,0.18)">
-      <span class="section-num" style="color:#2563eb">07</span>
-      <span class="section-title" style="color:#2563eb">How To Quote This</span>
-    </div>
-    <div class="section-body">
-      <p>So that bids can be compared honestly, please price these as separate lines rather than one number.</p>
-
-      <table>
-        <thead><tr><th>Line</th><th>What it covers</th></tr></thead>
-        <tbody>
-          <tr><td>A. Design and build</td><td>The ~24 pages, responsive, to the technical requirements in section 04.</td></tr>
-          <tr><td>B. Content writing</td><td>Page copy plus six launch articles. State clearly whether copy is included or expected from the client.</td></tr>
-          <tr><td>C. Technical SEO</td><td>Structured data, metadata, sitemap, Search Console, analytics with conversion tracking.</td></tr>
-          <tr><td>D. Photography handling</td><td>Processing and placing client supplied images.</td></tr>
-          <tr><td>E. Hosting and care</td><td>Monthly. State exactly what is included and what an hourly change costs.</td></tr>
-          <tr><td>F. Optional</td><td>Google Business Profile setup, directory listings, the four later articles.</td></tr>
-        </tbody>
-      </table>
-
-      <h3 class="sub">Also state plainly</h3>
-      <ul class="plain">
-        <li><strong>Timeline</strong> from signed to launched, and what would delay it.</li>
-        <li><strong>Ownership.</strong> Who owns the domain, hosting, analytics and the code or content. The client should own all of it.</li>
-        <li><strong>Platform</strong> proposed, and what editing it requires.</li>
-        <li><strong>Portability.</strong> If the relationship ends, what does the client keep and in what form.</li>
-        <li><strong>Two comparable examples</strong> of work for trade, industrial or materials businesses, with live links.</li>
-      </ul>
-
-      <div class="key-finding" style="background:rgba(185,28,28,0.05);border-color:rgba(185,28,28,0.25)">
-        <div class="key-finding-label">Questions worth asking every bidder</div>
-        <p><strong>Will you publish prices?</strong> Many builders will resist. In this market it is one of the strongest advantages available, and reluctance here signals a template rather than a strategy.</p>
-        <p><strong>How do you handle FAQ structured data?</strong> If the answer is vague, the site will not get quoted by AI assistants, which is where a meaningful share of this market is heading.</p>
-        <p><strong>Who writes the material specs?</strong> Whoever it is needs to be comfortable being corrected by Richard. Wrong specs in front of a spec buyer are worse than no specs.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- 07 -->
   <div class="section">
     <div class="section-head" style="background:#f5f3ff;border-bottom:1px solid rgba(124,58,237,0.18)">
-      <span class="section-num" style="color:#7c3aed">08</span>
+      <span class="section-num" style="color:#7c3aed">07</span>
       <span class="section-title" style="color:#7c3aed">Acceptance Criteria</span>
     </div>
     <div class="section-body">
@@ -600,43 +561,10 @@
     </div>
   </div>
 
-  <!-- 09 -->
-  <div class="section">
-    <div class="section-head" style="background:#e8f2ef;border-bottom:1px solid rgba(47,111,106,0.24)">
-      <span class="section-num" style="color:#2F6F6A">09</span>
-      <span class="section-title" style="color:#2F6F6A">Who Builds It</span>
-    </div>
-    <div class="section-body">
-      <p>Two honest options, and this document works for either.</p>
-
-      <div class="card-grid" style="margin-top:6px">
-        <div class="pos-card" style="background:#e8f2ef;border:1px solid rgba(47,111,106,0.24)">
-          <div class="pos-card-label" style="color:#2F6F6A">We build it</div>
-          <div class="pos-card-text">We wrote the spec, we did the market research behind it, and we build sites of exactly this shape. Nothing here would need to be re-explained, and the research already done feeds straight into the copy.</div>
-        </div>
-        <div class="pos-card" style="background:#FAFBF8;border:1px solid rgba(47,111,106,0.16)">
-          <div class="pos-card-label" style="color:#46524C">Take it out for quotes</div>
-          <div class="pos-card-text">This is written to be biddable. Section 07 sets out how to price it in comparable lines. Getting two or three quotes is a reasonable thing to do and we are not precious about it.</div>
-        </div>
-        <div class="pos-card" style="background:#FAFBF8;border:1px solid rgba(47,111,106,0.16)">
-          <div class="pos-card-label" style="color:#46524C">Or both</div>
-          <div class="pos-card-text">Quote it out, include us, and compare. The spec exists so that whichever way it goes, the client knows what they are buying and can tell whether they got it.</div>
-        </div>
-      </div>
-
-      <div class="key-finding" style="background:rgba(185,28,28,0.05);border-color:rgba(185,28,28,0.25)">
-        <div class="key-finding-label">Before sending this to anyone, please read this</div>
-        <p>This document, and especially the competitive landscape document that accompanies it, contain <strong>original research into this market</strong>: where the gaps are, which competitors are weak and exactly how, which categories are empty, and where the openings sit. That research took real work and it is currently an advantage because nobody else has it.</p>
-        <p>Handing it to three web agencies means handing it to three companies who work for other clients, possibly one day in this industry. It is not confidential in a legal sense and there is nothing scandalous in it. But it is <strong>a competitive asset, and it stops being one the moment it is widely distributed.</strong></p>
-        <p>Our suggestion: send the <em>build specification</em> to bidders, which is sections 02 through 08 and contains what a builder actually needs. <strong>Keep the competitive landscape document inside the group.</strong> A builder does not need to know why the market is open in order to quote the pages, and the reasoning is the part worth protecting.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- 10 -->
   <div class="section">
     <div class="section-head" style="background:#fef2f2;border-bottom:1px solid rgba(185,28,28,0.18)">
-      <span class="section-num" style="color:#b91c1c">10</span>
+      <span class="section-num" style="color:#b91c1c">08</span>
       <span class="section-title" style="color:#b91c1c">Open Questions For The Operating Side</span>
     </div>
     <div class="section-body">
@@ -672,13 +600,13 @@
 
   <div class="cta-block">
     <h2>A note on what this is</h2>
-    <p>A requirements document, not a design and not a proposal. It prescribes no platform, so whoever quotes it is pricing the same work. Corrections from the operating side, especially on materials, specs and delivery radius, will change it and are welcome.</p>
+    <p>A working plan, kept current rather than finished. It records what is being built and the reasoning behind it, so that a decision made in August can be revisited in October by someone who was not on the call. <strong>Corrections from the operating side are the point of circulating it</strong>, particularly on materials, specs, capacity and delivery radius. Section 08 is where to start.</p>
   </div>
 
   <div class="method">
-    <strong>Status.</strong> Draft v3, revised August 24, 2026. Written from the market research in the accompanying competitive landscape document and from information provided by the client on August 6, 2026, updated with what was established between August 7 and 13.
+    <strong>Status.</strong> Draft v3, revised August 24, 2026. Written from the market research in the accompanying competitive landscape document, from information provided by the client on August 6, 2026, and from the operating calls of August 23 and 24, which are the source for most of what changed in this version.
     <br><br>
-    <strong>What changed in v3.</strong> One change of direction and three additions. <strong>Topsoil replaces ready mix concrete as the lead product line</strong>, and the argument that sells it is freight cost rather than material quality, which is set out in section 01 and reflected in the page tree. Concrete keeps its own separate argument and the two lines are now written to sound different, because one is entering a held market and the other an open one. <strong>A concrete disposal page is added</strong>, selling to the buyer rather than buying from them, and nothing comparable exists on any of the twenty six supplier sites reviewed. <strong>The quantity calculator is replaced by a delivered cost comparison</strong> in which the buyer supplies their current landed price, which is both more persuasive and avoids this site publishing a claim about a competitor's pricing. <strong>A capacity block is added</strong> to the topsoil page, answering schedule rather than price. Photography no longer gates the launch: interim borrowed frames are permitted under narrow limits set out in section 05, and may carry atmosphere but never material identity. A rule is added that no material page is built for material the operation cannot deliver. <strong>Section 10 is new</strong> and gathers all thirteen open questions with owners.
+    <strong>What changed in v3.</strong> One change of direction and three additions. <strong>Topsoil replaces ready mix concrete as the lead product line</strong>, and the argument that sells it is freight cost rather than material quality, which is set out in section 01 and reflected in the page tree. Concrete keeps its own separate argument and the two lines are now written to sound different, because one is entering a held market and the other an open one. <strong>A concrete disposal page is added</strong>, selling to the buyer rather than buying from them, and nothing comparable exists on any of the twenty six supplier sites reviewed. <strong>The quantity calculator is replaced by a delivered cost comparison</strong> in which the buyer supplies their current landed price, which is both more persuasive and avoids this site publishing a claim about a competitor's pricing. <strong>A capacity block is added</strong> to the topsoil page, answering schedule rather than price. Photography no longer gates the launch: interim borrowed frames are permitted under narrow limits set out in section 05, and may carry atmosphere but never material identity. A rule is added that no material page is built for material the operation cannot deliver. <strong>Section 08 is new</strong> and gathers all thirteen open questions with owners. <strong>Two sections were removed:</strong> the guidance on how to price the work in comparable lines, and the note weighing whether to build it in house or take it out for quotes. That decision is made. We are building it, so the document is now a working plan rather than something written to be bid on, and the introduction and closing note were rewritten to match.
     <br><br>
     <strong>What changed in v2.</strong> The trading name and domain are resolved: <em>Concrete Warrior Supply</em> on <em>concretewarriorsupply.com</em>, replacing the open naming question that made v1 a draft. A stated objective was added at the top, because everything else in the document is downstream of it. Product lines are confirmed as ready mix concrete, crushed concrete, road gravel and topsoil across both tribal and non-tribal markets, and topsoil consequently splits into two pages serving two different buyers. A credentials page was added. The material page requirements now call for published lab numbers on reclamation topsoil. A photography shot list and three pre-publication checks were added. Three copy rules were added covering how the affiliated Texas operation is described, what may not be claimed before it is granted, and naming customers or operators without permission. Two prerequisites that sit ahead of the build — entity standing and the Google listing lead time — are now stated in section 02.
     <br><br>
@@ -687,7 +615,7 @@
 
   <div class="footer">
     <span>Prepared by John Rounds · Eagle River Base Camp / Doble AI</span>
-    <span>August 6, 2026, revised August 13, 2026 · Draft v2 · Private, unlisted</span>
+    <span>August 6, 2026, revised August 24, 2026 · Draft v3 · Private, unlisted</span>
   </div>
 
 </div>
