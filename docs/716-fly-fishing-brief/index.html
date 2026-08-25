@@ -273,7 +273,7 @@
     counter-increment: step;
     display: grid;
     grid-template-columns: 1.9rem minmax(0, 1fr);
-    gap: 1rem;
+    gap: 0.15rem 1rem;
     margin: 0;
     padding: 0;
   }
@@ -289,8 +289,12 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* three grid items (::before, .h, .d) in a two-column track:
+     pin both text spans to column 2 or .d falls into the number column */
+  .steps .h,
+  .steps .d { grid-column: 2; }
   .steps .h { display: block; font-weight: 600; }
-  .steps .d { color: var(--ink-2); font-size: 0.96rem; }
+  .steps .d { display: block; color: var(--ink-2); font-size: 0.96rem; }
 
   /* ---------- link block ---------- */
 
