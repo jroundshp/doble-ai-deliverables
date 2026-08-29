@@ -222,7 +222,9 @@ ol.qs li {
 }
 ol.qs li:last-child { border-bottom: 0; }
 ol.qs li::before { content: counter(q, decimal-leading-zero); font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--ink-mute); }
-ol.qs .why { display: block; font-size: 0.86rem; color: var(--ink-mute); margin-top: 0.18rem; }
+/* .why is the third grid child, so it must be pinned to column 2 or
+   auto-placement drops it into the 2.3rem counter column. */
+ol.qs .why { grid-column: 2; display: block; font-size: 0.86rem; color: var(--ink-mute); margin-top: 0.18rem; }
 
 /* ── Options ──────────────────────────────────────────────────────────── */
 .opts { display: grid; gap: 1.4rem; margin-top: 1.8rem; }
@@ -240,7 +242,7 @@ ol.qs .why { display: block; font-size: 0.86rem; color: var(--ink-mute); margin-
 .opt .risk b { color: var(--ink); font-weight: 600; }
 
 /* ── Caveat + footer ──────────────────────────────────────────────────── */
-.caveat { margin-top: 2rem; border: 1px solid var(--rule); border-left: 4px solid var(--ink-mute); padding: 1.2rem 1.3rem; background: var(--surface); }
+.caveat { max-width: 76ch; margin-top: 2rem; border: 1px solid var(--rule); border-left: 4px solid var(--ink-mute); padding: 1.2rem 1.3rem; background: var(--surface); }
 .caveat p { font-size: 0.94rem; margin: 0; }
 .caveat .eyebrow { color: var(--ink-mute); display: block; margin-bottom: 0.5rem; }
 
@@ -316,12 +318,12 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
 
         <p class="lane-label">Roads &mdash; NDDOT spring load restrictions</p>
         <div class="lane">
-          <div class="band band--ban" style="left:17.26%; width:23.29%">Heavy loads restricted</div>
+          <div class="band band--ban" style="left:17.26%; width:23.29%">Loads restricted</div>
         </div>
 
         <p class="lane-label">Seeding windows &mdash; set by the state</p>
         <div class="lane">
-          <div class="band band--blocked" style="left:24.66%; width:14.79%">Spring window &mdash; unhaulable</div>
+          <div class="band band--blocked" style="left:24.66%; width:14.79%">Spring &mdash; shut</div>
           <div class="band band--open" style="left:80.27%; width:11.24%">Fall &mdash; open</div>
         </div>
 
