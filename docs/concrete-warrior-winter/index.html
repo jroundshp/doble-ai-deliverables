@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jroundshp.github.io/doble-ai-deliverables/concrete-warrior-winter/">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Winter at New Town</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* ── Palette inherited from the Concrete Warrior site, not invented here.
+      graphite / bone / scoria, with steel as the blue-biased neutral and
+      amber reserved for one job only: the road ban. ────────────────────── */
+:root {
+  --graphite:  #14161a;
+  --graphite-2:#1d2026;
+  --steel:     #6b7480;
+  --steel-dim: #8b939d;
+  --bone:      #f2efe9;
+  --scoria:    #b4432a;
+  --scoria-br: #d15334;
+  --amber:     #c2870c;
+
+  --ground:    var(--bone);
+  --surface:   #fbfaf7;
+  --ink:       var(--graphite);
+  --ink-soft:  #4b525c;
+  --ink-mute:  var(--steel);
+  --rule:      #d5cfc4;
+  --rule-soft: #e6e1d7;
+  --band-neutral: #c3bcb0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:    var(--graphite);
+    --surface:   var(--graphite-2);
+    --ink:       var(--bone);
+    --ink-soft:  #c2c7ce;
+    --ink-mute:  var(--steel-dim);
+    --rule:      #343a43;
+    --rule-soft: #262b32;
+    --scoria:    var(--scoria-br);
+    --amber:     #d99b17;
+    --band-neutral: #444b55;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground:    var(--graphite);
+  --surface:   var(--graphite-2);
+  --ink:       var(--bone);
+  --ink-soft:  #c2c7ce;
+  --ink-mute:  var(--steel-dim);
+  --rule:      #343a43;
+  --rule-soft: #262b32;
+  --scoria:    var(--scoria-br);
+  --amber:     #d99b17;
+  --band-neutral: #444b55;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16.5px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.1rem, 4vw, 2.5rem) 5rem;
+}
+
+.display {
+  font-family: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-family: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: var(--scoria);
+}
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Masthead ─────────────────────────────────────────────────────────── */
+header.mast { border-top: 3px solid var(--scoria); padding-top: 1.6rem; }
+.mast h1 { font-size: clamp(2.7rem, 7.5vw, 4.6rem); margin: 0.7rem 0 0; }
+
+.thesis {
+  font-size: clamp(1.12rem, 2.2vw, 1.34rem);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin: 1.35rem 0 0;
+  font-weight: 500;
+}
+
+.meta {
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 2.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* ── Section rhythm ───────────────────────────────────────────────────── */
+section { margin-top: clamp(3.2rem, 7vw, 5rem); }
+h2.sec { font-size: clamp(1.6rem, 3.4vw, 2.15rem); margin: 0.55rem 0 1.1rem; }
+p { max-width: 68ch; }
+p + p { margin-top: 0.95rem; }
+
+/* ── The three doors ──────────────────────────────────────────────────── */
+.doors { display: grid; gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin-top: 1.8rem; }
+@media (min-width: 48rem) { .doors { grid-template-columns: repeat(3, 1fr); } }
+.door { background: var(--surface); padding: 1.25rem 1.3rem 1.4rem; }
+.door .n {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--scoria);
+  letter-spacing: 0.06em;
+}
+.door h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.22rem; line-height: 1.05; margin: 0.45rem 0 0.45rem; }
+.door p { font-size: 0.91rem; margin: 0; max-width: none; color: var(--ink-soft); }
+
+/* ── The year chart ───────────────────────────────────────────────────── */
+.chart-shell { margin-top: 1.8rem; overflow-x: auto; padding-bottom: 0.4rem; }
+.chart { min-width: 40rem; }
+
+.months { position: relative; height: 1.5rem; border-bottom: 1px solid var(--rule); }
+.months span { position: absolute; top: 0; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ink-mute); transform: translateX(0.28rem); }
+.tick { position: absolute; bottom: 0; width: 1px; height: 0.4rem; background: var(--rule); }
+
+.lane { position: relative; height: 2.9rem; border-bottom: 1px solid var(--rule-soft); }
+.lane:last-of-type { border-bottom: 1px solid var(--rule); }
+
+.band {
+  position: absolute; top: 0.62rem; height: 1.65rem; border-radius: 1px;
+  display: flex; align-items: center; padding: 0 0.6rem;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; white-space: nowrap; overflow: hidden;
+}
+.band--ban {
+  background-color: color-mix(in srgb, var(--amber) 17%, var(--ground));
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 7px,
+    color-mix(in srgb, var(--amber) 42%, transparent) 7px,
+    color-mix(in srgb, var(--amber) 42%, transparent) 14px);
+  border: 1px solid color-mix(in srgb, var(--amber) 62%, transparent);
+  color: var(--ink);
+}
+.band--blocked { background: transparent; border: 1px dashed var(--ink-mute); color: var(--ink-mute); }
+.band--open { background: var(--scoria); color: #fff; }
+.band--memo { background: var(--band-neutral); color: var(--ink); }
+
+.lane-label { font-size: 0.73rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding: 0.45rem 0 0.15rem; }
+
+.collide { position: absolute; top: -0.2rem; bottom: -0.2rem; border-left: 2px solid var(--scoria); border-right: 2px solid var(--scoria); background: color-mix(in srgb, var(--scoria) 13%, transparent); pointer-events: none; }
+.collide-note { position: absolute; top: 0.1rem; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--scoria); font-weight: 700; white-space: nowrap; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin-top: 1.1rem; font-size: 0.76rem; color: var(--ink-mute); }
+.legend div { display: flex; align-items: center; gap: 0.5rem; }
+.swatch { width: 1.5rem; height: 0.75rem; flex: none; border-radius: 1px; }
+
+/* ── Known / unknown tables ───────────────────────────────────────────── */
+.tbl-shell { overflow-x: auto; margin-top: 1.6rem; }
+table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.93rem; }
+thead th {
+  text-align: left; font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  text-transform: uppercase; letter-spacing: 0.11em; font-size: 0.72rem;
+  color: var(--ink-mute); font-weight: 600; padding: 0 0.9rem 0.55rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+tbody td { padding: 0.85rem 0.9rem 0.85rem 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+tbody td:last-child, thead th:last-child { padding-right: 0; }
+tbody tr td:first-child { font-weight: 600; color: var(--ink); }
+
+.pill {
+  display: inline-block; font-size: 0.66rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 700; padding: 0.18rem 0.45rem;
+  border: 1px solid currentColor; border-radius: 1px; white-space: nowrap;
+}
+.pill--hard { color: var(--scoria); }
+.pill--soft { color: var(--amber); }
+.pill--easy { color: var(--ink-mute); }
+
+/* ── Gate blocks ──────────────────────────────────────────────────────── */
+.gate { margin-top: 2.2rem; border-left: 4px solid var(--rule); padding-left: 1.4rem; }
+.gate--ours { border-left-color: var(--ink-mute); }
+.gate--yours { border-left-color: var(--scoria); }
+.gate--none { border-left-color: var(--amber); }
+.gate h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.28rem; margin: 0 0 0.15rem; }
+.gate .who { font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-mute); margin: 0 0 0.9rem; }
+ol.qs { list-style: none; counter-reset: q; padding: 0; margin: 0; max-width: 62ch; }
+ol.qs li {
+  counter-increment: q; display: grid; grid-template-columns: 2.3rem 1fr;
+  gap: 0 0.7rem; padding: 0.72rem 0; border-bottom: 1px solid var(--rule-soft); align-items: baseline;
+}
+ol.qs li:last-child { border-bottom: 0; }
+ol.qs li::before { content: counter(q, decimal-leading-zero); font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--ink-mute); }
+ol.qs .why { display: block; font-size: 0.86rem; color: var(--ink-mute); margin-top: 0.18rem; }
+
+/* ── Options ──────────────────────────────────────────────────────────── */
+.opts { display: grid; gap: 1.4rem; margin-top: 1.8rem; }
+@media (min-width: 48rem) { .opts { grid-template-columns: repeat(3, 1fr); } }
+.opt { background: var(--surface); border: 1px solid var(--rule-soft); border-top: 3px solid var(--band-neutral); padding: 1.4rem 1.35rem 1.5rem; }
+.opt--yes { border-top-color: var(--scoria); }
+.opt--ask { border-top-color: var(--amber); }
+.opt .verdict { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--ink-mute); }
+.opt--yes .verdict { color: var(--scoria); }
+.opt--ask .verdict { color: var(--amber); }
+.opt h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.3rem; line-height: 1.05; margin: 0.5rem 0 0.2rem; }
+.opt .when { font-size: 0.8rem; color: var(--ink-mute); margin: 0 0 0.85rem; letter-spacing: 0.04em; }
+.opt p { font-size: 0.92rem; margin: 0; max-width: none; }
+.opt .risk { margin-top: 0.9rem; padding-top: 0.8rem; border-top: 1px solid var(--rule-soft); font-size: 0.86rem; color: var(--ink-mute); }
+.opt .risk b { color: var(--ink); font-weight: 600; }
+
+/* ── Caveat + footer ──────────────────────────────────────────────────── */
+.caveat { margin-top: 2rem; border: 1px solid var(--rule); border-left: 4px solid var(--ink-mute); padding: 1.2rem 1.3rem; background: var(--surface); }
+.caveat p { font-size: 0.94rem; margin: 0; }
+.caveat .eyebrow { color: var(--ink-mute); display: block; margin-bottom: 0.5rem; }
+
+footer { margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--ink-mute); }
+footer ul { padding: 0; list-style: none; margin: 0.8rem 0 0; display: grid; gap: 0.42rem; }
+footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-color: var(--scoria); }
+:focus-visible { outline: 2px solid var(--scoria); outline-offset: 2px; }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">Concrete Warrior &middot; New Town, North Dakota</p>
+    <h1 class="display">Winter at New Town</h1>
+    <p class="thesis">Whether North Dakota earns its keep from November through April, or whether the equipment and the attention are better spent in Texas. This brief does not answer that. It narrows it, and it lists what we still have to know.</p>
+    <div class="meta">
+      <span class="mono">29 August 2026</span>
+      <span>For Corey Hogan</span>
+      <span>Decision brief &middot; not a recommendation</span>
+    </div>
+  </header>
+
+  <section>
+    <p class="eyebrow">The question</p>
+    <h2 class="sec display">This is a resource call, not a weather call</h2>
+    <p>New Town is one of several places the same money and the same attention could go. So the honest question is not &ldquo;can we operate in a North Dakota winter,&rdquo; which is a question about equipment. It is whether five months at New Town beats the next best use of the same resources, including moving the emphasis south.</p>
+    <p>Framed that way, there are three doors, and they cost wildly different amounts.</p>
+
+    <div class="doors">
+      <div class="door">
+        <p class="n">DOOR 1</p>
+        <h3>Stay north, full production</h3>
+        <p>Crushers, plant and crew running through the winter at New Town.</p>
+      </div>
+      <div class="door">
+        <p class="n">DOOR 2</p>
+        <h3>Go dark, shift to Texas</h3>
+        <p>Close the yard at the end of October as planned and put the season into Patriot.</p>
+      </div>
+      <div class="door">
+        <p class="n">DOOR 3</p>
+        <h3>Keep a presence, not a plant</h3>
+        <p>Stop producing, but hold a yard, a stockpile and a phone number through the winter.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:1.6rem">Almost every conversation about this collapses doors 1 and 3 into &ldquo;staying open,&rdquo; and they are not the same decision. One is a crushing spread and a crew. The other is a loader and somebody answering the phone.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">What is already decided for us</p>
+    <h2 class="sec display">The state sets the calendar</h2>
+    <p>One part of this is not a judgment call. Reclamation topsoil is the lead product, and when a customer can take delivery is fixed by regulation, because a well site is not released from its bond until topsoil is respread and native grass is established. Native grass has two seeding windows a year: <span class="mono">before May&nbsp;24</span>, or <span class="mono">after October&nbsp;20</span>.</p>
+    <p>On top of the spring window sit the NDDOT spring load restrictions. In 2026 Burleigh County posted on March&nbsp;5 and Ward County did not lift until May&nbsp;28.</p>
+
+    <div class="chart-shell">
+      <div class="chart">
+        <div class="months">
+          <span style="left:0%">JAN</span><i class="tick" style="left:0%"></i>
+          <span style="left:8.49%">FEB</span><i class="tick" style="left:8.49%"></i>
+          <span style="left:16.16%">MAR</span><i class="tick" style="left:16.16%"></i>
+          <span style="left:24.66%">APR</span><i class="tick" style="left:24.66%"></i>
+          <span style="left:32.88%">MAY</span><i class="tick" style="left:32.88%"></i>
+          <span style="left:41.37%">JUN</span><i class="tick" style="left:41.37%"></i>
+          <span style="left:49.59%">JUL</span><i class="tick" style="left:49.59%"></i>
+          <span style="left:58.08%">AUG</span><i class="tick" style="left:58.08%"></i>
+          <span style="left:66.58%">SEP</span><i class="tick" style="left:66.58%"></i>
+          <span style="left:74.79%">OCT</span><i class="tick" style="left:74.79%"></i>
+          <span style="left:83.29%">NOV</span><i class="tick" style="left:83.29%"></i>
+          <span style="left:91.51%">DEC</span><i class="tick" style="left:91.51%"></i>
+        </div>
+
+        <p class="lane-label">Roads &mdash; NDDOT spring load restrictions</p>
+        <div class="lane">
+          <div class="band band--ban" style="left:17.26%; width:23.29%">Heavy loads restricted</div>
+        </div>
+
+        <p class="lane-label">Seeding windows &mdash; set by the state</p>
+        <div class="lane">
+          <div class="band band--blocked" style="left:24.66%; width:14.79%">Spring window &mdash; unhaulable</div>
+          <div class="band band--open" style="left:80.27%; width:11.24%">Fall &mdash; open</div>
+        </div>
+
+        <p class="lane-label">Current plan &mdash; crushers at New Town</p>
+        <div class="lane" style="height:3.4rem">
+          <div class="band band--memo" style="left:32.88%; width:50.41%">May &ndash; October, then south to Dallas</div>
+          <div class="collide" style="left:80.27%; width:3.02%"></div>
+          <div class="collide-note" style="left:84.5%">&larr; 11 days of overlap</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div><span class="swatch band--ban"></span> Roads closed to heavy loads</div>
+      <div><span class="swatch band--open"></span> Customer can take delivery</div>
+      <div><span class="swatch band--blocked"></span> Window open, roads shut</div>
+      <div><span class="swatch band--memo"></span> Currently planned season</div>
+    </div>
+
+    <p style="margin-top:1.6rem">Two things follow, and both are structural rather than opinions. <strong>The spring window is largely unhaulable</strong>, because the road ban covers most of it. And <strong>the fall window opens eleven days before the current plan sends the crushers home</strong>. Whatever door gets picked, it should be picked knowing that the one stretch of the year when a reclamation customer can freely take delivery is the stretch we currently spend leaving.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">What we know</p>
+    <h2 class="sec display">The demand side, with confidence attached</h2>
+
+    <div class="tbl-shell">
+      <table>
+        <thead>
+          <tr><th style="width:22%">Figure</th><th style="width:34%">What it is</th><th style="width:30%">Why it matters here</th><th style="width:14%">Confidence</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">3,040</td>
+            <td>Active wells on Fort Berthold, plus 132 active permits (June 2026)</td>
+            <td>The reclamation pipeline is in our backyard and arrives over years, not in one season</td>
+            <td><span class="pill pill--easy">State data</span></td>
+          </tr>
+          <tr>
+            <td class="mono">2,160</td>
+            <td>Sites statewide in the reclamation process, awaiting bond release</td>
+            <td>Compliance spend, not discretionary. But see the caveat below</td>
+            <td><span class="pill pill--easy">State data</span></td>
+          </tr>
+          <tr>
+            <td class="mono">~90 / mo</td>
+            <td>New drilling permits statewide, with about 74 completions</td>
+            <td>The pad-construction market for base, scoria and gravel. Steady, not booming</td>
+            <td><span class="pill pill--easy">State data</span></td>
+          </tr>
+          <tr>
+            <td class="mono">~28</td>
+            <td>Operators active in Mountrail County; eight companies move most of the state's oil</td>
+            <td>The customer list is short enough to work by hand</td>
+            <td><span class="pill pill--soft">Third party</span></td>
+          </tr>
+          <tr>
+            <td>Winter demand</td>
+            <td>Road maintenance, ice control and pad work continue through the winter</td>
+            <td>The whole case for door 3, and we have no local volume figure for it</td>
+            <td><span class="pill pill--hard">Assumption</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="caveat">
+      <span class="eyebrow">One number to be careful with</span>
+      <p>The 2,160 is the whole state, and the rule expects an operator to respread the site's <em>own</em> topsoil, salvaged eight inches deep when the pad was built. Our market is the share where that stockpile is short, lost or contaminated. It is the denominator, not the opportunity, and it should not be quoted as ours.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">What we do not know</p>
+    <h2 class="sec display">The gate</h2>
+    <p>This is the real content of the brief. Nothing above decides anything on its own, because the cost side is missing entirely and so is the Texas comparison. The unknowns sort into three piles by who can close them.</p>
+
+    <div class="gate gate--yours">
+      <h3>You already know these</h3>
+      <p class="who">Corey and Richard &middot; no research required &middot; answer in a conversation</p>
+      <ol class="qs">
+        <li>What does it cost to keep the New Town yard staffed, plowed and insured for a month with no production running?
+          <span class="why">Sets the floor that door 3 has to clear. Without it, door 3 cannot be evaluated at all.</span></li>
+        <li>What does the Texas emphasis actually earn from November through April?
+          <span class="why">This is the number North Dakota is competing against. Everything else is secondary to it.</span></li>
+        <li>Is the batch plant winterized, and what would it cost to make it so?
+          <span class="why">Decides whether ready-mix is even on the table in door 1, or whether door 1 is aggregate only.</span></li>
+        <li>What does it cost to mobilize the crushers south and back again?
+          <span class="why">If moving iron twice a year is expensive enough, it may quietly favor staying put regardless of demand.</span></li>
+        <li>Is there stockpile capacity and yard space at New Town to hold winter inventory?
+          <span class="why">Door 3 is a stockpiling strategy. No room, no door 3.</span></li>
+      </ol>
+    </div>
+
+    <div class="gate gate--ours">
+      <h3>We can get these</h3>
+      <p class="who">Doble AI &middot; roughly a week &middot; public records and phone calls</p>
+      <ol class="qs">
+        <li>Who are the reclamation and plugging contractors working the Bakken?
+          <span class="why">They order topsoil by the load. They are the actual customer and we do not have their names yet. NDIC contract awards list them.</span></li>
+        <li>How many of the 2,160 sites awaiting bond release sit in Mountrail, McKenzie, Dunn and McLean?
+          <span class="why">Turns a statewide number into a radius number. DMR does not publish it, so this means asking them directly.</span></li>
+        <li>What do the counties and the MHA Nation buy for winter road maintenance, and on what schedule?
+          <span class="why">The only hard test of the door 3 assumption. Public budgets and bid records.</span></li>
+        <li>Do the local competitors run through winter, and what do they sell off the pile?
+          <span class="why">If Knife River holds a winter yard in New Town, that answers the demand question without us guessing.</span></li>
+        <li>Does the Nation's TERO preference change who wins reclamation work on the reservation?
+          <span class="why">Sitting in New Town may be worth more than the seasonal math on its own.</span></li>
+      </ol>
+    </div>
+
+    <div class="gate gate--none">
+      <h3>Nobody has built these yet</h3>
+      <p class="who">Not started &middot; a separate piece of work &middot; scope before committing</p>
+      <ol class="qs">
+        <li>The Texas side of the comparison.
+          <span class="why">Door 2 is being treated as the safe default, but Patriot's winter market, cost base and capacity have not been evaluated the way North Dakota now has. Right now we are comparing a measured option against an assumed one.</span></li>
+        <li>What a season at New Town actually produces and sells.
+          <span class="why">The site still carries this as an open gap. Yards per week, what a typical reclamation order looks like, and how far the haul really goes.</span></li>
+        <li>Whether any customer will commit to fall or winter volume in advance.
+          <span class="why">One signed commitment changes this from a forecast into a decision. It is also the cheapest thing to go find out.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The shape of the answer</p>
+    <h2 class="sec display">What each door costs if it is wrong</h2>
+    <p>The three doors are not symmetric, and that asymmetry probably matters more than the demand numbers.</p>
+
+    <div class="opts">
+      <div class="opt opt--yes">
+        <span class="verdict">Cheap to test</span>
+        <h3>Run to freeze-up</h3>
+        <p class="when mono">Oct 20 &rarr; late Nov</p>
+        <p>An extension of a season already staffed, into a window with no road bans and firm ground. Not a new commitment, just a later end date.</p>
+        <p class="risk"><b>If wrong:</b> a few weeks of payroll and fuel against thin demand. Recoverable inside one season.</p>
+      </div>
+      <div class="opt">
+        <span class="verdict">Expensive to be wrong</span>
+        <h3>Full winter production</h3>
+        <p class="when mono">Dec &rarr; Feb</p>
+        <p>Wash water freezes, so washed rock stops. Ready-mix demand falls once cold-weather pour rules apply. Frozen wet feed is slow and hard on the plant.</p>
+        <p class="risk"><b>If wrong:</b> a winter of fixed cost with no revenue, and iron in the wrong state when Texas needs it.</p>
+      </div>
+      <div class="opt opt--ask">
+        <span class="verdict">Uncosted</span>
+        <h3>Hold the yard</h3>
+        <p class="when mono">All winter</p>
+        <p>Scoria, Class 5, Class 13 and gravel sell off the pile without the crusher running. Also pre-positions material ahead of the March road bans, which is the only way to serve spring at all.</p>
+        <p class="risk"><b>If wrong:</b> the carrying cost of a yard nobody calls. Small, but genuinely unknown until question one is answered.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Next</p>
+    <h2 class="sec display">The cheapest questions first</h2>
+    <p>Two of these cost a conversation and would move the decision more than another month of research. Question one on your list sets the floor for door 3. Question two is the number North Dakota has to beat, and until it exists, the Texas option is being compared on instinct.</p>
+    <p>If those two come back and North Dakota still looks close, the work in the second pile is worth doing and takes about a week. If they come back and Texas wins outright, this stops here and nothing further gets spent on it.</p>
+    <p>The one thing worth saying plainly: <strong>door 2 is currently the default rather than a conclusion.</strong> It may well be right. It has just not been measured against the same standard North Dakota has now been held to.</p>
+  </section>
+
+  <footer>
+    <p class="eyebrow" style="color:var(--ink-mute)">Sources</p>
+    <ul>
+      <li><a href="https://www.land.nd.gov/sites/www/files/documents/Surface/ref%20-%20seed%20specs.pdf">ND Dept of Trust Lands &mdash; Native Grass Seeding Specifications</a> (the two seeding dates, quoted verbatim)</li>
+      <li><a href="https://www.dot.nd.gov/driver/commercial/north-dakota-load-restrictions">NDDOT &mdash; North Dakota load restrictions</a></li>
+      <li><a href="https://www.burleigh.gov/news/posts/spring-load-restrictions-2026/">Burleigh County &mdash; 2026 spring load restrictions, effective March 5</a></li>
+      <li><a href="https://www.dmr.nd.gov/dmr/oilgas/reclamation-remediation">ND Dept of Mineral Resources &mdash; Reclamation &amp; Remediation</a> (2,160 sites in process)</li>
+      <li><a href="https://www.dmr.nd.gov/dmr/iija/initialgrant">ND DMR &mdash; IIJA plugging and reclamation grant</a></li>
+    </ul>
+    <p style="margin-top:1.4rem; font-size:0.8rem">Well and permit counts are June 2026 figures. Road restriction dates move with the thaw and vary by district, so treat them as a shape rather than a schedule. Prepared by Doble AI.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
