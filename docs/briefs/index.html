@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Internal working brief. Confidential.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%97%82%EF%B8%8F</text></svg>">
+<style>
+  html { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Three Deals on the Table</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  --ground:#E7EAEE;
+  --paper:#FFFFFF;
+  --paper2:#F1F3F6;
+  --ink:#101519;
+  --ink2:#4E5862;
+  --ink3:#7D8791;
+  --rule:#CBD1D8;
+  --rule2:#AEB6BF;
+  --seal:#1F3A5F;
+  --seal-tx:#F2F5F9;
+  --signal:#9A5A12;
+  --signal-bg:#F7EBD9;
+  --signal-ln:#E0C69C;
+  --flag:#8E2018;
+  --flag-bg:#F7E4E2;
+  --flag-ln:#DDB3AE;
+  --ok:#2C5C3A;
+  --ok-bg:#E3EEE5;
+  --ok-ln:#B4CDBB;
+  --shadow:0 1px 2px rgba(16,21,25,.05), 0 10px 30px -16px rgba(16,21,25,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1114;
+    --paper:#171C21;
+    --paper2:#1F252B;
+    --ink:#E9EDF1;
+    --ink2:#A5AEB8;
+    --ink3:#78828C;
+    --rule:#2B333A;
+    --rule2:#3C464F;
+    --seal:#6E9BC9;
+    --seal-tx:#0D1114;
+    --signal:#D9A45C;
+    --signal-bg:#2C2214;
+    --signal-ln:#4A3A20;
+    --flag:#E0837A;
+    --flag-bg:#2E1815;
+    --flag-ln:#4E2823;
+    --ok:#83B994;
+    --ok-bg:#17251B;
+    --ok-ln:#2A3F30;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1114;
+  --paper:#171C21;
+  --paper2:#1F252B;
+  --ink:#E9EDF1;
+  --ink2:#A5AEB8;
+  --ink3:#78828C;
+  --rule:#2B333A;
+  --rule2:#3C464F;
+  --seal:#6E9BC9;
+  --seal-tx:#0D1114;
+  --signal:#D9A45C;
+  --signal-bg:#2C2214;
+  --signal-ln:#4A3A20;
+  --flag:#E0837A;
+  --flag-bg:#2E1815;
+  --flag-ln:#4E2823;
+  --ok:#83B994;
+  --ok-bg:#17251B;
+  --ok-ln:#2A3F30;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:16.5px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{
+  max-width:1000px; margin:0 auto; background:var(--paper);
+  border-left:1px solid var(--rule); border-right:1px solid var(--rule);
+  box-shadow:var(--shadow); min-height:100vh;
+}
+
+/* ---------- masthead ---------- */
+.mast{background:var(--seal); color:var(--seal-tx); padding:26px 46px 22px}
+.mast .kicker{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  opacity:.72; margin-bottom:9px;
+}
+.mast h1{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  margin:0; font-size:31px; font-weight:800; letter-spacing:-.012em; line-height:1.12;
+  text-wrap:balance;
+}
+.mast .deck{
+  margin:9px 0 0; font-size:16px; line-height:1.5; max-width:64ch; opacity:.88;
+}
+
+/* ---------- record strip ---------- */
+.record{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:0; border-bottom:2px solid var(--rule2); background:var(--paper2);
+}
+@media (max-width:820px){.record{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.record{grid-template-columns:1fr}}
+.record div{
+  padding:12px 18px; border-right:1px solid var(--rule); border-bottom:1px solid var(--rule);
+}
+.record dt{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:9.5px; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:3px;
+}
+.record dd{
+  margin:0; font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:12.5px; line-height:1.45; color:var(--ink); font-variant-numeric:tabular-nums;
+}
+
+/* ---------- body ---------- */
+.body{padding:34px 46px 64px}
+section{margin:0 0 34px}
+h2{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--seal); margin:0 0 12px; padding-bottom:7px;
+  border-bottom:1px solid var(--rule); text-wrap:balance;
+}
+p{margin:0 0 13px; max-width:68ch}
+p:last-child{margin-bottom:0}
+strong{font-weight:600}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace; font-size:.88em; font-variant-numeric:tabular-nums}
+.cite{color:var(--ink3); font-size:.86em; font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+
+/* ---------- verdict ---------- */
+.verdict{
+  border:1px solid var(--rule2); border-left:5px solid var(--seal);
+  background:var(--paper2); padding:20px 24px; margin-bottom:34px;
+}
+.verdict .lab{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:7px;
+}
+.verdict p{font-size:19px; line-height:1.48; margin:0; max-width:60ch}
+
+/* ---------- the two-figure comparison ---------- */
+.compare{
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:0;
+  border:1px solid var(--rule2); margin:18px 0 14px; background:var(--paper2);
+}
+@media (max-width:640px){.compare{grid-template-columns:1fr}}
+.compare .side{padding:20px 22px}
+.compare .side + .side{border-left:1px solid var(--rule)}
+@media (max-width:640px){.compare .side + .side{border-left:none; border-top:1px solid var(--rule)}}
+.compare .fig{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:27px; font-weight:600; letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+  line-height:1.1; color:var(--ink);
+}
+.compare .cap{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:11px; font-weight:600; letter-spacing:.04em; color:var(--ink2);
+  margin-top:7px; line-height:1.45;
+}
+.compare .vs{
+  padding:0 16px; font-family:Archivo,sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--signal);
+  writing-mode:horizontal-tb; white-space:nowrap;
+}
+@media (max-width:640px){.compare .vs{padding:9px 22px; border-top:1px solid var(--rule)}}
+
+/* ---------- tables ---------- */
+.scroll{overflow-x:auto; margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:14.5px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--rule); vertical-align:top}
+thead th{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:9.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink3); background:var(--paper2); border-bottom:1px solid var(--rule2);
+  white-space:nowrap;
+}
+td.num{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; font-size:13.5px;
+}
+tbody tr:last-child td{border-bottom:none}
+
+/* ---------- severity chips ---------- */
+.chip{
+  display:inline-block; font-family:Archivo,sans-serif; font-size:9.5px; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase; padding:2.5px 7px; border-radius:2px;
+  white-space:nowrap;
+}
+.chip.hi{background:var(--flag-bg); color:var(--flag); border:1px solid var(--flag-ln)}
+.chip.md{background:var(--signal-bg); color:var(--signal); border:1px solid var(--signal-ln)}
+.chip.lo{background:var(--ok-bg); color:var(--ok); border:1px solid var(--ok-ln)}
+
+/* ---------- provenance ---------- */
+.src{
+  display:inline-block; font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:9px; font-weight:600; letter-spacing:.09em; text-transform:uppercase;
+  padding:1.5px 5px; border:1px solid currentColor; white-space:nowrap;
+  vertical-align:1.5px; margin-left:5px;
+}
+.s-doc{color:var(--seal)}
+.s-vend{color:var(--signal)}
+.s-ours{color:var(--ink3)}
+.s-open{color:var(--flag)}
+h2 .src{margin-left:8px; vertical-align:.5px}
+.legend{border:1px solid var(--rule2); background:var(--paper2); padding:18px 22px; margin:0 0 34px}
+.legend .lab{
+  font-family:Archivo,sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--ink3); margin-bottom:12px;
+}
+.legend dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:9px 14px; align-items:baseline}
+.legend dt{margin:0}
+.legend dd{margin:0; font-size:14.5px; line-height:1.5; color:var(--ink2)}
+.legend dd b{color:var(--ink); font-weight:600}
+
+/* ---------- flagged callout ---------- */
+.flagbox{
+  border:1px solid var(--flag-ln); background:var(--flag-bg); padding:16px 20px; margin:16px 0;
+}
+.flagbox .lab{
+  font-family:Archivo,sans-serif; font-size:9.5px; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--flag); margin-bottom:6px;
+}
+.flagbox p{margin:0; font-size:15.5px; line-height:1.55}
+
+/* ---------- questions ---------- */
+ol.asks{list-style:none; counter-reset:q; margin:0; padding:0; display:flex; flex-direction:column; gap:14px}
+ol.asks li{counter-increment:q; display:grid; grid-template-columns:38px 1fr; gap:14px; align-items:start}
+ol.asks li::before{
+  content:counter(q); font-family:"IBM Plex Mono",monospace; font-size:19px; font-weight:600;
+  color:var(--seal); border-top:2px solid var(--seal); padding-top:5px; text-align:left;
+}
+ol.asks p{margin:0 0 5px}
+ol.asks .why{font-size:14px; color:var(--ink2); margin:0}
+
+ul.plain{margin:0 0 13px; padding-left:20px; max-width:68ch}
+ul.plain li{margin-bottom:6px}
+
+.foot{
+  border-top:1px solid var(--rule); margin-top:38px; padding-top:16px;
+  font-size:13px; color:var(--ink3); line-height:1.6; max-width:70ch;
+}
+.foot .lab{
+  font-family:Archivo,sans-serif; font-size:9.5px; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--ink3); margin-bottom:6px;
+}
+@media (max-width:700px){
+  .mast{padding:22px 22px 20px}
+  .mast h1{font-size:25px}
+  .body{padding:28px 22px 48px}
+}
+</style>
+<style>
+.deal{border:1px solid var(--rule2); background:var(--paper); margin:0 0 26px}
+.deal-hd{background:var(--paper2); border-bottom:1px solid var(--rule2); padding:15px 22px 13px;
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 14px}
+.deal-hd h3{font-family:Archivo,"Helvetica Neue",Arial,sans-serif; margin:0; font-size:19px;
+  font-weight:800; letter-spacing:-.01em; color:var(--ink); margin-right:auto}
+.deal-hd .who{font-size:13px; color:var(--ink2)}
+.deal-bd{padding:18px 22px 20px}
+.deal-bd p{margin:0 0 14px; max-width:none}
+.deal a.go{display:inline-block; font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:12.5px; color:var(--seal); word-break:break-all; text-decoration:none;
+  border-bottom:1px solid var(--rule2); padding-bottom:1px}
+.deal a.go:hover{border-bottom-color:var(--seal)}
+.qs{margin:0; padding:0; list-style:none; counter-reset:q; display:flex; flex-direction:column; gap:10px}
+.qs li{counter-increment:q; display:grid; grid-template-columns:26px 1fr; gap:11px; align-items:start;
+  font-size:15px; line-height:1.5}
+.qs li::before{content:counter(q); font-family:"IBM Plex Mono",monospace; font-size:14px;
+  font-weight:600; color:var(--signal); border-top:2px solid var(--signal); padding-top:4px}
+.qhd{font-family:Archivo,sans-serif; font-size:10px; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink3); margin:0 0 10px; padding-top:14px;
+  border-top:1px solid var(--rule)}
+.tally{display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--rule2);
+  background:var(--paper2); margin:0 0 30px}
+@media (max-width:660px){.tally{grid-template-columns:repeat(2,1fr)}}
+.tally div{padding:15px 18px; border-right:1px solid var(--rule)}
+.tally div:last-child{border-right:none}
+.tally .n{font-family:"IBM Plex Mono",monospace; font-size:25px; font-weight:600;
+  letter-spacing:-.02em; font-variant-numeric:tabular-nums; line-height:1.1; color:var(--ink)}
+.tally .l{font-family:Archivo,sans-serif; font-size:10px; font-weight:700; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--ink3); margin-top:6px; line-height:1.4}
+</style>
+</head>
+<body>
+
+
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kicker">Opportunity briefs &middot; 31 August 2026</div>
+    <h1>Three Deals on the Table</h1>
+    <p class="deck">One page for the group: what each brief found, where to read it in full, and the questions that have to be answered before any of them can be valued.</p>
+  </header>
+
+  <div class="tally">
+    <div><div class="n">3</div><div class="l">Briefs</div></div>
+    <div><div class="n">205</div><div class="l">Source documents</div></div>
+    <div><div class="n">2,926</div><div class="l">Pages of PDF</div></div>
+    <div><div class="n">71</div><div class="l">Word files, sheets, drawings</div></div>
+  </div>
+
+  <div class="body">
+
+    <div class="verdict">
+      <div class="lab">Read this first</div>
+      <p>None of the three is ready to be valued, and each is held up by a different missing item rather than by a judgment call. Every one of those items is a question somebody can answer in an afternoon.</p>
+    </div>
+
+    <div class="deal">
+      <div class="deal-hd">
+        <h3>Puerto Rico Quarry</h3>
+        <span class="who">Isabela and Aguada &middot; $15M asking</span>
+      </div>
+      <div class="deal-bd">
+        <p>A permitted limestone quarry on the northwest coast, running at 20&ndash;30% of its own permitted output, in an opportunity zone with a 4% tax decree to 2034 and very little competing aggregate supply nearby. The asset is genuinely hard to replicate. The transaction around it is not yet a transaction: four unexecuted drafts, counsel&rsquo;s 35 open items, and a price structure whose largest term was never agreed. Nothing is signed and nothing is verified against a primary record.</p>
+        <a class="go" href="https://jroundshp.github.io/doble-ai-deliverables/pr-quarry/">jroundshp.github.io/doble-ai-deliverables/pr-quarry/</a>
+        <div class="qhd">Questions to resolve</div>
+        <ol class="qs">
+          <li>How much rock is actually left? The seller&rsquo;s package implies a 32-year reserve. An external appraiser, in the company&rsquo;s own accounting notes, implies closer to twelve, with some of it already extracted. The entire asset case turns on which is right.</li>
+          <li>Does the bank debt sit inside the price or on top of it? Between $4.5M and $6.3M, it is the largest economic term in the deal and it has never been agreed. The interest rate on the $14M seller note is still blank.</li>
+          <li>Which side of the table is Corey on? The $1M of equity is currently SGC&rsquo;s obligation and the operating role is currently KBN&rsquo;s. No teaming agreement between the two buyers exists. That conversation comes before the diligence conversation.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="deal">
+      <div class="deal-hd">
+        <h3>North Carolina Trailer Contract</h3>
+        <span class="who">Temporary Disaster Shelters &middot; awarded, runs to Mar 2028</span>
+      </div>
+      <div class="deal-bd">
+        <p>North Carolina Emergency Management awarded TDS a three-year disaster contract for travel trailers and RVs on lowest responsive price. The award is real and it guarantees nothing: the solicitation says twice that no maximum or minimum quantities are guaranteed, so revenue exists only when the state issues a task work order. TDS&rsquo;s own history shows what that is worth in practice, listing two earlier North Carolina contracts written in identical terms, one at $37.4M and the next at $409,050. It is also a field-services contract rather than a trailer sale: utilities, tie-downs, permits, then maintenance for as long as a work order leaves a unit on the ground.</p>
+        <a class="go" href="https://jroundshp.github.io/doble-ai-deliverables/nc-tds/">jroundshp.github.io/doble-ai-deliverables/nc-tds/</a>
+        <div class="qhd">Questions to resolve</div>
+        <ol class="qs">
+          <li>What did TDS bid on Attachment A? The pricing form in our copy is blank across all four line items. Without those numbers there is no margin analysis and no valuation, only narrative. This is the one document that changes the answer.</li>
+          <li>How many task work orders has the state issued since 20 March 2025, and for how many units? Seventeen months in. If the answer is none, this is a pre-qualification worth holding rather than a business.</li>
+          <li>Is the lease model live, or was it declined in favor of the purchase award? The award letter cites only the purchase solicitation, and the two structures have opposite economics.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="deal">
+      <div class="deal-hd">
+        <h3>Navy Unaccompanied Housing</h3>
+        <span class="who">Temporary Disaster Shelters &middot; RFI response, no award</span>
+      </div>
+      <div class="deal-bd">
+        <p>This one needs its status corrected before anything else. It is a response to a Request for Information, which is market research at the earliest stage of federal procurement. There is no award, no contract number, no period of performance and no dollar figure, and the workbook records zero units currently available. The 1 October 2026 date attached to it is TDS&rsquo;s own estimate of when it could first house someone. The offer itself is substantial on paper, 2,000 berthing units and 500 MWR units across ten installations on a turnkey lease, and the packet leaves the housing entirely unpriced while pricing the catering to the cent.</p>
+        <a class="go" href="https://jroundshp.github.io/doble-ai-deliverables/navy-tds/">jroundshp.github.io/doble-ai-deliverables/navy-tds/</a>
+        <div class="qhd">Questions to resolve</div>
+        <ol class="qs">
+          <li>Where does the $300,000,000 North Carolina figure come from? The packet&rsquo;s contract history states that value for the same award whose letter sets no value at all. Ask TDS directly, and ask it before anything else here moves.</li>
+          <li>What does a berthing unit cost per month? Every housing cost field in the packet is blank. Without a rate there is no way to compare this against the other opportunities.</li>
+          <li>Was a completed workbook filed? In the copy we have, the company tab carries no company name and the locations tab has no installation selected.</li>
+        </ol>
+      </div>
+    </div>
+
+    <section>
+      <h2>One thing that cuts across two of them</h2>
+      <p>Temporary Disaster Shelters is the counterparty in both the North Carolina and the Navy files, and its self-reported contract history is the main evidence available about its track record. That history contains one entry we could test against primary documents, and it failed: the North Carolina award is listed at $300,000,000 against an award letter that sets no value and a solicitation that guarantees no quantities.</p>
+      <p>The practical consequence is narrow but real. Figures sourced from TDS across both briefs are marked as vendor-asserted and should be treated as leads to verify, not as evidence. That includes the $37.4M and $409,050 pair, which does cross-check across two separate packages twenty months apart, and which the North Carolina page now carries a caveat against for exactly this reason.</p>
+    </section>
+
+    <section>
+      <h2>How these were built</h2>
+      <p>Every claim in all three briefs is typed by where it came from: read in a document, asserted by a vendor, calculated by us, or logged as an open question. Each brief ends with a plain list of what it did not see, because on document sets this size the omissions matter as much as the findings. The headline finding in each was attacked before it was published, and one of them changed as a result.</p>
+      <p>The counts above describe the source material, not a claim that every page was read. The three sets together run to 205 files: 134 PDFs totalling 2,926 pages, plus 71 Word documents, spreadsheets and drawings. Where a document was skipped or would not extract, the brief for that project says so by name.</p>
+    </section>
+
+  </div>
+</div>
+
+</body>
+</html>
