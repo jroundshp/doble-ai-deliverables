@@ -37,6 +37,7 @@
     --stop:     #8c2c27;
     --stop-w:   #f5e2e0;
     --ok:       #2f6b3e;
+    --prior:    #6a6f7d;
 
     --f-display: "Zilla Slab", "Bitter", Georgia, serif;
     --f-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -61,6 +62,7 @@
       --stop:     #d9756c;
       --stop-w:   #31201e;
       --ok:       #6aa878;
+      --prior:    #9aa0ad;
     }
   }
   :root[data-theme="dark"] {
@@ -80,6 +82,7 @@
     --stop:     #d9756c;
     --stop-w:   #31201e;
     --ok:       #6aa878;
+    --prior:    #9aa0ad;
   }
 
   * { box-sizing: border-box; }
@@ -298,6 +301,58 @@
   .p-open { color: var(--flag); }
   .p-ok   { color: var(--ok); }
 
+  /* ---------- provenance markers ---------- */
+
+  .src {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 1px 4px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+    vertical-align: 2px;
+    margin-left: 4px;
+    cursor: help;
+    user-select: none;
+  }
+  .s-doc   { color: var(--ok); }
+  .s-sell  { color: var(--flag); }
+  .s-prior { color: var(--prior); }
+  .s-ours  { color: var(--accent); }
+
+  caption .src, thead .src { vertical-align: 0; margin-left: 6px; }
+
+  .legend {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 16px 18px;
+    margin-bottom: 52px;
+  }
+  .legend h2 {
+    font-family: var(--f-mono);
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 12px;
+  }
+  .legend dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(196px, 1fr));
+    gap: 12px 22px;
+  }
+  .legend div { display: flex; gap: 9px; align-items: flex-start; }
+  .legend .src { margin-left: 0; flex-shrink: 0; vertical-align: 0; margin-top: 2px; }
+  .legend dd { margin: 0; font-size: 0.85rem; line-height: 1.45; color: var(--ink-2); }
+  .legend dd b { font-weight: 600; color: var(--ink); display: block; }
+  .legend > p {
+    margin: 14px 0 0; padding-top: 12px;
+    border-top: 1px solid var(--line-2);
+    font-size: 0.85rem; color: var(--muted); max-width: none;
+  }
+
   /* ---------- doc cards ---------- */
 
   .docs { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
@@ -358,13 +413,28 @@
 </header>
 
 <dl class="strip">
-  <div><dt>Ask</dt><dd>$15.0M<small>$1M cash + $14M seller note</small></dd></div>
-  <div><dt>Land</dt><dd>313.4 ac<small>3 parcels, 2 municipios</small></dd></div>
-  <div><dt>2024 revenue</dt><dd>$5.75M<small>net $202K · 3.5% margin</small></dd></div>
-  <div><dt>Quarry reserve</dt><dd>14M m³<small>~32 yr at permitted rate</small></dd></div>
-  <div><dt>Permit runs to</dt><dd>2028<small>note term runs to 2031</small></dd></div>
-  <div><dt>Open items</dt><dd>35<small>counsel's pre-signing list</small></dd></div>
+  <div><dt>Ask</dt><dd>$15.0M<small>$1M cash + $14M seller note <span class="src s-doc" title="Read in the primary document itself">DOC</span></small></dd></div>
+  <div><dt>Land</dt><dd>313.4 ac<small>3 parcels, 2 municipios <span class="src s-doc" title="Read in the primary document itself">DOC</span></small></dd></div>
+  <div><dt>2024 revenue</dt><dd>$5.75M<small>net $202K · 3.5% margin <span class="src s-doc" title="Read in the primary document itself">DOC</span></small></dd></div>
+  <div><dt>Quarry reserve</dt><dd>14M m³<small>~32 yr at permitted rate <span class="src s-sell" title="Seller's own assertion, not independently verified">SELLER</span></small></dd></div>
+  <div><dt>Permit runs to</dt><dd>2028<small>note term runs to 2031 <span class="src s-doc" title="Read in the primary document itself">DOC</span></small></dd></div>
+  <div><dt>Open items</dt><dd>35<small>counsel's pre-signing list <span class="src s-doc" title="Read in the primary document itself">DOC</span></small></dd></div>
 </dl>
+
+<div class="legend">
+  <h2>How to read this — every claim is typed by where it came from</h2>
+  <dl>
+    <div><span class="src s-doc" title="Read in the primary document itself">DOC</span>
+      <dd><b>Document-verified</b>I read it in the contract, financial statement, permit or appraisal itself.</dd></div>
+    <div><span class="src s-sell" title="Seller's own assertion, not independently verified">SELLER</span>
+      <dd><b>Seller-asserted</b>From the seller's package, letter or asset schedule. Nobody has checked it against a primary record.</dd></div>
+    <div><span class="src s-prior" title="Inherited from earlier analysis inside the data set">PRIOR</span>
+      <dd><b>Inherited analysis</b>From earlier analyst work already sitting in the data set — two layers from any primary source.</dd></div>
+    <div><span class="src s-ours" title="Our own reading or arithmetic — treat as a question">OURS</span>
+      <dd><b>Our inference</b>Our reading or arithmetic. These are written as questions, not findings.</dd></div>
+  </dl>
+  <p>The distinction matters more than usual here: a large part of the document set is itself prior analysis of the seller's package rather than primary record. The legal and contractual spine is <span class="src s-doc">DOC</span> throughout. The market case is not.</p>
+</div>
 
 <!-- ============ WHAT IT IS ============ -->
 <section>
@@ -374,7 +444,7 @@
 
   <div class="tbl-scroll">
   <table>
-    <caption>The four operations</caption>
+    <caption>The four operations <span class="src s-doc" title="Read in the primary document itself">DOC</span></caption>
     <thead><tr><th>Entity</th><th>What it does</th><th class="num">2024 revenue</th><th class="num">2024 net</th></tr></thead>
     <tbody>
       <tr>
@@ -402,10 +472,11 @@
   </table>
   </div>
 
-  <p>The rock is the asset. Independent testing puts the limestone at <strong>94.6% calcium-carbonate equivalent</strong> — high enough to sell as premium construction aggregate <em>and</em> as agricultural lime off the same fines. Extraction is mechanical only (bulldozers, breakers, no explosives), which is why the permit was obtainable at all in karst terrain.</p>
+  <p>The rock is the asset. The seller's package puts the limestone at <strong>94.6% calcium-carbonate equivalent</strong> <span class="src s-sell" title="Seller's own assertion, not independently verified">SELLER</span> — high enough for premium construction aggregate <em>and</em> agricultural lime off the same fines. <strong>We could not verify this.</strong> A limestone analysis document exists in the set but is a scan with no readable text, so the 94.6% figure traces only to the seller's own materials and the analyses built on them. Somebody should open that scan.</p>
+  <p>Extraction is mechanical only — bulldozers, breakers, no explosives <span class="src s-doc" title="Read in the primary document itself">DOC</span> — which is why the permit was obtainable at all in karst terrain.</p>
 
   <div class="note warn">
-    <h3>Who the buyers currently are</h3>
+    <h3>Who the buyers currently are <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
     <p>The drafts name a 50/50 joint venture between <strong>KBN Investments LLC</strong> (principal: Richard Sargent, who would be the operating member) and <strong>Structured Global Capital LLC</strong> (principals: William Pitts and Daniel Whitaker). SGC brings the $1,000,000 cash; KBN contributes services and Sargent's time. <strong>Corey is not named anywhere in this document set.</strong> Where he would sit — and on which side of that $1M — is the first thing to establish.</p>
   </div>
 </section>
@@ -418,7 +489,7 @@
 
   <div class="tbl-scroll">
   <table>
-    <caption>Exhibit A — the parcels</caption>
+    <caption>Exhibit A — the parcels <span class="src s-doc" title="Read in the primary document itself">DOC</span></caption>
     <thead><tr><th>Parcel</th><th>Where</th><th class="num">Acres</th><th>Role</th></tr></thead>
     <tbody>
       <tr>
@@ -445,7 +516,7 @@
   </div>
 
   <div class="note stop">
-    <h3>The acreage does not reconcile yet</h3>
+    <h3>The acreage does not reconcile yet <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
     <p>Arenales is described as <strong>81 acres</strong> in the seller's package and <strong>87.4 acres</strong> in the parcel records. Aguada is <strong>2.55 cuerdas</strong> on one document and <strong>6.64 acres</strong> on another — roughly a 2.7× spread. The Cotto position is recorded as <strong>38 separate fincas</strong> (8,272–8,309) whose aggregate area has not been confirmed, and three mortgages from 1995–1999 ($785K / $283K / $65K) are still of record against them with unknown status.</p>
     <p>Separately, a <strong>166-acre asphalt parcel</strong> appears in the discussion materials with <em>no deed, no finca, no cadastral number and no named owner</em>. It is either in the deal or it isn't, and the price should move accordingly.</p>
   </div>
@@ -458,15 +529,15 @@
   <p class="lead">The thesis has three legs: a funded demand cycle, a supply position that is hard to replicate, and a business currently running at a fraction of what its own permit allows.</p>
 
   <ul class="plain">
-    <li><strong>Demand is named and funded, not speculative.</strong> Western PR has an estimated $7–10B of infrastructure investment identified for 2026–2030 — the $20B LUMA grid rebuild, $4.566B in CDBG-MIT mitigation, the $1.298B City-Rev municipal program, PR-10 expansion at $540–552M, PR-2 freeway conversion, $142M+ at Aguadilla airport and Ramey, and roughly 1 GW of solar. The concrete and aggregates slice is put at $300–500M over five years.</li>
-    <li><strong>Supply is genuinely thin.</strong> CEMEX is the island's only cement producer. The named western aggregate quarries amount to Productora de Agregados, Cantera Mundo Real, and Rodriguez Aggregates. New quarry permits in karst are slow and contested — so the existing Arenales and Cotto permits are the moat, not the equipment.</li>
-    <li><strong>The quarry is barely running.</strong> The permit allows 442,000 m³/yr (~600,000 tons). At the $14/ton assumption used in the models, full permitted output is roughly $8.4M of aggregate revenue. EMR actually did $1.6M in 2024 — call it <strong>~20% of permitted capacity</strong>. The upside case is mostly just selling what the permit already allows.</li>
-    <li><strong>An asphalt plant is the swing factor.</strong> A 1,700 t/day hot-mix plant sized to match the quarry's permitted output would be fed internally (asphalt is ~95% aggregate by weight). It requires a separate permit that has not been granted, and it is the single largest driver in every projection.</li>
+    <li><span class="src s-prior" title="Inherited from earlier analysis inside the data set">PRIOR</span> <strong>Demand is named and funded, not speculative.</strong> Western PR has an estimated $7–10B of infrastructure investment identified for 2026–2030 — the $20B LUMA grid rebuild, $4.566B in CDBG-MIT mitigation, the $1.298B City-Rev municipal program, PR-10 expansion at $540–552M, PR-2 freeway conversion, $142M+ at Aguadilla airport and Ramey, and roughly 1 GW of solar. The concrete and aggregates slice is put at $300–500M over five years.</li>
+    <li><span class="src s-prior" title="Inherited from earlier analysis inside the data set">PRIOR</span> <strong>Supply is genuinely thin.</strong> CEMEX is the island's only cement producer. The named western aggregate quarries amount to Productora de Agregados, Cantera Mundo Real, and Rodriguez Aggregates. New quarry permits in karst are slow and contested — so the existing Arenales and Cotto permits are the moat, not the equipment.</li>
+    <li><span class="src s-ours" title="Our own reading or arithmetic — treat as a question">OURS</span> <strong>Is the quarry really running at a fifth of its permit?</strong> The permit allows 442,000 m³/yr, ~600,000 tons <span class="src s-doc" title="Read in the primary document itself">DOC</span>. At the $14/ton the models assume, full permitted output is roughly $8.4M of aggregate revenue; EMR actually booked $1.6M in 2024 <span class="src s-doc" title="Read in the primary document itself">DOC</span>. That arithmetic gives <strong>~20%</strong> — but the $14/ton is a model assumption, not a verified market price, and at $10/ton the same sum gives ~27%. <strong>The question for the group: what does aggregate actually sell for at the gate in western PR, and how much of that gap is demand versus trucks, crew and working capital?</strong> The upside case rests entirely on this answer.</li>
+    <li><span class="src s-prior" title="Inherited from earlier analysis inside the data set">PRIOR</span> <strong>An asphalt plant is the swing factor.</strong> A 1,700 t/day hot-mix plant sized to match the quarry's permitted output would be fed internally (asphalt is ~95% aggregate by weight). It requires a separate permit that has not been granted, and it is the single largest driver in every projection.</li>
   </ul>
 
   <div class="tbl-scroll">
   <table>
-    <caption>Five-year model — the two scenarios already run</caption>
+    <caption>Five-year model — the two scenarios already run <span class="src s-prior" title="Inherited from earlier analysis inside the data set">PRIOR</span></caption>
     <thead><tr><th>Metric</th><th class="num">Maximum capacity</th><th class="num">Realistic utilization</th></tr></thead>
     <tbody>
       <tr><td>Year 3 revenue <span class="sub">asphalt online</span></td><td class="num">$61,427,000</td><td class="num">$26,509,000</td></tr>
@@ -480,7 +551,7 @@
   </div>
 
   <div class="note warn">
-    <h3>Read the models as sensitivity, not forecast</h3>
+    <h3>Read the models as sensitivity, not forecast <span class="src s-prior" title="Inherited from earlier analysis inside the data set">PRIOR</span></h3>
     <p>"Realistic" already assumes 55% utilization at Arenales, 45% at Cotto and 35% asphalt — well above today's ~20%. Both cases assume $100/ton asphalt, 7% interest, and <em>exclude working capital entirely</em>, which a revenue ramp of this size will consume heavily and which the $1M equity does not fund. The gap between the two columns is almost entirely asphalt utilization, so hot-mix demand in the trade area is the one number worth paying to validate.</p>
   </div>
 </section>
@@ -491,7 +562,7 @@
 
   <div class="tbl-scroll">
   <table>
-    <caption>Consideration as drafted</caption>
+    <caption>Consideration as drafted <span class="src s-doc" title="Read in the primary document itself">DOC</span></caption>
     <thead><tr><th>Component</th><th class="num">Amount</th><th>Status</th></tr></thead>
     <tbody>
       <tr><td>Cash at closing</td><td class="num">$1,000,000</td><td>Payment method never discussed. Proof of funds is an open buyer-side item.</td></tr>
@@ -506,13 +577,18 @@
   </div>
 
   <div class="note stop">
-    <h3>The $7.5M question</h3>
+    <h3>The $7.5M question <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
     <p>Counsel's memo calls this "the single largest open economic term." The parties' 3 August summary is ambiguous about whether the bank and SBA debt sits <strong>inside</strong> the $15M — seller nets roughly $7.5M — or <strong>on top of it</strong>, making enterprise value roughly $22.5M. Those are two completely different deals and neither side has signed a term sheet resolving it.</p>
     <p>The debt figure is itself unreconciled: the drafts total roughly <strong>$4.5M</strong> (FirstBank + SBA + LOC), counsel's memo cites <strong>~$6.3M</strong> of bank/SBA debt, and the August 3 summary's "$7.5 million in bank notes" appears to describe total liabilities rather than bank debt. All three numbers are in circulation. None is a payoff letter.</p>
   </div>
 
+  <div class="note">
+    <h3>One open item we can close now <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
+    <p>Counsel lists the identity of Chaparro's creditor as unresolved — Banco Popular on the 2020–2022 notes, FirstBank on the 2023–2024 notes. The 2024 appraisal in the set is a full appraisal report <strong>commissioned by FirstBank's Credit Lending Administration</strong> (effective 25 April 2024, addressed to their appraisal review manager). That is a genuine independent third-party document and it puts FirstBank in the lender seat as of April 2024. It does not replace a payoff letter, but it narrows the question.</p>
+  </div>
+
   <div class="note warn">
-    <h3>What the earnings actually support</h3>
+    <h3>What the earnings actually support <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
     <p>Combined 2024 net earnings were <strong>$201,739</strong>. The JV's own operating agreement concedes in writing that debt service on a $14M note plus assumed bank debt is "substantial relative to the Company's equity capitalization of $1,000,000," and that capital calls are "reasonably likely to occur, potentially within the first twelve months following the Closing." Whoever funds the $1M should assume it is not the last $1M.</p>
     <p>Five-year history: revenue $3.42M (2020) → $4.61M (2021) → $3.76M (2022) → $3.77M (2023) → $5.75M (2024). Net swung from +$180K in 2021 to −$192K in 2023 before recovering to +$202K. Gross margin is healthy at ~48%; the 3.5% net margin is interest and G&amp;A, not production cost. EMR alone carried ~$275K of interest in 2024 and sits on <strong>negative equity of −$978K</strong>.</p>
   </div>
@@ -565,7 +641,7 @@
   </ul>
 
   <div class="note">
-    <h3>One inconsistency worth chasing early</h3>
+    <h3>One inconsistency worth chasing early <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
     <p>The figure <strong>$535,797</strong> appears twice with two different creditors: the 27 August PSA calls it a shareholder loan owed by EMR <em>to the Varelas</em> (to be capitalized, forgiven or paid), while the other draft calls it an intercompany payable owed by EMR <em>to Chaparro</em> (to remain outstanding). Those cannot both be right, and the treatment differs materially in each case.</p>
   </div>
 </section>
@@ -577,8 +653,8 @@
   <p class="lead">Two questions, and they are separable.</p>
 
   <ul class="plain">
-    <li><strong>Is the asset good?</strong> On the evidence here, probably yes. A permitted limestone quarry with a 32-year reserve, in an opportunity zone, in a region with a documented multi-billion-dollar funded pipeline and almost no competing aggregate supply, running at a fifth of its own permitted output. That is a real position and it is hard to replicate.</li>
-    <li><strong>Is <em>this deal</em> good?</strong> Unknowable today. The largest economic term in the transaction — whether $4.5M–$6.3M of bank debt sits inside or on top of the price — has never been agreed. The interest rate on $14M is blank. Neither the land area, the equipment, the debt balance, the permit renewal, nor the tax exemption has been verified against a primary source. Every number in this brief comes from the seller's package or from unaudited compilations built on it.</li>
+    <li><span class="src s-ours" title="Our own reading or arithmetic — treat as a question">OURS</span> <strong>Is the asset good?</strong> On the evidence here, probably yes. A permitted limestone quarry with a 32-year reserve, in an opportunity zone, in a region with a documented multi-billion-dollar funded pipeline and almost no competing aggregate supply, running at a fifth of its own permitted output. That is a real position and it is hard to replicate.</li>
+    <li><span class="src s-ours" title="Our own reading or arithmetic — treat as a question">OURS</span> <strong>Is <em>this deal</em> good?</strong> Unknowable today. The largest economic term in the transaction — whether $4.5M–$6.3M of bank debt sits inside or on top of the price — has never been agreed. The interest rate on $14M is blank. Neither the land area, the equipment, the debt balance, the permit renewal, nor the tax exemption has been verified against a primary source. Every number in this brief comes from the seller's package or from unaudited compilations built on it.</li>
   </ul>
 
   <p>The gap between those two answers is a diligence budget, not an investment decision. Before committing capital, the sequence counsel lays out is: sign an NDA and get the SSNs out of the data room; form the acquisition entity; agree a term sheet on the price-versus-debt question; then pay for four things — a quality-of-earnings review, title studies on all three parcels, an independent reserve study, and written confirmation from OGPe/DRNA on permit renewal and change of control.</p>
@@ -586,9 +662,26 @@
   <p>Corey's specific question — whether to put resources here — turns on one thing this document set cannot answer: <strong>on which side of the table would he sit?</strong> The $1M of equity is currently SGC's obligation, the operating role is currently KBN's, and no teaming agreement between the two buyers exists yet. That is the conversation to have before the diligence conversation.</p>
 </section>
 
+<section>
+  <div class="sec-head"><span class="tag">Scope</span><h2>What this brief has not seen</h2></div>
+
+  <p class="lead">Stated plainly so the group can weigh it, and so anyone who knows better can correct us.</p>
+
+  <ul class="plain">
+    <li><strong>The six spreadsheets are unopened</strong> — including the consolidated financial ledgers, which are the closest thing to primary transaction data in the set. Everything financial here comes from the compiled statements, not from the underlying ledgers.</li>
+    <li><strong>The Act 60 decree itself is a scan with no readable text.</strong> Everything said about it comes from counsel's description and a DDEC cover email, not from reading the decree's transfer clause.</li>
+    <li><strong>The limestone analysis is also an unreadable scan</strong>, so the 94.6% purity figure is unverified.</li>
+    <li><strong>Both appraisals were identified but not read line by line</strong> — the FirstBank-commissioned 2024 report on the quarry and the 2021 Chaparro appraisal. They are the strongest independent documents in the set and deserve a proper read before any valuation argument leans on them.</li>
+    <li><strong>No figure here has been checked against a government source</strong> — not the Property Registry, OGPe, DRNA, DDEC, CRIM, Hacienda, the SBA or either bank. That is exactly the work counsel's 35-item list describes, and none of it has been done.</li>
+    <li><strong>The market case has not been independently sourced.</strong> The infrastructure figures are reproduced from analysis already in the set; we have not traced them to LUMA, CDBG-MIT or DTOP program documents.</li>
+  </ul>
+
+  <p>One number was spot-checked against a primary record as a sanity test: Empresas Mundo Real's 2024 sales, net earnings and income tax all match the accountant's statement exactly ($1,597,692 / $108,716 / $987). The statements are legible and in English, so the rest of the financial history is verifiable the same way — it simply has not been done yet.</p>
+</section>
+
 <footer>
   <p><strong>Confidential.</strong> Prepared for the buyer group only. Contains a third party's non-public financial and legal information — do not forward outside the group.</p>
-  <p>Compiled 31 August 2026 from the "PR Project" document set — 199 files (167 unique), comprising 132 PDFs, 40 Word documents, 6 spreadsheets and 14 maps and site photographs. Sources include the four contract drafts, compilation-basis financial statements 2020–2024, appraisals (Lamadrid 2024, RHN 2021), the DRNA extraction permit and OGPe records, MSHA inspection data, parcel records dated 25 June 2026, and prior scenario modeling. Figures are as stated in those sources and have not been independently verified against any primary registry, lender or agency record.</p>
+  <p>Compiled 31 August 2026 from the "PR Project" document set — 199 files (167 unique), comprising 132 PDFs, 40 Word documents, 6 spreadsheets and 14 maps and site photographs. Text was extracted from all 132 PDFs and searched; roughly 18 were read in full, listed by class above. Sources include the four contract drafts, compilation-basis financial statements 2020–2024, the FirstBank-commissioned 2024 appraisal and the 2021 Chaparro appraisal, the DRNA extraction permit, MSHA inspection data, parcel records dated 25 June 2026, and prior scenario modeling already present in the set.</p>
   <p>This is an internal working summary for discussion — not an offer, an appraisal, a tax opinion, or investment advice.</p>
 </footer>
 
