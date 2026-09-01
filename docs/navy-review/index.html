@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Working note. Confidential.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%93</text></svg>">
+<style>
+  html { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Navy RFI Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  --ground:#E7EAEE;
+  --paper:#FFFFFF;
+  --paper2:#F1F3F6;
+  --ink:#101519;
+  --ink2:#4E5862;
+  --ink3:#7D8791;
+  --rule:#CBD1D8;
+  --rule2:#AEB6BF;
+  --seal:#1F3A5F;
+  --seal-tx:#F2F5F9;
+  --signal:#9A5A12;
+  --signal-bg:#F7EBD9;
+  --signal-ln:#E0C69C;
+  --flag:#8E2018;
+  --flag-bg:#F7E4E2;
+  --flag-ln:#DDB3AE;
+  --ok:#2C5C3A;
+  --ok-bg:#E3EEE5;
+  --ok-ln:#B4CDBB;
+  --shadow:0 1px 2px rgba(16,21,25,.05), 0 10px 30px -16px rgba(16,21,25,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1114;
+    --paper:#171C21;
+    --paper2:#1F252B;
+    --ink:#E9EDF1;
+    --ink2:#A5AEB8;
+    --ink3:#78828C;
+    --rule:#2B333A;
+    --rule2:#3C464F;
+    --seal:#6E9BC9;
+    --seal-tx:#0D1114;
+    --signal:#D9A45C;
+    --signal-bg:#2C2214;
+    --signal-ln:#4A3A20;
+    --flag:#E0837A;
+    --flag-bg:#2E1815;
+    --flag-ln:#4E2823;
+    --ok:#83B994;
+    --ok-bg:#17251B;
+    --ok-ln:#2A3F30;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1114;
+  --paper:#171C21;
+  --paper2:#1F252B;
+  --ink:#E9EDF1;
+  --ink2:#A5AEB8;
+  --ink3:#78828C;
+  --rule:#2B333A;
+  --rule2:#3C464F;
+  --seal:#6E9BC9;
+  --seal-tx:#0D1114;
+  --signal:#D9A45C;
+  --signal-bg:#2C2214;
+  --signal-ln:#4A3A20;
+  --flag:#E0837A;
+  --flag-bg:#2E1815;
+  --flag-ln:#4E2823;
+  --ok:#83B994;
+  --ok-bg:#17251B;
+  --ok-ln:#2A3F30;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:16.5px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{
+  max-width:1000px; margin:0 auto; background:var(--paper);
+  border-left:1px solid var(--rule); border-right:1px solid var(--rule);
+  box-shadow:var(--shadow); min-height:100vh;
+}
+
+/* ---------- masthead ---------- */
+.mast{background:var(--seal); color:var(--seal-tx); padding:26px 46px 22px}
+.mast .kicker{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  opacity:.72; margin-bottom:9px;
+}
+.mast h1{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  margin:0; font-size:31px; font-weight:800; letter-spacing:-.012em; line-height:1.12;
+  text-wrap:balance;
+}
+.mast .deck{
+  margin:9px 0 0; font-size:16px; line-height:1.5; max-width:64ch; opacity:.88;
+}
+
+/* ---------- record strip ---------- */
+.record{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:0; border-bottom:2px solid var(--rule2); background:var(--paper2);
+}
+@media (max-width:820px){.record{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.record{grid-template-columns:1fr}}
+.record div{
+  padding:12px 18px; border-right:1px solid var(--rule); border-bottom:1px solid var(--rule);
+}
+.record dt{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:9.5px; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:3px;
+}
+.record dd{
+  margin:0; font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:12.5px; line-height:1.45; color:var(--ink); font-variant-numeric:tabular-nums;
+}
+
+/* ---------- body ---------- */
+.body{padding:34px 46px 64px}
+section{margin:0 0 34px}
+h2{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--seal); margin:0 0 12px; padding-bottom:7px;
+  border-bottom:1px solid var(--rule); text-wrap:balance;
+}
+p{margin:0 0 13px; max-width:68ch}
+p:last-child{margin-bottom:0}
+strong{font-weight:600}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace; font-size:.88em; font-variant-numeric:tabular-nums}
+.cite{color:var(--ink3); font-size:.86em; font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+
+/* ---------- verdict ---------- */
+.verdict{
+  border:1px solid var(--rule2); border-left:5px solid var(--seal);
+  background:var(--paper2); padding:20px 24px; margin-bottom:34px;
+}
+.verdict .lab{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:7px;
+}
+.verdict p{font-size:19px; line-height:1.48; margin:0; max-width:60ch}
+
+/* ---------- the two-figure comparison ---------- */
+.compare{
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:0;
+  border:1px solid var(--rule2); margin:18px 0 14px; background:var(--paper2);
+}
+@media (max-width:640px){.compare{grid-template-columns:1fr}}
+.compare .side{padding:20px 22px}
+.compare .side + .side{border-left:1px solid var(--rule)}
+@media (max-width:640px){.compare .side + .side{border-left:none; border-top:1px solid var(--rule)}}
+.compare .fig{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:27px; font-weight:600; letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+  line-height:1.1; color:var(--ink);
+}
+.compare .cap{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:11px; font-weight:600; letter-spacing:.04em; color:var(--ink2);
+  margin-top:7px; line-height:1.45;
+}
+.compare .vs{
+  padding:0 16px; font-family:Archivo,sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--signal);
+  writing-mode:horizontal-tb; white-space:nowrap;
+}
+@media (max-width:640px){.compare .vs{padding:9px 22px; border-top:1px solid var(--rule)}}
+
+/* ---------- tables ---------- */
+.scroll{overflow-x:auto; margin:14px 0}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:14.5px}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--rule); vertical-align:top}
+thead th{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-size:9.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--ink3); background:var(--paper2); border-bottom:1px solid var(--rule2);
+  white-space:nowrap;
+}
+td.num{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; font-size:13.5px;
+}
+tbody tr:last-child td{border-bottom:none}
+
+/* ---------- severity chips ---------- */
+.chip{
+  display:inline-block; font-family:Archivo,sans-serif; font-size:9.5px; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase; padding:2.5px 7px; border-radius:2px;
+  white-space:nowrap;
+}
+.chip.hi{background:var(--flag-bg); color:var(--flag); border:1px solid var(--flag-ln)}
+.chip.md{background:var(--signal-bg); color:var(--signal); border:1px solid var(--signal-ln)}
+.chip.lo{background:var(--ok-bg); color:var(--ok); border:1px solid var(--ok-ln)}
+
+/* ---------- provenance ---------- */
+.src{
+  display:inline-block; font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-size:9px; font-weight:600; letter-spacing:.09em; text-transform:uppercase;
+  padding:1.5px 5px; border:1px solid currentColor; white-space:nowrap;
+  vertical-align:1.5px; margin-left:5px;
+}
+.s-doc{color:var(--seal)}
+.s-vend{color:var(--signal)}
+.s-ours{color:var(--ink3)}
+.s-open{color:var(--flag)}
+h2 .src{margin-left:8px; vertical-align:.5px}
+.legend{border:1px solid var(--rule2); background:var(--paper2); padding:18px 22px; margin:0 0 34px}
+.legend .lab{
+  font-family:Archivo,sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--ink3); margin-bottom:12px;
+}
+.legend dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:9px 14px; align-items:baseline}
+.legend dt{margin:0}
+.legend dd{margin:0; font-size:14.5px; line-height:1.5; color:var(--ink2)}
+.legend dd b{color:var(--ink); font-weight:600}
+
+/* ---------- flagged callout ---------- */
+.flagbox{
+  border:1px solid var(--flag-ln); background:var(--flag-bg); padding:16px 20px; margin:16px 0;
+}
+.flagbox .lab{
+  font-family:Archivo,sans-serif; font-size:9.5px; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--flag); margin-bottom:6px;
+}
+.flagbox p{margin:0; font-size:15.5px; line-height:1.55}
+
+/* ---------- questions ---------- */
+ol.asks{list-style:none; counter-reset:q; margin:0; padding:0; display:flex; flex-direction:column; gap:14px}
+ol.asks li{counter-increment:q; display:grid; grid-template-columns:38px 1fr; gap:14px; align-items:start}
+ol.asks li::before{
+  content:counter(q); font-family:"IBM Plex Mono",monospace; font-size:19px; font-weight:600;
+  color:var(--seal); border-top:2px solid var(--seal); padding-top:5px; text-align:left;
+}
+ol.asks p{margin:0 0 5px}
+ol.asks .why{font-size:14px; color:var(--ink2); margin:0}
+
+ul.plain{margin:0 0 13px; padding-left:20px; max-width:68ch}
+ul.plain li{margin-bottom:6px}
+
+.foot{
+  border-top:1px solid var(--rule); margin-top:38px; padding-top:16px;
+  font-size:13px; color:var(--ink3); line-height:1.6; max-width:70ch;
+}
+.foot .lab{
+  font-family:Archivo,sans-serif; font-size:9.5px; font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--ink3); margin-bottom:6px;
+}
+@media (max-width:700px){
+  .mast{padding:22px 22px 20px}
+  .mast h1{font-size:25px}
+  .body{padding:28px 22px 48px}
+}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kicker">Working note &middot; 1 September 2026 &middot; For Mike Ferrall &middot; Confidential</div>
+    <h1>Navy Unaccompanied Housing RFI</h1>
+    <p class="deck">What we understand the TDS submission to be, what the paperwork we hold says, and the questions we could not answer from it. Sent ahead of a call so the call can be spent on the answers.</p>
+  </header>
+
+  <dl class="record">
+    <div><dt>Reference</dt><dd>RFIUH-2026<br>Request for Information</dd></div>
+    <div><dt>Addressed to</dt><dd>Ms. Lita Staskey<br>Contracting Specialist, NAVFAC HQ</dd></div>
+    <div><dt>Respondent</dt><dd>Temporary Disaster Shelters, Inc.<br>Merritt Island, FL</dd></div>
+    <div><dt>What we read</dt><dd>39-page packet dated<br>23 Aug 2026 + response workbook</dd></div>
+    <div><dt>Offered</dt><dd>2,000 berthing + 500 MWR<br>2,500 units, 10 installations</dd></div>
+    <div><dt>Questions below</dt><dd>21<br>numbered for the call</dd></div>
+  </dl>
+
+  <div class="body">
+
+    <div class="verdict">
+      <div class="lab">Please read this part first</div>
+      <p><strong>Everything here is drawn from two files and nothing else:</strong> the 39-page packet dated 23 August 2026 and the RFI response workbook. We have not seen the RFI itself, we have no access to TDS's systems or records, and we have spoken to no one. Where something below looks missing or inconsistent, <strong>much the likeliest explanation is that the document settling it exists and simply did not reach us</strong> &mdash; a later version, a separate filing, an agreement held elsewhere. If you have anything we have not seen, please send it. We would rather revise this note than defend it, and corrections are more useful to us than agreement.</p>
+    </div>
+
+    <div class="legend">
+      <div class="lab">How to read this: every claim is typed by where it came from</div>
+      <dl>
+        <dt><span class="src s-doc">Doc</span></dt>
+        <dd><b>Document-verified.</b> Quoted from the packet, the workbook, or the North Carolina award letter and IFB. We read the line itself.</dd>
+        <dt><span class="src s-vend">Vendor</span></dt>
+        <dd><b>Stated in the packet.</b> TDS's or a partner's own account, which we have not checked against any outside record.</dd>
+        <dt><span class="src s-ours">Ours</span></dt>
+        <dd><b>Our arithmetic or our reading.</b> Re-checkable from the figures shown, and the most likely place for us to be wrong.</dd>
+        <dt><span class="src s-open">Open</span></dt>
+        <dd><b>A question, not a finding.</b> Raised by the documents and not answered in them.</dd>
+      </dl>
+    </div>
+
+    <!-- ============ 1 ============ -->
+    <section>
+      <h2>One &mdash; What we believe we understand <span class="src s-doc">Doc</span></h2>
+
+      <p>TDS responded to <strong>RFIUH-2026</strong>, a Request for Information issued by NAVFAC, with a packet dated 23 August 2026 addressed to Ms. Lita Staskey. An RFI is market research: the agency is finding out what industry can do before deciding whether to buy anything, so there is no award here, no solicitation number beyond the RFI reference, no contract number and no period of performance. We say that only because the opportunity has been described to us in other terms elsewhere, and we wanted to be sure we had the stage right.</p>
+
+      <p>The offer is <strong>2,000 berthing units and 500 MWR units</strong>, 2,500 in total, across ten installations from Great Lakes to Pearl Harbor, structured as a turnkey lease rather than a sale. The cover letter is explicit about that choice: <em>"Although we can sell all the equipment, we do not see any advantage to the Government in purchasing these items."</em> Scope is roughly <strong>11,900 Navy personnel</strong>.</p>
+
+      <p>The capability is assembled from named partners rather than held in-house: <strong>Forest River</strong> for berthing units, <strong>CAVCO Industries</strong> for MWR, <strong>Government Leasing, LLC</strong> for the lease structure, and food service under two names that both appear in the packet, <strong>MCM Solutions, LLC</strong> and <strong>Morgan Chase Management</strong>. <span class="src s-vend">Vendor</span></p>
+
+      <p>Two dates we noted. <strong>Earliest ready for occupancy is 1 October 2026</strong>, which the workbook records as TDS's own estimate of when it could first house someone rather than any start date set by the Navy. And pricing is stated as holding <em>"for a period of one year from August 24, 2026."</em></p>
+
+      <p><span class="src s-open">Open</span> <strong>We have your answer but not the Navy's question.</strong> The RFI itself is not in what reached us, so the requirements, the evaluation approach and the timing all sit in a document we have not read. Nothing in our files confirms the packet was submitted or received either, which is why this note says "prepared for NAVFAC" throughout rather than "sent."</p>
+    </section>
+
+    <!-- ============ 2 ============ -->
+    <section>
+      <h2>Two &mdash; What the submission consists of <span class="src s-doc">Doc</span></h2>
+
+      <p>The 39-page packet carries a cover letter, a contract history, the catering subcontractor's submission, a lessor's rental schedule at pages 29 to 32, and camp and suite floorplans at pages 25 to 28. Alongside it is the Navy's own response workbook, which the Navy describes as existing <em>"to collect consistent, complete, and analyzable data,"</em> with instructions on its first tab to complete Company_Info first, then Locations_Master, then a solution tab for each proposed solution.</p>
+
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Workbook tab</th><th>State in the copy that reached us</th></tr></thead>
+          <tbody>
+            <tr><td>Company_Info</td><td><span class="chip hi">Empty</span> No company name, point of contact, email, phone, address, UEI, CAGE code, business type or small-business status.</td></tr>
+            <tr><td>Locations_Master</td><td><span class="chip hi">Empty</span> None of the ten installations marked "Respond? Yes." No beds, unit counts or ready dates.</td></tr>
+            <tr><td>Installation Solution 1</td><td><span class="chip lo">Complete</span> Filled out thoroughly, with Location set to "All."</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><span class="src s-open">Open</span> <strong>Our copy is a download whose filename ends in "(1)", so we may simply be holding an early or partial save.</strong> The narrative packet carries the company identity and the installation list in full; it is only the machine-readable half that is blank in our version. This is question 1 below and it is the first thing we would like to clear up, because if a completed workbook went in then most of this paragraph is moot.</p>
+    </section>
+
+    <!-- ============ 3 ============ -->
+    <section>
+      <h2>Three &mdash; What the numbers in the paperwork say <span class="src s-doc">Doc</span></h2>
+
+      <p>Everything in this section is read off the packet or the workbook. Where two figures in the documents point different ways, both are shown.</p>
+
+      <h3 style="font-family:'Archivo',sans-serif;font-size:16px;margin:26px 0 8px;">Capacity</h3>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Field</th><th class="num">Value in the workbook</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Units currently available</td><td class="num">0</td><td>All 2,500 sit in the to-be-developed column.</td></tr>
+            <tr><td>Total Units</td><td class="num">2,500</td><td>Live formula, available plus to-be-built.</td></tr>
+            <tr><td>Total Beds</td><td class="num">11,900</td><td>This field is a formula field, but the formula has been replaced with a typed value.</td></tr>
+            <tr><td>Beds per unit</td><td class="num">6</td><td><span class="src s-ours">Ours</span> 2,500 &times; 6 would give 15,000.</td></tr>
+            <tr><td>Surge capacity</td><td class="num">500</td><td>Separate field.</td></tr>
+            <tr><td>Development status</td><td class="num">"Operating"</td><td>On the same tab that reports zero units available.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><span class="src s-ours">Ours</span> Our reading is that the Navy's own headcount was entered where the arithmetic belonged, since 11,900 is also the figure the cover letter uses for Navy personnel. That is a guess. It leaves the bed count the response actually offers unresolved between 15,000 and 11,900, which is question 2.</p>
+
+      <h3 style="font-family:'Archivo',sans-serif;font-size:16px;margin:26px 0 8px;">Cost fields</h3>
+      <p>Every housing cost field in what we have is blank: delivery and install, utilities, O&amp;M, removal and restoration, and total year one. Monthly cost per bed is answered <em>"Varies."</em> In Rental Schedule 26281, <em>Total Number of Payments</em> reads "X", <em>Amount of Each Payment</em> is a bare dollar sign, and the annual obligation is "X" in the base period and all three renewals.</p>
+      <p>The catering rates, by contrast, are given to the cent:</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Tier</th><th>Daily population</th><th class="num">Per person per day</th><th class="num">Per meal</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>100&ndash;249</td><td class="num">$76.30</td><td class="num">$25.43</td></tr>
+            <tr><td>2</td><td>250&ndash;499</td><td class="num">$63.40</td><td class="num">$21.13</td></tr>
+            <tr><td>3</td><td>500&ndash;999</td><td class="num">$47.80</td><td class="num">$15.93</td></tr>
+            <tr><td>4</td><td>1,000&ndash;1,499</td><td class="num">$45.35</td><td class="num">$15.12</td></tr>
+            <tr><td>5</td><td>1,500&ndash;1,999</td><td class="num">$42.44</td><td class="num">$14.15</td></tr>
+            <tr><td>6</td><td>2,000&ndash;2,500+</td><td class="num">$40.90</td><td class="num">$13.63</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Transport and mobilization sit outside those rates at cost plus 10%; utilities, potable water and gray-water handling at cost plus 15%. <span class="src s-open">Open</span> We assume housing was left unpriced deliberately at market-research stage, which is a normal choice. Question 3 asks you to confirm that, because without a monthly figure we have no way to size the opportunity.</p>
+
+      <h3 style="font-family:'Archivo',sans-serif;font-size:16px;margin:26px 0 8px;">Service levels</h3>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Field</th><th class="num">Navy's stated desire</th><th class="num">Answer in the workbook</th></tr></thead>
+          <tbody>
+            <tr><td>Emergency maintenance response</td><td class="num">&le; 2 hours</td><td class="num">6 hours</td></tr>
+            <tr><td>Routine maintenance response</td><td class="num">&le; 24 hours</td><td class="num">48 hours</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Both answers match what TDS offers on its disaster work, which suggests a considered commercial position rather than an oversight. Question 6 asks whether that is right.</p>
+
+      <h3 style="font-family:'Archivo',sans-serif;font-size:16px;margin:26px 0 8px;">The lease terms at pages 29&ndash;32</h3>
+      <p>Rental Schedule No. 26281 carries the standard terms of Government Leasing, LLC. Several clauses are the kind a contracting officer usually strikes, so they are worth knowing about before this travels further: title and interest in the equipment stay with the lessor; the Government carries risk of loss from the commencement date with no abatement of payments; renewal is written as a commitment, with the Government undertaking not to reprogram funds or substitute functionally similar equipment, and non-appropriation as the only stated escape; a 4% fee applies to purchase-card payments. The period of performance is stated as 60 months over a table that ends at month 48.</p>
+      <p><span class="src s-open">Open</span> None of that binds anyone at RFI stage. We flag it because it reads as a proposed deal inside a market-research response, and we do not know whether it was meant to be there. That is question 7.</p>
+    </section>
+
+    <!-- ============ 4 ============ -->
+    <section>
+      <h2>Four &mdash; The North Carolina entry we could not reconcile <span class="src s-doc">Doc</span></h2>
+
+      <p>We have separately been reading the award letter and IFB for the Hurricane Helene turnkey housing work in North Carolina. <strong>Entry 49 of the contract history in this packet describes what we take to be that same contract, and four details in it do not match our copies.</strong> We would rather ask than assume, because the mismatch is most likely on our side.</p>
+
+      <div class="scroll">
+        <table>
+          <thead><tr><th></th><th>Entry 49 of the contract history</th><th>The award letter and IFB we hold</th></tr></thead>
+          <tbody>
+            <tr><td>Value</td><td class="num">$300,000,000.00</td><td>No value stated. The IFB says twice that "No maximum or minimum quantities are guaranteed," and the bid pricing form in our copy is blank.</td></tr>
+            <tr><td>Description</td><td>"Turnkey Housing for the State of North Carolina for Three Years"</td><td>Reads to us as a task-order vehicle, with revenue arising when Emergency Management issues a work order.</td></tr>
+            <tr><td>Term</td><td>19 Mar 2025 &ndash; 18 Mar 2028</td><td>"Effective March 20, 2025 &ndash; March 19, 2028." A day apart at each end.</td></tr>
+            <tr><td>Contact</td><td>Mr. Teddy Pendergrass, 919-825-2500</td><td>Tim Pendergrass, 919-324-6473, who signed the award letter.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="flagbox">
+        <div class="lab">Why we are asking rather than concluding</div>
+        <p>The three smaller differences all point the same way, toward an entry transcribed from memory or from an older record rather than from the award file. <strong>That reading would explain the value too</strong>, and it is the one we would expect to be right. But we cannot get there from these documents alone, and we have been using that contract history to understand what the North Carolina work is worth, so we need to know how much weight it carries. Questions 11 to 13.</p>
+      </div>
+
+      <p><span class="src s-open">Open</span> The most likely thing we are missing is simply <strong>a separate North Carolina agreement that does carry a stated value</strong>, which would make entry 49 accurate and our award letter the wrong document to compare it against. If that exists, it would resolve this in a sentence.</p>
+    </section>
+
+    <!-- ============ 5 ============ -->
+    <section>
+      <h2>Five &mdash; Our questions</h2>
+
+      <p>Twenty-one, grouped and numbered so they can be worked through in order or answered by number. <strong>If we only get through five, we would pick 1, 2, 3, 5 and 11.</strong> Those are the ones where an answer changes how we read everything else.</p>
+
+      <h3 style="font-family:'Archivo',sans-serif;font-size:16px;margin:26px 0 10px;">Group A &mdash; The submission and the offer</h3>
+      <ol class="asks">
+        <li><div><p><strong>Was a completed workbook filed, with Company_Info and Locations_Master populated?</strong></p><p class="why">Our copy has both tabs blank and is a download named "(1)", so we may just be holding the wrong save. If a fuller copy exists we should be reading that one.</p></div></li>
+        <li><div><p><strong>Is the offer 11,900 beds or 15,000?</strong></p><p class="why">Total Units holds a live formula and returns 2,500. Total Beds has a typed 11,900 where the formula was. At six beds per unit those do not agree, and 11,900 is also the cover letter's Navy headcount.</p></div></li>
+        <li><div><p><strong>What does a berthing unit cost per month, and was leaving housing unpriced a deliberate choice at RFI stage?</strong></p><p class="why">We assume it was. But every housing cost field is blank while the caterer priced six tiers to the cent, and without a monthly figure there is no way to size this against anything else.</p></div></li>
+        <li><div><p><strong>What does the Development Status field mean here?</strong></p><p class="why">It reads "Operating" on the same tab where units currently available reads zero. We suspect it refers to the company rather than the fleet.</p></div></li>
+        <li><div><p><strong>What stands behind Forest River and CAVCO &mdash; supply agreements, letters of intent, or working relationships?</strong></p><p class="why">The whole capability rests on them, and no agreement with either is in what we received. The same goes for the claimed 250 units a day and the ramp from 50 a day at ten days to 300 a day at thirty.</p></div></li>
+        <li><div><p><strong>Are the 6-hour and 48-hour response times a considered position?</strong></p><p class="why">Both are above the Navy's stated desire of two and twenty-four, and both match what TDS already offers on disaster work. Would they be revised if this became a solicitation, or held?</p></div></li>
+        <li><div><p><strong>Was Government Leasing's Rental Schedule 26281 meant to be part of the response, or attached for reference?</strong></p><p class="why">It reads as a proposed deal inside market research, and its title, risk-of-loss and renewal-commitment clauses are the sort that get struck. Its period of performance also says 60 months over a table ending at month 48.</p></div></li>
+        <li><div><p><strong>What is the basis for serving Hawaii by ocean barge from San Diego?</strong></p><p class="why">Transit time and cost are the parts an evaluator would press on, and neither is in the packet.</p></div></li>
+        <li><div><p><strong>What does the 1 October 2026 ready-for-occupancy date assume?</strong></p><p class="why">With zero units built, that date implies a production and delivery sequence we cannot see.</p></div></li>
+        <li><div><p><strong>Does the one-year price validity from 24 August 2026 still hold if a solicitation lands later than that?</strong></p><p class="why">RFI to solicitation often runs longer than a year.</p></div></li>
+      </ol>
+
+      <h3 style="font-family:'Archivo',sans-serif;font-size:16px;margin:30px 0 10px;">Group B &mdash; The contract history</h3>
+      <ol class="asks" style="counter-reset:q 10;">
+        <li><div><p><strong>Where does the $300,000,000 figure in entry 49 come from?</strong></p><p class="why">The award letter and IFB we hold state no value for that contract. Is there a separate North Carolina agreement we have not been sent, or does the history draw its figures from a different source than the award file?</p></div></li>
+        <li><div><p><strong>Is the contract history maintained by hand?</strong></p><p class="why">The entry immediately above 49 reads $24,755,00.00, which looks like a digit dropped in typing. If the list is manual, that would explain the term and contact differences too, and it would tell us how to weight the rest of it.</p></div></li>
+        <li><div><p><strong>Is company tenure "over 32 years" or "over 28 years"?</strong></p><p class="why">This packet says 32 and the North Carolina package says 28, describing the same company about twenty months apart.</p></div></li>
+      </ol>
+
+      <h3 style="font-family:'Archivo',sans-serif;font-size:16px;margin:30px 0 10px;">Group C &mdash; Small things, raised because a reviewer would see them first</h3>
+      <p style="font-size:14px;color:var(--ink2);margin:0 0 12px;max-width:68ch;">None of these changes the substance. They are cheap to fix and they are what a contracting officer notices before anything else, so they are worth a pass if the packet gets reused.</p>
+      <ol class="asks" style="counter-reset:q 13;">
+        <li><div><p><strong>The catering submission is addressed to "Make Farrall" and calls the occupants <em>soldiers</em> eleven times</strong> in a document going to the Navy.</p></div></li>
+        <li><div><p><strong>Which is the food partner, MCM Solutions, LLC or Morgan Chase Management?</strong></p><p class="why">Both appear across the packet and neither is reconciled to the other.</p></div></li>
+        <li><div><p><strong>The president's email address is printed with a comma in place of the period</strong> &mdash; workcamphousing,com. The same typo appears in the North Carolina package.</p></div></li>
+        <li><div><p><strong>Is there a receipt or portal confirmation for the submission?</strong></p><p class="why">We have a dated letter and a workbook, and nothing that evidences filing. It is the reason we have been careful to write "prepared for" rather than "sent."</p></div></li>
+      </ol>
+
+      <h3 style="font-family:'Archivo',sans-serif;font-size:16px;margin:30px 0 10px;">Group D &mdash; Documents we would like</h3>
+      <ol class="asks" style="counter-reset:q 17;">
+        <li><div><p><strong>RFIUH-2026 itself.</strong> We have the answer and not the question, so we cannot tell how well the response fits what was asked.</p></div></li>
+        <li><div><p><strong>Any agreement with Forest River, CAVCO, Government Leasing, MCM Solutions or Morgan Chase Management.</strong></p></div></li>
+        <li><div><p><strong>The North Carolina agreement behind entry 49, if it is separate from the award we hold.</strong></p></div></li>
+        <li><div><p><strong>A completed copy of the response workbook, if one exists.</strong></p></div></li>
+      </ol>
+    </section>
+
+    <div class="foot">
+      <div class="lab">Source and method</div>
+      Read from two files: the 39-page TDS packet dated 23 August 2026 and the Installation Solutions RFI response workbook. Pages 25 to 28 are image-only and were rendered and read visually rather than extracted; they hold camp floorplans, a services checklist and two Forest River suite drawings. The North Carolina comparison is drawn from the award letter and IFB for that contract. Every dollar figure on this page is quoted from a document rather than calculated, except where marked <span class="src s-ours">Ours</span>.
+      <br><br>
+      This note reflects only the files that reached us. It is not a valuation, an audit or a recommendation, and it is offered so that anyone who holds a document we have not seen, or who knows the operation better than the paperwork shows it, can correct it. Prepared by John Rounds, Doble AI. Confidential; not for distribution.
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
