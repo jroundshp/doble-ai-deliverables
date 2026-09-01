@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Working note. Confidential.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9B%B0%EF%B8%8F</text></svg>">
+<style>
+  html { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Isabela Quarry Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground:   #eff1ee;
+    --surface:  #ffffff;
+    --sunk:     #e4e7e2;
+    --ink:      #1b2321;
+    --ink-2:    #3d4744;
+    --muted:    #6a7572;
+    --line:     #cfd5d0;
+    --line-2:   #dee3de;
+    --accent:   #0f585c;
+    --accent-2: #0b4144;
+    --accent-w: #e0eceb;
+    --flag:     #9c5a20;
+    --flag-w:   #f4e9dd;
+    --stop:     #8c2c27;
+    --stop-w:   #f5e2e0;
+    --ok:       #2f6b3e;
+    --prior:    #6a6f7d;
+
+    --f-display: "Zilla Slab", "Bitter", Georgia, serif;
+    --f-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:   #121716;
+      --surface:  #1a201f;
+      --sunk:     #222927;
+      --ink:      #e7ebe8;
+      --ink-2:    #c2cac7;
+      --muted:    #8d9995;
+      --line:     #333c39;
+      --line-2:   #2a3230;
+      --accent:   #57b3b0;
+      --accent-2: #7fcbc7;
+      --accent-w: #17302f;
+      --flag:     #d3924f;
+      --flag-w:   #2e2418;
+      --stop:     #d9756c;
+      --stop-w:   #31201e;
+      --ok:       #6aa878;
+      --prior:    #9aa0ad;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:   #121716;
+    --surface:  #1a201f;
+    --sunk:     #222927;
+    --ink:      #e7ebe8;
+    --ink-2:    #c2cac7;
+    --muted:    #8d9995;
+    --line:     #333c39;
+    --line-2:   #2a3230;
+    --accent:   #57b3b0;
+    --accent-2: #7fcbc7;
+    --accent-w: #17302f;
+    --flag:     #d3924f;
+    --flag-w:   #2e2418;
+    --stop:     #d9756c;
+    --stop-w:   #31201e;
+    --ok:       #6aa878;
+    --prior:    #9aa0ad;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 28px 96px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  header.masthead {
+    border-bottom: 3px solid var(--accent);
+    padding: 56px 0 22px;
+    margin-bottom: 0;
+  }
+  .kicker {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 14px;
+    margin-bottom: 18px;
+  }
+  .kicker .sep { color: var(--line); }
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5.5vw, 3.1rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .standfirst {
+    font-size: 1.08rem;
+    color: var(--ink-2);
+    max-width: 66ch;
+    margin: 0;
+  }
+  .standfirst strong { font-weight: 600; color: var(--ink); }
+
+  /* ---------- stat strip ---------- */
+
+  .strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 52px;
+  }
+  .strip div {
+    background: var(--surface);
+    padding: 16px 16px 18px;
+  }
+  .strip dt {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .strip dd {
+    margin: 0;
+    font-family: var(--f-display);
+    font-size: 1.42rem;
+    font-weight: 600;
+    line-height: 1.15;
+    font-variant-numeric: tabular-nums;
+  }
+  .strip dd small {
+    display: block;
+    font-family: var(--f-body);
+    font-size: 0.76rem;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0;
+    margin-top: 3px;
+  }
+
+  /* ---------- sections ---------- */
+
+  section { margin-bottom: 54px; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    margin-bottom: 22px;
+  }
+  .sec-head .tag {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .sec-head h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 1.42rem;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  p { max-width: 68ch; margin: 0 0 15px; }
+  p.lead { font-size: 1.03rem; color: var(--ink-2); }
+  .stack { display: flex; flex-direction: column; gap: 15px; }
+
+  a { color: var(--accent); }
+
+  /* ---------- tables ---------- */
+
+  .tbl-scroll { overflow-x: auto; margin-bottom: 18px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background: var(--surface);
+    min-width: 460px;
+  }
+  caption {
+    text-align: left;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 8px;
+  }
+  th, td {
+    text-align: left;
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--line-2);
+    vertical-align: top;
+  }
+  thead th {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  tr.total td {
+    border-top: 1px solid var(--line);
+    font-weight: 700;
+    background: var(--sunk);
+  }
+  .mono { font-family: var(--f-mono); font-size: 0.85em; }
+  td .sub { display: block; color: var(--muted); font-size: 0.85em; line-height: 1.4; margin-top: 2px; }
+
+  /* ---------- callouts ---------- */
+
+  .note {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-w);
+    padding: 15px 18px;
+    margin: 0 0 18px;
+  }
+  .note.warn { border-left-color: var(--flag); background: var(--flag-w); }
+  .note.stop { border-left-color: var(--stop); background: var(--stop-w); }
+  .note h3 {
+    font-family: var(--f-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    color: var(--accent-2);
+  }
+  .note.warn h3 { color: var(--flag); }
+  .note.stop h3 { color: var(--stop); }
+  .note p { margin: 0 0 9px; font-size: 0.94rem; max-width: 72ch; }
+  .note p:last-child { margin-bottom: 0; }
+
+  .note p.recon { font-family: var(--f-mono); font-size: 0.82rem; line-height: 1.75; }
+
+  /* ---------- pills ---------- */
+
+  .pill {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+    vertical-align: 1px;
+  }
+  .p-stop { color: var(--stop); }
+  .p-open { color: var(--flag); }
+  .p-ok   { color: var(--ok); }
+
+  /* ---------- provenance markers ---------- */
+
+  .src {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 1px 4px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+    vertical-align: 2px;
+    margin-left: 4px;
+    cursor: help;
+    user-select: none;
+  }
+  .s-doc   { color: var(--ok); }
+  .s-sell  { color: var(--flag); }
+  .s-prior { color: var(--prior); }
+  .s-ours  { color: var(--accent); }
+
+  caption .src, thead .src { vertical-align: 0; margin-left: 6px; }
+
+  .legend {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 16px 18px;
+    margin-bottom: 52px;
+  }
+  .legend h2 {
+    font-family: var(--f-mono);
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 12px;
+  }
+  .legend dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+    gap: 12px 22px;
+  }
+  .legend div { display: flex; gap: 9px; align-items: flex-start; }
+  .legend .src { margin-left: 0; flex-shrink: 0; vertical-align: 0; margin-top: 2px; }
+  .legend dd { margin: 0; font-size: 0.85rem; line-height: 1.45; color: var(--ink-2); }
+  .legend dd b { font-weight: 600; color: var(--ink); display: block; }
+  .legend > p {
+    margin: 14px 0 0; padding-top: 12px;
+    border-top: 1px solid var(--line-2);
+    font-size: 0.85rem; color: var(--muted); max-width: none;
+  }
+
+  /* ---------- doc cards ---------- */
+
+  .docs { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .doc { background: var(--surface); padding: 16px 18px; }
+  .doc-top {
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    gap: 10px; margin-bottom: 7px;
+  }
+  .doc-top h3 {
+    font-family: var(--f-display);
+    font-size: 1.03rem; font-weight: 600; margin: 0;
+  }
+  .doc-meta {
+    font-family: var(--f-mono); font-size: 10px;
+    letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted);
+  }
+  .doc p { font-size: 0.92rem; margin: 0 0 8px; max-width: 74ch; }
+  .doc p:last-child { margin-bottom: 0; }
+
+  /* ---------- checklist ---------- */
+
+  ul.plain { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 10px; }
+  ul.plain li {
+    padding-left: 20px; position: relative;
+    font-size: 0.94rem; max-width: 72ch;
+  }
+  ul.plain li::before {
+    content: ""; position: absolute; left: 0; top: 0.62em;
+    width: 8px; height: 1px; background: var(--accent);
+  }
+  ul.plain li strong { font-weight: 600; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    font-size: 0.83rem;
+    color: var(--muted);
+    max-width: 74ch;
+  }
+  footer p { font-size: 0.83rem; max-width: none; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+<style>
+  /* ---------- numbered question list ---------- */
+  ol.qs {
+    list-style: none;
+    counter-reset: q;
+    padding: 0;
+    margin: 0 0 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  ol.qs li {
+    counter-increment: q;
+    position: relative;
+    padding-left: 46px;
+    font-size: 0.95rem;
+    max-width: 74ch;
+  }
+  ol.qs li::before {
+    content: counter(q, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    font-family: var(--f-mono);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    padding: 1px 6px;
+  }
+  ol.qs li strong:first-child { font-weight: 600; }
+  section > h3 { letter-spacing: -0.005em; }
+  section > h3 + p { max-width: 70ch; }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="kicker">
+    <span>Working Note</span><span class="sep">/</span>
+    <span>Isabela &amp; Aguada, Puerto Rico</span><span class="sep">/</span>
+    <span>1 September 2026</span><span class="sep">/</span>
+    <span>For Joel Lee</span><span class="sep">/</span>
+    <span>Confidential</span>
+  </div>
+  <h1>Isabela Quarry: what we read, and what we still need</h1>
+  <p class="standfirst">We were asked to read the document set on the Varela acquisition and say plainly what it establishes, what it doesn't, and where it disagrees with itself. This note is the result. It is <strong>not a valuation and not a recommendation</strong>. It is the state of the paperwork as of 1 September 2026, followed by <strong>28 numbered questions</strong> the documents could not answer. Corrections are the point of sending it.</p>
+</header>
+
+<dl class="strip">
+  <div><dt>Ask</dt><dd>$15.0M<small>$1M cash + $14M seller note</small></dd></div>
+  <div><dt>Land</dt><dd>313.4 ac<small>3 parcels, 2 municipios</small></dd></div>
+  <div><dt>2024 revenue</dt><dd>$5.75M<small>net $202K &middot; 3.5% margin</small></dd></div>
+  <div><dt>Appraised</dt><dd>$6.1M<small>everything valued by a third party</small></dd></div>
+  <div><dt>Bank &amp; SBA debt</dt><dd>$6.52M<small>six facilities, three companies</small></dd></div>
+  <div><dt>Documents read</dt><dd>199<small>167 unique files</small></dd></div>
+</dl>
+
+<div class="legend">
+  <h2>How to read this — every claim is tagged by where it came from</h2>
+  <dl>
+    <div><span class="src s-doc" title="Read in the primary document itself">DOC</span>
+      <dd><b>Document-verified</b>Read in the contract, financial statement, permit or appraisal itself.</dd></div>
+    <div><span class="src s-sell" title="Seller's own assertion, not independently verified">SELLER</span>
+      <dd><b>Seller-asserted</b>From the seller's package, letter or asset schedule. Not checked against a primary record.</dd></div>
+    <div><span class="src s-prior" title="Inherited from earlier analysis inside the data set">PRIOR</span>
+      <dd><b>Inherited analysis</b>From analyst work already sitting in the data set, two layers from any primary source.</dd></div>
+    <div><span class="src s-ours" title="Our own reading or arithmetic">OURS</span>
+      <dd><b>Our arithmetic</b>Our own reading. Written as questions, not findings.</dd></div>
+  </dl>
+  <p>The tagging matters here more than usual. A large share of the data set is prior analysis of the seller's package rather than primary record, and the market case in particular is <span class="src s-prior">PRIOR</span> throughout. The legal and contractual spine is <span class="src s-doc">DOC</span>.</p>
+</div>
+
+<!-- ============ 1. WHAT WE UNDERSTAND ============ -->
+<section>
+  <div class="sec-head"><span class="tag">One</span><h2>What we believe we understand</h2></div>
+
+  <p class="lead">One family owns a chain that runs from rock in the ground to concrete in a truck, and the deal is to buy the whole chain plus the land under it. <strong>Santiago R. Varela Rosario</strong> and his wife hold it, married under Puerto Rico's community-property regime, which means both signatures are needed on the real property.</p>
+
+  <div class="tbl-scroll">
+  <table>
+    <caption>The four operations <span class="src s-doc" title="Read in the primary document itself">DOC</span></caption>
+    <thead><tr><th>Entity</th><th>What it does</th><th class="num">2024 revenue</th><th class="num">2024 net</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Hormigonera Chaparro</strong><span class="sub">d/b/a Expreso Ready Mix &middot; inc. 1980 &middot; Reg. 47032</span></td>
+        <td>Ready-mix batch plant at Aguada. Serves Aguada, Rinc&oacute;n, A&ntilde;asco, Moca.</td>
+        <td class="num">$2,276,017</td><td class="num">$53,549</td>
+      </tr>
+      <tr>
+        <td><strong>Empresas Mundo Real</strong><span class="sub">quarry operator since 2003 &middot; Reg. 89649</span></td>
+        <td>The Isabela limestone quarry. On-site crushing and screening, bagged aggregate, agricultural lime.</td>
+        <td class="num">$1,597,692</td><td class="num">$108,716</td>
+      </tr>
+      <tr>
+        <td><strong>Hormigonera Mundo Real</strong><span class="sub">org. 2013 &middot; Reg. 323390</span></td>
+        <td>Second ready-mix plant, sited on the quarry. Owns no land.</td>
+        <td class="num">$1,879,819</td><td class="num">$39,474</td>
+      </tr>
+      <tr>
+        <td><strong>Summit Concrete Pumping</strong><span class="sub"><span class="pill p-stop">In or out — undecided</span></span></td>
+        <td>Concrete pumping. Described as the fourth operation, but it is not one of the three target corporations in either purchase agreement draft.</td>
+        <td class="num">&mdash;</td><td class="num">&mdash;</td>
+      </tr>
+      <tr class="total"><td colspan="2">Combined, three named entities</td><td class="num">$5,753,528</td><td class="num">$201,739</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Extraction is mechanical only, with dozers and breakers and no explosives <span class="src s-doc" title="Read in the primary document itself">DOC</span>, which is a large part of why a permit was obtainable at all in karst. The permit allows <strong>442,000 m&sup3; a year</strong>, roughly 600,000 tons.</p>
+
+  <div class="tbl-scroll">
+  <table>
+    <caption>The three parcels, Exhibit A to the purchase agreement <span class="src s-doc" title="Read in the primary document itself">DOC</span></caption>
+    <thead><tr><th>Parcel</th><th>Where</th><th class="num">Acres</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Arenales</strong><span class="sub mono">025-000-002-99-000 &middot; Finca 79017</span></td>
+        <td>Bo. Arenales, Isabela</td>
+        <td class="num">87.4</td>
+        <td>The working quarry, four structures, about 16,500 sq ft. <strong>This parcel carries the extraction permit.</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Cotto / Llanadas</strong><span class="sub mono">026-000-003-12-998 &middot; Finca 8273</span></td>
+        <td>Bo. Llanada Solar 2, Isabela</td>
+        <td class="num">219.4</td>
+        <td>Untouched reserve, no improvements, fronts PR-2. The seller materials call it the most valuable holding.</td>
+      </tr>
+      <tr>
+        <td><strong>Guayabo</strong><span class="sub mono">068-100-363-14-000 &middot; Finca 11771</span></td>
+        <td>Carr. 411 Km 0.4, Aguada</td>
+        <td class="num">6.6</td>
+        <td>The Chaparro / Expreso ready-mix plant, six structures, about 16,000 sq ft.</td>
+      </tr>
+      <tr class="total"><td colspan="2">Total</td><td class="num">313.4</td><td>All three sit inside a federal Qualified Opportunity Zone.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note">
+    <h3>Who the buyers are, as the drafts have it <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
+    <p>A 50/50 joint venture between <strong>KBN Investments LLC</strong>, whose principal Richard Sargent would be the operating member, and <strong>Structured Global Capital LLC</strong>, principals William Pitts and Daniel Whitaker. SGC brings the $1,000,000 of cash; KBN contributes services and Sargent's time. The JV itself has no name and no filed certificate of formation yet, and the drafting notes make the point that a non-existent entity cannot sign a contract.</p>
+  </div>
+</section>
+
+<!-- ============ 2. THE DEAL ============ -->
+<section>
+  <div class="sec-head"><span class="tag">Two</span><h2>What the deal is</h2></div>
+
+  <p class="lead"><strong>Nothing is executed.</strong> All four legal documents carry a "not for execution" legend on their face. The only signed item anywhere in the set is a one-page letter of intent, and the seller's signature block on that copy is blank.</p>
+
+  <div class="tbl-scroll">
+  <table>
+    <caption>Consideration as drafted <span class="src s-doc" title="Read in the primary document itself">DOC</span></caption>
+    <thead><tr><th>Component</th><th class="num">Amount</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Cash at closing</td><td class="num">$1,000,000</td><td>Payment method never discussed. Proof of funds is still an open buyer-side item.</td></tr>
+      <tr><td>Seller note</td><td class="num">$14,000,000</td><td>Five-year term, repaid by a <strong>70% sweep of post-expense cash</strong>, balloon at maturity. <span class="pill p-stop">Interest rate blank</span></td></tr>
+      <tr class="total"><td>Stated purchase price</td><td class="num">$15,000,000</td><td></td></tr>
+      <tr><td>Existing secured debt<span class="sub">EMR: FirstBank commercial $4,012,092 (orig. $5.52M, prime + 1%, $24,024/mo, Arenales land pledged) &middot; SBA $50,000 drawn &middot; line of credit $64,802. Chaparro: FirstBank commercial $2,099,353 (orig. $2,742,414, 7.1%, $16,756.81/mo, matures Jul 2033) &middot; SBA $150,000. HMR: SBA $141,471, no amortization schedule produced.</span></td><td class="num">$6,517,718</td><td>Discharge, assume or refinance is <strong>not elected</strong>. All balances are 12/31/2024 and unaudited.</td></tr>
+      <tr><td>Planned capex<span class="sub">$4M asphalt plant plus $2M of Cotto development, financed at 7%</span></td><td class="num">$6,000,000</td><td>Modeled, not committed.</td></tr>
+      <tr><td>Escrow / holdback</td><td class="num">10&ndash;15%</td><td>Percentage, funding source and escrow agent all open. 24-month hold.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note stop">
+    <h3>The largest economic term has never been agreed <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
+    <p>Counsel's memo calls it "the single largest open economic term," and we agree that is the right description. The parties' 3 August summary does not settle whether the bank and SBA debt sits <strong>inside</strong> the $15M, in which case the seller nets roughly $7.5M, or <strong>on top of it</strong>, which puts enterprise value near $22.5M. Those are two different transactions and no term sheet resolves it.</p>
+    <p>The three debt figures in circulation do reconcile, though. They are the same debt counted over different sets of facilities:</p>
+    <p class="recon">$4.5M &mdash; EMR's facilities only, using the SBA loan's <em>authorized</em> $455,300 rather than the $50,000 drawn.<br><strong>$6.31M</strong> &mdash; counsel's figure: EMR FirstBank $4,012,092 + EMR SBA $50,000 + Chaparro commercial $2,099,353 + Chaparro SBA $150,000. Chaparro's $2.1M loan is what the smaller number leaves out.<br>$6.52M &mdash; all six facilities, adding HMR's $141,471 and EMR's $64,802 line of credit.<br>"$7.5M in bank notes" &mdash; per counsel this approximates <em>total liabilities</em>, not bank debt.</p>
+    <p>So the real bank and SBA exposure is about <strong>$6.5M</strong>. None of it is yet evidenced by a payoff letter.</p>
+  </div>
+
+  <div class="note warn">
+    <h3>The one signed document has a clock on it <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
+    <p>The WG Pitts letter of intent dated <strong>20 July 2026</strong> undertakes to "endeavor to fund a minimum of $1 million dollars towards the purchase within 60 days." That period ends around <strong>18 September 2026</strong>, about two and a half weeks from the date of this note. The LOI carries no exclusivity, no deposit, no diligence period and no stated expiry.</p>
+  </div>
+
+  <p>Beyond that, the 27 August purchase agreement drafted by <strong>Pedro A. Crespo Claudio</strong> is genuinely buyer-favorable where it is complete: setoff against the note, no acceleration on the seller's death, no assignment or discounting of the note without buyer consent, and no personal guarantees from the buyers' principals. Roughly a third of its operative terms are still bracketed as never discussed, including interest rate, amortization, balloon, cure periods, collateral, escrow, closing date, the consultant term and the non-compete.</p>
+
+  <p>The most useful document in the whole set is Crespo's companion memo, <em>Pending Confirmations Before Signing</em>. It lists <strong>35 numbered open items</strong> across four groups: 11 business terms the parties have never agreed, 19 government and third-party facts to verify, and 5 buyer-side items. It states that until each is confirmed or decided, the draft cannot responsibly be signed. Anyone doing diligence here should work from that document rather than starting over.</p>
+</section>
+
+<!-- ============ 3. THE NUMBERS ============ -->
+<section>
+  <div class="sec-head"><span class="tag">Three</span><h2>What the numbers in the paperwork say</h2></div>
+
+  <p class="lead">Every figure below is read out of the financial statements, the appraisals or the permits themselves. Where the paperwork disagrees with itself, both numbers are shown.</p>
+
+  <div class="tbl-scroll">
+  <table>
+    <caption>Five-year combined history <span class="src s-doc" title="Read in the primary document itself">DOC</span></caption>
+    <thead><tr><th>Year</th><th class="num">2020</th><th class="num">2021</th><th class="num">2022</th><th class="num">2023</th><th class="num">2024</th></tr></thead>
+    <tbody>
+      <tr><td>Revenue</td><td class="num">$3.42M</td><td class="num">$4.61M</td><td class="num">$3.76M</td><td class="num">$3.77M</td><td class="num">$5.75M</td></tr>
+      <tr><td>Net earnings</td><td class="num">&mdash;</td><td class="num">+$180K</td><td class="num">loss</td><td class="num">&minus;$192K</td><td class="num">+$202K</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Gross margin is healthy at roughly <strong>48%</strong>. The 3.5% net margin is interest and overhead, not production cost. EMR alone carried about $275,000 of interest in 2024 and sits on <strong>negative equity of &minus;$978,000</strong>. Combined revenue of $5,753,528 works out to about <strong>$479,000 a month</strong>.</p>
+
+  <div class="tbl-scroll">
+  <table>
+    <caption>What a lender's appraiser said it was worth <span class="src s-doc" title="Read in the primary document itself">DOC</span></caption>
+    <thead><tr><th>Asset</th><th>Appraisal</th><th class="num">Value</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Quarry + Isabela batch plant</strong><span class="sub">EMR and HMR valued together as one going concern. The 83.71-cuerda Arenales site only.</span></td>
+        <td>Lamadrid Appraisal Group, PSC<span class="sub">Esteban Lamadrid, MAI &middot; commissioned by <strong>FirstBank</strong> &middot; effective 25 Apr 2024</span></td>
+        <td class="num">$5,250,000<span class="sub">income approach. Sales comparison gave $6,300,000.</span></td>
+      </tr>
+      <tr>
+        <td><strong>Aguada ready-mix plant</strong><span class="sub">Chaparro / Expreso. Land, buildings, site improvements.</span></td>
+        <td>RHN Appraisals, PSC<span class="sub">commissioned by <strong>Banco Popular</strong> &middot; effective 23 Aug 2021</span></td>
+        <td class="num">$850,000<span class="sub">cost approach only &middot; land component $150,000</span></td>
+      </tr>
+      <tr>
+        <td><strong>Cotto / Llanadas, 219 acres</strong><span class="sub">The reserve parcel the seller materials call the most valuable holding.</span></td>
+        <td colspan="2"><span class="pill p-stop">Never appraised by anyone</span></td>
+      </tr>
+      <tr class="total"><td colspan="2">Third-party appraised total</td><td class="num">$6,100,000</td></tr>
+      <tr class="total"><td colspan="2">Asking price</td><td class="num">$15,000,000</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note warn">
+    <h3>Two things the 2024 appraisal says that bear on price <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
+    <p>It is a full USPAP report prepared for a bank weighing its own loan exposure, not for a sale, which makes it the only independent valuation in the transaction. The $5.25M is an <strong>EBITDA of $750,000 times a multiple of 7.0</strong>, and that projection assumed quarry sales of $2.0M. <strong>EMR's actual 2024 sales came in at $1,597,692, about 20% under the figure the appraisal was built on.</strong></p>
+    <p>The appraiser also valued the same property on 10 November 2022 and records that the going-concern value <em>fell</em> between the two dates, because the sales increase the earlier appraisal assumed never materialized. The whole valuation is stated under an express extraordinary assumption that the property holds all required permits and is free of environmental problems. No environmental report was available to him.</p>
+    <p><strong>$6.1M is not a valuation of this deal.</strong> It is the sum of the parts anyone has actually valued, and it leaves out Chaparro's going concern and the entire 219-acre Cotto reserve. That gap is the honest bull case, and it is also question 16 below.</p>
+  </div>
+
+  <div class="note warn">
+    <h3>The seller's own schedule, set against those appraisals <span class="src s-sell" title="Seller's own assertion, not independently verified">SELLER</span></h3>
+    <p>The acquisition package assigns Chaparro <strong>$3.6M</strong> including <strong>$3M of land</strong>, EMR <strong>$4.5M+</strong>, and HMR about <strong>$2M</strong>. EMR and HMR together are claimed at $6.5M where FirstBank's appraiser concluded $5.25M, which is a difference of degree. Chaparro is the outlier: $3M of land against a $150,000 appraised land value. The appraisal is four years older and a rising market closes some of that, but not twenty-fold.</p>
+    <p>The same package puts December 2024 monthly revenue at $670,000 and annualizes it to "$8+ million." The three companies' 2024 statements total $5,753,528.</p>
+  </div>
+
+  <div class="note">
+    <h3>The reserve numbers are complementary, not contradictory <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
+    <p>Two figures circulate and they measure different things. The <strong>2022 permit request records 14,191,213.95 m&sup3;</strong>, up from 11,776,441.67 m&sup3; in the 2017 filing, and the increase is accounted for: a licensed surveyor, <strong>Jose O. Qui&ntilde;ones Moret, LS Lic. 17,934</strong>, filed a memorandum attributing it to more precise instruments and a 10-metre buffer where the earlier filing used a larger one. So the 14M figure is a permit-boundary reserve calculated twice by a surveyor, not a sales-deck number.</p>
+    <p><strong>EMR's own Note D says 5.2M m&sup3;</strong>, being 2,200,000 m&sup3; down to the level of the water canal and road plus 3,000,000 m&sup3; for a further ten metres below that. Our reading is that this is the constrained extraction plan the company depletes against, while 14.2M is what sits inside the permit boundary. If that reading is right, the operating question is narrow and answerable: <strong>can a buyer get below the water canal and road?</strong> That is question 18.</p>
+    <p>Worth noting either way: none of the appraised value depends on the reserve, because the $5.25M is an earnings multiple.</p>
+  </div>
+</section>
+
+<!-- ============ 4. QUESTIONS ============ -->
+<section>
+  <div class="sec-head"><span class="tag">Four</span><h2>Our questions</h2></div>
+
+  <p class="lead">Twenty-eight items, grouped by who is best placed to answer them. <strong>Group A is the one we most want your read on</strong>, because it is operating and market knowledge that no document in the set contains and no lawyer or accountant can supply.</p>
+
+  <div class="note">
+    <h3>If we only get through six</h3>
+    <p>Questions <strong>1, 2, 6, 8, 16 and 19</strong>. Those are the ones where an answer actually moves the price or the plan. Everything else can follow.</p>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 4px;">Group A &mdash; Market and operations</h3>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">The document set is thin here, and this is the part that decides whether the upside case is real.</p>
+
+  <ol class="qs">
+    <li><strong>What does the rock actually sell for?</strong> Every model in the set assumes <strong>$14 a ton</strong>. What is crushed limestone really fetching delivered around Isabela, Aguada and Aguadilla right now, and what is the price at the plant gate? At $10 a ton the whole utilization arithmetic shifts.</li>
+    <li><strong>Why is the quarry running at a fifth to a third of its permit?</strong> The permit allows 442,000 m&sup3; a year. Two independent methods put actual output at <strong>20&ndash;30%</strong> of that: revenue of $1,597,692 against roughly $8.4M of aggregate at full permitted output, and separately, running the Note D depletion formula backwards from the $42,731 booked in 2024, which implies 89,000&ndash;131,000 m&sup3; produced <span class="src s-ours" title="Our own reading or arithmetic">OURS</span>. Is that gap demand, or is it trucks, crew and working capital? The upside case rests entirely on which.</li>
+    <li><strong>What is the plant physically doing today,</strong> in tons per day, and where is the bottleneck &mdash; crusher, screens, loaders or haul trucks?</li>
+    <li><strong>Trucking.</strong> Owned fleet or contract haulers? What is the haul radius where this rock stays competitive against Productora de Agregados, Cantera Mundo Real and Rodriguez Aggregates?</li>
+    <li><strong>The two ready-mix plants.</strong> What are Chaparro at Aguada and HMR at the quarry actually running in yards per day, and what radius do they serve? CEMEX being the island's only cement producer &mdash; what does that do to their cement cost and to availability?</li>
+    <li><strong>Hot-mix asphalt is the swing factor in every projection.</strong> The models turn on a 1,700 t/day plant fed internally, and the gap between the maximum and realistic cases is almost entirely asphalt utilization. Is there hot-mix demand in the trade area to support that? Who supplies it now? What is a defensible first-three-years volume?</li>
+    <li><strong>Limestone quality.</strong> The seller's package claims <strong>94.6% calcium-carbonate equivalent</strong> <span class="src s-sell" title="Seller's own assertion, not independently verified">SELLER</span>, which would carry both premium construction aggregate and agricultural lime off the same fines. The analysis document in the set is a scan with no readable text, so that number traces only to the seller's own materials. Is there a legible assay, and does the fines stream really support ag lime as a second product?</li>
+    <li><strong>Cotto / Llanadas, the 219 acres fronting PR-2.</strong> Is it permitted for extraction today, or does it need its own permit and its own process? Nobody has ever appraised it, and it is the largest single piece of the gap between $6.1M and $15M.</li>
+    <li><strong>Equipment.</strong> About $1.5M of quarry heavy equipment is claimed with no inventory, no titles and no invoices produced. What is actually on the ground, in what condition, and what has to be replaced in year one?</li>
+    <li><strong>The 166-acre asphalt parcel.</strong> It appears in the discussion materials with no deed, no finca, no cadastral number and no named owner. Is it in this deal or not? The price should move either way.</li>
+    <li><strong>The second pit.</strong> We were told there is an unopened hard-rock position next door, drilled and tested, with granite under the limestone and a third softer material. <strong>Nothing in the 199 files describes it.</strong> Is there drilling data, an assay, or a map?</li>
+    <li><strong>QuikCrete and BASF.</strong> Bagging arrangements with both were described as existing. No paperwork for either is in the set. Do they exist, and in what form &mdash; contract, purchase order, or conversation?</li>
+    <li><strong>The infrastructure pipeline.</strong> The $7&ndash;10B of identified western-PR investment for 2026&ndash;2030 &mdash; LUMA, CDBG-MIT, City-Rev, PR-10, PR-2, Aguadilla and Ramey, the solar build &mdash; comes to us as <span class="src s-prior" title="Inherited from earlier analysis inside the data set">PRIOR</span> analysis, not primary record. Which of those are actually letting work in this trade area now, and is anyone in this group prequalified to bid them?</li>
+    <li><strong>Working capital.</strong> Both five-year models exclude it entirely, and a ramp of the size they describe will consume it heavily. What does this operation need in the ground before it collects?</li>
+  </ol>
+
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 4px;">Group B &mdash; Where the paperwork disagrees with itself</h3>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">Not challenges. Each of these has a plausible innocent explanation and we would rather hear it than guess.</p>
+
+  <ol class="qs" start="15">
+    <li><strong>Which revenue basis is right?</strong> The seller's package annualizes December 2024 at $670,000 a month into "$8+ million." The three companies' own 2024 statements total <strong>$5,753,528</strong>, or about $479,000 a month. Separately, a figure of roughly $1M a month at 40% margin has been described in conversation; the books show 48% gross and 3.5% net. Is the $670,000 a seasonal peak, a cash-inclusive number, or something else?</li>
+    <li><strong>What supports the $9M above appraised value?</strong> Third parties have valued $6.1M of this against a $15M ask. Cotto is unappraised and Chaparro's going concern is uncovered, which is the legitimate answer to most of it. Is there a Cotto appraisal, a newer Lamadrid, or a broker opinion we have not been given?</li>
+    <li><strong>Chaparro's land.</strong> The seller's schedule carries it at $3M. Banco Popular's 2021 appraisal put the land component at $150,000. Four years and a rising market do not usually cover twenty-fold. What changed, or what are the two numbers measuring differently?</li>
+    <li><strong>Can extraction go below the water canal and road?</strong> This is the operative half of the reserve question above. The 5.2M m&sup3; plan stops there; the 14.2M m&sup3; permit boundary does not.</li>
+    <li><strong>Vehicle and Equipment Expense reads $0 in 2024 at both companies.</strong> At EMR that line runs $170K, $427K, $360K and <strong>$555K</strong> across 2020&ndash;2023, then zero. At Chaparro it runs $197K, $339K, $260K, $272K, then zero. Same line, both companies, same year. Cost of sales rises by roughly $697K across the two at the same time, so a reclassification is the likely answer, and 2024 is also the first year prepared by the incoming CPA. <strong>It matters because 2024 is the base year for every projection in this transaction and for the appraisal's EBITDA.</strong> Until that line is explained, 2024 is not comparable to the four years before it.</li>
+    <li><strong>The $535,797.</strong> One draft calls it a shareholder loan owed by EMR to the Varelas, to be capitalized, forgiven or paid. The other calls it an intercompany payable owed by EMR to Chaparro, to remain outstanding. Both cannot be right and the treatment differs materially.</li>
+  </ol>
+
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 4px;">Group C &mdash; Records we could not find in the set</h3>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">These may exist and simply not have reached us. Pointing us at them is as good as an answer.</p>
+
+  <ol class="qs" start="21">
+    <li><strong>Primary accounting records.</strong> There is no general ledger, trial balance, bank statement or accounting export anywhere in the 199 files. Every statement is compilation-basis and each accountant's report says in terms that no opinion, conclusion or assurance is expressed. A GL export for 2022&ndash;2024 would answer several questions above on its own.</li>
+    <li><strong>Hormigonera Mundo Real has no accountant's report at all.</strong> Its only financials are a 2024 balance sheet and P&amp;L printed out of the bookkeeping system on 13 May 2025, with no prior-year comparatives and no debt amortization schedule.</li>
+    <li><strong>The Act 60 decree.</strong> Case 20-60-I-060 fixes a 4% income tax rate through 31 December 2034, and reportedly lasts "until transfer of ownership," which is exactly the event contemplated. <strong>The full text has never been produced, so nobody has read the transfer clause.</strong> Note also that EMR's effective rate in 2024 was 0.9%, not 4%, which looks more like loss carryforwards than the decree.</li>
+    <li><strong>Permit renewals.</strong> The Arenales extraction permit was approved 27 December 2023 for five years, so it runs to 2028 while the seller note runs to about 2031. Its companion permit PGO 2017-159059-PGO-004749 expired 12 April 2026, EMR's Permiso &Uacute;nico was reported expiring 11 November 2025, and Chaparro's plant permits in the data room expired between 2017 and 2021. None has a renewal in the file. Are renewals in hand that simply are not in the set?</li>
+    <li><strong>Equipment titles and vehicles.</strong> Fifty-two vehicles across four registered holders, including one personal vehicle and 21 units under an ambiguous "H.M.R.", with contradictory mixer inventories and no lien search by VIN.</li>
+    <li><strong>Valle Verde, Inc. and Expresso Ready Mix, Inc.</strong> Both appear in EMR's related-party note and in neither purchase agreement draft. What do they hold, and are they in or out?</li>
+    <li><strong>Summit Concrete Pumping.</strong> Named as the fourth operation, absent from both drafts. In or out?</li>
+    <li><strong>Three documents specifically.</strong> A legible copy of the limestone assay, the <strong>2022 Lamadrid appraisal</strong> of the same property, and the <strong>original 2021 RHN report</strong> on Aguada rather than the summary of it we have been working from.</li>
+  </ol>
+
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 4px;">Already with counsel &mdash; noted, not asked</h3>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">Listed so it is clear we are not asking you to carry them. These sit with Crespo's 35-item memo and with whoever does the quality-of-earnings work.</p>
+
+  <ul class="plain">
+    <li>Whether the ~$6.5M of bank and SBA debt sits inside or on top of the $15M, and the blank interest rate on the $14M note.</li>
+    <li><strong>Excluding Arenales from the seller's collateral.</strong> Permits follow the parcels, so a foreclosure on Arenales takes the extraction permit with it, and with it the aggregate supply for both batch plants and the proposed asphalt plant. The drafts already flag this as the highest-priority negotiating term.</li>
+    <li>Acreage rectification. Arenales is 81 acres on the deed and 87 on the survey of record; Aguada is 2.55 cuerdas on one document and 6.64 acres on another. The Cotto position is <strong>38 separate fincas</strong> with three mortgages from 1995&ndash;1999 still of record and of unknown status.</li>
+    <li>Pre-closing tax exposure. In a share purchase the buyer inherits it, and the seller's 19 December 2024 letter describes monthly sales above what the books carry.</li>
+    <li>Forming the JV entity, and a teaming agreement between KBN and SGC, which counsel lists as still open.</li>
+    <li><strong>Housekeeping worth doing this week regardless of whether the deal proceeds:</strong> there is no NDA between buyers and sellers, and the data room holds unredacted Social Security numbers and payroll data. That is live exposure today.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Prepared by John Rounds, Doble AI, from the 199-file document set as it stood on 1 September 2026. Figures are read from the underlying financial statements, appraisals, permits and contract drafts; where a claim comes from the seller's package or from earlier analysis rather than a primary record, it is tagged accordingly. This note is a reading of documents, not a valuation, an audit or a recommendation, and it is offered so that anyone who knows the operation better can correct it.</p>
+  <p>Confidential. Not for distribution outside the buyer group.</p>
+</footer>
+
+</div>
+</body>
+</html>
