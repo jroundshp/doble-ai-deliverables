@@ -345,9 +345,18 @@
     <ul class="plain">
       <li>The structured-data bug is <b>fixed</b>. <code>@context</code> now reads <code>https://schema.org</code> without the <code>www</code>, and <code>@type</code> is correctly cased <code>LocalBusiness</code>. It carries the Medina address, the phone number and six authority links including D&amp;B, BBB, ThomasNet and Bloomberg.</li>
       <li><code>/locations/test-location/</code> is <b>gone</b>. It now returns 404.</li>
-      <li>The Enduro duplicates are <b>consolidated</b>. The <code>-2</code> and <code>-3</code> copies now 404, and both surviving old URLs redirect to a single case study.</li>
+      <li>The Enduro duplicates are <b>gone as duplicates</b>. Nothing self-canonicalises any more and only one Enduro page serves content: <code>/vpc-case-studies/enduro-standard-equipment-enclosure-5/</code>. The root-level <code>-2</code>, <code>-3</code> and <code>-4</code> copies now 404, and both bare URLs redirect to that surviving page. <b>The redirects were mapped carelessly, though, and that is worth five minutes.</b> See directly below.</li>
     </ul>
     <p>That matters more than the three items themselves. It means there is somebody at or around VPC who reads these documents and acts on them, which is the thing we could not establish in August. It also means the argument that follows is not landing in an empty room.</p>
+  </div>
+  <div class="warn">
+    <div class="claim-head"><p class="claim-quote">Three URLs still named &ldquo;enduro-standard-equipment-enclosure&rdquo; now redirect to three unrelated projects.</p><span class="chip confirmed">Confirmed 1 Sep</span></div>
+    <div class="evidence">/vpc-case-studies/enduro-standard-equipment-enclosure-2/  301 -> /vpc-case-studies/custom-fiberglass-building/
+/vpc-case-studies/enduro-standard-equipment-enclosure-3/  301 -> /vpc-case-studies/36-inch-parshall-flume-fiberglass/
+/vpc-case-studies/enduro-standard-equipment-enclosure-4/  301 -> /vpc-case-studies/storm-drain-manhole-cover/
+/vpc-case-studies/enduro-standard-equipment-enclosure-5/  200  (the real Enduro page)</div>
+    <p>Whoever cleaned the duplicates appears to have pointed the leftover numbered URLs at whichever case study came next in the list rather than at the Enduro page. So a link, a bookmark or an old search result for an equipment enclosure now lands a visitor on a custom building, a 36-inch Parshall flume, or a storm drain manhole cover.</p>
+    <p>A 301 tells a search engine &ldquo;this page moved here, and it is the same thing.&rdquo; These three say that about products that have nothing to do with each other. It is a smaller problem than leaving duplicates up, so this is still a net improvement, and it is a five-minute correction: point all three at <code>-5</code>, or let them 404 the way their root-level twins already do.</p>
   </div>
   <p><span class="finding-label">Still open from that same list</span> No <code>og:image</code> and no Twitter card, so anything shared into LinkedIn or a text message renders without an image. <code>/author/tmswebsiteadminthomasnet-com/</code> still loads, and still has its own submitted sitemap. <code>/locations/</code> still has no meta description at all.</p>
 </section>
@@ -411,7 +420,7 @@
   <h2>What is genuinely good, so the list below is not read as a demolition</h2>
   <ul class="plain">
     <li><b>The divisions page does cross-linking properly.</b> It links all five product lines, and the anchor text carries the brand names &mdash; &ldquo;EasyRec&rdquo;, &ldquo;InterActivePlay&rdquo;, &ldquo;View CFT Product Line&rdquo;. This is a thing most sites get wrong and VPC gets right.</li>
-    <li><b>The Google Business Profile is in good shape.</b> 4.0&#9733;, categorised Fiberglass supplier, 10478 Ridge Rd Medina NY, (585) 735-9668, hours published, website linked. Re-checked 1 September.</li>
+    <li><b>The Google Business Profile is complete and correct.</b> Categorised Fiberglass supplier, 10478 Ridge Rd Medina NY, (585) 735-9668, hours published, website linked. Re-checked 1 September. <b>One change worth flagging: the rating now reads 4.0&#9733;, where the July audit recorded 5.0&#9733; and re-confirmed it on 24 August.</b> The count is not visible signed out, so we are not quoting one and we cannot tell you what caused the move. What it does show is that a profile carrying only three reviews has no buffer in it, and a single new review can swing the number a whole star in a week. That makes the July audit's recommendation to ask a decade of customers for reviews more urgent rather than less.</li>
     <li><b>The main site is fast and technically clean.</b> Apex redirects to <code>www</code> in a single hop, canonicals are in place, the viewport does not block pinch-to-zoom.</li>
     <li><b>The educational writing is good.</b> The <code>/resources/</code> pages on why fiberglass, ductwork, manhole covers and flumes are real explanatory content. That is the asset the outside firm noticed, and they were right to.</li>
   </ul>
