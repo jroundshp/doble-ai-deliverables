@@ -432,6 +432,47 @@
   ol.qs li strong:first-child { font-weight: 600; }
   section > h3 { letter-spacing: -0.005em; }
   section > h3 + p { max-width: 70ch; }
+
+  /* ---------- v2: revision marks, statuses, answers ---------- */
+  .s-jl { color: var(--ok); }
+  .p-part { color: var(--accent); }
+  ol.qs li .st { margin-left: 6px; }
+  ol.qs li .ans {
+    margin: 8px 0 0;
+    padding-left: 13px;
+    border-left: 2px solid var(--line);
+    font-size: 0.9rem;
+    line-height: 1.62;
+  }
+  ol.qs li .ans + .ans { margin-top: 7px; }
+  ol.qs li .ans.was { color: var(--muted); font-size: 0.86rem; }
+  ol.qs li .ans b { font-weight: 600; }
+  table.chg td:first-child { width: 21%; font-weight: 600; }
+  table.chg td { vertical-align: top; }
+  .delta {
+    display: grid;
+    gap: 0;
+    border: 1px solid var(--line);
+    margin: 0 0 22px;
+  }
+  .delta > div { padding: 15px 17px; border-bottom: 1px solid var(--line); }
+  .delta > div:last-child { border-bottom: 0; }
+  .delta h4 {
+    font-family: var(--f-display);
+    font-size: 1.02rem;
+    font-weight: 600;
+    margin: 0 0 6px;
+    letter-spacing: -0.005em;
+  }
+  .delta p { margin: 0 0 8px; font-size: 0.93rem; max-width: 74ch; }
+  .delta p:last-child { margin-bottom: 0; }
+  .delta .then {
+    font-size: 0.86rem;
+    color: var(--muted);
+    border-left: 2px solid var(--line);
+    padding-left: 11px;
+    margin: 8px 0 0;
+  }
 </style>
 
 </head>
@@ -440,34 +481,39 @@
 
 <header class="masthead">
   <div class="kicker">
-    <span>Working Note</span><span class="sep">/</span>
+    <span>Working Note &middot; Version 2</span><span class="sep">/</span>
     <span>Isabela &amp; Aguada, Puerto Rico</span><span class="sep">/</span>
-    <span>1 September 2026</span><span class="sep">/</span>
-    <span>For Joel Lee</span><span class="sep">/</span>
+    <span>1 September 2026, revised</span><span class="sep">/</span>
     <span>Confidential</span>
   </div>
-  <h1>Isabela Quarry: what we read, and what we still need</h1>
-  <p class="standfirst">We were asked to read the document set on the Varela acquisition and set out plainly what it establishes and what it leaves open. This note is the result. It is <strong>not a valuation and not a recommendation</strong>, and it is only as good as the files that reached us. It is the state of that paperwork as of 1 September 2026, followed by <strong>28 numbered questions</strong> those files could not answer.</p>
+  <h1>Isabela Quarry: what we read, what came back, and what is still open</h1>
+  <p class="standfirst">The first version of this note set out what the document set established and closed with <strong>28 numbered questions</strong>. Those questions came back answered the same day, in a nineteen-page response with two addenda and a quarterly MSHA series pulled fresh from the federal database. This version folds that in. It is <strong>still not a valuation and not a recommendation</strong>. Every change from the first pass is listed in section Zero, so that nothing has been quietly revised.</p>
 </header>
 
-<div class="note" style="margin:30px 0 34px;">
+<div class="note" style="margin:30px 0 22px;">
   <h3>Please read this part first</h3>
-  <p><strong>Everything below is drawn from the files that reached us, and from nothing else.</strong> We have not visited the site, spoken with the seller or the accountants, or contacted the permitting agencies. We have no view of the operation beyond what is written down in the set we were given.</p>
-  <p>That matters for how the rest of this reads. Where something looks missing, unsupported or contradictory, <strong>much the likeliest explanation is that the document settling it exists and simply did not come to us.</strong> That happened repeatedly inside this set: several things we first flagged as gaps turned out to be answered in a file we had not yet opened.</p>
-  <p><strong>So if you have anything we have not seen, please send it.</strong> A general ledger, a permit renewal, an appraisal, a legible assay, an equipment list, a signed contract, a later draft. We would rather revise this note than defend it, and the same applies to anything we have simply read wrong. Corrections are more useful to us than agreement.</p>
+  <p><strong>Everything below is drawn from documents, and from nothing else.</strong> We have not visited the site, spoken with the seller or the accountants, or contacted the permitting agencies.</p>
+  <p>That mattered more than we expected. When we wrote the first version we flagged several things as missing or contradictory, and <strong>on four of them the document that settles it was already in the folder</strong> and we had not opened it, or had worked from a summary of it. Those four are listed by name in section Zero. The general lesson holds and is worth restating: where something here looks unsupported, the likeliest explanation remains a document we have not read rather than a fact that does not exist.</p>
+  <p><strong>So if you have anything we have not seen, please send it.</strong> We would rather revise this note than defend it, and the same applies to anything we have simply read wrong. Corrections are more useful to us than agreement.</p>
+</div>
+
+<div class="note warn" style="margin:0 0 34px;">
+  <h3>What is new in this version</h3>
+  <p>Joel Lee's response of 1 September answers the 28 questions item by item, adds a full page-by-page review of both bank appraisals, and adds an MSHA record section built on a <strong>Form 7000-2 quarterly employment series covering 2016 Q1 through 2025 Q4</strong>, downloaded from MSHA's Mine Data Retrieval System that day. He also folds our questions into his own list and counsel's, and proposes a drilling and testing programme, with a quotation being sought from a geotechnical firm on the island.</p>
+  <p>Two of his attachments &mdash; the MSHA record review and the safety companion report &mdash; were already inside the 199 files and we had not read them. The 40-quarter employment series is genuinely new to the transaction. So is his technical read, which is the part of this that no document was ever going to supply.</p>
 </div>
 
 <dl class="strip">
   <div><dt>Ask</dt><dd>$15.0M<small>$1M cash + $14M seller note</small></dd></div>
-  <div><dt>Land</dt><dd>313.4 ac<small>3 parcels, 2 municipios</small></dd></div>
-  <div><dt>2024 revenue</dt><dd>$5.75M<small>net $202K &middot; 3.5% margin</small></dd></div>
-  <div><dt>Appraised</dt><dd>$6.1M<small>everything valued by a third party</small></dd></div>
-  <div><dt>Bank &amp; SBA debt</dt><dd>$6.52M<small>six facilities, three companies</small></dd></div>
-  <div><dt>Documents read</dt><dd>199<small>167 unique files</small></dd></div>
+  <div><dt>Third-party appraised</dt><dd>$6.1M<small>Cotto still valued by no one</small></dd></div>
+  <div><dt>Core holes on record</dt><dd>0<small>both sites, any depth, any year</small></dd></div>
+  <div><dt>Aggregate spec tests</dt><dd>0<small>no abrasion, soundness or C33</small></dd></div>
+  <div><dt>Reported hours</dt><dd>22&ndash;27<small>per worker per week, against 72 permitted</small></dd></div>
+  <div><dt>Questions closed</dt><dd>4 of 28<small>15 more partly, 8 still open</small></dd></div>
 </dl>
 
 <div class="legend">
-  <h2>How to read this — every claim is tagged by where it came from</h2>
+  <h2>How to read this &mdash; every claim is tagged by where it came from</h2>
   <dl>
     <div><span class="src s-doc" title="Read in the primary document itself">DOC</span>
       <dd><b>Document-verified</b>Read in the contract, financial statement, permit or appraisal itself.</dd></div>
@@ -475,11 +521,120 @@
       <dd><b>Seller-asserted</b>From the seller's package, letter or asset schedule. Not checked against a primary record.</dd></div>
     <div><span class="src s-prior" title="Inherited from earlier analysis inside the data set">PRIOR</span>
       <dd><b>Inherited analysis</b>From analyst work already sitting in the data set, two layers from any primary source.</dd></div>
+    <div><span class="src s-jl" title="From Joel Lee's response of 1 September 2026">JL</span>
+      <dd><b>From the 1 Sept response</b>Joel Lee's reading. Where he cites a primary record we have marked it DOC as well, and the ones we could re-check against our own copy of that record, we did.</dd></div>
     <div><span class="src s-ours" title="Our own reading or arithmetic">OURS</span>
       <dd><b>Our arithmetic</b>Our own reading. Written as questions, not findings.</dd></div>
   </dl>
-  <p>The tagging matters here more than usual. A large share of the data set is prior analysis of the seller's package rather than primary record, and the market case in particular is <span class="src s-prior">PRIOR</span> throughout. The legal and contractual spine is <span class="src s-doc">DOC</span>.</p>
+  <p>Five claims in the response were consequential enough that we went back to our own extract of the underlying record and confirmed them at source: the Aguada CRIM owner, the seller's own wording on the $3M Chaparro figure, EMR's Note B on the $535,797, the Act 60 covered activity, and the extraction permit's depth condition. All five hold. So does the appraiser's language on rock grade, which is quoted below and which we checked word for word.</p>
 </div>
+
+<!-- ============ 0. WHAT CHANGED ============ -->
+<section>
+  <div class="sec-head"><span class="tag">Zero</span><h2>What changed since the first pass</h2></div>
+
+  <p class="lead">Set out in full, because a revised document that does not show its own revisions is worth less than the first draft. Three findings are new and go to the heart of the case. Four things we had wrong. Eleven questions moved. Six things did not move at all.</p>
+
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:30px 0 12px;">Three findings that are new, and material</h3>
+
+  <div class="delta">
+    <div>
+      <h4>1. The one market comment on this rock says it is not highway grade <span class="src s-doc" title="Read in the primary document itself">DOC</span></h4>
+      <p>FirstBank's appraiser, writing about the competitive set, put it this way: <em>"Gutierrez polishing grade (required by the US Highway) of its material is excellent for road construction while the fine material or talc type material of Mundo Real is excellent for fine concrete finishes and bonds."</em></p>
+      <p>Read plainly, the quarry next door has rock that qualifies for federal-aid highway work and this one is characterised as a fines and concrete-finish material. <strong>That bears directly on the two largest pieces of the upside case</strong>: the 1,700 t/day asphalt plant, and bidding the western Puerto Rico infrastructure programme. It is one sentence in a market section, not a laboratory finding, and it is not conclusive. But it is the only independent comment on product grade anywhere in the set, and it points the wrong way.</p>
+      <p class="then"><strong>First pass:</strong> did not surface it. The sentence sits in a file we had extracted and searched, on a page we had not read.</p>
+    </div>
+    <div>
+      <h4>2. Nobody has ever drilled either site <span class="src s-jl" title="From Joel Lee's response of 1 September 2026">JL</span></h4>
+      <p>The 14,191,213.95 m&sup3; Arenales figure is a <strong>surveyed boundary volume</strong> &mdash; the geometry between the permit limits and the depth cap &mdash; not a drilled or sampled reserve. Cotto has no reserve document of any kind beyond the seller's letter. There are no boring logs, no core, no geologist's report, nothing on bedding, overburden, clay-filled karst pockets or voids. In karst limestone the distance between boundary volume and recoverable saleable tonnage can be very large.</p>
+      <p>Nor has the rock ever been qualified for the uses the projections assume. There is no Los Angeles abrasion result, no sulfate soundness, no ASTM C33 gradation, absorption or specific gravity. The single laboratory result in the entire set is an agricultural-lime analysis.</p>
+      <p>The recommendation attached to that finding is a <strong>minimum four-hole core programme to 75 feet at each site, eight holes in total</strong>, laid out by a geologist, logged and photographed, with samples sent for abrasion, soundness, gradation, absorption and alkali&ndash;silica reactivity. A quotation is being sought from a geotechnical firm on the island. Counsel's draft already conditions closing on a geologist's reserve study without defining its scope; this is the scope.</p>
+      <p class="then"><strong>First pass:</strong> we treated the reserve question as resolved, because the 14.2M and 5.2M figures reconcile as permit boundary against extraction plan. They do reconcile. The point we missed is that <em>neither number has ever been tested against rock</em>.</p>
+    </div>
+    <div>
+      <h4>3. The Aguada land may not belong to the company being sold <span class="src s-doc" title="Read in the primary document itself">DOC</span></h4>
+      <p>Two separate property records are in play at Aguada, and the first pass read them as one bad measurement. They are two parcels. The Registry parcel &mdash; <strong>finca 4,490, 10,032 m&sup2;, 2.55 cuerdas</strong> &mdash; is registered to Hormigonera Chaparro, Inc., and is the parcel the 2021 bank appraisal actually valued. The CRIM cadastral record that the deal documents use &mdash; <strong>068-100-363-14-000, 6.64 acres</strong> &mdash; carries a last sale of $67,100 on 8 October 2004 and an owner of record named <strong>Héctor Chaparro Carrero</strong>, who is not a party to the purchase agreement. That record is roughly 16,800 m&sup2; larger than the titled parcel.</p>
+      <p>The likeliest explanation is a CRIM grouping error, which is an administrative correction rather than a title defect, and the 2021 appraiser flagged the cadastral mismatch himself at the time. But it cannot be assumed. <strong>If the plant, the silos or the paving sit partly on the land that is not finca 4,490, that land belongs to someone else.</strong> Roughly 60% of the appraised improvement value at Aguada is pavement. The title study needs to map the improvements onto the finca boundary before anything else at that site is priced.</p>
+      <p class="then"><strong>First pass:</strong> listed "2.55 cuerdas on one document and 6.64 acres on another" as a housekeeping item for counsel, under acreage rectification. It is not housekeeping.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 12px;">Four things we had wrong</h3>
+
+  <div class="delta">
+    <div>
+      <h4>The twenty-fold land gap at Chaparro was a category error. Withdrawn. <span class="src s-doc" title="Read in the primary document itself">DOC</span></h4>
+      <p>We set the seller's $3M for Chaparro against a $150,000 appraised land value and said the one line testable against an appraisal failed by twenty times. The seller's own letter says the $3M covers <em>"land, machinery, equipment, permits"</em> and adds that <em>"permits represent the most significant value component."</em> It was never a land figure. Set against $850,000 of appraised land and site improvements, the question is whether about $2.15M of net equipment and permit value sits on top, which is an equipment-appraisal question and a reasonable one.</p>
+      <p>What survives, and is narrower but real: <strong>Hormigonera Chaparro's own balance sheet carries $3,100,242 of land</strong>, unchanged and undepreciated across 2020&ndash;2024, on a 2.5-acre parcel a bank appraiser valued at $150,482. Nothing in the set supports it. That is now question 17.</p>
+    </div>
+    <div>
+      <h4>The $6.1M headline needs qualifying <span class="src s-doc" title="Read in the primary document itself">DOC</span></h4>
+      <p>The total stands. What we did not do is read the appraisal's own components, which the appraiser gave in full: <strong>real estate $3,475,000</strong> at $41,500 per cuerda, <strong>machinery and equipment $1,500,000</strong>, and about $275,000 of residual intangibles, making the $5,250,000 going concern. Real estate plus equipment alone is $4,975,000, which is close to the seller's $4.5M+ for the quarry entity rather than far from it.</p>
+      <p>The appraiser also split the going concern by sales comparison on a page the data-room copy dropped: the Isabela batch plant is valued at <strong>$1,232,000</strong> on EBITDA of $176,000 against the seller's ~$2M, and the quarry alone is implied at $4.0M to $5.05M depending on method. So the seller's schedule is not unmoored from the appraised parts. <strong>The gap that remains is the honest one</strong>: no third party has ever valued the 219-acre Cotto reserve, and roughly $8.9M of the $15M has nothing behind it but that parcel and the growth case.</p>
+    </div>
+    <div>
+      <h4>The assay was legible, and it was in the folder <span class="src s-doc" title="Read in the primary document itself">DOC</span></h4>
+      <p>We reported the limestone analysis as a scan with no readable text and said the 94.6% figure traced only to the seller's materials. It is a third-party result: <strong>American Agricultural Laboratory, McCook, Nebraska, lab number 1728, reported 19 June 2023</strong> for Empresas Mundo Real. CCE 94.6%, calcium 38.42%, magnesium 0.19%, ECC 67.1%, 51.7% finer than 60 mesh, moisture 1.7%.</p>
+      <p>The finding that replaces it is more useful than the one we had. <strong>It is an agricultural lime test.</strong> It supports the ag-lime product line and says nothing whatever about construction aggregate. The product label in the data room claims only 80% calcium carbonate, so the seller is understating on the bag. See new finding 1 above.</p>
+    </div>
+    <div>
+      <h4>Two documents we asked for were already ours <span class="src s-ours" title="Our own reading or arithmetic">OURS</span></h4>
+      <p>Question 28 asked for a legible assay, the 2022 Lamadrid appraisal and the original 2021 RHN report on Aguada, "rather than the second-hand summary of it we have had to work from." The assay is covered above. <strong>The RHN original is 69 pages and sits in our own extract in three copies</strong>, with the full cost approach, both cadastral numbers and the finca reference. We worked from a summary of a document we held. Only the 2022 Lamadrid is genuinely absent.</p>
+      <p>The same applies to the MSHA record. Two consolidated MSHA reports were inside the 199 files from the start. We did not open them, and the enforcement, injury and industrial-hygiene history of the mine is not a small thing to have left on the table.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:0 0 12px;">Eleven questions that moved</h3>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">Set out in full in section Four. In short:</p>
+
+  <div class="tbl-scroll">
+  <table class="chg">
+    <thead><tr><th>Question</th><th>Where it stands now</th></tr></thead>
+    <tbody>
+      <tr><td>2 &amp; 3 &mdash; utilisation<span class="sub">why the quarry runs at a fifth to a third of permit</span></td>
+        <td><strong>Largely answered, and it is a schedule problem.</strong> The MSHA quarterly series shows about 21&ndash;22 workers averaging <strong>22 to 27 reported hours a week</strong> against a permitted window of Monday to Saturday, 6am to 6pm, which is 72 hours. 2024 was the highest labour input in thirteen years, 31,467 hours, while quarry revenue stayed flat at $1.6M. The constraint is output per hour and days worked, not demand and not the permit. The appraiser says the same in words: post-Mar&iacute;a insurance never collected, repairs instead of replacements, excessive downtime. <span class="src s-doc">DOC</span> <span class="src s-jl">JL</span></td></tr>
+      <tr><td>7 &mdash; limestone quality</td><td><strong>Answered, and reframed.</strong> The assay is real and third-party, and it is an agricultural test. Construction grade has never been tested. See above.</td></tr>
+      <tr><td>17 &mdash; Chaparro land</td><td><strong>Withdrawn as put, replaced.</strong> The $3M was never a land figure. The $3,100,242 on the balance sheet is.</td></tr>
+      <tr><td>18 &mdash; below the canal and road</td><td><strong>Answered, and it is a no under the current permit.</strong> The 2017 authorisation caps depth at <strong>66 metres above sea level, or one metre above the level of the bordering road</strong>, with 10-metre buffers. EMR's own Note D plan is 2.2M m&sup3; down to canal and road level plus 3.0M m&sup3; for ten metres below that. <strong>Three million cubic metres of the company's own stated plan is outside the permit it holds.</strong> Going deeper is a permit modification, not an operating decision. <span class="src s-doc">DOC</span></td></tr>
+      <tr><td>20 &mdash; the $535,797</td><td><strong>Answered.</strong> EMR's Note B reads, in terms, that Empresas Mundo Real owes Hormigonera Chaparro $535,797, and Chaparro's balance sheet carries it as a receivable. It is intercompany. In a stock purchase of both companies it nets out and the capitalise-forgive-pay election in the draft is unnecessary and should come out. Separately, Chaparro's own 2024 package is internally inconsistent on it: the balance sheet says $535,797 and Note 3 says $280,264. <span class="src s-doc">DOC</span></td></tr>
+      <tr><td>15 &mdash; which revenue basis</td><td><strong>Reframed, and it now cuts the other way.</strong> December 2024's $670,000 breaks down as Chaparro $330K, HMR $253K, EMR $87K. Against each company's 2024 monthly average, Chaparro's December is <strong>74% above</strong> its own average and EMR's is <strong>35% below</strong> its own. That pattern is not seasonality. The likeliest reading is that EMR's book revenue includes intercompany aggregate sold to the two concrete plants, which the seller's letter nets out. <strong>If so, consolidated third-party revenue is below $5,753,528, not above it.</strong> First test for a quality-of-earnings review. <span class="src s-ours">OURS</span> <span class="src s-jl">JL</span></td></tr>
+      <tr><td>19 &mdash; Vehicle &amp; Equipment $0</td><td><strong>Half answered.</strong> Reclassification is confirmed as the mechanism and Chaparro reconciles almost exactly. <strong>EMR does not.</strong> Its 2023 cost of sales plus vehicle expense is $786K against 2024 cost of sales of $598K, a real reduction of about $188K, and 2024 repairs and maintenance of <strong>$3,718</strong> is not a credible figure for a quarry that employs seven mechanics. 2024 is still not a usable base year without a general ledger.</td></tr>
+      <tr><td>23 &mdash; Act 60</td><td><strong>Narrower than anyone has been assuming.</strong> The decree summary is in the set. Covered activity is <em>production and packaging of manufactured sand from crushed stone for industrial use</em> &mdash; <strong>not quarry extraction and not either concrete plant.</strong> Fifteen years to 31 December 2034, 4% rate, minimums of eight direct employees and $250,000 of annual volume. The summary contains no transfer-of-ownership clause, so the "lasts until transfer of ownership" language everyone has been working from remains unsourced. The live question is whether the eight-employee and $250K minimums are being met <em>inside that activity alone</em>. <span class="src s-doc">DOC</span></td></tr>
+      <tr><td>24 &mdash; permits</td><td><strong>Partly.</strong> Now dated at source: the 2017 authorisation (issued 9 July 2017, 1,700 m&sup3;/day, no explosives, no processing on site); PGO 2017-159059-PGO-004749 issued 12 April 2021 and expired <strong>12 April 2026</strong>; Permiso &Uacute;nico 2022-463171-PU-183184 expired 11 November 2025; SURI manufacturer registration expired 11 October 2023. The December 2023 renewal is cited by the seller and is <strong>not in the set</strong>.</td></tr>
+      <tr><td>27 &mdash; Summit</td><td><strong>It exists and it is outside the deal.</strong> Registration 406350, EIN 66-0971488, Carr. 411 Km 2.8, Aguada. Merchant certificate expired 17 April 2025. Its three concrete pumps, 1991, 2019 and 2022, are insured personally to "José Chaparro Santiago y Varela Rosario" rather than to any company. Not in either draft and not in the $15M.</td></tr>
+      <tr><td>28 &mdash; three documents</td><td><strong>Two of three found, both in our own folder.</strong> Only the 2022 Lamadrid appraisal is genuinely missing, and it is the one that would show why the value fell between 2022 and 2024.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note warn">
+    <h3>A defect in the data-room copy worth chasing this week <span class="src s-jl" title="From Joel Lee's response of 1 September 2026">JL</span></h3>
+    <p>Page 50 of the Lamadrid appraisal announces that "the next table lists the Cantera Mundo Real EBITDA for years 2016&ndash;2023," and the table is not there. The page is blank below that sentence and page 51 begins a new section. The site plan on page 36 is missing the same way. <strong>The copy circulating in the data room has lost its embedded images.</strong></p>
+    <p>A 2016&ndash;2023 EBITDA series prepared by an independent appraiser would answer the utilisation question and the base-year question at once, and it is sitting in FirstBank's original. It is the cheapest item on the whole diligence list.</p>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 12px;">And the record that had been sitting there all along</h3>
+
+  <div class="note">
+    <h3>The mine's federal safety record is good, and it is now in hand <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
+    <p>Nineteen years of MSHA enforcement history for Mine ID 54-00447: <strong>111 routine citations and four training withdrawal orders, and no failure-to-abate, unwarrantable-failure, pattern or imminent-danger action of any kind.</strong> Not on the Pattern of Violations list. Zero significant-and-substantial citations in the last twelve months. Violations per inspection day 0.62 against a national surface metal and non-metal average of 0.94. Both required inspections every year.</p>
+    <p><strong>Zero fatalities</strong> across 305,039 operator-hours from 2012 to 2024. Four reportable injuries in ten years, all days-away-only, three of them in the maintenance workshop. No haul-road, highwall or crusher incidents. Fifty-four industrial-hygiene sampling events since 2017: dust, silica and welding fume all well below the permissible limit. Noise at the crusher-operator and welder positions exceeded the action level repeatedly and the permissible limit twice, and MSHA accepted the hearing-conservation programme as the control.</p>
+    <p>Two honest qualifications. On a straight rate basis the injury frequency is <em>not</em> below the national average: four lost-time cases over roughly 330,000 hours is about 2.4 to 2.6 per 200,000 hours against a national surface figure of 1.1 to 1.7. With four events the comparison carries little statistical weight, and the severity profile is genuinely at the floor. Both things are true and the memo should say so rather than adopt the investor report's framing. Second, that report describes a 28-person quarry; <strong>MSHA's own numbers say 21 to 23, and so does the company's roster.</strong></p>
+    <p>What is open: about <strong>$3,500 of unpaid penalties</strong> &mdash; $1,225 from eight citations issued between March and October 2025, four now delinquent and four referred to Treasury, plus a $2,276 residual on a 2007 assessment; an <strong>October 2025 training withdrawal order</strong> for an inadequately documented new miner; and two 2025 citations for the quarterly employment report itself, which makes Part 50 reporting a live compliance gap. All of it is cheap to clear and all of it belongs in the closing conditions.</p>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 12px;">What did not change</h3>
+  <ul class="plain">
+    <li><strong>Nothing is executed.</strong> All four legal documents still carry a not-for-execution legend. The only signed item is the one-page letter of intent with the seller's signature block blank.</li>
+    <li><strong>The letter of intent's sixty-day funding undertaking still runs to about 18 September 2026</strong>, which is now roughly seventeen days away. Nothing in the response bears on it, and the drilling programme it recommends takes several weeks. Those two facts are in direct tension and somebody has to decide which one gives.</li>
+    <li><strong>Whether the roughly $6.5M of bank and SBA debt sits inside or on top of the $15M is still unagreed</strong>, and the interest rate on the $14M note is still blank. Counsel's description of it as the single largest open economic term stands.</li>
+    <li><strong>Excluding Arenales from the seller's collateral remains the highest-value term in the document.</strong> Permits follow the parcels, so a foreclosure on Arenales takes the extraction permit and the aggregate supply for both concrete plants and the proposed asphalt plant with it.</li>
+    <li><strong>There is still no general ledger, trial balance, bank statement or accounting export anywhere.</strong> Every statement remains compilation-basis with no opinion or assurance expressed.</li>
+    <li><strong>There is still no NDA between buyers and sellers, and the data room still holds unredacted Social Security numbers and payroll data.</strong> That is live exposure today, irrespective of whether the deal proceeds, and it is the one item on this page that should be dealt with this week whatever else happens.</li>
+  </ul>
+</section>
 
 <!-- ============ 1. WHAT WE UNDERSTAND ============ -->
 <section>
@@ -517,7 +672,7 @@
   </table>
   </div>
 
-  <p>Extraction is mechanical only, with dozers and breakers and no explosives <span class="src s-doc" title="Read in the primary document itself">DOC</span>, which is a large part of why a permit was obtainable at all in karst. The permit allows <strong>442,000 m&sup3; a year</strong>, roughly 600,000 tons.</p>
+  <p>Extraction is mechanical only, with dozers and breakers and no explosives <span class="src s-doc" title="Read in the primary document itself">DOC</span>, which is a large part of why a permit was obtainable at all in karst. The permitted daily maximum is <strong>1,700 m&sup3;</strong>. The 442,000 m&sup3; a year used in every model in the set is that daily cap extrapolated across a working year, not a permitted annual figure: <strong>the 2017 authorisation approved 1,140,620 m&sup3; across its five-year term, which is about 228,000 m&sup3; a year</strong> <span class="src s-doc" title="Read in the primary document itself">DOC</span>. Depth is capped at 66 metres above sea level, or one metre above the level of the bordering road, with 10-metre buffers.</p>
 
   <div class="tbl-scroll">
   <table>
@@ -540,7 +695,7 @@
         <td><strong>Guayabo</strong><span class="sub mono">068-100-363-14-000 &middot; Finca 11771</span></td>
         <td>Carr. 411 Km 0.4, Aguada</td>
         <td class="num">6.6</td>
-        <td>The Chaparro / Expreso ready-mix plant, six structures, about 16,000 sq ft.</td>
+        <td>The Chaparro / Expreso ready-mix plant, six structures, about 16,000 sq ft. <span class="pill p-stop">Owner of record is not a party to the deal</span> <span class="sub">The parcel the 2021 appraisal actually valued is a different and smaller Registry record: finca 4,490, 10,032 m&sup2;, registered to Hormigonera Chaparro. See section Zero.</span></td>
       </tr>
       <tr class="total"><td colspan="2">Total</td><td class="num">313.4</td><td>All three sit inside a federal Qualified Opportunity Zone.</td></tr>
     </tbody>
@@ -584,7 +739,7 @@
 
   <div class="note warn">
     <h3>The one signed document has a clock on it <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
-    <p>The WG Pitts letter of intent dated <strong>20 July 2026</strong> undertakes to "endeavor to fund a minimum of $1 million dollars towards the purchase within 60 days." That period ends around <strong>18 September 2026</strong>, about two and a half weeks from the date of this note. The LOI carries no exclusivity, no deposit, no diligence period and no stated expiry.</p>
+    <p>The WG Pitts letter of intent dated <strong>20 July 2026</strong> undertakes to "endeavor to fund a minimum of $1 million dollars towards the purchase within 60 days." That period ends around <strong>18 September 2026</strong>, about seventeen days from the date of this revision. The LOI carries no exclusivity, no deposit, no diligence period and no stated expiry.</p>
   </div>
 
   <p>Beyond that, the 27 August purchase agreement drafted by <strong>Pedro A. Crespo Claudio</strong> is genuinely buyer-favorable where it is complete: setoff against the note, no acceleration on the seller's death, no assignment or discounting of the note without buyer consent, and no personal guarantees from the buyers' principals. Roughly a third of its operative terms are still bracketed as never discussed, including interest rate, amortization, balloon, cure periods, collateral, escrow, closing date, the consultant term and the non-compete.</p>
@@ -619,7 +774,7 @@
       <tr>
         <td><strong>Quarry + Isabela batch plant</strong><span class="sub">EMR and HMR valued together as one going concern. The 83.71-cuerda Arenales site only.</span></td>
         <td>Lamadrid Appraisal Group, PSC<span class="sub">Esteban Lamadrid, MAI &middot; commissioned by <strong>FirstBank</strong> &middot; effective 25 Apr 2024</span></td>
-        <td class="num">$5,250,000<span class="sub">income approach. Sales comparison gave $6,300,000.</span></td>
+        <td class="num">$5,250,000<span class="sub">income approach, EBITDA $750,000 &times; 7.0. Sales comparison gave $6,300,000.</span></td>
       </tr>
       <tr>
         <td><strong>Aguada ready-mix plant</strong><span class="sub">Chaparro / Expreso. Land, buildings, site improvements.</span></td>
@@ -629,6 +784,17 @@
       <tr>
         <td><strong>Cotto / Llanadas, 219 acres</strong><span class="sub">The reserve parcel the seller materials call the most valuable holding.</span></td>
         <td colspan="2"><span class="pill p-stop">Never appraised by anyone</span></td>
+      </tr>
+      <tr>
+        <td colspan="3" style="padding-top:15px;"><strong>How the appraiser built the $5,250,000</strong><span class="sub">His own components, given in full on pages 65&ndash;68. The first pass used only the total.</span>
+          <div style="margin-top:9px;font-family:var(--f-mono);font-size:0.79rem;line-height:1.95;">
+          Real estate, Arenales 83.77 cuerdas at $41,500 per cuerda &nbsp;&rarr;&nbsp; <strong>$3,475,000</strong><br>
+          Machinery, equipment and rolling stock &nbsp;&rarr;&nbsp; <strong>$1,500,000</strong><br>
+          Implied residual intangibles &nbsp;&rarr;&nbsp; ~$275,000<br>
+          The Isabela batch plant alone, by sales comparison &nbsp;&rarr;&nbsp; <strong>$1,232,000</strong> &nbsp;(EBITDA $176,000 &times; 7)<br>
+          Which implies the quarry on its own at &nbsp;&rarr;&nbsp; <strong>$4.0M to $5.05M</strong>, depending on method
+          </div>
+        </td>
       </tr>
       <tr class="total"><td colspan="2">Third-party appraised total</td><td class="num">$6,100,000</td></tr>
       <tr class="total"><td colspan="2">Asking price</td><td class="num">$15,000,000</td></tr>
@@ -644,91 +810,208 @@
   </div>
 
   <div class="note warn">
-    <h3>The seller's own schedule, set against those appraisals <span class="src s-sell" title="Seller's own assertion, not independently verified">SELLER</span></h3>
-    <p>The acquisition package assigns Chaparro <strong>$3.6M</strong> including <strong>$3M of land</strong>, EMR <strong>$4.5M+</strong>, and HMR about <strong>$2M</strong>. EMR and HMR together are claimed at $6.5M where FirstBank's appraiser concluded $5.25M, which is a difference of degree. Chaparro is the outlier: $3M of land against a $150,000 appraised land value. The appraisal is four years older and a rising market closes some of that. Whether it closes all of it is question 17, and a more recent valuation would settle it.</p>
-    <p>The same package puts December 2024 monthly revenue at $670,000 and annualizes it to "$8+ million." The three companies' 2024 statements total $5,753,528.</p>
+    <h3>The seller's own schedule, corrected against the appraisal's components <span class="src s-sell" title="Seller's own assertion, not independently verified">SELLER</span></h3>
+    <p>The first version of this note treated the seller's schedule as loosely anchored, and set its $3M for Chaparro against a $150,000 appraised land value. <strong>That comparison was wrong and is withdrawn.</strong> The seller's own December 2024 letter says the $3M covers "land, machinery, equipment, permits" and adds that "permits represent the most significant value component." It was never a land figure.</p>
+    <p>Read against the appraiser's components rather than his total, the schedule holds up better than we said. Real estate at $3,475,000 plus machinery and equipment at $1,500,000 is <strong>$4,975,000</strong> against the seller's $4.5M+ for the quarry entity. The Isabela batch plant is the one clear stretch: appraised at $1,232,000 on the sales-comparison split, carried by the seller at about $2M.</p>
+    <p><strong>What survives is narrower and harder.</strong> Hormigonera Chaparro's balance sheet carries <strong>$3,100,242 of land</strong>, unchanged and undepreciated every year from 2020 to 2024, on a 2.5-acre parcel that Banco Popular's appraiser valued at $150,482. Nothing in the set explains it, and it sits on top of the ownership question at that same site. That is question 17.</p>
+    <p>The same package puts December 2024 monthly revenue at $670,000 and annualises it to "$8+ million." The three companies' 2024 statements total $5,753,528 &mdash; and, per question 15, that figure may itself be overstated by intercompany sales.</p>
   </div>
 
-  <div class="note">
-    <h3>The reserve numbers are complementary, not contradictory <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
-    <p>Two figures circulate and they measure different things. The <strong>2022 permit request records 14,191,213.95 m&sup3;</strong>, up from 11,776,441.67 m&sup3; in the 2017 filing, and the increase is accounted for: a licensed surveyor, <strong>Jose O. Qui&ntilde;ones Moret, LS Lic. 17,934</strong>, filed a memorandum attributing it to more precise instruments and a 10-metre buffer where the earlier filing used a larger one. So the 14M figure is a permit-boundary reserve calculated twice by a surveyor, not a sales-deck number.</p>
-    <p><strong>EMR's own Note D says 5.2M m&sup3;</strong>, being 2,200,000 m&sup3; down to the level of the water canal and road plus 3,000,000 m&sup3; for a further ten metres below that. Our reading is that this is the constrained extraction plan the company depletes against, while 14.2M is what sits inside the permit boundary. If that reading is right, the operating question is narrow and answerable: <strong>can a buyer get below the water canal and road?</strong> That is question 18.</p>
-    <p>Worth noting either way: none of the appraised value depends on the reserve, because the $5.25M is an earnings multiple.</p>
+  <div class="note stop">
+    <h3>The reserve numbers reconcile. Neither has been drilled. <span class="src s-doc" title="Read in the primary document itself">DOC</span></h3>
+    <p>Two figures circulate and they measure different things. The <strong>2022 permit request records 14,191,213.95 m&sup3;</strong>, up from 11,776,441.67 m&sup3; in 2017, and the increase is accounted for: a licensed surveyor, <strong>Jose O. Qui&ntilde;ones Moret, LS Lic. 17,934</strong>, filed a memorandum attributing it to more precise instruments and a narrower buffer. <strong>EMR's own Note D says 5.2M m&sup3;</strong>, being 2,200,000 m&sup3; down to the level of the water canal and road plus 3,000,000 m&sup3; for a further ten metres below. The first is the permit-boundary volume, the second is the extraction plan. They are complementary and that reading survives.</p>
+    <p><strong>Two things have changed underneath it.</strong> First, question 18 is answered and the answer is no: the extraction permit caps depth at 66 metres above sea level or one metre above the bordering road, so <strong>3.0M m&sup3; of the company's own stated plan &mdash; more than half of it &mdash; lies outside the permit it currently holds.</strong> Going below the road is a permit modification, with a process and a timetable, not an operating decision a new owner makes.</p>
+    <p>Second, and larger: <strong>the 14.19M m&sup3; is a surveyed boundary volume, not a drilled reserve.</strong> It is the geometry between the permit limits and the depth cap. No borehole has ever been sunk at Arenales or at Cotto, in any year, to any depth, so far as the paperwork shows. In karst limestone, with clay-filled pockets and voids, the distance between boundary volume and recoverable saleable tonnage can be very large, and nothing in this transaction has measured it.</p>
+    <p>Worth noting either way, and unchanged: none of the appraised value depends on the reserve, because the $5.25M is an earnings multiple.</p>
   </div>
 </section>
 
 <!-- ============ 4. QUESTIONS ============ -->
 <section>
-  <div class="sec-head"><span class="tag">Four</span><h2>Our questions</h2></div>
+  <div class="sec-head"><span class="tag">Four</span><h2>The 28 questions, with what came back</h2></div>
 
-  <p class="lead">Twenty-eight items, grouped by who is best placed to answer them. <strong>Group A is the one we most want your read on</strong>, because it is operating and market knowledge that no document in the set contains and no lawyer or accountant can supply.</p>
+  <p class="lead">Each question is left exactly as it was asked in the first version, so the two can be read against each other. Underneath it, in the indented block, is where it stands after the 1 September response. <strong>Four are answered outright, one is reframed, fifteen are partly answered and eight are untouched.</strong></p>
 
-  <div class="note">
-    <h3>If we only get through six</h3>
-    <p>Questions <strong>1, 2, 6, 8, 16 and 19</strong>. Those are the ones where an answer actually moves the price or the plan. Everything else can follow.</p>
+  <div class="note warn">
+    <h3>The six that mattered most, and how they landed</h3>
+    <p>The first version said that if we only got through six, make them <strong>1, 2, 6, 8, 16 and 19</strong>. Two of those closed usefully &mdash; question 2 has a hard number behind it now, and question 16 has the appraiser's components. Question 6 got worse rather than better. Questions 1, 8 and 19 are where they were.</p>
+    <p><strong>The new six, on the same test</strong>, would be: the Aguada title (Q17 and the parcel question underneath it), rock qualification (Q7 and Q6 together), the drilling programme, the general ledger (Q21), intercompany revenue (Q15), and whether the debt sits inside or on top of the $15M. Only the last of those is a lawyer's question.</p>
   </div>
 
   <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 4px;">Group A &mdash; Market and operations</h3>
-  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">The document set is thin here, and this is the part that decides whether the upside case is real.</p>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">The document set was thin here, and this is the part that decides whether the upside case is real. It is also the group that moved most.</p>
 
   <ol class="qs">
-    <li><strong>What does the rock actually sell for?</strong> Every model in the set assumes <strong>$14 a ton</strong>. What is crushed limestone really fetching delivered around Isabela, Aguada and Aguadilla right now, and what is the price at the plant gate? At $10 a ton the whole utilization arithmetic shifts.</li>
-    <li><strong>Why is the quarry running at a fifth to a third of its permit?</strong> The permit allows 442,000 m&sup3; a year. Two independent methods put actual output at <strong>20&ndash;30%</strong> of that: revenue of $1,597,692 against roughly $8.4M of aggregate at full permitted output, and separately, running the Note D depletion formula backwards from the $42,731 booked in 2024, which implies 89,000&ndash;131,000 m&sup3; produced <span class="src s-ours" title="Our own reading or arithmetic">OURS</span>. Is that gap demand, or is it trucks, crew and working capital? The upside case rests entirely on which.</li>
-    <li><strong>What is the plant physically doing today,</strong> in tons per day, and where is the bottleneck &mdash; crusher, screens, loaders or haul trucks?</li>
-    <li><strong>Trucking.</strong> Owned fleet or contract haulers? What is the haul radius where this rock stays competitive against Productora de Agregados, Cantera Mundo Real and Rodriguez Aggregates?</li>
-    <li><strong>The two ready-mix plants.</strong> What are Chaparro at Aguada and HMR at the quarry actually running in yards per day, and what radius do they serve? CEMEX being the island's only cement producer &mdash; what does that do to their cement cost and to availability?</li>
-    <li><strong>Hot-mix asphalt is the swing factor in every projection.</strong> The models turn on a 1,700 t/day plant fed internally, and the gap between the maximum and realistic cases is almost entirely asphalt utilization. Is there hot-mix demand in the trade area to support that? Who supplies it now? What is a defensible first-three-years volume?</li>
-    <li><strong>Limestone quality.</strong> The seller's package claims <strong>94.6% calcium-carbonate equivalent</strong> <span class="src s-sell" title="Seller's own assertion, not independently verified">SELLER</span>, which would carry both premium construction aggregate and agricultural lime off the same fines. The analysis document we received is a scan with no readable text, so as far as we can tell that number traces only to the seller's own materials. Is there a legible assay, and does the fines stream really support ag lime as a second product?</li>
-    <li><strong>Cotto / Llanadas, the 219 acres fronting PR-2.</strong> Is it permitted for extraction today, or does it need its own permit and its own process? No appraisal of it reached us, and it is the largest single piece of the gap between $6.1M and $15M.</li>
-    <li><strong>Equipment.</strong> About $1.5M of quarry heavy equipment is described in the seller materials, but no inventory, titles or invoices reached us. What is actually on the ground, in what condition, and what has to be replaced in year one?</li>
-    <li><strong>The 166-acre asphalt parcel.</strong> It appears in the discussion materials, but nothing we received carries a deed, finca, cadastral number or named owner for it. Is it in this deal or not? The price should move either way.</li>
-    <li><strong>The second pit.</strong> We were told there is an unopened hard-rock position next door, drilled and tested, with granite under the limestone and a third softer material. We found nothing describing it in the files we received. Is there drilling data, an assay, or a map?</li>
-    <li><strong>QuikCrete and BASF.</strong> Bagging arrangements with both were described as existing. No paperwork for either reached us. Do they exist, and in what form &mdash; contract, purchase order, or conversation?</li>
-    <li><strong>The infrastructure pipeline.</strong> The $7&ndash;10B of identified western-PR investment for 2026&ndash;2030 &mdash; LUMA, CDBG-MIT, City-Rev, PR-10, PR-2, Aguadilla and Ramey, the solar build &mdash; comes to us as <span class="src s-prior" title="Inherited from earlier analysis inside the data set">PRIOR</span> analysis, not primary record. Which of those are actually letting work in this trade area now, and is anyone in this group prequalified to bid them?</li>
-    <li><strong>Working capital.</strong> Both five-year models exclude it entirely, and a ramp of the size they describe will consume it heavily. What does this operation need in the ground before it collects?</li>
+    <li><strong>What does the rock actually sell for?</strong> <span class="pill p-open st">Partly</span> Every model in the set assumes <strong>$14 a ton</strong>. What is crushed limestone really fetching delivered around Isabela, Aguada and Aguadilla right now, and what is the price at the plant gate?
+      <div class="ans"><b>The only local price record is the appraiser's own April 2024 survey</b>, and it is quoted per cubic metre, not per ton: gravel $10&ndash;14/m&sup3;, sand $18&ndash;22, fine sand or "talco" up to $25, fill $3&ndash;5, calcium carbonate over $100 a ton, ready-mix $90&ndash;100 per cubic yard plus freight. At roughly 1.5 t/m&sup3; loose, $14/m&sup3; is about <strong>$9 a ton</strong>. The US average crushed-stone price is around $15&ndash;16 a ton at the plant. No Puerto Rico quarry publishes gate prices. So the $14/ton assumption is defensible against the national average and <strong>unevidenced locally, with the appraiser's own numbers pointing lower.</strong> He also gives a royalty benchmark for permitted-but-idle ground: $1.50 per extracted cubic metre, operator bearing all costs. <span class="src s-doc">DOC</span></div>
+    </li>
+    <li><strong>Why is the quarry running at a fifth to a third of its permit?</strong> <span class="pill p-ok st">Largely answered</span> Is that gap demand, or is it trucks, crew and working capital? The upside case rests entirely on which.
+      <div class="ans"><b>It is a schedule and throughput problem, and there is now a hard number on it.</b> The MSHA Form 7000-2 quarterly series, forty quarters from 2016 to 2025, shows about <strong>21 to 22 workers averaging 1,100 to 1,400 hours a year each &mdash; 22 to 27 hours a week &mdash; against a permitted window of Monday to Saturday, 6am to 6pm, which is 72 hours.</strong> Either the workforce is substantially part-time, or the headcount includes drivers and mechanics whose time is split with the concrete plants, or the site simply runs a short week. Whichever it is, the plant is nowhere near its permitted hours. <span class="src s-doc">DOC</span> <span class="src s-jl">JL</span></div>
+      <div class="ans"><b>And the labour is not the constraint.</b> 2024 was the highest labour input in thirteen years at 31,467 hours, roughly 15 full-time equivalents, while EMR's revenue stayed flat at $1.6M. 2025 went higher still, 32,494 hours, with Q1 the largest quarter on record. If 2025 revenue did not rise with it, output per hour got worse. The appraiser reaches the same place in words: post-Mar&iacute;a insurance never collected, so repairs instead of replacements, "high operating ratios," "excessive downtime."</div>
+      <div class="ans"><b>One correction to our own arithmetic.</b> The 442,000 m&sup3;/yr denominator is a daily-cap extrapolation. The 2017 authorisation approved 1,140,620 m&sup3; over five years, about 228,000 m&sup3; a year. The appraiser's benchmark for a healthy operation in this trade area is 20,000 m&sup3; a month, or 240,000 a year, which is close to the same place and roughly double what EMR's depletion implies.</div>
+      <div class="ans was"><b>Three events in the series worth putting to the seller:</b> 2017 Q4 fell to 3,691 hours, which is Hurricane Mar&iacute;a. 2020 Q2 shows almost no COVID dip. But <strong>2023 Q2 fell to 4,779 hours with headcount down to 18</strong>, with no hurricane and no pandemic to explain it. A breakdown, a cash squeeze or a layoff, and the seller should say which.</div>
+    </li>
+    <li><strong>What is the plant physically doing today,</strong> in tons per day, and where is the bottleneck &mdash; crusher, screens, loaders or haul trucks? <span class="pill p-open st">Still open</span>
+      <div class="ans"><b>No throughput record exists anywhere in the set, and MSHA cannot supply one.</b> Form 7000-2 collects production tonnage only for coal mines; the production column is zero throughout for a metal and non-metal operation. That closes off the route we had hoped would answer this. The depletion back-calculation, 89,000 to 131,000 m&sup3;, and a sales-by-product export from the general ledger remain the only two ways to get at it. The maintenance headcount &mdash; <strong>seven mechanics against five operators</strong> &mdash; points at the crusher and repair cycle rather than the pit.</div>
+    </li>
+    <li><strong>Trucking.</strong> <span class="pill p-open st">Partly</span> Owned fleet or contract haulers, and what is the haul radius where this rock stays competitive?
+      <div class="ans">The fleet list carries only a handful of dump trucks, a 1987 Western Star and a 1995 International among them, and is overwhelmingly mixers. <b>Aggregate haul appears to be largely customer-pickup or contract</b>, and the radius is nowhere documented. The appraiser gives the economics in one line: <em>"permanent crushing operations are very regionalized as the high cost of transportation at many times equals or is above the material cost."</em> Drive times from the site: Aguadilla and Rafael Hern&aacute;ndez airport under 15 minutes, Mayag&uuml;ez about 30, Arecibo about 25, San Juan about 60. <span class="src s-doc">DOC</span></div>
+    </li>
+    <li><strong>The two ready-mix plants.</strong> <span class="pill p-open st">Partly</span> What are Chaparro and HMR actually running in yards per day, and what does CEMEX being the island's only cement producer do to their cost?
+      <div class="ans"><b>No yards-per-day record exists.</b> What the inventory does show is condition: about <strong>40% of HMR's mixer fleet is tagged "For Parts" or "In Shop"</strong> &mdash; units 201, 206, 207, 208 and 212 for parts, 215 in the shop &mdash; and Chaparro's mixers are Mack DM600s of 1994 to 1998 vintage. The Isabela batch plant is rated at 100 cubic yards an hour. On cement: CEMEX Ponce has stated capacity over 1M tons a year against island demand of about 590K, so <b>availability is not the constraint; price leverage is.</b></div>
+    </li>
+    <li><strong>Hot-mix asphalt is the swing factor in every projection.</strong> <span class="pill p-stop st">Worse, not better</span> The models turn on a 1,700 t/day plant fed internally. Is there hot-mix demand in the trade area to support that?
+      <div class="ans"><b>There is no demand evidence of any kind for 1,700 t/day, and there is now a reason to doubt the rock can serve it.</b> The permitting position is unchanged: a new environmental filing under Location Consult 2018-02-JPU-0082, public hearing 21 March 2022, still pending at the April 2024 appraisal, which excluded the asphalt plant from value entirely. Existing regional suppliers are Asfalto del Oeste and Transportes Rodr&iacute;guez Asfalto.</div>
+      <div class="ans"><b>The new problem is the material.</b> The appraiser's market section says the competitor's rock is polishing grade "required by the US Highway" and that Mundo Real's is "the fine material or talc type material," excellent for fine concrete finishes. No abrasion, soundness or gradation test has ever been run to establish otherwise. <strong>Until the rock is qualified, the asphalt case and the federal-aid bidding case in question 13 are both built on an untested assumption.</strong> <span class="src s-doc">DOC</span></div>
+    </li>
+    <li><strong>Limestone quality.</strong> <span class="pill p-ok st">Answered, and reframed</span> Is there a legible assay, and does the fines stream really support ag lime as a second product?
+      <div class="ans"><b>Yes, and it was in the folder the whole time.</b> American Agricultural Laboratory, McCook, Nebraska, lab number 1728, reported 19 June 2023 for Empresas Mundo Real: CCE <strong>94.6%</strong>, calcium 38.42%, magnesium 0.19%, ECC 67.1%, 51.7% finer than 60 mesh, moisture 1.7%. A legitimate third-party result. The fines stream does support ag lime; ECC 67.1% is mid-grade and fineness-limited. The product label in the data room claims only 80% calcium carbonate, so the seller is understating on the bag. <span class="src s-doc">DOC</span></div>
+      <div class="ans"><b>But it is an agricultural test, and that is the finding.</b> No Los Angeles abrasion, no sulfate soundness, no ASTM C33 gradation, absorption or specific gravity. It says nothing at all about construction aggregate. <strong>The premium-aggregate half of the two-product story has never been tested by anyone.</strong></div>
+    </li>
+    <li><strong>Cotto / Llanadas, the 219 acres fronting PR-2.</strong> <span class="pill p-open st">Partly</span> Is it permitted for extraction today, or does it need its own permit and its own process?
+      <div class="ans"><b>The permit is asserted and the document has never been produced.</b> The seller's December 2024 letter and the market report both claim a "26-acre extraction permit valued at $2 million" with 1.6M m&sup3; in the first fifty feet. <strong>No permit document is in the set.</strong> What the public record gives: cadastral 026-000-003-12-998, finca 8,273, 854,467 m&sup2; which is 211.1 acres, assessed land value <strong>$8,110</strong>, elevation 8.8 to 162 metres, and a last sale of $785,000 from Hormigonera Chaparro on 3 May 2004 &mdash; which is the self-dealing conveyance counsel already has as item 25, now confirmed at source. The seller's "38 acres" of buffer at Llanadas may be a conflation with the 38 fincas, 8,272 to 8,309, and should go to the title study. <span class="src s-doc">DOC</span></div>
+      <div class="ans">Cotto has <b>no reserve document of any kind</b> beyond the seller's letter, and no borehole. It is simultaneously the largest single piece of the gap between $6.1M and $15M and the least evidenced thing in the transaction.</div>
+    </li>
+    <li><strong>Equipment.</strong> <span class="pill p-open st">Partly</span> What is actually on the ground, in what condition, and what has to be replaced in year one?
+      <div class="ans">The seller describes "4 bulldozers, 4 backhoes, processing equipment" at about $1.5M. The books carry machinery and equipment at <strong>$3,850,091 gross</strong>, motor vehicles $1,165,373, net property plant and equipment $1,719,010. A vehicle roster with VINs, plates, insurers and drivers does exist, but <b>the scan is OCR-garbled and unusable for legal purposes</b>, and it covers rolling stock only. Still no serials, titles or invoices for crushers, screens or dozers.</div>
+      <div class="ans"><b>Useful new detail for the physical inspection:</b> the appraiser lists the specific post-Mar&iacute;a upgrades behind his $1.5M &mdash; a new truck scale, modern talc packaging equipment, new rolling machinery and improvements to the milling equipment &mdash; and splits the figure $1.1M for the quarry and $400K for the batch plant and movable equipment. That is a starting inventory rather than a blank sheet. <span class="src s-doc">DOC</span></div>
+    </li>
+    <li><strong>The 166-acre asphalt parcel.</strong> <span class="pill p-open st">Still open</span> Is it in this deal or not?
+      <div class="ans"><b>It appears nowhere, including in the seller's own materials.</b> The December 2024 letter lists only 81 acres at Arenales, 211 at Cotto and a 38-acre buffer at Llanadas. No deed, finca, cadastral number or named owner has surfaced. The seller should either produce it or confirm it is not part of this.</div>
+    </li>
+    <li><strong>The second pit.</strong> <span class="pill p-open st">Still open</span> Drilled and tested, with granite under the limestone and a third softer material.
+      <div class="ans"><b>Nothing in the set, and the wider finding now covers it: there is no drill data for any site.</b> The "drilled and tested" description does not correspond to any document that has reached us.</div>
+    </li>
+    <li><strong>QuikCrete and BASF.</strong> <span class="pill p-open st">Still open</span> Do the bagging arrangements exist, and in what form?
+      <div class="ans">No paperwork of any kind. The only trace is a retail listing that Home Depot Mayag&uuml;ez carries QUIKRETE product. Worth noting that the <b>Act 60 decree's covered activity &mdash; bagged manufactured sand &mdash; is consistent with a bagging line existing, but not with a named-counterparty contract.</b></div>
+    </li>
+    <li><strong>The infrastructure pipeline.</strong> <span class="pill p-open st">Still open</span> Which of the $7&ndash;10B of identified western-PR investment is actually letting work, and is anyone in this group prequalified to bid it?
+      <div class="ans"><b>Entirely inherited analysis, and unchanged.</b> The market report's own figure for western Puerto Rico concrete and aggregate demand is $300&ndash;500M over five years, not $7&ndash;10B of construction value, and nothing in it evidences a let contract or a prequalification. <strong>Question 6's rock-grade problem applies here with full force:</strong> federal-aid paving work may need a different rock than this one. <span class="src s-prior">PRIOR</span></div>
+    </li>
+    <li><strong>Working capital.</strong> <span class="pill p-open st">Partly, and the answer is nearly none</span> What does this operation need in the ground before it collects?
+      <div class="ans">EMR at 31 December 2024: cash <strong>$34,831</strong>, receivables $288,669, inventory $11,516, payables $71,628, line of credit $64,802 drawn. Current assets $335K against current liabilities $305K. <b>There is essentially no working capital in the target.</b> Any ramp is buyer-funded from day one, and both five-year models exclude working capital entirely. <span class="src s-doc">DOC</span></div>
+    </li>
   </ol>
 
-  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 4px;">Group B &mdash; Where the paperwork appears to disagree with itself</h3>
-  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">None of these is a challenge. Each almost certainly has a straightforward explanation, and in several cases we suspect the explanation is a document we have not been sent. We would rather hear it than guess.</p>
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 4px;">Group B &mdash; Where the paperwork appeared to disagree with itself</h3>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">We said each of these almost certainly had a straightforward explanation and that in several cases we suspected the explanation was a document we had not been sent. That turned out to be right in four of the six.</p>
 
   <ol class="qs" start="15" style="counter-reset:q 14;">
-    <li><strong>Which revenue basis is right?</strong> The seller's package annualizes December 2024 at $670,000 a month into "$8+ million." The three companies' own 2024 statements total <strong>$5,753,528</strong>, or about $479,000 a month. Separately, a figure of roughly $1M a month at 40% margin has been described in conversation; the books show 48% gross and 3.5% net. Is the $670,000 a seasonal peak, a cash-inclusive number, or something else?</li>
-    <li><strong>What supports the value above the appraised figures?</strong> Third parties have valued $6.1M of this against a $15M ask. Cotto is unappraised and Chaparro's going concern is uncovered, which is the legitimate answer to most of it. Is there a Cotto appraisal, a newer Lamadrid, or a broker opinion that did not reach us?</li>
-    <li><strong>Chaparro's land.</strong> The seller's schedule carries it at $3M. Banco Popular's 2021 appraisal put the land component at $150,000. Four years and a rising market would not normally close a twenty-fold gap on their own. What changed, or what are the two numbers measuring differently? If a more recent valuation exists, that would probably settle it.</li>
-    <li><strong>Can extraction go below the water canal and road?</strong> This is the operative half of the reserve question above. The 5.2M m&sup3; plan stops there; the 14.2M m&sup3; permit boundary does not.</li>
-    <li><strong>Vehicle and Equipment Expense reads $0 in 2024 at both companies.</strong> At EMR that line runs $170K, $427K, $360K and <strong>$555K</strong> across 2020&ndash;2023, then zero. At Chaparro it runs $197K, $339K, $260K, $272K, then zero. Same line, both companies, same year. Cost of sales rises by roughly $697K across the two at the same time, so a reclassification is the likely answer, and 2024 is also the first year prepared by the incoming CPA. <strong>It matters because 2024 is the base year for every projection in this transaction and for the appraisal's EBITDA.</strong> Until that line is explained, 2024 is not comparable to the four years before it.</li>
-    <li><strong>The $535,797.</strong> One draft calls it a shareholder loan owed by EMR to the Varelas, to be capitalized, forgiven or paid. The other calls it an intercompany payable owed by EMR to Chaparro, to remain outstanding. We may be misreading one of the drafts, but on their face the two treatments are different and the consequence differs materially.</li>
+    <li><strong>Which revenue basis is right?</strong> <span class="pill p-stop st">Reframed, and worse</span> Is the $670,000 a seasonal peak, a cash-inclusive number, or something else?
+      <div class="ans"><b>Neither, most likely. It looks like a consolidation question.</b> The $670,000 breaks down as Chaparro $330K, HMR $253K, EMR $87K. Set against each company's own 2024 monthly average &mdash; Chaparro $190K, HMR $157K, EMR $133K &mdash; <strong>Chaparro's December is 74% above its average while EMR's is 35% below its own.</strong> Opposite directions in the same month. That is not seasonality.</div>
+      <div class="ans">The likeliest reading is that <b>EMR's book revenue includes intercompany aggregate sold to HMR and Chaparro, which the seller's letter nets out.</b> If that is right, consolidated third-party revenue is <strong>below $5,753,528, not above it</strong>, and the headline revenue figure in every model is overstated. This is the first thing a quality-of-earnings review should test, and it needs a general ledger to test it. <span class="src s-ours">OURS</span></div>
+    </li>
+    <li><strong>What supports the value above the appraised figures?</strong> <span class="pill p-open st">Partly</span> Is there a Cotto appraisal, a newer Lamadrid, or a broker opinion that did not reach us?
+      <div class="ans"><b>No. Nothing new has been valued by anyone.</b> What the appraisal does give, on a page the data-room copy dropped, is a ceiling on its own method: the sales comparison puts a <strong>"high value limit of $4.5 million" on the quarry going-concern component</strong>, and $0.17 per cubic metre of reserve as a ceiling drawn from one comparable sale. <span class="src s-doc">DOC</span></div>
+      <div class="ans">Against that, the honest bull case is intact and unchanged: <b>the 219-acre Cotto reserve has never been appraised by anybody</b>, and Chaparro's going concern is uncovered. Roughly $8.9M of the $15M rests on those two things and on the growth case. What has changed is that we now know the appraiser's components, and they support the seller's quarry number better than his total did. See section Three.</div>
+    </li>
+    <li><strong>Chaparro's land.</strong> <span class="pill p-stop st">Withdrawn and replaced</span> The seller's schedule carries it at $3M against a $150,000 appraised land value.
+      <div class="ans"><b>The question as asked was wrong and we withdraw it.</b> The seller's own letter says the $3M covers land, machinery, equipment and permits, and that permits are the largest component of it. There was never a twenty-fold land gap.</div>
+      <div class="ans"><b>What replaces it is narrower and stranger.</b> Hormigonera Chaparro's balance sheet carries <strong>$3,100,242 of land</strong> &mdash; identical and undepreciated in every year from 2020 to 2024 &mdash; on a 2.5-acre parcel a bank appraiser valued at $150,482 in 2021. Nothing in the set explains it. The plausible reading is that the financials aggregate more than one property, which points straight back at the two Aguada parcels and the owner-of-record problem in section Zero. Answering it is a title study, not an appraisal. <span class="src s-doc">DOC</span></div>
+    </li>
+    <li><strong>Can extraction go below the water canal and road?</strong> <span class="pill p-ok st">Answered &mdash; no</span> The 5.2M m&sup3; plan stops there; the 14.2M m&sup3; permit boundary does not.
+      <div class="ans"><b>Not under the permit as it stands.</b> The 2017 conditions set maximum depth at <strong>66 metres above sea level, or one metre above the level of the road bordering the excavation</strong>, with 10-metre buffers. The appraiser independently records that the final extraction grade will be 176 to 180 metres, "similar to the entrance road grade," which is the same constraint read from the other side.</div>
+      <div class="ans">So <b>3,000,000 m&sup3; of EMR's own Note D plan sits outside the permit the company holds</b> &mdash; more than half of the 5.2M. Going deeper is a permit modification with its own process and timetable, not something a new owner decides. <span class="src s-doc">DOC</span></div>
+    </li>
+    <li><strong>Vehicle and Equipment Expense reads $0 in 2024 at both companies.</strong> <span class="pill p-open st">Half answered</span> Until that line is explained, 2024 is not comparable to the four years before it.
+      <div class="ans"><b>Reclassification is confirmed as the mechanism, and it only works at one of the two companies.</b> Chaparro reconciles almost exactly: 2023 cost of sales plus vehicle expense of $1.28M against 2024 cost of sales of $1.34M. <strong>EMR does not.</strong> Its 2023 cost of sales plus vehicle expense is $786K against 2024 cost of sales of $598K &mdash; a real reduction of about $188K, not a reclassification.</div>
+      <div class="ans">And one line makes the point on its own: <b>EMR booked $3,718 of repairs and maintenance in 2024</b>, in a quarry that employs seven mechanics, ran its highest labour hours in thirteen years, and whose appraiser describes excessive downtime from constant repairs. <strong>2024 is still not a usable base year, and it is the base year for every projection in this transaction and for the appraisal's EBITDA.</strong> <span class="src s-ours">OURS</span></div>
+    </li>
+    <li><strong>The $535,797.</strong> <span class="pill p-ok st">Answered</span> One draft calls it a shareholder loan owed to the Varelas; the other an intercompany payable owed to Chaparro.
+      <div class="ans"><b>The primary record settles it and the drafts should follow.</b> EMR's Note B reads, in terms: "As of December 31, 2024 Empresas Mundo Real ows to Hormigonera Chaparro the amount of $535,797." Chaparro's balance sheet carries the matching receivable. <strong>It is intercompany.</strong> Counsel's draft treats it as owed to the selling spouses and that should be corrected; in a stock purchase of both companies it nets out and the capitalise-forgive-pay election is unnecessary. <span class="src s-doc">DOC</span></div>
+      <div class="ans">One loose end that came out of checking it: <b>Chaparro's own 2024 package disagrees with itself</b> &mdash; the balance sheet shows $535,797 in other receivables and Note 3 on the facing page shows $280,264.</div>
+    </li>
   </ol>
 
   <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 4px;">Group C &mdash; Records we could not find in the set</h3>
-  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">We expect most of these exist. Pointing us at them, or telling us who holds them, is as good as an answer.</p>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">We said we expected most of these to exist. Two of them existed inside our own folder, which is noted where it applies rather than glossed over.</p>
 
   <ol class="qs" start="21" style="counter-reset:q 20;">
-    <li><strong>Primary accounting records.</strong> We did not find a general ledger, trial balance, bank statement or accounting export anywhere in what reached us. Every statement is compilation-basis and each accountant's report says in terms that no opinion, conclusion or assurance is expressed. A GL export for 2022&ndash;2024 would answer several questions above on its own.</li>
-    <li><strong>No accountant's report for Hormigonera Mundo Real reached us.</strong> The only HMR financials we have are a 2024 balance sheet and P&amp;L printed out of the bookkeeping system on 13 May 2025, with no prior-year comparatives and no debt amortization schedule.</li>
-    <li><strong>The Act 60 decree.</strong> Case 20-60-I-060 fixes a 4% income tax rate through 31 December 2034, and reportedly lasts "until transfer of ownership," which is exactly the event contemplated. <strong>The full text is not in the set we received, so we have not been able to read the transfer clause.</strong> Note also that EMR's effective rate in 2024 was 0.9%, not 4%, which looks more like loss carryforwards than the decree.</li>
-    <li><strong>Permit renewals.</strong> The Arenales extraction permit was approved 27 December 2023 for five years, so it runs to 2028 while the seller note runs to about 2031. Its companion permit PGO 2017-159059-PGO-004749 expired 12 April 2026, EMR's Permiso &Uacute;nico was reported expiring 11 November 2025, and Chaparro's plant permits in the data room expired between 2017 and 2021. No renewal for any of them reached us. Are renewals in hand that simply were not included?</li>
-    <li><strong>Equipment titles and vehicles.</strong> Fifty-two vehicles across four registered holders, including one personal vehicle and 21 units under an ambiguous "H.M.R." The mixer inventories we have do not agree with each other, and we have seen no lien search by VIN.</li>
-    <li><strong>Valle Verde, Inc. and Expresso Ready Mix, Inc.</strong> Both appear in EMR's related-party note and in neither purchase agreement draft. What do they hold, and are they in or out?</li>
-    <li><strong>Summit Concrete Pumping.</strong> Named as the fourth operation, absent from both drafts. In or out?</li>
-    <li><strong>Three documents specifically.</strong> A legible copy of the limestone assay, the <strong>2022 Lamadrid appraisal</strong> of the same property, and the <strong>original 2021 RHN report</strong> on Aguada, rather than the second-hand summary of it we have had to work from.</li>
+    <li><strong>Primary accounting records.</strong> <span class="pill p-stop st">Still open, and now the single biggest gap</span>
+      <div class="ans"><b>Still nothing.</b> No general ledger, trial balance, bank statement or accounting export. Every statement remains compilation-basis with no opinion, conclusion or assurance expressed. <strong>Three separate findings above now converge on it</strong> &mdash; the intercompany revenue question, EMR's unexplained $188K, and the $3,718 repairs line &mdash; and none of them can be resolved without it. QuickBooks exports for 2022 to 2024 for all three companies, with intercompany sales identified.</div>
+    </li>
+    <li><strong>No accountant's report for Hormigonera Mundo Real.</strong> <span class="pill p-open st">Still open</span>
+      <div class="ans">Still absent. The HMR package does contain an employee roster, a fleet list with condition tags, and CFSE and Seguro Choferil records, which is more than we credited it with, but there is no accountant's report and no prior-year comparatives.</div>
+    </li>
+    <li><strong>The Act 60 decree.</strong> <span class="pill p-open st">Partly &mdash; and narrower than assumed</span> The full text is not in the set, so we have not been able to read the transfer clause.
+      <div class="ans"><b>The decree summary is in the set, and the covered activity is much narrower than the discussion has assumed:</b> <em>production and packaging of manufactured sand from crushed stone for industrial use</em>. <strong>Not quarry extraction. Not either concrete plant.</strong> Fifteen years, 1 January 2020 to 31 December 2034, 4% rate, minimums of eight direct employees and $250,000 of annual volume. <span class="src s-doc">DOC</span></div>
+      <div class="ans">Two consequences. First, <b>the summary contains no transfer-of-ownership clause</b>, so the "lasts until transfer of ownership" language everyone has been working from is still unsourced and the full text is still needed. Second, the compliance question is live: <strong>whether the eight-employee and $250K minimums are being met inside that activity alone.</strong> Headcount at 21 is comfortable in total; how many of the 21 work on bagged manufactured sand is not known. EMR's 2024 tax of $987 on $109,703 pretax is 0.9%, which still looks like loss carryforwards rather than the decree rate.</div>
+    </li>
+    <li><strong>Permit renewals.</strong> <span class="pill p-open st">Partly</span> Are renewals in hand that simply were not included?
+      <div class="ans">Now dated at source. <b>In the set:</b> the 2017 authorisation, issued 9 July 2017 &mdash; 1,700 m&sup3;/day, no explosives, no processing on site; PGO 2017-159059-PGO-004749, issued 12 April 2021, <strong>expired 12 April 2026</strong>; Permiso &Uacute;nico 2022-463171-PU-183184, <strong>expired 11 November 2025</strong>. Also: merchant registration valid to 1 May 2027, Hacienda no-debt certificate May 2025, good standing September 2024, CFSE to 30 June 2025, and a <strong>SURI manufacturer registration that expired 11 October 2023</strong>. <span class="src s-doc">DOC</span></div>
+      <div class="ans"><b>Not in the set:</b> the December 2023 renewal, which is cited only by the seller under case suffix PCT-011057 with a hearing on 7 July 2023, and any PGO or Permiso &Uacute;nico renewal at all. That is the document the whole 2028-versus-2031 question turns on.</div>
+    </li>
+    <li><strong>Equipment titles and vehicles.</strong> <span class="pill p-open st">Partly</span>
+      <div class="ans">The roster exists with VINs, plates, insurers, expirations and drivers, and <b>the OCR is unusable for legal purposes</b> &mdash; the original pages need re-scanning before any lien search by VIN is possible. One item that came out of reading it: <strong>three concrete pumps, 1991, 2019 and 2022, are insured under "José Chaparro Santiago y Varela Rosario" personally rather than under any corporation.</strong></div>
+    </li>
+    <li><strong>Valle Verde, Inc. and Expresso Ready Mix, Inc.</strong> <span class="pill p-open st">Still open</span>
+      <div class="ans">Nothing beyond the related-party note. Unchanged.</div>
+    </li>
+    <li><strong>Summit Concrete Pumping.</strong> <span class="pill p-open st">It exists, and it is outside the deal</span>
+      <div class="ans">Registration 406350, EIN 66-0971488, Carr. 411 Km 2.8, Bo. Jag&uuml;ey, Aguada. President "Varela Santiago," secretary-treasurer "Varela Rosario Santiago." <b>Merchant certificate expired 17 April 2025</b>; its 2021 return paid $485. Its three pump trucks are the personally-insured ones above. <strong>It is in neither purchase agreement draft and not in the $15M</strong>, so in or out is still a decision nobody has made. <span class="src s-doc">DOC</span></div>
+    </li>
+    <li><strong>Three documents specifically.</strong> <span class="pill p-ok st">Two of three, both in our own folder</span> A legible assay, the 2022 Lamadrid appraisal, and the original 2021 RHN report.
+      <div class="ans"><b>The assay: found, legible, third-party, and it is an agricultural test.</b> See question 7.</div>
+      <div class="ans"><b>The RHN original: found. Sixty-nine pages, and it was in our extract in three copies while we worked from a summary of it.</b> It is real-estate only, cost approach only, with sales comparison and income expressly not developed &mdash; so the batch plant, silos, conveyors and mixer fleet all sit outside the $850,000. About 60% of the improvement value is pavement, 102,000 square feet of it; the three structures net to roughly $210,000; land is 10,032 m&sup2; at $15/m&sup2;. It also puts the Aguada site in <strong>FEMA Zones A and AE, inside the Culebra River path</strong>, which makes flood insurance a condition of any financing, and it is where the two-parcel problem in section Zero comes from.</div>
+      <div class="ans"><b>The 2022 Lamadrid: still missing, and still the one we want.</b> It is the appraisal that would show why the going-concern value fell between 2022 and 2024.</div>
+    </li>
   </ol>
 
   <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 4px;">Already with counsel &mdash; noted, not asked</h3>
-  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">Listed so it is clear we are not asking you to carry them. These sit with Crespo's 35-item memo and with whoever does the quality-of-earnings work.</p>
+  <p style="font-size:0.9rem;color:var(--muted);margin-bottom:16px;">Carried forward unchanged except where the response touched them. These sit with counsel's 35-item memo and with whoever does the quality-of-earnings work.</p>
 
   <ul class="plain">
-    <li>Whether the ~$6.5M of bank and SBA debt sits inside or on top of the $15M, and the blank interest rate on the $14M note.</li>
-    <li><strong>Excluding Arenales from the seller's collateral.</strong> Permits follow the parcels, so a foreclosure on Arenales takes the extraction permit with it, and with it the aggregate supply for both batch plants and the proposed asphalt plant. The drafts already flag this as the highest-priority negotiating term.</li>
-    <li>Acreage rectification. Arenales is 81 acres on the deed and 87 on the survey of record; Aguada is 2.55 cuerdas on one document and 6.64 acres on another. The Cotto position is <strong>38 separate fincas</strong> with three mortgages from 1995&ndash;1999 still of record and of unknown status.</li>
+    <li>Whether the ~$6.5M of bank and SBA debt sits inside or on top of the $15M, and the blank interest rate on the $14M note. <strong>Unchanged and still the largest open economic term.</strong></li>
+    <li><strong>Excluding Arenales from the seller's collateral.</strong> Permits follow the parcels, so a foreclosure on Arenales takes the extraction permit with it, and with it the aggregate supply for both batch plants and the proposed asphalt plant.</li>
+    <li>Acreage rectification. <strong>Arenales largely reconciles</strong>: 81.25 acres is the recorded net area, 87.7 is the gross including the 2.52-cuerda irrigation canal and later segregations, so the two numbers were measuring different things. <strong>Aguada does not reconcile and has been promoted out of this list</strong> &mdash; see section Zero. The Cotto position remains 38 separate fincas with 1995&ndash;1999 mortgages of unknown status.</li>
     <li>Pre-closing tax exposure. In a share purchase the buyer inherits it, and the seller's 19 December 2024 letter describes monthly sales above what the books carry.</li>
-    <li>Forming the JV entity, and a teaming agreement between KBN and SGC, which counsel lists as still open.</li>
-    <li><strong>Housekeeping worth doing this week regardless of whether the deal proceeds:</strong> there is no NDA between buyers and sellers, and the data room holds unredacted Social Security numbers and payroll data. That is live exposure today.</li>
+    <li>Forming the JV entity, and a teaming agreement between the two buyers, which counsel lists as still open.</li>
+    <li><strong>Two title items counsel's memo does not currently list</strong>, both from the appraisals: access easements for the Isabela irrigation channels encumber Arenales and the appraiser records that no information about the easement rights was provided to him; and the Arenales cadastral carries suffix -45 at CRIM against -99 on the permit and the GIS record.</li>
+    <li><strong>Housekeeping worth doing this week regardless of whether the deal proceeds:</strong> there is still no NDA between buyers and sellers, and the data room still holds unredacted Social Security numbers and payroll data. That is live exposure today.</li>
+  </ul>
+</section>
+
+<!-- ============ 5. CRITICAL PATH ============ -->
+<section>
+  <div class="sec-head"><span class="tag">Five</span><h2>What is now on the critical path</h2></div>
+
+  <p class="lead">The first version ended with questions. This one ends with a sequencing problem, because two of the things the response recommends take longer than the only clock in the transaction.</p>
+
+  <div class="note stop">
+    <h3>The drilling programme and the funding window are in direct conflict</h3>
+    <p>The letter of intent's undertaking to fund $1,000,000 runs to about <strong>18 September 2026</strong>, roughly seventeen days out. A core programme &mdash; eight holes to 75 feet, logged and photographed, with samples out for abrasion, soundness, gradation, absorption and alkali&ndash;silica reactivity &mdash; <strong>takes several weeks from authorisation to laboratory report</strong>, and that is before a geologist converts boundary volume into recoverable spec-grade tonnage.</p>
+    <p>Those two facts cannot both be honoured. Either the programme is authorised now and runs in parallel while the funding conversation continues, or the window passes and is renegotiated, or the deal is signed on rock nobody has tested. <strong>That is a decision for the buyer group this week and it should be made deliberately rather than by default.</strong> The letter of intent carries no exclusivity, no deposit and no stated expiry, which makes renegotiating it cheaper than it looks.</p>
+    <p>The cost asymmetry is worth stating plainly. Eight core holes and a laboratory suite is a small number set against a $15,000,000 price, and against a $14,000,000 seller note whose repayment depends entirely on tonnage this quarry has never been shown to be able to sell into the markets the projections assume.</p>
+  </div>
+
+  <div class="note warn">
+    <h3>Three things that can be settled without the seller's cooperation</h3>
+    <p><strong>The title study at Aguada.</strong> Registry certifications for finca 4,490 and finca 11,771, with the improvements mapped onto the finca boundary, will establish whether the plant, silos and paving stand on land the selling company owns. That is a Registry search and a surveyor, and it does not require anyone at the seller to agree to anything.</p>
+    <p><strong>The original appraisal from FirstBank.</strong> The data-room copy has lost its embedded images, including the 2016&ndash;2023 EBITDA table the appraiser announces on page 50 and the site plan on page 36. The bank has the original, and that table would answer the utilisation and base-year questions at once.</p>
+    <p><strong>The MSHA penalties.</strong> About $3,500 across the 2025 citations and the 2007 residual, four of them already delinquent and four referred to Treasury. Cheap to clear, and it belongs in the closing conditions along with delivery of the training records, the hearing-conservation plan and the dust-control log.</p>
+  </div>
+
+  <h3 style="font-family:var(--f-display);font-size:1.12rem;margin:34px 0 12px;">What to ask the seller, in rough order of leverage</h3>
+  <ul class="plain">
+    <li><strong>The operating schedule.</strong> Days a week and shifts the crusher actually runs, an explanation of the 2023 Q2 collapse in hours, and 2025 sales by month. This is the cheapest question on the list and it tests the single largest finding in this note.</li>
+    <li><strong>Any existing boring logs, core, core photographs, geologist reports or aggregate test results</strong> for either site, however old &mdash; and authorisation for the drilling programme.</li>
+    <li><strong>Title studies and Registry certifications</strong> for fincas 4,490 and 11,771 at Aguada, 4,476 / Property 79017 at Arenales, and 8,272 to 8,309 at Cotto, plus an explanation of the Guayabo owner of record.</li>
+    <li><strong>QuickBooks exports, 2022 to 2024, all three companies, with intercompany sales identified.</strong></li>
+    <li><strong>The December 2023 permit renewal</strong> with its conditions, and any PGO or Permiso &Uacute;nico renewal filings.</li>
+    <li><strong>The Cotto "26-acre extraction permit"</strong> &mdash; the document, not the claim.</li>
+    <li><strong>The full Act 60 decree text</strong> and the last two annual reports to DDEC.</li>
+    <li><strong>MSHA:</strong> Form 7000-1 submissions, the OSHA 300 log or internal incident register, Part 46 training records, the hearing-conservation plan, and proof of payment of the 2025 and 2007 penalty balances.</li>
+    <li><strong>Payoff letters</strong> from FirstBank, from Banco Popular if it is still a creditor, and from the SBA.</li>
+    <li><strong>A clean scan of the vehicle and equipment roster</strong>, plus serials and invoices for the crushers, screens, dozers and backhoes.</li>
+    <li><strong>The 2022 Lamadrid appraisal</strong>, the original 2024 Lamadrid with its embedded tables, the Qui&ntilde;ones site and profile plans of November 2022 with the reserve memorandum, and the Location Consult 2018-02-JPU-0082 file.</li>
+    <li><strong>Anything at all</strong> on the 166-acre parcel, the second pit, QuikCrete and BASF, Valle Verde and Expresso Ready Mix.</li>
   </ul>
 </section>
 
 <footer>
-  <p>Prepared by John Rounds, Doble AI, from the 199-file document set as it stood on 1 September 2026. Figures are read from the underlying financial statements, appraisals, permits and contract drafts; where a claim comes from the seller's package or from earlier analysis rather than a primary record, it is tagged accordingly. This note is a reading of documents, not a valuation, an audit or a recommendation. It reflects only the files that reached us and is offered so that anyone who knows the operation, or holds a document we have not seen, can correct it.</p>
+  <p><strong>Version 2, 1 September 2026.</strong> Prepared by John Rounds, Doble AI, from the 199-file document set and from Joel Lee's response of the same date, which answers the 28 questions in the first version, reviews both bank appraisals page by page, and adds an MSHA Form 7000-2 quarterly employment series for 2016 through 2025 drawn from the federal Mine Data Retrieval System. Figures are read from the underlying financial statements, appraisals, permits and contract drafts; where a claim comes from the seller's package, from earlier analysis, or from the 1 September response rather than from a primary record we read ourselves, it is tagged accordingly.</p>
+  <p>Where this version differs from the first, section Zero says so and says which way. Four of the corrections are ours to own: the twenty-fold land gap at Chaparro was a category error, the assay was legible and in the folder, the original 2021 appraisal was in the folder, and the mine's federal safety record was in the folder. We would rather set those out than leave them to be discovered.</p>
+  <p>This note is a reading of documents, not a valuation, an audit, a title opinion, a geological assessment or legal advice. The MSHA figures should be re-pulled from msha.gov before signing, as the database carries a reporting lag of days to weeks.</p>
   <p>Confidential. Not for distribution outside the buyer group.</p>
 </footer>
 
