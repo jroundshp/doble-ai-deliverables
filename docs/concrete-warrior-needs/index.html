@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Concrete Warrior — What We Need</title>
+<meta name="description" content="Working punch list: every fact, photograph and decision still owed before the Concrete Warrior site and Google listing go live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#E8E5DE; --surface:#F4F2ED; --surface2:#DCD8CF;
+  --ink:#1A1C1D; --ink2:#54595B; --ink3:#82878A;
+  --rule:#C9C4B9; --rule2:#B4AEA1;
+  --accent:#A63A28; --accent-deep:#7E2C1E; --accent-wash:#F1E0DA;
+  --flag:#8A6410; --flag-wash:#F3E7CD;
+  --ok:#3B6B52; --ok-wash:#DDE8E0;
+  --shadow:0 1px 2px rgba(26,28,29,.06), 0 8px 24px -16px rgba(26,28,29,.30);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#16181A; --surface:#1E2124; --surface2:#282C2F;
+    --ink:#E9E5DD; --ink2:#A9AEB0; --ink3:#7D8285;
+    --rule:#34383B; --rule2:#454A4D;
+    --accent:#D4634B; --accent-deep:#E8836D; --accent-wash:#3A211B;
+    --flag:#C9962E; --flag-wash:#332812;
+    --ok:#6EA687; --ok-wash:#1E2A23;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#16181A; --surface:#1E2124; --surface2:#282C2F;
+  --ink:#E9E5DD; --ink2:#A9AEB0; --ink3:#7D8285;
+  --rule:#34383B; --rule2:#454A4D;
+  --accent:#D4634B; --accent-deep:#E8836D; --accent-wash:#3A211B;
+  --flag:#C9962E; --flag-wash:#332812;
+  --ok:#6EA687; --ok-wash:#1E2A23;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Barlow",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px 120px}
+.col{max-width:720px}
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:3px solid var(--ink); padding:44px 0 18px; margin-bottom:0}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11.5px; font-weight:500;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:0 0 14px;
+}
+h1{
+  font-family:"Barlow Condensed",Impact,sans-serif; font-weight:700;
+  font-size:clamp(40px,7.5vw,68px); line-height:.96; letter-spacing:-.012em;
+  margin:0 0 16px; text-wrap:balance; text-transform:uppercase;
+}
+h1 .thin{display:block;font-weight:500;color:var(--ink2);font-size:.52em;letter-spacing:.02em;margin-top:8px;text-transform:none}
+.mast-meta{
+  display:flex;flex-wrap:wrap;gap:6px 26px;align-items:baseline;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3);
+  padding-bottom:6px;
+}
+.mast-meta b{color:var(--ink2);font-weight:500}
+
+/* ---------- type ---------- */
+h2{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:clamp(25px,3.4vw,33px);line-height:1.06;letter-spacing:-.005em;
+  margin:0 0 6px;text-wrap:balance;
+}
+h3{
+  font-family:"Barlow Condensed",sans-serif;font-weight:600;
+  font-size:21px;line-height:1.2;margin:30px 0 8px;letter-spacing:.005em;
+}
+h4{
+  font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:11.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);
+  margin:26px 0 8px;
+}
+p{margin:0 0 16px}
+a{color:var(--accent-deep);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+strong{font-weight:600}
+.lede{font-size:19.5px;line-height:1.55;color:var(--ink2)}
+.lede strong{color:var(--ink)}
+code,kbd{font-family:"IBM Plex Mono",monospace;font-size:.87em;background:var(--surface2);padding:1px 5px;border-radius:3px;word-break:break-word}
+
+/* ---------- sections ---------- */
+section{padding:52px 0 0;border-top:1px solid var(--rule);margin-top:52px}
+section:first-of-type{border-top:none}
+.sec-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:26px}
+.sec-num{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--accent);
+  padding-top:9px;letter-spacing:.06em;flex:none;
+}
+.sec-sub{color:var(--ink3);font-size:14.5px;margin:2px 0 0;font-family:"IBM Plex Mono",monospace}
+
+/* ---------- chips ---------- */
+.chip{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;
+  vertical-align:2px;white-space:nowrap;
+}
+.chip-j{background:var(--accent-wash);color:var(--accent-deep);border:1px solid var(--accent)}
+.chip-b{background:var(--surface2);color:var(--ink2);border:1px solid var(--rule2)}
+.chip-n{background:var(--flag-wash);color:var(--flag);border:1px solid var(--flag)}
+.chip-block{background:transparent;color:var(--flag);border:1px dashed var(--flag)}
+
+/* ---------- step blocks ---------- */
+.step{
+  display:grid;grid-template-columns:56px 1fr;gap:0 20px;
+  padding:26px 0;border-top:1px solid var(--rule);
+}
+.step:last-child{border-bottom:1px solid var(--rule)}
+.step-n{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:34px;line-height:1;
+  color:var(--rule2);padding-top:2px;font-variant-numeric:tabular-nums;
+}
+.step-b h3{margin:0 0 4px;font-size:22px}
+.step-b > p:last-child{margin-bottom:0}
+.step-meta{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px}
+@media(max-width:620px){
+  .step{grid-template-columns:1fr;gap:0}
+  .step-n{font-size:24px;margin-bottom:2px}
+}
+
+/* ---------- callouts ---------- */
+.note{
+  background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--rule2);
+  padding:16px 18px;margin:18px 0;border-radius:2px;box-shadow:var(--shadow);
+}
+.note.warn{border-left-color:var(--flag);background:var(--flag-wash);border-color:var(--flag)}
+.note.acc{border-left-color:var(--accent);background:var(--accent-wash);border-color:var(--accent)}
+.note.good{border-left-color:var(--ok);background:var(--ok-wash);border-color:var(--ok)}
+.note p:last-child{margin-bottom:0}
+.note h4{margin-top:0}
+
+/* ---------- code / paste ---------- */
+pre{
+  background:var(--surface);border:1px solid var(--rule);border-radius:2px;
+  padding:14px 16px;overflow-x:auto;margin:14px 0;
+  font-family:"IBM Plex Mono",monospace;font-size:13px;line-height:1.65;color:var(--ink);
+}
+pre b{color:var(--accent-deep);font-weight:600}
+.pastelabel{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink3);margin:16px 0 -6px;display:block;
+}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:2px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+th{
+  text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);
+  padding:11px 14px;border-bottom:1px solid var(--rule2);white-space:nowrap;
+}
+td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}
+td code{font-size:12.5px;background:var(--ground)}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:13px;font-variant-numeric:tabular-nums}
+
+/* ---------- checklists ---------- */
+ul.check{list-style:none;padding:0;margin:14px 0}
+ul.check li{
+  display:flex;gap:11px;align-items:flex-start;padding:8px 0;
+  border-bottom:1px dotted var(--rule);
+}
+ul.check li:last-child{border-bottom:none}
+ul.check input{
+  appearance:none;-webkit-appearance:none;flex:none;width:17px;height:17px;margin-top:4px;
+  border:1.5px solid var(--rule2);border-radius:2px;background:var(--surface);cursor:pointer;
+  position:relative;transition:background .12s,border-color .12s;
+}
+ul.check input:checked{background:var(--accent);border-color:var(--accent)}
+ul.check input:checked::after{
+  content:"";position:absolute;left:5px;top:1px;width:4px;height:9px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(43deg);
+}
+ul.check input:checked + span{color:var(--ink3);text-decoration:line-through;text-decoration-color:var(--rule2)}
+ul.check span{flex:1}
+
+ul.plain{padding-left:19px;margin:14px 0}
+ul.plain li{margin-bottom:9px;padding-left:3px}
+ol.plain{padding-left:21px;margin:14px 0}
+ol.plain li{margin-bottom:11px;padding-left:3px}
+
+/* ---------- split panel ---------- */
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:24px 0}
+.panel{
+  background:var(--surface);border:1px solid var(--rule);border-top:3px solid var(--rule2);
+  padding:16px 17px;border-radius:2px;box-shadow:var(--shadow);
+}
+.panel.j{border-top-color:var(--accent)}
+.panel.b{border-top-color:var(--ink2)}
+.panel.n{border-top-color:var(--flag)}
+.panel h4{margin:0 0 7px}
+.panel p{font-size:14.5px;line-height:1.5;margin:0;color:var(--ink2)}
+.panel .big{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:20px;
+  color:var(--ink);text-transform:uppercase;line-height:1.1;margin:0 0 6px;
+}
+
+/* ---------- toc ---------- */
+.toc{background:var(--surface);border:1px solid var(--rule);padding:20px 22px;margin:34px 0 0;border-radius:2px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:34px}
+.toc li{margin-bottom:6px;font-size:14.5px;break-inside:avoid}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule2)}
+.toc a:hover{color:var(--accent);border-color:var(--accent)}
+@media(max-width:600px){.toc ol{columns:1}}
+
+/* ---------- misc ---------- */
+.rule-hd{
+  font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+  font-size:15px;letter-spacing:.05em;color:var(--accent);margin:34px 0 10px;
+  padding-bottom:5px;border-bottom:2px solid var(--accent);
+}
+.kicker{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink3);margin:0 0 8px;
+}
+footer{margin-top:64px;padding-top:22px;border-top:3px solid var(--ink);font-size:13.5px;color:var(--ink3);font-family:"IBM Plex Mono",monospace;line-height:1.7}
+.reset{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;background:none;border:1px solid var(--rule2);
+  color:var(--ink3);padding:4px 9px;border-radius:2px;cursor:pointer;letter-spacing:.06em;
+}
+.reset:hover{border-color:var(--accent);color:var(--accent)}
+
+@media print{
+  body{background:#fff;color:#000;font-size:11pt}
+  .toc,.reset{display:none}
+  section{page-break-inside:avoid;border-top:1px solid #999}
+  .note,.step,.panel{page-break-inside:avoid}
+  a{color:#000}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Concrete Warrior LLC &middot; New Town, North Dakota</p>
+  <h1>What We Need
+    <span class="thin">Everything still owed before the site and the listing go live</span>
+  </h1>
+  <div class="mast-meta">
+    <span><b>Prepared for</b> Corey Hogan and Richard</span>
+    <span><b>By</b> Doble AI</span>
+    <span><b>Date</b> 2 September 2026</span>
+    <span><b>Status</b> Working punch list</span>
+  </div>
+</header>
+
+<div class="col">
+<p class="lede" style="margin-top:34px">The website is built. Every section that could be written honestly has been written, and the rest are showing as marked gaps rather than being papered over. Nothing left on it is design or code. It is <strong>facts, photographs and a Google listing</strong>, and nearly all of it lives at the yard rather than at a desk.</p>
+
+<p>This is the whole list in one place, pulled from the amber markers on <a href="https://preview.concretewarriorsupply.com/">preview.concretewarriorsupply.com</a>, the credentials section, the photo brief of 29 August and the Google Business Profile playbook. Each item says who owns it and what it unblocks. Most of these are ten-minute answers. The trouble is that three of them are standing in front of everything else.</p>
+
+<div class="note warn" style="margin-top:26px">
+<h4>Three items block more than they look like they should</h4>
+<p><strong>1. A customer-facing phone number.</strong> Open since 14 August. It is a hard stop on submitting the Google listing, and it is the only contact route a buyer standing in a pit will use. Right now the site can only offer an email address.</p>
+<p><strong>2. Which prequalification platform to register on first.</strong> Roughly 95% of operators in the basin will not open a supplier account without ISNetworld, Veriforce or Avetta. That gate sits ahead of price, ahead of material, ahead of the website.</p>
+<p><strong>3. The Google Business Profile, finished.</strong> The account exists and the work is staged. It cannot be submitted without item 1, and it is the fastest channel we have. Section <a href="#gbp">05</a>.</p>
+</div>
+
+<div class="toc">
+  <p class="kicker">Contents</p>
+  <ol>
+    <li><a href="#hardstops">The hard stops</a></li>
+    <li><a href="#richard">Facts owed by Richard</a></li>
+    <li><a href="#paper">Credentials and paper</a></li>
+    <li><a href="#photos">Photographs</a></li>
+    <li><a href="#gbp">Google Business Profile</a></li>
+    <li><a href="#corey">Decisions that sit with Corey</a></li>
+    <li><a href="#ours">What we do the day each item lands</a></li>
+    <li><a href="#summary">The whole list on one page</a></li>
+  </ol>
+</div>
+</div>
+
+<!-- ============ 01 HARD STOPS ============ -->
+<section id="hardstops">
+<div class="sec-head"><span class="sec-num">01</span><div>
+<h2>The hard stops</h2>
+<p class="sec-sub">Four things, each blocking work behind it</p>
+</div></div>
+<div class="col">
+
+<div class="split">
+  <div class="panel n">
+    <h4>Open since 14 August</h4>
+    <p class="big">Phone number</p>
+    <p>Blocks the Google listing outright, and blocks the quote path on every page of the site. The Patriot number cannot be reused.</p>
+  </div>
+  <div class="panel n">
+    <h4>Not started</h4>
+    <p class="big">Prequalification</p>
+    <p>ISNetworld, Veriforce or Avetta. About 95% of operators require one. Reservation standing carries some work without it, not all of it.</p>
+  </div>
+  <div class="panel j">
+    <h4>Staged, not submitted</h4>
+    <p class="big">Google listing</p>
+    <p>Free, faster than the website, and the thing that puts us in the map results a buyer actually taps. Waiting on the phone number.</p>
+  </div>
+  <div class="panel b">
+    <h4>Gate on going public</h4>
+    <p class="big">The 40-acre lease</p>
+    <p>The site stays noindexed until it is signed. That is a deliberate hold, but it is on the list because it decides the launch date.</p>
+  </div>
+</div>
+
+<p>Everything in the sections that follow can move in parallel with these four. None of it substitutes for them.</p>
+
+</div>
+</section>
+
+<!-- ============ 02 RICHARD ============ -->
+<section id="richard">
+<div class="sec-head"><span class="sec-num">02</span><div>
+<h2>Facts owed by Richard</h2>
+<p class="sec-sub">Eleven items, each one currently rendering as an amber marker on the live site</p>
+</div></div>
+<div class="col">
+
+<p>These are not opinions or copy decisions. They are facts only the yard has. Every one of them appears on the site right now as a visible <span class="chip chip-n">Need</span> block, because writing around a missing number would have meant inventing one.</p>
+
+<ul class="check">
+  <li><input type="checkbox"><span><strong>Customer-facing phone number.</strong> The whole site, plus the Google listing. Hard stop.</span></li>
+  <li><input type="checkbox"><span><strong>Resume and company history</strong>, so the 35 years of work in this market can be written accurately instead of asserted. The About page has a gap where the story goes.</span></li>
+  <li><input type="checkbox"><span><strong>Sieve analysis per product.</strong> Gradation is what an estimator checks before naming a supplier in a bid. Six products currently read "gradation and price pending."</span></li>
+  <li><input type="checkbox"><span><strong>Price, or a price bracket, per ton.</strong> At minimum crushed concrete against virgin aggregate, which is the comparison buyers ask for by name.</span></li>
+  <li><input type="checkbox"><span><strong>Which certifications are actually held.</strong> Specifically the MSHA Part 46 training plan and the NDDA weed-free certification. Section <a href="#paper">03</a> lists what the site currently claims and what it does not.</span></li>
+  <li><input type="checkbox"><span><strong>NDDOT material source Pit ID.</strong> Without it we cannot say the pit is on the state approved source register, which is a line item in public bid specifications.</span></li>
+  <li><input type="checkbox"><span><strong>Yard hours, and whether the yard is staffed during them.</strong> Needed for both the site and the Google listing. Posted hours that nobody answers do more damage than no hours at all.</span></li>
+  <li><input type="checkbox"><span><strong>Screening capacity we are willing to state publicly.</strong> Topsoil is the lead product and the site cannot currently say how much of it can move in a week.</span></li>
+  <li><input type="checkbox"><span><strong>Topsoil lab numbers: EC, SAR, pH and organic matter, plus permission to publish them.</strong> Salinity is the first question a reclamation buyer asks, and nobody in this market answers it on a website.</span></li>
+  <li><input type="checkbox"><span><strong>The full material list with correct product names.</strong> The site currently lists ready-mix, crushed concrete, road gravel, topsoil, scoria, washed rock, Class 5 and Class 13. Confirm that is the list and that the names match what the yard calls them.</span></li>
+  <li><input type="checkbox"><span><strong>Confirmation that 9702 ND-23 is the staffed business address</strong>, not just where the batch plant stands. The Google pin and the verification both hang on it.</span></li>
+</ul>
+
+<div class="note">
+<h4>One more, small but blocking</h4>
+<p>Richard needs to agree to the email alias routing before Breanna can finish the mailbox setup. Quotes go to <code>quotes@concretewarriorsupply.com</code> and everything else to <code>info@</code>, both landing wherever he wants them to land. It is a two-minute conversation that is currently holding a step in the Google playbook.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ============ 03 PAPER ============ -->
+<section id="paper">
+<div class="sec-head"><span class="sec-num">03</span><div>
+<h2>Credentials and paper</h2>
+<p class="sec-sub">What procurement verifies before a supplier gets named</p>
+</div></div>
+<div class="col">
+
+<p>Estimators and procurement officers check material on paper before it goes into a bid. No supplier in this market publishes any of it, which is why the site has a credentials section at all. One row of five is confirmed today.</p>
+
+<div class="tw"><table>
+  <tr><th>Credential</th><th>Status</th><th>What we need</th></tr>
+  <tr>
+    <td><strong>MHA TERO license</strong></td>
+    <td>Confirmed</td>
+    <td>Nothing. Confirmed by Breanna on 6 August. It is a license, not preference standing, and the site says so.</td>
+  </tr>
+  <tr>
+    <td><strong>MSHA Part 46</strong></td>
+    <td>Unconfirmed</td>
+    <td>The written training plan, the named competent person, and confirmation that new miner and annual refresher training is running. Mandatory for sand and gravel operations, so a buyer assumes it exists and will ask for the plan.</td>
+  </tr>
+  <tr>
+    <td><strong>NDDA weed-free, NDCC 4.1-47</strong></td>
+    <td>Unconfirmed</td>
+    <td>Which certification Richard actually holds. He holds something. Nobody here can say which, and source inspection is written into reclamation specifications.</td>
+  </tr>
+  <tr>
+    <td><strong>NDDOT approved source</strong></td>
+    <td>Unconfirmed</td>
+    <td>The Pit ID. Without it the pit is not listed on the state register as far as any reader can tell.</td>
+  </tr>
+  <tr>
+    <td><strong>Buyer prequalification</strong></td>
+    <td>Not registered</td>
+    <td>A decision on which platform first, then the registration itself. This is the biggest gap on the list and it is not a website problem.</td>
+  </tr>
+</table></div>
+
+<div class="note warn">
+<h4>The gate that sits ahead of the quote</h4>
+<p>Most operators in the basin will not open a supplier account until you are on the prequalification platform they use. <strong>ISNetworld</strong> has the widest coverage among Bakken operators. <strong>Veriforce</strong> dominates pipeline and DOT-regulated work. <strong>Avetta</strong> is common across construction and mining. Picking one is a business decision with a real cost attached, and it belongs to Richard and Corey rather than to us.</p>
+<p>Reservation standing carries some work without it. It does not carry the operator work, and the operator work is the volume.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ============ 04 PHOTOS ============ -->
+<section id="photos">
+<div class="sec-head"><span class="sec-num">04</span><div>
+<h2>Photographs</h2>
+<p class="sec-sub">Seven empty slots, four Texas stand-ins, and five shots that do work off the website</p>
+</div></div>
+<div class="col">
+
+<p>Eight slots on the site have a photograph in them today. Four of those eight are Patriot's Texas yard standing in for New Town, and they carry a <span class="chip chip-b">placeholder</span> tag on the page so no reader is misled. Seven slots are empty and render as a marked box. The full brief went out on 29 August; this is the same list, compressed.</p>
+
+<h3>Empty on the site right now</h3>
+<ul class="check">
+  <li><input type="checkbox"><span><strong>Scoria stockpile.</strong> No stand-in exists anywhere. Texas has no scoria and the red is the entire point.</span></li>
+  <li><input type="checkbox"><span><strong>Class 5 base stockpile</strong>, shot tight enough to read the gradation.</span></li>
+  <li><input type="checkbox"><span><strong>Class 13 base stockpile</strong>, same.</span></li>
+  <li><input type="checkbox"><span><strong>A mixer truck discharging on a real pour.</strong> There is not one photograph of a mixer truck in any library we hold. Single biggest hole on the site.</span></li>
+  <li><input type="checkbox"><span><strong>The trommel running</strong>, dirt moving through the drum. Topsoil is the largest thing the yard produces and there is no picture of it being made.</span></li>
+  <li><input type="checkbox"><span><strong>A person at work</strong>, operator in the cab or somebody on the ground in a hard hat. The site has zero faces on it.</span></li>
+  <li><input type="checkbox"><span><strong>A second crew or task shot</strong>, so the About page is not carrying one lonely portrait.</span></li>
+</ul>
+
+<h3>Replacing the Texas stand-ins</h3>
+<ul class="check">
+  <li><input type="checkbox"><span><strong>The crusher running at New Town.</strong> Currently a Texas crushing and screening spread.</span></li>
+  <li><input type="checkbox"><span><strong>A wide establishing shot of the New Town yard.</strong> Stockpiles, haul road, the whole operation in one frame.</span></li>
+  <li><input type="checkbox"><span><strong>The screened topsoil stockpile at New Town.</strong> Currently a Texas pile.</span></li>
+  <li><input type="checkbox"><span><strong>The washed rock stockpile.</strong> Currently rock in a Texas loader bucket.</span></li>
+</ul>
+
+<h3>Not a website slot, but they unblock the launch</h3>
+<ul class="check">
+  <li><input type="checkbox"><span><strong>The yard sign or entrance gate.</strong> This one gates the Google listing. A profile with no exterior photograph of the location ranks worse and reads as unverified to a buyer checking you out.</span></li>
+  <li><input type="checkbox"><span><strong>A truck door, close enough to read the decal.</strong> It also settles a question we cannot answer from Colorado: whether Texas iron is running north still wearing Patriot livery.</span></li>
+  <li><input type="checkbox"><span><strong>The scale house or yard building</strong>, whatever a customer sees pulling in. Buyers want to see a staffed yard rather than a field.</span></li>
+  <li><input type="checkbox"><span><strong>A loader filling a customer's truck.</strong> The picture most producers lead with.</span></li>
+  <li><input type="checkbox"><span><strong>One clean horizontal frame</strong> we can crop for the social share card, the image that appears when somebody texts the link.</span></li>
+</ul>
+
+<h3>Upgrades and depth, if the camera is already out</h3>
+<p>None of these block anything and all of them get used: an aerial of the yard for the hero, the crusher with rubble actually feeding into it, the batch plant running, concrete removal in progress, topsoil being spread at a well site, a before and after pair from one reclamation job, the pit with an open working face, a loaded haul truck leaving, the equipment lineup, a tight close-up of roughly a square foot of each material, and anything at all from winter or early season work.</p>
+
+<div class="note">
+<h4>How to send them</h4>
+<p><strong>Originals only.</strong> Not screenshots, not saved out of a text message. Both strip resolution and the date and location data we use to sort them. iPhone HEIC files are fine exactly as they come off the phone. AirDrop, Dropbox, Drive or a shared album all work.</p>
+<p><strong>Label each batch on the way in:</strong> which yard, roughly when, who shot it. That context is not recoverable later. We already have a good rock pile photograph we cannot use because nobody can say what it is or where it was taken.</p>
+<p><strong>One safety pass before it leaves your hands.</strong> Anything showing a person without a hard hat cannot go on a site courting ISNetworld and MSHA Part 46 buyers. Those buyers read photographs as evidence of how the operation is run.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ============ 05 GBP ============ -->
+<section id="gbp">
+<div class="sec-head"><span class="sec-num">05</span><div>
+<h2>Google Business Profile</h2>
+<p class="sec-sub">The one thing on this list that pays off before the website does</p>
+</div></div>
+<div class="col">
+
+<p class="lede">Type "gravel near New Town" into a phone and the map results sit above the website results. A business with no profile is not in that list at all, and no amount of work on the website changes that.</p>
+
+<p>The listing is a separate channel from organic search and a faster one. It is also the cheapest item in the entire project: the profile is free, and the mailbox underneath it runs about $170 a year. It is what gets the call from somebody standing in a pit at seven in the morning, and it is the reason to finish this before anything else on the page.</p>
+
+<h3>What is already done</h3>
+<ul class="plain">
+  <li>Google Workspace has been live since 24 August. <code>admin@concretewarriorsupply.com</code> is the super admin role account and <code>office@</code> owns the profile.</li>
+  <li>The field has been checked in a browser rather than guessed. There is no Concrete Warrior profile in New Town and Google has not auto-generated one, so this is a build from zero, which is the easy case.</li>
+  <li>The neighbors are known. Strata sits at 8790 39th St NW and its listing is <strong>unclaimed</strong>. West Dakota Ready Mix is a permanently closed pin. That is the entire field of concrete suppliers Google returns for New Town.</li>
+</ul>
+
+<h3>What is still needed to get it over the line</h3>
+<ul class="check">
+  <li><input type="checkbox"><span><strong>The phone number.</strong> Hard stop. The profile cannot be submitted without one, and it has been the blocking item since 14 August.</span></li>
+  <li><input type="checkbox"><span><strong>Whether a sign exists at the yard, and its exact wording.</strong> The sign and the truck magnets together decide the listing name, and Google checks the name against what a verifier can see on the ground.</span></li>
+  <li><input type="checkbox"><span><strong>Yard hours, and whether it is staffed during them.</strong> Same item as the site needs, used twice.</span></li>
+  <li><input type="checkbox"><span><strong>The material list with correct names</strong>, which becomes the services list on the profile and is a real ranking input.</span></li>
+  <li><input type="checkbox"><span><strong>The verification video, recorded at the yard.</strong> It has to be filmed through a link Google generates after the profile is submitted, so nothing already shot can be sent in as it. Someone at New Town walks the yard on a phone when Breanna texts the link.</span></li>
+  <li><input type="checkbox"><span><strong>Exterior and yard photographs</strong> from section <a href="#photos">04</a>, particularly the sign, the building and the loader working.</span></li>
+  <li><input type="checkbox"><span><strong>The pin dragged to the real entrance.</strong> Google's current panel for 9702 ND-23 carries the warning "the location shown is not precise," because it is interpolated from the road rather than surveyed.</span></li>
+</ul>
+
+<div class="note acc">
+<h4>Why the verification video carries so much weight here</h4>
+<p>Google has no business record at that address today. There is no street imagery of a yard, no interpolated listing to correct, nothing to lean on. That means the video is doing the entire job of proving a real operation stands there. A sign in frame, a building, iron working and a person on the ground is the difference between verified in days and a rejection loop that can take weeks to get out of.</p>
+</div>
+
+<div class="note warn">
+<h4>The name will not carry this listing, so the rest has to</h4>
+<p>Search "Concrete Warrior New Town ND" today and Google returns <strong>Warrior Concrete LLC</strong>, the words reversed, a claimed service-area contractor with an 801 number out of Utah. Widen it and there is a whole field of Warrior-something concrete companies. None of them are in North Dakota, so none of them block the filing. What it means is that this profile has to win on categories, on distance from the searcher and on completeness, never on the name. Every unanswered field is a place where a thinner competitor gets picked instead.</p>
+</div>
+
+<p>The step-by-step version, including who does what and the nine things not to do, is in the <a href="https://jroundshp.github.io/doble-ai-deliverables/concrete-warrior-gbp/">Google Business Profile playbook</a>. Nothing in that document has changed. It is waiting on the same phone number.</p>
+
+</div>
+</section>
+
+<!-- ============ 06 COREY ============ -->
+<section id="corey">
+<div class="sec-head"><span class="sec-num">06</span><div>
+<h2>Decisions that sit with Corey</h2>
+<p class="sec-sub">Four calls, none of which we can make for him</p>
+</div></div>
+<div class="col">
+
+<ul class="check">
+  <li><input type="checkbox"><span><strong>Terms actually offered, and to whom.</strong> Oil field work runs on terms, and what a supplier will carry decides who gets asked as often as price does. No supplier in this market says anything about it on a website, which makes it an easy advantage and an unusable one until somebody tells us the policy.</span></li>
+  <li><input type="checkbox"><span><strong>Which prequalification platform to register on first</strong>, and who owns getting it done. Shared with Richard. It is the single largest gap between the yard and the operator work.</span></li>
+  <li><input type="checkbox"><span><strong>The go-live call.</strong> The site is noindexed by design until the 40-acre lease is signed. When that changes, we attach the apex domain and drop the noindex in the same pass.</span></li>
+  <li><input type="checkbox"><span><strong>The domain handover.</strong> <code>concretewarriorsupply.com</code> sits in John's Vercel account because that is where it was registered on 14 August. The ICANN registrar lock lifts around 13 October. A team-to-team move inside Vercel has no lock at all if the handover should happen sooner.</span></li>
+</ul>
+
+</div>
+</section>
+
+<!-- ============ 07 OURS ============ -->
+<section id="ours">
+<div class="sec-head"><span class="sec-num">07</span><div>
+<h2>What we do the day each item lands</h2>
+<p class="sec-sub">So the list is not one-directional</p>
+</div></div>
+<div class="col">
+
+<div class="tw"><table>
+  <tr><th>When this arrives</th><th>What ships</th></tr>
+  <tr><td>Phone number</td><td>It goes into the header, the footer, the quote page and the schema markup, and Breanna submits the Google profile.</td></tr>
+  <tr><td>Gradations and prices</td><td>Six product pages stop saying "pending" and start carrying a spec table an estimator can paste into a submittal.</td></tr>
+  <tr><td>Topsoil lab numbers</td><td>The salinity answer goes live, which is the one question in this market nobody answers on a website.</td></tr>
+  <tr><td>Resume and history</td><td>The About page gets written, and the 35 years line becomes a claim we can stand behind rather than a number in a box.</td></tr>
+  <tr><td>Certification confirmations</td><td>The credentials section flips from "unconfirmed" to stated fact, which is the section procurement reads.</td></tr>
+  <tr><td>Photographs</td><td>Empty slots fill, the placeholder tags come off the Texas frames, and we build the delivery radius map, which is on us rather than on the camera.</td></tr>
+  <tr><td>Terms</td><td>The accounts section gets written.</td></tr>
+  <tr><td>Lease signed</td><td>Apex domain attached, noindex dropped, sitemap submitted, listing and site linked to each other.</td></tr>
+</table></div>
+
+<p>Two build items are ours regardless and are not waiting on anybody: the quote form is not wired to the inbox yet, and the ready-mix delivery radius map has to be drawn once the yard location is confirmed.</p>
+
+</div>
+</section>
+
+<!-- ============ 08 SUMMARY ============ -->
+<section id="summary">
+<div class="sec-head"><span class="sec-num">08</span><div>
+<h2>The whole list on one page</h2>
+<p class="sec-sub">Print this one if you print nothing else</p>
+</div></div>
+<div class="col">
+
+<div class="tw"><table>
+  <tr><th>#</th><th>What we need</th><th>Owner</th><th>Blocks</th></tr>
+  <tr><td class="mono">01</td><td>Customer-facing phone number</td><td>Richard</td><td>Google listing, whole site</td></tr>
+  <tr><td class="mono">02</td><td>Prequalification platform decision, then registration</td><td>Richard / Corey</td><td>~95% of operator accounts</td></tr>
+  <tr><td class="mono">03</td><td>Sign wording at the yard, or confirmation there is none</td><td>Richard / Amanda</td><td>Listing name, verification</td></tr>
+  <tr><td class="mono">04</td><td>Verification video walked at the yard</td><td>Richard / Amanda</td><td>Listing goes live</td></tr>
+  <tr><td class="mono">05</td><td>Yard hours, and whether it is staffed</td><td>Richard</td><td>Listing, site</td></tr>
+  <tr><td class="mono">06</td><td>Confirmation 9702 ND-23 is the business address</td><td>Richard</td><td>Pin, verification</td></tr>
+  <tr><td class="mono">07</td><td>Sieve analysis per product</td><td>Richard</td><td>Six product pages</td></tr>
+  <tr><td class="mono">08</td><td>Price or price bracket per ton</td><td>Richard</td><td>Product pages, quotes</td></tr>
+  <tr><td class="mono">09</td><td>Full material list with correct names</td><td>Richard</td><td>Site nav, listing services</td></tr>
+  <tr><td class="mono">10</td><td>Screening capacity we can state publicly</td><td>Richard</td><td>Topsoil page</td></tr>
+  <tr><td class="mono">11</td><td>Topsoil EC / SAR / pH / OM, plus permission to publish</td><td>Richard</td><td>The salinity answer</td></tr>
+  <tr><td class="mono">12</td><td>MSHA Part 46 plan and competent person</td><td>Richard</td><td>Credentials section</td></tr>
+  <tr><td class="mono">13</td><td>Which NDDA weed-free certification is held</td><td>Richard</td><td>Credentials section</td></tr>
+  <tr><td class="mono">14</td><td>NDDOT material source Pit ID</td><td>Richard</td><td>Approved source claim</td></tr>
+  <tr><td class="mono">15</td><td>Resume and company history</td><td>Richard</td><td>About page</td></tr>
+  <tr><td class="mono">16</td><td>Agreement on the email alias routing</td><td>Richard</td><td>Mailbox setup</td></tr>
+  <tr><td class="mono">17</td><td>Terms actually offered, and to whom</td><td>Corey / Richard</td><td>Accounts section</td></tr>
+  <tr><td class="mono">18</td><td>Seven empty photo slots</td><td>New Town</td><td>Visible gaps on the site</td></tr>
+  <tr><td class="mono">19</td><td>Four New Town replacements for Texas stand-ins</td><td>New Town</td><td>Placeholder tags</td></tr>
+  <tr><td class="mono">20</td><td>Five off-site shots: sign, truck door, building, loading, social</td><td>New Town</td><td>Listing, share card</td></tr>
+  <tr><td class="mono">21</td><td>Go-live call once the 40-acre lease is signed</td><td>Corey</td><td>Noindex, apex domain</td></tr>
+  <tr><td class="mono">22</td><td>Domain handover to Corey's organization</td><td>Corey / John</td><td>Nothing yet, lock lifts 13 Oct</td></tr>
+</table></div>
+
+<p style="margin-top:26px"><button class="reset" id="reset">Clear checkboxes</button></p>
+
+</div>
+</section>
+
+<footer>
+  Concrete Warrior LLC &middot; What we need<br>
+  Prepared by Doble AI, 2 September 2026 &middot; Internal working document, not for public distribution<br>
+  Sources: the amber markers on preview.concretewarriorsupply.com, the photo brief of 29 August, and the Google Business Profile playbook of 23 August.<br>
+  Checkbox state saves in your own browser only and is not shared with other readers.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var KEY='cw-needs-v1';
+  var boxes=[].slice.call(document.querySelectorAll('ul.check input[type=checkbox]'));
+  boxes.forEach(function(b,i){b.id='cb'+i;});
+  function load(){
+    try{
+      var raw=localStorage.getItem(KEY);
+      if(!raw)return;
+      var on=JSON.parse(raw);
+      boxes.forEach(function(b,i){b.checked=!!on[i];});
+    }catch(e){}
+  }
+  function save(){
+    try{localStorage.setItem(KEY,JSON.stringify(boxes.map(function(b){return b.checked?1:0;})));}catch(e){}
+  }
+  boxes.forEach(function(b){b.addEventListener('change',save);});
+  var r=document.getElementById('reset');
+  if(r)r.addEventListener('click',function(){
+    boxes.forEach(function(b){b.checked=false;});
+    save();
+  });
+  load();
+})();
+</script>
+
+</body>
+</html>
