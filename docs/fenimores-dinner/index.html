@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Internal working note. Not for print or public posting.">
+<title>Fenimore's Table: The Dinner Card</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%8D%BD%EF%B8%8F</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --ground:   #F1F3F1;
+    --surface:  #FBFCFB;
+    --sunken:   #E7EAE8;
+    --ink:      #141817;
+    --muted:    #5A6462;
+    --hair:     #CBD2CF;
+    --accent:   #14514E;
+    --accent-soft: #DCE8E6;
+    --blocked:  #92600A;
+    --blocked-soft: #F2E7CE;
+    --confirmed:#2C6340;
+    --confirmed-soft: #DCE9DF;
+    --open:     #6B5A7A;
+    --open-soft:#E6E1EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:   #0F1413;
+      --surface:  #171D1C;
+      --sunken:   #1E2524;
+      --ink:      #E6EAE8;
+      --muted:    #98A29F;
+      --hair:     #2E3836;
+      --accent:   #62B7AF;
+      --accent-soft: #17322F;
+      --blocked:  #D6A44A;
+      --blocked-soft: #322611;
+      --confirmed:#77B98C;
+      --confirmed-soft: #172A1D;
+      --open:     #B49FC7;
+      --open-soft:#241E2B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:   #0F1413;
+    --surface:  #171D1C;
+    --sunken:   #1E2524;
+    --ink:      #E6EAE8;
+    --muted:    #98A29F;
+    --hair:     #2E3836;
+    --accent:   #62B7AF;
+    --accent-soft: #17322F;
+    --blocked:  #D6A44A;
+    --blocked-soft: #322611;
+    --confirmed:#77B98C;
+    --confirmed-soft: #172A1D;
+    --open:     #B49FC7;
+    --open-soft:#241E2B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.62;
+    margin: 0;
+    padding: 0 24px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; }
+
+  header.masthead { padding-top: 64px; display: flex; flex-direction: column; gap: 18px; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--accent); margin: 0;
+  }
+
+  h1 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: clamp(32px, 5.6vw, 46px);
+    line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; margin: 0;
+  }
+
+  .standfirst { font-size: 20px; line-height: 1.5; color: var(--muted); margin: 0; max-width: 60ch; }
+
+  .stamp {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 12px; line-height: 1.75; color: var(--muted);
+    border-top: 1px solid var(--hair); padding-top: 14px; margin: 0;
+  }
+  .stamp b { color: var(--ink); font-weight: 500; }
+
+  section { display: flex; flex-direction: column; gap: 16px; }
+
+  .num { font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.13em; color:var(--accent); text-transform:uppercase; margin:0; }
+
+  h2 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: 26px; letter-spacing: -0.01em; line-height: 1.15;
+    text-wrap: balance; margin: 0 0 6px; padding-bottom: 10px; border-bottom: 2px solid var(--ink);
+  }
+  h3 { font-family: Archivo, sans-serif; font-weight:600; font-size:19px; margin:0 0 6px; }
+
+  p { margin: 0; max-width: 66ch; }
+  p + p { margin-top: -4px; }
+  strong, b { font-weight: 600; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+
+  code, .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 0.86em; }
+  code { background: var(--sunken); padding: 1px 5px; border-radius: 3px; word-break: break-word; }
+
+  .finding-label {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); display: block; margin-bottom: 4px;
+  }
+
+  /* ---------- the menu card ---------- */
+
+  .card { background: var(--surface); border: 1px solid var(--hair); padding: 8px 26px 26px; }
+  .card-group { margin-top: 26px; }
+  .card-group h3 {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--hair);
+  }
+  ul.items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+  ul.items li { display: flex; flex-direction: column; gap: 3px; }
+  .row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .dish { font-weight: 600; font-size: 17.5px; }
+  .lead { flex: 1 1 30px; border-bottom: 1px dotted var(--hair); transform: translateY(-4px); min-width: 16px; }
+  .price { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 15px; white-space: nowrap; }
+  .note { color: var(--muted); font-size: 15px; line-height: 1.5; max-width: 62ch; }
+
+  .tag {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 7px; border-radius: 3px; white-space: nowrap;
+  }
+  .t-live   { background: var(--confirmed-soft); color: var(--confirmed); }
+  .t-target { background: var(--open-soft);      color: var(--open); }
+  .t-toast  { background: var(--blocked-soft);   color: var(--blocked); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 16px 0 0; }
+  .legend div { font-size: 15px; color: var(--muted); display: flex; align-items: baseline; gap: 8px; }
+
+  /* ---------- blocks ---------- */
+
+  .warn { background:var(--blocked-soft); border-left:4px solid var(--blocked); padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
+  .closer { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .closer p { max-width: 62ch; }
+
+  ul.plain { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:9px; max-width:66ch; }
+
+  ol.steps { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:18px; counter-reset:r; }
+  ol.steps li { background:var(--surface); border:1px solid var(--hair); border-left:4px solid var(--accent); padding:18px 22px; }
+  ol.steps li::before { counter-increment:r; content:"0" counter(r); font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; color:var(--accent); display:block; margin-bottom:6px; }
+  .rt { font-family:Archivo,sans-serif; font-weight:600; font-size:17.5px; display:block; margin-bottom:6px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--hair); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 600px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--hair); vertical-align: top; font-size: 15.5px; line-height: 1.5; }
+  th {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); background: var(--sunken);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .kmk { display: flex; flex-direction: column; gap: 18px; }
+  .kmk div { border-left: 3px solid var(--hair); padding-left: 18px; }
+  .kmk .lab {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 4px;
+  }
+  .kmk .keep .lab { color: var(--confirmed); }
+  .kmk .move .lab { color: var(--blocked); }
+  .kmk .kill .lab { color: var(--open); }
+  .kmk .keep { border-left-color: var(--confirmed); }
+  .kmk .move { border-left-color: var(--blocked); }
+  .kmk .kill { border-left-color: var(--open); }
+
+  footer {
+    border-top: 1px solid var(--hair); padding-top: 16px;
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11.5px; line-height: 1.8; color: var(--muted);
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; padding: 0 18px 72px; }
+    .card { padding: 6px 18px 20px; }
+    .closer, .warn, ol.steps li { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <p class="eyebrow">Doble AI &middot; Internal working note &middot; 2 September 2026</p>
+  <h1>Fenimore's dinner card: Cooperstown comfort with a passport</h1>
+  <p class="standfirst">Fenimore already cooks this way. Korean BBQ wings, elote, La Brasa chicken, a pork-belly coconut rice bowl, hot honey pepperoni. The hole is after 5pm, where the live dinner heading carries three composed plates and a create-your-own pasta. This is the card that fills it.</p>
+  <p class="stamp">
+    For Corey Hogan and the kitchen: Shelly, Katie, Tammy, Jennifer, Bo. Internal only, not a public page.<br>
+    <b>LIVE</b> = the price on fenimorestable.com/menu/ as fetched 2 September 2026.<br>
+    <b>TARGET</b> = a recommended menu price for a new item. Not recipe-costed and not read from Toast.<br>
+    Where no live dollar exists, the line says confirm in Toast rather than guessing at one.
+  </p>
+</header>
+
+<section>
+  <p class="num">01</p>
+  <h2>The card</h2>
+  <p>Organized by format, not by country. A guest orders a bowl or a supper plate, then finds out where the sauce comes from. That is the whole idea, and it is the only way the international side reads as one restaurant instead of a world tour.</p>
+
+  <div class="card">
+
+    <div class="card-group">
+      <h3>To Share</h3>
+      <ul class="items">
+        <li>
+          <div class="row"><span class="dish">Wings</span><span class="lead"></span><span class="price">$18</span><span class="tag t-live">Live</span></div>
+          <p class="note">Site says $18, Toast says $17. Pick one before anything prints.</p>
+        </li>
+        <li><div class="row"><span class="dish">Blue Cheese Chips</span><span class="lead"></span><span class="price">$14</span><span class="tag t-live">Live</span></div></li>
+        <li>
+          <div class="row"><span class="dish">Tuna Nachos</span><span class="lead"></span><span class="tag t-toast">Confirm in Toast</span></div>
+          <p class="note">Keeper. It is not priced on the live menu page, so the number comes off the register, not off this document.</p>
+        </li>
+        <li>
+          <div class="row"><span class="dish">Pierogi Skillet</span><span class="lead"></span><span class="price">$16</span><span class="tag t-target">Target</span></div>
+          <p class="note">Onions, sour cream, bacon or mushroom. Nobody in town has pierogi on a dinner card.</p>
+        </li>
+        <li>
+          <div class="row"><span class="dish">Greek Meatballs with Whipped Feta</span><span class="lead"></span><span class="price">$17</span><span class="tag t-target">Target</span></div>
+        </li>
+        <li>
+          <div class="row"><span class="dish">Three Sausages</span><span class="lead"></span><span class="price">$26</span><span class="tag t-target">Target</span></div>
+          <p class="note">A board of three sausages with mustard and warm potato salad. English name on the card. Not a flight, and not a brat sandwich, because two places already sell one.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card-group">
+      <h3>Soups and Greens</h3>
+      <ul class="items">
+        <li>
+          <div class="row"><span class="dish">Passport Soup</span><span class="lead"></span><span class="price">$7 cup / $9</span><span class="tag t-target">Target</span></div>
+          <p class="note">Rotates. Broccoli cheddar stays on lunch at its live $6 and $8.</p>
+        </li>
+        <li>
+          <div class="row"><span class="dish">Apple and New York Cheddar Salad</span><span class="lead"></span><span class="price">$17</span><span class="tag t-target">Target</span></div>
+          <p class="note">Add chicken $7 target.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card-group">
+      <h3>Bowls</h3>
+      <ul class="items">
+        <li>
+          <div class="row"><span class="dish">Chicken Katsu Curry</span><span class="lead"></span><span class="price">$22</span><span class="tag t-target">Target</span></div>
+        </li>
+        <li>
+          <div class="row"><span class="dish">Falafel Bowl</span><span class="lead"></span><span class="price">$21</span><span class="tag t-target">Target</span></div>
+          <p class="note">Chicken is an add, not a second standing chicken dinner.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card-group">
+      <h3>Supper</h3>
+      <ul class="items">
+        <li>
+          <div class="row"><span class="dish">Crispy Chicken with Korean Maple</span><span class="lead"></span><span class="price">$26</span><span class="tag t-target">Target</span></div>
+          <p class="note">Fried chicken, Korean maple, pickles, slaw. No waffle. Ommegang has chicken and waffles at $18 and a Crispy Clucker at $19, and we are not standing next to that.</p>
+        </li>
+        <li>
+          <div class="row"><span class="dish">Crispy Pork Schnitzel with Mushroom Gravy</span><span class="lead"></span><span class="price">$28</span><span class="tag t-target">Target</span></div>
+          <p class="note">English name first. Spaetzle and red cabbage on the plate.</p>
+        </li>
+        <li>
+          <div class="row"><span class="dish">Yankee Pot Roast</span><span class="lead"></span><span class="price">$27</span><span class="tag t-target">Target</span></div>
+          <p class="note">Cooley's has a pot roast French dip at $16.70, which is a sandwich. The plated version is open.</p>
+        </li>
+        <li>
+          <div class="row"><span class="dish">Mushroom Cheese Spaetzle</span><span class="lead"></span><span class="price">$23</span><span class="tag t-target">Target</span></div>
+          <p class="note">The vegetarian supper. Only worth listing if the schnitzel is in, since it is the same dough.</p>
+        </li>
+        <li><div class="row"><span class="dish">La Brasa Chicken</span><span class="lead"></span><span class="price">$30</span><span class="tag t-live">Live</span></div></li>
+        <li><div class="row"><span class="dish">Salmon</span><span class="lead"></span><span class="price">$33</span><span class="tag t-live">Live</span></div></li>
+        <li><div class="row"><span class="dish">New York Strip</span><span class="lead"></span><span class="price">$37</span><span class="tag t-live">Live</span></div></li>
+        <li><div class="row"><span class="dish">Smash Burger</span><span class="lead"></span><span class="price">$17</span><span class="tag t-live">Live</span></div></li>
+      </ul>
+    </div>
+
+    <div class="card-group">
+      <h3>From the Oven</h3>
+      <ul class="items">
+        <li><div class="row"><span class="dish">Margherita</span><span class="lead"></span><span class="price">$16</span><span class="tag t-live">Live</span></div></li>
+        <li><div class="row"><span class="dish">Hot Honey Pepperoni</span><span class="lead"></span><span class="tag t-toast">Confirm in Toast</span></div></li>
+        <li>
+          <div class="row"><span class="dish">Create Your Own Pasta</span><span class="lead"></span><span class="price">$28</span><span class="tag t-live">Live</span></div>
+          <p class="note">This stays as the pasta slot. No Sunday gravy rigatoni behind it.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card-group">
+      <h3>Dessert</h3>
+      <ul class="items">
+        <li>
+          <div class="row"><span class="dish">Apple-Cider-Doughnut Bread Pudding</span><span class="lead"></span><span class="price">$12</span><span class="tag t-target">Target</span></div>
+        </li>
+        <li>
+          <div class="row"><span class="dish">Keep one current dessert</span><span class="lead"></span></div>
+          <p class="note">Mousse $10 live, tart $10 live, or banana bread $14 live. One of the three, priced at its own number. Do not print them as a $10 to $14 band.</p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="legend">
+    <div><span class="tag t-live">Live</span> already on the menu page, 2 Sep 2026</div>
+    <div><span class="tag t-target">Target</span> recommended new price</div>
+    <div><span class="tag t-toast">Confirm in Toast</span> no live dollar to quote</div>
+  </div>
+
+  <p><span class="finding-label">The band</span> Corey's $25 to $31 read for supper plates is right for this room. Mel's runs $22 to $30, Hawkeye $22 to $29, Bocca pasta $23 to $28, NAGS plates $22 to $26. The four new supper plates land at $23, $26, $27 and $28. <b>Do not chase Ommegang's $18 to $20 pub plates down.</b> That is a brewery with a tasting room attached and a different cost structure.</p>
+</section>
+
+<section>
+  <p class="num">02</p>
+  <h2>Why this card and not another one</h2>
+  <p>Cooperstown after 5pm is already spoken for in most directions. The card above is built out of what is left.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>After 5, this belongs to</th><th>Who</th><th>What that means for Fenimore</th></tr></thead>
+    <tbody>
+      <tr><td>Steak</td><td>1909 at the Otesaga: strip $48, filet $50, ribeye $60, dry-aged $72 to $140. Upstate Bar &amp; Grill in the old Pepper Mill: strip $40, pub steak $32. Hawkeye steak frites $29. Mel's 12oz strip $38. Council Rock Teres Major $27.95</td><td>The $37 NY strip sits in the local gap and should stay exactly where it is.</td></tr>
+      <tr><td>Italian</td><td>Bocca pasta $23 to $32 with chicken riggies at $27. Nicoletta pasta $13 to $22, chicken parm $18</td><td>Two houses own the red-sauce plate. Create-your-own pasta is the whole Italian position.</td></tr>
+      <tr><td>Fried chicken</td><td>Ommegang, plus NAGS in Oneonta with a Korean fried chicken plate at $21.90</td><td>Go in with a sauce nobody else runs and no waffle in sight.</td></tr>
+      <tr><td>Indian and global</td><td>Norbu on Main: butter chicken $22.75, naan $4.35 to $5.25. Mel's butter chicken $22</td><td>Butter chicken is off the list even though the trend data likes it. Two places here already sell it.</td></tr>
+      <tr><td>Hotel comfort</td><td>Hawkeye: smash $19, meatloaf $22, lemon chicken $28, fish and chips $23, margherita $18</td><td>Fenimore's smash at $17 and margherita at $16 already undercut them.</td></tr>
+      <tr><td>Same owner, not a rival</td><td>Cooperstown Clubhouse: wings also $18, burgers $16 to $18</td><td>Price in step, do not undercut across the street from yourself.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Hard collisions, from cards fetched 2 September 2026</h3>
+  <ul class="plain">
+    <li><b>Chicken and waffles.</b> Ommegang $18, plus their Crispy Clucker at $19.</li>
+    <li><b>Butter chicken and naan.</b> Norbu $22.75 with naan $4.35 to $5.25. Mel's $22.</li>
+    <li><b>Bratwurst.</b> Council Rock Franconian brat $15.50. Ommegang brat $18.</li>
+    <li><b>A standing Italian gravy pasta.</b> Bocca and Nicoletta, both.</li>
+  </ul>
+
+  <h3>What nobody in town is serving</h3>
+  <p>Schnitzel. A plated pot roast. Katsu and Japanese curry. Paprikash. A pierogi skillet. Five open lanes on the cards we could fetch, and the recommended card takes four of them.</p>
+
+  <div class="warn">
+    <p><span class="finding-label">What we could not see</span> The Doubleday dinner fetch came back thin. Tunnicliff and Lake Front are open and serving and we did not get usable menus off either one, so nothing above claims to know what they cook. Hoffman Lane is inactive. Alex &amp; Ika is closed and 149 Main is Norbu now. The Pepper Mill closed in 2016 and that address is Upstate. Stagecoach Coffee runs 6:30am to 6pm with sandwiches to 3pm, which makes it a lunch competitor and not a dinner one.</p>
+    <p>If somebody on the team has eaten at Tunnicliff or Lake Front recently, that is worth thirty seconds before the schnitzel goes on. Those are the two rooms where a real collision could still be hiding.</p>
+  </div>
+
+  <p><span class="finding-label">The industry read, for what it is worth</span> The National Restaurant Association's 2026 What's Hot list, surveyed in October 2025 and released 19 November 2025, has local sourcing, comfort food, value and global comfort food as four separate Top 10 items. Datassential's 2026 New Classics names butter chicken, hot honey, smashed formats and Basque cheesecake. We take the hot honey and the smash, both of which Fenimore already runs, and we leave butter chicken alone because the trend does not care that Norbu is four minutes away. A note on sourcing: the maple-kimchi crispy chicken line people are passing around is on Technomic's global 2026 page, not their US one, so it is not cited here as a US trend.</p>
+</section>
+
+<section>
+  <p class="num">03</p>
+  <h2>Keep, move, kill</h2>
+  <div class="kmk">
+    <div class="keep">
+      <span class="lab">Keep on the dinner card</span>
+      <p>Wings. Blue-cheese chips. Tuna nachos. Elote $15 live. Cauliflower $14 live. Smash. NY strip. La Brasa chicken. Salmon. Margherita. Hot honey pepperoni. The fried-chicken sandwich stays, on lunch.</p>
+    </div>
+    <div class="move">
+      <span class="lab">Move off the printed dinner card</span>
+      <p>Grilled cheese. Caprese. Quesadilla $15 and $17 live. French Connection $18 live. All four go to lunch or Sunday. They are not bad items, they are taking dinner real estate that four supper plates need.</p>
+    </div>
+    <div class="kill">
+      <span class="lab">Kill from the proposal</span>
+      <p>The waffle. Sunday gravy pasta. Butter chicken with naan. Another brat. And the words "Old World Sausage Flight," which is a wine bar's phrase on a supper-house board.</p>
+    </div>
+  </div>
+  <p><span class="finding-label">Off the permanent card, kept in the back pocket</span> Paprikash, the Polish supper plate, pumpkin ravioli, the Thanksgiving bowl, Basque cheesecake, butter chicken, chicken and waffles, one more brat. Some of those are good specials. None of them earn a printed line. Currywurst fries run as a six-week limited item, not in print.</p>
+</section>
+
+<section>
+  <p class="num">04</p>
+  <h2>Test order</h2>
+  <ol class="steps">
+    <li><span class="rt">Pierogi Skillet, Schnitzel, Katsu Curry</span>These three first, in that order. Each one takes an open lane, none of them needs a new supplier, and all three tell a guest what the card is about in a single visit.</li>
+    <li><span class="rt">Yankee Pot Roast, then Crispy Chicken with Korean Maple</span>Both are proven forms in a new room. The pot roast is the value plate at $27 and the Korean maple chicken is the one that argues with Ommegang without imitating them.</li>
+    <li><span class="rt">Three Sausages, once a butcher is lined up</span>This one waits on sourcing. A $26 board of three has to be three sausages worth eating, and that is a supplier decision before it is a menu decision.</li>
+  </ol>
+
+  <h3>Sunday football, eight items only</h3>
+  <p>Wings $18. Blue cheese chips $14. Tuna nachos, confirm in Toast. Pierogi skillet $16. Three sausages $26. Smash $17. Yankee pot roast $27. Bread pudding $12. Eight lines, one page, no create-your-own anything on a full Sunday.</p>
+</section>
+
+<section>
+  <p class="num">05</p>
+  <h2>Site fixes, five lines</h2>
+  <ul class="plain">
+    <li><code>fenimorestable.com/brunch/</code> returns 404. Either the page comes back or the link comes off.</li>
+    <li>The homepage still calls the pork-belly coconut rice bowl a banh mi. The menu page calls it a bowl. The bowl is right.</li>
+    <li>"Koren BBQ" on the wings. Should be Korean.</li>
+    <li>"Salciccia" should be salsiccia.</li>
+    <li>Wings read $18 on the site and $17 in Toast. One of those is wrong and it is costing a dollar a plate either way.</li>
+  </ul>
+  <p class="note">Hours read daily 11am to 9pm, which is correct and does not need touching. Nothing else on this page asks for a change to the website.</p>
+</section>
+
+<section>
+  <p class="num">06</p>
+  <h2>The one thing that outranks this document</h2>
+  <div class="closer">
+    <p>Every price on the target lines is a menu recommendation, not a costed one. Before anything prints, the target plates need a plate cost and the four keepers need a Toast pull.</p>
+    <p><b>If Toast says an item on the move or kill list is already printing money, Toast wins.</b> This card is built from what the competition serves and what the town has no source for. It is not built from what Fenimore's own guests have been buying, because we cannot see that from outside. The register can.</p>
+  </div>
+</section>
+
+<footer>
+  Doble AI &middot; Fenimore's Table dinner card recommendation &middot; 2 September 2026<br>
+  Fenimore's Table, 4874 State Highway 28, Cooperstown NY &middot; fenimorestable.com<br>
+  LIVE prices fetched from fenimorestable.com/menu/ on 2 September 2026. TARGET prices are recommendations, not recipe-costed and not from Toast.<br>
+  Internal working note. Link-shared, not indexed. Does not revise or re-score the Fenimore's Table site audit.
+</footer>
+
+</div>
+</body>
+</html>
