@@ -309,7 +309,7 @@ footer{margin-top:64px;padding-top:22px;border-top:3px solid var(--ink);font-siz
   <tr><th>Step</th><th>State</th><th>How we know</th></tr>
   <tr><td><strong>J1, J2</strong> &middot; the DNS records</td><td><span class="chip chip-g">Done</span></td><td>MX on <code>smtp.google.com</code>, SPF, DMARC and the Google DKIM key all resolve today. The domain sends and receives mail properly.</td></tr>
   <tr><td><strong>01 to 03</strong> &middot; Workspace and verification</td><td><span class="chip chip-g">Done</span></td><td>Live since 24 August. The Google site-verification record is still in place.</td></tr>
-  <tr><td><strong>04</strong> &middot; the mailbox and aliases</td><td><span class="chip chip-g">Done</span></td><td><code>office@</code> is the working mailbox and owns the profile. <code>quotes@</code> and <code>info@</code> are aliases on it and are printed on the website.</td></tr>
+  <tr><td><strong>04</strong> &middot; the mailbox and aliases</td><td><span class="chip chip-n">Partly, and worth checking</span></td><td><code>admin@concretewarriorsupply.com</code> exists and mail has been flowing to it since 24 August. <strong>Nothing on record says <code>office@</code>, <code>quotes@</code> or <code>info@</code> were ever created</strong>, and the website prints the last two as its contact addresses. Question 1 in section <a href="#open">12</a>.</td></tr>
   <tr><td><strong>05</strong> &middot; the three answers before the form opens</td><td><span class="chip chip-b">One of three left</span></td><td>Phone answered 3 September. Address verified 2 September. Hours set 2 September. What is still open is whether anyone is <em>at</em> the yard through those hours.</td></tr>
   <tr><td><strong>06</strong> &middot; create the profile</td><td><span class="chip chip-n">Next</span></td><td>Ready. Two fields need a decision, both covered below.</td></tr>
   <tr><td><strong>07, 08</strong> &middot; verification and the video</td><td><span class="chip chip-b">Follows step 6</span></td><td>Google generates the link on submission. It cannot be started earlier.</td></tr>
@@ -376,7 +376,7 @@ footer{margin-top:64px;padding-top:22px;border-top:3px solid var(--ink);font-siz
 
 <div class="note acc">
 <h4>If you are reading this to answer something, go to section <a href="#open">12</a></h4>
-<p>Eight open questions are collected there, numbered, with who can answer each one. Most take a single line and two are answered by a photograph. Reply with the numbers and we will move on all of them at once.</p>
+<p>Nine open questions are collected there, numbered, with who can answer each one. Most take a single line. Question 1 is settled by sending one test email and it is the one worth doing today. Reply with the numbers and we will move on all of them at once.</p>
 </div>
 
 </div>
@@ -536,14 +536,14 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
 <section id="email">
 <div class="sec-head"><span class="sec-num">05</span><div>
 <h2>Breanna: the email account</h2>
-<p class="sec-sub">Steps 1 to 4 &middot; <strong>done, 24 August to 3 September</strong> &middot; kept for the record</p>
+<p class="sec-sub">Steps 1 to 4 &middot; <strong>1 to 3 done 24 August</strong> &middot; step 4 unconfirmed</p>
 </div></div>
 <div class="col">
 
 <div class="note good">
-<h4>All of section 05 is finished. Nothing here needs doing.</h4>
-<p>Checked on 3 September: MX, SPF, DMARC and the Google DKIM key all resolve, and <code>office@</code> with its <code>quotes@</code> and <code>info@</code> aliases is in use on the website. Steps 1 through 4 are done and the four steps below are kept for the record rather than as work.</p>
-<p>One item inside them is still open, and it is question 5 in section <a href="#open">12</a>: whether Richard wants a <code>richard@</code> alias.</p>
+<h4>Steps 1 to 3 are finished. Step 4 needs thirty seconds of checking.</h4>
+<p>Checked on 3 September: MX, SPF, DMARC and the Google DKIM key all resolve. <code>admin@concretewarriorsupply.com</code> was created on 24 August and mail has been flowing to it since. The Workspace account and the domain are done.</p>
+<p><strong>Step 4 is the open one.</strong> Nothing in our records says <code>office@</code> was created, or that the <code>quotes@</code> and <code>info@</code> aliases were added to it. That matters more than it sounds: the website prints <code>quotes@concretewarriorsupply.com</code> and <code>info@concretewarriorsupply.com</code> as the two ways to reach the business, and step 6 has Breanna signing in as <code>office@</code> to create the listing. Questions 1 and 2 in section <a href="#open">12</a>.</p>
 </div>
 
 <p>What follows describes the domain as it was on 23 August, when it had no mail at all: five records, three CAA and two Vercel ALIAS, no MX and no TXT.</p>
@@ -668,6 +668,10 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
     <h3>Create the profile</h3>
     <div class="step-meta"><span class="chip chip-b">Buffalo</span><span class="chip chip-b">~20 min</span></div>
     <p>Sign in at <a href="https://business.google.com">business.google.com</a> as <code>office@concretewarriorsupply.com</code> and choose Add your business. Then work down this card.</p>
+<div class="note warn">
+<h4>If <code>office@</code> does not exist yet, create it before you file</h4>
+<p>Step 4 takes about five minutes and it has to come first, because <strong>whoever creates the profile becomes its primary owner</strong>. Filing from <code>admin@</code> would work and would break nothing, but it puts the listing on the super admin account rather than on the mailbox you use daily, and moving ownership afterwards is more steps than creating the user now.</p>
+</div>
 
     <div class="tw"><table>
       <tr><th>Field</th><th>What to enter</th></tr>
@@ -977,72 +981,79 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
 <section id="open">
 <div class="sec-head"><span class="sec-num">12</span><div>
 <h2>Open questions</h2>
-<p class="sec-sub">Eight of them, as of 3 September. Most are one line to answer.</p>
+<p class="sec-sub">Nine of them, as of 3 September. Most are one line to answer. Two are settled by sending a test email.</p>
 </div></div>
 <div class="col">
 
 <p class="lede">These are numbered so they can be answered in a reply without quoting anything. <strong>Answer the number.</strong> A one-line answer is a complete answer for most of them, and a photograph is a complete answer for two.</p>
 
 <div class="note warn">
-<h4>Two of these decide whether the filing has to be redone</h4>
-<p>Questions <strong>1</strong> and <strong>2</strong> change what gets typed into the form. Everything else can be added or corrected after the listing exists. The business name in particular is the one field that is genuinely hard to fix once the profile is created, so it is worth spending a day getting question 2 right rather than filing on an assumption.</p>
+<h4>Question 1 is the one to answer today</h4>
+<p>The website tells buyers to email <span class="mono">quotes@concretewarriorsupply.com</span>. If that alias was never created, every message sent to it bounces and nobody finds out. One test email settles it. The site is still hidden from search so nothing has been lost yet, and this is the sort of thing that is cheap to find now and expensive to find in November.</p>
+<p>After that, questions <strong>3</strong> and <strong>4</strong> are the two that change what gets typed into the listing form. Everything else can be added or corrected once the profile exists. The business name is the one field that is genuinely hard to fix after creation, so it is worth a day getting question 4 right rather than filing on an assumption.</p>
 </div>
 
 <div class="tw"><table>
   <tr><th>#</th><th>Question</th><th>Who</th><th>What it decides</th></tr>
   <tr>
     <td class="mono">1</td>
+    <td><strong>Do <span class="mono">quotes@</span> and <span class="mono">info@</span> actually exist?</strong> The website prints both as the way to reach the business. We know <span class="mono">admin@</span> is live because mail has been going to it since 24 August, but nothing on record says the aliases were ever added. <em>Thirty-second test: send a message to <span class="mono">quotes@concretewarriorsupply.com</span> from a personal address and see whether it arrives or bounces.</em></td>
+    <td>Breanna</td>
+    <td>Whether the two addresses on the website are real. If they bounce, every quote request sent from the site is lost silently.</td>
+  </tr>
+  <tr>
+    <td class="mono">2</td>
+    <td><strong>Has <span class="mono">office@</span> been created?</strong> If not, it is about five minutes in step 4 and it wants doing before the listing is filed.</td>
+    <td>Breanna</td>
+    <td>Whoever creates the Google profile becomes its primary owner. Better that is your day-to-day mailbox than the super admin account.</td>
+  </tr>
+  <tr>
+    <td class="mono">3</td>
     <td><strong>Is anybody at the yard through the posted hours?</strong> Monday to Friday 8 to 5, Saturday 8 to 12. Yes, no, or sometimes is enough. If calls forward to a cell instead, say that.</td>
     <td>Richard</td>
     <td>A standard listing with the address showing publicly on the map, which ranks much better, against a service-area listing with the address hidden. Claiming hours nobody keeps is a common reason listings get suspended.</td>
   </tr>
   <tr>
-    <td class="mono">2</td>
+    <td class="mono">4</td>
     <td><strong>Is there a sign at the yard, and what exactly does it say?</strong> A photograph straight on, close enough to read every word, answers it completely. If there is no sign anywhere on the property, say so plainly. Open since 20 August.</td>
     <td>Amanda or Richard</td>
     <td>The listing name has to match the sign, because that is what the verifier is looking at. It is also the first thing the verification video is asked to show.</td>
   </tr>
   <tr>
-    <td class="mono">3</td>
+    <td class="mono">5</td>
     <td><strong>Have the sign and the truck magnets been ordered, and do they read exactly <em>Concrete Warrior Supply</em>?</strong> The name was decided on 13 August, so this is not asking which name to use. It is asking whether the physical wording matches it.</td>
     <td>Richard and Amanda</td>
     <td>Whatever gets printed becomes the real-world name and the listing has to follow it. We can supply print-ready artwork matching the website if that helps.</td>
   </tr>
   <tr>
-    <td class="mono">4</td>
+    <td class="mono">6</td>
     <td><strong>Who is at the yard with a phone when the verification link arrives, and which day suits?</strong> The link is generated the moment the profile is submitted and it cannot be started earlier, so this is scheduling rather than a decision.</td>
     <td>Amanda or Richard, with Breanna</td>
     <td>When Breanna files. About ten minutes on site including the walk. Section <a href="#video">08</a> can be forwarded to whoever holds the phone.</td>
   </tr>
   <tr>
-    <td class="mono">5</td>
+    <td class="mono">7</td>
     <td><strong>Richard, do you want <span class="mono">richard@concretewarriorsupply.com</span>?</strong> It is free and it routes mail sent to that address into the Buffalo inbox, which is why nobody has set it up without asking. Yes or no.</td>
     <td>Richard</td>
-    <td>Finishes the mailbox setup. The only item left in section <a href="#email">05</a>.</td>
+    <td>Finishes the mailbox setup, alongside questions 1 and 2.</td>
   </tr>
   <tr>
-    <td class="mono">6</td>
+    <td class="mono">8</td>
     <td><strong>Is this the material list, and are these the right names for it?</strong> Ready-mix concrete, crushed concrete, road gravel, reclamation topsoil, scoria, washed rock, Class 5 base, Class 13 base. Add anything missing and correct anything the yard calls something else.</td>
     <td>Richard</td>
     <td>It becomes the services list on the profile, which is a real ranking input, and it is what the website product pages are named after.</td>
   </tr>
   <tr>
-    <td class="mono">7</td>
-    <td><strong>The photographs.</strong> Still the longest outstanding item. Most wanted, in order: the aerial, the crusher running with material moving, a ready-mix truck discharging and a clean shot of a truck door, scoria, and product piles shot separately with somebody saying which is which. Originals rather than screenshots or texted copies.</td>
+    <td class="mono">9</td>
+    <td><strong>The photographs, and were the August ones taken at New Town?</strong> Most wanted, in order: the aerial, the crusher running with material moving, a ready-mix truck discharging and a clean shot of a truck door, scoria, and product piles shot separately with somebody saying which is which. Originals rather than screenshots. On the August batch: it arrived in a folder named "Projects" with no location data and no labels, so nobody has actually confirmed where it was shot.</td>
     <td>New Town</td>
-    <td>Does not block the Google filing at all. Does hold the website launch, and does decide how the listing performs once it is live.</td>
-  </tr>
-  <tr>
-    <td class="mono">8</td>
-    <td><strong>Were the August photographs taken at New Town?</strong> They arrived in a folder named "Projects" with no location data and no labels, so nobody has actually confirmed it.</td>
-    <td>Richard or Amanda</td>
-    <td>Whether they can be published. This costs one sentence now and is awkward to discover after the fact.</td>
+    <td>Does not block the Google filing at all. Does hold the website launch, and does decide how the listing performs once it is live. The August question decides whether those frames can be published.</td>
   </tr>
 </table></div>
 
 <div class="note acc">
 <h4>What happens on our side as each one lands</h4>
-<p>Question 1 or 2 answered and Breanna can file the profile the same day. Question 6 answered and the services list goes on the profile and the product names on the website get corrected together. Photographs arrive and the empty slots on the site fill, the Texas stand-ins come off, and the profile gets a proper photo set. Nothing here waits on a meeting.</p>
+<p>Question 1 comes back bouncing and we fix the website the same hour, either by creating the aliases or by changing what the site prints. Question 3 or 4 answered and Breanna can file the profile the same day. Question 8 answered and the services list goes on the profile and the product names on the website get corrected together. Photographs arrive and the empty slots fill, the Texas stand-ins come off, and the profile gets a proper photo set. Nothing here waits on a meeting.</p>
 </div>
 
 <p>Two things sit outside this list because they are not questions for the yard. The apex domain stays detached and the website stays hidden from search until the 40-acre lease is signed, which is Corey's call. And the prequalification decision, ISNetworld against Veriforce against Avetta, sits with Richard and Corey together and is tracked in the <a href="https://jroundshp.github.io/doble-ai-deliverables/concrete-warrior-needs/">punch list</a> rather than here.</p>
