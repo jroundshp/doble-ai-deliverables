@@ -112,6 +112,7 @@ section:first-of-type{border-top:none}
 .chip-b{background:var(--surface2);color:var(--ink2);border:1px solid var(--rule2)}
 .chip-n{background:var(--flag-wash);color:var(--flag);border:1px solid var(--flag)}
 .chip-block{background:transparent;color:var(--flag);border:1px dashed var(--flag)}
+.chip-g{background:var(--ok-wash);color:var(--ok);border:1px solid var(--ok)}
 
 /* ---------- step blocks ---------- */
 .step{
@@ -264,28 +265,23 @@ footer{margin-top:64px;padding-top:22px;border-top:3px solid var(--ink);font-siz
 <p class="lede" style="margin-top:34px">This work is based out of the Buffalo office, with Breanna managing it and John assisting on a few steps in Vercel, where the domain is held. One task has to happen at the yard in New Town, and it needs a phone rather than a computer.</p>
 
 <div class="note good" style="margin-top:26px">
-<h4>3 September &mdash; the phone number landed, and this filing is unblocked</h4>
-<p>The customer-facing number is <strong>(701) 627-2200</strong>, decided on 2 September and put in writing by Breanna on 3 September. The yard address is <strong>9702 ND-23, New Town ND 58763</strong>, verified by Richard on the ground on 2 September and restated in the same email. Both are live on the website as of today.</p>
-<p>Everything written below about the phone number being missing was true on 23 August and is not true now. Where the steps say to get a number, use this one. Two things worth knowing about it: it is a 701 landline exchange rather than a VOIP number, which is what we wanted, and it sits one block away from Strata's 701-627-2066, which is a good sign that it is a real local line.</p>
-<p>Four things are still open and none of them stop the filing: whether a sign exists at the yard and what it says, whether anyone is at the yard during the posted hours, the material list with the yard's own product names, and the photographs. <strong>The photographs are still the long pole.</strong> The listing can be submitted and verified without them, but a profile with no yard pictures ranks and converts worse than one with them, so they are worth chasing in parallel rather than after.</p>
-</div>
-
-<div class="note acc" style="margin-top:26px">
-<h4>24 August &mdash; the shoot at the yard changes the order</h4>
-<p>Amanda and Richard are both on site tomorrow for photos and drone footage. Three of the questions blocking this filing can be answered while they are there, including whether a sign exists, which together with the truck magnets decides the listing name. The list is in section <a href="#tomorrow">07</a>.</p>
-<p>It does not move the verification video up. That has to be recorded through a link Google generates after the profile is submitted, so nothing filmed tomorrow can be sent in as it. What tomorrow can do is prove the required shots exist, which is not currently known.</p>
+<h4>3 September &mdash; nothing is blocking this filing any more</h4>
+<p>The customer-facing number is <strong>(701) 627-2200</strong>, decided on 2 September and put in writing by Breanna on 3 September. The yard is <strong>9702 ND-23, New Town ND 58763</strong>, verified by Richard on the ground and restated in the same email. Both are live on the website today.</p>
+<p>Everything written below about the phone number being missing was true on 23 August and is not true now. Where a step says to go and get a number, use this one.</p>
+<p><strong>The profile can be created today.</strong> What is left, and the order to do it in, is in section <a href="#next">00</a> immediately below.</p>
 </div>
 
 <div class="toc">
   <p class="kicker">Contents</p>
-  <ol>
+  <ol start="0">
+    <li><a href="#next">Where this stands, and what happens next</a> <span class="chip chip-g">3 Sep</span></li>
     <li><a href="#split">Who does what</a></li>
     <li><a href="#why">Why the listing comes first</a></li>
     <li><a href="#checks">What I found on Google</a></li>
     <li><a href="#john">John's part in Vercel</a></li>
     <li><a href="#email">Breanna: the email account</a></li>
     <li><a href="#profile">Breanna: the profile</a></li>
-    <li><a href="#tomorrow">Tomorrow at the yard</a></li>
+    <li><a href="#tomorrow">At the yard</a></li>
     <li><a href="#video">The New Town video</a></li>
     <li><a href="#after">After it goes live</a></li>
     <li><a href="#never">Nine things not to do</a></li>
@@ -295,6 +291,91 @@ footer{margin-top:64px;padding-top:22px;border-top:3px solid var(--ink);font-siz
   </ol>
 </div>
 </div>
+
+<!-- ============ 00 NEXT ============ -->
+<section id="next">
+<div class="sec-head"><span class="sec-num">00</span><div>
+<h2>Where this stands, and what happens next</h2>
+<p class="sec-sub">Written 3 September, on top of the 23 August playbook. Read this first, then work the steps.</p>
+</div></div>
+<div class="col">
+
+<p class="lede">Eleven of the steps below were written when the account did not exist, the domain had no mail records, there was no phone number and nobody had confirmed the address. All four of those are now done. <strong>The next action is Breanna creating the profile, which is step 6, and it takes about twenty minutes.</strong></p>
+
+<h3>What is actually finished</h3>
+<p>Checked on 3 September rather than assumed, because the last written status on the mail records was from 24 August and said three of the four were still outstanding. They are not. All four resolve.</p>
+
+<div class="tw"><table>
+  <tr><th>Step</th><th>State</th><th>How we know</th></tr>
+  <tr><td><strong>J1, J2</strong> &middot; the DNS records</td><td><span class="chip chip-g">Done</span></td><td>MX on <code>smtp.google.com</code>, SPF, DMARC and the Google DKIM key all resolve today. The domain sends and receives mail properly.</td></tr>
+  <tr><td><strong>01 to 03</strong> &middot; Workspace and verification</td><td><span class="chip chip-g">Done</span></td><td>Live since 24 August. The Google site-verification record is still in place.</td></tr>
+  <tr><td><strong>04</strong> &middot; the mailbox and aliases</td><td><span class="chip chip-g">Done</span></td><td><code>office@</code> is the working mailbox and owns the profile. <code>quotes@</code> and <code>info@</code> are aliases on it and are printed on the website.</td></tr>
+  <tr><td><strong>05</strong> &middot; the three answers before the form opens</td><td><span class="chip chip-b">One of three left</span></td><td>Phone answered 3 September. Address verified 2 September. Hours set 2 September. What is still open is whether anyone is <em>at</em> the yard through those hours.</td></tr>
+  <tr><td><strong>06</strong> &middot; create the profile</td><td><span class="chip chip-n">Next</span></td><td>Ready. Two fields need a decision, both covered below.</td></tr>
+  <tr><td><strong>07, 08</strong> &middot; verification and the video</td><td><span class="chip chip-b">Follows step 6</span></td><td>Google generates the link on submission. It cannot be started earlier.</td></tr>
+</table></div>
+
+<div class="note">
+<h4>One small thing on the mail setup, not urgent</h4>
+<p>DMARC is published as <code>p=none</code>, which means Google reports on spoofing attempts but does not act on them. That is the correct place to start. Once the mailbox has been in normal use for a month or two and the reports look clean, it is worth moving to <code>p=quarantine</code>. Put it on the monthly list in step 11 rather than doing it now.</p>
+</div>
+
+<h3 style="margin-top:36px">Move one: file the profile</h3>
+<p>Step 6 has the full field card. Everything on it is settled except two entries, and both have an answer here so nobody has to stop halfway through the form.</p>
+
+<div class="split">
+  <div class="panel n">
+    <h4>Decide before you start</h4>
+    <p class="big">The business name</p>
+    <p><strong>Concrete Warrior Supply</strong>, decided 13 August. The rule has not changed: the listing name has to match what is on the sign and the truck doors, because that is what the verifier is looking at. If the physical wording ends up different, the listing has to follow the physical wording, not the other way round.</p>
+  </div>
+  <div class="panel j">
+    <h4>Leave it empty today</h4>
+    <p class="big">The website field</p>
+    <p>Checked on 3 September: <code>concretewarriorsupply.com</code> and the <code>www</code> version both return 404. The build is live on a temporary address that is deliberately hidden from search, so putting it on the listing would spend the field on a page Google is told to ignore. Blank beats broken, and adding it later takes thirty seconds.</p>
+  </div>
+</div>
+
+<p>The rest of the card is fixed and can be typed straight in: the address is <span class="mono">9702 ND-23, New Town, ND 58763</span>, the phone is <span class="mono">(701) 627-2200</span>, the primary category is <strong>Ready mix concrete supplier</strong>, and the hours are Monday to Friday 8 to 5, Saturday 8 to 12, closed Sunday.</p>
+
+<div class="note warn">
+<h4>Hours are a commitment, and they are the one field that can get the listing reported</h4>
+<p>Posting staffed hours is what makes this a standard listing with the address showing publicly on the map, which ranks considerably better than a service-area listing with the address hidden. It is also a claim that somebody picks up during those hours. If the yard is not manned and calls forward to a cell, say so now and we will set it up the other way, because a listing that claims hours nobody keeps is a common suspension cause. This is the last open question in step 5 and it is worth one sentence from Richard before Breanna files.</p>
+</div>
+
+<h3 style="margin-top:36px">Move two: have somebody at the yard ready before you file, not after</h3>
+<p>Google offers the verification method on submission and produces a link that opens on a phone. Nothing can be filmed in advance and sent in, so the person at New Town is on the clock from the moment Breanna presses submit.</p>
+<p>Worth two minutes of planning: agree with Amanda or Richard which day suits, then file on that day. The whole recording takes about ten minutes including the walk, and section <a href="#video">08</a> is written to be forwarded to whoever holds the phone. Retakes cost nothing, so there is no pressure to get it right first time.</p>
+
+<div class="note acc">
+<h4>Why the video carries more weight here than it usually does</h4>
+<p>Google has no business record at this address. There is no street imagery of the yard and no auto-generated listing to correct, so the video is doing the entire job of proving a real operation stands there. A sign in frame, a building, iron working and a person with keys is the difference between verified inside a week and a rejection loop.</p>
+</div>
+
+<h3 style="margin-top:36px">Move three: the sign</h3>
+<p>This has been open since 20 August and it is now the only thing that can genuinely slow the filing down, because the video is asked to show it first. Nobody in Buffalo knows whether a sign exists at the yard.</p>
+<p>If one is up, photograph it straight on and close enough to read every word, and the listing name copies it exactly. If nothing is up, ordering one is worth doing before the video rather than after. It does not have to be elaborate. Name, phone number and web address, readable from thirty feet, which means fewer words and larger type than looks right on a screen. The truck magnets in section <a href="#tomorrow">07</a> are the same decision and the same artwork, and we can supply print-ready files that match the website.</p>
+
+<h3 style="margin-top:36px">Running alongside: the photographs</h3>
+<p>Still outstanding, and still the longest pole in the wider project. Seven product slots on the website are empty, four more are carrying Texas stand-ins, and the aerial, the crusher running and a ready-mix truck door have never been shot.</p>
+<p>None of it blocks the Google filing, which is the useful part. A verified profile with no photographs is still a verified profile, and photographs can be added the day they arrive. It does hold the website launch, and it does hold how well the listing performs once it is live, so it is worth chasing in parallel rather than queueing behind verification. The shot list is in section <a href="#tomorrow">07</a>.</p>
+
+<h3 style="margin-top:36px">The short version</h3>
+<div class="tw"><table>
+  <tr><th>#</th><th>Do this</th><th>Who</th><th>How long</th></tr>
+  <tr><td class="mono">1</td><td>Confirm whether the yard is staffed through the posted hours</td><td>Richard</td><td>One sentence</td></tr>
+  <tr><td class="mono">2</td><td>Confirm whether a sign exists and what it says, or order one</td><td>Amanda or Richard</td><td>A photograph</td></tr>
+  <tr><td class="mono">3</td><td>Create the profile, step 6, website field left blank</td><td>Breanna</td><td>~20 min</td></tr>
+  <tr><td class="mono">4</td><td>Text the verification link to the yard, record the walk</td><td>Breanna, then New Town</td><td>~10 min on site</td></tr>
+  <tr><td class="mono">5</td><td>Fill the profile out properly once verified, step 9</td><td>Breanna</td><td>~30 min</td></tr>
+  <tr><td class="mono">6</td><td>Send whatever photographs exist, in any state</td><td>New Town</td><td>Ongoing</td></tr>
+  <tr><td class="mono">7</td><td>Attach the apex domain, then add the website to the listing</td><td>John, then Breanna</td><td>Waits on the lease</td></tr>
+</table></div>
+
+<p>Items 1 and 2 are not prerequisites for item 3 in any strict sense. The profile can be filed without them and edited afterwards. They are listed first because both are quicker to answer than to work around, and getting the name wrong at creation is the one mistake on this list that is genuinely hard to undo.</p>
+
+</div>
+</section>
 
 <!-- ============ WHO DOES WHAT ============ -->
 <section id="split">
@@ -649,12 +730,12 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
 <!-- ============ TOMORROW ============ -->
 <section id="tomorrow">
 <div class="sec-head"><span class="sec-num">07</span><div>
-<h2>Tomorrow at the yard</h2>
-<p class="sec-sub">24 August &middot; Amanda and Richard both on site</p>
+<h2>At the yard</h2>
+<p class="sec-sub">Written for the 24 August shoot. Still the list, and still mostly unanswered.</p>
 </div></div>
 <div class="col">
 
-<p>Three questions blocked the filing when this was written. The phone number, the second one below, was answered on 3 September and is struck through here rather than deleted so the sequence still reads. The other two can be answered at the yard, each in a sentence spoken out loud or a photograph.</p>
+<p>Three questions blocked the filing when this was written. The phone number, the second one below, was answered on 3 September and is struck through rather than deleted so the sequence still reads. The other two are still open ten days later, and each one is a sentence spoken out loud or a single photograph. They are items 1 and 2 in section <a href="#next">00</a>.</p>
 
 <h3>The three that unblock the filing</h3>
 <ol class="plain">
