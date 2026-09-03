@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Internal discussion draft. Link-shared, not indexed.">
+<title>VPC: Where AI Belongs</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --ink: #26221d;
+    --muted: #6f675b;
+    --accent: #8c3f2b;
+    --accent-ink: #8c3f2b;
+    --rule: #e5dfd4;
+    --card: #f3efe8;
+    --card-strong: #ece6db;
+    --good: #3e6b46;
+    --warn: #8a6a1f;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1e1b17;
+      --ink: #eae4da;
+      --muted: #a69c8c;
+      --accent: #d47c5f;
+      --accent-ink: #d98d73;
+      --rule: #3a342b;
+      --card: #272319;
+      --card-strong: #2e2920;
+      --good: #8fb896;
+      --warn: #cfa94e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1e1b17;
+    --ink: #eae4da;
+    --muted: #a69c8c;
+    --accent: #d47c5f;
+    --accent-ink: #d98d73;
+    --rule: #3a342b;
+    --card: #272319;
+    --card-strong: #2e2920;
+    --good: #8fb896;
+    --warn: #cfa94e;
+  }
+  :root[data-theme="light"] {
+    --bg: #fbfaf7;
+    --ink: #26221d;
+    --muted: #6f675b;
+    --accent: #8c3f2b;
+    --accent-ink: #8c3f2b;
+    --rule: #e5dfd4;
+    --card: #f3efe8;
+    --card-strong: #ece6db;
+    --good: #3e6b46;
+    --warn: #8a6a1f;
+  }
+  html { background: var(--bg); }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.65;
+    margin: 0;
+    font-size: 17px;
+  }
+  .page {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.4rem 5rem;
+  }
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 1.1rem;
+  }
+  h1 {
+    font-size: 2.15rem;
+    line-height: 1.15;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .dek {
+    font-size: 1.08rem;
+    color: var(--muted);
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+  }
+  .meta {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.2rem 0 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.6rem;
+  }
+  h2 {
+    font-size: 1.42rem;
+    font-weight: 600;
+    margin: 3rem 0 0.9rem;
+    text-wrap: balance;
+    letter-spacing: -0.005em;
+  }
+  h3 {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 1.9rem 0 0.5rem;
+    text-wrap: balance;
+  }
+  p { margin: 0 0 1rem; }
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; border-radius: 2px; }
+  ul, ol { margin: 0 0 1rem; padding-left: 1.3rem; }
+  li { margin-bottom: 0.45rem; }
+  strong { font-weight: 600; }
+
+  .summary {
+    background: var(--card);
+    border-left: 3px solid var(--accent);
+    padding: 1.2rem 1.4rem;
+    margin: 2rem 0 0;
+  }
+  .summary p:last-child { margin-bottom: 0; }
+  .summary .label {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--sans);
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+  .table-wrap { overflow-x: auto; margin: 1.2rem 0 1.6rem; }
+  th {
+    text-align: left;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    padding: 0.5rem 0.9rem 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  td {
+    padding: 0.55rem 0.9rem 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted); }
+
+  .option {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.6rem;
+    margin-top: 2.2rem;
+  }
+  .option-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+  }
+  .option-num {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+    font-variant-numeric: tabular-nums;
+    flex: none;
+  }
+  .option h3 { margin: 0; font-size: 1.18rem; }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.7rem 0 1rem;
+    font-family: var(--sans);
+  }
+  .chip {
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    padding: 0.18rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--muted);
+    background: var(--card);
+    white-space: nowrap;
+  }
+  .chip.now { color: var(--accent-ink); border-color: var(--accent-ink); background: transparent; font-weight: 600; }
+  .chip.good { color: var(--good); border-color: var(--good); background: transparent; font-weight: 600; }
+
+  .aside {
+    background: var(--card);
+    padding: 1rem 1.3rem;
+    margin: 1.4rem 0;
+    font-size: 0.95rem;
+  }
+  .aside .label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+  .aside p:last-child { margin-bottom: 0; }
+
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li {
+    padding-left: 1.7rem;
+    position: relative;
+    margin-bottom: 0.7rem;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.42em;
+    width: 0.62em;
+    height: 0.62em;
+    border: 1.5px solid var(--accent-ink);
+    border-radius: 2px;
+  }
+
+  .footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 3.5rem;
+    padding-top: 1.6rem;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .footer p { margin-bottom: 0.6rem; }
+  .sources { font-size: 0.88rem; color: var(--muted); }
+  .sources li { margin-bottom: 0.3rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    a { transition: color 120ms ease; }
+  }
+
+  figure.fig { margin: 1.6rem 0 1.8rem; }
+  figure.fig img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: #fff;
+  }
+  figure.fig figcaption {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--muted);
+    margin-top: 0.55rem;
+  }
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.1rem;
+    align-items: start;
+  }
+  .grid2 figure.fig { margin-top: 0.6rem; }
+  @media (max-width: 34rem) {
+    .grid2 { grid-template-columns: 1fr; }
+  }
+  .aside ul { margin-top: 0.6rem; }
+  .aside li { font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<div class="page">
+  <p class="eyebrow">Doble AI</p>
+  <h1>Where AI belongs at VPC</h1>
+  <p class="dek">A starting brief on the company-wide question, and on the one lane we would test first.</p>
+  <div class="meta">
+    <span>Prepared for Corey Hogan</span>
+    <span>Discussion draft &middot; September 2, 2026</span>
+    <span>Link-shared, not indexed</span>
+  </div>
+
+  <div class="summary">
+    <p class="label">The short version</p>
+    <p>VPC builds custom fiberglass for customers who mostly cannot buy off a shelf, which means every job passes through a stretch of digital work before anyone touches material: the inbound request, the missing dimensions, the first drawing, the price. That stretch is where a custom shop backs up, and it is the part of the business AI is genuinely good at today. The question in front of the company is not which tool to buy. It is where the work actually sits, how much of it repeats, and what a first draft would have to look like for an engineer to trust it. This page states that question and proposes how to answer it. It does not answer it yet, because answering it honestly requires sitting in the queue and reading VPC's own closed jobs.</p>
+  </div>
+
+  <h2><span class="option-num">01</span> What this is</h2>
+  <p>The initiative is a company-wide look at where AI belongs at VPC. It starts with the digital work that sits in front of the plant: inbound request, spec, drawing, price. Corey asked John Rounds to lead it.</p>
+  <p>It is not a website rebuild. It is not a plant automation project. It is not a tool bake-off, and nothing in it asks VPC to buy software. This page is the starting place, not the finished plan.</p>
+
+  <h2><span class="option-num">02</span> Purpose</h2>
+  <p>Give sales and engineering a first draft they can correct, so the quote queue moves and hiring becomes additive instead of the only way out of a backlog. Accuracy gets measured against VPC's own closed jobs, not against a generic FRP cost model, because the second one would tell us nothing about this company. A human engineer stamps before anything leaves the building.</p>
+  <p>The purpose is a more capable company, not a cheaper one on paper.</p>
+
+  <h2><span class="option-num">03</span> Why an owner would do this</h2>
+  <p>Three reasons, and they are not the same reason in different clothes. The order is deliberate.</p>
+
+  <h3>A. The work in front of the plant is the cap</h3>
+  <p>A custom FRP shop does not wait on the chopper gun. It waits on the packet. A request arrives in whatever form the customer felt like sending. A dimension is missing. Somebody chases it. Somebody draws. Somebody prices. VPC runs three manufacturing facilities in Western New York, and how many jobs move through them is decided upstream of all three, in a queue made of email, PDFs and drawings.</p>
+  <p>That work is digital and it repeats. Adding engineers moves the ceiling one engineer at a time. Clearing the digital work in front of them is how the plants take on more jobs without the quote cycle deciding the number. Hiring still happens. This does not replace it.</p>
+
+  <h3>B. Lead the category rather than copy it in three years</h3>
+  <p>The companies already operating at scale are putting AI on digital work first and physical work second. Elon Musk made that argument publicly at the G20 Innovation Summit on September 1, 2026, in remarks covered by CNBC, The Daily Tar Heel and IANS and available in <a href="https://singjupost.com/transcript-elon-musk-remarks-at-g20-innovation-summit/">full transcript</a>. We have not looked inside any of those companies and make no claim about how they run.</p>
+  <p>The owner-level point is directional. At the top of the market, agents are being pointed at requests, specifications, software and drawings, and manufacturing follows that curve on a delay. FRP is still quoting by form. VPC can be early in this category or late in it, and being early costs less than catching up will. Humanoids and shop-floor robots are the later chapter and are not this project.</p>
+
+  <h3>C. The signal to partners</h3>
+  <p>VPC already sells into municipal and industrial water and wastewater, to specifying engineers, to OEMs and to government. The customers named on the custom buildings page include the US Coast Guard, the US Navy, Procter &amp; Gamble, DuPont and Chevron. Every one of those organizations is being asked the same AI question inside its own walls right now.</p>
+  <p>A shop that can describe a real process, a first draft, a human stamp, accuracy graded against closed jobs, reads as a company that is evolving and worth bringing into a bid. That is useful when VPC is collaborating with a partner, not only when it is quoting a customer. This is not a press release and there is no announcement in it. The signal is the work itself, shown when Corey decides to show it.</p>
+
+  <h2><span class="option-num">04</span> Process</h2>
+  <p>Carte blanche on the approach is not permission to skip the look. Before anything gets built, the company gets read. This is the sequence.</p>
+  <ol>
+    <li><strong>Sit in the work.</strong> A week alongside sales and engineering on live requests. What arrives, and in what form: email, PDF, a spec section, a phone note, a photo of something in the field. What gets asked back. Who draws. Who prices. What waits, and on whom.</li>
+    <li><strong>Reconstruct the last 10 closed jobs on one product family.</strong> The inbound artifact, the hours, the drawing, the price, and what changed between the first packet and the final one. This is the ground truth for everything after it. If VPC cannot assemble those 10, there is no project yet, and we would say so rather than build on a guess.</li>
+    <li><strong>Write the option tree for that family from VPC's own packages.</strong> Not from a competitor's form. The published starting points are already there: window, heat, exhaust, light, chlorination package, voltage, load center. Shelter Works publishes the most detailed public quote form we found in this category, covering size, wind and roof load, PE stamp, electrical, HVAC, doors and insulation. We would read it as a map of the questions a shelter buyer gets asked, not as VPC's tree.</li>
+    <li><strong>Blind test.</strong> The system drafts spec, drawing language and price for those same 10 jobs, without seeing the outcome. Engineers grade the output against what actually shipped. The grade is theirs, not ours.</li>
+    <li><strong>Human stamp, always.</strong> Nothing auto-sends. The output is a packet an engineer corrects in minutes, not a quote a customer sees.</li>
+    <li><strong>Live inbound only after the closed-job test holds.</strong> One family, one lane, then widen.</li>
+  </ol>
+
+  <div class="aside">
+    <p class="label">Objectives worth writing down now, with no numbers attached to them yet</p>
+    <ul>
+      <li>Hours of engineer time per first drawing.</li>
+      <li>Time from a complete request to a first packet.</li>
+      <li>Hit rate against the 10 closed jobs, graded by the engineers who priced them.</li>
+      <li>Rework after the first drawing.</li>
+      <li>Jobs quoted that previously sat waiting.</li>
+    </ul>
+    <p>Every one of those is blank on purpose. VPC has the baselines inside its own files. We do not have them yet, and a number invented here would poison the comparison later.</p>
+  </div>
+
+  <h2><span class="option-num">05</span> Where it can land</h2>
+  <p>A map of the territory, not a schedule. Only the first lane is live.</p>
+
+  <h3>Now</h3>
+  <ul>
+    <li>Parsing the inbound request, whatever form it shows up in.</li>
+    <li>Capturing options against the published packages.</li>
+    <li>Drafting shop-drawing and CSI spec language.</li>
+    <li>Drafting a price from closed jobs.</li>
+    <li>Assembling a quote packet with its assumptions and exclusions stated.</li>
+    <li>Engineer review, on every one of the above.</li>
+  </ul>
+
+  <h3>Next</h3>
+  <ul>
+    <li>Specification-only bid language. Shelter Works already sells that as a separate ask, which tells you there is demand for the document itself.</li>
+    <li>Restoration and repair estimates built from field photos and notes.</li>
+    <li>OEM repeat work, where the option tree is already narrow.</li>
+  </ul>
+
+  <h3>Later, and deliberately not on this page</h3>
+  <ul>
+    <li>Coatings.</li>
+    <li>EasyRec and InterActive Play, which sell to a different buyer and deserve their own read.</li>
+    <li>Catalog FAQ and Product structured data. That work already has a page of its own, the <a href="https://jroundshp.github.io/doble-ai-deliverables/vpc-findability/">VPC findability review</a>, and it is a separate workstream from this one. The two should not be mixed.</li>
+  </ul>
+
+  <h3>Not</h3>
+  <ul>
+    <li>Plant layup and chopper guns.</li>
+    <li>Humanoids.</li>
+    <li>Anything that sends to a customer unattended.</li>
+  </ul>
+
+  <h2><span class="option-num">06</span> First lane</h2>
+  <p>The example John started from is an inbound message that reads roughly like this: 6 feet tall, 3 feet wide, bathroom, 220 volt, window. The lane is everything that happens after that sentence lands. It becomes a spec, a drawing draft and a price draft, and an engineer corrects all three.</p>
+  <p>Two published cousins sit near it in VPC's own catalog. The chemical feed package carries a 12x12 window in the door, an exterior switch for light and fan, an exhaust fan and intake louver, a vapor-tight light, a heater, a load center and a containment floor, with an example listed at 6 feet by 7.5 feet by 6 feet. The Driver Relief Station built for RTD, at 7 feet by 10 feet, is the closest published restroom. Neither one is a 6 by 3, and there is no 6 by 3 SKU. That is exactly why the example is useful. It is a small, bounded option tree inside a range VPC already builds, one-piece molded from 4 by 4 up to 14 by 14 feet and modular to 20 feet wide with no length limit, and it is a request somebody at VPC already knows how to price by hand. A first draft is only testable against work a person can grade.</p>
+
+  <h2><span class="option-num">07</span> What peers actually do</h2>
+  <p>In FRP, nobody we found has done this. Shelter Works in St. Louis publishes the most complete public option tree in the category, and at the end of it the customer still submits a form and waits for a person. Warminster Fiberglass, LF Manufacturing, Augusta Fiberglass and Signature Enclosures are the names that surface when an AI assistant is asked who makes fiberglass enclosures, and none of them publishes anything resembling a request-to-price engine. We looked at public material only and did not crawl anyone's internals.</p>
+  <p>The method exists next door, in engineered-to-order manufacturing generally. Mavlon works with custom manufacturers on estimator-graded quoting using the shop's own rates, with a public Montanstahl example. SmartShopFloor does steel and sheet, which is the wrong physics for a molded shelter. CADIAM works from STEP files and molding. We are not recommending any of them and there is no pricing in this brief. What transfers is the method: closed jobs as the yardstick, and a human grade on every output.</p>
+  <p>Worth knowing what to ignore. The noisy end of this market, the vendors selling AI quoting from a drawing, is almost entirely CNC and steel fabrication. That physics does not describe a fiberglass building, and their accuracy claims do not carry over.</p>
+
+  <h2><span class="option-num">08</span> What this is not</h2>
+  <ul>
+    <li>Not the findability review. That is a separate page and a separate workstream.</li>
+    <li>Not a new audit and not a score.</li>
+    <li>Not plant automation.</li>
+    <li>Not a replacement for engineers. The engineer is the control on the whole thing.</li>
+    <li>Not a press release.</li>
+    <li>Not a product pitch.</li>
+  </ul>
+
+  <h2><span class="option-num">09</span> What we still need from inside VPC</h2>
+  <ul class="checklist">
+    <li>The last 10 closed jobs on the first product family: the inbound file as it arrived, the hours, the drawing, the price, and the revisions.</li>
+    <li>Who owns the quote packet today, at each step.</li>
+    <li>What a complete request looks like, next to what usually arrives instead.</li>
+    <li>Permission to sit in the queue for a week.</li>
+  </ul>
+  <p>Until those exist, any figure on cycle time or hit rate would be invented, so they are left blank here rather than estimated.</p>
+
+  <h2><span class="option-num">10</span> Starting place</h2>
+  <p>This page is the initiation document for the AI overview and implementation at VPC. It is a discussion draft and it is meant to be argued with by the people who do the work.</p>
+  <p>The next physical step is not a software purchase. It is the closed-job pull and a week in the queue.</p>
+
+  <div class="footer">
+    <p>Doble AI &middot; VPC AI initiative &middot; discussion draft &middot; 2 September 2026 &middot; link-shared, not indexed.</p>
+    <p>Company facts in this brief were taken from VPC's own public pages and product catalog on September 2, 2026. Nothing here reflects access to VPC's internal systems, quotes or job records.</p>
+  </div>
+</div>
+</body>
+</html>
