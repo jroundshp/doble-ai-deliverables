@@ -374,6 +374,11 @@ footer{margin-top:64px;padding-top:22px;border-top:3px solid var(--ink);font-siz
 
 <p>Items 1 and 2 are not prerequisites for item 3 in any strict sense. The profile can be filed without them and edited afterwards. They are listed first because both are quicker to answer than to work around, and getting the name wrong at creation is the one mistake on this list that is genuinely hard to undo.</p>
 
+<div class="note acc">
+<h4>If you are reading this to answer something, go to section <a href="#open">12</a></h4>
+<p>Eight open questions are collected there, numbered, with who can answer each one. Most take a single line and two are answered by a photograph. Reply with the numbers and we will move on all of them at once.</p>
+</div>
+
 </div>
 </section>
 
@@ -517,7 +522,7 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
 <h3 style="margin-top:38px">The website, which is a separate track</h3>
 <p>Load <code>concretewarriorsupply.com</code> today and it returns a Vercel 404 with <code>DEPLOYMENT_NOT_FOUND</code>. The domain resolves but is not attached to any project, and the concept build is noindexed on three layers by design.</p>
 <p>The build is waiting on two things rather than on work: the drone and yard photographs, being shot 24 August, and Richard's resume, which John is mining for the About section. Once both land the site goes live and gets tuned in place.</p>
-<p><strong>The two tracks are no longer in a race.</strong> The profile is blocked on a phone number that does not exist yet and a Workspace account nobody has bought, so the website will very likely be answering before Breanna reaches step 6. In that case she just types the URL in like any other field.</p>
+<p><strong>Updated 3 September.</strong> The profile is no longer blocked on anything, and the race turned out the other way round from what this paragraph originally predicted. The listing can be filed today. The website is built and answering on a temporary address, but the apex is still detached and still 404s, so <strong>the website field gets left blank at creation</strong> and filled in later.</p>
 <div class="note">
 <h4>The rule, either way</h4>
 <p>The website field on a Google listing is optional, and <strong>blank beats broken</strong>. If <code>concretewarriorsupply.com</code> is still returning a 404 when Breanna gets to step 6, she leaves it empty and adds it in thirty seconds once John says the word. A listing pointing at a dead address is worse than one pointing nowhere.</p>
@@ -531,11 +536,17 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
 <section id="email">
 <div class="sec-head"><span class="sec-num">05</span><div>
 <h2>Breanna: the email account</h2>
-<p class="sec-sub">Steps 1 to 4 &middot; about 40 minutes, mostly waiting on DNS</p>
+<p class="sec-sub">Steps 1 to 4 &middot; <strong>done, 24 August to 3 September</strong> &middot; kept for the record</p>
 </div></div>
 <div class="col">
 
-<p>The domain currently has no mail at all. I pulled the DNS and there are five records: three CAA and two Vercel ALIAS. No MX, no TXT. Nothing can receive mail at <code>@concretewarriorsupply.com</code> because no mail server has been told to.</p>
+<div class="note good">
+<h4>All of section 05 is finished. Nothing here needs doing.</h4>
+<p>Checked on 3 September: MX, SPF, DMARC and the Google DKIM key all resolve, and <code>office@</code> with its <code>quotes@</code> and <code>info@</code> aliases is in use on the website. Steps 1 through 4 are done and the four steps below are kept for the record rather than as work.</p>
+<p>One item inside them is still open, and it is question 5 in section <a href="#open">12</a>: whether Richard wants a <code>richard@</code> alias.</p>
+</div>
+
+<p>What follows describes the domain as it was on 23 August, when it had no mail at all: five records, three CAA and two Vercel ALIAS, no MX and no TXT.</p>
 
 <div class="step">
   <div class="step-n">01</div>
@@ -620,19 +631,19 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
 <div class="step">
   <div class="step-n">05</div>
   <div class="step-b">
-    <h3>Three answers we need before the form opens</h3>
-    <div class="step-meta"><span class="chip chip-b">Buffalo</span><span class="chip chip-block">All three are blocking</span></div>
-    <p>Each of these changes what gets typed into the form, and guessing on any of them means redoing the filing.</p>
+    <h3>Three answers we needed before the form opens</h3>
+    <div class="step-meta"><span class="chip chip-b">Buffalo</span><span class="chip chip-b">One of three still open</span></div>
+    <p>Each of these changes what gets typed into the form, and guessing on any of them means redoing the filing. The phone is answered. The address and the hours were settled on 2 September. What is left is whether the yard is manned through those hours.</p>
 
     <div class="tw"><table>
       <tr><th>Question</th><th>Why it decides something</th><th>Who answers</th></tr>
       <tr>
-        <td><strong>Is there a sign at the yard, and what exactly does it say?</strong></td>
+        <td><strong>Is there a sign at the yard, and what exactly does it say?</strong> <span class="chip chip-n">Still open</span></td>
         <td>Video verification asks to see signage, and the listing name has to match the sign. If there is no sign, we need to know now, because it makes verification materially harder and may mean ordering one before filing.</td>
         <td>Amanda or Richard</td>
       </tr>
       <tr>
-        <td><strong>Is anyone at 9702 ND-23 during posted hours?</strong></td>
+        <td><strong>Is anyone at 9702 ND-23 during posted hours?</strong> <span class="chip chip-n">Still open</span></td>
         <td>Decides a storefront listing, where the address shows publicly and ranks much better on the map, versus a service area listing with the address hidden. Claiming staffed hours when nobody is there gets the listing reported.</td>
         <td>Richard</td>
       </tr>
@@ -966,20 +977,76 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
 <section id="open">
 <div class="sec-head"><span class="sec-num">12</span><div>
 <h2>Open questions</h2>
-<p class="sec-sub">What is blocking, and who can unblock it</p>
+<p class="sec-sub">Eight of them, as of 3 September. Most are one line to answer.</p>
 </div></div>
 <div class="col">
+
+<p class="lede">These are numbered so they can be answered in a reply without quoting anything. <strong>Answer the number.</strong> A one-line answer is a complete answer for most of them, and a photograph is a complete answer for two.</p>
+
+<div class="note warn">
+<h4>Two of these decide whether the filing has to be redone</h4>
+<p>Questions <strong>1</strong> and <strong>2</strong> change what gets typed into the form. Everything else can be added or corrected after the listing exists. The business name in particular is the one field that is genuinely hard to fix once the profile is created, so it is worth spending a day getting question 2 right rather than filing on an assumption.</p>
+</div>
+
 <div class="tw"><table>
-  <tr><th>Question</th><th>Blocks</th><th>Owner</th></tr>
-  <tr><td>Is there a sign, and what does it say</td><td>Steps 6 and 8</td><td>Amanda or Richard</td></tr>
-  <tr><td>Have the sign and magnets been ordered reading <strong>Concrete Warrior Supply</strong>? <em>The name was decided on 13 August and is no longer an open choice. What is open is whether the physical wording matches it.</em></td><td>Step 6, and Google verification</td><td>Richard and Amanda</td></tr>
-  <tr><td>Can truck magnets be printed in time for the 24 August shoot</td><td>Truck-door photographs</td><td>Richard or Amanda</td></tr>
-  <tr><td>Is the yard staffed during posted hours</td><td>Step 6</td><td>Richard</td></tr>
-  <tr><td><s>What phone number goes on the listing</s> <strong>(701) 627-2200</strong></td><td>Nothing</td><td>Closed</td></tr>
-  <tr><td>Does Richard agree to the alias routing</td><td>Step 4</td><td>Richard</td></tr>
-  <tr><td>Full material list with correct product names</td><td>Step 9</td><td>Richard</td></tr>
+  <tr><th>#</th><th>Question</th><th>Who</th><th>What it decides</th></tr>
+  <tr>
+    <td class="mono">1</td>
+    <td><strong>Is anybody at the yard through the posted hours?</strong> Monday to Friday 8 to 5, Saturday 8 to 12. Yes, no, or sometimes is enough. If calls forward to a cell instead, say that.</td>
+    <td>Richard</td>
+    <td>A standard listing with the address showing publicly on the map, which ranks much better, against a service-area listing with the address hidden. Claiming hours nobody keeps is a common reason listings get suspended.</td>
+  </tr>
+  <tr>
+    <td class="mono">2</td>
+    <td><strong>Is there a sign at the yard, and what exactly does it say?</strong> A photograph straight on, close enough to read every word, answers it completely. If there is no sign anywhere on the property, say so plainly. Open since 20 August.</td>
+    <td>Amanda or Richard</td>
+    <td>The listing name has to match the sign, because that is what the verifier is looking at. It is also the first thing the verification video is asked to show.</td>
+  </tr>
+  <tr>
+    <td class="mono">3</td>
+    <td><strong>Have the sign and the truck magnets been ordered, and do they read exactly <em>Concrete Warrior Supply</em>?</strong> The name was decided on 13 August, so this is not asking which name to use. It is asking whether the physical wording matches it.</td>
+    <td>Richard and Amanda</td>
+    <td>Whatever gets printed becomes the real-world name and the listing has to follow it. We can supply print-ready artwork matching the website if that helps.</td>
+  </tr>
+  <tr>
+    <td class="mono">4</td>
+    <td><strong>Who is at the yard with a phone when the verification link arrives, and which day suits?</strong> The link is generated the moment the profile is submitted and it cannot be started earlier, so this is scheduling rather than a decision.</td>
+    <td>Amanda or Richard, with Breanna</td>
+    <td>When Breanna files. About ten minutes on site including the walk. Section <a href="#video">08</a> can be forwarded to whoever holds the phone.</td>
+  </tr>
+  <tr>
+    <td class="mono">5</td>
+    <td><strong>Richard, do you want <span class="mono">richard@concretewarriorsupply.com</span>?</strong> It is free and it routes mail sent to that address into the Buffalo inbox, which is why nobody has set it up without asking. Yes or no.</td>
+    <td>Richard</td>
+    <td>Finishes the mailbox setup. The only item left in section <a href="#email">05</a>.</td>
+  </tr>
+  <tr>
+    <td class="mono">6</td>
+    <td><strong>Is this the material list, and are these the right names for it?</strong> Ready-mix concrete, crushed concrete, road gravel, reclamation topsoil, scoria, washed rock, Class 5 base, Class 13 base. Add anything missing and correct anything the yard calls something else.</td>
+    <td>Richard</td>
+    <td>It becomes the services list on the profile, which is a real ranking input, and it is what the website product pages are named after.</td>
+  </tr>
+  <tr>
+    <td class="mono">7</td>
+    <td><strong>The photographs.</strong> Still the longest outstanding item. Most wanted, in order: the aerial, the crusher running with material moving, a ready-mix truck discharging and a clean shot of a truck door, scoria, and product piles shot separately with somebody saying which is which. Originals rather than screenshots or texted copies.</td>
+    <td>New Town</td>
+    <td>Does not block the Google filing at all. Does hold the website launch, and does decide how the listing performs once it is live.</td>
+  </tr>
+  <tr>
+    <td class="mono">8</td>
+    <td><strong>Were the August photographs taken at New Town?</strong> They arrived in a folder named "Projects" with no location data and no labels, so nobody has actually confirmed it.</td>
+    <td>Richard or Amanda</td>
+    <td>Whether they can be published. This costs one sentence now and is awkward to discover after the fact.</td>
+  </tr>
 </table></div>
-<p>The first three are on the list for the 24 August shoot at the yard.</p>
+
+<div class="note acc">
+<h4>What happens on our side as each one lands</h4>
+<p>Question 1 or 2 answered and Breanna can file the profile the same day. Question 6 answered and the services list goes on the profile and the product names on the website get corrected together. Photographs arrive and the empty slots on the site fill, the Texas stand-ins come off, and the profile gets a proper photo set. Nothing here waits on a meeting.</p>
+</div>
+
+<p>Two things sit outside this list because they are not questions for the yard. The apex domain stays detached and the website stays hidden from search until the 40-acre lease is signed, which is Corey's call. And the prequalification decision, ISNetworld against Veriforce against Avetta, sits with Richard and Corey together and is tracked in the <a href="https://jroundshp.github.io/doble-ai-deliverables/concrete-warrior-needs/">punch list</a> rather than here.</p>
+
 </div>
 </section>
 
