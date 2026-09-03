@@ -302,6 +302,12 @@ footer{margin-top:64px;padding-top:22px;border-top:3px solid var(--ink);font-siz
 
 <p class="lede">Eleven of the steps below were written when the account did not exist, the domain had no mail records, there was no phone number and nobody had confirmed the address. All four of those are now done. <strong>The next action is Breanna creating the profile, which is step 6, and it takes about twenty minutes.</strong></p>
 
+<div class="note warn">
+<h4>This is the priority, ahead of everything else on the project</h4>
+<p>The listing is free, it is faster than the website, and it is what puts Concrete Warrior in the map results somebody taps when they search for gravel or concrete near New Town. Until it is verified the business is not in that list at all, and no amount of work on the website changes that. Nothing is holding it up any more.</p>
+<p><strong>Tell John the day verification comes through.</strong> That is the trigger for the second half of the job: categories, the services list, the 750-character description, the Q&amp;A, the photographs and the website link. All of it is quick, none of it is possible before verification, and verification is the one step here with a long and unpredictable wait. If Google rejects it or the process stalls, say so straight away rather than retrying, because what to do next depends on how it failed.</p>
+</div>
+
 <h3>What is actually finished</h3>
 <p>Checked on 3 September rather than assumed, because the last written status on the mail records was from 24 August and said three of the four were still outstanding. They are not. All four resolve.</p>
 
@@ -367,9 +373,9 @@ footer{margin-top:64px;padding-top:22px;border-top:3px solid var(--ink);font-siz
   <tr><td class="mono">2</td><td>Confirm whether a sign exists and what it says, or order one</td><td>Amanda or Richard</td><td>A photograph</td></tr>
   <tr><td class="mono">3</td><td>Create the profile, step 6, website field left blank</td><td>Breanna</td><td>~20 min</td></tr>
   <tr><td class="mono">4</td><td>Text the verification link to the yard, record the walk</td><td>Breanna, then New Town</td><td>~10 min on site</td></tr>
-  <tr><td class="mono">5</td><td>Fill the profile out properly once verified, step 9</td><td>Breanna</td><td>~30 min</td></tr>
+  <tr><td class="mono">5</td><td><strong>Say when it verifies</strong>, then fill the profile out properly, step 9</td><td>Breanna, then John</td><td>~30 min</td></tr>
   <tr><td class="mono">6</td><td>Send whatever photographs exist, in any state</td><td>New Town</td><td>Ongoing</td></tr>
-  <tr><td class="mono">7</td><td>Attach the apex domain, then add the website to the listing</td><td>John, then Breanna</td><td>Waits on the lease</td></tr>
+  <tr><td class="mono">7</td><td>Attach the apex domain, then add the website to the listing</td><td>John, then Breanna</td><td>A decision, not a date. No longer waits on the lease</td></tr>
 </table></div>
 
 <p>Items 1 and 2 are not prerequisites for item 3 in any strict sense. The profile can be filed without them and edited afterwards. They are listed first because both are quicker to answer than to work around, and getting the name wrong at creation is the one mistake on this list that is genuinely hard to undo.</p>
@@ -1009,9 +1015,9 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
   </tr>
   <tr>
     <td class="mono">3</td>
-    <td><strong>Is anybody at the yard through the posted hours?</strong> Monday to Friday 8 to 5, Saturday 8 to 12. Yes, no, or sometimes is enough. If calls forward to a cell instead, say that.</td>
+    <td><strong>Is anybody at the yard itself through the posted hours?</strong> Monday to Friday 8 to 5, Saturday 8 to 12. Yes, no, or sometimes is enough. This is not asking whether the phone gets answered, which is settled in question 7. It is asking whether a customer who drives to 9702 ND-23 during those hours finds somebody there.</td>
     <td>Richard</td>
-    <td>A standard listing with the address showing publicly on the map, which ranks much better, against a service-area listing with the address hidden. Claiming hours nobody keeps is a common reason listings get suspended.</td>
+    <td>A standard listing with the address showing publicly on the map, which ranks much better, against a service-area listing with the address hidden. Claiming staffed hours at an address nobody is at is a common reason listings get reported.</td>
   </tr>
   <tr>
     <td class="mono">4</td>
@@ -1033,9 +1039,9 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
   </tr>
   <tr>
     <td class="mono">7</td>
-    <td><strong>Richard, do you want <span class="mono">richard@concretewarriorsupply.com</span>?</strong> It is free and it routes mail sent to that address into the Buffalo inbox, which is why nobody has set it up without asking. Yes or no.</td>
-    <td>Richard</td>
-    <td>Finishes the mailbox setup, alongside questions 1 and 2.</td>
+    <td><strong>Contact routing. Here is the plan, tell us if it should be different.</strong> Quotes go to <span class="mono">quotes@</span> and everything else to <span class="mono">info@</span>, both landing in one inbox a designated person reads. <span class="mono">(701) 627-2200</span> goes on the website and the listing, and gets routed to Breanna or another designated person so it is answered during business hours rather than ringing in an empty yard. A <span class="mono">richard@</span> address is there for the asking, free, whenever Richard wants one.</td>
+    <td>Stated, not asked</td>
+    <td>Nothing is waiting on this. A supplier who picks up is most of the advantage this business has over the incumbent, and Google treats a number nobody answers as a reason to doubt a listing.</td>
   </tr>
   <tr>
     <td class="mono">8</td>
@@ -1056,7 +1062,11 @@ npx vercel dns add $D '_dmarc' TXT "v=DMARC1; p=none; rua=mailto:admin@concretew
 <p>Question 1 comes back bouncing and we fix the website the same hour, either by creating the aliases or by changing what the site prints. Question 3 or 4 answered and Breanna can file the profile the same day. Question 8 answered and the services list goes on the profile and the product names on the website get corrected together. Photographs arrive and the empty slots fill, the Texas stand-ins come off, and the profile gets a proper photo set. Nothing here waits on a meeting.</p>
 </div>
 
-<p>Two things sit outside this list because they are not questions for the yard. The apex domain stays detached and the website stays hidden from search until the 40-acre lease is signed, which is Corey's call. And the prequalification decision, ISNetworld against Veriforce against Avetta, sits with Richard and Corey together and is tracked in the <a href="https://jroundshp.github.io/doble-ai-deliverables/concrete-warrior-needs/">punch list</a> rather than here.</p>
+<h3 style="margin-top:36px">Two things we are deliberately launching without</h3>
+<p>Both matter to the business. Neither is going to hold up a website and a listing that are ready now, and saying so plainly is better than leaving them sitting on a list looking like blockers.</p>
+<p><strong>Prequalification.</strong> ISNetworld, Veriforce or Avetta. Roughly 95% of operators in the basin gate supplier accounts behind one of them, so this has real commercial weight and it is not being dismissed. Registration costs money and picking a platform is an owners' decision, so the plan is to add it as soon as possible, or whenever it makes business sense, rather than waiting on it. It also came off the website on 3 September, because an estimator reads an unanswered prequalification question as a no and there was no reason to volunteer that before anyone asked. It goes back on the day there is a registration to name.</p>
+<p><strong>The 40-acre lease.</strong> Previously the gate on going public. As of 3 September the site launches without waiting for it. Attaching the apex domain and dropping the search block is now a decision rather than a date, and the lease gets added to the picture when it is done.</p>
+<p>Both are tracked in the <a href="https://jroundshp.github.io/doble-ai-deliverables/concrete-warrior-needs/">punch list</a> rather than here.</p>
 
 </div>
 </section>
