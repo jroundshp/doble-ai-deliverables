@@ -203,6 +203,19 @@ ol.pri .pt{font-weight:600;margin-bottom:2px}
 ol.pri .pd{font-size:14px;color:var(--ink2);line-height:1.5}
 ol.pri .pw{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;
   text-transform:uppercase;color:var(--ink3);margin-top:4px}
+/* priorities carry no numbers: the two at the top are equal, and so is the order below them */
+ul.pri{list-style:none;padding:0;margin:10px 0 0}
+ul.pri li{padding:12px 0;border-bottom:1px dotted var(--rule)}
+ul.pri li:last-child{border-bottom:none}
+ul.pri li.top{background:var(--accent-wash);border-left:3px solid var(--accent);
+  padding:13px 15px;margin-bottom:8px;border-radius:0 3px 3px 0;border-bottom:none}
+ul.pri .pt{font-weight:600;margin-bottom:2px}
+ul.pri .pd{font-size:14px;color:var(--ink2);line-height:1.5;margin:0}
+ul.pri .pw{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink3);margin-top:5px}
+.pri-band{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent-deep);margin:18px 0 4px;font-weight:600}
+.pri-band.q{color:var(--ink3);margin-top:26px}
 
 .split2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:18px 0}
 footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-size:13px;color:var(--ink3);
@@ -444,19 +457,24 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
 <section id="priorities">
 <div class="sec-head"><span class="sec-num">06</span><div>
 <h2>Priorities, week of 7 September</h2>
-<p class="sec-sub">Five things, in order</p>
+<p class="sec-sub">Two at the top, carrying equal weight, then three behind them</p>
 </div></div>
-<ol class="pri">
-  <li><div>
+<p class="pri-band">Top priority &middot; both of these, equally</p>
+<ul class="pri">
+  <li class="top"><div>
     <p class="pt">Get the website live</p>
     <p class="pd">The 40-acre lease stopped being the gate on 3 September, so <strong>going live is now a decision rather than a date</strong>. Three things still feed it. <strong>Photographs and drone footage at New Town</strong> are the long pole: eight image slots are filled of which four are Texas stand-ins, seven are empty, and the sign, a truck door, the yard building and a loader working are still owed. <strong>Richard&rsquo;s background and the North Dakota oil report</strong>, now received, are what let the About page and the market read be written accurately instead of invented. And <strong>the <code>quotes@</code> and <code>info@</code> mailboxes need a test message</strong> before the site starts printing them as the way to reach the business, because only <code>admin@</code> is confirmed to exist and a bounced quote request fails silently.</p>
     <p class="pw">John and Richard &middot; go-live is John&rsquo;s call</p>
   </div></li>
-  <li><div>
+  <li class="top"><div>
     <p class="pt">Submit the Google Business Profile, and say the day it verifies</p>
     <p class="pd">Nothing is waiting on us. The phone number closed at <strong>(701) 627-2200</strong>, Breanna put it and the yard address in writing on 3 September, and <code>office@</code> owns the profile. <strong>Verification is the longest and least controllable wait in the project</strong>, and the second half of the listing, categories, services, description and photographs, cannot start until it clears. The sign and the truck magnets have to read <strong>Concrete Warrior Supply</strong>, because the listing name has to match what is physically on the yard. If Google rejects or stalls, say so rather than retrying.</p>
     <p class="pw">Breanna &middot; tell John the day it verifies</p>
   </div></li>
+</ul>
+
+<p class="pri-band q">Then</p>
+<ul class="pri">
   <li><div>
     <p class="pt">Paper the 40 acres</p>
     <p class="pd">Richard puts <strong>5,000 yards left to process</strong> on the current parcel. Weeks 5 through 13 need <strong>88,000 yards</strong>, all of it off ground held on a verbal agreement with nothing signed. It is the only item here that can stop production outright.</p>
@@ -472,7 +490,7 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
     <p class="pd"><strong>Tons crushed, demo dollars billed, and actual costs.</strong> Prices were added on 25 August and concrete opened on 28 August, so the pattern is that what gets asked for gets filled. Until these three exist, <strong>every dollar figure on this page is plan rather than plan against actual</strong>, and the second crew cannot be seen in the economics even though it is running.</p>
     <p class="pw">Jeff and Richard &middot; about a minute a day</p>
   </div></li>
-</ol>
+</ul>
 <p style="font-size:13.5px;color:var(--ink3);margin:14px 0 0;line-height:1.55">Deliberately not on this list: <strong>prequalification</strong>. Around 95% of operators run ISNetworld, Veriforce or Avetta and none are set up, but the decision on 3 September was to launch without it and add it when it makes commercial sense. It is a share of the pipeline rather than a page.</p>
 </section>
 
