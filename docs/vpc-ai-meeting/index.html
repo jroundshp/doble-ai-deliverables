@@ -284,6 +284,21 @@
   }
   .aside ul { margin-top: 0.6rem; }
   .aside li { font-size: 0.95rem; }
+  figure.fig { overflow-x: auto; }
+  figure.fig svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  figure.fig figcaption { position: sticky; left: 0; }
+  .dia text { fill: currentColor; font-family: var(--sans); }
+  .dia .lbl { font-size: 13px; font-weight: 600; }
+  .dia .sub { font-size: 11px; fill: var(--muted); }
+  .dia .box { fill: var(--card); stroke: currentColor; stroke-width: 1.4; }
+  .dia .neck { fill: var(--card-strong); stroke: var(--accent); stroke-width: 2.2; }
+  .dia .flow { stroke: currentColor; fill: none; stroke-width: 1.4; }
+  .dia .exit { stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-dasharray: 5 3; }
+  .dia .exitlbl { fill: var(--accent-ink); font-size: 11px; font-weight: 600; }
+  .dia .num { font-size: 11px; font-weight: 700; fill: var(--accent-ink); }
+  table.map td:last-child { white-space: nowrap; font-weight: 600; }
+  table.map .yes { color: var(--good); }
+  table.map .no { color: var(--muted); font-weight: 400; }
 </style>
 </head>
 <body>
@@ -304,9 +319,52 @@
   </div>
 
   <h2><span class="option-num">01</span> The lane</h2>
-  <p>Everything between a request arriving and a packet going back out. Parsing whatever form the request showed up in, capturing options, drafting spec and shop-drawing language, drafting a price, assembling the packet with its assumptions and exclusions stated.</p>
-  <p>An engineer reviews all of it. Nothing auto-sends and nothing reaches a customer unattended. The output is a draft somebody corrects in minutes, not a quote that goes out on its own.</p>
-  <p>Outside the lane, and not part of this: layup and the chopper gun, anything on the shop floor, the website, and buying software.</p>
+  <p>Everything between a request arriving and a packet going back out.</p>
+
+  <figure class="fig">
+    <svg class="dia" viewBox="0 0 710 200" role="img" aria-label="The lane runs from parsing an inbound request through capturing options, drafting spec and drawing, drafting a price and assembling a packet. An engineer signs off before anything leaves. Layup and the shop floor, the website, buying software and unattended sending sit outside the lane and are not connected to it.">
+      <defs>
+        <marker id="ma" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+      </defs>
+      <rect class="exit" x="6" y="34" width="556" height="76" rx="3"/>
+      <text class="exitlbl" x="8" y="26" text-anchor="start">the lane</text>
+      <rect class="box" x="16" y="50" width="96" height="44" rx="2"/>
+      <text class="sub" x="64" y="70" text-anchor="middle">parse the</text>
+      <text class="sub" x="64" y="84" text-anchor="middle">request</text>
+      <rect class="box" x="126" y="50" width="96" height="44" rx="2"/>
+      <text class="sub" x="174" y="70" text-anchor="middle">capture</text>
+      <text class="sub" x="174" y="84" text-anchor="middle">options</text>
+      <rect class="box" x="236" y="50" width="96" height="44" rx="2"/>
+      <text class="sub" x="284" y="70" text-anchor="middle">draft spec</text>
+      <text class="sub" x="284" y="84" text-anchor="middle">and drawing</text>
+      <rect class="box" x="346" y="50" width="96" height="44" rx="2"/>
+      <text class="sub" x="394" y="70" text-anchor="middle">draft</text>
+      <text class="sub" x="394" y="84" text-anchor="middle">price</text>
+      <rect class="box" x="456" y="50" width="96" height="44" rx="2"/>
+      <text class="sub" x="504" y="70" text-anchor="middle">assemble</text>
+      <text class="sub" x="504" y="84" text-anchor="middle">packet</text>
+      <polyline class="flow" points="112,72 122,72" marker-end="url(#ma)"/>
+      <polyline class="flow" points="222,72 232,72" marker-end="url(#ma)"/>
+      <polyline class="flow" points="332,72 342,72" marker-end="url(#ma)"/>
+      <polyline class="flow" points="442,72 452,72" marker-end="url(#ma)"/>
+      <polyline class="flow" points="562,72 590,72" marker-end="url(#ma)"/>
+      <rect class="neck" x="594" y="50" width="108" height="44" rx="2"/>
+      <text class="sub" x="648" y="70" text-anchor="middle">engineer</text>
+      <text class="sub" x="648" y="84" text-anchor="middle">signs off</text>
+      <text class="sub" x="6" y="142" text-anchor="start">not in the lane, and not connected to it</text>
+      <rect class="box" x="6" y="152" width="164" height="34" rx="2"/>
+      <text class="sub" x="88" y="173" text-anchor="middle">layup, the shop floor</text>
+      <rect class="box" x="184" y="152" width="164" height="34" rx="2"/>
+      <text class="sub" x="266" y="173" text-anchor="middle">the website</text>
+      <rect class="box" x="362" y="152" width="164" height="34" rx="2"/>
+      <text class="sub" x="444" y="173" text-anchor="middle">buying software</text>
+      <rect class="box" x="540" y="152" width="164" height="34" rx="2"/>
+      <text class="sub" x="622" y="173" text-anchor="middle">unattended sending</text>
+    </svg>
+    <figcaption>The engineer at the end is the wall, not a formality. Nothing auto-sends and nothing reaches a customer unattended. The output is a draft somebody corrects in minutes, not a quote that goes out on its own.</figcaption>
+  </figure>
 
   <div class="aside">
     <p class="label">The part worth saying first</p>
@@ -316,11 +374,11 @@
   <h2><span class="option-num">02</span> What we think we know, and where it probably breaks</h2>
   <p>All of this came from VPC's public pages and catalog. None of it came from inside the building, so treat every line as a guess to be corrected.</p>
   <ul>
-    <li>Requests arrive in wildly different forms, and a meaningful share of them are missing something needed to price.</li>
+    <li>Requests arrive in wildly different forms, and a meaningful share are missing something needed to price.</li>
     <li>Chasing the missing information is a real cost and probably an unmeasured one.</li>
     <li>The published packages already imply an option tree: window, heat, exhaust, light, chlorination package, voltage, load center.</li>
     <li>Some product families repeat far more than others, and the repeating ones are where a draft could be graded.</li>
-    <li>The example we started from is a small one: six feet by three feet, bathroom, 220 volt, window. There is no such SKU, which is exactly why it is a useful test. It sits inside a range VPC already builds and somebody here already knows how to price it by hand.</li>
+    <li>The example we started from is small: six feet by three feet, bathroom, 220 volt, window. There is no such SKU, which is exactly why it is a useful test. It sits inside a range VPC already builds, and somebody here already knows how to price it by hand.</li>
   </ul>
 
   <h2><span class="option-num">03</span> The questions</h2>
@@ -328,7 +386,47 @@
   <ol>
     <li><strong>Who takes the inbound request today, and what happens to it in the first hour?</strong></li>
     <li><strong>Which product family clogs the queue?</strong> Not the most interesting one. The one that backs things up.</li>
-    <li><strong>Where does a job actually die:</strong> missing information, the drawing, the pricing, the sign-off, or waiting on the customer?</li>
+    <li><strong>Where does a job actually die?</strong></li>
+  </ol>
+
+  <figure class="fig">
+    <svg class="dia" viewBox="0 0 700 132" role="img" aria-label="A job travels from an arriving request to a packet going out, with five points where it can stop: missing information, the drawing, the pricing, the sign-off, or waiting on the customer. Which one dominates is the open question.">
+      <defs>
+        <marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+        <marker id="mc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+        </marker>
+      </defs>
+      <text class="sub" x="16" y="34" text-anchor="start">request arrives</text>
+      <text class="sub" x="684" y="34" text-anchor="end">packet goes out</text>
+      <line class="flow" x1="30" y1="58" x2="666" y2="58" marker-end="url(#mb)"/>
+      <circle class="neck" cx="60" cy="58" r="7"/>
+      <line class="exit" x1="60" y1="65" x2="60" y2="82" marker-end="url(#mc)"/>
+      <text class="sub" x="60" y="100" text-anchor="middle">missing</text>
+      <text class="sub" x="60" y="114" text-anchor="middle">information</text>
+      <circle class="neck" cx="205" cy="58" r="7"/>
+      <line class="exit" x1="205" y1="65" x2="205" y2="82" marker-end="url(#mc)"/>
+      <text class="sub" x="205" y="100" text-anchor="middle">the</text>
+      <text class="sub" x="205" y="114" text-anchor="middle">drawing</text>
+      <circle class="neck" cx="350" cy="58" r="7"/>
+      <line class="exit" x1="350" y1="65" x2="350" y2="82" marker-end="url(#mc)"/>
+      <text class="sub" x="350" y="100" text-anchor="middle">the</text>
+      <text class="sub" x="350" y="114" text-anchor="middle">pricing</text>
+      <circle class="neck" cx="495" cy="58" r="7"/>
+      <line class="exit" x1="495" y1="65" x2="495" y2="82" marker-end="url(#mc)"/>
+      <text class="sub" x="495" y="100" text-anchor="middle">the</text>
+      <text class="sub" x="495" y="114" text-anchor="middle">sign-off</text>
+      <circle class="neck" cx="640" cy="58" r="7"/>
+      <line class="exit" x1="640" y1="65" x2="640" y2="82" marker-end="url(#mc)"/>
+      <text class="sub" x="640" y="100" text-anchor="middle">waiting on</text>
+      <text class="sub" x="640" y="114" text-anchor="middle">the customer</text>
+    </svg>
+    <figcaption>Five places a job stops. Which of them is the big one is genuinely unknown from outside, and it decides where any of this starts.</figcaption>
+  </figure>
+
+  <ol start="4">
     <li><strong>What does a complete request look like,</strong> next to what usually arrives instead?</li>
     <li><strong>What already gets reused</strong> between one quote and the next, and what gets rebuilt every time even though it probably should not?</li>
     <li><strong>What would a first draft have to get right</strong> before it saved you time rather than costing you time?</li>
@@ -343,10 +441,37 @@
   <h2><span class="option-num">04</span> What we would ask for at the end</h2>
   <p>Deliberately small, and smaller than the process behind it makes it sound.</p>
   <ul>
-    <li><strong>Two closed jobs</strong> on whichever family comes out of question 2. The inbound file as it arrived, the hours, the drawing, the price, and what changed between the first packet and the final one.</li>
+    <li><strong>Two closed jobs</strong> on whichever family comes out of question 2: the inbound file as it arrived, the hours, the drawing, the price, and what changed between the first packet and the final one.</li>
     <li><strong>Two hours</strong> with whoever owns the quote packet day to day.</li>
   </ul>
-  <p>That is enough to learn whether the records reconstruct at all, whether the family in question is the one actually clogging the queue, and whether there is anybody here who wants this. If those two come back clean, the ten jobs and a week in the queue are worth asking for, and that ask arrives with evidence behind it. If they do not, we found out in an afternoon instead of at month two.</p>
+
+  <figure class="fig">
+    <svg class="dia" viewBox="0 0 700 118" role="img" aria-label="Three gated stages. Two jobs and two hours must come back clean before ten jobs and a week in the queue are worth asking for, and that must hold before any live customer work.">
+      <defs>
+        <marker id="md" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+      </defs>
+      <rect class="neck" x="8" y="20" width="200" height="52" rx="2"/>
+      <text class="lbl" x="108" y="42" text-anchor="middle">two jobs, two hours</text>
+      <text class="sub" x="108" y="60" text-anchor="middle">what we ask for Wednesday</text>
+      <polyline class="flow" points="212,46 244,46" marker-end="url(#md)"/>
+      <text class="exitlbl" x="228" y="88" text-anchor="middle">only if those</text>
+      <text class="exitlbl" x="228" y="102" text-anchor="middle">reconstruct</text>
+      <rect class="box" x="248" y="20" width="200" height="52" rx="2"/>
+      <text class="lbl" x="348" y="42" text-anchor="middle">ten jobs, a week</text>
+      <text class="sub" x="348" y="60" text-anchor="middle">the real reconstruction</text>
+      <polyline class="flow" points="452,46 484,46" marker-end="url(#md)"/>
+      <text class="exitlbl" x="468" y="88" text-anchor="middle">only if the blind</text>
+      <text class="exitlbl" x="468" y="102" text-anchor="middle">test holds</text>
+      <rect class="box" x="488" y="20" width="200" height="52" rx="2"/>
+      <text class="lbl" x="588" y="42" text-anchor="middle">live inbound</text>
+      <text class="sub" x="588" y="60" text-anchor="middle">one family, then widen</text>
+    </svg>
+    <figcaption>Nothing past the first box is being asked for on Wednesday. Each gate is a real stop, not a formality.</figcaption>
+  </figure>
+
+  <p>Two jobs and two hours is enough to learn whether the records reconstruct at all, whether the family in question is the one actually clogging the queue, and whether there is anybody here who wants this. If they come back clean, the ten jobs and the week are worth asking for, and that ask arrives with evidence behind it. If not, we found out in an afternoon instead of at month two.</p>
   <p>Worth knowing in advance what tends to be missing from a reconstruction: the price and the final drawing are almost always there, while the hours attributed to a job and the inbound file exactly as it arrived often are not. Those two are the ones to check first.</p>
 
   <h2><span class="option-num">05</span> Before any file moves</h2>
