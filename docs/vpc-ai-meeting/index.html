@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Internal discussion draft. Link-shared, not indexed.">
+<title>VPC Quoting and Submittal: Where We Start</title>
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --ink: #26221d;
+    --muted: #6f675b;
+    --accent: #8c3f2b;
+    --accent-ink: #8c3f2b;
+    --rule: #e5dfd4;
+    --card: #f3efe8;
+    --card-strong: #ece6db;
+    --good: #3e6b46;
+    --warn: #8a6a1f;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1e1b17;
+      --ink: #eae4da;
+      --muted: #a69c8c;
+      --accent: #d47c5f;
+      --accent-ink: #d98d73;
+      --rule: #3a342b;
+      --card: #272319;
+      --card-strong: #2e2920;
+      --good: #8fb896;
+      --warn: #cfa94e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1e1b17;
+    --ink: #eae4da;
+    --muted: #a69c8c;
+    --accent: #d47c5f;
+    --accent-ink: #d98d73;
+    --rule: #3a342b;
+    --card: #272319;
+    --card-strong: #2e2920;
+    --good: #8fb896;
+    --warn: #cfa94e;
+  }
+  :root[data-theme="light"] {
+    --bg: #fbfaf7;
+    --ink: #26221d;
+    --muted: #6f675b;
+    --accent: #8c3f2b;
+    --accent-ink: #8c3f2b;
+    --rule: #e5dfd4;
+    --card: #f3efe8;
+    --card-strong: #ece6db;
+    --good: #3e6b46;
+    --warn: #8a6a1f;
+  }
+  html { background: var(--bg); }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1.65;
+    margin: 0;
+    font-size: 17px;
+  }
+  .page {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.4rem 5rem;
+  }
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 1.1rem;
+  }
+  h1 {
+    font-size: 2.15rem;
+    line-height: 1.15;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .dek {
+    font-size: 1.08rem;
+    color: var(--muted);
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+  }
+  .meta {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.2rem 0 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.6rem;
+  }
+  h2 {
+    font-size: 1.42rem;
+    font-weight: 600;
+    margin: 3rem 0 0.9rem;
+    text-wrap: balance;
+    letter-spacing: -0.005em;
+  }
+  h3 {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 1.9rem 0 0.5rem;
+    text-wrap: balance;
+  }
+  p { margin: 0 0 1rem; }
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 2px; border-radius: 2px; }
+  ul, ol { margin: 0 0 1rem; padding-left: 1.3rem; }
+  li { margin-bottom: 0.45rem; }
+  strong { font-weight: 600; }
+
+  .summary {
+    background: var(--card);
+    border-left: 3px solid var(--accent);
+    padding: 1.2rem 1.4rem;
+    margin: 2rem 0 0;
+  }
+  .summary p:last-child { margin-bottom: 0; }
+  .summary .label {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--sans);
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+  .table-wrap { overflow-x: auto; margin: 1.2rem 0 1.6rem; }
+  th {
+    text-align: left;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    padding: 0.5rem 0.9rem 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  td {
+    padding: 0.55rem 0.9rem 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  td.date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted); }
+
+  .option {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.6rem;
+    margin-top: 2.2rem;
+  }
+  .option-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+  }
+  .option-num {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-ink);
+    font-variant-numeric: tabular-nums;
+    flex: none;
+  }
+  .option h3 { margin: 0; font-size: 1.18rem; }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0.7rem 0 1rem;
+    font-family: var(--sans);
+  }
+  .chip {
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    padding: 0.18rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--muted);
+    background: var(--card);
+    white-space: nowrap;
+  }
+  .chip.now { color: var(--accent-ink); border-color: var(--accent-ink); background: transparent; font-weight: 600; }
+  .chip.good { color: var(--good); border-color: var(--good); background: transparent; font-weight: 600; }
+
+  .aside {
+    background: var(--card);
+    padding: 1rem 1.3rem;
+    margin: 1.4rem 0;
+    font-size: 0.95rem;
+  }
+  .aside .label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+  .aside p:last-child { margin-bottom: 0; }
+
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li {
+    padding-left: 1.7rem;
+    position: relative;
+    margin-bottom: 0.7rem;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.42em;
+    width: 0.62em;
+    height: 0.62em;
+    border: 1.5px solid var(--accent-ink);
+    border-radius: 2px;
+  }
+
+  .footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 3.5rem;
+    padding-top: 1.6rem;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .footer p { margin-bottom: 0.6rem; }
+  .sources { font-size: 0.88rem; color: var(--muted); }
+  .sources li { margin-bottom: 0.3rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    a { transition: color 120ms ease; }
+  }
+
+  figure.fig { margin: 1.6rem 0 1.8rem; }
+  figure.fig img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: #fff;
+  }
+  figure.fig figcaption {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--muted);
+    margin-top: 0.55rem;
+  }
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.1rem;
+    align-items: start;
+  }
+  .grid2 figure.fig { margin-top: 0.6rem; }
+  @media (max-width: 34rem) {
+    .grid2 { grid-template-columns: 1fr; }
+  }
+  .aside ul { margin-top: 0.6rem; }
+  .aside li { font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <p class="eyebrow">Doble AI</p>
+  <h1>Quoting and submittals: where we start</h1>
+  <p class="dek">A working document for the September 9 session. Most of this page is questions, and the answers are in the room rather than here.</p>
+  <div class="meta">
+    <span>VPC Quoting/Submittal Process and AI Integration</span>
+    <span>Wednesday, September 9, 2026 &middot; 9:00 AM</span>
+    <span>Link-shared, not indexed</span>
+  </div>
+
+  <div class="summary">
+    <p class="label">What this hour is for</p>
+    <p>Not a presentation, and nothing here needs a decision at the end of it. VPC builds custom fiberglass for customers who mostly cannot buy off a shelf, so every job passes through a stretch of digital work before anyone touches material: the inbound request, the missing dimensions, the first drawing, the price. The plan is to spend this hour on how that actually works today. What we have written down from outside the building is a guess, and the useful part of the next sixty minutes is the four of you correcting it.</p>
+  </div>
+
+  <h2><span class="option-num">01</span> The lane</h2>
+  <p>Everything between a request arriving and a packet going back out. Parsing whatever form the request showed up in, capturing options, drafting spec and shop-drawing language, drafting a price, assembling the packet with its assumptions and exclusions stated.</p>
+  <p>An engineer reviews all of it. Nothing auto-sends and nothing reaches a customer unattended. The output is a draft somebody corrects in minutes, not a quote that goes out on its own.</p>
+  <p>Outside the lane, and not part of this: layup and the chopper gun, anything on the shop floor, the website, and buying software.</p>
+
+  <div class="aside">
+    <p class="label">The part worth saying first</p>
+    <p>This does not replace anyone, and the first real deliverable is not a piece of software. It is a written map of how VPC actually quotes, which today lives in the heads of the people who price by hand. Even if the drafting never gets good enough to trust, that map is worth having, and it is the reason the first step carries so little risk.</p>
+  </div>
+
+  <h2><span class="option-num">02</span> What we think we know, and where it probably breaks</h2>
+  <p>All of this came from VPC's public pages and catalog. None of it came from inside the building, so treat every line as a guess to be corrected.</p>
+  <ul>
+    <li>Requests arrive in wildly different forms, and a meaningful share of them are missing something needed to price.</li>
+    <li>Chasing the missing information is a real cost and probably an unmeasured one.</li>
+    <li>The published packages already imply an option tree: window, heat, exhaust, light, chlorination package, voltage, load center.</li>
+    <li>Some product families repeat far more than others, and the repeating ones are where a draft could be graded.</li>
+    <li>The example we started from is a small one: six feet by three feet, bathroom, 220 volt, window. There is no such SKU, which is exactly why it is a useful test. It sits inside a range VPC already builds and somebody here already knows how to price it by hand.</li>
+  </ul>
+
+  <h2><span class="option-num">03</span> The questions</h2>
+  <p>This is the meat of the hour.</p>
+  <ol>
+    <li><strong>Who takes the inbound request today, and what happens to it in the first hour?</strong></li>
+    <li><strong>Which product family clogs the queue?</strong> Not the most interesting one. The one that backs things up.</li>
+    <li><strong>Where does a job actually die:</strong> missing information, the drawing, the pricing, the sign-off, or waiting on the customer?</li>
+    <li><strong>What does a complete request look like,</strong> next to what usually arrives instead?</li>
+    <li><strong>What already gets reused</strong> between one quote and the next, and what gets rebuilt every time even though it probably should not?</li>
+    <li><strong>What would a first draft have to get right</strong> before it saved you time rather than costing you time?</li>
+    <li><strong>Where does the current process work well enough</strong> that touching it would be a mistake?</li>
+  </ol>
+
+  <div class="aside">
+    <p class="label">One complication worth putting on the table</p>
+    <p>The family clogging the queue and the family best suited to a first test may not be the same family. A backup can come from the most bespoke work in the shop, and that is the worst possible place to grade a first draft. If those two answers diverge in this conversation, that is a useful result rather than a problem, and it changes where we start.</p>
+  </div>
+
+  <h2><span class="option-num">04</span> What we would ask for at the end</h2>
+  <p>Deliberately small, and smaller than the process behind it makes it sound.</p>
+  <ul>
+    <li><strong>Two closed jobs</strong> on whichever family comes out of question 2. The inbound file as it arrived, the hours, the drawing, the price, and what changed between the first packet and the final one.</li>
+    <li><strong>Two hours</strong> with whoever owns the quote packet day to day.</li>
+  </ul>
+  <p>That is enough to learn whether the records reconstruct at all, whether the family in question is the one actually clogging the queue, and whether there is anybody here who wants this. If those two come back clean, the ten jobs and a week in the queue are worth asking for, and that ask arrives with evidence behind it. If they do not, we found out in an afternoon instead of at month two.</p>
+  <p>Worth knowing in advance what tends to be missing from a reconstruction: the price and the final drawing are almost always there, while the hours attributed to a job and the inbound file exactly as it arrived often are not. Those two are the ones to check first.</p>
+
+  <h2><span class="option-num">05</span> Before any file moves</h2>
+  <p>These are closed jobs for municipal utilities, industrial plants, the Navy and the Coast Guard, which makes the drawings the customer's business as much as VPC's. The condition comes before the request, not after it. Files stay inside VPC's control. Nothing goes into a public model or into anyone's training data. How they are handled gets written down and agreed before the first one moves, and the first document to read is not our policy but VPC's own contract terms with those customers, because some government and municipal agreements dictate how drawings may be stored and who is allowed to see them. If a family's paperwork cannot clear that, the test moves to a family whose paperwork can.</p>
+
+  <h2><span class="option-num">06</span> What happens after this</h2>
+  <p>Nothing gets built out of this meeting. If the two jobs come back and the two hours happen, the next session is a review of the written process and how a first draft scored against work that already shipped, graded by the people who priced it originally. Nothing goes to a customer until that clears.</p>
+  <p>There is a fuller brief behind this page for anyone who wants the detail, including how the same method would apply elsewhere and what peers in FRP are and are not doing. It is not required reading for Wednesday.</p>
+
+  <div class="footer">
+    <p>Doble AI &middot; VPC quoting and submittals &middot; working document &middot; 4 September 2026 &middot; link-shared, not indexed.</p>
+    <p>Company facts on this page were taken from VPC's own public pages and product catalog. Nothing here reflects access to VPC's internal systems, quotes or job records.</p>
+  </div>
+</div>
+</body>
+</html>
