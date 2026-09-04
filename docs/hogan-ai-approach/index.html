@@ -331,7 +331,36 @@
   <p>The first decides whether a buyer ever arrives. The second decides what happens to them when they do. Neither is sufficient on its own, and that is the part most easily missed: a company nobody can find gets no benefit from answering quickly, and a company that is easy to find but slow to answer loses the enquiry it just won. Treated as separate projects competing for the same attention, they both stall. Treated as one program with two halves, each one makes the other worth more.</p>
   <p>This page is about the second half. The first has its own workstream and its own people, and it is running alongside this rather than waiting behind it.</p>
 
-  <h2><span class="option-num">03</span> The shape of the problem</h2>
+  <h2><span class="option-num">03</span> What this software actually is</h2>
+  <p>Worth being plain about, because the word carries a lot of noise and the noise makes it harder to decide anything.</p>
+  <p>Strip away the marketing and it is sophisticated software that reads and writes. It takes messy input, a rambling email, a scanned drawing, a spec section, a pile of invoices, and produces structured output: a summary, a draft, a filled-in form, an answer. It is very good at turning a blank page into a first version. It is not good at being right without anybody checking.</p>
+  <p>That single sentence is the whole design of everything downstream. Value comes from the distance between a blank page and a draft worth correcting, and the correction stays with a person.</p>
+
+  <div class="grid2">
+    <div>
+      <p><strong>What it does well today</strong></p>
+      <ul>
+        <li>Reads input that arrives in any shape and pulls the facts out of it.</li>
+        <li>Drafts a first version of something repetitive: a quote, a spec, a letter, a listing, a reply.</li>
+        <li>Finds things inside large piles of documents faster than a person can.</li>
+        <li>Answers the same question a hundred times from material that already exists.</li>
+        <li>Explains its own reasoning well enough that a person can check it.</li>
+      </ul>
+    </div>
+    <div>
+      <p><strong>What it does badly, and will for a while</strong></p>
+      <ul>
+        <li>Being reliably correct with nobody reviewing the output.</li>
+        <li>Anything where being wrong is expensive and no one is looking.</li>
+        <li>Judgment that depends on knowing a particular customer or a particular job.</li>
+        <li>Physical work of any kind.</li>
+        <li>Knowing what it does not know, which is why the human stays.</li>
+      </ul>
+    </div>
+  </div>
+  <p>None of that requires a company to buy anything unusual, and none of it is the robot story. It is closer to hiring a very fast, very literal assistant who has read everything the company has written down and needs their work checked every time.</p>
+
+  <h2><span class="option-num">04</span> The shape of the problem</h2>
   <p>In every business here there is physical work that makes the money, and digital work sitting in front of it deciding how much of the physical work gets done.</p>
 
   <figure class="fig">
@@ -373,29 +402,70 @@
     <figcaption>VPC runs three plants in Western New York, and how many jobs move through all three is decided upstream of all of them, in a queue made of email, PDFs and drawings. Adding capacity on the right moves the ceiling one person at a time. The constraint is the narrow part.</figcaption>
   </figure>
 
-  <p>The same shape shows up elsewhere in the portfolio, but it does not show up the same size. That difference decides where this method belongs and where it would be the wrong instrument.</p>
+  <p>That is the opening. Whether a particular business actually has one, and where it sits, is a separate question and it has a method.</p>
+
+  <h2><span class="option-num">05</span> How you find where it helps, in any business</h2>
+  <p>A range this wide does not share an answer. A bake shop, a restaurant, a custom fiberglass manufacturer and a law firm have almost nothing in common operationally, and a program written for one of them would be useless in the others. What they can share is the method for finding the answer.</p>
+  <p>It is four questions, asked about the work rather than about the technology, and they are asked in this order because each one is cheaper to answer than the next.</p>
+
+  <figure class="fig">
+    <svg class="dia" viewBox="0 0 560 290" role="img" aria-label="A narrowing screen. Start with all the work in a business, then filter by whether it repeats, whether one pass costs real time, whether it can be graded against work already finished, and whether the records are allowed to move. What survives is where to start.">
+      <defs>
+        <marker id="dg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent)"/>
+        </marker>
+      </defs>
+      <rect class="box" x="8" y="16" width="470" height="34" rx="2"/>
+      <text class="sub" x="20" y="37" text-anchor="start">all the work in a business</text>
+      <line class="exit" x1="40" y1="50" x2="40" y2="66" marker-end="url(#dg)"/>
+      <text class="exitlbl" x="56" y="64" text-anchor="start">does it repeat?</text>
+      <rect class="box" x="8" y="70" width="380" height="34" rx="2"/>
+      <line class="exit" x1="40" y1="104" x2="40" y2="120" marker-end="url(#dg)"/>
+      <text class="exitlbl" x="56" y="118" text-anchor="start">does one pass cost real time?</text>
+      <rect class="box" x="8" y="124" width="290" height="34" rx="2"/>
+      <line class="exit" x1="40" y1="158" x2="40" y2="174" marker-end="url(#dg)"/>
+      <text class="exitlbl" x="56" y="172" text-anchor="start">can it be graded against work already finished?</text>
+      <rect class="box" x="8" y="178" width="200" height="34" rx="2"/>
+      <line class="exit" x1="40" y1="212" x2="40" y2="228" marker-end="url(#dg)"/>
+      <text class="exitlbl" x="56" y="226" text-anchor="start">are the records allowed to move?</text>
+      <rect class="neck" x="8" y="232" width="130" height="34" rx="2"/>
+      <text class="lbl" x="20" y="253" text-anchor="start">where to start</text>
+    </svg>
+    <figcaption>Each question is cheaper to answer than the one below it, which is why they are asked in this order. Most of the value is in the third: work nobody can grade cannot be tested, and untested drafting is a liability rather than a saving.</figcaption>
+  </figure>
+
+  <ol>
+    <li><strong>Does it repeat?</strong> Not is it hard, and not is it important. Does it happen the same way many times. One-off work is the worst place to start no matter how painful it is.</li>
+    <li><strong>Does one pass cost real time?</strong> Multiply the minutes of skilled attention by how often it happens. A task that takes three hours twenty times a year matters. A task that takes four seconds a thousand times does not, and that arithmetic is the whole reason a fiberglass quote and a coffee order lead to different answers.</li>
+    <li><strong>Can it be graded?</strong> Is there a record of this work being done properly before, complete enough that somebody who knows the job could mark a draft against it. This question kills more candidates than the other three combined, and finding that out early is worth a great deal.</li>
+    <li><strong>Are the records allowed to move?</strong> Client files, government drawings, employee and customer data all carry rules that come before any of this. If a candidate cannot clear that, the next candidate down the list can.</li>
+  </ol>
+  <p>Anything that survives all four is worth a test. Anything that fails the third gets parked, not because it does not matter, but because there is no way to know whether it worked.</p>
+
+  <h3>The portfolio, screened from outside</h3>
+  <p>Running those four questions across the businesses catalogued so far gives a first cut. Only VPC has actually been examined, so everything else here is a guess written down so it can be corrected.</p>
 
   <div class="table-wrap">
   <table class="map">
     <thead>
-      <tr><th>Business</th><th>The digital stretch in front of it</th><th>Fit for this method</th></tr>
+      <tr><th>Business</th><th>The repeating work in front of it</th><th>Likely first move</th></tr>
     </thead>
     <tbody>
-      <tr><td>VPC Fiberglass, five divisions</td><td>Inbound request, spec, drawing, price, quote packet</td><td class="yes">Strong</td></tr>
-      <tr><td>Tiveron Law</td><td>Intake, document assembly, matter files</td><td class="yes">Strong</td></tr>
-      <tr><td>Homestead Realty WNY</td><td>Listing preparation, transaction files</td><td class="no">Likely</td></tr>
-      <tr><td>Patriot Stone Supply</td><td>Quoting, delivery scheduling</td><td class="no">Likely</td></tr>
-      <tr><td>Alpine Bistro</td><td>Ordering, scheduling, vendor and menu paperwork</td><td class="no">Different shape</td></tr>
-      <tr><td>Ellicottville Bake Shop</td><td>Orders, production planning, vendor paperwork</td><td class="no">Different shape</td></tr>
-      <tr><td>Fenimore's Table</td><td>Booking, ordering, scheduling</td><td class="no">Different shape</td></tr>
-      <tr><td>Cooperstown Clubhouse</td><td>Booking, group paperwork, scheduling</td><td class="no">Different shape</td></tr>
-      <tr><td>Cooperstown Experience</td><td>Booking, itineraries, group paperwork</td><td class="no">Different shape</td></tr>
+      <tr><td>VPC Fiberglass, five divisions</td><td>Inbound request, spec, drawing, price, quote packet</td><td class="yes">Draft and grade</td></tr>
+      <tr><td>Tiveron Law</td><td>Intake, document assembly, matter files</td><td class="yes">Draft and grade</td></tr>
+      <tr><td>Homestead Realty WNY</td><td>Listing preparation, transaction files</td><td class="yes">Draft and grade</td></tr>
+      <tr><td>Alpine Bistro</td><td>Ordering, scheduling, vendor and menu paperwork</td><td class="no">Forecast and schedule</td></tr>
+      <tr><td>Ellicottville Bake Shop</td><td>Orders, production planning, vendor paperwork</td><td class="no">Forecast and schedule</td></tr>
+      <tr><td>Fenimore's Table</td><td>Booking, ordering, scheduling</td><td class="no">Forecast and schedule</td></tr>
+      <tr><td>Cooperstown Clubhouse</td><td>Booking, group paperwork, scheduling</td><td class="no">Forecast and schedule</td></tr>
+      <tr><td>Cooperstown Experience</td><td>Booking, itineraries, group paperwork</td><td class="no">Forecast and schedule</td></tr>
     </tbody>
   </table>
   </div>
-  <p>The screen in that last column is the cost of one pass through the digital work. Where a single pass eats hours of skilled time against a large transaction, a first draft that somebody corrects earns its keep immediately. Where a pass takes seconds against a small transaction, it does not, and no amount of enthusiasm changes the arithmetic.</p>
-  <p>The businesses marked as a different shape are not businesses where AI does nothing. They are businesses where <em>this</em> method is the wrong instrument, and what fits them is a separate read rather than this one applied broadly. A bakery and a custom fiberglass shop do not have the same problem and should not get the same program.</p>
-  <p>Two honest caveats. Only VPC has actually been examined, so the middle column is a guess for the other eight and is written down so it can be corrected rather than assumed. And guessing which pile is the tall one from outside the building is how these projects go wrong, which is the argument for starting with one business rather than announcing a program across all of them.</p>
+
+  <p><strong>Draft and grade</strong> is the method this page describes: reconstruct finished work, write the option tree, have the software draft against it, and let the people who did the original grade the result. It fits where one pass through the digital work costs hours of skilled time against a large transaction.</p>
+  <p><strong>Forecast and schedule</strong> is a different instrument for a different arithmetic. In the hospitality businesses no single order is worth drafting, but there are thousands of them, and the value sits in patterns across the pile rather than in any one item: what sells on which day, what to prepare, when to staff, what to order and when. That work is real and AI is good at it. It is not this method, and applying this one to it would waste everybody's time.</p>
+  <p>The point of separating them is that a bake shop and a custom fiberglass shop do not have the same problem and should not be handed the same program. Both columns are AI. Neither is a broad brush.</p>
 
   <div class="aside">
     <p class="label">What this is not</p>
@@ -407,7 +477,7 @@
     </ul>
   </div>
 
-  <h2><span class="option-num">04</span> Why an owner would do this</h2>
+  <h2><span class="option-num">06</span> Why an owner would do this</h2>
   <p>Four reasons, and they are not the same reason in different clothes.</p>
 
   <h3>A. More business through the same doors</h3>
@@ -423,8 +493,8 @@
   <p>The one usually left out, and the one that makes the first step nearly risk free. Reconstructing finished work and writing down the decision tree puts a business's operating logic on paper, in most cases for the first time. That logic currently lives in the heads of the people who quote by hand, intake by instinct and price from memory. If the drafts never get good enough to trust, the business still ends up with a written map of how it works and where the time goes.</p>
   <p>The purpose is a more capable company, not a cheaper one on paper.</p>
 
-  <h2><span class="option-num">05</span> The process</h2>
-  <p>Six steps, per business, and the sequence matters more than the speed. Two of them are places the whole thing is allowed to stop.</p>
+  <h2><span class="option-num">07</span> The process</h2>
+  <p>This is what happens after a candidate survives all four questions. Six steps, and the sequence matters more than the speed. Two of them are places the whole thing is allowed to stop.</p>
 
   <figure class="fig">
     <svg class="dia" viewBox="0 0 700 190" role="img" aria-label="Six steps in sequence, with two exits. If ten finished jobs cannot be assembled at step two, there is no project yet. If the blind test at step four grades too low, the work returns to step three.">
@@ -488,16 +558,16 @@
     <p>Pick on volume and repeat rate, out of what step 1 shows rather than whichever example is most interesting to talk about. The complication: the lane clogging the queue and the lane best suited to a first test are not always the same lane. A backup can come from the most bespoke work in the shop, which is the worst possible place to grade a draft. Where the two diverge, test where the tree is narrow enough to grade, and say plainly that is what was done and why.</p>
   </div>
 
-  <h2><span class="option-num">06</span> How anyone would know it worked</h2>
+  <h2><span class="option-num">08</span> How anyone would know it worked</h2>
   <p>Measured against each business's own baselines, which exist inside its own files, and never against a generic industry model. The things worth counting are the same everywhere: hours of skilled time per first draft, time from a complete request to a first output, hit rate against the finished work used as the yardstick, rework after the first pass, and work that previously sat waiting.</p>
   <p>Every one of those is deliberately blank right now. We do not have the baselines, and a number invented here would poison the comparison later.</p>
   <p>One caution, because it has already come up. Some of these baselines do not exist anywhere. If nobody in a business can say what share of pricing requests turn into sales, that is not a gap in our access. It is a finding, and it is worth as much as anything the drafting produces.</p>
 
-  <h2><span class="option-num">07</span> Before any file moves</h2>
+  <h2><span class="option-num">09</span> Before any file moves</h2>
   <p>Each business carries a different constraint on its own records, and the constraint comes before the request rather than after it. VPC's finished jobs are for municipal utilities, industrial plants, the Navy and the Coast Guard, which makes those drawings the customer's business as much as VPC's. A law firm's files carry privilege. The hospitality businesses hold customer and payroll data.</p>
   <p>So the rule is the same everywhere. Files stay inside the company's control, nothing goes into a public model or into anyone's training data, and how records are handled gets written down and agreed before the first one moves. The first document to read is not our policy but the business's own contract and professional obligations, because government agreements and bar rules can dictate how material is stored and who may see it. If a lane's paperwork cannot clear that, the test moves to a lane whose paperwork can.</p>
 
-  <h2><span class="option-num">08</span> Where to start</h2>
+  <h2><span class="option-num">10</span> VPC first</h2>
   <p>One business, one lane.</p>
   <p>VPC is the right first one, and not because it is the largest. The digital work there is unusually well defined, the people who own it are identifiable, and the business has a record of executing on a written document without needing a meeting about it first. Quoting and submittals is the lane. There is a <a href="../vpc-ai-initiative/">fuller brief on it</a>, and the <a href="../vpc-ai-meeting/">working session on September 9</a> is where the questions in step 1 actually get asked.</p>
   <p>What a second business would need is the same first step and nothing more: time with the people who own the paperwork, and ten finished pieces of work. No software, no commitment, and a real answer inside a couple of weeks about whether there is anything there.</p>
