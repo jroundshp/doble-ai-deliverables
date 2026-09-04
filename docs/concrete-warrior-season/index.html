@@ -94,6 +94,40 @@ section:first-of-type{border-top:none;margin-top:0}
 .tile.hero{background:var(--accent-wash);border-color:var(--accent)}
 .tile.hero .val{color:var(--accent-deep)}
 
+/* findings: the scannable layer. One claim per row, detail on the second line. */
+ul.find{list-style:none;padding:0;margin:15px 0 0}
+ul.find li{display:grid;grid-template-columns:8px 1fr;gap:0 13px;padding:10px 0;
+  border-bottom:1px dotted var(--rule)}
+ul.find li:last-child{border-bottom:none}
+ul.find li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:7px}
+ul.find li.w::before{background:var(--warn)}
+ul.find li.g::before{background:var(--good)}
+ul.find .ft{font-weight:600;margin:0 0 2px;line-height:1.4}
+ul.find .fd{font-size:13.5px;color:var(--ink2);line-height:1.5;margin:0}
+
+/* compact secondary list, used for the lower priorities */
+ul.also{list-style:none;padding:0;margin:13px 0 0}
+ul.also li{padding:10px 0;border-bottom:1px dotted var(--rule)}
+ul.also li:last-child{border-bottom:none}
+ul.also .at{font-weight:600;font-size:14.5px;margin:0 0 2px}
+ul.also .ad{font-size:13.5px;color:var(--ink2);line-height:1.5;margin:0}
+ul.also .ao{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink3);margin-top:3px}
+
+/* disclosure: keeps the reasoning on the page without spending the reading path on it */
+details.more{border-top:1px dotted var(--rule);margin-top:13px;padding-top:11px}
+details.more>summary{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink3);cursor:pointer;list-style:none;
+  display:flex;align-items:center;gap:8px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::before{content:"+";font-family:"Barlow Condensed",sans-serif;font-size:17px;
+  line-height:1;font-weight:700;color:var(--accent-deep)}
+details.more[open]>summary::before{content:"\2013"}
+details.more>summary:hover{color:var(--ink)}
+details.more .inner{margin-top:12px;font-size:14px;color:var(--ink2);line-height:1.65}
+details.more .inner p{margin:0 0 10px}
+details.more .inner p:last-child{margin-bottom:0}
+
 /* progress */
 .prog{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:17px 18px;margin:0 0 22px;box-shadow:var(--shadow)}
 .prog-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:11px}
@@ -177,6 +211,10 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
   body{background:#fff;color:#000;font-size:10.5pt}
   section,.card,.note,.tile{page-break-inside:avoid}
   .tip{display:none}
+  /* print carries everything: a collapsed section must not vanish from a paper copy */
+  details.more>.inner{display:block!important}
+  details.more>summary{list-style:none}
+  details.more>summary::before{content:""}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -212,11 +250,6 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
     <p class="sub">Richard&rsquo;s estimate, Thursday 3 September. The season still needs 93,400</p>
   </div>
   <div class="tile">
-    <p class="lab">Weeks left in season</p>
-    <p class="val">11</p>
-    <p class="sub">Week 3 is running. The last one ends Sunday 15 November</p>
-  </div>
-  <div class="tile">
     <p class="lab">Topsoil delivered</p>
     <p class="val">23,600</p>
     <p class="sub">Yards of the season&rsquo;s 117,000, or 20.2%</p>
@@ -224,7 +257,7 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
   <div class="tile">
     <p class="lab">Week 2, final</p>
     <p class="val">11,800</p>
-    <p class="sub">Yards against a 10,000 week. The first week to beat its plan</p>
+    <p class="sub">Yards against a 10,000 plan, and the season&rsquo;s best week</p>
   </div>
   <div class="tile">
     <p class="lab">Week 3, four days in</p>
@@ -252,18 +285,42 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
   <div class="prog-legend">
     <span>Elapsed 19.8%</span>
     <span>Topsoil delivered 20.2%</span>
-    <span>Scheduled by now 26,300 yd &middot; 2,700 behind</span>
+    <span>Complete weeks 18,100 vs 16,300 planned &middot; 1,800 ahead</span>
   </div>
 </div>
 
-<div class="note warn">
-<h4>The parcel runs out this week, and the ground after it is still unsigned</h4>
-<p>Thursday&rsquo;s entry in the daily log reads <em>&ldquo;Rain impacted production day &mdash; Richard estimates 5000 yards remaining to be processed&rdquo;</em>. That is the first time anyone has written down how much material is actually left, and it lands where two earlier estimates already pointed. The 23 August call put the current site at roughly 30,000 yards and expected it to deplete <strong>around 7 September</strong>. The model itself drops week 4, the week beginning 7 September, from 10,000 yards to <strong>2,700</strong> and books $25,000 to repair and move the John Deere loader to the pit. Three independent things now say the same week. <strong>The plan always expected the parcel to end here, and it is ending on schedule.</strong></p>
-<p>What the plan does not have is the ground that comes after it. Weeks 5 through 13 need <strong>88,000 topsoil yards</strong>, and every one of them comes off the 40 acres across the road, which remains a verbal agreement with nothing signed. One caveat on the 5,000 before it gets repeated: it is a note in a comment cell, and it does not say whether it means the stockpile in front of the trommel or everything left on the parcel. <strong>Worth pinning down, because the two readings are a week apart.</strong></p>
-<p><strong>Week 2 finished strong and week 3 gave it back.</strong> Week 2 closed at <strong>11,800 yards against a 10,000 plan</strong>, the first week of the season to beat its own schedule, with Friday alone adding 2,800. Week 3 has run <strong>1,000, 1,500, 2,500 and 500</strong> Monday through Thursday. The log names the reason rather than leaving it to be guessed: <em>&ldquo;1 trommel crew and very windy&rdquo;</em> on Monday, <em>&ldquo;1 trommel crew&rdquo;</em> on Tuesday, <em>&ldquo;Rain impacted production day&rdquo;</em> on Thursday. So the second trommel that produced the 3,100 and 3,200-yard days is <strong>not a standing capability</strong>. It runs when there is a crew for it. That answers the question this page asked a week ago from the other direction: the machine is real, and the crew that makes it work is still not in the cost lines.</p>
-<p><strong>Where that leaves the pace.</strong> 23,600 yards are banked and <strong>93,400 remain</strong>, across the ten full weeks after this one, which is <strong>9,340 a week</strong>. The plan schedules only 90,700 yards across those ten weeks. The yard therefore has to beat its own remaining schedule by 2,700 yards, on top of a week 4 that is meant to drop to 2,700 while the loader moves to the pit.</p>
-<p><strong>On the season end date.</strong> <strong>Confirmed with Richard on 24 August: the season is planned to Sunday 15 November</strong>, and everyone is working to that date. Every figure on this page is measured to it. The workbook carries two further weeks at full production, to 29 November, worth another $883,780 of net. Those are shown in the table and the charts so this page always reconciles with Richard&rsquo;s sheet, and they are kept out of every headline here because <strong>they are model tail rather than plan</strong>. If the weather moves the date, the plan gets adjusted rather than the tail getting counted.</p>
+<ul class="find">
+  <li class="w"><div>
+    <p class="ft">The current parcel finishes this week, and the ground after it is unsigned</p>
+    <p class="fd">Richard puts <strong>5,000 yards left to process</strong>, and the model already drops week 4 for the move to the pit. Weeks 5 to 13 need <strong>88,000 yards</strong>, all off the 40 acres across the road, still a verbal agreement.</p>
+  </div></li>
+  <li class="g"><div>
+    <p class="ft">Through two complete weeks the yard is 1,800 yards ahead of plan</p>
+    <p class="fd">18,100 delivered against 16,300 scheduled. Week 2 ran <strong>11,800 against a 10,000 plan</strong> with two trommels and two crews working.</p>
+  </div></li>
+  <li class="w"><div>
+    <p class="ft">Week 3 is running behind at 5,500 through Thursday</p>
+    <p class="fd">1,000, 1,500, 2,500 and 500 Monday to Thursday, with one trommel crew logged Monday and Tuesday and rain on Thursday. Friday is not yet in.</p>
+  </div></li>
+  <li><div>
+    <p class="ft">Both trommels are in the cost lines. The second crew is not</p>
+    <p class="fd">The sheet rents one trommel and finances another, but manpower sits at <strong>four men and $6,000 a week, flat across all fifteen weeks</strong>. A second crew at the same rate is roughly <strong>$78,000 a season, a little over one point of margin</strong>. Our estimate, not the sheet&rsquo;s.</p>
+  </div></li>
+  <li class="w"><div>
+    <p class="ft">Concrete has sold nothing</p>
+    <p class="fd">The plant went live on 24 August and has recorded <strong>20 yards, for internal use, at no charge</strong>. That line carries <strong>42% of season revenue</strong>.</p>
+  </div></li>
+</ul>
+
+<details class="more">
+<summary>The detail behind these</summary>
+<div class="inner">
+<p><strong>On the 5,000 yards.</strong> It is a note in a comment cell and it does not say whether it means the stockpile in front of the trommel or everything left on the parcel. The two readings are about a week apart, so it is worth pinning down. What is not in doubt is that three independent things now point at the same week: Richard&rsquo;s estimate, the depletion date expected back on 23 August, and the model&rsquo;s own decision to drop week 4 and book $25,000 to move the John Deere loader to the pit. <strong>The plan always expected the parcel to end here. It is ending on schedule.</strong> The unsigned part is what comes after it.</p>
+<p><strong>On the pace.</strong> 23,600 yards are banked and <strong>93,400 remain</strong> across the ten full weeks after this one, which is <strong>9,340 a week</strong>. That figure treats Friday as zero, so it will come down when the week closes. The plan schedules 90,700 yards across those ten weeks, so on current numbers the yard has to beat its own remaining schedule slightly, on top of a week 4 meant to drop to 2,700 during the move to the pit.</p>
+<p><strong>On the second crew.</strong> Week 2 is what two machines and two crews produce, and it cleared the plan by 18%. The equipment is budgeted. The labour is the gap: one manpower line, four men, $6,000 a week, unchanged for fifteen weeks. That flat line is what puts the marginal yard at a 93.8% margin and lifts the blend to 69.2%. Putting a second crew in at the same rate costs about $78,000 over thirteen weeks and takes net from $5,048,027 to roughly $4,970,000. Material, and not dramatic. The number to ask Jeff for is what the second crew actually costs.</p>
+<p><strong>On the season end date.</strong> Confirmed with Richard on 24 August: the season is planned to <strong>Sunday 15 November</strong> and everyone is working to that date. Every figure here is measured to it. The workbook carries two further weeks at full production, to 29 November, worth another $883,780 of net. Those appear in the table and the charts so this page always reconciles with Richard&rsquo;s sheet, and they stay out of every headline because they are model tail rather than plan.</p>
 </div>
+</details>
 </section>
 
 <!-- ======== 02 CUMULATIVE ======== -->
@@ -275,7 +332,7 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
 <div class="card">
   <div class="card-head">
     <p class="t">Cumulative net dollars</p>
-    <p class="d">The plan curve flattens in week 4 when the operation moves to the pit, then steepens once aggregate and concrete come online. <strong>The solid marker tracks completed weeks at their planned net, not at an actual one.</strong> No actual dollar figure exists for any week: the daily log records yards and truck counts, and nothing on the expense side is tracked. Week 2 is the first week where plan and reality clearly diverge, delivering 18% more topsoil than planned while producing no sold concrete and no recorded demolition. See section 08.</p>
+    <p class="d">Flattens in week 4 during the move to the pit, then steepens as aggregate and concrete come online. <strong>The solid marker tracks completed weeks at their planned net, not an actual one</strong> &mdash; no actual dollar figure exists for any week. See section 08.</p>
   </div>
   <div class="chart-scroll"><svg id="c-cume" role="img" aria-label="Cumulative planned net dollars, 13 weeks to target plus two modelled weeks, with completed weeks marked"></svg></div>
   <div class="legend">
@@ -294,7 +351,7 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
 <div class="card">
   <div class="card-head">
     <p class="t">Topsoil yards, plan against actual</p>
-    <p class="d">Week 3 is shown four days of five, through Thursday 3 September, and is marked with an asterisk. Week 2 is complete at 11,800 yards, above its 10,000 plan. Week 4 is a planned dip to 2,700 yards during the move to the pit. Week 5 carries 8,000 and every week after it carries 10,000.</p>
+    <p class="d">Week 3 is four days of five, through Thursday, and is marked with an asterisk. Week 4 is a planned dip during the move to the pit.</p>
   </div>
   <div class="chart-scroll"><svg id="c-top" role="img" aria-label="Topsoil yards planned against actual, by week"></svg></div>
   <div class="legend">
@@ -314,7 +371,7 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
 <div class="card">
   <div class="card-head">
     <p class="t">Revenue by product line</p>
-    <p class="d">Demo runs out after week 8. From week 9 the season is topsoil and concrete only.</p>
+    <p class="d">Demo ends after week 8. From week 9 the season is topsoil and concrete only.</p>
   </div>
   <div class="chart-scroll"><svg id="c-mix" role="img" aria-label="Weekly revenue split between topsoil, concrete and demolition"></svg></div>
   <div class="legend">
@@ -324,13 +381,28 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
   </div>
 </div>
 
-<div class="note warn">
-<h4>Topsoil went up a quarter on 25 August, and the lines separated again</h4>
-<p><strong>Neither the 28 August nor the 4 September workbook touched the model.</strong> The Production Details tab has been identical to the 25 August one, line for line, for two weeks running, so everything in this section still stands as written. Jeff raised topsoil from <strong>8,000 to 10,000 yards a week</strong> from week 6 onward, and that was the only substantive edit in the 25 August workbook. Season revenue now splits <strong>51% topsoil, 42% concrete and 7% demo</strong>, where a day earlier it was 48, 45 and 8. The two lines have separated again on net: a steady topsoil week returns $268,814 against concrete&rsquo;s $166,826, a gap of about <strong>1.6 to 1</strong> where yesterday it was 1.25.</p>
-<p>What this does not do is decide which line the site leads with. That call was made on the 23 and 24 August operating calls, and it rests on freight and on how buyers search rather than on margin. Reclamation topsoil moves in jobs of eight to ten thousand yards, where haul distance is most of the landed cost, and nobody searching for topsoil types the word concrete. Which line earns more in a given week changes neither of those things. The build spec carries the current answer: topsoil leads, and concrete keeps its own page on a changed footing. Knife River operates ready mix in New Town, so proximity there is table stakes rather than an advantage, and the concrete page has to earn its position on findability, published specs and real answers instead.</p>
-<p>One caution before any of this gets repeated. Both of the volumes that moved this month are changes to the plan rather than results. The 10,000 topsoil yards was above any week the operation had run when it was written, though week 2 has since cleared it. The 1,000 concrete yards has no result behind it at all. Together they carry <strong>$620,000 of the $620,000 weekly revenue</strong> from week 9 onward, which is to say all of it. See section 08.</p>
-<p><strong>Concrete produced its first recorded yards on 28 August, and they were not sold.</strong> The entry is <strong>20 yards</strong>, with the comment <em>&ldquo;Concrete for Internal use&rdquo;</em> and the dollar cell deliberately left empty, so the running total of $0 against concrete is correct rather than missing. That is the whole of it: the plant poured its first load on 24 August and has <strong>20 yards and no external sale</strong> to show eleven days later, against a week 3 plan of 400 yards and a season plan of 10,100. Concrete carries <strong>42% of season revenue</strong> and $166,826 of the $435,640 steady weekly net. The first data point is welcome and it is not yet demand.</p>
+<ul class="find">
+  <li><div>
+    <p class="ft">Season revenue splits 51% topsoil, 42% concrete, 7% demo</p>
+    <p class="fd">A steady topsoil week returns $268,814 of net against concrete&rsquo;s $166,826, a gap of about 1.6 to 1. Demo ends after week 8 and is a finite job rather than a line of business.</p>
+  </div></li>
+  <li class="w"><div>
+    <p class="ft">42% of season revenue has no order behind it on this page</p>
+    <p class="fd">Concrete&rsquo;s only recorded output is 20 yards for internal use. The 200, 400, 500 then 1,000 yards a week is a commissioning curve, and week 5 asks for 1,000 a week with nothing sold yet.</p>
+  </div></li>
+  <li><div>
+    <p class="ft">Margin does not decide which line the site leads with</p>
+    <p class="fd">Topsoil leads, and that call rests on freight and on how buyers search rather than on net. The build spec carries the current answer.</p>
+  </div></li>
+</ul>
+
+<details class="more">
+<summary>Why topsoil leads even though concrete is close on net</summary>
+<div class="inner">
+<p>Reclamation topsoil moves in jobs of eight to ten thousand yards, where haul distance is most of the landed cost, and nobody searching for topsoil types the word concrete. Which line earns more in a given week changes neither of those things. Knife River operates ready mix in New Town, so proximity there is table stakes rather than an advantage, and the concrete page has to earn its position on findability, published specifications and real answers instead.</p>
+<p>Both of the volumes carrying the back half of the season are changes to the plan rather than results. Week 2 has now cleared the 10,000 topsoil yards, so that one has evidence behind it. The 1,000 concrete yards a week does not: the plant went live on 24 August and has produced 20 yards at no charge. Together the two lines carry $620,000 of the $620,000 weekly revenue from week 9 onward, which is to say all of it.</p>
 </div>
+</details>
 </section>
 
 <!-- ======== 05 TABLE ======== -->
@@ -372,55 +444,36 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
 <section id="priorities">
 <div class="sec-head"><span class="sec-num">06</span><div>
 <h2>Priorities, week of 7 September</h2>
-<p class="sec-sub">What has to move in the next seven days</p>
+<p class="sec-sub">Five things, in order</p>
 </div></div>
 <ol class="pri">
   <li><div>
-    <p class="pt">Paper the 40 acres. The current parcel is finishing this week</p>
-    <p class="pd">Richard&rsquo;s own note on Thursday put <strong>5,000 yards left to process</strong>, the 23 August call expected the site to deplete around <strong>7 September</strong>, and the model drops week 4 to 2,700 yards while the loader moves to the pit. All three point at this week. <strong>Weeks 5 through 13 need 88,000 yards</strong>, and every one of them comes off the 40 acres across the road, which is a verbal agreement with Robert White and nothing on paper. The lease is <strong>no longer the gate on publishing the website</strong> &mdash; that was decided on 3 September and the two questions have been separated. This is the operational one, and it is the only item on this list that can stop production outright.</p>
-    <p class="pw">Corey and Richard &middot; the one that matters</p>
+    <p class="pt">Get the website live</p>
+    <p class="pd">The 40-acre lease stopped being the gate on 3 September, so <strong>going live is now a decision rather than a date</strong>. Three things still feed it. <strong>Photographs and drone footage at New Town</strong> are the long pole: eight image slots are filled of which four are Texas stand-ins, seven are empty, and the sign, a truck door, the yard building and a loader working are still owed. <strong>Richard&rsquo;s background and the North Dakota oil report</strong>, now received, are what let the About page and the market read be written accurately instead of invented. And <strong>the <code>quotes@</code> and <code>info@</code> mailboxes need a test message</strong> before the site starts printing them as the way to reach the business, because only <code>admin@</code> is confirmed to exist and a bounced quote request fails silently.</p>
+    <p class="pw">John and Richard &middot; go-live is John&rsquo;s call</p>
   </div></li>
   <li><div>
     <p class="pt">Submit the Google Business Profile, and say the day it verifies</p>
-    <p class="pd"><strong>John&rsquo;s instruction on 3 September was to raise this above everything else on the project</strong>, and nothing is waiting on us for it. The phone number closed on 2 September at <strong>(701) 627-2200</strong>, Breanna put it and the yard address in writing to everyone on 3 September, Workspace has been live since 24 August and <code>office@</code> owns the profile. Verification is the longest and least controllable wait in the project, and the second half of the listing &mdash; categories, services, the description, Q&amp;A, photographs &mdash; cannot start until it clears. <strong>Tell John the day it verifies.</strong> If Google rejects or stalls, say so rather than retrying, because the recovery depends on the failure mode. The playbook holds the detail.</p>
-    <p class="pw">Breanna &middot; above everything else on the project</p>
+    <p class="pd">Nothing is waiting on us. The phone number closed at <strong>(701) 627-2200</strong>, Breanna put it and the yard address in writing on 3 September, and <code>office@</code> owns the profile. <strong>Verification is the longest and least controllable wait in the project</strong>, and the second half of the listing, categories, services, description and photographs, cannot start until it clears. The sign and the truck magnets have to read <strong>Concrete Warrior Supply</strong>, because the listing name has to match what is physically on the yard. If Google rejects or stalls, say so rather than retrying.</p>
+    <p class="pw">Breanna &middot; tell John the day it verifies</p>
   </div></li>
   <li><div>
-    <p class="pt">Crew the second trommel, or take it out of the plan</p>
-    <p class="pd">Week 2 hit <strong>11,800 yards</strong> with two machines running. Week 3 logged <em>&ldquo;1 trommel crew&rdquo;</em> on Monday and again on Tuesday and has managed <strong>5,500 in four days</strong>. So the capacity question is answered and a different one is now open: the second trommel is a crewing decision that comes and goes week to week, and <strong>nothing in the sheet pays for it</strong>. Manpower, diesel, rentals and finance payments all stayed flat when the plan went from 8,000 yards a week to 10,000, which is what puts the marginal yard at a 93.8% margin and lifts the blend to 69.2%. Either the crew is funded and the expense side grows, or the 10,000-yard weeks are only available some weeks. The plan currently assumes the first and the log shows the second.</p>
-    <p class="pw">Jeff and Richard &middot; the number that decides the season</p>
+    <p class="pt">Paper the 40 acres</p>
+    <p class="pd">Richard puts <strong>5,000 yards left to process</strong> on the current parcel. Weeks 5 through 13 need <strong>88,000 yards</strong>, all of it off ground held on a verbal agreement with nothing signed. It is the only item here that can stop production outright.</p>
+    <p class="pw">Corey and Richard &middot; operational</p>
   </div></li>
   <li><div>
-    <p class="pt">Is the 10,000-yard week sold, and who is buying the concrete</p>
-    <p class="pd">Still unanswered, and it is now the older half of the question. Nothing in the workbook says whether 10,000 yards a week is <strong>ordered volume or pit capacity</strong>. Concrete is the sharper version of the same problem: the plant has been live since 24 August and the only entry against it is <strong>20 yards for internal use at no charge</strong>. That line carries <strong>42% of season revenue</strong>. A commissioning curve is a fair thing to model, but week 5 asks for 1,000 yards a week and there is no order behind it on this page.</p>
-    <p class="pw">Richard and Jeff &middot; largest unsupported number in the model</p>
+    <p class="pt">Confirm the two numbers the model rests on</p>
+    <p class="pd">First, <strong>is 10,000 topsoil yards a week sold, or is it what the pit can produce</strong>. Second, <strong>what does the second crew cost</strong>. Both trommels are already in the sheet; the manpower line is not, sitting at four men and $6,000 a week for all fifteen weeks. Costing a second crew at the same rate is roughly $78,000 over the season. Concrete is the same question in sharper form, carrying 42% of season revenue with 20 unsold yards behind it.</p>
+    <p class="pw">Jeff and Richard &middot; decides the margin</p>
   </div></li>
   <li><div>
-    <p class="pt">Photographs and drone footage at the yard</p>
-    <p class="pd"><strong>Now the long pole on the website.</strong> The shoot was meant to run the week of 24 August, has been grounded by wind since, and was hoped for 3 September. Eight image slots are filled of which <strong>four are Texas stand-ins</strong>, seven are empty, and five off-site shots are still owed: the sign, a truck door, the yard building, a loader loading, and the social card. They do <strong>not</strong> block the Google filing, which is worth saying plainly so nobody waits on them, but they decide how the listing performs once it is live. The aerial is also the strongest supporting material for video verification, where Google has no business record at 9702 ND-23 at all.</p>
-    <p class="pw">Amanda and Richard &middot; long pole on launch</p>
-  </div></li>
-  <li><div>
-    <p class="pt">Confirm the quotes@ and info@ mailboxes exist</p>
-    <p class="pd">The only <strong>confirmed</strong> mailbox on the domain is <code>admin@</code>. The website prints <code>quotes@</code> and <code>info@</code> on every page as the way to reach the business, and the FAQ sends buyers to them. If those aliases were never created, <strong>every quote request bounces silently</strong>. Nothing has been lost yet only because the site is still noindexed. A test message to each settles it in a minute, and the same sign-in confirms <code>office@</code> works before Breanna needs it for the listing.</p>
-    <p class="pw">Breanna &middot; one test email closes it</p>
-  </div></li>
-  <li><div>
-    <p class="pt">Fill in concrete yards, tons crushed, demo dollars and actual costs</p>
-    <p class="pd"><strong>Two of the five fields have now produced data.</strong> Unit prices were stated on 25 August, and concrete recorded its first entry on 28 August. That is real progress and it came from asking. What is left is the part that would let this page show actual dollars: <strong>demo billing has no figure against $525,000 of season plan</strong>, rubble truck counts have not moved off 10 since week 1, and nothing on the expense side is tracked at all. Two columns that look like measurements are not: rubble tons is truck count times an assumed 15, and the new sand column is loads times an assumed 28. Neither weighs anything.</p>
-    <p class="pw">Jeff and Richard &middot; two fields answered, three still owed</p>
-  </div></li>
-  <li><div>
-    <p class="pt">Prequalification, as a commercial item rather than a launch blocker</p>
-    <p class="pd"><strong>Deliberately off the website as of 3 September</strong>, and the site will launch without it, because an estimator reads an unanswered prequalification question as a no and there is no reason to volunteer a disqualifying answer before anyone asks. That decision does not make the underlying gap smaller. Around 95% of operators run <strong>ISNetworld, Veriforce or Avetta</strong>, the named targets are Hess and Exxon contractors, and it sits ahead of price and material in the buying sequence. It is a share of the pipeline, not a page.</p>
-    <p class="pw">Corey and Richard &middot; launching without it on purpose</p>
-  </div></li>
-  <li><div>
-    <p class="pt">Richard&rsquo;s resume, and the North Dakota oil report</p>
-    <p class="pd">Both still owed, both only Richard can supply. The positioning rests on decades of his own work rather than on the age of the entity, which was registered in 2024, and <code>foundedYear</code> stays empty on purpose so nothing ever renders &ldquo;established 2024&rdquo;. The oil report matters because roughly half the buying is oil and gas and the demand behind reclamation topsoil is drilling and closure activity, so it is the one input that would let the market read on this page rest on current operator data rather than public Bakken reporting from spring.</p>
-    <p class="pw">Richard &middot; blocks the About page and the market read</p>
+    <p class="pt">Fill the last three fields in the daily log</p>
+    <p class="pd"><strong>Tons crushed, demo dollars billed, and actual costs.</strong> Prices were added on 25 August and concrete opened on 28 August, so the pattern is that what gets asked for gets filled. Until these three exist, <strong>every dollar figure on this page is plan rather than plan against actual</strong>, and the second crew cannot be seen in the economics even though it is running.</p>
+    <p class="pw">Jeff and Richard &middot; about a minute a day</p>
   </div></li>
 </ol>
+<p style="font-size:13.5px;color:var(--ink3);margin:14px 0 0;line-height:1.55">Deliberately not on this list: <strong>prequalification</strong>. Around 95% of operators run ISNetworld, Veriforce or Avetta and none are set up, but the decision on 3 September was to launch without it and add it when it makes commercial sense. It is a share of the pipeline rather than a page.</p>
 </section>
 
 <!-- ======== 07 THE WINTER CASE ======== -->
@@ -431,35 +484,34 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
 </div></div>
 <div class="col">
 
-<p class="lede">Production stops 15 November and does not restart until the middle of March. That is roughly <strong>17 weeks of no revenue in North Dakota</strong>. It is also the only stretch of the year when the website and the Google listing are the entire business.</p>
+<p class="lede">Production stops 15 November and does not restart until the middle of March. That is roughly <strong>17 weeks of no revenue in North Dakota</strong>, and the only stretch of the year when the website and the Google listing are the entire business.</p>
 
-<h3>Search does not take the winter off</h3>
-<p>A contractor bidding a spring pour, a county planning its 2027 road program, an oilfield operator scheduling reclamation, all of them do that work in January and February. They search while nothing is running and nobody is answering the phone at the yard. Whatever is findable in February decides who gets the call in April.</p>
+<ul class="find">
+  <li><div>
+    <p class="ft">Buyers plan in February, when nothing is running</p>
+    <p class="fd">A contractor bidding a spring pour, a county setting its 2027 road program, an operator scheduling reclamation. Whatever is findable in February decides who gets the call in April.</p>
+  </div></li>
+  <li><div>
+    <p class="ft">A listing built in March is brand new in March</p>
+    <p class="fd">Reviews, photographs and local ranking build with the age and activity of a profile. Built now it spends the winter maturing. Built in March, the 2027 season opens with about six weeks of being invisible.</p>
+  </div></li>
+  <li><div>
+    <p class="ft">Verification and photography are easier during the season</p>
+    <p class="fd">Google&rsquo;s video check needs somebody on site, and the yard photographs well while equipment is running and the ground is not frozen. Neither is true of a yard that is just reopening.</p>
+  </div></li>
+  <li class="g"><div>
+    <p class="ft">The recurring cost is three and a half thousandths of one percent</p>
+    <p class="fd">Email is about $168 a year, the domain renewal is $11.25, and the listing is free, against a season modelled at $5.05 million net. It is also the only line on this dashboard that keeps working after 15 November.</p>
+  </div></li>
+</ul>
 
-<h3>A profile built in March is brand new in March</h3>
-<p>Google listings do not switch on at full strength. Reviews accumulate, photographs accumulate, questions get asked and answered, and local ranking builds with the age and activity of the profile. A listing created in March has none of that during the exact weeks it would be worth the most.</p>
-<p>Built now, it spends the winter quietly maturing and arrives at the March restart already established. Built in March, the 2027 season opens with roughly six weeks of being invisible.</p>
-
-<div class="split2">
-  <div class="note">
-    <h4>Build now</h4>
-    <p>Listing verified during the season while people are on site to answer Google's video check. Photographs taken while equipment is running and the ground is not frozen. Four months of quiet maturing. Findable when the February planning happens.</p>
-  </div>
-  <div class="note">
-    <h4>Build in March</h4>
-    <p>Verification needs somebody at a yard that is just reopening. No summer photographs available. Profile is brand new during the season's first six weeks. February searches find nothing.</p>
-  </div>
+<details class="more">
+<summary>What the winter is actually for</summary>
+<div class="inner">
+<p>The equipment goes south and the North Dakota crew stands down. The work that can only be done when nobody is busy is exactly this: finishing the website, letting the listing age, publishing the material specifications and gradations, and answering the questions buyers ask before they call. None of it competes with production, because there is no production.</p>
+<p>The 2027 season runs from roughly mid-March to 15 November, about <strong>35 weeks</strong>. Opening that season already findable is worth more than anything that can be done to the site once it has started. Billing is settled and sits on the Buffalo side from day one, which avoids a handover when the domain transfers.</p>
 </div>
-
-<div class="note good">
-<h4>The cost sits next to the wrong number to argue about</h4>
-<p>The business email account runs about <strong>$168 a year</strong> and the domain renewal is <strong>$11.25</strong>. The Google listing itself is free. Measured against a season modelled at <strong>$5.05 million net</strong>, the recurring digital cost is roughly <strong>three and a half thousandths of one percent</strong>.</p>
-<p>Billing is settled and sits on the Buffalo side from day one, which avoids a handover when the domain transfers. It is also the only line on this dashboard that keeps working after 15 November.</p>
-</div>
-
-<h3>What the winter is actually for</h3>
-<p>The equipment goes south, and the North Dakota crew stands down. The work that can only be done when nobody is busy is exactly this: finishing the website, letting the listing age, publishing the material specifications and gradations, and answering the questions buyers ask before they call. None of it competes with production, because there is no production.</p>
-<p>The 2027 season runs from roughly mid-March to 15 November, about <strong>35 weeks</strong>. Opening that season already findable is worth more than anything that can be done to the site once it has started.</p>
+</details>
 
 </div>
 </section>
@@ -472,70 +524,32 @@ footer{margin-top:56px;padding-top:20px;border-top:3px solid var(--ink);font-siz
 </div></div>
 <div class="col">
 
-<h3>What changed on 4 September</h3>
-<p><strong>The model did not move, for the second week running.</strong> The Production Details tab in the 4 September workbook is identical to the 28 August one, which was itself identical to 25 August. Same fifteen weeks, same $8,539,000 of revenue, same $5,931,807 of net. Every plan figure on this page stands. Everything below is the daily log.</p>
-<ul class="plain">
-  <li><strong>Week 2 closed above plan.</strong> Friday added <strong>2,800 yards</strong>, finishing the week at <strong>11,800 against a 10,000 plan</strong>. It is the first week of the season to beat its own schedule.</li>
-  <li><strong>Week 3 has run 1,000, 1,500, 2,500 and 500</strong> Monday through Thursday, <strong>5,500 yards</strong> against 8,000 for the same four days. The comments name the cause: one trommel crew on Monday and Tuesday, wind on Monday, rain on Thursday. Friday 4 September is not yet logged.</li>
-  <li><strong>The running total is 23,600 topsoil yards and $755,200</strong> at the stated $32 a yard.</li>
-  <li><strong>Concrete has its first entry ever.</strong> 20 yards on Friday 28 August, commented <em>&ldquo;Concrete for Internal use&rdquo;</em>, with the dollar cell left empty. The $0 against it is therefore accurate rather than absent. No concrete has been recorded as sold.</li>
-  <li><strong>The feedstock got its first written figure.</strong> Thursday&rsquo;s comment reads <em>&ldquo;Rain impacted production day &mdash; Richard estimates 5000 yards remaining to be processed&rdquo;</em>. See section 01. It does not state whether it means the stockpile or the parcel.</li>
-  <li><strong>Sand ahead of Processing</strong> now totals <strong>2,144 tons</strong>, up from 520, and is being filled most days.</li>
-  <li><strong>Rubble truck counts have still not moved off 10 since week 1</strong>, now against $175,000 of demolition planned across the first three weeks.</li>
-</ul>
-<p><strong>One caution on the sand column, which is the same trap as the tons column.</strong> The sand cells look like measurements and are not. They are a formula, load count multiplied by an assumed 28 tons, so the entries read 476, 448 and 420 for 17, 16 and 15 loads. Nothing is being weighed. Two of the columns on that sheet now carry derived figures presented exactly like observed ones.</p>
+<p class="lede">Every figure on this page comes from Richard and Jeff&rsquo;s workbook or is derived from it. <strong>The model has not changed since 25 August.</strong> Three things are worth knowing before any of it is repeated outside this group.</p>
 
-<h3>What changed on 28 August</h3>
-<p><strong>The model did not move.</strong> The Production Details tab in the 28 August workbook is identical to the 25 August one, line for line: same fifteen weeks, same $8,539,000 of revenue, same $5,931,807 of net. Every plan figure on this page therefore stands unchanged, and no headline here needed rewriting. What changed is the daily log.</p>
-<ul class="plain">
-  <li><strong>Three days of production were added.</strong> Tuesday 1,400 yards, Wednesday 3,100, Thursday 3,200. The running total now reads <strong>15,300 topsoil yards and $489,600</strong> at the stated $32 a yard.</li>
-  <li><strong>A new column appeared and is being filled.</strong> <em>Sand ahead of Processing</em>, in tons, carrying 100 on Tuesday, none on Wednesday and 420 on Thursday, <strong>520 tons</strong> in total. It is the first field beyond topsoil yards and truck counts ever to hold data. What it represents is worth asking, because the model does not schedule sand production until week 3 and does not price sand until week 5.</li>
-  <li><strong>Concrete is still blank.</strong> The running-total row now prints a 0 against concrete yards, but that cell is a sum over empty cells rather than a stated figure, so it means <em>nothing recorded</em> and not <em>nothing produced</em>. Week 2 plans 200 yards and the plant poured its first load on 24 August.</li>
-  <li><strong>Rubble truck counts have not moved since week 1</strong>, still 10 loads, against $50,000 of demolition planned for week 2. The tons beside them are still truck count times an assumed 15, not a weight.</li>
-</ul>
-<p>Nothing else changed. The <em>Weather conditions</em> column that was removed on 25 August has not come back, which is a small loss in a week whose first day was lost to wet ground.</p>
+<h3>Every dollar on this page is plan</h3>
+<p>The daily log records topsoil yards, rubble truck counts and, since 28 August, concrete yards. Nothing on the expense side is tracked at all, so <strong>every dollar on this page is plan</strong>. Three fields close that gap: <strong>tons crushed, demo dollars billed, and actual costs</strong>.</p>
+<p><strong>Two columns look like measurements and are not.</strong> Rubble tonnage is truck count multiplied by an assumed 15 tons, and the sand column is load count multiplied by an assumed 28. Nothing is weighed. They carry no more information than the counts they are derived from.</p>
 
-<h3>What changed on 25 August</h3>
-<p>One line moved. Jeff raised topsoil from <strong>8,000 to 10,000 yards a week</strong> from week 6 onward. Every other difference in the file follows from it arithmetically: material at $1.50 a yard and round-up at $0.50 rise with the volume, and revenue and net follow. Demo, concrete, wages, rentals and finance payments are untouched. The change adds <strong>$512,000 of revenue and $480,000 of net</strong> to the thirteen-week season, and it is the entire difference between yesterday&rsquo;s figures and these.</p>
-<p><strong>The extra 2,000 yards a week carries no cost but material.</strong> Manpower stays at $6,000 a week, diesel at $6,000, and the trommel, grader and loader lines do not move at all. A 25% increase in output therefore costs $2.00 a yard and nothing else, which puts the marginal yard at a <strong>93.8% margin</strong> and lifts the blended figure from 67.3% to 69.2%. That holds only if the existing crew and trommel had a quarter of their capacity sitting idle. What the daily log actually records is a hydraulic leak on the owned trommel and a Monday lost to wet ground. It is worth asking whether the extra volume is already sold, and whether it assumes added shifts or a second machine, because neither of those is free and neither is in the sheet.</p>
-<p>The daily log gained one day: <strong>Monday 24 August, 1,300 yards</strong>, noted as a delayed start due to wet conditions. It also gained a running-total row and a row stating the unit rates. The <em>Weather conditions</em> column was removed, which is unfortunate in the same week that weather cost a day.</p>
-
-<h3>The margin needs a conversation</h3>
-<p>The model shows <strong>69.2% net</strong>, up from 67.3% a day earlier. Aggregate producers typically run 20 to 35% EBITDA. Going through the expense side line by line, the following are absent:</p>
+<h3>69.2% net is a contribution margin, not a full profit and loss</h3>
+<p>Aggregate producers typically run 20 to 35% EBITDA. Going through the expense side line by line, the following are absent:</p>
 <ul class="plain">
-  <li><strong>No hauling cost on topsoil at all.</strong> Concrete carries a $130 delivery line; topsoil carries none. If topsoil is sold at the pit and the customer hauls it, that is correct and the margin stands. Nobody has confirmed which.</li>
+  <li><strong>No hauling cost on topsoil at all.</strong> Concrete carries a $130 delivery line and topsoil carries none. If topsoil is sold at the pit and the customer hauls it, that is correct and the margin stands. Nobody has confirmed which.</li>
   <li>No insurance, bonding or workers compensation beyond flat wage lines</li>
   <li>No TERO fees, which apply on Fort Berthold</li>
   <li>No taxes, and no royalty beyond $4,000 a month of land rent</li>
   <li>General and administrative expense is a single $5,000 a week line</li>
+  <li><strong>One manpower line for topsoil</strong>, four men at $6,000 a week, unchanged across all fifteen weeks and across two running trommels</li>
 </ul>
-<p>This reads as a <strong>contribution margin model rather than a full profit and loss</strong>. That is a normal thing for an operator to build and a useful thing to run a yard against. It is not the number to put in front of a lender or a partner without saying what it excludes.</p>
+<p>That is a normal thing for an operator to build and a useful thing to run a yard against. It is not the number to put in front of a lender or a partner without saying what it excludes.</p>
 
-<h3>The feedstock behind these numbers is not secured</h3>
-<p>Every yard on this page after the first three weeks comes out of ground the operation does not yet control on paper. The current site holds about 30,000 yards and runs out around 7 September. The 40 acres across the road holds about 130,000 and is <strong>verbally granted, unsigned</strong>, with a lease to be drafted once the pin is sent. Against a season plan of 117,000 yards, <strong>roughly 74% of the revenue and net shown above depends on that agreement being papered</strong>, up from 70% before this week&rsquo;s increase. Raising weekly output does not add ground; it draws down the unsigned parcel faster.</p>
-<p><strong>On 3 September this stopped being a projection.</strong> Richard&rsquo;s note in the daily log estimates <strong>5,000 yards left to process</strong>, which agrees with the 7 September depletion expected back on 23 August and with the model&rsquo;s own decision to drop week 4 to 2,700 yards while the loader is moved to the pit. The transition is arriving on the week it was always going to arrive. The unsigned part is what happens after it.</p>
-<p>This is the largest single assumption on the page, larger than the concrete volume and larger than the margin question. It is not a modelling caveat that can be resolved by a better spreadsheet. Read every figure here with it in mind.</p>
-
-<h3>What the dashboard cannot yet show</h3>
-<p>The daily log captures topsoil yards, rubble truck counts and now a first concrete entry. Those are real and they are enough to track volume against plan. It does not capture the rest, which is why every dollar figure above is <em>plan</em> rather than <em>plan against actual</em>. Five fields close that gap and cost about a minute a day. <strong>Two of the five have now produced data; three remain:</strong></p>
-<ol style="margin:10px 0 12px 20px;line-height:1.75">
-  <li><strong>Tons crushed.</strong> Still not captured. See the caution below.</li>
-  <li><strong>Demo dollars billed.</strong> $525,000 of the season, no actual against it, and the truck count has not moved since week 1.</li>
-  <li><strong>Actual costs.</strong> Nothing on the expense side is tracked against plan, which is why the second trommel cannot be seen in this page&rsquo;s economics even though the log shows it running.</li>
-  <li style="opacity:.6"><s>Concrete yards produced.</s> <strong>Opened 28 August</strong> with 20 yards for internal use. The field works; there is simply almost nothing in it yet.</li>
-  <li style="opacity:.6"><s>Unit prices, stated rather than left to be derived.</s> <strong>Answered 25 August.</strong></li>
-</ol>
-<p><strong>Status, 4 September.</strong> The updated workbook arrived and both tabs have been read and diffed against the previous one. The model is unchanged for the second week running; the daily log gained six days, a first concrete entry and a written feedstock estimate. <strong>The pattern worth noting is that every field we have asked for has eventually been filled</strong> &mdash; prices in one week, concrete in the next &mdash; so the remaining three are worth asking for again rather than working around.</p>
-<p><strong>One caution on the tons column.</strong> The sheet now shows crushed tonnage against each day, which reads at a glance as though weights are being recorded. They are not. The cells are a formula, truck count multiplied by an assumed 15 tons a load, so 4 trucks reports as 60 tons and 3 reports as 45. Nothing is being weighed and the figure carries no more information than the truck count it is derived from. <strong>Tons crushed remains open.</strong></p>
-
-<h3>Prices, now stated</h3>
-<p><strong>Closed on 25 August.</strong> The rates were absent from every earlier workbook and had to be worked backward from three separate weeks, which gave <strong>$32 a yard for topsoil</strong> and <strong>$300 a yard for concrete</strong>. The new summary tab states both, and they match. What is confirmed is the rate the model uses, not that the market pays it, and the $300 in particular is still worth testing. An earlier version of this page called it plausible on the grounds that the nearest ready-mix plant was sixty miles away. That was wrong, and build spec v4 corrects it: <strong>Knife River runs ready mix and aggregate in New Town itself</strong>, at 8790 39th St NW, through its Strata division. With an incumbent in town, a rate well above a typical ready-mix price is an assumption carrying more weight than before, not less.</p>
+<h3>Nobody has tested the $300 concrete price</h3>
+<p>The workbook states <strong>$32 a yard for topsoil</strong> and <strong>$300 a yard for concrete</strong>, and both reconcile exactly against the weekly revenue lines. That confirms the rate the model uses, not that the market pays it. <strong>Knife River runs ready mix and aggregate in New Town itself</strong>, so $300 is an assumption worth testing rather than a given.</p>
 
 <h3>The season stop</h3>
-<p>The workbook runs fifteen weeks to 29 November. Cutting at the 15 November shutdown removes two weeks, <strong>$1,240,000 of revenue and $883,780 of net</strong>. Everything on this page is the thirteen-week version. Weather moves this date in both directions.</p>
+<p>The workbook runs fifteen weeks to 29 November. Cutting at the 15 November shutdown removes two weeks, <strong>$1,240,000 of revenue and $883,780 of net</strong>. Everything headlined here is the thirteen-week version, and both extra weeks are still shown in the table and charts so this page reconciles with Richard&rsquo;s sheet.</p>
 
 <div class="note">
-<p>Source: <code>ND Production summary.xlsx</code>, downloaded 4 September 2026 from the North Dakota folder on Jeff&rsquo;s OneDrive. Both tabs were read and diffed against the 28 August copy. Figures are read directly from that workbook or derived from it, never estimated. Anything not in the workbook is marked as unconfirmed above.</p>
+<p>Source: <code>ND Production summary.xlsx</code>, downloaded 4 September 2026 from the North Dakota folder on Jeff&rsquo;s OneDrive. Both tabs read and diffed against the previous copy. Figures are read directly from that workbook or derived from it, never estimated, and anything not in the workbook is marked as unconfirmed above.</p>
 </div>
 
 </div>
