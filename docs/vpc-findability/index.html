@@ -125,11 +125,9 @@
     color: var(--muted);
     border-top: 1px solid var(--hair);
     padding-top: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 28px;
+    display: block;
   }
-  .stamp b { color: var(--ink); font-weight: 500; }
+  .stamp b { color: var(--ink); font-weight: 600; }
 
   /* ---------- sections ---------- */
 
@@ -324,6 +322,13 @@
   ol.recs li.free::before { content:"0" counter(r) " \00b7 FREE"; }
   .rt { font-family:Archivo,sans-serif; font-weight:600; font-size:17.5px; display:block; margin-bottom:6px; }
   .table-wrap table { min-width:720px; }
+  .opts { display:flex; flex-direction:column; gap:14px; margin:0; padding:0; list-style:none; }
+  .opts li { background:var(--surface); border:1px solid var(--hair); border-left:4px solid var(--accent); padding:16px 18px; max-width:66ch; }
+  .opts .olabel { font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:500; letter-spacing:.11em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:6px; }
+  .opts .oname { font-family:Archivo,sans-serif; font-weight:600; font-size:16.5px; display:block; margin-bottom:5px; }
+  .warn .evidence, .win .evidence { background:var(--surface); border:1px solid var(--hair); }
+  .ask { border-top:1px solid var(--hair); padding-top:12px; font-size:15.5px; }
+  .ask b { font-weight:600; }
   .table-wrap td:first-child code { word-break:normal; white-space:nowrap; font-size:11.5px; }
 </style>
 </head>
@@ -331,10 +336,10 @@
 <div class="sheet">
 
 <header class="masthead">
-  <p class="eyebrow">Doble AI &middot; Findability review &middot; 1 September 2026</p>
+  <p class="eyebrow">Doble AI &middot; Findability review &middot; 1 September 2026 &middot; re-verified 5 September</p>
   <h1>VPC is four websites, and the two carrying the products are the two machines can read least</h1>
   <p class="standfirst">An outside firm told Corey that VPC is not findable and not searchable. We went and looked, across all four properties this time. They are right, and the mechanism is more specific than the verdict.</p>
-  <p class="stamp">Every figure below was pulled on 1 September 2026. Supersedes nothing. The July audit of vpcfiberglass.com stands, and this widens the frame to the three properties it never covered.</p>
+  <p class="stamp">Every figure below was pulled on 1 September 2026 and re-checked live on <b>5 September 2026</b>. Supersedes nothing. The July audit of vpcfiberglass.com stands, and this widens the frame to the three properties it never covered.</p>
 </header>
 
 <section>
@@ -350,15 +355,19 @@
     <p>That matters more than the three items themselves. It means there is somebody at or around VPC who reads these documents and acts on them, which is the thing we could not establish in August. It also means the argument that follows is not landing in an empty room.</p>
   </div>
   <div class="warn">
-    <div class="claim-head"><p class="claim-quote">Three URLs still named &ldquo;enduro-standard-equipment-enclosure&rdquo; now redirect to three unrelated projects.</p><span class="chip confirmed">Confirmed 1 Sep</span></div>
-    <div class="evidence">/vpc-case-studies/enduro-standard-equipment-enclosure-2/  301 -> /vpc-case-studies/custom-fiberglass-building/
-/vpc-case-studies/enduro-standard-equipment-enclosure-3/  301 -> /vpc-case-studies/36-inch-parshall-flume-fiberglass/
-/vpc-case-studies/enduro-standard-equipment-enclosure-4/  301 -> /vpc-case-studies/storm-drain-manhole-cover/
-/vpc-case-studies/enduro-standard-equipment-enclosure-5/  200  (the real Enduro page)</div>
+    <div class="claim-head"><p class="claim-quote">Three URLs still named &ldquo;enduro-standard-equipment-enclosure&rdquo; now redirect to three unrelated projects.</p><span class="chip confirmed">Re-confirmed 5 Sep</span></div>
+    <div class="evidence">/vpc-case-studies/enduro-standard-equipment-enclosure-2/
+    301 ->  /vpc-case-studies/custom-fiberglass-building/
+/vpc-case-studies/enduro-standard-equipment-enclosure-3/
+    301 ->  /vpc-case-studies/36-inch-parshall-flume-fiberglass/
+/vpc-case-studies/enduro-standard-equipment-enclosure-4/
+    301 ->  /vpc-case-studies/storm-drain-manhole-cover/
+/vpc-case-studies/enduro-standard-equipment-enclosure-5/
+    200     the real Enduro page</div>
     <p>A link, a bookmark or an old search result for an equipment enclosure now lands a visitor on a custom building, a 36-inch Parshall flume, or a storm drain manhole cover. <b>We do not know how that mapping was generated</b>, and a redirect plugin producing it automatically when the duplicate posts were removed is at least as likely as anything deliberate.</p>
     <p>A 301 tells a search engine &ldquo;this page moved here, and it is the same thing.&rdquo; These three say that about products that have nothing to do with each other. It is a smaller problem than leaving duplicates up, so this is still a net improvement, and it is a five-minute correction: point all three at <code>-5</code>, or let them 404 the way their root-level twins already do.</p>
   </div>
-  <p><span class="finding-label">Still open from that same list</span> No <code>og:image</code> and no Twitter card, so anything shared into LinkedIn or a text message renders without an image. <code>/author/tmswebsiteadminthomasnet-com/</code> still loads, and still has its own submitted sitemap. <code>/locations/</code> still has no meta description at all.</p>
+  <p><span class="finding-label">Still open from that same list, re-checked 5 September</span> No <code>og:image</code> and no Twitter card, so anything shared into LinkedIn or a text message renders without an image. <code>/author/tmswebsiteadminthomasnet-com/</code> still returns 200, and still has its own submitted sitemap. <code>/locations/</code> still has no meta description at all. All three unchanged since 1 September, and the three redirects above are unchanged too.</p>
 </section>
 
 <section>
@@ -367,6 +376,7 @@
   <p>We are not going to spend this document defending our own. The outside verdict is correct, it matches what our July audit found, and an outsider saying it unprompted is worth more to VPC than us saying it again.</p>
   <p>What we can add is the mechanism, because &ldquo;not findable&rdquo; is a symptom and there are four specific causes, all of them fixable, and two of them cheap.</p>
   <p>The short version: <b>VPC publishes roughly 100 indexable pages across four properties. The pages that describe the actual products are the least machine-readable things the company owns.</b> Not the marketing pages. The products.</p>
+  <p><span class="finding-label">The thing that makes this harder than a normal site review</span> <b>VPC is not one kind of business, and findability does different work for each half.</b> Some lines are catalog-shaped: Parshall flumes, manhole systems, standard Enduro enclosures, the EasyRec ADA stairs and stackable benches. A buyer already knows roughly what the part is and searches for it by name, so those pages have to exist, carry the product name, and be legible as products. The rest is engineer-to-order: shelters and buildings, ductwork, fans, custom weirs and baffles, and the InterActive Play attractions, where a consulting engineer arrives with a spec and a drawing and no part number exists yet. Those pages are not competing to match a search term, they are competing to prove capability, which means named projects and stated tolerances rather than a catalog entry. VPC currently under-serves both, but it under-serves them in different ways, and a single fix list that ignores the split will over-invest in one half.</p>
 </section>
 
 <section>
@@ -413,6 +423,8 @@
   </table>
   </div>
   <p><span class="finding-label">Worth sitting with</span> <b>InterActive Play publishes more product pages than the flagship.</b> Twenty-four individual products and six category pages, against 23 pages on <code>vpcfiberglass.com</code>. The division nobody has audited is the one with the most catalog depth on an owned domain, and it is the one carrying no company identity in its markup at all.</p>
+  <p><span class="finding-label">Two doors, not one</span> <b>InterActive Play and EasyRec together are the aquatic door, and they are not selling the same way as each other.</b> InterActive Play sells designed attractions, splash pads, water play structures and the features that go in them, specified per site with a layout. EasyRec sells productized pool access, ADA stairs, ladders and stackable benches a buyer can choose off a page. The plant and municipal door is <code>vpcfiberglass.com</code> plus the catalog subdomain. A campground owner and a wastewater engineer should never have to pass through each other's hallway to find what they came for, and today the estate does not make that separation anywhere a machine or a visitor can see.</p>
+  <p><span class="finding-label">Why the flagship looks thin on plant FRP</span> <b>Traditional's catalog depth is not on the flagship.</b> It sits on ThomasNet-hosted <code>products.vpcfiberglass.com</code>, which is why 23 pages is the whole of what a crawler finds for plant and municipal FRP on the domain VPC owns. The products exist and the descriptions exist. They are parked somewhere a machine cannot read them, on a property whose control is still an open question. ThomasNet is a real industrial discovery and RFQ channel and it should stay one, but it is a channel, not a substitute for a product story on a domain VPC controls.</p>
 </section>
 
 <section>
@@ -425,14 +437,19 @@
     <li><b>The educational writing is good.</b> The <code>/resources/</code> pages on why fiberglass, ductwork, manhole covers and flumes are real explanatory content. That is the asset the outside firm noticed, and they were right to.</li>
   </ul>
   <div class="warn">
-    <div class="claim-head"><p class="claim-quote">Three plants, one properly represented location, and a phone number on Google that appears nowhere on the website.</p><span class="chip confirmed">Confirmed 1 Sep</span></div>
-    <div class="evidence">Medina    VPC Fiberglass                          10478 Ridge Rd     (585) 735-9668   4.0 stars (4)
-Lockport  VPC Fiberglass - Lockport Production    222 S Niagara St   (888) 290-9522   no reviews
-Amherst   listed on /locations/, no Google profile surfaced in Maps
-site      /locations/ publishes (585) 735-9668 and (585) 735-9965. No 888 number anywhere.</div>
+    <div class="claim-head"><p class="claim-quote">Three plants, one properly represented location, and a phone number on Google that appears nowhere on the website.</p><span class="chip confirmed">Re-confirmed 5 Sep</span></div>
+    <div class="evidence">Medina    VPC Fiberglass
+          10478 Ridge Rd     (585) 735-9668   4.0 stars (4 on 1 Sep)
+Lockport  VPC Fiberglass - Lockport Production
+          222 S Niagara St   (888) 290-9522   no reviews
+Amherst   listed on /locations/
+          no Google profile surfaced in Maps
+site      /locations/ publishes (585) 735-9668 and (585) 735-9965
+          no 888 number anywhere on the site</div>
     <p><b>The Lockport profile publishes a number the company does not use on its own site.</b> A buyer who finds the Lockport plant through Maps and a buyer who finds it through the website are given two different ways to make contact, and only one of them is corroborated. That is a trust signal working against VPC rather than for it, and it is a single field to correct.</p>
     <p><b>Amherst did not surface a profile of its own.</b> We searched Maps directly for it and got the Medina listing back. We are saying it did not surface rather than that it does not exist, because a profile can be present and too weak to return. Either way, a third facility that a buyer cannot find in Maps is not findable in the most literal sense this document uses the word.</p>
-    <p><b>And the Medina rating has moved.</b> It now reads <b>4.0&#9733; from 4 reviews</b>, where the July audit recorded <b>5.0&#9733; from 3</b> and re-confirmed it on 24 August. For a fourth review to pull a 5.0 average down to exactly 4.0, it has to be a one-star. We have not read it and we are not going to speculate about what it says. The structural point is the one the July audit already made: a business with three reviews has no buffer, one unhappy customer moves the public number a full star, and a decade of satisfied municipal and industrial customers have never been asked.</p>
+    <p><b>And the Medina rating has moved.</b> It read <b>4.0&#9733; from 4 reviews</b> on 1 September, where the July audit recorded <b>5.0&#9733; from 3</b> and re-confirmed it on 24 August. For a fourth review to pull a 5.0 average down to exactly 4.0, it has to be a one-star. We have not read it and we are not going to speculate about what it says. On 5 September the 4.0 rating re-confirmed, and the review count was not visible: signed out, Google serves a limited view that suppresses the count, so we are reporting the rating we can see and the count as of 1 September rather than restating a number we could not re-measure. The structural point is the one the July audit already made: a business with three or four reviews has no buffer, one unhappy customer moves the public number a full star, and a decade of satisfied municipal and industrial customers have never been asked.</p>
+    <p class="ask"><b>The fix is one canonical phone story, published once and repeated everywhere.</b> Decide which number reaches which plant, then make the website, the Medina profile and the Lockport profile all say that. If the 888 number is a live routing line, put it on <code>/locations/</code> so Maps and the site corroborate each other. If it is not, replace it on the Lockport profile with the number that plant actually answers. Then give Amherst a profile of its own, or stop listing it as a facility a buyer can go to. Three plants told three different ways is the version a machine cannot resolve, and this is a form field rather than a project.</p>
   </div>
 </section>
 
@@ -442,14 +459,31 @@ site      /locations/ publishes (585) 735-9668 and (585) 735-9965. No 888 number
   <div class="claim">
     <div class="claim-head">
       <p class="claim-quote"><code>products.vpcfiberglass.com</code> carries zero structured data and publishes no sitemap.</p>
-      <span class="chip confirmed">Confirmed 1 Sep</span>
+      <span class="chip confirmed">Re-confirmed 5 Sep</span>
     </div>
-    <div class="evidence">products.vpcfiberglass.com/          200, 73,567 bytes
-  application/ld+json blocks          0
-products.vpcfiberglass.com/sitemap.xml   404
-links in from the main site              37 minimum, 50 on the homepage</div>
-    <p>This is the ThomasNet-hosted catalog, and it is where the actual products live: FRP fans, louvers and dampers, sound enclosures, ductwork, flumes, manhole systems, staff and tank gauges, troughs, weirs, baffles, ladders, platforms, railings, tanks, catch basins. Every one of the 23 pages on the main site links into it <b>at least 37 times</b>, and the homepage, the products page, the industries page and the ductwork resource each carry 50. So VPC is pouring its internal link equity into a subdomain that hands a search engine no machine-readable description of a single product, and no map of what exists.</p>
-    <p class="already"><b>This was the July audit's highest-leverage recommendation and it has not moved.</b> It is also the one item we have never been able to price, because it depends on a question nobody has answered. See section 07.</p>
+    <div class="evidence">products.vpcfiberglass.com/                  200, 73,567 bytes
+  application/ld+json blocks                  0
+products.vpcfiberglass.com/sitemap.xml      404
+links in, /products/                         37
+links in, homepage                           46
+links in, /industries/                       50
+links in, /resources/fiberglass-ductwork/    50</div>
+    <p>This is the ThomasNet-hosted catalog, and it is where the actual products live: FRP fans, louvers and dampers, sound enclosures, ductwork, flumes, manhole systems, staff and tank gauges, troughs, weirs, baffles, ladders, platforms, railings, tanks, catch basins. Every one of the 23 pages on the main site links into it <b>at least 37 times</b>, rising to 46 from the homepage and 50 each from the industries page and the ductwork resource. So VPC is pouring its internal link equity into a subdomain that hands a search engine no machine-readable description of a single product, and no map of what exists.</p>
+    <p class="already"><b>This was the July audit's highest-leverage recommendation and it has not moved.</b> Re-checked 5 September: still 200, still 73,567 bytes, still zero JSON-LD, sitemap still 404. It is also the one item we have never been able to price, because it depends on a question nobody has answered.</p>
+    <p><b>So name the fork rather than carrying it another month.</b> The recommendation actually changes depending on one answer, and the two branches are not the same size of work:</p>
+    <ul class="opts">
+      <li>
+        <span class="olabel">If VPC can edit the ThomasNet templates</span>
+        <span class="oname">Product schema and a sitemap on the existing catalog</span>
+        This is the highest-leverage item anywhere in the estate and it is contained. The product names, descriptions and images are already written and already on the page. Marking them up is a template change in one place, and publishing a sitemap is a setting. Nothing has to be migrated and nothing has to be rewritten.
+      </li>
+      <li>
+        <span class="olabel">If VPC cannot edit them</span>
+        <span class="oname">Move the product truth onto a domain VPC controls</span>
+        Then the honest framing is that the catalog is rented, and no amount of schema advice reaches it. The work becomes building product pages for the traditional lines on <code>vpcfiberglass.com</code> itself, starting with the catalog-shaped ones a buyer searches by name, and letting ThomasNet keep doing what it is good at, which is industrial discovery and RFQ. That is a different size of project and it needs a budget conversation rather than a ticket.
+      </li>
+    </ul>
+    <p class="ask"><b>The meeting question:</b> who controls <code>products.vpcfiberglass.com</code>, and can anyone at VPC edit its templates? That single answer decides which of the two branches above is the plan. It has been open since 14 August.</p>
   </div>
 </section>
 
@@ -459,10 +493,11 @@ links in from the main site              37 minimum, 50 on the homepage</div>
   <div class="claim">
     <div class="claim-head">
       <p class="claim-quote">There is no Product schema anywhere in the VPC estate.</p>
-      <span class="chip confirmed">Confirmed 1 Sep</span>
+      <span class="chip confirmed">Re-confirmed 5 Sep</span>
     </div>
     <p>We sampled the play catalog directly. <code>/products/aquatic-play-structures/triwave-100/</code>, <code>/products/water-play-features/jet-stream/</code>, <code>/products/splash-pads/</code> and the <code>/products/</code> hub all carry exactly one JSON-LD block, and it contains WebPage, BreadcrumbList and WebSite. Nothing that says this page is a product, who makes it, or what it is for.</p>
     <p>So when somebody asks a search engine or an assistant for a commercial splash pad manufacturer, or an FRP equipment enclosure, the pages that should answer are structurally indistinguishable from an About page. That is the whole of the gap the outside firm described. VPC ranks for what fiberglass <i>is</i> because those pages are written like articles. It does not rank for what VPC <i>sells</i> because those pages are not written like products.</p>
+    <p class="already"><b>The markup is only half of it, and the cheaper half.</b> A product page also has to say the obvious things in plain sentences, because those are the sentences an assistant lifts and a buyer scans for. Who makes this, and under which company. Who it is for, in their own words, a municipal wastewater plant or a campground operator rather than &ldquo;our clients&rdquo;. And which kind of purchase it is: whether the buyer is configuring something that already exists in sizes and options, or commissioning something built to their drawing. That last distinction is the one the estate never states anywhere, and it is the one that tells a buyer whether to expect a price or a conversation. We are not proposing that anyone publish lead times or tolerances we have not been given. State the shape of the transaction, which VPC already knows, and leave the numbers to the people who own them.</p>
   </div>
 </section>
 
@@ -483,13 +518,14 @@ links in from the main site              37 minimum, 50 on the homepage</div>
   <div class="claim">
     <div class="claim-head">
       <p class="claim-quote">Neither EasyRec nor InterActive Play tells a machine who owns it or where it is.</p>
-      <span class="chip confirmed">Confirmed 1 Sep</span>
+      <span class="chip confirmed">Re-confirmed 5 Sep</span>
     </div>
-    <div class="evidence">easyrecreation.com/            0 JSON-LD blocks. 5 indexable pages.
-                               sitemap submits /author/admin/ and /author/aacker/
-interactivewaterparks.com/     1 block: WebPage, BreadcrumbList, WebSite
-                               no Organization, no address, no telephone
-                               title reads "Homepage - Interactive Play"</div>
+    <div class="evidence">easyrecreation.com/         0 JSON-LD blocks. 5 indexable pages.
+                            wp-sitemap-users-1.xml submits
+                              /author/admin/ and /author/aacker/
+interactivewaterparks.com/  1 block: WebPage, BreadcrumbList, WebSite
+                            no Organization, no address, no telephone
+                            title reads "Homepage - Interactive Play"</div>
     <p>Both sites link back to <code>vpcfiberglass.com</code> once, so the relationship exists for a person who goes looking. It does not exist in the markup. Google and the assistants are shown three companies at three addresses with no stated connection, and one of them, EasyRec, is five pages.</p>
     <p>Two smaller things in the same place. EasyRec's sitemap publishes <b>two author URLs, one of them the default <code>admin</code></b>, which is the same defect flagged on the main site in August and half of a login. And its heading structure is broken: the homepage emits four H1s, and <code>/ada-easy-stair/</code> emits <b>nine H1s and no H2 at all</b>, which is a page builder setting rather than a writing problem.</p>
   </div>
@@ -502,7 +538,7 @@ interactivewaterparks.com/     1 block: WebPage, BreadcrumbList, WebSite
   <ul class="qs">
     <li>
       <span class="q">Who controls <code>products.vpcfiberglass.com</code>?</span>
-      <span class="why">It is ThomasNet-hosted. If VPC can edit its templates, adding Product schema and a sitemap is a contained piece of work with a large return, and it is the single highest-value thing in this document. If VPC cannot, then the recommendation is not &ldquo;add schema&rdquo;. It becomes &ldquo;build an owned catalog&rdquo;, which is a different size of project and needs a budget conversation rather than a ticket.</span>
+      <span class="why">Section 03 sets out the two branches this answer selects between, and they are not the same size of work: a contained template change on the catalog as it stands, or moving the product truth onto a domain VPC controls. Both are legitimate and we are not arguing for either one sight unseen. What we cannot do is price it, sequence it, or recommend it while nobody has said which world we are in. This is the single highest-value unanswered question in the document.</span>
     </li>
     <li>
       <span class="q">Who owns the website decision?</span>
@@ -513,14 +549,16 @@ interactivewaterparks.com/     1 block: WebPage, BreadcrumbList, WebSite
 
 <section>
   <p class="num">08</p>
-  <h2>What we would do, in order</h2>
+  <h2>Website tune-up sequence, not a rebuild</h2>
+  <p><b>Our recommendation is to tune this estate up rather than rebuild it, unless VPC names the brand or the look as the actual blocker.</b> The main site is fast, correctly configured and well written, and somebody at VPC is demonstrably able to ship changes to it. Nothing found across four properties is a construction problem. It is missing structure, missing product pages and an unresolved catalog. A rebuild would spend the budget on the one layer that is already working and would restart the clock on everything below. If brand or look is the real complaint, that is a legitimate reason to rebuild and it changes this recommendation, but it is a different conversation and nobody has said it yet.</p>
   <ol class="recs">
     <li class="free"><span class="rt">Finish the three open items from the August fix guide</span>Add <code>og:image</code> and a Twitter card, turn off author archives so <code>/author/tmswebsiteadminthomasnet-com/</code> stops resolving and leaves the sitemap, and write a meta description for <code>/locations/</code>. Whoever shipped the other three can do these in the same sitting. Do the same author fix on EasyRec, which is publishing <code>/author/admin/</code>.</li>
     <li class="free"><span class="rt">Give EasyRec and InterActive Play an identity in their markup</span>Organization or LocalBusiness on both, with the address, the phone number, and a <code>parentOrganization</code> pointing at Virtual Polymer Compounds. The main site already has a correct block to copy from since August. This is the cheapest way to make three websites read as one company. While in there, retitle <code>Homepage - Interactive Play</code>, and fix the nine H1s on the EasyRec stair page.</li>
-    <li><span class="rt">Put Product schema on the play catalog</span>Twenty-four product pages already have names, descriptions and images on the page. The markup is a template change in one place, not twenty-four edits. This is the first item that makes VPC answerable to a commercial question rather than an educational one, and it is on a domain VPC certainly controls, which is why it comes before the ThomasNet catalog.</li>
+    <li><span class="rt">Put Product schema on the play catalog</span>Twenty-four product pages already have names, descriptions and images on the page. The markup is a template change in one place, not twenty-four edits. This is the first item that makes VPC answerable to a commercial question rather than an educational one, and it is on a domain VPC certainly controls, which is why it comes before the ThomasNet catalog. It is also the first Product markup VPC would own anywhere in the estate, so it doubles as the template for the traditional lines later. While the template is open, make each page state in plain sentences who makes it and under which company, who it is for, and whether the buyer is configuring something that exists in sizes and options or commissioning something built to a drawing. No lead times, no tolerances, nothing we have not been given: just the shape of the transaction, which VPC already knows.</li>
     <li><span class="rt">Resolve the catalog question, then act on it</span>Section 07. If VPC can edit the ThomasNet templates, this is the largest return available anywhere in the estate. If it cannot, the honest answer is that the catalog is rented and the strategy has to change. Either way it stops being an open item.</li>
     <li class="free"><span class="rt">Write the questions down as questions</span>The knowledge is already in the <code>/resources/</code> pages and the 15 case studies. What is missing is the shape: a real FAQ block, marked up as one, on the four resource pages and the products hub. What is the difference between FRP and steel enclosures. What NEMA ratings can you meet. What lead time on a custom shelter. These are the sentences an assistant can quote, and nobody at VPC has to learn anything to write them.</li>
-    <li><span class="rt">Restart the blog, or retire it honestly</span>Five posts and nothing since July 2022 reads as abandoned to a crawler and to a buyer. One case study a month, written up as a page with the client, the spec and the outcome, would do more than any of the technical items above over twelve months. It is also the only item on this list that needs a habit rather than a change.</li>
+    <li><span class="rt">Two doors in navigation and IA</span>Split the estate the way the buyers already split: plant and municipal FRP on one side, EasyRec and InterActive Play on the other. Then give each door product-named hubs a person would actually type, Parshall flume, scum baffle, FRP shelter, splash pad, ADA stair, so that traffic arriving from ThomasNet, from Google or from an assistant lands in the right hallway instead of on a homepage that has to serve a wastewater engineer and a campground owner with the same sentence. This is the item that turns the two previous ones into traffic, because schema makes a page eligible and a product-named hub is what there is to be eligible for.</li>
+      <li><span class="rt">Restart the blog, or retire it honestly</span>Five posts and nothing since July 2022 reads as abandoned to a crawler and to a buyer. One case study a month, written up as a page with the client, the spec and the outcome, would do more than any of the technical items above over twelve months. It is also the only item on this list that needs a habit rather than a change.</li>
   </ol>
   <p><span class="finding-label">On llms.txt, deliberately not on the list</span> All three domains 404 it, and we would leave it that way for now. An <code>llms.txt</code> is a plain-text summary a site publishes for assistants to read, and it is only worth having once the site underneath it is consistent. Publishing one over an estate where the catalog has no product data and two domains do not name their own company would just state the confusion more confidently. Do items 01 through 05, then it is worth twenty minutes.</p>
 </section>
@@ -529,7 +567,7 @@ interactivewaterparks.com/     1 block: WebPage, BreadcrumbList, WebSite
   <p class="num">09</p>
   <h2>How we checked, and what we cannot see</h2>
   <ul class="plain">
-    <li><b>Everything above was pulled live on 1 September 2026</b> against all four properties: status codes, redirect chains, robots files, every sitemap and child sitemap, the JSON-LD parsed out of the served pages rather than guessed at, heading counts, titles and meta descriptions, and the Google profile checked signed out.</li>
+    <li><b>Everything above was pulled live on 1 September 2026 and re-checked on 5 September 2026</b> against all four properties: status codes, redirect chains, robots files, every sitemap and child sitemap, the JSON-LD parsed out of the served pages rather than guessed at, heading counts, titles and meta descriptions, and the Google profiles rendered and read signed out. On the second pass every technical finding in this document still held, and nothing had been fixed in between. One figure was corrected: the homepage carries 46 links into the catalog subdomain rather than the 50 first reported, which does not change the point it supports.</li>
     <li><b>We hold no Search Console or Analytics access for any of the four.</b> So we can tell you what the sites say and what Google's public surfaces show. We cannot tell you what anybody searched, what impressions look like, or which pages are actually indexed. Read access would convert most of the reasoning here into measurement, and it is the cheapest thing on this page to grant.</li>
     <li><b>We have not scored the three new properties.</b> The July rubric was built for an industrial site selling to specifying engineers. InterActive Play sells to campground and resort owners making a capital purchase. Running one number across both would flatter the exercise and tell you nothing, so we have described each property's state instead. If a score is useful for comparison we will build a second rubric and say so.</li>
     <li><b>The outside firm's assessment reached us through Corey rather than in writing.</b> Where we say we agree with it, we are agreeing with the verdict as relayed. If there is a written version, send it and we will check their specific claims against live the way we checked ours.</li>
@@ -541,14 +579,17 @@ interactivewaterparks.com/     1 block: WebPage, BreadcrumbList, WebSite
   <p class="num">10</p>
   <h2>The decision</h2>
   <div class="closer">
-    <p>Items 01, 02 and 05 are free, they live inside settings screens and text fields VPC already controls, and between them they close most of the gap the outside firm identified. Whoever shipped three fixes in late August can ship all three of these.</p>
-    <p>Item 03 is a template change on a domain VPC owns and is the first thing that makes the company answerable to a buying question. Item 04 is the one that needs a decision before it needs a budget.</p>
-    <p><b>None of that is blocked by choosing an agency.</b> It is blocked by one person's name going against the website. That has been the constraint since July, it is the same constraint an outside firm will hit, and it is the only thing on this page that VPC cannot buy.</p>
+    <p><b>Start with the free half, because it needs no budget and no vendor.</b> Items 01, 02 and 05 live inside settings screens and text fields VPC already controls: the three unfinished August items, an identity block on the two satellite sites, and the questions written down as questions. Between them they close most of the gap the outside firm identified. Whoever shipped three fixes in late August can ship all three of these, and none of it waits on anything decided in this meeting.</p>
+    <p><b>Then item 03, the Product schema on the play catalog.</b> It is a template change on a domain VPC certainly owns, it is the first Product markup the company would have anywhere, and it is the first thing that makes VPC answerable to a buying question rather than an educational one. It also produces the template the traditional lines reuse later, so it is worth doing first even though the play side is not where the revenue concentration is.</p>
+    <p><b>Item 04, the catalog, is a decision before it is a budget.</b> Nobody can price it until somebody says whether VPC can edit the ThomasNet templates on <code>products.vpcfiberglass.com</code>. One answer makes it a contained template change with the largest return in the estate. The other makes it a project to move the product truth onto a domain VPC controls. Both are legitimate. Neither can start while the question is open, and it has been open since 14 August.</p>
+    <p><b>Our recommendation on the website itself is a tune-up, not a rebuild</b>, on the reasoning in section 08. If brand or look is the real blocker, say so and that changes, but the findings here are structure, not construction.</p>
+    <p><b>What is actually blocking all of it is that no single name sits against the website.</b> That has been the constraint since July. It is the same constraint any outside firm will hit, and it is the only thing on this page that cannot be bought or built. One name, with the authority to say what the capable hands work on next, unblocks every item above.</p>
+    <p class="ask">One optional ask, only if VPC wants the next round measured rather than argued: Search Console read access on the four properties. It takes a minute to grant, and it converts most of the reasoning in this document into numbers.</p>
   </div>
 </section>
 
 <footer>
-  Doble AI &middot; VPC findability review &middot; 1 September 2026<br>
+  Doble AI &middot; VPC findability review &middot; 1 September 2026, re-verified 5 September 2026<br>
   Four properties checked live: www.vpcfiberglass.com, products.vpcfiberglass.com, easyrecreation.com, interactivewaterparks.com<br>
   Widens the July 2026 audit of vpcfiberglass.com, which stands. Link-shared, not indexed.
 </footer>
