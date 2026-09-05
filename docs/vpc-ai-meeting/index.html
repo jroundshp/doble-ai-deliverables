@@ -320,6 +320,7 @@
 
   <h2><span class="option-num">01</span> The lane</h2>
   <p>Everything between a request arriving and a packet going back out. The marketing and findability work is the other half of the same program and it runs alongside this one. It is not what this hour is about.
+  <p>One question from that other half is worth two minutes at the end rather than a share of the hour: which vertical should be easier to find first, municipal and plant FRP or InterActive Play. That is a sequencing question and the answer to it is yours.
 
   <figure class="fig">
     <svg class="dia" viewBox="0 0 710 200" role="img" aria-label="The lane runs from parsing an inbound request through capturing options, drafting spec and drawing, drafting a price and assembling a packet. An engineer signs off before anything leaves. Layup and the shop floor, buying software and anything sent unattended sit outside this lane.">
@@ -370,18 +371,39 @@
   </div>
 
   <h2><span class="option-num">02</span> What we think we know, and where it probably breaks</h2>
-  <p>All of this came from VPC's public pages and catalog. None of it came from inside the building, so treat every line as a guess to be corrected.</p>
+  <p>All of this came from VPC's public pages and catalog. None of it came from inside the building, so treat every line as a guess to be corrected.
+
+  <h3>Two shapes of job, not one</h3>
+  <p>VPC looks like a hybrid shop, not a pure catalog and not pure custom. On the municipal water and wastewater side there are product families that can be sized and priced inside known ranges: flumes, manholes, standard enclosures, weirs and baffles. Alongside them sits work that is engineer-to-order and built to drawing: shelters and buildings, duct, fans, odd plant hardware. The aquatic side appears to split the same way, with EasyRec closer to a product line and InterActive Play quoted per job as project design.
+  <p>If that split is roughly right, the two shapes want different help, and only the second one is graded against closed jobs.
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th></th><th>Catalog-shaped</th><th>Spec-shaped</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>What sits here, as far as we can tell</td><td>Flumes, manholes, standard enclosures, weirs and baffles, EasyRec stairs and benches</td><td>Shelters and buildings, duct, fans, odd plant hardware, InterActive Play</td></tr>
+        <tr><td>What a first draft would do</td><td>Configure from known sizes and accessories into a first-pass quote</td><td>Read the RFQ packet, then draft submittal or bill of materials language</td></tr>
+        <tr><td>What it gets graded against</td><td>The option tree and the prices VPC already works from</td><td>Closed jobs VPC has already built and shipped</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Both columns end the same way. A person prices it and a person sends it, and the engineer still signs off.
+
+  <h3>The rest of the guesswork</h3></p>
   <ul>
     <li>Requests arrive in wildly different forms, and a meaningful share are missing something needed to price.</li>
     <li>Chasing the missing information is a real cost and probably an unmeasured one.</li>
     <li>The published packages already imply an option tree: window, heat, exhaust, light, chlorination package, voltage, load center.</li>
-    <li>Some product families repeat far more than others, and the repeating ones are where a draft could be graded.</li>
+    <li>Inside either shape, some families repeat far more than others, and the repeating ones are where a draft could be graded.</li>
     <li>The example we started from is small: six feet by three feet, bathroom, 220 volt, window. There is no such SKU, which is exactly why it is a useful test. It sits inside a range VPC already builds, and somebody here already knows how to price it by hand.</li>
   </ul>
 
   <h2><span class="option-num">03</span> The questions</h2>
   <p>This is the meat of the hour.</p>
   <ol>
+    <li><strong>Roughly what share of revenue is price-list or configure, against engineer-to-order?</strong> A rough split is fine, and a disagreement in the room about it is more useful than a tidy number. It decides which of the two shapes a first test lives in, and it is not the same question as which family clogs the queue.</li>
     <li><strong>Who takes the inbound request today, and what happens to it in the first hour?</strong></li>
     <li><strong>Which product family clogs the queue?</strong> Not the most interesting one. The one that backs things up.</li>
     <li><strong>Where does a job actually die?</strong></li>
@@ -424,7 +446,7 @@
     <figcaption>Five places a job stops. Which of them is the big one is genuinely unknown from outside, and it decides where any of this starts.</figcaption>
   </figure>
 
-  <ol start="4">
+  <ol start="5">
     <li><strong>Of the pricing requests that come in, what share turn into sales?</strong> And is that tracked anywhere, or is it a feel? Either answer is useful. If the number does not exist, that is worth knowing before anything else gets built.</li>
     <li><strong>What does a complete request look like,</strong> next to what usually arrives instead?</li>
     <li><strong>What already gets reused</strong> between one quote and the next, and what gets rebuilt every time even though it probably should not?</li>
@@ -440,10 +462,10 @@
   <h2><span class="option-num">04</span> What we would ask for at the end</h2>
   <p>Deliberately small, and smaller than the process behind it makes it sound.</p>
   <ul>
-    <li><strong>Two closed jobs</strong> on whichever family comes out of question 2: the inbound file as it arrived, the hours, the drawing, the price, and what changed between the first packet and the final one.</li>
+    <li><strong>Two closed jobs</strong> on whichever family comes out of question 3: the inbound file as it arrived, the hours, the drawing, the price, and what changed between the first packet and the final one.</li>
     <li><strong>Two hours</strong> with whoever owns the quote packet day to day.</li>
   </ul>
-  <p>The reconstruction itself is ours to do, not yours. What we are asking for is access to two files and somebody's time, not a package assembled for us in advance. Keeping it this small is the point: it should cost the person who owns the quote packet an afternoon, and if it costs more than that we have asked for the wrong thing.</p>
+  <p>The reconstruction itself is ours to do, not yours. What we are asking for is access to two files and somebody's time, not a package assembled for us in advance. Keeping it this small is the point: it should cost the person who owns the quote packet an afternoon, and if it costs more than that we have asked for the wrong thing. It is also the only homework this hour produces, and it comes after the questions rather than before them.</p>
 
   <figure class="fig">
     <svg class="dia" viewBox="0 0 700 118" role="img" aria-label="Three gated stages. Two jobs and two hours must come back clean before ten jobs and a week in the queue are worth asking for, and that must hold before any live customer work.">
