@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>What We Need From You Next · John Tyler Real Estate</title>
+<style>
+:root{
+--paper:#f6f1e9;--surface:#fffdf9;--surface-2:#fbf6ec;--ink:#18202b;--muted:#6a6456;
+--line:#e6ddcd;--navy:#1b2a3b;--navy-2:#28405a;--navy-soft:#eef1f5;--navy-ink:#f6f1e9;
+--gold:#a97e33;--gold-line:#d9bd82;--gold-soft:#f4ead2;--terra:#9c4d2e;
+--shadow:0 1px 2px rgba(24,32,43,.05),0 14px 38px -18px rgba(24,32,43,.28);--radius:14px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+--paper:#0f141b;--surface:#161d27;--surface-2:#1b2431;--ink:#eef2f6;--muted:#9aa4b0;
+--line:#27313d;--navy:#9fbbdc;--navy-2:#c3d5ec;--navy-soft:#16212e;--navy-ink:#0f141b;
+--gold:#d7ac63;--gold-line:#4a3c1e;--gold-soft:#241d10;--terra:#d0805c;
+--shadow:0 1px 2px rgba(0,0,0,.35),0 16px 40px -18px rgba(0,0,0,.7);}}
+:root[data-theme="dark"]{
+--paper:#0f141b;--surface:#161d27;--surface-2:#1b2431;--ink:#eef2f6;--muted:#9aa4b0;
+--line:#27313d;--navy:#9fbbdc;--navy-2:#c3d5ec;--navy-soft:#16212e;--navy-ink:#0f141b;
+--gold:#d7ac63;--gold-line:#4a3c1e;--gold-soft:#241d10;--terra:#d0805c;
+--shadow:0 1px 2px rgba(0,0,0,.35),0 16px 40px -18px rgba(0,0,0,.7);}
+:root[data-theme="light"]{
+--paper:#f6f1e9;--surface:#fffdf9;--surface-2:#fbf6ec;--ink:#18202b;--muted:#6a6456;
+--line:#e6ddcd;--navy:#1b2a3b;--navy-2:#28405a;--navy-soft:#eef1f5;--navy-ink:#f6f1e9;
+--gold:#a97e33;--gold-line:#d9bd82;--gold-soft:#f4ead2;--terra:#9c4d2e;
+--shadow:0 1px 2px rgba(24,32,43,.05),0 14px 38px -18px rgba(24,32,43,.28);}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;line-height:1.65;
+-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:900px;margin:0 auto;padding:clamp(22px,4vw,54px) clamp(18px,4vw,44px)}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 .5em}
+h1,h2,h3{line-height:1.15;letter-spacing:-.01em;font-weight:600}
+h2{font-size:clamp(22px,3.2vw,30px);margin:0 0 .2em}
+h3{font-size:18px;margin:0 0 .3em}
+p{margin:0 0 1em}
+a{color:var(--terra);text-underline-offset:3px}
+.topbar{background:var(--navy);color:var(--navy-ink)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px}
+.brand{display:flex;align-items:center;gap:13px}
+.monogram{width:44px;height:44px;border:1.5px solid var(--gold-line);border-radius:50%;display:grid;place-items:center;font-family:"Iowan Old Style",Georgia,serif;font-size:17px;color:var(--navy-ink);flex:none}
+.brand .name{font-family:system-ui,sans-serif;font-size:14px;font-weight:600}
+.brand .sub{font-family:system-ui,sans-serif;font-size:11.5px;color:#c9d3df}
+.theme-btn{background:transparent;border:1px solid rgba(255,255,255,.28);color:var(--navy-ink);border-radius:8px;padding:7px 11px;font-size:12px;cursor:pointer;font-family:system-ui,sans-serif}
+.hero{background:var(--navy);color:#fff}
+.hero .wrap{padding-top:clamp(30px,5vw,58px);padding-bottom:clamp(30px,5vw,58px)}
+.hero .eyebrow{color:var(--gold-line)}
+.hero h1{color:#fff;font-size:clamp(28px,5vw,44px);margin:.1em 0 .3em;max-width:20ch}
+.hero p{color:#dbe3ec;font-family:system-ui,sans-serif;font-size:15.5px;margin:0;max-width:60ch}
+.sec{border-top:1px solid var(--line)}
+.lead{font-size:clamp(17px,2.2vw,19px);max-width:64ch}
+.callout{background:var(--navy-soft);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin:22px 0}
+.callout h3{color:var(--navy)}
+.callout p:last-child{margin-bottom:0}
+.callout.gold{background:var(--gold-soft);border-color:var(--gold-line)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 26px;margin:0 0 20px}
+.card .head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 14px;margin-bottom:4px}
+.card .why{background:var(--navy-soft);border-left:3px solid var(--gold);padding:12px 16px;margin:14px 0 0;font-family:system-ui,sans-serif;font-size:14.5px}
+.card .why b{color:var(--navy)}
+.moving{display:grid;gap:14px;margin:22px 0 0}
+.moving .row{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px}
+.moving .who{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.moving h3{margin:4px 0 6px}
+.moving p{font-family:system-ui,sans-serif;font-size:14.5px;color:var(--muted);margin:0}
+.qbox{background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:var(--radius);padding:22px 26px;margin:22px 0}
+.qbox ol{font-family:system-ui,sans-serif;font-size:15px;margin:12px 0 0;padding-left:22px}
+.qbox ol li{margin:0 0 10px}
+.big{font-family:system-ui,sans-serif;font-size:15px}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+<div class="brand"><div class="monogram">JT</div><div>
+<div class="name">John Tyler Real Estate</div>
+<div class="sub">Slifer Smith &amp; Frampton &middot; Vail &amp; Beaver Creek</div></div></div>
+<button class="theme-btn" id="themeBtn">&#9680; Theme</button>
+</div></div>
+
+<div class="hero"><div class="wrap">
+<p class="eyebrow">Follow-up to the September Assessment</p>
+<h1>What is already moving, and what we need from you</h1>
+<p>Three things are underway and need nothing further from you right now. Everything else is below, with what we need and why we need it.</p>
+</div></div>
+
+<section class="sec"><div class="wrap">
+<p class="eyebrow">01 &middot; Already Moving</p>
+<h2>Nothing to do here</h2>
+<p class="lead">Listing these so they are off your mind, and so it is clear what is left.</p>
+
+<div class="moving">
+<div class="row">
+<div class="who">You &middot; In progress</div>
+<h3>Google reviews</h3>
+<p>Your first messages went out this week. This is still the single highest-value item on the whole list, so keep going at whatever pace works. You are at one review against fourteen for The Stockton Group and fifteen for the Tom Dunn team. The seven five-star reviews already sitting on your Zillow profile are the proof that your clients will write them when asked. Those reviews are just sitting on the platform that does not feed local search or AI answers.</p>
+</div>
+<div class="row">
+<div class="who">You &middot; In progress</div>
+<h3>The Zillow profile saying Avon</h3>
+<p>Good catch to take this on. It matters more than it looks: every other source we control says Vail, and Zillow saying Avon is a contradiction Google has to resolve. When sources disagree about where a business is, the profile gets less weight in local results, not more.</p>
+</div>
+<div class="row">
+<div class="who">Us &middot; In progress</div>
+<h3>The next blog posts</h3>
+<p>Ours to write, and we are starting with the recurring market report. The reason it goes first: the term "vail valley real estate market report" already puts your site at position 19.2 with seventeen impressions and no clicks, which is page two of a search people are actually running. Aspen has Tim Estin, who turned a monthly report into a twenty-year franchise. Vail has nobody in that seat. The one agent building toward it stalled in February, so the lane is open right now.</p>
+</div>
+</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<p class="eyebrow">02 &middot; The Main Ask</p>
+<h2>Your listing pages, and the one reason Google will not index them</h2>
+<p class="lead">The assessment said your listing pages are too thin. That was true but imprecise, so here is what we actually measured this morning.</p>
+
+<p>We pulled two of your live listing pages and compared them word for word. One runs 276 words, the other 285. <strong>Of those, 242 words are byte-identical between the two pages.</strong> The navigation, your bio, the contact block, the footer, the photo credits. All of it repeats on every listing.</p>
+
+<p><strong>That leaves 34 words on a listing page that are actually about that property</strong>, and twenty of those are placeholder text we wrote from the MLS facts.</p>
+
+<p>So Google is not looking at a thin page. It is looking at fourteen pages that are 88 percent the same page, and declining to index them for that reason. That is what "Discovered, currently not indexed" means in Search Console, and it is what your words fix.</p>
+
+<div class="callout gold">
+<h3>One note on the number seventeen</h3>
+<p style="margin-bottom:0">The assessment said seventeen listing pages. That counts pages, and your site is bilingual, so each property has an English page and a Spanish one. <strong>Seven properties. You write once per property, we translate it, and both pages are fixed.</strong> Nothing here is asking you for Spanish, and nothing is asking you to write anything twice.</p>
+</div>
+
+<h3 style="margin-top:34px">What we need, part one: three or four sentences per property</h3>
+<p class="big"><strong>Why:</strong> it replaces the twenty placeholder words with something that exists nowhere else on the internet. Right now the page repeats the MLS description that Google has already read on Zillow and on the Slifer site, so yours is the last copy it has any reason to show.</p>
+
+<h3 style="margin-top:30px">What we need, part two: five answers per property</h3>
+<p class="big"><strong>Why:</strong> these become a questions-and-answers block on each listing page. Your neighborhood pages already have this and it is the single biggest reason they get picked up by AI assistants. <strong>Not one of your listing pages has it.</strong> Five answers takes each page from 34 unique words to roughly 250, and it puts the answer on your page when someone asks an AI what the dues cover at Ridgepoint.</p>
+
+<div class="qbox">
+<h3>The same five questions, every property</h3>
+<ol>
+<li><strong>What does the HOA cover, and what does it run?</strong> Dues, what is included, and anything assessed.</li>
+<li><strong>Can it be rented short term, and does the building allow it?</strong> The first question most second-home buyers ask and the one they cannot look up.</li>
+<li><strong>Where is the parking, is it deeded, and how many spaces?</strong> In Vail this is frequently the deciding factor and it is rarely in the listing.</li>
+<li><strong>What floor, which exposure, and what do you see out the windows?</strong></li>
+<li><strong>What conveys with the sale?</strong> Furnished, partly furnished, anything excluded.</li>
+</ol>
+</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<p class="eyebrow">03 &middot; The Seven</p>
+<h2>One at a time</h2>
+<p class="lead">What is on the site today, and what is missing from each. You do not have to do all seven in one sitting. The first three are worth more than the last four.</p>
+
+<div class="card">
+<div class="head"><span class="num">01</span><span class="addr">780 Potato Patch Drive</span><span class="meta">Vail &middot; $13,700,000 &middot; MLS 1012231</span></div>
+<div class="now">On the site now: "A 6,822-square-foot home on Potato Patch Drive, on the sunny north side of Vail and minutes from both Vail Village and Lionshead."</div>
+<div class="why"><b>What is missing:</b> the Vail Mountain Club membership available for purchase, and the roughly ten-year waitlist a buyer gets to skip. You told us in July that this is the selling point, and it appears nowhere on the page. Also the Jim Morter design and what a summer day at that house is like. Keeping off, per your instruction: the indoor pool, and any suggestion it is ski-in ski-out.</div>
+</div>
+
+<div class="card">
+<div class="head"><span class="num">02</span><span class="addr">103 Willow Place 301</span><span class="meta">Vail &middot; $4,950,000 &middot; MLS 1013291</span></div>
+<div class="now">On the site now: "A two-bedroom condominium on Willow Place, in the walkable heart of Vail where Gondola One climbs straight to the mountain."</div>
+<div class="why"><b>What is missing:</b> what the renovation actually got them, why two deeded parking spaces matter in that village, and what the Gore Creek and Bishop Park side of the building is like to live on. The sauna and the south views to the runs are worth a line each.</div>
+</div>
+
+<div class="card">
+<div class="head"><span class="num">03</span><span class="addr">185 Willis Place 206</span><span class="meta">Avon &middot; $2,875,000 &middot; MLS 1013908</span></div>
+<div class="now">On the site now: "The larger of John's two current townhomes at Willis Place, at 2,137 square feet with three bedrooms and three baths."</div>
+<div class="why"><b>What is missing:</b> that sentence compares the property to your own other listing, which is not what a buyer came to read. Give us Ridgepoint itself. Ski-in ski-out inside the gates, how rarely it trades, the pool and the oversized hot tub, and what on-site management and Dial-a-Ride mean for an owner who is not here all year.</div>
+</div>
+
+<div class="card">
+<div class="head"><span class="num">04</span><span class="addr">51 Offerson Road 112</span><span class="meta">Beaver Creek &middot; $2,095,000 &middot; MLS 1013493</span></div>
+<div class="now">On the site now: "A two-bedroom condominium on Offerson Road, inside the gated Beaver Creek resort community with its pedestrian village and outdoor ice rink."</div>
+<div class="why"><b>What is missing:</b> where it sits relative to the village and the lifts, what the building itself is like, and who this one is right for. The ice rink is in every Beaver Creek description ever written and it is doing no work for you.</div>
+</div>
+
+<div class="card">
+<div class="head"><span class="num">05</span><span class="addr">185 Willis Place 187</span><span class="meta">Beaver Creek &middot; $1,895,000 &middot; MLS 1013058</span></div>
+<div class="now">On the site now: "A three-bedroom townhome at Willis Place, and the more attainable of the two units John is representing in the complex."</div>
+<div class="why"><b>What is missing:</b> same problem as number three, it is written against your other listing rather than for a buyer. "More attainable" also undersells it. Tell us what this unit has that the price does not suggest.</div>
+</div>
+
+<div class="card">
+<div class="head"><span class="num">06</span><span class="addr">205 Coyote Place A</span><span class="meta">Gypsum &middot; $1,295,000 &middot; MLS 1014800</span></div>
+<div class="now">On the site now: "A four-bedroom duplex in Gypsum, where the elementary, middle, and high schools all sit in town and the Eagle County airport is minutes away."</div>
+<div class="why"><b>What is missing:</b> this is the one on your list a family actually moves into full time, so say so plainly. Four bedrooms at this number in this valley is the whole story. What the neighborhood is like on a weekday.</div>
+</div>
+
+<div class="card">
+<div class="head"><span class="num">07</span><span class="addr">384 Jouflas Ranch Road</span><span class="meta">Wolcott &middot; $775,000 &middot; 10.01 acres &middot; MLS 1013203</span></div>
+<div class="now">On the site now: "Ten acres of land at Jouflas Ranch in Wolcott, down-valley from Edwards, and the one build-your-own opportunity on John's current list."</div>
+<div class="why"><b>What is missing:</b> land sells on the questions the listing never answers. What are the views. Is there water, power, a well, a septic permit. Is there an obvious building site. What has to happen before someone could break ground. A buyer who has to call to find that out usually calls someone else. The five questions above matter less here, so answer these instead.</div>
+</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<p class="eyebrow">04 &middot; Finished And Waiting</p>
+<h2>The short-term rental post is written and sitting on the shelf</h2>
+<p class="lead">Both languages, nine questions and answers on each side, built and committed. It is not live because of two figures we could not confirm at the source.</p>
+
+<p>The post is "Short-Term Rentals in the Vail Valley: What to Confirm Before You Count on the Income." It is structured around the three gates a buyer has to clear, in the order that actually decides the outcome: the HOA and the covenants first, because Vail's short-term rental chapter does not override private CC and Rs, then the jurisdiction, then licensing and taxes.</p>
+
+<div class="card">
+<div class="head"><span class="num">1</span><span class="addr">Confirm the Town of Vail license fees</span></div>
+<div class="why"><b>What we have:</b> $260 for a standard short-term rental license, and $50 for a property in a building with 24/7 on-site management. One license per property, renewal at the end of January, expiry at the end of February.<br><br>
+<b>Why we need you:</b> vail.gov blocks automated access, so we could not read those numbers off the town's own page. They come from secondary sources. We will not publish a fee figure we could not confirm at the primary source, because if it is wrong it is wrong on your page under your name. One call to the town clears it.<br><br>
+<b>One thing to watch while you are asking:</b> there is a widely repeated "$1,200 per bedroom" Vail fee that is not real. A per-bedroom fee was proposed at $1,800 and struck before adoption. If anyone quotes you a per-bedroom number, that is where it comes from.</div>
+</div>
+
+<div class="card">
+<div class="head"><span class="num">2</span><span class="addr">Confirm the Ballot Issue 2A margin</span></div>
+<div class="why"><b>What we have:</b> Vail's 6 percent short-term rental excise tax failed in November 2025 by 32 votes. It would have taken lodging tax from about 10.8 percent to 16.8 percent.<br><br>
+<b>Why we need you:</b> the sources disagree. Vail Daily reported 32 votes as the final margin, the Colorado Sun reported 916 to 881 on election night. We would rather say nothing than say the wrong number about a local vote your clients followed.</div>
+</div>
+
+<div class="card">
+<div class="head"><span class="num">3</span><span class="addr">Tell us the legal framing is fine with Slifer</span></div>
+<div class="why"><b>Why:</b> the post carries an explicit note that it is not tax or legal advice, and it stays observational rather than telling anyone what to do. That is the standard we hold all your content to. But it is your license on the page, so you should be comfortable with it before it goes live rather than after.</div>
+</div>
+
+<div class="callout">
+<h3>What happens when those come back</h3>
+<p style="margin-bottom:0">It publishes the same day. Nothing else is needed and nothing else is blocking it. It also links to the 1031 exchange guide that is already live, which is the kind of internal connection that makes both pieces easier for a search engine to place.</p>
+</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<p class="eyebrow">05 &middot; Three Small Things</p>
+<h2>About ten minutes total, and only you can do them</h2>
+
+<div class="card">
+<div class="head"><span class="num">A</span><span class="addr">Add a second Owner to your Google profile</span></div>
+<div class="why"><b>Why:</b> you set the profile up and verified it yourself, which is exactly right. But if the login you used is your slifer.net address, and Slifer runs Google Workspace on that domain, then the brokerage administers that account. If it were ever reset or reclaimed, the profile and every review on it goes with it. Adding a personal account as a second Owner removes that permanently. Settings, then People and access. The role has to be Owner, not Manager. Two owners are allowed and it costs nothing.</div>
+</div>
+
+<div class="card">
+<div class="head"><span class="num">B</span><span class="addr">A pass on your Realtor.com profile</span></div>
+<div class="why"><b>Why:</b> it is one of the handful of pages Google reads as a statement about who you are, and right now it does not match what is live on Zillow and on your site. Four things while you are in there: edit the profile, update the photo, bring the bio in line with the new one, and confirm every link points where it should, including the socials and johntylerrealestate.com.</div>
+</div>
+
+<div class="card">
+<div class="head"><span class="num">C</span><span class="addr">The license number on Forbes Global Properties</span></div>
+<div class="why"><b>Why:</b> the page publishes FA40042459. The correct number, the one on the Slifer pages, is FA.040042459. It is a genuine error rather than a formatting difference, and it sits on a public page under your name. This one goes through Slifer to Forbes rather than through you directly, so it is really just a heads up that we flagged it.</div>
+</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<p class="eyebrow">06 &middot; Our Side</p>
+<h2>What we are building while you do that</h2>
+<ul class="clean">
+<li><strong>A questions-and-answers block on every listing page, with the markup behind it.</strong> Your neighborhood pages have this and your listing pages do not. That build happens on our end and is ready the moment your five answers land.</li>
+<li><strong>The recurring market report, and a separate edition for five million and up.</strong> The biggest single opportunity in the assessment.</li>
+<li><strong>The other two pages Google declined.</strong> Nineteen pages are unindexed. The listing pages are most of them, but one blog post and one neighborhood page are in there too, and those are ours to diagnose and fix.</li>
+<li><strong>Translation.</strong> Everything you send comes back as a matched Spanish page. You never write anything twice.</li>
+</ul>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<p class="eyebrow">The Easy Way</p>
+<h2>Say it out loud instead of writing it</h2>
+<p class="lead">Seven properties, four questions plus five answers each, is about ten minutes of talking. It comes out sounding more like you than anything you would type.</p>
+<p>Open the voice recorder in the car. Say the address, give us your three or four sentences, then run the five questions. Send the recordings however is easiest. We do the rest, including the tidying and the Spanish.</p>
+<div class="callout gold">
+<h3>Do not polish it</h3>
+<p style="margin-bottom:0">The whole reason we want your words is that they sound like you. If it reads like something you would say standing in the driveway with a buyer, it is right. There is no form to fill in and nowhere for you to enter this yourself. Send it to us and it is live the same day.</p>
+</div>
+</div></section>
+
+<div class="contact"><div class="wrap">
+<div><strong>John Tyler</strong> &middot; Branch Manager &amp; Broker Associate</div>
+<div>Slifer, Smith &amp; Frampton Real Estate &middot; 531 E. Lionshead Circle, Suite 11, Vail, CO 81657</div>
+<div>970.904.0355 &nbsp;&middot;&nbsp; <a href="mailto:jtyler@slifer.net">jtyler@slifer.net</a> &nbsp;&middot;&nbsp; <a href="https://johntylerrealestate.com">johntylerrealestate.com</a></div>
+</div></div>
+
+<footer><div class="wrap">
+<p>Follow-up to the standing report of 5 September 2026. Listing page word counts measured directly from the live site on 6 September 2026 by comparing two published listing pages. Listing details and current on-site copy read from johntylerrealestate.com the same day, prices last verified 3 September 2026. Prepared by Doble AI for John Tyler Real Estate.</p>
+</div></footer>
+
+<script>
+(function(){var b=document.getElementById('themeBtn'),r=document.documentElement;
+b&&b.addEventListener('click',function(){var c=r.getAttribute('data-theme');
+if(!c){c=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+r.setAttribute('data-theme',c==='dark'?'light':'dark');});})();
+</script>
+</body>
+</html>
