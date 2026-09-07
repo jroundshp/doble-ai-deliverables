@@ -232,6 +232,27 @@ ol.steps b { color: var(--ink); font-weight: 600; }
 .onward a.go { display: inline-block; margin-top: 1rem; font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.92rem; color: #fff; background: var(--scoria); padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 1px; }
 .onward a.go:hover, .onward a.go:focus-visible { background: var(--ink); }
 
+/* ── Distance chart: the radius from the yard ─────────────────────────── */
+.dist-shell { margin-top: 1.8rem; }
+.dist-scale { position: relative; height: 1.1rem; margin-left: 9rem; margin-right: 3.4rem; border-bottom: 1px solid var(--rule); }
+.dist-tick { position: absolute; top: 0; font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute); transform: translateX(-50%); }
+.dist-tick:first-child { transform: none; }
+.dist-tick:last-child { transform: translateX(-100%); }
+.dists { margin-top: 0.5rem; }
+.dist { display: grid; grid-template-columns: 9rem 1fr 3.4rem; gap: 0.6rem; align-items: center; padding: 0.3rem 0; }
+.dist .nm { font-size: 0.89rem; }
+.dist .track { height: 0.72rem; background: var(--rule-soft); border-radius: 1px; overflow: hidden; }
+/* display:block is required — an inline span ignores width. */
+.dist .bar { display: block; height: 100%; background: var(--scoria); }
+.dist .bar--far { background: var(--band-neutral); }
+.dist .pc { font-size: 0.82rem; color: var(--ink-mute); text-align: right; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin-top: 1rem; font-size: 0.76rem; color: var(--ink-mute); }
+.legend div { display: flex; align-items: center; gap: 0.5rem; }
+.swatch { width: 1.5rem; height: 0.75rem; flex: none; border-radius: 1px; display: block; }
+.sw-near { background: var(--scoria); }
+.sw-far { background: var(--band-neutral); }
+
 footer { margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--ink-mute); }
 footer ul { padding: 0; list-style: none; margin: 0.8rem 0 0; display: grid; gap: 0.42rem; }
 footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); word-break: break-word; }
@@ -244,7 +265,7 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
   <header class="mast">
     <p class="eyebrow">Concrete Warrior &middot; New Town, North Dakota</p>
     <h1 class="display">The Bakken Around New Town</h1>
-    <p class="thesis">How big the market actually is, and who the buyers are by name. This is the state data underneath the winter brief, written out in full so the figures can be checked instead of taken on trust.</p>
+    <p class="thesis">What the market looks like measured outward from the yard rather than down from the state. Every figure links back to the state document it came from, so the numbers can be checked instead of taken on trust.</p>
     <div class="meta">
       <span class="mono">Data pulled 29 August 2026</span>
       <span class="mono">Checked against the Director's Cut 7 September</span>
@@ -256,27 +277,26 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
   <section>
     <p class="eyebrow">The sources</p>
     <h2 class="sec display">Where these numbers come from</h2>
-    <p>Everything below is public state data, pulled on 29 August 2026 and dated where it sits. None of it is modelled or estimated by us. Where a figure comes from a third party rather than the state, it says so, because those carry less weight.</p>
-    <p>The four sources that do most of the work are linked here. The full list, including the seeding and load-restriction specifications, is at the bottom of the page.</p>
+    <p>All of this is public state data, pulled on 29 August 2026 and re-checked against the August Director's Cut on 7 September. None of it is modelled or estimated by us. Where a figure comes from a third party rather than the state, it says so, because those carry less weight.</p>
 
     <div class="srcs">
       <div class="src">
         <p class="n">SOURCE 01</p>
+        <h3>Director's Cut, 20 August 2026</h3>
+        <p>The state's monthly briefing on June production. Rigs by operator, the permit and completion trend, and a Fort Berthold page of its own. This is the report that shows permits 90 to 120 days ahead of the drilling.</p>
+        <a href="https://www.dmr.nd.gov/dmr/sites/default/files/documents/Directors_Cut/2026/Directors_Cut_2026-08-20.pdf">dmr.nd.gov &middot; Directors_Cut_2026-08-20.pdf</a>
+      </div>
+      <div class="src">
+        <p class="n">SOURCE 02</p>
         <h3>DMR Reclamation &amp; Remediation</h3>
         <p>The reclamation backlog and what the rule requires before a bond is released. This is the page the topsoil case rests on.</p>
         <a href="https://www.dmr.nd.gov/dmr/oilgas/reclamation-remediation">dmr.nd.gov/dmr/oilgas/reclamation-remediation</a>
       </div>
       <div class="src">
-        <p class="n">SOURCE 02</p>
+        <p class="n">SOURCE 03</p>
         <h3>DMR IIJA Initial Grant</h3>
         <p>Federal orphaned-well money into North Dakota, wells plugged, sites reclaimed, and when that phase closed out.</p>
         <a href="https://www.dmr.nd.gov/dmr/iija/initialgrant">dmr.nd.gov/dmr/iija/initialgrant</a>
-      </div>
-      <div class="src">
-        <p class="n">SOURCE 03</p>
-        <h3>Director's Cut, 20 August 2026</h3>
-        <p>The state's monthly briefing on June production. Rigs by operator, the permit and completion trend, and a Fort Berthold page of its own. This is the report that shows permits 90 to 120 days ahead of the drilling.</p>
-        <a href="https://www.dmr.nd.gov/dmr/sites/default/files/documents/Directors_Cut/2026/Directors_Cut_2026-08-20.pdf">dmr.nd.gov &middot; Directors_Cut_2026-08-20.pdf</a>
       </div>
       <div class="src">
         <p class="n">SOURCE 04</p>
@@ -289,32 +309,103 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
     <div class="caveat caveat--flag">
       <span class="eyebrow">A correction worth carrying</span>
       <p>The DMR page everybody lands on first, <span class="mono">dmr.nd.gov/oilgas/stats/statisticsvw.asp</span>, is production data only. Barrels and mcf by month, county and formation, back to 1980. It publishes no well counts, no permits, no inactive wells, no plugging and no reclamation figures.</p>
-      <p>That is the wrong page for this business, and it is the one a search will hand you. The numbers that matter to Concrete Warrior are on the two DMR pages above.</p>
+      <p>That is the wrong page for this business, and it is the one a search will hand you. The numbers that matter to Concrete Warrior are in the Director's Cut and on the reclamation page.</p>
     </div>
   </section>
 
   <section>
-    <p class="eyebrow">Demand driver 01</p>
-    <h2 class="sec display">Reclamation topsoil</h2>
-    <p>This is the lead product, and it is the one with a regulation behind it. A well site is not released from its bond until the topsoil has been respread and native vegetation is established. That makes reclamation a compliance cost rather than discretionary spend, which is a materially better thing to sell into.</p>
+    <p class="eyebrow">First, the circle</p>
+    <h2 class="sec display">What is actually within reach</h2>
+    <p>A statewide number is background. What decides anything is what sits inside a haul of the yard at 9702 ND-23. So this page is ordered outward from New Town rather than down from Bismarck, and the state figures come last, as context.</p>
+
+    <div class="dist-shell">
+      <div class="dist-scale">
+        <span class="dist-tick" style="left:0%">0</span>
+        <span class="dist-tick" style="left:50%">50 mi</span>
+        <span class="dist-tick" style="left:100%">100 mi</span>
+      </div>
+      <div class="dists">
+        <div class="dist"><span class="nm">Mandaree</span><span class="track"><span class="bar" style="width:16%"></span></span><span class="pc mono">16</span></div>
+        <div class="dist"><span class="nm">Parshall</span><span class="track"><span class="bar" style="width:17%"></span></span><span class="pc mono">17</span></div>
+        <div class="dist"><span class="nm">Stanley</span><span class="track"><span class="bar" style="width:24%"></span></span><span class="pc mono">24</span></div>
+        <div class="dist"><span class="nm">Tioga</span><span class="track"><span class="bar" style="width:35%"></span></span><span class="pc mono">35</span></div>
+        <div class="dist"><span class="nm">Watford City</span><span class="track"><span class="bar" style="width:39%"></span></span><span class="pc mono">39</span></div>
+        <div class="dist"><span class="nm">Ray</span><span class="track"><span class="bar" style="width:40%"></span></span><span class="pc mono">40</span></div>
+        <div class="dist"><span class="nm">Killdeer</span><span class="track"><span class="bar" style="width:44%"></span></span><span class="pc mono">44</span></div>
+        <div class="dist"><span class="nm">Williston</span><span class="track"><span class="bar bar--far" style="width:53%"></span></span><span class="pc mono">53</span></div>
+        <div class="dist"><span class="nm">Garrison</span><span class="track"><span class="bar bar--far" style="width:55%"></span></span><span class="pc mono">55</span></div>
+        <div class="dist"><span class="nm">Minot</span><span class="track"><span class="bar bar--far" style="width:58%"></span></span><span class="pc mono">58</span></div>
+        <div class="dist"><span class="nm">Alamo</span><span class="track"><span class="bar bar--far" style="width:60%"></span></span><span class="pc mono">60</span></div>
+        <div class="dist"><span class="nm">Dickinson</span><span class="track"><span class="bar bar--far" style="width:77%"></span></span><span class="pc mono">77</span></div>
+      </div>
+      <div class="legend">
+        <div><span class="swatch sw-near"></span> Inside 50 miles</div>
+        <div><span class="swatch sw-far"></span> 50 to 100 miles</div>
+      </div>
+    </div>
+    <p style="margin-top:1.1rem; font-size:0.88rem; color:var(--ink-mute)">Straight-line distances from the New Town yard. Road miles run longer, and ND&nbsp;23 and US&nbsp;2 do most of the work, so treat these as the shape of the market rather than a haul schedule.</p>
+
+    <div class="caveat caveat--flag">
+      <span class="eyebrow">The finding this produces</span>
+      <p><strong>Almost everything that matters is inside 50 miles.</strong> Watford City sits 39 miles out, and it is the seat of McKenzie County, which alone is about a third of all North Dakota oil production. Killdeer in Dunn County is 44. Tioga and Ray in Williams are 35 and 40.</p>
+      <p>The state's top five oil counties are McKenzie, Williams, Dunn, Mountrail and Divide, and they make up roughly 96.5% of production. <strong>Four of those five are in this circle, and one of them is home.</strong> The gap in the middle of the Bakken is where the yard already is.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The core of the circle</p>
+    <h2 class="sec display">Fort Berthold</h2>
+    <p>New Town sits on the Fort Berthold Reservation, in Mountrail County. The state reports Fort Berthold separately from everything else, which means the closest and most important part of the market is also the part with its own page of published data every month.</p>
 
     <div class="figs">
       <div class="fig">
-        <div class="v">2,160</div>
-        <div class="k">Sites statewide in the reclamation process, awaiting bond release</div>
-        <div class="d">DMR &middot; see caveat below</div>
+        <div class="v">3,040</div>
+        <div class="k">Active wells on Fort Berthold, plus 132 active permits</div>
+        <div class="d">June 2026</div>
       </div>
       <div class="fig">
-        <div class="v">18,500<span style="font-size:0.6em">+</span></div>
-        <div class="k">Wells and facility sites reclaimed to date</div>
-        <div class="d">DMR</div>
+        <div class="v">2,333</div>
+        <div class="k">Of those wells, the number on Trust land rather than fee land</div>
+        <div class="d">June 2026</div>
       </div>
       <div class="fig">
-        <div class="v">&lt;1%</div>
-        <div class="k">Sites needing long-term environmental evaluation</div>
-        <div class="d">DMR</div>
+        <div class="v">1</div>
+        <div class="k">Rigs drilling on Fort Berthold</div>
+        <div class="d">June 2026</div>
       </div>
     </div>
+
+    <div class="tbl-shell">
+      <table>
+        <thead>
+          <tr><th style="width:30%">Fort Berthold</th><th style="width:44%">Value</th><th style="width:26%">As of</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Active wells</td><td class="mono">3,040</td><td>June 2026</td></tr>
+          <tr><td>&nbsp;&nbsp;of which Trust land</td><td class="mono">2,333</td><td>June 2026</td></tr>
+          <tr><td>&nbsp;&nbsp;of which Fee land</td><td class="mono">707</td><td>June 2026</td></tr>
+          <tr><td>Active permits</td><td class="mono">132</td><td>June 2026, up on May</td></tr>
+          <tr><td>Oil production</td><td class="mono">160,651 bopd</td><td>June 2026, up 2,507 bopd on May</td></tr>
+          <tr><td>Rigs running</td><td class="mono">1</td><td>June 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:1.3rem"><strong>3,040 active wells is the reclamation pipeline in our own backyard.</strong> It does not arrive in one season. It arrives over years as those wells age out, which is the right way to describe it to anyone who asks how durable this is.</p>
+    <p><strong>2,333 of those 3,040 sit on Trust land.</strong> That is the most useful denominator on this page, because it is specific to the ground we are already on rather than to the state. It carries a condition worth knowing before anyone quotes a timeline: work on Trust land needs DMR, the MHA Nation and the BIA, where fee land needs only the first. Three approvals move slower than one.</p>
+    <p>One number cuts the other way and belongs here rather than in a footnote. <strong>Fort Berthold ran a single rig in June.</strong> New pad construction inside our own circle is close to nothing right now, so the near-term case rests on reclamation and on maintaining what already exists, not on new drilling.</p>
+
+    <div class="caveat caveat--flag">
+      <span class="eyebrow">Not a number, and central</span>
+      <p><strong>The MHA Nation.</strong> Fort Berthold is tribal land. The Nation is a buyer in its own right on roads and infrastructure, and it sits between us and every operator on the reservation. Being based in New Town is the advantage here, and no competitor list or state table captures it.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The lead product</p>
+    <h2 class="sec display">Reclamation topsoil</h2>
+    <p>This is the product with a regulation behind it. A well site is not released from its bond until the topsoil has been respread and native vegetation is established, which makes reclamation a compliance cost rather than discretionary spend. That is a materially better thing to sell into.</p>
+    <p><strong>Locally the denominator is the 2,333 Trust-land wells above, plus the 707 on fee land.</strong> The statewide figures below are context for how big and how funded this work is in general, not a measure of what is available to us.</p>
 
     <h3 class="sub">What the rule actually requires, in order</h3>
     <ol class="steps">
@@ -326,117 +417,35 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
     </ol>
 
     <div class="caveat">
-      <span class="eyebrow">The honest caveat on 2,160</span>
-      <p>The rule says <em>stockpiled</em> topsoil. The operator is expected to have salvaged the site's own soil, eight inches deep, when the pad was built. So our served market is not all 2,160 sites. It is the share where the stockpile is short, was lost, was contaminated, or was never properly salvaged, plus the sites where an operator would rather buy screened material than sort through what is on hand.</p>
-      <p><strong>2,160 is the denominator, not our addressable market.</strong> It should not be quoted as ours in a pitch or on the website.</p>
+      <span class="eyebrow">The honest caveat</span>
+      <p>The rule says <em>stockpiled</em> topsoil. The operator is expected to have salvaged the site's own soil, eight inches deep, when the pad was built. So our served market is not every well site. It is the share where the stockpile is short, was lost, was contaminated, or was never properly salvaged, plus the sites where an operator would rather buy screened material than sort through what is on hand.</p>
+      <p><strong>Every well count on this page is a denominator, not our addressable market.</strong> None of them should be quoted as ours in a pitch or on the website.</p>
       <p>There is a second thing in here worth naming. A buyer pays for <em>screened</em> material rather than scraping together what is on site because the bond release depends on the vegetation taking. That is the argument the trommel photograph makes better than any sentence.</p>
     </div>
 
-    <h3 class="sub">Public money already in this</h3>
+    <h3 class="sub">Statewide context on the same work</h3>
     <div class="tbl-shell">
       <table>
         <thead>
-          <tr><th style="width:26%">Figure</th><th style="width:44%">What it is</th><th style="width:30%">Where it stands</th></tr>
+          <tr><th style="width:26%">Figure</th><th style="width:48%">What it is</th><th style="width:26%">Scope</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="mono">$25,000,000</td>
-            <td>To the ND Industrial Commission under IIJA, for orphaned wells</td>
-            <td>Initial grant</td>
-          </tr>
-          <tr>
-            <td class="mono">73</td>
-            <td>Orphaned wells plugged under that grant</td>
-            <td>Complete</td>
-          </tr>
-          <tr>
-            <td class="mono">112 of 115</td>
-            <td>Sites reclaimed under that grant</td>
-            <td>Work finalized October 2025</td>
-          </tr>
-          <tr>
-            <td>Formula and Performance Grants</td>
-            <td>Separate federal categories, not part of the initial grant</td>
-            <td>Still to come</td>
-          </tr>
+          <tr><td class="mono">2,160</td><td>Sites in the reclamation process, awaiting bond release</td><td>Statewide</td></tr>
+          <tr><td class="mono">18,500+</td><td>Wells and facility sites reclaimed to date</td><td>Statewide</td></tr>
+          <tr><td class="mono">&lt;1%</td><td>Sites needing long-term environmental evaluation</td><td>Statewide</td></tr>
+          <tr><td class="mono">$25,000,000</td><td>To the ND Industrial Commission under IIJA, for orphaned wells</td><td>Statewide, initial grant</td></tr>
+          <tr><td class="mono">112 of 115</td><td>Sites reclaimed under that grant, 73 wells plugged</td><td>Finalized October 2025</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="margin-top:1.3rem">The initial grant is spent, so this is not money sitting on a table today. It matters for two other reasons: it is proof the work is funded and recurring rather than speculative, and the next grant announcement is worth watching for.</p>
+    <p style="margin-top:1.3rem">The initial grant is spent, so this is not money sitting on a table today. It matters for two other reasons: it is proof the work is funded and recurring rather than speculative, and the next grant announcement is worth watching for. Formula and Performance Grants are separate categories still to come.</p>
+    <p><strong>DMR does not publish the county or reservation split of that 2,160.</strong> So we know the statewide backlog and we know our local well count, but not how much of the backlog is ours. Closing that would mean asking DMR directly on <span class="mono">(701) 328-8020</span>, or working the NorthSTAR system and the GIS Map Server.</p>
   </section>
 
   <section>
-    <p class="eyebrow">Demand driver 02</p>
-    <h2 class="sec display">New construction</h2>
-    <p>Every new pad needs base course, access road gravel and scoria. This is the second demand line, and unlike reclamation it is driven by drilling rather than by the seeding calendar.</p>
-
-    <div class="tbl-shell">
-      <table>
-        <thead>
-          <tr><th style="width:20%">Figure</th><th style="width:46%">What it is</th><th style="width:20%">As of</th><th style="width:14%">Type</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="mono">19,961</td><td>Producing wells statewide, an all-time high</td><td>June 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
-          <tr><td class="mono">33</td><td>Rigs operating statewide, up from 26 on 13 July</td><td>19 Aug 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
-          <tr><td class="mono">27</td><td>Rigs in the Williston Basin (Baker Hughes count, narrower than the state's)</td><td>Aug 2026</td><td><span class="pill pill--soft">Third party</span></td></tr>
-          <tr><td class="mono">93</td><td>Drilling permits issued</td><td>July 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
-          <tr><td class="mono">74</td><td>Well completions</td><td>July 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p style="margin-top:1.3rem">Roughly 90 permits and 75 completions a month statewide is the pipeline of new pad work. That is modest and steady. It is not a boom, and nothing in this data should be used to argue that it is one.</p>
-    <p>Permits are the part worth watching rather than production, because operators pull them <strong>90 to 120 days before they drill</strong>. The Director's Cut publishes that trend every month with the county detail behind it, which makes it the closest thing available to a forward look at where pad work is going to land.</p>
-  </section>
-
-  <section>
-    <p class="eyebrow">The delivery radius</p>
-    <h2 class="sec display">Ninety minutes from New Town</h2>
-    <p>New Town sits in Mountrail County, on the Fort Berthold Reservation. McKenzie, Dunn, McLean, Ward and Williams are all inside a reasonable haul. The top five producing counties in the state are McKenzie, Williams, Dunn, Mountrail and Divide, so four of the five are inside or adjacent to that radius.</p>
-
-    <div class="figs">
-      <div class="fig">
-        <div class="v">3,040</div>
-        <div class="k">Active wells on Fort Berthold, plus 132 active permits</div>
-        <div class="d">June 2026</div>
-      </div>
-      <div class="fig">
-        <div class="v">#4</div>
-        <div class="k">Mountrail County's statewide rank by barrels of oil equivalent produced</div>
-        <div class="d">March 2026</div>
-      </div>
-      <div class="fig">
-        <div class="v">4,841</div>
-        <div class="k">Wells drilled in Mountrail County since 1952</div>
-        <div class="d">Through March 2026</div>
-      </div>
-    </div>
-
-    <div class="tbl-shell">
-      <table>
-        <thead>
-          <tr><th style="width:26%">Fort Berthold</th><th style="width:50%">Value</th><th style="width:24%">As of</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Active wells</td><td class="mono">3,040</td><td>June 2026</td></tr>
-          <tr><td>&nbsp;&nbsp;of which Trust land</td><td class="mono">2,333</td><td>June 2026</td></tr>
-          <tr><td>&nbsp;&nbsp;of which Fee land</td><td class="mono">707</td><td>June 2026</td></tr>
-          <tr><td>Active permits</td><td class="mono">132</td><td>June 2026</td></tr>
-          <tr><td>Oil production</td><td class="mono">160,651 bopd</td><td>June 2026, up 2,507 bopd on May</td></tr>
-          <tr><td>Rigs running</td><td class="mono">1</td><td>June 2026</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p style="margin-top:1.3rem"><strong>3,040 active wells on Fort Berthold alone is the reclamation pipeline in our own backyard.</strong> It does not arrive in one season. It arrives over years as those wells age out, which is the right way to describe it to anyone who asks how durable this is.</p>
-    <p><strong>2,333 of those 3,040 sit on Trust land.</strong> That is a better denominator for us than the statewide 2,160, because it is specific to the ground we are already on. It also carries a condition worth knowing before anyone quotes a timeline: work on Trust land needs DMR, the MHA Nation and the BIA, where fee land needs only the first. Three approvals move slower than one.</p>
-    <p>One number cuts the other way and belongs here rather than in a footnote. <strong>Fort Berthold ran a single rig in June.</strong> New pad construction inside our own window is close to nothing right now, so the near-term case rests on reclamation and on maintaining what already exists, not on new drilling.</p>
-  </section>
-
-  <section>
-    <p class="eyebrow">The buyers</p>
+    <p class="eyebrow">The buyers, nearest first</p>
     <h2 class="sec display">A call list, not a market study</h2>
-    <p>These are the operators with production in Mountrail County, ranked by recent oil volume. The ranking comes from a third-party source, so treat the order as directional. The names are the useful part.</p>
+    <p>These are the operators producing in Mountrail County, our own county, ranked by recent oil volume. The ranking is third party, so treat the order as directional. The names are the useful part.</p>
 
     <ol class="ops">
       <li>Continental Resources</li>
@@ -455,10 +464,16 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
       <li>Lime Rock Resources III-A</li>
       <li>Murex Petroleum</li>
     </ol>
-    <p style="margin-top:1.1rem; font-size:0.9rem; color:var(--ink-mute)">28 operators are active in the county in total.</p>
+    <p style="margin-top:1.1rem; font-size:0.9rem; color:var(--ink-mute)">28 operators are active in Mountrail County in total.</p>
 
-    <h3 class="sub">Statewide share, 2026</h3>
-    <p>The reason the call list is short is that the buyers are concentrated. Eight companies move most of the oil in the state.</p>
+    <div class="caveat caveat--gap">
+      <span class="eyebrow">The gap worth closing next</span>
+      <p>This list is missing the reclamation and plugging <strong>contractors</strong> who do the physical work. They are the ones who actually order topsoil by the load. An operator sets the budget, a contractor places the order.</p>
+      <p>We do not have their names yet. NDIC contract awards are where they are, and that is the next research job on this side.</p>
+    </div>
+
+    <h3 class="sub">Who moves the oil statewide</h3>
+    <p>Context rather than a call list, but it explains why the local list is short: eight companies move most of the oil in North Dakota, and the top five are about 65.8% of it on their own. The names above are mostly the same names.</p>
 
     <div class="shares">
       <div class="share"><span class="nm">Chord</span><span class="track"><span class="bar" style="width:100%"></span></span><span class="pc mono">18.5%</span></div>
@@ -471,24 +486,37 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
       <div class="share"><span class="nm">Petro-Hunt</span><span class="track"><span class="bar" style="width:18.9%"></span></span><span class="pc mono">3.5%</span></div>
     </div>
     <p style="margin-top:1.1rem; font-size:0.88rem; color:var(--ink-mute)">Bars are scaled to the largest share, not to 100% of state production.</p>
+  </section>
 
-    <div class="caveat caveat--flag">
-      <span class="eyebrow">Not on the list, and central</span>
-      <p><strong>The MHA Nation.</strong> Fort Berthold is tribal land. The Nation is a buyer in its own right on roads and infrastructure, and it sits between us and every operator on the reservation. Being based in New Town is the advantage there, and no competitor list or operator ranking captures it.</p>
+  <section>
+    <p class="eyebrow">Context, not our market</p>
+    <h2 class="sec display">The state as a whole</h2>
+    <p>These are the statewide figures. They matter for judging whether the industry is expanding or contracting underneath us, and for nothing else. Every one of them is a bigger circle than the one we sell into.</p>
+
+    <div class="tbl-shell">
+      <table>
+        <thead>
+          <tr><th style="width:18%">Figure</th><th style="width:46%">What it is</th><th style="width:22%">As of</th><th style="width:14%">Type</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">19,961</td><td>Producing wells statewide, an all-time high</td><td>June 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
+          <tr><td class="mono">33</td><td>Rigs operating statewide, up from 26 on 13 July</td><td>19 Aug 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
+          <tr><td class="mono">27</td><td>Rigs in the Williston Basin (Baker Hughes count, narrower than the state's)</td><td>Aug 2026</td><td><span class="pill pill--soft">Third party</span></td></tr>
+          <tr><td class="mono">93</td><td>Drilling permits issued</td><td>July 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
+          <tr><td class="mono">74</td><td>Well completions</td><td>July 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="caveat caveat--gap">
-      <span class="eyebrow">The gap worth closing next</span>
-      <p>The operator list is missing the reclamation and plugging <strong>contractors</strong> who do the physical work. They are the ones who actually order topsoil by the load. An operator sets the budget; a contractor places the order.</p>
-      <p>We do not have their names yet. NDIC contract awards are where they are, and that is the next research job on this side.</p>
-    </div>
+    <p style="margin-top:1.3rem">Roughly 90 permits and 75 completions a month statewide is the pipeline of new pad work. That is modest and steady. It is not a boom, and nothing in this data should be used to argue that it is one. Against that, Fort Berthold is running one rig, so our own share of the new-pad work is thinner than the state number suggests.</p>
+    <p>Permits are the part worth watching rather than production, because operators pull them <strong>90 to 120 days before they drill</strong>. The Director's Cut publishes that trend every month with the county detail behind it, which makes it the closest thing available to a forward look at where pad work is going to land.</p>
   </section>
 
   <section>
     <p class="eyebrow">Limits</p>
     <h2 class="sec display">What this does not tell us</h2>
-    <p>This sizes the market around Concrete Warrior. It does not close the volume question, which still needs your numbers rather than the state's: yards produced per week, what a typical reclamation order looks like, and how far we will actually haul. The website carries that as a marked gap and this data does not fill it.</p>
-    <p>There is also a limit on the state side. <strong>DMR does not publish inactive or abandoned well counts by county on any public page found here.</strong> Getting the Mountrail and McKenzie slice of the 2,160 would mean asking DMR directly on <span class="mono">(701) 328-8020</span>, or working through the NorthSTAR system and the GIS Map Server. That is worth doing before anyone builds a forecast on the county-level number, because right now the 2,160 is only available statewide.</p>
+    <p>The biggest limit is the one that matters most for a radius view. <strong>DMR publishes county-level production only as charts, not as tables</strong>, and its rig statistics workbook stops in 2016. So the current county-by-county numbers inside our circle cannot be pulled from the public files, only the Fort Berthold page and the statewide totals. Anything more granular means asking DMR directly.</p>
+    <p>It also does not close the volume question, which needs your numbers rather than the state's: yards produced per week, what a typical reclamation order looks like, and how far we will actually haul. The website carries that as a marked gap and this data does not fill it.</p>
   </section>
 
   <section>
@@ -506,19 +534,17 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
   </section>
 
   <footer>
-    <p>Prepared by Doble AI for Corey Hogan. Data pulled 29 August 2026 from the sources below and dated where it appears above. Figures marked <span class="pill pill--soft">Third party</span> are not state-published and should be treated as directional.</p>
+    <p>Prepared by Doble AI for Corey Hogan and Jeff. Data pulled 29 August 2026 and re-checked against the August Director's Cut on 7 September. Figures marked <span class="pill pill--soft">Third party</span> are not state-published and should be treated as directional. Distances are straight-line from the New Town yard.</p>
     <ul>
-      <li><a href="https://www.dmr.nd.gov/dmr/oilgas/reclamation-remediation">ND DMR &middot; Reclamation and Remediation</a></li>
-      <li><a href="https://www.dmr.nd.gov/dmr/iija/initialgrant">ND DMR &middot; IIJA Initial Grant, plugging and reclamation</a></li>
-      <li><a href="https://www.dmr.nd.gov/oilgas/stats/statisticsvw.asp">ND DMR &middot; Oil and Gas Statistics (production only)</a></li>
-      <li><a href="https://www.dmr.nd.gov/dmr/oilgas">ND DMR main, NorthSTAR and GIS Map Server</a></li>
       <li><a href="https://www.dmr.nd.gov/dmr/sites/default/files/documents/Directors_Cut/2026/Directors_Cut_2026-08-20.pdf">ND DMR &middot; Director's Cut, 20 August 2026 (June production)</a> &mdash; rigs by operator, permit and completion trend, Fort Berthold page</li>
       <li><a href="https://www.dmr.nd.gov/oilgas/stats/2026monthlystats.pdf">ND DMR &middot; 2026 Monthly Statistical Update</a> &mdash; the month-by-month table behind those figures</li>
-      <li><a href="https://www.minotdailynews.com/news/local-news/2026/08/nd-natural-gas-production-sets-new-record/">Minot Daily News, August 2026 &middot; June production report coverage</a></li>
+      <li><a href="https://www.dmr.nd.gov/dmr/oilgas/reclamation-remediation">ND DMR &middot; Reclamation and Remediation</a></li>
+      <li><a href="https://www.dmr.nd.gov/dmr/iija/initialgrant">ND DMR &middot; IIJA Initial Grant, plugging and reclamation</a></li>
+      <li><a href="https://www.dmr.nd.gov/oilgas/stats/statisticsvw.asp">ND DMR &middot; Oil and Gas Statistics (production only, county files are charts)</a></li>
+      <li><a href="https://www.dmr.nd.gov/dmr/oilgas">ND DMR main, NorthSTAR and GIS Map Server</a></li>
       <li><a href="https://www.drillingedge.com/north-dakota/mountrail-county/operators">DrillingEdge &middot; Mountrail County operators</a></li>
       <li><a href="https://www.bia.gov/sites/bia.gov/files/assets/as-ia/ieed/ieed/pdf/DEMD_OG_FortBerthold_OilGasPlays_508.pdf">BIA &middot; Fort Berthold oil and gas background</a></li>
       <li><a href="https://www.land.nd.gov/sites/www/files/documents/Surface/ref%20-%20seed%20specs.pdf">ND Trust Lands &middot; Native Grass Seeding Specifications</a></li>
-      <li><a href="https://www.land.nd.gov/sites/www/files/documents/Surface/Well%20Site%20Const%20Specs.pdf">ND Trust Lands &middot; Well Site Construction Specifications</a></li>
       <li><a href="https://www.dot.nd.gov/driver/commercial/north-dakota-load-restrictions">NDDOT &middot; North Dakota load restrictions</a></li>
     </ul>
   </footer>
