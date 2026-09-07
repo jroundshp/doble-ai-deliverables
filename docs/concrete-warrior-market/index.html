@@ -187,6 +187,11 @@ ol.steps li {
 }
 ol.steps li:last-child { border-bottom: 0; }
 ol.steps li::before { content: counter(s, decimal-leading-zero); font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--ink-mute); }
+/* Each li must hold exactly ONE element in column 2. A bare text node beside a
+   <b> becomes its own grid item and auto-places into the next row's 2.3rem
+   counter column, which renders as one word per line. Wrap li content in a
+   span and pin it. Same trap as .why in the winter brief. */
+ol.steps li > span { grid-column: 2; }
 ol.steps b { color: var(--ink); font-weight: 600; }
 
 /* ── Operator call list ───────────────────────────────────────────────── */
@@ -310,11 +315,11 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
 
     <h3 class="sub">What the rule actually requires, in order</h3>
     <ol class="steps">
-      <li>Remove equipment, waste and debris from the site.</li>
-      <li><b>Remove the gravel or surfacing material.</b> This is a service we can sell alongside the topsoil, on the same trip.</li>
-      <li>Remediate stabilized soil.</li>
-      <li><b>Distribute the stockpiled topsoil evenly.</b></li>
-      <li>Revegetate with native species.</li>
+      <li><span>Remove equipment, waste and debris from the site.</span></li>
+      <li><span><b>Remove the gravel or surfacing material.</b> This is a service we can sell alongside the topsoil, on the same trip.</span></li>
+      <li><span>Remediate stabilized soil.</span></li>
+      <li><span><b>Distribute the stockpiled topsoil evenly.</b></span></li>
+      <li><span>Revegetate with native species.</span></li>
     </ol>
 
     <div class="caveat">
