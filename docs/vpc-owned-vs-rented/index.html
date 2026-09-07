@@ -345,7 +345,7 @@
   <p class="num">00</p>
   <h2>The short version</h2>
   <p>The finding is not that VPC&rsquo;s website needs work. The site is well built, and our July audit said so before we knew any of this.</p>
-  <p><b>The finding is that VPC does not own its own identity in the places buyers and machines look it up.</b> The company description on the industrial directory was written by a vendor. The product catalog, where all 289 product pages live, runs on that vendor&rsquo;s software. And VPC&rsquo;s own website carries markup telling Google and the AI assistants that the vendor&rsquo;s directory page is an authority on VPC. The one property VPC fully controls is 23 pages and has almost no product information on it, because the products were moved onto rented ground.</p>
+  <p><b>The finding is that VPC does not own its own identity in the places buyers and machines look it up.</b> The company description on the industrial directory was written by a vendor. The product catalog, where every product page lives, runs on that vendor&rsquo;s software. And VPC&rsquo;s own website carries markup telling Google and the AI assistants that the vendor&rsquo;s directory page is an authority on VPC. The one property VPC fully controls is 23 pages and has almost no product information on it, because the products were moved onto rented ground.</p>
   <p>In a sentence: <b>the products are the business, and the product data is not VPC&rsquo;s.</b></p>
 </section>
 
@@ -363,13 +363,13 @@
           <td><code>vpcfiberglass.com</code></td>
           <td>WordPress, VPC&rsquo;s own domain, custom theme</td>
           <td><span class="state st-ok">VPC owns it</span> Built by Thomas Marketing Services, who hold an admin account on it</td>
-          <td>23 pages, 15 case studies. Three divisions. No products</td>
+          <td>23 pages, 15 case studies. Marketing pages for the divisions, but no product catalog of its own</td>
         </tr>
         <tr>
           <td><code>products.vpcfiberglass.com</code></td>
           <td>Thomas Navigator platform</td>
-          <td><span class="state st-bad">Rented</span> VPC cannot edit the templates</td>
-          <td>289 URLs. Every actual product</td>
+          <td><span class="state st-bad">Rented</span> Whether VPC can edit the templates is still an open question for the vendor</td>
+          <td>289 URLs: 144 item pages, 121 view-item pages, 23 categories. Every actual product</td>
         </tr>
         <tr>
           <td><code>easyrecreation.com</code></td>
@@ -402,7 +402,7 @@
   <p>This part is real, and it needs saying before the list of holes, because a document that only complains gets discounted and should be.</p>
   <div class="win">
     <ul class="plain">
-      <li><b>A genuinely well-engineered site.</b> Fast at 0.15 seconds to first byte, valid SSL on both hostnames with a correct single-hop redirect, canonical tags in place, a working sitemap, no cloaking, and pinch-to-zoom left enabled where every sibling business in the portfolio disables it. Substantially better built than anything else we have audited in the group.</li>
+      <li><b>A genuinely well-engineered site.</b> Fast, measured between roughly 0.05 and 0.16 seconds to first byte across checks in August and September, valid SSL on both hostnames with a correct single-hop redirect, canonical tags in place, a working sitemap, no cloaking, and pinch-to-zoom left enabled where every sibling business in the portfolio disables it. Substantially better built than anything else we have audited in the group.</li>
       <li><b>A product catalog that exists and is organised.</b> 289 pages with names, descriptions, images and a category tree, plus a configurator, attribute model and CAD publishing behind it. Building that from nothing is a real project. VPC did not have to run it.</li>
       <li><b>Educational content that actually ranks.</b> The <code>/resources/</code> pages are the residue of genuine work and they perform. That is the asset the outside firm noticed and praised.</li>
       <li><b>A claimed directory profile with broad category coverage</b> on the largest industrial directory in North America, listing VPC across dozens of product categories from adapters and baffles through to weirs.</li>
@@ -418,14 +418,14 @@
   <p class="num">03</p>
   <h2>Where the holes are, in order of what they cost</h2>
   <ol class="unblock">
-    <li><b>The product data is mute.</b> 289 product pages, and not one of them carries structured data describing what it is. A search engine has been handed a complete map of the catalog and no way to read a single entry on it. This is the most expensive item in the estate and it has been the top recommendation since July.</li>
+    <li><b>The product data is hard for a machine to trust.</b> The catalog does describe its products in markup, but as microdata only, with no JSON-LD anywhere, and the markup is noisy: the product&rsquo;s name property picks up breadcrumb text, and a price offer appears on one sampled item page and none of the other four. So a parser gets something, and what it gets is unreliable. Cleaning that up and adding JSON-LD is the most valuable single item in the estate, and it has been the top recommendation since July.</li>
     <li><b>The product data is rented.</b> Which means fixing the item above may not be VPC&rsquo;s to do. This is the one genuine fork in the document and it is unresolved.</li>
     <li><b>The best product writing VPC has is on somebody else&rsquo;s website.</b> VPC&rsquo;s directory listing describes shelters by dimension and by application, naming the sizes and a dozen situations a buyer would be searching from. Nothing like it exists on <code>vpcfiberglass.com</code>. The content is written. It is just not VPC&rsquo;s to keep, mark up or rank with.</li>
-    <li><b>The entity record is incomplete and VPC&rsquo;s own markup endorses it.</b> The directory profile reports annual sales under $1 million, one to nine employees and no quality certifications. Those size figures look like a field nobody filled in rather than a claim, since several competitors on the same page show identical values. But VPC&rsquo;s <code>LocalBusiness</code> markup names that page as an authority on VPC, so whatever it says is what an assistant reads.</li>
+    <li><b>The entity record is incomplete and VPC&rsquo;s own markup endorses it.</b> The directory profile reports annual sales under $1 million, one to nine employees and no quality certifications. Those size figures look like a field nobody filled in rather than a claim, since several competitors on the same page show identical values. Other public business directories carry different ranges again for VPC, none of them agreeing with each other, which is the ordinary state of scraped firmographic data and another reason to set the record straight in the one place VPC&rsquo;s own markup points at. But VPC&rsquo;s <code>LocalBusiness</code> markup names that page as an authority on VPC, so whatever it says is what an assistant reads.</li>
     <li><b>The best credential is in the weakest position.</b> BABA compliance is a procurement eligibility that decides whether VPC can be bought at all on federally funded work. It is absent from the directory profile, absent from structured data, and on the site itself it sits one level down inside an About submenu.</li>
     <li><b>Two unrelated businesses share one front door.</b> A wastewater engineer specifying a Parshall flume and a campground owner buying a splash pad arrive at the same homepage and read the same sentence.</li>
-    <li><b>The two satellite sites do not say who owns them.</b> Neither EasyRec nor InterActive Play tells a machine which company stands behind it, where it is, or what its phone number is.</li>
-    <li><b>Nothing has been published in four years.</b> The post sitemap&rsquo;s last modification is 6 August 2022.</li>
+    <li><b>The two satellite sites say who owns them only to humans.</b> Both carry &ldquo;Division of VPC&rdquo; in visible copy, and InterActive Play publishes VPC&rsquo;s own main number, 585-735-9668. Neither states any of it in markup, so a machine reading either site finds no parent company, no address and no telephone.</li>
+    <li><b>The blog stopped in July 2022.</b> The post sitemap&rsquo;s most recent entry is 5 July 2022. The rest of the site is not frozen: page entries carry modification dates as recent as 28 August 2026, and the case studies were touched on 25 August. It is the publishing habit that lapsed, not the maintenance.</li>
     <li><b>None of it is measurable.</b> No Bing verification on any of the three domains, and we hold no Search Console access. Every statement about assistant visibility in our documents is currently being taken against an index nobody at VPC can see into.</li>
   </ol>
 </section>
@@ -481,7 +481,7 @@
   <p class="num">07</p>
   <h2>How this was checked</h2>
   <ul class="plain">
-    <li>All four websites were pulled live on 6 September 2026: status codes, robots files, sitemaps, the structured data parsed out of the served pages rather than guessed at, and the page source read for platform fingerprints. The main site&rsquo;s 23 pages were fetched in full and searched with word-boundary matching, because a plain search returns false positives inside stylesheet keywords.</li>
+    <li>All four websites were pulled live on 6 September 2026: status codes, robots files, sitemaps, the structured data parsed out of the served pages rather than guessed at, and the page source read for platform fingerprints. The main site&rsquo;s 23 pages were fetched in full and searched with word-boundary matching, because a plain search returns false positives inside stylesheet keywords. Catalog item pages were sampled and parsed for both JSON-LD and microdata, after an earlier pass looked only for JSON-LD and wrongly reported the catalog as carrying no structured data.</li>
     <li>The directory profile was read visually in a browser, because <code>thomasnet.com</code> answers automated requests with a captcha. The figures quoted from it are transcribed from that page and have not been independently corroborated.</li>
     <li><b>VPC does appear in the browsable category listings.</b> Confirmed on 6 September: in the FRP Shelters category, 609 suppliers, VPC sits around eighth on the first page, unpaid, below two sponsored entries. So the directory listing is doing real work and this document should not be read as an argument against it.</li>
     <li>Revenue, headcount and certifications are reported here as what the record says, not as corrected facts. They need an answer from inside VPC before anything is edited. An earlier version of this page treated the size figures as evidence VPC was being misrepresented; on checking the category listing, competitors including the top sponsored result carry the same values, so they read as unpopulated rather than wrong.</li>

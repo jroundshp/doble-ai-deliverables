@@ -400,8 +400,8 @@
         <td>The catalog for all three traditional lines</td>
         <td>289 URLs in its sitemap</td>
         <td><b>None</b></td>
-        <td><b>None</b></td>
-        <td><span class="state st-bad">Opaque</span></td>
+        <td>Product <b>microdata</b>, no JSON-LD</td>
+        <td><span class="state st-part">Partly readable</span></td>
       </tr>
       <tr>
         <td><code>easyrecreation.com</code></td>
@@ -455,29 +455,36 @@ site      /locations/ publishes (585) 735-9668 and (585) 735-9965
 
 <section>
   <p class="num">03</p>
-  <h2>Cause one: 289 product pages a search engine can find and cannot read</h2>
+  <h2>Cause one: the catalog speaks, but in the quieter of the two dialects</h2>
   <div class="claim">
     <div class="claim-head">
-      <p class="claim-quote"><code>products.vpcfiberglass.com</code> publishes 289 product and category URLs and carries structured data on none of them.</p>
+      <p class="claim-quote"><code>products.vpcfiberglass.com</code> carries Product markup as microdata and no JSON-LD anywhere, and the microdata is noisy enough that a machine reading it gets the breadcrumb where the product name should be.</p>
       <span class="chip confirmed">Re-confirmed 5 Sep</span>
     </div>
     <div class="evidence">products.vpcfiberglass.com/                  200, 73,567 bytes
   application/ld+json blocks                  0
 sitemapindex.google.xml (in robots.txt)     200
-  product and category URLs listed           289
-  of those carrying Product markup             0
+  URLs listed                                289
+    /item/ pages                             144
+    /viewitems/ pages                        121
+    /category/ pages                          23
+application/ld+json blocks, any page           0
+schema.org/Product microdata, sampled pages  1 each
+schema.org/Offer, 5 sampled item pages   3, 0, 0, 0, 0
 links in, /products/                         37
 links in, homepage                           46
 links in, /industries/                       50
 links in, /resources/fiberglass-ductwork/    50</div>
-    <p>This is the ThomasNet-hosted catalog, and it is where the actual products live: FRP fans, louvers and dampers, sound enclosures, ductwork, flumes, manhole systems, staff and tank gauges, troughs, weirs, baffles, ladders, platforms, railings, tanks, catch basins. Every one of the 23 pages on the main site links into it <b>at least 37 times</b>, rising to 46 from the homepage and 50 each from the industries page and the ductwork resource. So VPC is pouring its internal link equity into a subdomain that hands a search engine a complete map of 289 product URLs and no machine-readable description of a single one of them.</p>
-    <p class="already"><b>This was the July audit's highest-leverage recommendation and it has not moved.</b> Re-checked 5 September: still 200, still 73,567 bytes, still zero JSON-LD. It is also the one item we have never been able to price, because it depends on a question nobody has answered.</p>
+    <p>This is the ThomasNet-hosted catalog, and it is where the actual products live: FRP fans, louvers and dampers, sound enclosures, ductwork, flumes, manhole systems, staff and tank gauges, troughs, weirs, baffles, ladders, platforms, railings, tanks, catch basins. Every one of the 23 pages on the main site links into it <b>at least 37 times</b>, rising to 46 from the homepage and 50 each from the industries page and the ductwork resource. So VPC is pouring its internal link equity into a subdomain it does not control. <b>Corrected 6 September:</b> an earlier version of this section said that subdomain carried no structured data at all. It does. Item pages declare <code>schema.org/Product</code> in <b>microdata</b>, with a real SKU, a real description, images and a set of <code>PropertyValue</code> attributes that varies per product, between three and twenty on the pages we sampled. Our first check looked only for <code>application/ld+json</code> and found none, which is true and was reported as though it were the whole answer. It was not.</p>
+    <p>What is actually wrong with it is quality rather than absence. On the pages we read, the <code>name</code> property picks up breadcrumb text rather than the product, so a parser is told the product is called &ldquo;All Categories Product Type&rdquo; before it reaches &ldquo;Customized Fiberglass Buildings&rdquo;. Promotional items nested inside the same scope contribute their own SKUs. And <code>Offer</code> appears on one of the five item pages we sampled and on none of the other four. So the honest reading is <b>present, inconsistent and hard to trust</b>, not missing. That is a materially different recommendation: not &ldquo;add markup&rdquo; but &ldquo;clean up what is emitted and add JSON-LD, which is the format Google and the assistants most reliably act on.&rdquo;</p>
+    <p><b>The <code>PropertyValue</code> attributes are the find worth carrying into the quoting conversation.</b> They vary per product and they are real specification data, which means the Navigator platform holds a structured attribute model for the catalog-shaped families. That is the same shape of data a first-pass configured quote would need.</p>
+    <p class="already"><b>This was the July audit's highest-leverage recommendation and it has moved less than it looks.</b> Re-checked 5 September: still 200, still 73,567 bytes, still zero JSON-LD. It is also the one item we have never been able to price, because it depends on a question nobody has answered.</p>
     <p><b>So name the fork rather than carrying it another month.</b> The recommendation actually changes depending on one answer, and the two branches are not the same size of work:</p>
     <ul class="opts">
       <li>
         <span class="olabel">If VPC can edit the ThomasNet templates</span>
-        <span class="oname">Product schema and a sitemap on the existing catalog</span>
-        This is the highest-leverage item anywhere in the estate and it is contained. The product names, descriptions and images are already written and already on the page. The sitemap already exists and already lists all 289 of them, so the map is built and only the meaning is missing. Marking them up is a template change in one place. Nothing has to be migrated and nothing has to be rewritten.
+        <span class="oname">Clean the existing markup and add JSON-LD</span>
+        This is the highest-leverage item anywhere in the estate and it is contained. The names, descriptions, images and per-product attributes are already written, already on the page and already partly marked up. The sitemap exists and lists all 289 URLs. What is missing is a clean <code>Product</code> name that is not the breadcrumb, a consistent <code>Offer</code>, and a JSON-LD block alongside the microdata. That is a template change in one place. Nothing has to be migrated and nothing has to be rewritten.
       </li>
       <li>
         <span class="olabel">If VPC cannot edit them</span>
@@ -493,14 +500,14 @@ links in, /resources/fiberglass-ductwork/    50</div>
 
 <section>
   <p class="num">04</p>
-  <h2>Cause two: a hundred product pages and not one product marked as a product</h2>
+  <h2>Cause two: the play catalog has no product markup at all</h2>
   <div class="claim">
     <div class="claim-head">
-      <p class="claim-quote">There is no Product schema anywhere in the VPC estate.</p>
+      <p class="claim-quote">The play catalog carries no product markup of any kind, in either format.</p>
       <span class="chip confirmed">Re-confirmed 5 Sep</span>
     </div>
     <p>We sampled the play catalog directly. <code>/products/aquatic-play-structures/triwave-100/</code>, <code>/products/water-play-features/jet-stream/</code>, <code>/products/splash-pads/</code> and the <code>/products/</code> hub all carry exactly one JSON-LD block, and it contains WebPage, BreadcrumbList and WebSite. Nothing that says this page is a product, who makes it, or what it is for.</p>
-    <p>So when somebody asks a search engine or an assistant for a commercial splash pad manufacturer, or an FRP equipment enclosure, the pages that should answer are structurally indistinguishable from an About page. That is the whole of the gap the outside firm described. VPC ranks for what fiberglass <i>is</i> because those pages are written like articles. It does not rank for what VPC <i>sells</i> because those pages are not written like products.</p>
+    <p>So when somebody asks a search engine or an assistant for a commercial splash pad manufacturer, the pages that should answer are structurally indistinguishable from an About page. <b>This is the property where the &ldquo;no product markup&rdquo; finding holds without qualification.</b> The traditional catalog is a different case, covered in section 03: there the markup exists as microdata, and the problem is that it is noisy and carries no JSON-LD. That is the whole of the gap the outside firm described. VPC ranks for what fiberglass <i>is</i> because those pages are written like articles. It does not rank for what VPC <i>sells</i> because the pages that sell either carry no product markup at all, as here, or carry it in a form a parser struggles to trust, as on the traditional catalog.</p>
     <p class="already"><b>The markup is only half of it, and the cheaper half.</b> A product page also has to say the obvious things in plain sentences, because those are the sentences an assistant lifts and a buyer scans for. Who makes this, and under which company. Who it is for, in their own words, a municipal wastewater plant or a campground operator rather than &ldquo;our clients&rdquo;. And which kind of purchase it is: whether the buyer is configuring something that already exists in sizes and options, or commissioning something built to their drawing. That last distinction is the one the estate never states anywhere, and it is the one that tells a buyer whether to expect a price or a conversation. We are not proposing that anyone publish lead times or tolerances we have not been given. State the shape of the transaction, which VPC already knows, and leave the numbers to the people who own them.</p>
   </div>
 </section>
