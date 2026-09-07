@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jroundshp.github.io/doble-ai-deliverables/concrete-warrior-market/">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>The Bakken Around New Town</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* ── Palette inherited from the Concrete Warrior site, matching the winter
+      brief so the two read as one set. ─────────────────────────────────── */
+:root {
+  --graphite:  #14161a;
+  --graphite-2:#1d2026;
+  --steel:     #6b7480;
+  --steel-dim: #8b939d;
+  --bone:      #f2efe9;
+  --scoria:    #b4432a;
+  --scoria-br: #d15334;
+  --amber:     #c2870c;
+
+  --ground:    var(--bone);
+  --surface:   #fbfaf7;
+  --ink:       var(--graphite);
+  --ink-soft:  #4b525c;
+  --ink-mute:  var(--steel);
+  --rule:      #d5cfc4;
+  --rule-soft: #e6e1d7;
+  --band-neutral: #c3bcb0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:    var(--graphite);
+    --surface:   var(--graphite-2);
+    --ink:       var(--bone);
+    --ink-soft:  #c2c7ce;
+    --ink-mute:  var(--steel-dim);
+    --rule:      #343a43;
+    --rule-soft: #262b32;
+    --scoria:    var(--scoria-br);
+    --amber:     #d99b17;
+    --band-neutral: #444b55;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground:    var(--graphite);
+  --surface:   var(--graphite-2);
+  --ink:       var(--bone);
+  --ink-soft:  #c2c7ce;
+  --ink-mute:  var(--steel-dim);
+  --rule:      #343a43;
+  --rule-soft: #262b32;
+  --scoria:    var(--scoria-br);
+  --amber:     #d99b17;
+  --band-neutral: #444b55;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16.5px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.1rem, 4vw, 2.5rem) 5rem;
+}
+
+.display {
+  font-family: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-family: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: var(--scoria);
+}
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Masthead ─────────────────────────────────────────────────────────── */
+header.mast { border-top: 3px solid var(--scoria); padding-top: 1.6rem; }
+.mast h1 { font-size: clamp(2.7rem, 7.5vw, 4.6rem); margin: 0.7rem 0 0; }
+
+.thesis {
+  font-size: clamp(1.12rem, 2.2vw, 1.34rem);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 48ch;
+  margin: 1.35rem 0 0;
+  font-weight: 500;
+}
+
+.meta {
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 2.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* ── Section rhythm ───────────────────────────────────────────────────── */
+section { margin-top: clamp(3.2rem, 7vw, 5rem); }
+h2.sec { font-size: clamp(1.6rem, 3.4vw, 2.15rem); margin: 0.55rem 0 1.1rem; }
+h3.sub {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  text-transform: uppercase; font-weight: 700;
+  font-size: 1.2rem; margin: 2.2rem 0 0.5rem;
+}
+p { max-width: 68ch; }
+p + p { margin-top: 0.95rem; }
+
+/* ── Source block ─────────────────────────────────────────────────────── */
+.srcs { display: grid; gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin-top: 1.8rem; }
+@media (min-width: 44rem) { .srcs { grid-template-columns: repeat(2, 1fr); } }
+.src { background: var(--surface); padding: 1.15rem 1.25rem 1.3rem; }
+.src .n { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: var(--scoria); letter-spacing: 0.06em; }
+.src h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.12rem; line-height: 1.08; margin: 0.4rem 0 0.4rem; }
+.src p { font-size: 0.89rem; margin: 0 0 0.7rem; max-width: none; color: var(--ink-soft); }
+.src a { font-size: 0.82rem; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); word-break: break-word; }
+.src a:hover, .src a:focus-visible { color: var(--scoria); border-bottom-color: var(--scoria); }
+
+/* ── Headline figures ─────────────────────────────────────────────────── */
+.figs { display: grid; gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin-top: 1.8rem; }
+@media (min-width: 40rem) { .figs { grid-template-columns: repeat(3, 1fr); } }
+.fig { background: var(--surface); padding: 1.25rem 1.3rem 1.35rem; }
+.fig .v { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-weight: 700; font-size: clamp(2rem, 4.5vw, 2.7rem); line-height: 1; color: var(--scoria); font-variant-numeric: tabular-nums; }
+.fig .k { font-size: 0.88rem; color: var(--ink-soft); margin-top: 0.5rem; }
+.fig .d { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); margin-top: 0.55rem; }
+
+/* ── Tables ───────────────────────────────────────────────────────────── */
+.tbl-shell { overflow-x: auto; margin-top: 1.6rem; }
+table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.93rem; }
+thead th {
+  text-align: left; font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  text-transform: uppercase; letter-spacing: 0.11em; font-size: 0.72rem;
+  color: var(--ink-mute); font-weight: 600; padding: 0 0.9rem 0.55rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+tbody td { padding: 0.85rem 0.9rem 0.85rem 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+tbody td:last-child, thead th:last-child { padding-right: 0; }
+tbody tr td:first-child { font-weight: 600; color: var(--ink); }
+
+.pill {
+  display: inline-block; font-size: 0.66rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 700; padding: 0.18rem 0.45rem;
+  border: 1px solid currentColor; border-radius: 1px; white-space: nowrap;
+}
+.pill--hard { color: var(--scoria); }
+.pill--soft { color: var(--amber); }
+.pill--easy { color: var(--ink-mute); }
+
+/* ── Ordered steps ────────────────────────────────────────────────────── */
+ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 1.3rem 0 0; max-width: 62ch; }
+ol.steps li {
+  counter-increment: s; display: grid; grid-template-columns: 2.3rem 1fr;
+  gap: 0 0.7rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule-soft); align-items: baseline;
+}
+ol.steps li:last-child { border-bottom: 0; }
+ol.steps li::before { content: counter(s, decimal-leading-zero); font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--ink-mute); }
+ol.steps b { color: var(--ink); font-weight: 600; }
+
+/* ── Operator call list ───────────────────────────────────────────────── */
+.ops { list-style: none; counter-reset: o; padding: 0; margin: 1.5rem 0 0;
+       display: grid; gap: 1px; background: var(--rule-soft);
+       border: 1px solid var(--rule-soft); }
+@media (min-width: 34rem) { .ops { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 54rem) { .ops { grid-template-columns: repeat(3, 1fr); } }
+.ops li { counter-increment: o; background: var(--surface); padding: 0.7rem 0.9rem;
+          display: flex; gap: 0.7rem; align-items: baseline; font-size: 0.91rem; }
+.ops li::before { content: counter(o, decimal-leading-zero); font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; color: var(--ink-mute); flex: none; }
+
+/* ── Share bars ───────────────────────────────────────────────────────── */
+.shares { margin-top: 1.5rem; max-width: 44rem; }
+.share { display: grid; grid-template-columns: 10.5rem 1fr 3.2rem; gap: 0.8rem; align-items: center; padding: 0.34rem 0; }
+.share .nm { font-size: 0.89rem; }
+.share .track { height: 0.72rem; background: var(--rule-soft); border-radius: 1px; overflow: hidden; }
+.share .bar { height: 100%; background: var(--scoria); }
+.share .pc { font-size: 0.82rem; color: var(--ink-mute); text-align: right; }
+
+/* ── Callouts ─────────────────────────────────────────────────────────── */
+.caveat { max-width: 76ch; margin-top: 2rem; border: 1px solid var(--rule); border-left: 4px solid var(--ink-mute); padding: 1.2rem 1.3rem; background: var(--surface); }
+.caveat p { font-size: 0.94rem; margin: 0; max-width: none; }
+.caveat p + p { margin-top: 0.8rem; }
+.caveat .eyebrow { color: var(--ink-mute); display: block; margin-bottom: 0.5rem; }
+.caveat--flag { border-left-color: var(--scoria); }
+.caveat--flag .eyebrow { color: var(--scoria); }
+.caveat--gap { border-left-color: var(--amber); }
+.caveat--gap .eyebrow { color: var(--amber); }
+
+/* ── Next-doc link ────────────────────────────────────────────────────── */
+.onward { margin-top: 2rem; border: 1px solid var(--rule); border-top: 3px solid var(--scoria); background: var(--surface); padding: 1.4rem 1.4rem 1.5rem; }
+.onward h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.3rem; margin: 0.4rem 0 0.5rem; }
+.onward p { font-size: 0.94rem; max-width: 64ch; }
+.onward a.go { display: inline-block; margin-top: 1rem; font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.92rem; color: #fff; background: var(--scoria); padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 1px; }
+.onward a.go:hover, .onward a.go:focus-visible { background: var(--ink); }
+
+footer { margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--ink-mute); }
+footer ul { padding: 0; list-style: none; margin: 0.8rem 0 0; display: grid; gap: 0.42rem; }
+footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); word-break: break-word; }
+footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-color: var(--scoria); }
+:focus-visible { outline: 2px solid var(--scoria); outline-offset: 2px; }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">Concrete Warrior &middot; New Town, North Dakota</p>
+    <h1 class="display">The Bakken Around New Town</h1>
+    <p class="thesis">How big the market actually is, and who the buyers are by name. This is the state data underneath the winter brief, written out in full so the figures can be checked instead of taken on trust.</p>
+    <div class="meta">
+      <span class="mono">Data pulled 29 August 2026</span>
+      <span class="mono">Published 7 September 2026</span>
+      <span>For Corey Hogan</span>
+      <span>State data &middot; no estimates of ours</span>
+    </div>
+  </header>
+
+  <section>
+    <p class="eyebrow">The sources</p>
+    <h2 class="sec display">Where these numbers come from</h2>
+    <p>Everything below is public state data, pulled on 29 August 2026 and dated where it sits. None of it is modelled or estimated by us. Where a figure comes from a third party rather than the state, it says so, because those carry less weight.</p>
+    <p>The four sources that do most of the work are linked here. The full list, including the seeding and load-restriction specifications, is at the bottom of the page.</p>
+
+    <div class="srcs">
+      <div class="src">
+        <p class="n">SOURCE 01</p>
+        <h3>DMR Reclamation &amp; Remediation</h3>
+        <p>The reclamation backlog and what the rule requires before a bond is released. This is the page the topsoil case rests on.</p>
+        <a href="https://www.dmr.nd.gov/dmr/oilgas/reclamation-remediation">dmr.nd.gov/dmr/oilgas/reclamation-remediation</a>
+      </div>
+      <div class="src">
+        <p class="n">SOURCE 02</p>
+        <h3>DMR IIJA Initial Grant</h3>
+        <p>Federal orphaned-well money into North Dakota, wells plugged, sites reclaimed, and when that phase closed out.</p>
+        <a href="https://www.dmr.nd.gov/dmr/iija/initialgrant">dmr.nd.gov/dmr/iija/initialgrant</a>
+      </div>
+      <div class="src">
+        <p class="n">SOURCE 03</p>
+        <h3>June 2026 production report</h3>
+        <p>Producing wells, rigs, permits and completions statewide, plus the Fort Berthold slice. Reported through Minot Daily News from the state release.</p>
+        <a href="https://www.minotdailynews.com/news/local-news/2026/08/nd-natural-gas-production-sets-new-record/">minotdailynews.com &middot; ND production sets new record</a>
+      </div>
+      <div class="src">
+        <p class="n">SOURCE 04</p>
+        <h3>Mountrail County operators</h3>
+        <p>The ranked list of who is actually producing in our county. Third party, so treat the ordering as directional rather than exact.</p>
+        <a href="https://www.drillingedge.com/north-dakota/mountrail-county/operators">drillingedge.com &middot; Mountrail County operators</a>
+      </div>
+    </div>
+
+    <div class="caveat caveat--flag">
+      <span class="eyebrow">A correction worth carrying</span>
+      <p>The DMR page everybody lands on first, <span class="mono">dmr.nd.gov/oilgas/stats/statisticsvw.asp</span>, is production data only. Barrels and mcf by month, county and formation, back to 1980. It publishes no well counts, no permits, no inactive wells, no plugging and no reclamation figures.</p>
+      <p>That is the wrong page for this business, and it is the one a search will hand you. The numbers that matter to Concrete Warrior are on the two DMR pages above.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Demand driver 01</p>
+    <h2 class="sec display">Reclamation topsoil</h2>
+    <p>This is the lead product, and it is the one with a regulation behind it. A well site is not released from its bond until the topsoil has been respread and native vegetation is established. That makes reclamation a compliance cost rather than discretionary spend, which is a materially better thing to sell into.</p>
+
+    <div class="figs">
+      <div class="fig">
+        <div class="v">2,160</div>
+        <div class="k">Sites statewide in the reclamation process, awaiting bond release</div>
+        <div class="d">DMR &middot; see caveat below</div>
+      </div>
+      <div class="fig">
+        <div class="v">18,500<span style="font-size:0.6em">+</span></div>
+        <div class="k">Wells and facility sites reclaimed to date</div>
+        <div class="d">DMR</div>
+      </div>
+      <div class="fig">
+        <div class="v">&lt;1%</div>
+        <div class="k">Sites needing long-term environmental evaluation</div>
+        <div class="d">DMR</div>
+      </div>
+    </div>
+
+    <h3 class="sub">What the rule actually requires, in order</h3>
+    <ol class="steps">
+      <li>Remove equipment, waste and debris from the site.</li>
+      <li><b>Remove the gravel or surfacing material.</b> This is a service we can sell alongside the topsoil, on the same trip.</li>
+      <li>Remediate stabilized soil.</li>
+      <li><b>Distribute the stockpiled topsoil evenly.</b></li>
+      <li>Revegetate with native species.</li>
+    </ol>
+
+    <div class="caveat">
+      <span class="eyebrow">The honest caveat on 2,160</span>
+      <p>The rule says <em>stockpiled</em> topsoil. The operator is expected to have salvaged the site's own soil, eight inches deep, when the pad was built. So our served market is not all 2,160 sites. It is the share where the stockpile is short, was lost, was contaminated, or was never properly salvaged, plus the sites where an operator would rather buy screened material than sort through what is on hand.</p>
+      <p><strong>2,160 is the denominator, not our addressable market.</strong> It should not be quoted as ours in a pitch or on the website.</p>
+      <p>There is a second thing in here worth naming. A buyer pays for <em>screened</em> material rather than scraping together what is on site because the bond release depends on the vegetation taking. That is the argument the trommel photograph makes better than any sentence.</p>
+    </div>
+
+    <h3 class="sub">Public money already in this</h3>
+    <div class="tbl-shell">
+      <table>
+        <thead>
+          <tr><th style="width:26%">Figure</th><th style="width:44%">What it is</th><th style="width:30%">Where it stands</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">$25,000,000</td>
+            <td>To the ND Industrial Commission under IIJA, for orphaned wells</td>
+            <td>Initial grant</td>
+          </tr>
+          <tr>
+            <td class="mono">73</td>
+            <td>Orphaned wells plugged under that grant</td>
+            <td>Complete</td>
+          </tr>
+          <tr>
+            <td class="mono">112 of 115</td>
+            <td>Sites reclaimed under that grant</td>
+            <td>Work finalized October 2025</td>
+          </tr>
+          <tr>
+            <td>Formula and Performance Grants</td>
+            <td>Separate federal categories, not part of the initial grant</td>
+            <td>Still to come</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1.3rem">The initial grant is spent, so this is not money sitting on a table today. It matters for two other reasons: it is proof the work is funded and recurring rather than speculative, and the next grant announcement is worth watching for.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Demand driver 02</p>
+    <h2 class="sec display">New construction</h2>
+    <p>Every new pad needs base course, access road gravel and scoria. This is the second demand line, and unlike reclamation it is driven by drilling rather than by the seeding calendar.</p>
+
+    <div class="tbl-shell">
+      <table>
+        <thead>
+          <tr><th style="width:20%">Figure</th><th style="width:46%">What it is</th><th style="width:20%">As of</th><th style="width:14%">Type</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">19,961</td><td>Producing wells statewide, an all-time high</td><td>June 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
+          <tr><td class="mono">33</td><td>Rigs operating statewide</td><td>19 Aug 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
+          <tr><td class="mono">24</td><td>Baker Hughes North Dakota rig average</td><td>July 2026</td><td><span class="pill pill--soft">Third party</span></td></tr>
+          <tr><td class="mono">93</td><td>Drilling permits issued</td><td>July 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
+          <tr><td class="mono">74</td><td>Well completions</td><td>July 2026</td><td><span class="pill pill--easy">State data</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:1.3rem">Roughly 90 permits and 75 completions a month statewide is the pipeline of new pad work. That is modest and steady. It is not a boom, and nothing in this data should be used to argue that it is one.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">The delivery radius</p>
+    <h2 class="sec display">Ninety minutes from New Town</h2>
+    <p>New Town sits in Mountrail County, on the Fort Berthold Reservation. McKenzie, Dunn, McLean, Ward and Williams are all inside a reasonable haul. The top five producing counties in the state are McKenzie, Williams, Dunn, Mountrail and Divide, so four of the five are inside or adjacent to that radius.</p>
+
+    <div class="figs">
+      <div class="fig">
+        <div class="v">3,040</div>
+        <div class="k">Active wells on Fort Berthold, plus 132 active permits</div>
+        <div class="d">June 2026</div>
+      </div>
+      <div class="fig">
+        <div class="v">#4</div>
+        <div class="k">Mountrail County's statewide rank by barrels of oil equivalent produced</div>
+        <div class="d">March 2026</div>
+      </div>
+      <div class="fig">
+        <div class="v">4,841</div>
+        <div class="k">Wells drilled in Mountrail County since 1952</div>
+        <div class="d">Through March 2026</div>
+      </div>
+    </div>
+
+    <div class="tbl-shell">
+      <table>
+        <thead>
+          <tr><th style="width:26%">Fort Berthold</th><th style="width:50%">Value</th><th style="width:24%">As of</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Active wells</td><td class="mono">3,040</td><td>June 2026</td></tr>
+          <tr><td>Active permits</td><td class="mono">132</td><td>June 2026</td></tr>
+          <tr><td>Oil production</td><td class="mono">160,651 bbl</td><td>June 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:1.3rem"><strong>3,040 active wells on Fort Berthold alone is the reclamation pipeline in our own backyard.</strong> It does not arrive in one season. It arrives over years as those wells age out, which is the right way to describe it to anyone who asks how durable this is.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">The buyers</p>
+    <h2 class="sec display">A call list, not a market study</h2>
+    <p>These are the operators with production in Mountrail County, ranked by recent oil volume. The ranking comes from a third-party source, so treat the order as directional. The names are the useful part.</p>
+
+    <ol class="ops">
+      <li>Continental Resources</li>
+      <li>Hess Bakken Investments II</li>
+      <li>Devon Energy Williston</li>
+      <li>XTO Energy (ExxonMobil)</li>
+      <li>Oasis Petroleum North America (now Chord)</li>
+      <li>Marathon Oil</li>
+      <li>Whiting Oil and Gas</li>
+      <li>Slawson Exploration</li>
+      <li>Petro-Hunt</li>
+      <li>EOG Resources</li>
+      <li>Phoenix Operating</li>
+      <li>Hunt Oil</li>
+      <li>Silver Hill Energy Operating</li>
+      <li>Lime Rock Resources III-A</li>
+      <li>Murex Petroleum</li>
+    </ol>
+    <p style="margin-top:1.1rem; font-size:0.9rem; color:var(--ink-mute)">28 operators are active in the county in total.</p>
+
+    <h3 class="sub">Statewide share, 2026</h3>
+    <p>The reason the call list is short is that the buyers are concentrated. Eight companies move most of the oil in the state.</p>
+
+    <div class="shares">
+      <div class="share"><span class="nm">Chord</span><span class="track"><span class="bar" style="width:100%"></span></span><span class="pc mono">18.5%</span></div>
+      <div class="share"><span class="nm">Continental</span><span class="track"><span class="bar" style="width:82.2%"></span></span><span class="pc mono">15.2%</span></div>
+      <div class="share"><span class="nm">ConocoPhillips</span><span class="track"><span class="bar" style="width:71.9%"></span></span><span class="pc mono">13.3%</span></div>
+      <div class="share"><span class="nm">Devon</span><span class="track"><span class="bar" style="width:56.8%"></span></span><span class="pc mono">10.5%</span></div>
+      <div class="share"><span class="nm">Chevron</span><span class="track"><span class="bar" style="width:54.6%"></span></span><span class="pc mono">10.1%</span></div>
+      <div class="share"><span class="nm">Kraken</span><span class="track"><span class="bar" style="width:27.0%"></span></span><span class="pc mono">5.0%</span></div>
+      <div class="share"><span class="nm">XTO</span><span class="track"><span class="bar" style="width:24.3%"></span></span><span class="pc mono">4.5%</span></div>
+      <div class="share"><span class="nm">Petro-Hunt</span><span class="track"><span class="bar" style="width:18.9%"></span></span><span class="pc mono">3.5%</span></div>
+    </div>
+    <p style="margin-top:1.1rem; font-size:0.88rem; color:var(--ink-mute)">Bars are scaled to the largest share, not to 100% of state production.</p>
+
+    <div class="caveat caveat--flag">
+      <span class="eyebrow">Not on the list, and central</span>
+      <p><strong>The MHA Nation.</strong> Fort Berthold is tribal land. The Nation is a buyer in its own right on roads and infrastructure, and it sits between us and every operator on the reservation. Being based in New Town is the advantage there, and no competitor list or operator ranking captures it.</p>
+    </div>
+
+    <div class="caveat caveat--gap">
+      <span class="eyebrow">The gap worth closing next</span>
+      <p>The operator list is missing the reclamation and plugging <strong>contractors</strong> who do the physical work. They are the ones who actually order topsoil by the load. An operator sets the budget; a contractor places the order.</p>
+      <p>We do not have their names yet. NDIC contract awards are where they are, and that is the next research job on this side.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Limits</p>
+    <h2 class="sec display">What this does not tell us</h2>
+    <p>This sizes the market around Concrete Warrior. It does not close the volume question, which still needs your numbers rather than the state's: yards produced per week, what a typical reclamation order looks like, and how far we will actually haul. The website carries that as a marked gap and this data does not fill it.</p>
+    <p>There is also a limit on the state side. <strong>DMR does not publish inactive or abandoned well counts by county on any public page found here.</strong> Getting the Mountrail and McKenzie slice of the 2,160 would mean asking DMR directly on <span class="mono">(701) 328-8020</span>, or working through the NorthSTAR system and the GIS Map Server. That is worth doing before anyone builds a forecast on the county-level number, because right now the 2,160 is only available statewide.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">What came out of it</p>
+    <h2 class="sec display">The conclusion this data produced</h2>
+    <p>Laying the state calendar against the current plan produced one finding worth more than any single figure above: native grass has only two seeding windows, before 24 May or after 20 October, and the NDDOT spring load restrictions cover most of the first one. That leaves the fall as the real delivery season for reclamation topsoil, and it opens the week the operations memo shuts North Dakota down.</p>
+    <p>That argument, the three options it produces, and the questions only you and Richard can answer are in the winter brief, sent 29 August.</p>
+
+    <div class="onward">
+      <p class="eyebrow">Companion document</p>
+      <h3>Winter at New Town</h3>
+      <p>The decision brief built on this data: three doors, and what each one costs if it turns out to be the wrong one. It is a brief rather than a recommendation. The cost side is still yours to fill in.</p>
+      <a class="go" href="../concrete-warrior-winter/">Open the winter brief</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Prepared by Doble AI for Corey Hogan. Data pulled 29 August 2026 from the sources below and dated where it appears above. Figures marked <span class="pill pill--soft">Third party</span> are not state-published and should be treated as directional.</p>
+    <ul>
+      <li><a href="https://www.dmr.nd.gov/dmr/oilgas/reclamation-remediation">ND DMR &middot; Reclamation and Remediation</a></li>
+      <li><a href="https://www.dmr.nd.gov/dmr/iija/initialgrant">ND DMR &middot; IIJA Initial Grant, plugging and reclamation</a></li>
+      <li><a href="https://www.dmr.nd.gov/oilgas/stats/statisticsvw.asp">ND DMR &middot; Oil and Gas Statistics (production only)</a></li>
+      <li><a href="https://www.dmr.nd.gov/dmr/oilgas">ND DMR main, NorthSTAR and GIS Map Server</a></li>
+      <li><a href="https://www.minotdailynews.com/news/local-news/2026/08/nd-natural-gas-production-sets-new-record/">Minot Daily News, August 2026 &middot; June production report figures</a></li>
+      <li><a href="https://www.drillingedge.com/north-dakota/mountrail-county/operators">DrillingEdge &middot; Mountrail County operators</a></li>
+      <li><a href="https://www.bia.gov/sites/bia.gov/files/assets/as-ia/ieed/ieed/pdf/DEMD_OG_FortBerthold_OilGasPlays_508.pdf">BIA &middot; Fort Berthold oil and gas background</a></li>
+      <li><a href="https://www.land.nd.gov/sites/www/files/documents/Surface/ref%20-%20seed%20specs.pdf">ND Trust Lands &middot; Native Grass Seeding Specifications</a></li>
+      <li><a href="https://www.land.nd.gov/sites/www/files/documents/Surface/Well%20Site%20Const%20Specs.pdf">ND Trust Lands &middot; Well Site Construction Specifications</a></li>
+      <li><a href="https://www.dot.nd.gov/driver/commercial/north-dakota-load-restrictions">NDDOT &middot; North Dakota load restrictions</a></li>
+    </ul>
+  </footer>
+
+</div>
+</body>
+</html>
