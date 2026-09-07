@@ -232,20 +232,24 @@ ol.steps b { color: var(--ink); font-weight: 600; }
 .onward a.go { display: inline-block; margin-top: 1rem; font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.92rem; color: #fff; background: var(--scoria); padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 1px; }
 .onward a.go:hover, .onward a.go:focus-visible { background: var(--ink); }
 
-/* ── Distance chart: the radius from the yard ─────────────────────────── */
-.dist-shell { margin-top: 1.8rem; }
-.dist-scale { position: relative; height: 1.1rem; margin-left: 9rem; margin-right: 3.4rem; border-bottom: 1px solid var(--rule); }
-.dist-tick { position: absolute; top: 0; font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-mute); transform: translateX(-50%); white-space: nowrap; }
-.dist-tick:first-child { transform: none; }
-.dist-tick:last-child { transform: translateX(-100%); }
-.dists { margin-top: 0.5rem; }
-.dist { display: grid; grid-template-columns: 9rem 1fr 3.4rem; gap: 0.6rem; align-items: center; padding: 0.3rem 0; }
-.dist .nm { font-size: 0.89rem; }
-.dist .track { height: 0.72rem; background: var(--rule-soft); border-radius: 1px; overflow: hidden; }
-/* display:block is required — an inline span ignores width. */
-.dist .bar { display: block; height: 100%; background: var(--scoria); }
-.dist .bar--far { background: var(--band-neutral); }
-.dist .pc { font-size: 0.82rem; color: var(--ink-mute); text-align: right; }
+/* ── Radius cards: inside vs outside the driving circle ───────────────── */
+.radius { display: grid; gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin-top: 1.8rem; }
+@media (min-width: 44rem) { .radius { grid-template-columns: 1.15fr 1fr; } }
+.rad { background: var(--surface); padding: 1.2rem 1.3rem 1.4rem; }
+.rad .n { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.06em; margin: 0 0 0.8rem; }
+.rad--in .n { color: var(--scoria); }
+.rad--out .n { color: var(--ink-mute); }
+.rad ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem 1rem; grid-template-columns: repeat(2, 1fr); font-size: 0.93rem; }
+.rad--in li { font-weight: 600; }
+.rad--out li { color: var(--ink-soft); }
+.rad li::before { content: ""; display: inline-block; width: 0.42rem; height: 0.42rem; margin-right: 0.5rem; border-radius: 50%; vertical-align: 0.08em; }
+.rad--in li::before { background: var(--scoria); }
+.rad--out li::before { background: var(--band-neutral); }
+.rad-note { font-size: 0.85rem; color: var(--ink-mute); margin: 1rem 0 0; max-width: none; }
+
+ul.named { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.6rem; }
+ul.named li { font-size: 0.93rem; font-weight: 600; padding-left: 0.9rem; border-left: 2px solid var(--rule); }
+ul.named li span { display: block; font-weight: 400; font-size: 0.87rem; color: var(--ink-mute); margin-top: 0.1rem; }
 
 .legend { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin-top: 1rem; font-size: 0.76rem; color: var(--ink-mute); }
 .legend div { display: flex; align-items: center; gap: 0.5rem; }
@@ -283,7 +287,7 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
       <div class="src">
         <p class="n">SOURCE 01</p>
         <h3>Director's Cut, 20 August 2026</h3>
-        <p>The state's monthly briefing on June production. Rigs by operator, the permit and completion trend, and a Fort Berthold page of its own. This is the report that shows permits 90 to 120 days ahead of the drilling.</p>
+        <p>The state's monthly briefing on June production. Rigs by operator, the permit and completion trend, and a Fort Berthold page of its own. Permits are the forward-looking part of it.</p>
         <a href="https://www.dmr.nd.gov/dmr/sites/default/files/documents/Directors_Cut/2026/Directors_Cut_2026-08-20.pdf">dmr.nd.gov &middot; Directors_Cut_2026-08-20.pdf</a>
       </div>
       <div class="src">
@@ -317,38 +321,55 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
     <p class="eyebrow">First, the circle</p>
     <h2 class="sec display">What is actually within reach</h2>
     <p>A statewide number is background. What decides anything is what sits inside a haul of the yard at 9702 ND-23. So this page is ordered outward from New Town rather than down from Bismarck, and the state figures come last, as context.</p>
+    <p><strong>The radius here is the one already in use on the 26 August contact sheet: about fifty miles driving.</strong> Not straight-line, because a truck follows ND&nbsp;23 and US&nbsp;2 rather than the map.</p>
 
-    <div class="dist-shell">
-      <div class="dist-scale">
-        <span class="dist-tick" style="left:0%">0</span>
-        <span class="dist-tick" style="left:50%">50 mi</span>
-        <span class="dist-tick" style="left:100%">100 mi</span>
+    <div class="radius">
+      <div class="rad rad--in">
+        <p class="n">INSIDE ~50 ROAD MILES</p>
+        <ul>
+          <li>New Town</li><li>Four Bears</li><li>Parshall</li><li>Mandaree</li><li>Plaza</li>
+          <li>Stanley</li><li>Ross</li><li>Palermo</li><li>Watford City</li><li>Tioga</li>
+        </ul>
       </div>
-      <div class="dists">
-        <div class="dist"><span class="nm">Mandaree</span><span class="track"><span class="bar" style="width:16%"></span></span><span class="pc mono">16</span></div>
-        <div class="dist"><span class="nm">Parshall</span><span class="track"><span class="bar" style="width:17%"></span></span><span class="pc mono">17</span></div>
-        <div class="dist"><span class="nm">Stanley</span><span class="track"><span class="bar" style="width:24%"></span></span><span class="pc mono">24</span></div>
-        <div class="dist"><span class="nm">Tioga</span><span class="track"><span class="bar" style="width:35%"></span></span><span class="pc mono">35</span></div>
-        <div class="dist"><span class="nm">Watford City</span><span class="track"><span class="bar" style="width:39%"></span></span><span class="pc mono">39</span></div>
-        <div class="dist"><span class="nm">Ray</span><span class="track"><span class="bar" style="width:40%"></span></span><span class="pc mono">40</span></div>
-        <div class="dist"><span class="nm">Killdeer</span><span class="track"><span class="bar" style="width:44%"></span></span><span class="pc mono">44</span></div>
-        <div class="dist"><span class="nm">Williston</span><span class="track"><span class="bar bar--far" style="width:53%"></span></span><span class="pc mono">53</span></div>
-        <div class="dist"><span class="nm">Garrison</span><span class="track"><span class="bar bar--far" style="width:55%"></span></span><span class="pc mono">55</span></div>
-        <div class="dist"><span class="nm">Minot</span><span class="track"><span class="bar bar--far" style="width:58%"></span></span><span class="pc mono">58</span></div>
-        <div class="dist"><span class="nm">Alamo</span><span class="track"><span class="bar bar--far" style="width:60%"></span></span><span class="pc mono">60</span></div>
-        <div class="dist"><span class="nm">Dickinson</span><span class="track"><span class="bar bar--far" style="width:77%"></span></span><span class="pc mono">77</span></div>
-      </div>
-      <div class="legend">
-        <div><span class="swatch sw-near"></span> Inside 50 miles</div>
-        <div><span class="swatch sw-far"></span> 50 to 100 miles</div>
+      <div class="rad rad--out">
+        <p class="n">OUTSIDE IT</p>
+        <ul>
+          <li>Williston</li><li>Killdeer</li><li>Garrison</li><li>Alexander</li><li>Ray</li>
+        </ul>
+        <p class="rad-note">Reachable, but not on the same economics. Killdeer and Ray are inside fifty miles on the map and outside it on the road, which is the trap this list exists to avoid.</p>
       </div>
     </div>
-    <p style="margin-top:1.1rem; font-size:0.88rem; color:var(--ink-mute)">Straight-line distances from the New Town yard. Road miles run longer, and ND&nbsp;23 and US&nbsp;2 do most of the work, so treat these as the shape of the market rather than a haul schedule.</p>
+
+    <h3 class="sub">Oil production in the counties around us</h3>
+    <p>Now that the county tables are in hand, the circle can be measured rather than described. These are the state's own monthly figures, confidential wells excluded from both years, so the year-on-year column is a like-for-like comparison.</p>
+
+    <div class="tbl-shell">
+      <table>
+        <thead>
+          <tr><th style="width:20%">County</th><th style="width:22%">June 2026, bbl</th><th style="width:22%">June 2025, bbl</th><th style="width:14%">Year on year</th><th style="width:22%">In the circle?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>McKenzie</td><td class="mono">9,756,623</td><td class="mono">11,169,552</td><td class="mono">&minus;12.6%</td><td>Yes, Watford City</td></tr>
+          <tr><td>Williams</td><td class="mono">6,909,867</td><td class="mono">7,623,257</td><td class="mono">&minus;9.4%</td><td>Yes, via Tioga</td></tr>
+          <tr><td>Dunn</td><td class="mono">6,035,112</td><td class="mono">7,597,780</td><td class="mono">&minus;20.6%</td><td>No, Killdeer is past it</td></tr>
+          <tr><td>Mountrail</td><td class="mono">5,275,648</td><td class="mono">6,384,876</td><td class="mono">&minus;17.4%</td><td>Home</td></tr>
+          <tr><td>Divide</td><td class="mono">1,114,374</td><td class="mono">1,126,598</td><td class="mono">&minus;1.1%</td><td>No</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="caveat caveat--flag">
+      <span class="eyebrow">The number nobody should skip</span>
+      <p><strong>Every county in the circle is producing less oil than it did a year ago.</strong> Mountrail, our own county, is down 17.4%. Dunn is down 20.6%. McKenzie, the biggest in the state, is down 12.6%.</p>
+      <p>This does not undermine the topsoil case. It is the argument for it. Falling production with one rig on Fort Berthold means fewer new pads and more wells drifting toward the end of their lives, and a well at the end of its life is a reclamation job. <strong>The work we sell into grows as the drilling shrinks.</strong> What it does undermine is any pitch built on a drilling boom, because there is not one.</p>
+    </div>
 
     <div class="caveat caveat--flag">
       <span class="eyebrow">The finding this produces</span>
-      <p><strong>Almost everything that matters is inside 50 miles.</strong> Watford City sits 39 miles out, and it is the seat of McKenzie County, which alone is about a third of all North Dakota oil production. Killdeer in Dunn County is 44. Tioga and Ray in Williams are 35 and 40.</p>
-      <p>The state's top five oil counties are McKenzie, Williams, Dunn, Mountrail and Divide, and they make up roughly 96.5% of production. <strong>Four of those five are in this circle, and one of them is home.</strong> The gap in the middle of the Bakken is where the yard already is.</p>
+      <p><strong>Watford City is inside the driving radius, at roughly fifty road miles.</strong> It is the seat of McKenzie County, which on its own is about a third of all North Dakota oil production. Tioga, at about forty-nine, is inside it too.</p>
+      <p>The state's top five oil counties are McKenzie, Williams, Dunn, Mountrail and Divide, and together they are roughly 96.5% of production, per the Director's Cut. <strong>Three of those five are reachable on the road: Mountrail is home, McKenzie through Watford City, and Williams through Tioga.</strong> The yard sits in the gap between the two biggest producing counties in the state, which is a better argument for the location than anything the website currently says.</p>
+    <p class="mono" style="font-size:0.84rem; color:var(--ink-mute)">Measured straight-line it looks like four of five, because Killdeer is 44 miles on the map and about 61 on the road. The road number is the one that decides anything, so three is the honest count.</p>
+      <p>Dunn County is the honest exception. Killdeer is its seat, and on the road it is past the circle.</p>
     </div>
   </section>
 
@@ -392,7 +413,7 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
     </div>
 
     <p style="margin-top:1.3rem"><strong>3,040 active wells is the reclamation pipeline in our own backyard.</strong> It does not arrive in one season. It arrives over years as those wells age out, which is the right way to describe it to anyone who asks how durable this is.</p>
-    <p><strong>2,333 of those 3,040 sit on Trust land.</strong> That is the most useful denominator on this page, because it is specific to the ground we are already on rather than to the state. It carries a condition worth knowing before anyone quotes a timeline: work on Trust land needs DMR, the MHA Nation and the BIA, where fee land needs only the first. Three approvals move slower than one.</p>
+    <p><strong>2,333 of those 3,040 sit on Trust land.</strong> That is the most useful denominator on this page, because it is specific to the ground we are already on rather than to the state. It carries a condition worth knowing before anyone quotes a timeline: a Trust-land APD runs through DMR, the MHA Nation, the BIA and the BLM, where fee land is mostly DMR alone. Four desks move slower than one, and that is a scheduling fact rather than an obstacle.</p>
     <p>One number cuts the other way and belongs here rather than in a footnote. <strong>Fort Berthold ran a single rig in June.</strong> New pad construction inside our own circle is close to nothing right now, so the near-term case rests on reclamation and on maintaining what already exists, not on new drilling.</p>
 
     <div class="caveat caveat--flag">
@@ -467,9 +488,20 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
     <p style="margin-top:1.1rem; font-size:0.9rem; color:var(--ink-mute)">28 operators are active in Mountrail County in total.</p>
 
     <div class="caveat caveat--gap">
-      <span class="eyebrow">The gap worth closing next</span>
-      <p>This list is missing the reclamation and plugging <strong>contractors</strong> who do the physical work. They are the ones who actually order topsoil by the load. An operator sets the budget, a contractor places the order.</p>
-      <p>We do not have their names yet. NDIC contract awards are where they are, and that is the next research job on this side.</p>
+      <span class="eyebrow">The list above is the wrong list</span>
+      <p>Operators set the budget. <strong>Reclamation and plugging contractors place the order</strong>, by the load, and they are who actually buys topsoil. Those names are not on the operator ranking, and they are the ones worth calling.</p>
+      <p><strong>We already have them.</strong> The 26 August contact sheet carries eight companies inside the driving radius marked as full-site reclaim work, every one of them on the MHA TERO Preference Level 1 list dated 18 February 2026:</p>
+      <ul class="named">
+        <li>Running Horse LLC <span>New Town. The biggest in-town pad and reclamation name.</span></li>
+        <li>Oilfield Support Services, Inc <span>New Town. Facilities and reclamation.</span></li>
+        <li>Little River Construction <span>Reclamation, road and pad construction.</span></li>
+        <li>Prairie Moon LLC <span>Topsoil, hydroseeding, pad maintenance.</span></li>
+        <li>Warrior LLC <span>A different company from Concrete Warrior. Pads, facilities, laterals.</span></li>
+        <li>Charging Eagle Enterprises LLC <span>Reclamation, hydroseeding, fencing.</span></li>
+        <li>J &amp; J Rental, LLC <span>Pads, reclamation, hydrovac.</span></li>
+        <li>Baker Consulting, LLC <span>Civil and reclamation. They write the spec that names the dirt, which arguably makes them the most valuable call on this page.</span></li>
+      </ul>
+      <p>Contacts and numbers are on the contact sheet rather than here, since that sheet is marked not-for-outbound until the Yes/No pass comes back. <strong>What is still open is not who they are. It is which of them we actually know</strong>, and that is the column waiting on you, Richard and Roger.</p>
     </div>
 
     <h3 class="sub">Who moves the oil statewide</h3>
@@ -509,13 +541,14 @@ footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-col
     </div>
 
     <p style="margin-top:1.3rem">Roughly 90 permits and 75 completions a month statewide is the pipeline of new pad work. That is modest and steady. It is not a boom, and nothing in this data should be used to argue that it is one. Against that, Fort Berthold is running one rig, so our own share of the new-pad work is thinner than the state number suggests.</p>
-    <p>Permits are the part worth watching rather than production, because operators pull them <strong>90 to 120 days before they drill</strong>. The Director's Cut publishes that trend every month with the county detail behind it, which makes it the closest thing available to a forward look at where pad work is going to land.</p>
+    <p>Permits are the part worth watching rather than production, because a permit is pulled before the work exists. <strong>Richard's figure on the 29 August call was 90 to 120 days ahead of the spud</strong>, which is field experience rather than something the state publishes, and it is his to confirm. What the Director's Cut does publish every month is the permit and completion trend itself, with cycle-time charts behind it. Either way the permit line is the earliest warning we get.</p>
   </section>
 
   <section>
     <p class="eyebrow">Limits</p>
     <h2 class="sec display">What this does not tell us</h2>
-    <p>The biggest limit is the one that matters most for a radius view. <strong>DMR publishes county-level production only as charts, not as tables</strong>, and its rig statistics workbook stops in 2016. So the current county-by-county numbers inside our circle cannot be pulled from the public files, only the Fort Berthold page and the statewide totals. Anything more granular means asking DMR directly.</p>
+    <p>County production is published, but with a carve-out that matters. <strong>DMR's <span class="mono">countymot.pdf</span> and <span class="mono">countymgt.pdf</span> are real monthly tables by county, back to 1951, and they explicitly exclude confidential wells.</strong> So county volumes and the year-on-year comparisons below are sound, because the same wells are missing from both years, but a county's <em>share</em> of the state computed from them will read low, since the statewide total does include those wells. Where a share is quoted on this page it comes from the Director's Cut rather than from our own arithmetic.</p>
+    <p>Two things genuinely are not available: <strong>county-level rig counts</strong>, since DMR's <span class="mono">RigStatistics.xlsx</span> has a by-county sheet that stops in January 2016, and the county or reservation split of the reclamation backlog. Both mean calling DMR on <span class="mono">(701) 328-8020</span>.</p>
     <p>It also does not close the volume question, which needs your numbers rather than the state's: yards produced per week, what a typical reclamation order looks like, and how far we will actually haul. The website carries that as a marked gap and this data does not fill it.</p>
   </section>
 
