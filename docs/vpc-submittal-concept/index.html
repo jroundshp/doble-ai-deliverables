@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>VPC Submittal Library Concept</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #eff1ee;
+    --surface: #ffffff;
+    --ink: #16191b;
+    --ink-soft: #575f61;
+    --ink-faint: #7d8688;
+    --rule: #d2d7d3;
+    --rule-soft: #e2e6e2;
+    --accent: #0e5c67;
+    --accent-soft: #e2edee;
+    --rust: #a34c1c;
+    --rust-soft: #f6e8e0;
+    --moss: #3c6636;
+    --moss-soft: #e5eee2;
+
+    --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #131718;
+      --surface: #1b2022;
+      --ink: #e7ebe8;
+      --ink-soft: #a3adad;
+      --ink-faint: #7d8688;
+      --rule: #313839;
+      --rule-soft: #262c2e;
+      --accent: #5cb4c0;
+      --accent-soft: #1a2f33;
+      --rust: #e08c58;
+      --rust-soft: #2e2119;
+      --moss: #86b57c;
+      --moss-soft: #1c2a1c;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #131718;
+    --surface: #1b2022;
+    --ink: #e7ebe8;
+    --ink-soft: #a3adad;
+    --ink-faint: #7d8688;
+    --rule: #313839;
+    --rule-soft: #262c2e;
+    --accent: #5cb4c0;
+    --accent-soft: #1a2f33;
+    --rust: #e08c58;
+    --rust-soft: #2e2119;
+    --moss: #86b57c;
+    --moss-soft: #1c2a1c;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 38px 24px 88px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    border-top: 3px solid var(--ink);
+    padding-top: 18px;
+    margin-bottom: 40px;
+  }
+
+  .stamp {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+  .stamp b { color: var(--ink-soft); font-weight: 500; }
+
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(34px, 6vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+
+  .scope {
+    font-size: 14.5px;
+    color: var(--ink-faint);
+    margin: 12px 0 0;
+    max-width: 58ch;
+  }
+
+  .dek {
+    font-size: 17.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  /* ---------- sections ---------- */
+
+  section {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 0 20px;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .marker {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    padding-top: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  .body { min-width: 0; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p:last-child { margin-bottom: 0; }
+
+  .body > ul, .body > ol { max-width: 66ch; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--f-mono);
+    font-size: 0.88em;
+    background: var(--rule-soft);
+    padding: 1px 5px;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+
+  /* ---------- pull ---------- */
+
+  .pull {
+    border-left: 3px solid var(--accent);
+    padding: 3px 0 3px 18px;
+    margin: 20px 0;
+    max-width: 62ch;
+  }
+
+  .pull p {
+    font-size: 17px;
+    line-height: 1.48;
+    margin: 0;
+  }
+
+  .pull.decision { border-left-color: var(--rust); }
+
+  /* ---------- objective ---------- */
+
+  .objective {
+    background: var(--accent-soft);
+    padding: 30px 30px 26px;
+    margin-bottom: 8px;
+  }
+
+  .objective .opt-label { margin-bottom: 12px; }
+
+  .objective .lead {
+    font-size: 21px;
+    line-height: 1.42;
+    letter-spacing: -0.008em;
+    max-width: 40ch;
+    margin: 0;
+  }
+
+  .surfaces {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin: 22px 0 26px;
+  }
+
+  .surfaces .surfaces-label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 4px;
+  }
+
+  .surface {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 4px 9px;
+    white-space: nowrap;
+  }
+
+  .conditions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px 26px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .conditions li {
+    margin: 0;
+    border-top: 2px solid var(--accent);
+    padding-top: 11px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .conditions b {
+    font-family: var(--f-display);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .objective .coda {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    margin: 26px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
+  /* ---------- tables ---------- */
+
+  .table-wrap { overflow-x: auto; margin: 18px 0 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    line-height: 1.42;
+  }
+
+  th {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    padding: 0 14px 8px 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  th:last-child, td:last-child { padding-right: 0; }
+
+  .num {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    width: 22px;
+    padding-right: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .effort {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .where { font-size: 13px; color: var(--ink-soft); white-space: nowrap; }
+  .prop { font-family: var(--f-mono); font-size: 13px; word-break: break-all; }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .chip.own { background: var(--moss-soft); color: var(--moss); }
+  .chip.rent { background: var(--rust-soft); color: var(--rust); }
+
+  /* ---------- option cards ---------- */
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 20px 0 22px;
+  }
+
+  .opt {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 20px;
+  }
+
+  .opt-label {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .opt h3 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+
+  .opt p { font-size: 14.5px; line-height: 1.5; margin: 0 0 12px; max-width: none; }
+
+  .opt .needs {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 10px;
+    margin: 0;
+  }
+
+  .opt .needs b {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* ---------- lists ---------- */
+
+  ul, ol { padding-left: 20px; margin: 0 0 14px; }
+  li { margin-bottom: 8px; }
+  li:last-child { margin-bottom: 0; }
+
+  ol.asks { counter-reset: ask; list-style: none; padding-left: 0; }
+
+  ol.asks li { position: relative; padding-left: 34px; margin-bottom: 12px; }
+
+  ol.asks li::before {
+    counter-increment: ask;
+    content: counter(ask);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--surface);
+    background: var(--accent);
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .quote {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--rule);
+    padding-left: 16px;
+    margin: 16px 0 0;
+    max-width: 62ch;
+  }
+
+  .closing {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 3px solid var(--ink);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 620px) {
+    .sheet { padding: 26px 18px 68px; }
+    section { grid-template-columns: 1fr; gap: 0; }
+    .marker { padding-top: 0; margin-bottom: 8px; }
+    .where { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan and Larry</b> &nbsp;/&nbsp; 9 September 2026</span>
+    <h1>The submittal library is already a database</h1>
+    <p class="dek">Twenty submittal packages, read end to end. What they show about how a VPC job gets described, and a way to make the next package start from the closest one already built.</p>
+    <p class="scope">This is the quoting and submittal side. The website work order is a separate document and nothing here depends on it.</p>
+  </header>
+
+  <div class="objective">
+    <span class="opt-label">What we are after</span>
+    <p class="lead">A job that comes in should land next to the jobs like it, with the reusable parts already identified and the parts that have to change already flagged.</p>
+    <ul class="conditions">
+      <li><b>Reachable</b>Finding the closest past job should not depend on remembering which one it was.</li>
+      <li><b>Already started</b>The sixty to seventy percent that already exists somewhere should arrive assembled instead of copied across by hand.</li>
+      <li><b>Checked</b>The handful of values that have to change on every job should be the ones the tool asks about, rather than the ones it carries over quietly.</li>
+    </ul>
+    <p class="coda">None of this replaces the engineering. It removes the retrieval and the retyping in front of it.</p>
+  </div>
+
+  <section>
+    <div class="marker">01</div>
+    <div class="body">
+      <h2>What we read</h2>
+      <p>Twenty submittal packages, 161 pages: ten flumes and ten metering manholes, jobs 63910 through 69730, dated April to August 2026. Plus one shelter model, the 8 x 8 x 8 building, job 52964, exported from SolidWorks.</p>
+      <p>The packages open on a submittal approval sheet carrying the company, project, job number, PO number, drawing number and revision, then run into the drawings with the construction block, the elevations, the job notes and the revision history.</p>
+      <div class="pull">
+        <p>Read this as a first pass on a partial set. We have what VPC sent out. We do not yet have what the customer sent in, and the shelters are represented by a single model with no package attached.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">02</div>
+    <div class="body">
+      <h2>What we think we understand</h2>
+      <p>From the call, in Larry's numbers: five to ten submittals a week, three to five hours each, sixty to seventy percent of the content reused from prior work off the L and M drive. Roughly sixty percent shelters, thirty percent manholes, ten percent flumes, plus ductwork, fans, pool stairs and benches. About 950 of the last 1,000 use standard polyester resin.</p>
+      <p>The line we built everything else on: <b>the variation is in the configuration, not the material.</b> The twenty packages agree with it. Every one is fiberglass-reinforced plastic, isophthalic polyester resin, UV gel coat, half-inch laminate minimum. What separates one job from the next is which options are on it and at what size.</p>
+      <p>If any of that is wrong, it is worth saying so before we build against it.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">03</div>
+    <div class="body">
+      <h2>The filenames are already doing the work</h2>
+      <p>A file in the metering manhole folder is named:</p>
+      <div class="pull">
+        <p><b>69492 - Rev B - Submittal Pkg 60 in MM - dome - 2 in parshall - ultra bkt - eng staff - 8 in pipes</b></p>
+      </div>
+      <p>That is not a filename. It is a specification, and it holds in all twenty: job number, revision, body and size, lid type, flume type and size, bracket, staff gauge, options, pipe size. Somebody has been maintaining a structured record of every job for years, by hand, in the place nobody thinks to look.</p>
+      <p>Across the twenty, the vocabulary is small and it repeats:</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Body</th><td>48, 60 and 72 inch metering manhole; flumes standing alone</td></tr>
+          <tr><th>Lid</th><td>dome, H20, bilco</td></tr>
+          <tr><th>Flume</th><td>Parshall at 2, 6, 9, 18 and 24 inch; Palmer Bowlus at 6, 8, 10 and 15 inch; small, large and extended large trap; 1.5 H</td></tr>
+          <tr><th>Staff gauge</th><td>engineering, metric, engineering trap, SW engineering</td></tr>
+          <tr><th>Options</th><td>sampler, laser flow, wing, bulkhead, pressure cavity, SW approach</td></tr>
+          <tr><th>Pipe</th><td>4, 6, 8, 15, 16, 18 and 24 inch</td></tr>
+        </table>
+      </div>
+      <p>A small enough vocabulary that a job can be described completely in one line, and a stable enough one that two jobs can be compared without opening either.</p>
+      <p>One practical note. The words are consistent, the spelling drifts a little, and four of the seventeen bracket entries are spelled a different way from the other thirteen. That matters only because it means a plain text search across the drive quietly misses some of them. Software that normalizes as it reads does not have that problem, and nobody has to change how they name anything.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">04</div>
+    <div class="body">
+      <h2>The concept</h2>
+      <p>Three steps. Each one is useful by itself, and each gets built only if the one before it earns it.</p>
+
+      <div class="options">
+        <div class="opt">
+          <span class="opt-label">Step one</span>
+          <h3>Find the closest job</h3>
+          <p>An index of every past job keyed on that vocabulary. Describe the job coming in and get back the closest ones already built, ranked, with a line saying what is different about each.</p>
+          <p class="needs"><b>Where it stands</b>It runs against the twenty packages now, off the filenames alone. We changed nothing on the drive to make that work.</p>
+        </div>
+        <div class="opt">
+          <span class="opt-label">Step two</span>
+          <h3>Start from it</h3>
+          <p>From the closest past job, the starting package: the blocks that carry over unchanged, and every value that must be re-established for the new job pulled out and asked about rather than inherited quietly. Elevations, pipe sizes, project name, customer.</p>
+          <p class="needs"><b>What it needs</b>Agreement on which fields are always job-specific. That is Larry's list, not ours.</p>
+        </div>
+        <div class="opt">
+          <span class="opt-label">Step three</span>
+          <h3>Answer the quote faster</h3>
+          <p>The same index, asked a different question: what did we quote for a job like this, and what did it turn out to be. This is where turnaround time on quoting improves rather than on drafting.</p>
+          <p class="needs"><b>What it needs</b>The sales orders, which is the ask below.</p>
+        </div>
+      </div>
+
+      <p>Generating the CAD is not in here. It came up on the call as the far end of what is imaginable, and it is a different problem from this one.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">05</div>
+    <div class="body">
+      <h2>The one thing that would change what we can build</h2>
+      <p>We have twenty examples of what VPC sent out. We have none of what the customer sent in.</p>
+      <p>The three to five hours is the translation between those two, so an index of finished packages can answer <i>what did we build before</i> and cannot answer <i>what should I build for this</i>. The second question is the one Larry would actually be asking it.</p>
+      <div class="pull decision">
+        <p><b>The ask: the sales orders for these same twenty jobs.</b> Paired against packages we already hold, they show the translation twenty times over. That is worth more than twenty more packages, and more than a fresh set of anything else.</p>
+      </div>
+      <p>Shelters are the other gap. They are the largest share of the work and we have one model and no package, and a shelter is a different animal: the model carries fifty-nine components and the variation lives in the electrical and hardware package rather than in a flume size. Ten shelter jobs with their packages would tell us whether one approach covers both or whether they want separate treatment.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">06</div>
+    <div class="body">
+      <h2>Questions for Larry</h2>
+      <p>Reading twenty finished packages tells you what the work produced. It does not tell you what the work felt like, and that gap matters more here than usual.</p>
+      <ul>
+        <li>When a job comes in, what do you look at first to find the closest past one, and what makes that hard on the days it is hard?</li>
+        <li>Of the three to five hours, which stretch would you most want back?</li>
+        <li>What makes a package take five hours instead of three?</li>
+        <li>Which fields do you always re-establish from scratch, and which do you trust to carry over?</li>
+        <li>How far back does the naming convention hold, and is it yours or does it predate you?</li>
+        <li>What never gets reused, and why not?</li>
+      </ul>
+      <p>Answers to those change the build. We would rather ask than assume, and where we have assumed above, it is marked.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">07</div>
+    <div class="body">
+      <h2>What we would do next</h2>
+      <p>Index the twenty, then let Larry test it against real inbound work: five jobs, does the tool put the right past job at the top, and is the difference list the one he would have written. That answers whether the premise holds before anything gets built on top of it.</p>
+      <p>If it does not hold, that is a cheap answer and a useful one. If it does, step two is a matter of doing it.</p>
+      <p class="quote">What we need from VPC to get that far is the sales orders for the twenty, and an hour of Larry's time on the five test jobs.</p>
+    </div>
+  </section>
+
+  <div class="closing">
+    Every figure above comes from the twenty packages and the one model as delivered on 9 September 2026, or from the call notes, which are marked where used. Nothing in VPC's files was renamed or moved.
+  </div>
+
+</div>
+</body>
+</html>
