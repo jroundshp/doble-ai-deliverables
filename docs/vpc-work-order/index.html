@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>VPC Website Work Order</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #eff1ee;
+    --surface: #ffffff;
+    --ink: #16191b;
+    --ink-soft: #575f61;
+    --ink-faint: #7d8688;
+    --rule: #d2d7d3;
+    --rule-soft: #e2e6e2;
+    --accent: #0e5c67;
+    --accent-soft: #e2edee;
+    --rust: #a34c1c;
+    --rust-soft: #f6e8e0;
+    --moss: #3c6636;
+    --moss-soft: #e5eee2;
+
+    --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #131718;
+      --surface: #1b2022;
+      --ink: #e7ebe8;
+      --ink-soft: #a3adad;
+      --ink-faint: #7d8688;
+      --rule: #313839;
+      --rule-soft: #262c2e;
+      --accent: #5cb4c0;
+      --accent-soft: #1a2f33;
+      --rust: #e08c58;
+      --rust-soft: #2e2119;
+      --moss: #86b57c;
+      --moss-soft: #1c2a1c;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #131718;
+    --surface: #1b2022;
+    --ink: #e7ebe8;
+    --ink-soft: #a3adad;
+    --ink-faint: #7d8688;
+    --rule: #313839;
+    --rule-soft: #262c2e;
+    --accent: #5cb4c0;
+    --accent-soft: #1a2f33;
+    --rust: #e08c58;
+    --rust-soft: #2e2119;
+    --moss: #86b57c;
+    --moss-soft: #1c2a1c;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 38px 24px 88px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    border-top: 3px solid var(--ink);
+    padding-top: 18px;
+    margin-bottom: 40px;
+  }
+
+  .stamp {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+  .stamp b { color: var(--ink-soft); font-weight: 500; }
+
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(34px, 6vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+
+  .dek {
+    font-size: 17.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  /* ---------- sections ---------- */
+
+  section {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 0 20px;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .marker {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    padding-top: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  .body { min-width: 0; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p:last-child { margin-bottom: 0; }
+
+  .body > ul, .body > ol { max-width: 66ch; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--f-mono);
+    font-size: 0.88em;
+    background: var(--rule-soft);
+    padding: 1px 5px;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+
+  /* ---------- pull ---------- */
+
+  .pull {
+    border-left: 3px solid var(--accent);
+    padding: 3px 0 3px 18px;
+    margin: 20px 0;
+    max-width: 62ch;
+  }
+
+  .pull p {
+    font-size: 17px;
+    line-height: 1.48;
+    margin: 0;
+  }
+
+  .pull.decision { border-left-color: var(--rust); }
+
+  /* ---------- tables ---------- */
+
+  .table-wrap { overflow-x: auto; margin: 18px 0 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    line-height: 1.42;
+  }
+
+  th {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    padding: 0 14px 8px 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  th:last-child, td:last-child { padding-right: 0; }
+
+  .num {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    width: 22px;
+    padding-right: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .effort {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .where { font-size: 13px; color: var(--ink-soft); white-space: nowrap; }
+  .prop { font-family: var(--f-mono); font-size: 13px; word-break: break-all; }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .chip.own { background: var(--moss-soft); color: var(--moss); }
+  .chip.rent { background: var(--rust-soft); color: var(--rust); }
+
+  /* ---------- option cards ---------- */
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 20px 0 22px;
+  }
+
+  .opt {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 20px;
+  }
+
+  .opt-label {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .opt h3 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+
+  .opt p { font-size: 14.5px; line-height: 1.5; margin: 0 0 12px; max-width: none; }
+
+  .opt .needs {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 10px;
+    margin: 0;
+  }
+
+  .opt .needs b {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* ---------- lists ---------- */
+
+  ul, ol { padding-left: 20px; margin: 0 0 14px; }
+  li { margin-bottom: 8px; }
+  li:last-child { margin-bottom: 0; }
+
+  ol.asks { counter-reset: ask; list-style: none; padding-left: 0; }
+
+  ol.asks li { position: relative; padding-left: 34px; margin-bottom: 12px; }
+
+  ol.asks li::before {
+    counter-increment: ask;
+    content: counter(ask);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--surface);
+    background: var(--accent);
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .quote {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--rule);
+    padding-left: 16px;
+    margin: 16px 0 0;
+    max-width: 62ch;
+  }
+
+  .closing {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 3px solid var(--ink);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 620px) {
+    .sheet { padding: 26px 18px 68px; }
+    section { grid-template-columns: 1fr; gap: 0; }
+    .marker { padding-top: 0; margin-bottom: 8px; }
+    .where { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan and Amanda</b> &nbsp;/&nbsp; 9 September 2026</span>
+    <h1>VPC Website Work Order</h1>
+    <p class="dek">What needs doing on the three WordPress sites, what has to be true before anyone touches anything, and two ways to run it.</p>
+  </header>
+
+  <section>
+    <div class="marker">01</div>
+    <div class="body">
+      <h2>Three of the six are already done</h2>
+      <p>Between 25 and 28 August, three of the six items from the August list shipped. The structured data now reads correctly as LocalBusiness with the Medina address and phone attached, the test-location page is gone, and only one Enduro page serves content. Nobody announced it. I found it by re-crawling the site.</p>
+      <p>The constraint here has never been whether the work is understood, or whether there are hands capable of doing it. It is where those hours go across nine companies, and that is Corey's call rather than Amanda's.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">02</div>
+    <div class="body">
+      <h2>What VPC owns and what VPC rents</h2>
+      <p>The footer of every page says it in public: "Site created by Thomas Marketing Services and Powered by Navigator Platform." Two very different arrangements sit behind that one line.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Property</th><th>Runs on</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="prop">www.vpcfiberglass.com</td><td>WordPress, custom theme, WP Rocket</td><td><span class="chip own">VPC owns it</span></td></tr>
+            <tr><td class="prop">products.vpcfiberglass.com</td><td>Thomas Navigator platform</td><td><span class="chip rent">Rented</span></td></tr>
+            <tr><td class="prop">easyrecreation.com</td><td>WordPress</td><td><span class="chip own">VPC owns it</span></td></tr>
+            <tr><td class="prop">interactivewaterparks.com</td><td>WordPress</td><td><span class="chip own">VPC owns it</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pull">
+        <p>Ten of the items we have found need a WordPress login and nothing else. No Thomas package, no contract conversation, no budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">03</div>
+    <div class="body">
+      <h2>Three answers we need</h2>
+      <ol class="asks">
+        <li>Can anyone at VPC edit templates on <code>products.vpcfiberglass.com</code>, or is that entirely Thomas's side? This decides whether the largest item in the estate is an afternoon of work or a project with a budget attached.</li>
+        <li>Does the same person manage <code>easyrecreation.com</code> and <code>interactivewaterparks.com</code>, or is that someone else?</li>
+        <li>What is the plan for vpcfiberglass.com itself, and on what timeline? See the next section, because this is the one that changes what we should be building.</li>
+      </ol>
+      <p>One smaller question alongside those. There is a Thomas admin account on VPC's own WordPress, at <code>/author/tmswebsiteadminthomasnet-com/</code>. Does site access run through them, or does VPC issue its own logins?</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">04</div>
+    <div class="body">
+      <h2>Is a rebuild coming?</h2>
+      <p>I have heard the site described as six or seven years old and probably near the end of its life. If that is right it changes what we should be doing, and it is much better to know in September than in November.</p>
+      <p>A rebuild is the one moment where findability is either designed in or thrown away, and thrown away is the default. URLs change, redirects get missed, and years of accumulated search history goes with them. It happened inside this portfolio last month. The Ellicottville Bake Shop rebuild shipped six good content fixes in two days while a fully indexable staging site, allow-all robots file and its own sitemap, sat untouched the whole time. Nobody was careless. The builder was thinking about content, because content is what builders think about.</p>
+
+      <div class="pull decision">
+        <p>If a replacement is coming in the next few months, the list below stops being markup and becomes the requirements handed to whoever builds it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">05</div>
+    <div class="body">
+      <h2>Before anything changes</h2>
+      <ul>
+        <li>A full backup, files and database, stored somewhere other than the server itself. A host-only snapshot dies with the host account.</li>
+        <li>Confirmation it can be restored or at least downloaded, and the name of the tool taking it, so we know the rollback path before we need it rather than during.</li>
+        <li>Retention held for the length of the work, rather than a rolling seven days that ages out halfway through.</li>
+        <li>A child theme, if there is not one already. The og:image, the Twitter card and the schema all live in template files, and a direct theme edit gets wiped by the next theme update. Clear WP Rocket after each change.</li>
+        <li>If a staging site gets spun up for any of this, it needs noindex and a password. See above for why I am fussy about that one.</li>
+      </ul>
+      <p>On our side, before we touch anything we take a full render and crawl baseline of all three WordPress sites, every page, hashed. That is the honest answer to what happens if something breaks.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">06</div>
+    <div class="body">
+      <h2>The day-one list</h2>
+      <p>Every item here needs credentials and a template. None of them needs a decision from anybody.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th></th><th>Item</th><th>Where</th><th>Effort</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">1</td><td>An og:image and a Twitter card, so a shared link stops rendering as a bare text box</td><td class="where">Main site</td><td class="effort">20 min</td></tr>
+            <tr><td class="num">2</td><td>Turn author archives off, so the admin URL stops resolving and drops out of the sitemap</td><td class="where">Main site</td><td class="effort">15 min</td></tr>
+            <tr><td class="num">3</td><td>A meta description on <code>/locations/</code></td><td class="where">Main site</td><td class="effort">10 min</td></tr>
+            <tr><td class="num">4</td><td>Repoint the three Enduro redirects that land on a custom building, a Parshall flume and a manhole cover</td><td class="where">Main site</td><td class="effort">20 min</td></tr>
+            <tr><td class="num">5</td><td>The same author fix for <code>/author/admin/</code> and <code>/author/aacker/</code></td><td class="where">EasyRec</td><td class="effort">15 min</td></tr>
+            <tr><td class="num">6</td><td>Organization and LocalBusiness markup with address, phone and a parent link back to Virtual Polymer Compounds</td><td class="where">EasyRec and<br>InterActive Play</td><td class="effort">1 hr</td></tr>
+            <tr><td class="num">7</td><td>Retitle the page that currently reads "Homepage - Interactive Play"</td><td class="where">InterActive Play</td><td class="effort">5 min</td></tr>
+            <tr><td class="num">8</td><td>Heading structure. Four H1s on the EasyRec homepage, nine H1s and no H2 on <code>/ada-easy-stair/</code></td><td class="where">EasyRec</td><td class="effort">45 min</td></tr>
+            <tr><td class="num">9</td><td>Product markup across 24 product pages and 6 categories. One template rather than 24 edits, and the drop-in WordPress pack is already built and demonstrated on the TriWave 100</td><td class="where">InterActive Play</td><td class="effort">3 to 4 hrs</td></tr>
+            <tr><td class="num">10</td><td>FAQ markup, built only from what the resource pages and the 15 case studies already say today</td><td class="where">Main site</td><td class="effort">2 to 3 hrs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Items 1 through 4 close out the August list. Item 9 carries the real weight: first product markup VPC owns anywhere, on a domain VPC definitely controls, and it becomes the template for the traditional FRP lines later.</p>
+
+      <p>One flag on item 9. A few of the play product pages disagree with themselves. On the TriWave 100, the meta description says 40 interactive features while the spec table says 20, and the body copy says four slides while the table says 2. Whoever knows the product settles those before we mark anything up, because the number that ends up in the markup becomes the one machines treat as authoritative.</p>
+
+      <div class="pull">
+        <p>Everything on that list that does not require a decision from VPC is about a day of work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">07</div>
+    <div class="body">
+      <h2>What waits on an answer from VPC</h2>
+      <ul>
+        <li>Any FAQ answer with a number in it. NEMA ratings, lead time on a custom shelter. We do not publish a spec nobody gave us.</li>
+        <li>Product page copy about how VPC actually sells. Who each line is for in your words, and whether a buyer is configuring from standard sizes or commissioning to a drawing.</li>
+        <li>Two doors in the navigation. Plant and municipal FRP on one side, EasyRec and InterActive Play on the other. This moves live menus and URLs, which is precisely where indexing gets dropped, so it needs agreement before it needs work.</li>
+        <li>The blog, where the last post went up on 5 July 2022. Approval, not writing.</li>
+      </ul>
+      <p>Three more are not website credentials at all and are not for today: Lockport's Google profile publishes an 888 number that appears nowhere on the site, Amherst returns no profile in Maps, and Medina is sitting on three or four reviews after a decade of municipal customers.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">08</div>
+    <div class="body">
+      <h2>On Thomas, and what I am not saying</h2>
+      <p>Three things cut against the obvious reading, and they belong on the table before anyone forms a view.</p>
+      <p><strong>VPC sits around eighth on page one of the FRP Shelters category on ThomasNet, out of 609 suppliers, without paying for placement.</strong> The listing is a working asset and nothing here argues against it.</p>
+      <p><strong>The catalog is not blank.</strong> Its product pages carry structured data as microdata, between 3 and 20 attributes per product. What is wrong is the quality: the product name picks up breadcrumb text, and pricing markup appeared on one of the five items I sampled. Cleanup, not construction.</p>
+      <p><strong>The ThomasNet listing carries better product copy than vpcfiberglass.com does.</strong> Verbatim from the profile: enclosures available in 29 x 29 to 72 x 72 in. sizes, suitable for samplers, switchgear transformers, radio repeaters, chlorination and emergency spill equipment, well heads, flow measurement tools and instrumentation. Dimensioned, twelve named applications, and nothing like it sits on the site VPC owns.</p>
+
+      <div class="pull">
+        <p>So this stops being a writing project. It is bringing that copy home.</p>
+      </div>
+
+      <p>One structural question rather than a conclusion I have already reached. One company builds the site, hosts the catalog and sells the placement. Worth asking what happens to the catalog and the content inside it if that arrangement ever changes, and getting the answer in writing while the relationship is a good one.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">09</div>
+    <div class="body">
+      <h2>Two ways to run it</h2>
+      <p>Not a rebuild. Not a change of vendor. Thomas built the best site in this portfolio and our own audit says so in writing. The only real question is who does the work.</p>
+
+      <div class="options">
+        <div class="opt">
+          <span class="opt-label">Option A</span>
+          <h3>We hand Amanda the work order</h3>
+          <p>Every item written as a task with the exact markup, the file it goes in, and what to check afterward. Nobody outside VPC touches the site.</p>
+          <p class="needs"><b>What it needs</b>Roughly a day of Amanda's time across the three sites.</p>
+        </div>
+        <div class="opt">
+          <span class="opt-label">Option B</span>
+          <h3>Amanda hands us a login</h3>
+          <p>A named admin account on the three WordPress sites, revocable in one click. We do the work, validate every block against what the page actually says, screenshot before and after, and re-crawl to prove it landed rather than tell you it did.</p>
+          <p class="needs"><b>What it needs</b>The backup above, an account, and about an hour of review at the end.</p>
+        </div>
+      </div>
+
+      <p>There is a middle version if that suits better. We stage everything, Amanda reviews it, Amanda presses the button.</p>
+      <p class="quote">Whichever way it goes, the thing I actually need from Corey is whether VPC is where those hours go over the next few weeks. If it is not, that is a good answer too, and I would rather have it than a maybe.</p>
+    </div>
+  </section>
+
+  <div class="closing">
+    Every finding above traces to a published document. Nothing here is new analysis.
+  </div>
+
+</div>
+</body>
+</html>
