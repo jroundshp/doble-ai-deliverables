@@ -187,6 +187,48 @@
 
   .pull.decision { border-left-color: var(--rust); }
 
+  /* ---------- objective ---------- */
+
+  .objective {
+    background: var(--accent-soft);
+    padding: 26px 28px;
+    margin-bottom: 8px;
+  }
+
+  .objective .opt-label { margin-bottom: 10px; }
+
+  .objective p { max-width: 62ch; }
+
+  .conditions {
+    display: grid;
+    gap: 14px;
+    margin: 18px 0;
+    padding: 0;
+    list-style: none;
+    max-width: 62ch;
+  }
+
+  .conditions li { margin: 0; }
+
+  .conditions b {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .objective .coda {
+    border-top: 1px solid var(--rule);
+    padding-top: 14px;
+    margin: 18px 0 0;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+
   /* ---------- tables ---------- */
 
   .table-wrap { overflow-x: auto; margin: 18px 0 6px; }
@@ -376,6 +418,18 @@
     <h1>VPC Website Work Order</h1>
     <p class="dek">What needs doing on the three WordPress sites, what has to be true before anyone touches anything, and two ways to run it.</p>
   </header>
+
+  <div class="objective">
+    <span class="opt-label">The objective</span>
+    <p>When somebody who could actually buy from VPC goes looking, whether that is a plant engineer typing into Google or a buyer asking an AI assistant, VPC's own pages should be what comes back, and what they say should be complete and correct.</p>
+    <p>Three things have to be true for that, and everything below is organised around them.</p>
+    <ul class="conditions">
+      <li><b>Findable</b>The pages exist, they get crawled, and nothing points somewhere it should not.</li>
+      <li><b>Readable</b>A machine can tell what VPC makes, who makes it, and who it is for. Today the spec sheets are good and the markup is not, so the information sits right there on the page and stays invisible to the thing reading it.</li>
+      <li><b>Accurate</b>Where the site contradicts itself, or where the best description of a VPC product sits on somebody else's platform, the record VPC owns should be the right one.</li>
+    </ul>
+    <p class="coda">Worth saying plainly, because it is the usual objection and it is half right: this is a qualification play, not a traffic play. Generic visitors are worth nothing to VPC. The aim is that the small number of people looking for an FRP equipment enclosure or an ADA pool stair land on VPC rather than somewhere else.</p>
+  </div>
 
   <section>
     <div class="marker">01</div>
