@@ -198,42 +198,85 @@
 
   .objective {
     background: var(--accent-soft);
-    padding: 26px 28px;
+    padding: 30px 30px 26px;
     margin-bottom: 8px;
   }
 
-  .objective .opt-label { margin-bottom: 10px; }
+  .objective .opt-label { margin-bottom: 12px; }
 
-  .objective p { max-width: 62ch; }
-
-  .conditions {
-    display: grid;
-    gap: 14px;
-    margin: 18px 0;
-    padding: 0;
-    list-style: none;
-    max-width: 62ch;
+  .objective .lead {
+    font-size: 21px;
+    line-height: 1.42;
+    letter-spacing: -0.008em;
+    max-width: 40ch;
+    margin: 0;
   }
 
-  .conditions li { margin: 0; }
+  .surfaces {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin: 22px 0 26px;
+  }
 
-  .conditions b {
+  .surfaces .surfaces-label {
     font-family: var(--f-mono);
-    font-size: 10.5px;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.09em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--ink-faint);
+    margin-right: 4px;
+  }
+
+  .surface {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 4px 9px;
+    white-space: nowrap;
+  }
+
+  .conditions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px 26px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .conditions li {
+    margin: 0;
+    border-top: 2px solid var(--accent);
+    padding-top: 11px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .conditions b {
+    font-family: var(--f-display);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: var(--ink);
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
   }
 
   .objective .coda {
     border-top: 1px solid var(--rule);
-    padding-top: 14px;
-    margin: 18px 0 0;
-    font-size: 15px;
+    padding-top: 16px;
+    margin: 26px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
     color: var(--ink-soft);
+    max-width: 62ch;
   }
 
   /* ---------- tables ---------- */
@@ -429,14 +472,22 @@
 
   <div class="objective">
     <span class="opt-label">The objective</span>
-    <p>When somebody who could actually buy from VPC goes looking, whether that is a plant engineer typing into Google or a buyer asking an AI assistant, VPC's own pages should be what comes back, and what they say should be complete and correct.</p>
-    <p>Three things have to be true for that, and everything below is organised around them.</p>
+    <p class="lead">When a buyer goes looking, VPC's own pages should be what comes back, and what they say should be right.</p>
+    <div class="surfaces">
+      <span class="surfaces-label">Where they look</span>
+      <span class="surface">Google</span>
+      <span class="surface">ChatGPT</span>
+      <span class="surface">Perplexity</span>
+      <span class="surface">Gemini</span>
+      <span class="surface">Claude</span>
+      <span class="surface">Copilot</span>
+    </div>
     <ul class="conditions">
-      <li><b>Findable</b>The pages exist, they get crawled, and nothing points somewhere it should not.</li>
-      <li><b>Readable</b>A machine can tell what VPC makes, who makes it, and who it is for. Today the spec sheets are good and the markup is not, so the information sits right there on the page and stays invisible to the thing reading it.</li>
-      <li><b>Accurate</b>Where the site contradicts itself, or where the best description of a VPC product sits on somebody else's platform, the record VPC owns should be the right one.</li>
+      <li><b>Findable</b>The pages exist, they get crawled, and nothing points where it should not.</li>
+      <li><b>Readable</b>A machine can tell what VPC makes and who it is for. The spec sheets are good. The markup is not, so the information sits on the page and stays invisible to whatever is reading it.</li>
+      <li><b>Accurate</b>Where the site contradicts itself, or the best description of a VPC product sits on somebody else's platform, the record VPC owns should be the right one.</li>
     </ul>
-    <p class="coda">Worth saying plainly, because it is the usual objection and it is half right: this is a qualification play, not a traffic play. Generic visitors are worth nothing to VPC. The aim is that the small number of people looking for an FRP equipment enclosure or an ADA pool stair land on VPC rather than somewhere else.</p>
+    <p class="coda">This is a qualification play, not a traffic play. Generic visitors are worth nothing to VPC. The aim is that the few people searching for an FRP equipment enclosure or an ADA pool stair land on VPC.</p>
   </div>
 
   <section>
