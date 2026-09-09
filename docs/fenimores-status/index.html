@@ -194,7 +194,7 @@
   <p class="num">01</p>
   <h2>The short version</h2>
   <p>Three menus are live where there was one. A breakfast service now opens at 6:30AM, which is a genuinely new daypart and the most interesting thing on this page. The site publishes all of it as readable text, which is worth more than it sounds.</p>
-  <p>What has not moved is the layer underneath. There is still no structured data on any page, no meta descriptions and no Open Graph tags, and the sitemap declared in <code>robots.txt</code> does not resolve. The gap between what the restaurant is doing and what a machine can see about it is wider now than it was in July, because there is more to see and the same amount of it is readable.</p>
+  <p>The layer underneath has now been rebuilt. On 9 September the site went from carrying no structured data at all to publishing <code>Restaurant</code> schema with the correct hours and address, per-page titles and descriptions, Open Graph tags and a sitemap that resolves. What a machine can see about this restaurant has changed more in one afternoon than in the two months before it.</p>
 </section>
 
 <section>
@@ -263,35 +263,43 @@
   <div class="statelist">
     <div class="ok">
       <span class="lab">Working</span>
-      <p><b>The menu is real HTML text, with every price next to its dish.</b> This is the single most valuable thing on the site. It is why this comparison was possible at all, and it is what most restaurant sites lose by posting the menu as a PDF or an image. Whatever the new card looks like on paper, the web version needs to stay text.</p>
+      <p><b>The menu is real HTML text, with every price next to its dish.</b> This was always the site's one genuine asset and it is untouched. It is why the comparison work was possible at all, and it is what most restaurant sites lose by posting the menu as a PDF or an image.</p>
     </div>
     <div class="ok">
-      <span class="lab">Working</span>
-      <p>The Google profile is claimed, current on hours, and linked to the website.</p>
+      <span class="lab">Built 9 September</span>
+      <p><b><code>Restaurant</code> schema, live on every page.</b> It carries the real trading hours as <code>Mo,Th,Fr,Sa,Su 06:30-21:00</code> and <code>Tu,We 06:30-16:00</code>, the full postal address, a price band and the logo. Before this the site said nothing machine-readable about itself and Google's profile was the only correct source. The site now states its own hours, and they agree with the profile and with the page text.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Built 9 September</span>
+      <p><b>Titles and descriptions, written per page.</b> All five run 48 to 56 characters on the title and 136 to 159 on the description, and every one names Cooperstown. The homepage title was previously the business name plus an entire tagline sentence, which Google cut off mid-phrase.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Built 9 September</span>
+      <p><b>Open Graph and Twitter cards on all five pages.</b> Shared in a message or on Facebook, a link now renders with a title, a description and an image instead of a bare URL.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Built 9 September</span>
+      <p><b>The sitemap resolves.</b> <code>robots.txt</code> had been declaring <code>wp-sitemap.xml</code>, which returned 404. It now points at <code>sitemap_index.xml</code>, which lists the five real pages and nothing hollow.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Built 9 September</span>
+      <p><b>One <code>h1</code> on the menu page.</b> It had been carrying three, one each for Menu, Lunch Menu and Dinner Menu. Lunch and Dinner are now <code>h2</code>, level with the other section headings.</p>
+    </div>
+    <div class="fix">
+      <span class="lab">Open, blocked</span>
+      <p><b><code>Menu</code> and <code>MenuItem</code> markup for individual dishes.</b> This is the remaining large item and it is deliberately not done. Marking up dish names and prices that disagree with the printed card and with Toast would be worse than leaving it, so it waits on the four naming and price questions being settled.</p>
     </div>
     <div class="fix">
       <span class="lab">Open</span>
-      <p><b>No structured data on any page.</b> Zero JSON-LD on the homepage, the menu page, the breakfast page and the drinks page. No <code>Restaurant</code>, no <code>Menu</code>, no <code>MenuItem</code>, and no address, hours or phone in markup, even though all three sit in the page text.</p>
+      <p><b>The mobile viewport blocks pinch-to-zoom.</b> Every page carries <code>user-scalable=0</code>. This is an accessibility failure rather than a search one, and it affects anyone who needs to enlarge the menu text.</p>
     </div>
     <div class="fix">
       <span class="lab">Open</span>
-      <p><b>The declared sitemap does not resolve.</b> <code>robots.txt</code> points at <code>wp-sitemap.xml</code>, which returns 404, as do <code>/sitemap.xml</code> and <code>/sitemap_index.xml</code>.</p>
-    </div>
-    <div class="fix">
-      <span class="lab">Open</span>
-      <p><b>No meta description and no Open Graph tags</b> on any of the four pages checked. Shared in a text message or on Facebook, the link renders without a title card. The homepage title is the business name plus the full tagline sentence, which Google cuts off well before the end.</p>
-    </div>
-    <div class="fix">
-      <span class="lab">Open</span>
-      <p><b>The menu page now carries three <code>h1</code> headings</b>: Menu, Lunch Menu and Dinner Menu. One page gets one. This is a Divi setting rather than a rebuild, and it is worth doing in the same pass as the schema.</p>
-    </div>
-    <div class="open">
-      <span class="lab">Improved</span>
-      <p>The dinner section is now a real heading. <code>Entrees</code> reads as an <code>h3</code>, level with Starters and Sandwiches. The &ldquo;after 5pm&rdquo; qualifier beside it is still plain text, so nothing machine-readable ties the section to the time it applies.</p>
+      <p><b>Seven of the eight homepage images carry no alt text.</b> The interior pages are clean. Alt text should describe what each photograph actually shows, which needs someone who knows the dishes rather than a guess from a filename.</p>
     </div>
     <div class="open">
       <span class="lab">Unanswered</span>
-      <p><code>/brunch/</code> still returns 404, and the word brunch does not appear anywhere on the site. What was built is breakfast. Those are two different searches, and the site currently answers one of them. Worth a decision either way rather than leaving the old URL dead.</p>
+      <p><code>/brunch/</code> still returns 404, and the word brunch does not appear anywhere on the site. What was built is breakfast. Those are two different searches. Now that a redirect tool is installed, pointing the old URL at <code>/breakfast/</code> is a two-minute job whenever the decision is made.</p>
     </div>
   </div>
 </section>
@@ -317,15 +325,17 @@
 
   <ol class="steps">
     <li><span class="rt">Settle the names and the prices</span>
-      <p>One name each for the blue cheese chips and the hot honey pepperoni, one price for the wings and one for the banana bread, across the printed card, the website and Toast. Everything below this line depends on it, because markup that disagrees with the page is worse than no markup.</p></li>
-    <li><span class="rt">Fix the headings</span>
-      <p>One <code>h1</code> on the menu page, and a real heading for the after-5 section so a machine can see where dinner starts. A Divi setting, not a build.</p></li>
-    <li><span class="rt">Mark up the restaurant, then the menu</span>
-      <p><code>Restaurant</code> on the homepage carrying the address, phone, current hours and the reservation link, then <code>Menu</code> with a section per group and an item per dish, each with its name, description and price. This is the step that turns &ldquo;where can I get schnitzel near Cooperstown&rdquo; into a question the site can answer.</p></li>
-    <li><span class="rt">The three small ones</span>
-      <p>Make the sitemap in <code>robots.txt</code> resolve, write meta descriptions for a person rather than a keyword, add Open Graph tags so shared links render properly. Worth doing while somebody is already in the site.</p></li>
+      <p>One name each for the blue cheese chips and the hot honey pepperoni, one price for the wings and one for the banana bread, agreed across the printed card, the website and Toast. This is the kitchen's call and it is now the gating item for everything below.</p></li>
+    <li><span class="rt">Then mark up the menu</span>
+      <p><code>Menu</code> with a section per group and a <code>MenuItem</code> per dish, each carrying its name, description and price. This is the step that turns &ldquo;where can I get schnitzel near Cooperstown&rdquo; into a question the site can answer. It cannot be done honestly until the step above is finished.</p></li>
+    <li><span class="rt">Unlock pinch-to-zoom</span>
+      <p>Remove <code>user-scalable=0</code> from the viewport tag. Small change, and it is the difference between a guest being able to enlarge the menu on a phone and not.</p></li>
+    <li><span class="rt">Write alt text for the homepage photographs</span>
+      <p>Seven images, describing what is actually in each one. Worth doing with someone who knows the dishes rather than inferring from filenames.</p></li>
+    <li><span class="rt">Decide what happens to /brunch/</span>
+      <p>Redirect it to <code>/breakfast/</code>, or publish something at that URL. Either answers a search the site currently ignores; leaving it as a 404 answers nothing.</p></li>
     <li><span class="rt">Then an llms.txt, and not before</span>
-      <p>There is none today. It is only worth publishing once the menu page underneath it is stable and the markup matches, otherwise it states the confusion more confidently. Twenty minutes, after the five above.</p></li>
+      <p>Worth publishing once the menu markup is in and stable. Before that it would only state the confusion more confidently.</p></li>
   </ol>
 </section>
 
