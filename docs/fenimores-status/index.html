@@ -194,7 +194,7 @@
   <p class="num">01</p>
   <h2>The short version</h2>
   <p>Three menus are live where there was one. A breakfast service now opens at 6:30AM, which is a genuinely new daypart and the most interesting thing on this page. The site publishes all of it as readable text, which is worth more than it sounds.</p>
-  <p>What has not moved is the layer underneath. There is still no structured data on any page, the sitemap declared in <code>robots.txt</code> does not resolve, and the menu page is currently showing an hours schedule that ran out yesterday while three other pages show the correct one. The gap between what the restaurant is doing and what a machine can see about it is wider now than it was in July, because there is more to see and the same amount of it is readable.</p>
+  <p>What has not moved is the layer underneath. There is still no structured data on any page, no meta descriptions and no Open Graph tags, and the sitemap declared in <code>robots.txt</code> does not resolve. The gap between what the restaurant is doing and what a machine can see about it is wider now than it was in July, because there is more to see and the same amount of it is readable.</p>
 </section>
 
 <section>
@@ -212,11 +212,9 @@
     </table>
   </div>
 
-  <p>The two menu PDFs dated 9-8 match what is published, with four things left to close between the printed card and the page:</p>
+  <p>The two menu PDFs dated 9-8 match what is published. Two things are left to close between the printed card and the page:</p>
 
   <ul class="plain">
-    <li><b>The Green Mountain</b> is published carrying the description that belongs to the Farmhouse Wrap. The printed card has it as an avocado and egg sandwich marked vegetarian; the page describes it with bacon.</li>
-    <li><b>The Farmhouse Wrap</b> is on the printed card and does not yet appear on the page.</li>
     <li>Both printed cards carry a <b>vegetarian legend</b>. The website publishes no vegetarian markers, so a guest reading online cannot tell which items carry it.</li>
     <li>The printed lunch card says <b>&ldquo;Lunch menu starts at 11am.&rdquo;</b> That line is not on the page, and it is the only thing that separates the lunch and dinner cards for someone reading them stacked together.</li>
   </ul>
@@ -237,28 +235,25 @@
   <p class="num">03</p>
   <h2>Hours, and what Google is telling people</h2>
 
-  <p>Google has this right. The profile is claimed, rated <b>4.1&#9733;</b>, categorised as a Restaurant, and links to the website. It publishes <b>Wednesday 6:30 AM to 4 PM</b>, which is correct for today.</p>
-
-  <p>The website mostly agrees with it. Three of the four pages checked carry the current standing hours of Tuesday to Wednesday 6:30AM to 4PM and Thursday to Monday 6:30AM to 9PM. One does not.</p>
+  <p>The hours agree everywhere, which is worth stating because it is the one thing on this site that is fully consistent. Google publishes <b>Wednesday 6:30 AM to 4 PM</b> from a claimed profile rated <b>4.1&#9733;</b>, categorised as a Restaurant and linked to the website. The homepage, <code>/menu/</code>, <code>/breakfast/</code> and <code>/drinks/</code> all carry the same standing hours: Tuesday to Wednesday 6:30AM to 4PM, Thursday to Monday 6:30AM to 9PM.</p>
 
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Where</th><th>What it says today</th><th></th></tr></thead>
+      <thead><tr><th>Where</th><th>What it says</th><th></th></tr></thead>
       <tbody>
         <tr><td>Google Business Profile</td><td>Wednesday 6:30 AM to 4 PM</td><td><span class="tag t-ok">Current</span></td></tr>
-        <tr><td>Homepage</td><td>6:30AM to 4PM and 6:30AM to 9PM</td><td><span class="tag t-ok">Current</span></td></tr>
+        <tr><td>Homepage</td><td>Tues&ndash;Wed 6:30AM to 4PM, Thurs&ndash;Mon 6:30AM to 9PM</td><td><span class="tag t-ok">Current</span></td></tr>
+        <tr><td><code>/menu/</code></td><td>Tues&ndash;Wed 6:30AM to 4PM, Thurs&ndash;Mon 6:30AM to 9PM</td><td><span class="tag t-ok">Current</span></td></tr>
         <tr><td><code>/breakfast/</code></td><td>Tues&ndash;Wed 6:30AM to 4PM, Thurs&ndash;Mon 6:30AM to 9PM</td><td><span class="tag t-ok">Current</span></td></tr>
         <tr><td><code>/drinks/</code></td><td>Tues&ndash;Wed 6:30AM to 4PM, Thurs&ndash;Mon 6:30AM to 9PM</td><td><span class="tag t-ok">Current</span></td></tr>
-        <tr><td><code>/menu/</code></td><td>A dated changeover calendar ending &ldquo;September 8th: 6:30 AM &ndash; 4PM, new hours start&rdquo;</td><td><span class="tag t-fix">Needs an edit</span></td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="warn">
-    <p><b>The menu page is the one to change first.</b> Its footer is still running the changeover calendar from the start of the month. The last line is dated yesterday, and the page never states what the new hours actually are. Someone checking the menu before driving out is the exact person most likely to land there.</p>
+    <p><b>None of it is in markup.</b> The hours sit in the page text and on the Google profile, and nowhere in structured data. An assistant asked when Fenimore's is open has nothing on the site it can read with confidence, so it takes the profile's answer or works from prose. That is fine while the two agree. It is the profile carrying the site rather than the site carrying itself, and it breaks the next time the hours move and only one of them is updated.</p>
   </div>
 
-  <p>The reason Google is right is that somebody set it correctly on the profile, not because the website told it so. There are no hours in markup anywhere on the site, so an assistant asked when Fenimore's is open has nothing structured to read and falls back on Google or on whatever text it finds. That works today. It stops working the next time the hours change and the profile is the only place that gets updated.</p>
 </section>
 
 <section>
@@ -321,8 +316,6 @@
   <h2>What to do next, in order</h2>
 
   <ol class="steps">
-    <li><span class="rt">The two menu-page edits</span>
-      <p>Put the Farmhouse Wrap on the breakfast page and give the Green Mountain its own description back. Replace the changeover calendar on the menu page with the standing hours the other three pages already carry. Both are text edits and neither depends on anything else on this list.</p></li>
     <li><span class="rt">Settle the names and the prices</span>
       <p>One name each for the blue cheese chips and the hot honey pepperoni, one price for the wings and one for the banana bread, across the printed card, the website and Toast. Everything below this line depends on it, because markup that disagrees with the page is worse than no markup.</p></li>
     <li><span class="rt">Fix the headings</span>
