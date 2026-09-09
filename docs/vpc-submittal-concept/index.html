@@ -458,6 +458,8 @@
     .marker { padding-top: 0; margin-bottom: 8px; }
     .where { white-space: normal; }
   }
+  .count { font-family: var(--f-mono); font-size: 12px; color: var(--ink-faint); }
+  .score { font-family: var(--f-mono); font-size: 13.5px; font-weight: 500; color: var(--accent); }
 </style>
 </head>
 <body>
@@ -467,8 +469,12 @@
     <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan and Larry</b> &nbsp;/&nbsp; 9 September 2026</span>
     <h1>The submittal library is already a database</h1>
     <p class="dek">Twenty submittal packages, read end to end. What they show about how a VPC job gets described, and a way to make the next package start from the closest one already built.</p>
-    <p class="scope">This is the quoting and submittal side. The website work order is a separate document and nothing here depends on it.</p>
+    <p class="scope">Flumes and metering manholes only. Shelters are the bigger half of Larry's week and a different problem, and they are held back deliberately until we have seen ten of them. The website work order is a separate document and nothing here depends on it.</p>
   </header>
+
+  <div class="pull decision">
+    <p><b>What a yes involves.</b> The sales orders for the same twenty jobs whose packages we already have, and one hour of Larry's time putting five live jobs through the index to see whether it puts the right past job on top. Nothing else, and nothing on the drive gets renamed or moved.</p>
+  </div>
 
   <div class="objective">
     <span class="opt-label">What we are after</span>
@@ -488,7 +494,7 @@
       <p>Twenty submittal packages, 161 pages: ten flumes and ten metering manholes, jobs 63910 through 69730, dated April to August 2026. Plus one shelter model, the 8 x 8 x 8 building, job 52964, exported from SolidWorks.</p>
       <p>The packages open on a submittal approval sheet carrying the company, project, job number, PO number, drawing number and revision, then run into the drawings with the construction block, the elevations, the job notes and the revision history.</p>
       <div class="pull">
-        <p>Read this as a first pass on a partial set. We have what VPC sent out. We do not yet have what the customer sent in, and the shelters are represented by a single model with no package attached.</p>
+        <p>Read this as a first pass on a partial set. We have what VPC sent out. We do not yet have what the customer sent in, and on shelters we have one model, no package, and no basis for an opinion.</p>
       </div>
     </div>
   </section>
@@ -498,7 +504,8 @@
     <div class="body">
       <h2>What we think we understand</h2>
       <p>From the call, in Larry's numbers: five to ten submittals a week, three to five hours each, sixty to seventy percent of the content reused from prior work off the L and M drive. Roughly sixty percent shelters, thirty percent manholes, ten percent flumes, plus ductwork, fans, pool stairs and benches. About 950 of the last 1,000 use standard polyester resin.</p>
-      <p>The line we built everything else on: <b>the variation is in the configuration, not the material.</b> The twenty packages agree with it. Every one is fiberglass-reinforced plastic, isophthalic polyester resin, UV gel coat, half-inch laminate minimum. What separates one job from the next is which options are on it and at what size.</p>
+      <p>Those numbers put fifteen to fifty hours a week into submittals. Flumes and metering manholes are about forty percent of the volume, so this concept is pointed at roughly six to twenty of those hours, and only at the finding and the retyping inside them rather than at the engineering. <b>What share of those hours is actually retrieval is the one number we will not guess at</b>, and it is the first thing the five-job test would tell us.</p>
+      <p>The line we built everything else on: the variation is in the configuration, not the material. The twenty packages agree with it. Every one is fiberglass-reinforced plastic, isophthalic polyester resin, UV gel coat, half-inch laminate minimum. What separates one job from the next is which options are on it and at what size.</p>
       <p>If any of that is wrong, it is worth saying so before we build against it.</p>
     </div>
   </section>
@@ -512,24 +519,55 @@
         <p><b>69492 - Rev B - Submittal Pkg 60 in MM - dome - 2 in parshall - ultra bkt - eng staff - 8 in pipes</b></p>
       </div>
       <p>That is not a filename. It is a specification, and it holds in all twenty: job number, revision, body and size, lid type, flume type and size, bracket, staff gauge, options, pipe size. Somebody has been maintaining a structured record of every job for years, by hand, in the place nobody thinks to look.</p>
-      <p>Across the twenty, the vocabulary is small and it repeats:</p>
+      <p>Across the twenty the vocabulary is small, and the counts show how much of it repeats:</p>
       <div class="table-wrap">
         <table>
-          <tr><th>Body</th><td>48, 60 and 72 inch metering manhole; flumes standing alone</td></tr>
-          <tr><th>Lid</th><td>dome, H20, bilco</td></tr>
-          <tr><th>Flume</th><td>Parshall at 2, 6, 9, 18 and 24 inch; Palmer Bowlus at 6, 8, 10 and 15 inch; small, large and extended large trap; 1.5 H</td></tr>
-          <tr><th>Staff gauge</th><td>engineering, metric, engineering trap, SW engineering</td></tr>
-          <tr><th>Options</th><td>sampler, laser flow, wing, bulkhead, pressure cavity, SW approach</td></tr>
-          <tr><th>Pipe</th><td>4, 6, 8, 15, 16, 18 and 24 inch</td></tr>
+          <tr><th>Body</th><td>48 in manhole <span class="count">7</span> &nbsp; 60 in <span class="count">2</span> &nbsp; 72 in <span class="count">1</span> &nbsp; flume standing alone <span class="count">10</span></td></tr>
+          <tr><th>Lid</th><td>dome <span class="count">6</span> &nbsp; H20 <span class="count">4</span> &nbsp; bilco <span class="count">1</span></td></tr>
+          <tr><th>Flume</th><td>Parshall <span class="count">8</span> at 2, 6, 9, 18, 24 in &nbsp; Palmer Bowlus <span class="count">6</span> at 6, 8, 10, 15 in &nbsp; trap <span class="count">4</span> small, large, extended large &nbsp; 1.5 H <span class="count">1</span></td></tr>
+          <tr><th>Staff gauge</th><td>engineering <span class="count">11</span> &nbsp; engineering trap <span class="count">4</span> &nbsp; metric <span class="count">2</span> &nbsp; SW engineering <span class="count">1</span></td></tr>
+          <tr><th>Bracket</th><td>ultra <span class="count">17</span> of 20</td></tr>
+          <tr><th>Options</th><td>sampler <span class="count">3</span> &nbsp; laser flow, wing, bulkhead, pressure cavity, SW approach <span class="count">1</span> each</td></tr>
+          <tr><th>Pipe</th><td>4, 6, 8, 15, 16, 18, 24 in</td></tr>
         </table>
       </div>
       <p>A small enough vocabulary that a job can be described completely in one line, and a stable enough one that two jobs can be compared without opening either.</p>
-      <p>One practical note. The words are consistent, the spelling drifts a little, and four of the seventeen bracket entries are spelled a different way from the other thirteen. That matters only because it means a plain text search across the drive quietly misses some of them. Software that normalizes as it reads does not have that problem, and nobody has to change how they name anything.</p>
+      <p>There is a catch, and it is the reason this needs software rather than a better search box. <b>Search the drive for "ultra bkt" today and you get thirteen of the seventeen jobs that have one.</b> The other four are spelled "ulta bkt" or "ultra kkt", so they do not come back, and nothing tells you they are missing. An index that normalizes as it reads finds all seventeen, and nobody has to change how they name anything.</p>
     </div>
   </section>
 
   <section>
     <div class="marker">04</div>
+    <div class="body">
+      <h2>One job, run through it</h2>
+      <p>This is running now, on the twenty, off the filenames alone. Treat 69492 as the job that just came in, a 60 inch manhole with a dome lid, a 2 inch Parshall flume, engineering staff gauge and 8 inch pipes, and ask what VPC has already built that is closest.</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>65067</th><td><span class="score">76%</span> &nbsp; 48 in MM, dome, 6 in Parshall, eng staff, 24 in pipes</td></tr>
+          <tr><th>69312</th><td><span class="score">65%</span> &nbsp; 48 in MM, H20, 6 in Parshall, eng staff, 18 in pipes</td></tr>
+          <tr><th>66354</th><td><span class="score">64%</span> &nbsp; 48 in MM, H20, 9 in Parshall, eng staff, 16 in pipes</td></tr>
+          <tr><th>69446</th><td><span class="score">57%</span> &nbsp; 48 in MM, dome, 6 in Palmer Bowlus, eng staff, 6 in pipes</td></tr>
+          <tr><th>68952</th><td><span class="score">30%</span> &nbsp; 60 in MM, H20, extended large trap, sampler, 8 in pipes</td></tr>
+        </table>
+      </div>
+      <p>The bottom row is the one worth arguing about. 68952 is the only other 60 inch manhole in the set, and the index still puts it fifth, because a trap and a sampler make it a different job to draw than a Parshall flume does. Whether that ranking is right is a question for Larry, not for us, and it is exactly what the five-job test settles.</p>
+      <p>For the top match, 65067, it then says what carries and what has to change. Left is what that job was, right is what this one is:</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Body</th><td>48 in &nbsp;&rarr;&nbsp; 60 in &nbsp; <b>change</b></td></tr>
+          <tr><th>Flume type</th><td>Parshall &nbsp;&rarr;&nbsp; Parshall &nbsp; carries over</td></tr>
+          <tr><th>Flume size</th><td>6 in &nbsp;&rarr;&nbsp; 2 in &nbsp; <b>change</b></td></tr>
+          <tr><th>Lid</th><td>dome &nbsp;&rarr;&nbsp; dome &nbsp; carries over</td></tr>
+          <tr><th>Staff gauge</th><td>engineering &nbsp;&rarr;&nbsp; engineering &nbsp; carries over</td></tr>
+          <tr><th>Pipe</th><td>24 in &nbsp;&rarr;&nbsp; 8 in &nbsp; <b>change</b></td></tr>
+        </table>
+      </div>
+      <p>Three fields carry, three change. The elevations and the customer change on every job regardless, which is why they belong on the ask list rather than the carry list.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">05</div>
     <div class="body">
       <h2>The concept</h2>
       <p>Three steps. Each one is useful by itself, and each gets built only if the one before it earns it.</p>
@@ -539,7 +577,7 @@
           <span class="opt-label">Step one</span>
           <h3>Find the closest job</h3>
           <p>An index of every past job keyed on that vocabulary. Describe the job coming in and get back the closest ones already built, ranked, with a line saying what is different about each.</p>
-          <p class="needs"><b>Where it stands</b>It runs against the twenty packages now, off the filenames alone. We changed nothing on the drive to make that work.</p>
+          <p class="needs"><b>Where it stands</b>Built, and the table above is its output. We changed nothing on the drive to make that work.</p>
         </div>
         <div class="opt">
           <span class="opt-label">Step two</span>
@@ -554,13 +592,11 @@
           <p class="needs"><b>What it needs</b>The sales orders, which is the ask below.</p>
         </div>
       </div>
-
-      <p>Generating the CAD is not in here. It came up on the call as the far end of what is imaginable, and it is a different problem from this one.</p>
     </div>
   </section>
 
   <section>
-    <div class="marker">05</div>
+    <div class="marker">06</div>
     <div class="body">
       <h2>The one thing that would change what we can build</h2>
       <p>We have twenty examples of what VPC sent out. We have none of what the customer sent in.</p>
@@ -568,39 +604,35 @@
       <div class="pull decision">
         <p><b>The ask: the sales orders for these same twenty jobs.</b> Paired against packages we already hold, they show the translation twenty times over. That is worth more than twenty more packages, and more than a fresh set of anything else.</p>
       </div>
-      <p>Shelters are the other gap. They are the largest share of the work and we have one model and no package, and a shelter is a different animal: the model carries fifty-nine components and the variation lives in the electrical and hardware package rather than in a flume size. Ten shelter jobs with their packages would tell us whether one approach covers both or whether they want separate treatment.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="marker">06</div>
-    <div class="body">
-      <h2>Questions for Larry</h2>
-      <p>Reading twenty finished packages tells you what the work produced. It does not tell you what the work felt like, and that gap matters more here than usual.</p>
-      <ul>
-        <li>When a job comes in, what do you look at first to find the closest past one, and what makes that hard on the days it is hard?</li>
-        <li>Of the three to five hours, which stretch would you most want back?</li>
-        <li>What makes a package take five hours instead of three?</li>
-        <li>Which fields do you always re-establish from scratch, and which do you trust to carry over?</li>
-        <li>How far back does the naming convention hold, and is it yours or does it predate you?</li>
-        <li>What never gets reused, and why not?</li>
-      </ul>
-      <p>Answers to those change the build. We would rather ask than assume, and where we have assumed above, it is marked.</p>
+      <p>Shelters stay out until there are ten of them with their packages. They are the larger share of the week and a genuinely different animal: the one model we have carries fifty-nine components and the variation lives in the electrical and hardware package rather than in a flume size. We would rather say nothing about them than assume this approach carries.</p>
     </div>
   </section>
 
   <section>
     <div class="marker">07</div>
     <div class="body">
+      <h2>Three questions for Larry</h2>
+      <p>Reading twenty finished packages tells you what the work produced. It does not tell you what the work felt like, and that gap matters more here than usual.</p>
+      <ul>
+        <li>When a job comes in, how do you find the closest past one today?</li>
+        <li>Of the three to five hours, which stretch would you most want back?</li>
+        <li>Which fields do you always rewrite from scratch, whatever the last job said?</li>
+      </ul>
+      <p>The rest can wait for the hour on the five test jobs. Where we have assumed something above, it is marked, and we would rather be corrected early than politely.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">08</div>
+    <div class="body">
       <h2>What we would do next</h2>
-      <p>Index the twenty, then let Larry test it against real inbound work: five jobs, does the tool put the right past job at the top, and is the difference list the one he would have written. That answers whether the premise holds before anything gets built on top of it.</p>
+      <p>Five live jobs through the index. Does it put the right past job on top, and is the difference list the one Larry would have written. That answers whether the premise holds before anything gets built on top of it.</p>
       <p>If it does not hold, that is a cheap answer and a useful one. If it does, step two is a matter of doing it.</p>
-      <p class="quote">What we need from VPC to get that far is the sales orders for the twenty, and an hour of Larry's time on the five test jobs.</p>
     </div>
   </section>
 
   <div class="closing">
-    Every figure above comes from the twenty packages and the one model as delivered on 9 September 2026, or from the call notes, which are marked where used. Nothing in VPC's files was renamed or moved.
+    Every figure above comes from the twenty packages and the one model as delivered on 9 September 2026, or from the call notes, which are marked where used. The ranking table is real output, not an illustration. Nothing in VPC's files was renamed or moved.
   </div>
 
 </div>
