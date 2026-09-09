@@ -94,6 +94,9 @@ td .tag{display:inline-block;font-size:10.5px;letter-spacing:.06em;text-transfor
 .callout p:last-child{margin-bottom:0}
 .callout.warn{background:var(--gold-soft);border-color:var(--gold-line)}
 .two{display:grid;gap:22px}
+.two>*{min-width:0}
+.grid>*{min-width:0}
+.tbl-scroll{max-width:100%}
 @media (min-width:760px){.two{grid-template-columns:1.15fr .85fr;align-items:start}}
 ul.clean{list-style:none;padding:0;margin:0;font-family:system-ui,sans-serif}
 ul.clean li{padding:9px 0 9px 26px;border-bottom:1px solid var(--line);position:relative;font-size:14.5px}
