@@ -114,6 +114,13 @@
     text-wrap: balance;
   }
 
+  .scope {
+    font-size: 14.5px;
+    color: var(--ink-faint);
+    margin: 12px 0 0;
+    max-width: 58ch;
+  }
+
   .dek {
     font-size: 17.5px;
     line-height: 1.5;
@@ -417,6 +424,7 @@
     <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan and Amanda</b> &nbsp;/&nbsp; 9 September 2026</span>
     <h1>VPC Website Work Order</h1>
     <p class="dek">What needs doing on the three WordPress sites, what has to be true before anyone touches anything, and two ways to run it.</p>
+    <p class="scope">This hour is the website only. The quoting and submittal work with AI is a separate session with a separate document, and nothing here depends on it.</p>
   </header>
 
   <div class="objective">
@@ -436,7 +444,6 @@
     <div class="body">
       <h2>Three of the six are already done</h2>
       <p>Between 25 and 28 August, three of the six items from the August list shipped. The structured data now reads correctly as LocalBusiness with the Medina address and phone attached, the test-location page is gone, and only one Enduro page serves content. Nobody announced it. I found it by re-crawling the site.</p>
-      <p>The constraint here has never been whether the work is understood, or whether there are hands capable of doing it. It is where those hours go across nine companies, and that is Corey's call rather than Amanda's.</p>
     </div>
   </section>
 
@@ -498,7 +505,7 @@
       <h2>Before anything changes</h2>
       <ul>
         <li>A full backup, files and database, stored somewhere other than the server itself. A host-only snapshot dies with the host account.</li>
-        <li>Confirmation it can be restored or at least downloaded, and the name of the tool taking it, so we know the rollback path before we need it rather than during.</li>
+        <li>Confirmation it can be restored or at least downloaded, the name of the tool taking it, and a name against who checks that the restore actually works. We would rather settle the rollback path before we need it than during.</li>
         <li>Retention held for the length of the work, rather than a rolling seven days that ages out halfway through.</li>
         <li>A child theme, if there is not one already. The og:image, the Twitter card and the schema all live in template files, and a direct theme edit gets wiped by the next theme update. Clear WP Rocket after each change.</li>
         <li>If a staging site gets spun up for any of this, it needs noindex and a password. See above for why I am fussy about that one.</li>
@@ -511,7 +518,7 @@
     <div class="marker">06</div>
     <div class="body">
       <h2>The day-one list</h2>
-      <p>Every item here needs credentials and a template. None of them needs a decision from anybody.</p>
+      <p>Items 1 through 8 and item 10 need credentials and a template, and nothing else at all. Item 9 needs one short answer from whoever knows the play products, for the reason directly below the table.</p>
 
       <div class="table-wrap">
         <table>
@@ -601,7 +608,7 @@
   </section>
 
   <div class="closing">
-    Every finding above traces to a published document. Nothing here is new analysis.
+    Every finding above traces to a published document. Nothing here is new analysis. Every open item re-checked live on 9 September 2026.
   </div>
 
 </div>
