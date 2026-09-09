@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Internal working note. Not for print or public posting.">
+<title>Cooperstown: Where Things Stand</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%9A%BE</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --ground:#F1F3F1; --surface:#FBFCFB; --sunken:#E7EAE8; --ink:#141817;
+    --muted:#5A6462; --hair:#CBD2CF; --accent:#14514E; --accent-soft:#DCE8E6;
+    --blocked:#92600A; --blocked-soft:#F2E7CE; --confirmed:#2C6340;
+    --confirmed-soft:#DCE9DF; --open:#6B5A7A; --open-soft:#E6E1EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+      --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+      --blocked:#D6A44A; --blocked-soft:#322611; --confirmed:#77B98C;
+      --confirmed-soft:#172A1D; --open:#B49FC7; --open-soft:#241E2B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+    --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+    --blocked:#D6A44A; --blocked-soft:#322611; --confirmed:#77B98C;
+    --confirmed-soft:#172A1D; --open:#B49FC7; --open-soft:#241E2B;
+  }
+  * { box-sizing:border-box; }
+  body {
+    background:var(--ground); color:var(--ink);
+    font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+    font-size:17px; line-height:1.62; margin:0; padding:0 24px 96px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet { max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:44px; }
+  header.masthead { padding-top:64px; display:flex; flex-direction:column; gap:18px; }
+  .eyebrow {
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    font-size:11px; font-weight:500; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--accent); margin:0;
+  }
+  h1 {
+    font-family:Archivo,"Helvetica Neue",Arial,sans-serif; font-weight:700;
+    font-size:clamp(32px,5.6vw,46px); line-height:1.05; letter-spacing:-.02em;
+    text-wrap:balance; margin:0;
+  }
+  .standfirst { font-size:20px; line-height:1.5; color:var(--muted); margin:0; max-width:60ch; }
+  .stamp {
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    font-size:12px; line-height:1.75; color:var(--muted);
+    border-top:1px solid var(--hair); padding-top:14px; margin:0;
+  }
+  .stamp b { color:var(--ink); font-weight:500; }
+  section { display:flex; flex-direction:column; gap:16px; }
+  .num { font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.13em; color:var(--accent); text-transform:uppercase; margin:0; }
+  h2 {
+    font-family:Archivo,"Helvetica Neue",Arial,sans-serif; font-weight:700;
+    font-size:26px; letter-spacing:-.01em; line-height:1.15; text-wrap:balance;
+    margin:0 0 6px; padding-bottom:10px; border-bottom:2px solid var(--ink);
+  }
+  p { margin:0; max-width:66ch; }
+  p + p { margin-top:-4px; }
+  strong,b { font-weight:600; }
+  a { color:var(--accent); text-underline-offset:3px; }
+  code { font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace; font-size:.86em; background:var(--sunken); padding:1px 5px; border-radius:3px; }
+
+  .prop { background:var(--surface); border:1px solid var(--hair); border-left:4px solid var(--accent); padding:22px 24px; display:flex; flex-direction:column; gap:12px; }
+  .prop-top { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+  .prop-name { font-family:Archivo,sans-serif; font-weight:700; font-size:21px; letter-spacing:-.01em; }
+  .prop-score { font-family:"IBM Plex Mono",monospace; font-size:15px; color:var(--muted); }
+  .prop-cat { font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+  ul.docs { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px; }
+  ul.docs li { display:flex; flex-direction:column; gap:2px; padding-left:16px; border-left:2px solid var(--hair); }
+  ul.docs a { font-weight:600; }
+  .when { font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--muted); }
+  .tag { font-family:"IBM Plex Mono",monospace; font-size:9.5px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; padding:3px 7px; border-radius:3px; white-space:nowrap; }
+  .t-now { background:var(--confirmed-soft); color:var(--confirmed); }
+  .t-old { background:var(--blocked-soft); color:var(--blocked); }
+  .warn { background:var(--blocked-soft); border-left:4px solid var(--blocked); padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
+  .closer { background:var(--accent-soft); border-left:4px solid var(--accent); padding:22px 24px; display:flex; flex-direction:column; gap:12px; }
+  ul.plain { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:9px; max-width:66ch; }
+  footer {
+    border-top:1px solid var(--hair); padding-top:16px;
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    font-size:11.5px; line-height:1.8; color:var(--muted);
+  }
+  @media (max-width:560px) {
+    body { font-size:16px; padding:0 18px 72px; }
+    .closer,.warn,.prop { padding:18px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <p class="eyebrow">Doble AI &middot; Cooperstown index &middot; 9 September 2026</p>
+  <h1>Cooperstown, where things stand</h1>
+  <p class="standfirst">Everything we have written on the three Cooperstown properties, in one place, with the date on each so nobody has to guess which page is current. Fenimore's has moved most recently and is the place to start.</p>
+  <p class="stamp">
+    For Corey Hogan and the Cooperstown side. Internal only, not public pages, and fine to forward inside the group.<br>
+    This index covers <b>Cooperstown only</b>. Nothing here links to the other businesses.<br>
+    Menu and operations content is the operator's call. These pages are about whether the websites and the profiles say the same thing the businesses are actually doing.
+  </p>
+</header>
+
+<section>
+  <p class="num">01</p>
+  <h2>Fenimore's Table</h2>
+
+  <div class="prop">
+    <div class="prop-top">
+      <span class="prop-name">Fenimore's Table</span>
+      <span class="prop-score">audit score 4.5</span>
+      <span class="tag t-now">Moved this week</span>
+    </div>
+    <p class="prop-cat">Gastro-pub &middot; 4874 State Highway 28</p>
+    <p>Three menus are now live where there was one, including a breakfast service opening at 6:30AM, and the hours moved with it. The website has taken all of it on without changing anything about how a search engine or an assistant reads it.</p>
+    <ul class="docs">
+      <li>
+        <a href="../fenimores-status/">Where things stand, 9 September</a>
+        <span class="when">Current. Start here. Menu, hours, what Google and the AI assistants can read, and what to do in what order.</span>
+      </li>
+      <li>
+        <a href="../fenimores-table/">Digital presence audit</a>
+        <span class="when">Scored in July, re-checked through 24 August, annotated 9 September. The grades predate the new menus and have not been re-scored.</span>
+      </li>
+      <li>
+        <a href="../fenimores-dinner/">Dinner card readout</a>
+        <span class="when">2 September, partly superseded. The menu comparison against the other Cooperstown rooms still stands; the site observations are corrected in place.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <p class="num">02</p>
+  <h2>The rest of the complex</h2>
+
+  <div class="prop">
+    <div class="prop-top">
+      <span class="prop-name">Cooperstown Clubhouse</span>
+      <span class="prop-score">4.1</span>
+      <span class="tag t-old">Last checked 24 August</span>
+    </div>
+    <p class="prop-cat">Group and team venue &middot; on the Cooperstown Experience grounds</p>
+    <p>The Google profile recovered strongly over the summer because somebody worked it, which is the clearest proof in the group that the review work pays. The website findings were unchanged at the last check.</p>
+    <ul class="docs">
+      <li>
+        <a href="../cooperstown-clubhouse/">Digital presence audit</a>
+        <span class="when">Scored July, revised 11 and 14 August, re-verified 24 August.</span>
+      </li>
+      <li>
+        <a href="../clubhouse-domain-cleanup/">Rookie's conversion review</a>
+        <span class="when">17 August. What the second domain is actually doing and what is left to tidy.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="prop">
+    <div class="prop-top">
+      <span class="prop-name">Cooperstown Experience</span>
+      <span class="prop-score">3.4</span>
+      <span class="tag t-old">Last checked 24 August</span>
+    </div>
+    <p class="prop-cat">Tournament complex &middot; 4850 State Highway 28</p>
+    <p>The complex page names both restaurants with phone numbers and both restaurant sites link back, so the pieces are connected. The connection is buried rather than absent, which is a different and easier problem.</p>
+    <ul class="docs">
+      <li>
+        <a href="../cooperstown-experience/">Digital presence audit</a>
+        <span class="when">Scored July, revised 11 August, re-verified 24 August.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <p class="num">03</p>
+  <h2>What is current and what is not</h2>
+
+  <p>Only the Fenimore's status readout was checked this week. The three audits carry figures from July and August, re-verified on 24 August. Nothing in them is known to be wrong, and the technical findings held at that check, but they have not been looked at since.</p>
+
+  <div class="warn">
+    <p><b>Two things nobody should read into these pages.</b></p>
+    <p>The audit scores are annotated, not re-scored. Fenimore's is still carrying 4.5 from July even though its site has changed materially since. Re-scoring happens once the dinner card is settled.</p>
+    <p>The AI visibility test has not been re-run since the new menus went up. That is the one that shows whether these businesses actually get named when someone asks an assistant about eating in Cooperstown, and it is worth running against the new menus rather than the old ones.</p>
+  </div>
+</section>
+
+<section>
+  <p class="num">04</p>
+  <h2>What is waiting on a decision</h2>
+  <div class="closer">
+    <p><b>Who holds the website logins.</b> This is the item that gates every fix across all three sites. With an answer we either make the changes directly or write them up so your own person can work straight from the text.</p>
+    <p><b>Two text edits on the Fenimore's site</b>, both described on the status page: the Green Mountain description, and the hours block on the menu page that is still showing the changeover calendar from the start of the month.</p>
+    <p><b>The four naming and price mismatches</b> between the printed card, the website and Toast. That one is the kitchen's call, not ours, and the markup work waits on it.</p>
+  </div>
+</section>
+
+<footer>
+  Doble AI &middot; Cooperstown index &middot; 9 September 2026<br>
+  Fenimore's Table &middot; Cooperstown Clubhouse &middot; Cooperstown Experience<br>
+  Dates on each entry are the last time that page was verified at source, not the day it was written.<br>
+  Internal working notes. Link-shared, not indexed. This index covers the Cooperstown properties only.
+</footer>
+
+</div>
+</body>
+</html>
