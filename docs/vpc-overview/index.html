@@ -342,6 +342,11 @@
   .docs .dn { font-family:Archivo,sans-serif; font-weight:600; font-size:16.5px; display:block; margin-bottom:4px; }
   .docs .dm { font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); display:block; margin-top:6px; }
   .lede { font-size:19px; line-height:1.5; max-width:62ch; }
+  table.acc { min-width:0; width:100%; }
+  table.acc code { white-space:nowrap; word-break:normal; font-size:11px; display:inline-block; margin:1px 0; }
+  table.acc td { vertical-align:top; }
+  table.acc td:first-child { width:27%; }
+  table.acc td:nth-child(4) { width:14%; }
 </style>
 </head>
 <body>
@@ -391,8 +396,63 @@
 <section>
   <p class="num">The blocker</p>
   <h2>One question decides whether the biggest item is a task or a project</h2>
-  <p><b>Can VPC edit the page templates on <code>products.vpcfiberglass.com</code>?</b> Nobody has answered, and it has been open since 14 August.</p>
-  <p>If yes, fixing the product markup is one template change to pages that already exist, measured in hours, and it is the cheapest large win in the estate. If no, the only fix is rebuilding 144 item pages, 121 listing pages and 23 categories on a domain VPC controls, plus a redirect map. Until somebody says which, we cannot tell VPC what it costs, where it belongs in the order of work, or whether it is worth doing at all. <a href="../vpc-findability/#s07">Why it blocks so much</a></p>
+  <p><span class="finding-label">First, the thing that makes this confusing</span> <code>products.vpcfiberglass.com</code> looks like VPC&rsquo;s own website because the address ends in vpcfiberglass.com. <b>VPC owns the address. Thomas owns the building.</b> VPC controls the DNS record, so VPC decides where that address points, but the pages it currently points at are built and run by Thomas on a system called the Navigator Platform. It is stated in the footer of every page: &ldquo;Site created by Thomas Marketing Services and Powered by Navigator Platform.&rdquo; Three of VPC&rsquo;s four properties are WordPress. This one is not, and no WordPress login reaches it.</p>
+  <p><b>So the open question is whether Thomas will let VPC change what those pages emit.</b> That is what &ldquo;edit the templates&rdquo; means: the catalog builds all 289 pages from a small number of shared page designs, so the broken product markup is one shared fault, not 289 separate ones.</p>
+  <p><b>If Thomas will change it</b>, this is one edit to pages that already exist, measured in hours, and it is the cheapest large win in the estate. <b>If Thomas will not</b>, the only remaining fix is to move the product content onto the WordPress site VPC does operate, which is 144 item pages, 121 listing pages and 23 categories, plus a redirect map so the existing links keep working. That is a project with a budget and a timeline.</p>
+  <p>Until somebody answers, we cannot tell VPC what it costs, where it belongs in the order of work, or whether it is worth doing at all, because the honest answer to each is different in the two cases. It has been open since 14 August. <a href="../vpc-findability/#s07">Why it blocks so much</a></p>
+</section>
+
+<section>
+  <p class="num">Access</p>
+  <h2>What we need to get in, and where each one comes from</h2>
+  <p>Four properties, and they are not all the same kind of thing. This is the whole list, including the ones already settled, so nobody has to reconstruct it from three documents.</p>
+  <div class="table-wrap">
+  <table class="acc">
+    <thead><tr><th>What we need</th><th>What it unlocks</th><th>Where it comes from</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>WordPress admin</b><br>a named account, revocable in one click<br><code>www.vpcfiberglass.com</code> <code>easyrecreation.com</code> <code>interactivewaterparks.com</code></td>
+        <td>Every item on the day-one list, and the product markup on the play catalog, which is the largest single item we recommend</td>
+        <td>Amanda, or whoever holds admin today</td>
+        <td><span class="state st-ok">Have it</span></td>
+      </tr>
+      <tr>
+        <td><b>An off-server backup</b><br>files and database, plus a name against who confirms it restores<br>the same three WordPress sites</td>
+        <td>The rollback path. We would rather settle it before we need it than during</td>
+        <td>VPC. A host-only snapshot does not count, because it dies with the host account</td>
+        <td><span class="state st-part">Agreed 9 Sep, outstanding</span></td>
+      </tr>
+      <tr>
+        <td><b>A template change on the Navigator Platform</b><br>not a login, a decision<br><code>products.vpcfiberglass.com</code></td>
+        <td>The broken product markup across 289 catalog pages, fixed once rather than 289 times. Cheapest large win in the estate if the answer is yes</td>
+        <td><b>Thomas.</b> This one is not WordPress and no WordPress login reaches it. The question is whether Thomas will add Product markup to the Navigator templates, and at what cost</td>
+        <td><span class="state st-bad">Open since 14 Aug</span></td>
+      </tr>
+      <tr>
+        <td><b>Google Search Console</b><br>read access is enough<br>all four properties</td>
+        <td>Turns the reasoning in these documents into numbers, and proves a change landed rather than claiming it did</td>
+        <td>VPC. Growth Marketing Pro asks for this too, and says if it is not set up that is the first fix</td>
+        <td><span class="state st-bad">Not granted</span></td>
+      </tr>
+      <tr>
+        <td><b>Google Analytics</b><br>read access<br>main site and InterActive Play</td>
+        <td>Which pages actually produce quote requests, as opposed to which get traffic</td>
+        <td>VPC. Also on Growth Marketing Pro&rsquo;s list</td>
+        <td><span class="state st-bad">Not granted</span></td>
+      </tr>
+      <tr>
+        <td><b>Google Business Profile</b><br>manager access<br>Medina, Lockport, Amherst</td>
+        <td>The Lockport profile publishes an 888 number that appears nowhere on the site, and Amherst surfaces no profile of its own</td>
+        <td>Whoever at VPC manages the listings. Not a website credential and not needed for the day-one work</td>
+        <td><span class="state st-part">Later</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="win">
+    <p><b>What the WordPress access already changes.</b> It covers three of the four properties and it unblocks the biggest item we recommend, because the play catalog runs on WordPress and the drop-in pack for it is already built and demonstrated. The day-one work can start as soon as the backup exists.</p>
+    <p><b>What it does not change.</b> The catalog question. <code>products.vpcfiberglass.com</code> is the one property that is not WordPress, and it is the one holding the largest markup problem. That answer has to come from Thomas, and asking for it costs one email.</p>
+  </div>
 </section>
 
 <section>
