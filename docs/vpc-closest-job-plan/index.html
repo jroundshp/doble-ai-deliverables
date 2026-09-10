@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>VPC Closest-Job System Plan</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #eff1ee;
+    --surface: #ffffff;
+    --ink: #16191b;
+    --ink-soft: #575f61;
+    --ink-faint: #7d8688;
+    --rule: #d2d7d3;
+    --rule-soft: #e2e6e2;
+    --accent: #0e5c67;
+    --accent-soft: #e2edee;
+    --rust: #a34c1c;
+    --rust-soft: #f6e8e0;
+    --moss: #3c6636;
+    --moss-soft: #e5eee2;
+
+    --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #131718;
+      --surface: #1b2022;
+      --ink: #e7ebe8;
+      --ink-soft: #a3adad;
+      --ink-faint: #7d8688;
+      --rule: #313839;
+      --rule-soft: #262c2e;
+      --accent: #5cb4c0;
+      --accent-soft: #1a2f33;
+      --rust: #e08c58;
+      --rust-soft: #2e2119;
+      --moss: #86b57c;
+      --moss-soft: #1c2a1c;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #131718;
+    --surface: #1b2022;
+    --ink: #e7ebe8;
+    --ink-soft: #a3adad;
+    --ink-faint: #7d8688;
+    --rule: #313839;
+    --rule-soft: #262c2e;
+    --accent: #5cb4c0;
+    --accent-soft: #1a2f33;
+    --rust: #e08c58;
+    --rust-soft: #2e2119;
+    --moss: #86b57c;
+    --moss-soft: #1c2a1c;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 38px 24px 88px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    border-top: 3px solid var(--ink);
+    padding-top: 18px;
+    margin-bottom: 40px;
+  }
+
+  .stamp {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+  .stamp b { color: var(--ink-soft); font-weight: 500; }
+
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(34px, 6vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+
+  .scope {
+    font-size: 14.5px;
+    color: var(--ink-faint);
+    margin: 12px 0 0;
+    max-width: 58ch;
+  }
+
+  .dek {
+    font-size: 17.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  /* ---------- sections ---------- */
+
+  section {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 0 20px;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .marker {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    padding-top: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  .body { min-width: 0; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p:last-child { margin-bottom: 0; }
+
+  .body > ul, .body > ol { max-width: 66ch; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--f-mono);
+    font-size: 0.88em;
+    background: var(--rule-soft);
+    padding: 1px 5px;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+
+  /* ---------- pull ---------- */
+
+  .pull {
+    border-left: 3px solid var(--accent);
+    padding: 3px 0 3px 18px;
+    margin: 20px 0;
+    max-width: 62ch;
+  }
+
+  .pull p {
+    font-size: 17px;
+    line-height: 1.48;
+    margin: 0;
+  }
+
+  .pull.decision { border-left-color: var(--rust); }
+
+  /* ---------- objective ---------- */
+
+  .objective {
+    background: var(--accent-soft);
+    padding: 30px 30px 26px;
+    margin-bottom: 8px;
+  }
+
+  .objective .opt-label { margin-bottom: 12px; }
+
+  .objective .lead {
+    font-size: 21px;
+    line-height: 1.42;
+    letter-spacing: -0.008em;
+    max-width: 40ch;
+    margin: 0;
+  }
+
+  .surfaces {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin: 22px 0 26px;
+  }
+
+  .surfaces .surfaces-label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 4px;
+  }
+
+  .surface {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 4px 9px;
+    white-space: nowrap;
+  }
+
+  .conditions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px 26px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .conditions li {
+    margin: 0;
+    border-top: 2px solid var(--accent);
+    padding-top: 11px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .conditions b {
+    font-family: var(--f-display);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .objective .coda {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    margin: 26px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
+  /* ---------- tables ---------- */
+
+  .table-wrap { overflow-x: auto; margin: 18px 0 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    line-height: 1.42;
+  }
+
+  th {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    padding: 0 14px 8px 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  th:last-child, td:last-child { padding-right: 0; }
+
+  .num {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    width: 22px;
+    padding-right: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .effort {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .where { font-size: 13px; color: var(--ink-soft); white-space: nowrap; }
+  .prop { font-family: var(--f-mono); font-size: 13px; word-break: break-all; }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .chip.own { background: var(--moss-soft); color: var(--moss); }
+  .chip.rent { background: var(--rust-soft); color: var(--rust); }
+
+  /* ---------- option cards ---------- */
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 20px 0 22px;
+  }
+
+  .opt {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 20px;
+  }
+
+  .opt-label {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .opt h3 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+
+  .opt p { font-size: 14.5px; line-height: 1.5; margin: 0 0 12px; max-width: none; }
+
+  .opt .needs {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 10px;
+    margin: 0;
+  }
+
+  .opt .needs b {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* ---------- lists ---------- */
+
+  ul, ol { padding-left: 20px; margin: 0 0 14px; }
+  li { margin-bottom: 8px; }
+  li:last-child { margin-bottom: 0; }
+
+  ol.asks { counter-reset: ask; list-style: none; padding-left: 0; }
+
+  ol.asks li { position: relative; padding-left: 34px; margin-bottom: 12px; }
+
+  ol.asks li::before {
+    counter-increment: ask;
+    content: counter(ask);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--surface);
+    background: var(--accent);
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .quote {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--rule);
+    padding-left: 16px;
+    margin: 16px 0 0;
+    max-width: 62ch;
+  }
+
+  .closing {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 3px solid var(--ink);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 620px) {
+    .sheet { padding: 26px 18px 68px; }
+    section { grid-template-columns: 1fr; gap: 0; }
+    .marker { padding-top: 0; margin-bottom: 8px; }
+    .where { white-space: normal; }
+  }
+  .count { font-family: var(--f-mono); font-size: 12px; color: var(--ink-faint); }
+  .score { font-family: var(--f-mono); font-size: 13.5px; font-weight: 500; color: var(--accent); }
+  a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan and Larry</b> &nbsp;/&nbsp; 10 September 2026</span>
+    <h1>Closest-job system: the full plan</h1>
+    <p class="dek">Larry's day with it, what VPC gets out of it, how Corey owns it so it survives whether or not Larry is here, why Grok Bot is the front door and not the filing cabinet, and every step between today and a tool people use on Monday morning.</p>
+    <p class="scope">Metering manholes and flumes first. Shelters come later, once there are enough of them to learn from. Companion document: <a href="https://jroundshp.github.io/doble-ai-deliverables/vpc-submittal-concept/">the submittal library concept</a>, which is where the twenty packages and the ranking output are written up. The website work order is a separate job and nothing here waits on it.</p>
+  </header>
+
+  <div class="objective">
+    <span class="opt-label">What we are after</span>
+    <p class="lead">A job that comes in should land next to the jobs like it, with the reusable parts already identified and the parts that have to change already flagged.</p>
+    <ul class="conditions">
+      <li><b>Findable</b>The closest past job comes back because it matches, not because somebody remembered it.</li>
+      <li><b>Carried forward</b>What repeats arrives already assembled. What changes gets asked about instead of inherited quietly.</li>
+      <li><b>Owned by the company</b>The history lives on VPC's storage under VPC's accounts, so it does not walk out with any one person.</li>
+    </ul>
+    <p class="coda">None of this replaces the engineering. It removes the retrieval and the retyping in front of it.</p>
+  </div>
+
+  <section>
+    <div class="marker">01</div>
+    <div class="body">
+      <h2>What the system is</h2>
+      <p>One thing: a closest-job index that runs on every RFQ before anybody opens a drawing. Describe the job coming in, get back the past jobs that are nearest to it, ranked, with a line on each saying what is different.</p>
+      <p>The loop, start to finish:</p>
+      <div class="table-wrap">
+        <table>
+          <tr><td class="num">1</td><th>RFQ arrives</th><td>Sales enters it and Salesforce issues the number, the same as today.</td></tr>
+          <tr><td class="num">2</td><th>Drop the order in</th><td>The sales order goes into the tool. Nothing is retyped and nothing on the drive moves.</td></tr>
+          <tr><td class="num">3</td><th>Indexed history answers</th><td>Every past job is already fingerprinted, so the match happens against the whole record rather than against the folder somebody thinks to open.</td></tr>
+          <tr><td class="num">4</td><th>Ranked neighbours</th><td>Four or five past jobs, closest first, each with its carry list and its change list.</td></tr>
+          <tr><td class="num">5</td><th>Start from the package</th><td>Open the winner, work from it, and answer the flagged fields rather than hunting for them.</td></tr>
+        </table>
+      </div>
+      <p>It does not generate CAD. It does not decide what a job needs, which is engineering judgement and stays with Larry. And it is not the PDF library handed to a chatbot, which gives confident answers with nothing underneath them.</p>
+      <div class="pull">
+        <p><b>It already runs.</b> Treat job 69492 as the RFQ that just came in. The index puts 65067 on top at 76 percent, then lists three fields that carry over unchanged and three that have to change. That output is real, off the existing filenames, with nothing on VPC's drive renamed or moved.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">02</div>
+    <div class="body">
+      <h2>Why it is worth building</h2>
+      <p>Five to ten submittals a week come through. A metering manhole runs three to five hours, and Larry's estimate is that sixty to seventy percent of one is already sitting somewhere in a job that was finished months ago.</p>
+      <p>That figure is a manhole figure. It was given about metering manholes, because that is what the question on the call was about, and it should not be stretched across the whole week until somebody has timed a shelter.</p>
+      <p>The retrieval itself is the part that fails quietly. Searching the submittal subdirectory by type works when the spelling holds, and the spelling does not always hold. Search the drive for <code>ultra bkt</code> and you get thirteen of the seventeen jobs that have one; the other four are typed <code>ulta bkt</code> or <code>ultra kkt</code> and simply do not come back. Nothing on the screen tells you four are missing. An index that normalises as it reads finds all seventeen, and nobody has to change how they name anything.</p>
+      <p>Underneath that sits a bigger gap. The order lives in Salesforce and the drawing lives on the server, and the only thing that joins the two is Larry.</p>
+      <p>The limit is worth naming now rather than later. An index built on finished packages answers what VPC has built before. It cannot answer what this job ought to be until the sales orders are in it, which is why they are the first ask in section 09.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">03</div>
+    <div class="body">
+      <h2>What VPC gets</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Speed</th><td>The hunting stretch of a submittal shortens. On manholes that is the front end of a three to five hour job.</td></tr>
+          <tr><th>Capacity</th><td>More submittals move through the same headcount, which matters most in the weeks that run at ten rather than five.</td></tr>
+          <tr><th>Consistency</th><td>Two people starting from the same closest job produce packages that look like each other, which is the point of the folder scheme Dave Riggs already put in place.</td></tr>
+          <tr><th>Company knowledge</th><td>Years of configuration history stop being a naming habit and become something the company can query.</td></tr>
+          <tr><th>Continuity</th><td>If Larry takes a month off or retires, the record of what VPC has built is still readable by whoever sits down next.</td></tr>
+          <tr><th>Quote speed</th><td>The same index, asked what a job like this quoted at and what it turned out to be. That is the path to answering a customer faster, and it needs the sales orders.</td></tr>
+        </table>
+      </div>
+      <p>This runs on its own track. It does not touch the website, it needs nothing from Amanda, and neither project can hold the other up.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">04</div>
+    <div class="body">
+      <h2>What Larry gets</h2>
+      <p>The hour that goes into finding the right past job and retyping values out of it comes back. That is the whole offer, and it is deliberately narrow.</p>
+      <ul>
+        <li>Carry and change come back separated. The fields that repeat arrive filled. The ones that have to be re-established for this job, elevations and pipe stubs and project and customer, come up as questions rather than travelling across quietly from the job before.</li>
+        <li>It runs on his own convention. The vocabulary in the index is the one already in the filenames. Nobody is asking him to learn a new one or to rename a single file.</li>
+        <li>His cheat sheet is the head start rather than something this competes with. He has kept a spreadsheet of schematics and components for years, which means a hand-built index of this work already exists. We would rather learn from it than duplicate it.</li>
+        <li>He confirms the rankings. When the tool puts a past job on top, Larry says whether that is the one he would have opened. Where he disagrees, the scoring changes, not his answer.</li>
+        <li>Shelters stay out until he says otherwise. They are the larger share of his week and a different animal, and nothing about this approach is being assumed to carry.</li>
+      </ul>
+      <div class="pull">
+        <p>The tool takes a position on which past job is closest. Larry is the one who decides whether it is right, and that is true after it goes live, not only during the test.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">05</div>
+    <div class="body">
+      <h2>Ownership, so it survives a departure</h2>
+      <p>This is the part that decides whether VPC has an asset or a dependency. It is worth settling before anything is built, because retrofitting ownership onto a tool somebody has been using for six months is a much worse conversation.</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Owner</th><td>Corey and VPC. Not Doble AI, and not Larry.</td></tr>
+          <tr><th>Larry's role</th><td>The principal user and the subject-matter authority. He decides whether a ranking is right. He is not the account holder.</td></tr>
+          <tr><th>Accounts</th><td>Company credentials and company hosting from day one, on a VPC domain or a VPC-owned workspace. No personal logins anywhere in the chain.</td></tr>
+          <tr><th>The corpus</th><td>The job records live on VPC storage, the L and M drives or wherever Corey lands after the Lockport move. The index is derived from them and can be rebuilt from them.</td></tr>
+          <tr><th>Runbook</th><td>A short written document: where the data sits, how to re-index, who to call, how to hand it to a different vendor. Written as we build, not after.</td></tr>
+          <tr><th>Second user</th><td>Somebody besides Larry uses it from the first week. Conrad or Taylor is the obvious candidate given they are already on the same submittal format.</td></tr>
+          <tr><th>Re-index</th><td>A documented, repeatable job that anyone can run when new work lands, not a favour to ask us for.</td></tr>
+          <tr><th>Corey's view</th><td>Counts he can read without asking anyone: jobs indexed, searches run, which product families are actually using it.</td></tr>
+        </table>
+      </div>
+      <div class="pull decision">
+        <p><b>The test for whether this is owned.</b> If Larry and Doble AI both disappeared tomorrow, could VPC point a new person or a new vendor at the data and the runbook and carry on? If the answer is anything other than yes, the setup is wrong and it is cheap to fix now.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">06</div>
+    <div class="body">
+      <h2>Where Grok Bot fits</h2>
+      <p>Grok Bot is a good front door. Larry types a job description the way he would say it out loud, and gets the ranked list back without learning a query language. That is a real benefit and it is why it is in the plan.</p>
+      <p>It is not where the history lives.</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Interface</th><td><span class="chip own">yes</span> &nbsp; Ask it in plain language, read the answer, follow it into the package.</td></tr>
+          <tr><th>Vault</th><td><span class="chip rent">no</span> &nbsp; The job records and the index sit on VPC storage. The agent reads them; it does not hold them.</td></tr>
+        </table>
+      </div>
+      <p>The reason is continuity again. Anything that exists only inside an agent's memory is gone when the account lapses, the vendor changes or the model is swapped, and there is no way to audit what it thinks it knows. Keeping the corpus on VPC's side means the front door can be replaced without losing a single job record, and a second interface can be added later without rebuilding anything underneath.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">07</div>
+    <div class="body">
+      <h2>From here to production</h2>
+      <p>Eight phases. Each one is useful on its own, and each gets built only if the one before it earned it.</p>
+      <div class="table-wrap">
+        <table>
+          <tr><td class="num">0</td><th>Align</th><td>Agree the scope, the ownership model in section 05 and what a good result looks like. Corey confirms ownership and access. One short conversation.</td></tr>
+          <tr><td class="num">1</td><th>Corpus and index</th><td>Point at the manhole and flume history on the server, fingerprint every job, and reconcile against Larry's cheat sheet. The output is a count of jobs indexed and a list of anything that would not parse.</td></tr>
+          <tr><td class="num">2</td><th>Five-job test</th><td>Five live jobs through the index. Does it put the right past job on top, and is the difference list the one Larry would have written? About an hour of his time, and it is the phase that decides whether the rest happens.</td></tr>
+          <tr><td class="num">3</td><th>Daily tool</th><td>If the test holds, make it usable every day: company hosting, company accounts, the Grok Bot front door, a second user, and the runbook written as we go.</td></tr>
+          <tr><td class="num">4</td><th>Start from it</th><td>Only if phase 3 is genuinely in use. The closest job comes back as a starting package with the job-specific fields pulled out and asked about. Needs Larry's list of which fields are always job-specific.</td></tr>
+          <tr><td class="num">5</td><th>Quote history</th><td>Add the sales orders so the index can answer what a job like this was quoted at, and what it ended up being. This is where turnaround on quoting improves rather than on drafting.</td></tr>
+          <tr><td class="num">6</td><th>Shelters</th><td>Extend to shelters once there are around ten with their packages. Sixty percent of the week, a different structure, and worth doing properly rather than early.</td></tr>
+          <tr><td class="num">7</td><th>Continuity</th><td>Hand over: runbook finished, re-index proved by somebody at VPC running it, access confirmed, Corey's counts in place.</td></tr>
+        </table>
+      </div>
+      <p>Phases 0 through 2 are the near-term commitment. Everything after phase 2 is a decision Corey makes with the test result in front of him.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">08</div>
+    <div class="body">
+      <h2>What we are not doing yet</h2>
+      <ul>
+        <li><b>No CPQ purchase.</b> Configure-price-quote software is a real category and it may be the right answer one day. Buying one before the history is indexed means paying for a system nobody can populate.</li>
+        <li><b>No CAD generation.</b> It was called dreamland in the room and that is the right label for now. SolidWorks stays where it is.</li>
+        <li><b>No chatbot dump.</b> Loading the PDF library into a general chatbot and asking it questions produces answers that sound right and cannot be checked. The index gives a job number to open.</li>
+        <li><b>No dependency on the website.</b> The work order for vpcfiberglass.com is a separate project on a separate track, and neither one is a prerequisite for the other.</li>
+      </ul>
+      <p>Each of these can be revisited. None of them should be started on the strength of a first result.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">09</div>
+    <div class="body">
+      <h2>What we need</h2>
+      <p><b>From Larry</b></p>
+      <ol class="asks">
+        <li><b>The sales orders for the twenty jobs whose packages we already have.</b> The offer was his: a printout of what he is given alongside what comes out, so the translation between the two is visible. Paired to packages we already hold, those twenty are worth more than twenty new ones.</li>
+        <li><b>A look at the cheat sheet.</b> The spreadsheet of schematics and components. We would rather build on it than build a second one beside it.</li>
+        <li><b>An hour on five live jobs.</b> The phase 2 test. He tells us whether the ranking is the one he would have picked.</li>
+      </ol>
+      <p><b>From Corey</b></p>
+      <ol class="asks">
+        <li><b>Confirm the ownership model in section 05.</b> VPC owns the accounts, the hosting and the data, and the runbook comes with it.</li>
+        <li><b>Access to the submittal history on the server.</b> Read access to the manhole and flume directories is enough to start, and nothing gets renamed or moved.</li>
+      </ol>
+      <p class="quote">Where we have assumed something above, it is marked. We would rather be corrected early than politely.</p>
+    </div>
+  </section>
+
+  <div class="closing">
+    Volume, hours and reuse figures are Larry's, given on the 9 September 2026 call, and the three to five hours and sixty to seventy percent are metering manhole numbers. The 69492 ranking is real output from the index running on the twenty packages delivered 9 September. Nothing in VPC's files has been renamed or moved. This document is link-shared and has not been sent.
+  </div>
+
+</div>
+</body>
+</html>
