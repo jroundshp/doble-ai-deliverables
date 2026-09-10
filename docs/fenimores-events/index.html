@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Working draft for review. Not for print or public posting.">
+<title>Fenimore's Private Events: The Two Pages</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%A5%82</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --ground:   #F1F3F1;
+    --surface:  #FBFCFB;
+    --sunken:   #E7EAE8;
+    --ink:      #141817;
+    --muted:    #5A6462;
+    --hair:     #CBD2CF;
+    --accent:   #14514E;
+    --accent-soft: #DCE8E6;
+    --blocked:  #92600A;
+    --blocked-soft: #F2E7CE;
+    --confirmed:#2C6340;
+    --confirmed-soft: #DCE9DF;
+    --open:     #6B5A7A;
+    --open-soft:#E6E1EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+      --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+      --blocked:#D6A44A; --blocked-soft:#322611; --confirmed:#77B98C;
+      --confirmed-soft:#172A1D; --open:#B49FC7; --open-soft:#241E2B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+    --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+    --blocked:#D6A44A; --blocked-soft:#322611; --confirmed:#77B98C;
+    --confirmed-soft:#172A1D; --open:#B49FC7; --open-soft:#241E2B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground); color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px; line-height: 1.62; margin: 0; padding: 0 24px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; }
+  header.masthead { padding-top: 64px; display: flex; flex-direction: column; gap: 18px; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--accent); margin: 0;
+  }
+
+  h1 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: clamp(32px, 5.6vw, 46px);
+    line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; margin: 0;
+  }
+
+  .standfirst { font-size: 20px; line-height: 1.5; color: var(--muted); margin: 0; max-width: 60ch; }
+
+  .stamp {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 12px; line-height: 1.75; color: var(--muted);
+    border-top: 1px solid var(--hair); padding-top: 14px; margin: 0;
+  }
+  .stamp b { color: var(--ink); font-weight: 500; }
+
+  section { display: flex; flex-direction: column; gap: 16px; }
+  .num { font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.13em; color:var(--accent); text-transform:uppercase; margin:0; }
+
+  h2 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: 26px; letter-spacing: -0.01em; line-height: 1.15;
+    text-wrap: balance; margin: 0 0 6px; padding-bottom: 10px; border-bottom: 2px solid var(--ink);
+  }
+  h3 { font-family: Archivo, sans-serif; font-weight:600; font-size:19px; margin:0 0 6px; }
+  h4 { font-family: Archivo, sans-serif; font-weight:600; font-size:16px; margin:0 0 4px; }
+
+  p { margin: 0; max-width: 66ch; }
+  p + p { margin-top: -4px; }
+  strong, b { font-weight: 600; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+
+  code, .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 0.86em; }
+  code { background: var(--sunken); padding: 1px 5px; border-radius: 3px; word-break: break-word; }
+
+  .tag {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 7px; border-radius: 3px; white-space: nowrap;
+  }
+  .t-ok    { background: var(--confirmed-soft); color: var(--confirmed); }
+  .t-open  { background: var(--open-soft);      color: var(--open); }
+  .t-fix   { background: var(--blocked-soft);   color: var(--blocked); }
+
+  .warn { background:var(--blocked-soft); border-left:4px solid var(--blocked); padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
+  .closer { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .closer p { max-width: 62ch; }
+
+  ul.plain { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:9px; max-width:66ch; }
+  ul.tight { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:4px; max-width:66ch; }
+
+  ol.steps { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:18px; counter-reset:r; }
+  ol.steps li { background:var(--surface); border:1px solid var(--hair); border-left:4px solid var(--accent); padding:18px 22px; }
+  ol.steps li::before { counter-increment:r; content:"0" counter(r); font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; color:var(--accent); display:block; margin-bottom:6px; }
+  .rt { font-family:Archivo,sans-serif; font-weight:600; font-size:17.5px; display:block; margin-bottom:6px; }
+
+  ol.asks { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:16px; counter-reset:a; }
+  ol.asks li { background:var(--surface); border:1px solid var(--hair); border-left:4px solid var(--blocked); padding:16px 20px; }
+  ol.asks li::before { counter-increment:a; content:"Q" counter(a); font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; color:var(--blocked); display:block; margin-bottom:6px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--hair); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--hair); vertical-align: top; font-size: 15.5px; line-height: 1.5; }
+  th {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); background: var(--sunken);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .copy {
+    background: var(--surface); border: 1px solid var(--hair);
+    border-top: 3px solid var(--accent); padding: 26px 28px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .copy .caplab {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); margin: 0;
+  }
+  .copy h3 { font-size: 21px; }
+  .pkg { border-left: 3px solid var(--hair); padding-left: 18px; display:flex; flex-direction:column; gap:6px; }
+  .pkg .pname { font-family:Archivo,sans-serif; font-weight:700; font-size:15px; letter-spacing:.06em; text-transform:uppercase; }
+  .pkg .ptag { font-family:"Source Serif 4",Georgia,serif; font-style:italic; color:var(--muted); font-weight:400; letter-spacing:0; text-transform:none; font-size:16px; }
+
+  .blank {
+    background: var(--blocked-soft); color: var(--blocked);
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 0.82em; padding: 1px 6px; border-radius: 3px; font-weight: 500;
+  }
+
+  .fieldset {
+    background: var(--surface); border: 1px solid var(--hair);
+    padding: 18px 22px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .fieldset .fl {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  }
+  .opts { font-size: 15.5px; color: var(--muted); max-width: 66ch; }
+  .opts b { color: var(--ink); }
+
+  .faq { display:flex; flex-direction:column; gap:20px; }
+  .faq div { border-left:3px solid var(--accent); padding-left:18px; }
+  .faq .q { font-family:Archivo,sans-serif; font-weight:600; font-size:16.5px; display:block; margin-bottom:5px; }
+
+  footer {
+    border-top: 1px solid var(--hair); padding-top: 16px;
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11.5px; line-height: 1.8; color: var(--muted);
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; padding: 0 18px 72px; }
+    .closer, .warn, ol.steps li, ol.asks li, .copy, .fieldset { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <p class="eyebrow">Doble AI &middot; Working draft for review &middot; 10 September 2026</p>
+  <h1>Private events at Fenimore's, and the two pages that sell them</h1>
+  <p class="standfirst">Bob's outline is the input for this. What follows turns it into two pages that can be built and published this week, the copy written out in full so it can be read, marked up and approved rather than described.</p>
+  <p class="stamp">
+    For <b>Bob, Brooks, Corey and Christine.</b> Working draft, not a public page.<br>
+    The food, the packages and the prices in Bob's outline are his and Katie's call. This document takes no position on any of it. What it covers is how the offering gets onto the website, how an inquiry reaches a person, and what a search engine or an AI assistant can read about it.<br>
+    <b>No prices appear on the proposed pages</b>, per Bob's own instruction that the ranges stay preliminary until Katie has costed the recipes.<br>
+    Companion pages: <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-status/">where things stand</a> on the website as of 9 September, and the <a href="https://jroundshp.github.io/doble-ai-deliverables/cooperstown/">Cooperstown index</a> for everything else.
+  </p>
+</header>
+
+<section>
+  <p class="num">01</p>
+  <h2>The short version</h2>
+  <p>Bob asked for one or two pages. Two is right, and there is a case for a third.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>What it does</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>/private-events/</code><br><b>Private Events</b></td>
+          <td>Sells the room and the three experiences. Ends in one button.</td>
+          <td><span class="tag t-ok">Copy drafted, &sect;03</span></td>
+        </tr>
+        <tr>
+          <td><code>/plan-your-event/</code><br><b>Plan Your Event</b></td>
+          <td>Takes the inquiry. Short first, detail second.</td>
+          <td><span class="tag t-ok">Spec drafted, &sect;04</span></td>
+        </tr>
+        <tr>
+          <td><code>/brunch/</code><br><b>Brunch</b></td>
+          <td>Currently a dead link on the site. The Celebration Brunch gives it a reason to exist.</td>
+          <td><span class="tag t-open">Needs one answer, Q6</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Nothing on fenimorestable.com currently mentions private events, rehearsal dinners, receptions, showers or reunions. Someone in Cooperstown searching for a place to put forty people has no way to find out that Fenimore's does this. That is the whole gap, and it closes with one page.</p>
+
+  <p>The part of Bob's outline that will do the most work is not in it yet: <b>a section of plain questions with plain answers</b>. How many can you seat. Can we have the place to ourselves. How far ahead do we need to book. That section is drafted in &sect;05, and it is the single thing most likely to get Fenimore's named when somebody asks an AI assistant where to hold a rehearsal dinner in Cooperstown.</p>
+</section>
+
+<section>
+  <p class="num">02</p>
+  <h2>What goes up now, and what waits</h2>
+
+  <p>Getting the message out before the food is finalised is the right instinct. What an event customer needs first is confirmation that Fenimore's hosts events at all, roughly what shape they take, and a way to start a conversation. None of that requires a price.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Now</th><th>When Katie's costs land</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>The three experiences, described by what they include and who they suit</td>
+          <td>Per-person prices, in the &ldquo;starting at&rdquo; form Bob describes</td>
+        </tr>
+        <tr>
+          <td>The Celebration Brunch</td>
+          <td>A downloadable one-page brochure per package</td>
+        </tr>
+        <tr>
+          <td>Sample selections, worded as examples rather than a fixed card</td>
+          <td>The final selection lists, once the card is locked</td>
+        </tr>
+        <tr>
+          <td>Enhancements, quoted based on selection</td>
+          <td>Nothing changes. Rental pricing should never be published.</td>
+        </tr>
+        <tr>
+          <td>The full inquiry form</td>
+          <td>Nothing changes.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warn">
+    <p><b>One rule that is worth stating plainly, because it is hard to undo.</b> Every price published on the website is a price a guest can hold Fenimore's to, and the ones that hurt are the ones nobody remembers are still up. If a number goes on the page it needs an owner and a date. The safest version of this launch has no numbers on it at all, which is also what Bob recommended.</p>
+  </div>
+</section>
+
+<section>
+  <p class="num">03</p>
+  <h2>Page one: the copy, ready to publish</h2>
+
+  <p>Written to be read out loud by someone who works there. It keeps every offering in Bob's outline and changes only the voice. Anything in <span class="blank">amber</span> is a fact we do not have yet and cannot invent.</p>
+
+  <div class="copy">
+    <p class="caplab">fenimorestable.com/private-events/</p>
+
+    <h3>Private Events at Fenimore's Table</h3>
+    <p><i>Your celebration, our kitchen, on Route 28 just outside the village.</i></p>
+
+    <p>Fenimore's Table hosts private gatherings for up to <span class="blank">[seated capacity]</span> guests seated, or <span class="blank">[reception capacity]</span> for a standing reception. We take care of the food, the bar, the room and the table settings, and one person from our team stays with your event from the first phone call through the last toast.</p>
+
+    <p>We host rehearsal dinners and wedding receptions, welcome parties and farewell brunches, bridal and baby showers, anniversaries and milestone birthdays, family reunions, corporate lunches and dinners, holiday parties, sports banquets, celebrations of life, and cocktail receptions.</p>
+
+    <h4>Three ways to do it</h4>
+
+    <div class="pkg">
+      <span class="pname">The Fenimore <span class="ptag">Casual elegant</span></span>
+      <p>For family gatherings, team dinners, corporate groups and celebrations that want good food without a lot of ceremony. Served buffet or family style, and built around the food we cook every day: house and fall harvest salads, chicken parmesan, grilled salmon, the chicken special, pasta, and sides from the kitchen.</p>
+    </div>
+
+    <div class="pkg">
+      <span class="pname">The Signature <span class="ptag">Upscale celebration</span></span>
+      <p>For rehearsal dinners, showers, milestone birthdays, anniversaries and holiday parties. Open with a cocktail hour if you want one, with selections like our salmon ball with crostini and cucumber chips, pretzel cauliflower bites, the wings, elote nachos, flatbreads and charcuterie. Dinner follows buffet or plated, with NY strip, grilled salmon, the chicken special and a seasonal pasta among the choices, and dessert from the kitchen.</p>
+    </div>
+
+    <div class="pkg">
+      <span class="pname">The Grand <span class="ptag">Premium private dining</span></span>
+      <p>Our white tablecloth service, for wedding events, milestone celebrations and premium corporate dinners. Passed hors d'oeuvres to start, then a plated dinner with up to three entree choices for your guests, upgraded china and glassware, specialty linens, a plated dessert and coffee service. Bar packages run up to a premium open bar, with a champagne toast and a signature cocktail if you want them.</p>
+    </div>
+
+    <h4>The Celebration Brunch</h4>
+    <p>For Sunday farewell brunches after a wedding, for showers, reunions and corporate mornings. Scrambled eggs, bacon and sausage, home fries, French toast, buttermilk pancakes, fresh fruit, pastries, coffee and juice, out of the same kitchen that opens at 6:30 every morning. Add a mimosa bar, a bloody mary bar, a smoked salmon display or a carving station.</p>
+
+    <h4>Make it your own</h4>
+    <p>Past the food, we can bring in premium china and charger plates, specialty flatware, wine and cocktail glassware, upgraded linens and napkins, chiavari or crossback chairs, cocktail tables, votive and specialty lighting, a dance floor, staging, and pipe and drape. These are quoted based on what you choose.</p>
+
+    <h4>One call</h4>
+    <p>Tell us what you have in mind and we will come back with the menu, the bar, the room and the numbers, in one proposal.</p>
+    <p><b>[ PLAN YOUR EVENT ]</b> <span class="opts">button, goes to page two</span></p>
+  </div>
+
+  <p>Two notes on the wording. It avoids the words that make a page read as though a machine wrote it, which matters here more than it would elsewhere given the reaction the last AI-written post drew locally. And it deliberately does not lean on the Fenimore name in search terms, because &ldquo;Fenimore Cooperstown&rdquo; belongs to the art museum. The page has to earn its position on words like private events, rehearsal dinner and Cooperstown restaurant instead.</p>
+</section>
+
+<section>
+  <p class="num">04</p>
+  <h2>Page two: the form</h2>
+
+  <p>Every field in the outline is worth having. The only change worth making is the order. As one screen it runs to roughly sixty questions, and most of these inquiries will arrive on a phone, where sixty questions is where people close the tab. So it splits: a short first step that is enough to call somebody back, then the detail.</p>
+
+  <p>There is a real argument the other way, and it should be said. A long form filters out the people who were never serious, and some venues want exactly that. The reason to split it anyway is that at this stage Fenimore's does not have a volume problem to solve. It has the opposite one, and a page nobody knew existed is not the moment to start turning people away at the door.</p>
+
+  <h3>Step one, what we need to start</h3>
+
+  <div class="fieldset">
+    <p class="fl">Contact</p>
+    <p class="opts"><b>First name</b> &middot; <b>Last name</b> &middot; <b>Phone</b> &middot; <b>Email</b> &middot; <b>Best way to reach you</b> (phone, text, email)</p>
+  </div>
+
+  <div class="fieldset">
+    <p class="fl">The event</p>
+    <p class="opts"><b>What are you planning?</b> Wedding reception, rehearsal dinner, welcome party, farewell brunch, bridal shower, baby shower, birthday, anniversary, family reunion, corporate event, <b>group or corporate lunch</b>, holiday party, sports banquet, celebration of life, cocktail reception, private brunch, <b>full restaurant buyout</b>, something else.</p>
+    <p class="opts"><b>Preferred date</b> and <b>alternate date</b> &middot; <b>About how many guests</b> &middot; <b>Roughly what time</b></p>
+  </div>
+
+  <div class="fieldset">
+    <p class="fl">Which experience</p>
+    <p class="opts">The Fenimore &middot; The Signature &middot; The Grand &middot; Celebration Brunch &middot; <b>Not sure yet, help me choose</b></p>
+  </div>
+
+  <div class="fieldset">
+    <p class="fl">In your words</p>
+    <p class="opts"><b>Tell us about your event.</b> What are you picturing?</p>
+  </div>
+
+  <p>That is the whole of step one, and it is enough for Bob or Brooks to pick up the phone. Then:</p>
+
+  <h3>Step two, optional, headed &ldquo;Add details now and we can quote you faster&rdquo;</h3>
+
+  <div class="fieldset">
+    <p class="fl">Service and bar</p>
+    <p class="opts"><b>Meal service:</b> plated, buffet, family style, cocktail reception, brunch buffet, hors d'oeuvres only, not sure.</p>
+    <p class="opts"><b>Cocktail hour:</b> yes, no, tell me more. If yes: passed hors d'oeuvres, charcuterie display, seafood display, flatbread and appetizer station, signature cocktails.</p>
+    <p class="opts"><b>Bar:</b> no alcohol, beer and wine, house open bar, premium open bar, consumption bar, cash bar, champagne toast, signature event cocktail, mimosa or bloody mary bar, please recommend.</p>
+  </div>
+
+  <div class="fieldset">
+    <p class="fl">Enhancements</p>
+    <p class="opts"><b>Tabletop:</b> premium china, charger plates, premium flatware, wine glassware, champagne glassware, specialty cocktail glassware.</p>
+    <p class="opts"><b>Linens and furniture:</b> specialty linens, specialty napkins, chiavari chairs, crossback chairs, cocktail tables, farmhouse tables.</p>
+    <p class="opts"><b>Decor and entertainment:</b> centerpieces, votive lighting, specialty lighting, dance floor, staging, pipe and drape, outdoor tent or patio.</p>
+    <p class="opts">Each of these carries the note Bob wrote: <i>quoted based on selection</i>. The rental supplier's own rates never appear on the page.</p>
+  </div>
+
+  <div class="fieldset">
+    <p class="fl">The rest</p>
+    <p class="opts"><b>Estimated budget:</b> under $5,000, $5,000 to $7,500, $7,500 to $10,000, $10,000 to $15,000, $15,000 and up, not sure yet.</p>
+    <p class="opts"><b>Allergies, dietary restrictions or special meals</b> &middot; <b>How did you hear about us:</b> Hampton Inn, Google, Facebook, Instagram, friend or family, previous guest, wedding planner, local business, other.</p>
+  </div>
+
+  <p>Underneath the button, Bob's line stands as written: <i>Submitting this form does not reserve your date. A member of the Fenimore's team will contact you to confirm availability and discuss menus, pricing, deposits and event details.</i></p>
+</section>
+
+<section>
+  <p class="num">05</p>
+  <h2>The questions section, and why it matters most</h2>
+
+  <p>This is the piece that is not in the outline yet. Every event inquiry in the world opens with the same handful of questions, and a page that answers them plainly does two things at once. It stops the wrong inquiries before they cost anybody a phone call, and it is the format that AI assistants quote from when somebody asks them where to hold a party in Cooperstown. A page of description gets summarised. A question with a direct answer gets repeated.</p>
+
+  <p>Drafted below with the answers we can write. The rest need Bob.</p>
+
+  <div class="faq">
+    <div><span class="q">How many people can you seat?</span>
+      <p><span class="blank">[Needs Q1]</span> seated, and <span class="blank">[Needs Q1]</span> for a standing reception.</p></div>
+    <div><span class="q">Can we have the restaurant to ourselves?</span>
+      <p><span class="blank">[Needs Q2: is a buyout available, and on which days or times]</span></p></div>
+    <div><span class="q">How far ahead should we book?</span>
+      <p><span class="blank">[Needs Q3]</span></p></div>
+    <div><span class="q">Is there a deposit or a minimum?</span>
+      <p><span class="blank">[Needs Q3]</span></p></div>
+    <div><span class="q">What does it cost per person?</span>
+      <p>It depends on which experience you choose, how many guests you have and what you add to it. Tell us the shape of your event and we will come back with a full quote. <i>This answer stays as written until Katie's costs are in. It is honest, and it is better than a number that goes stale.</i></p></div>
+    <div><span class="q">Can you do an open bar?</span>
+      <p>Yes. Beer and wine, a house open bar or a premium open bar, and we can also run it on consumption or as a cash bar. A champagne toast and a signature cocktail can be added to any of them.</p></div>
+    <div><span class="q">Can you handle allergies, vegetarian or gluten free?</span>
+      <p>Yes. Tell us on the inquiry form and the kitchen will build around it.</p></div>
+    <div><span class="q">Can we bring our own cake?</span>
+      <p><span class="blank">[Needs Q4: yes or no, and is there a cutting fee]</span></p></div>
+    <div><span class="q">Is there parking?</span>
+      <p><span class="blank">[Needs Q4: how many spaces]</span> on site, free, right outside the door. <i>Worth saying out loud on the page. It is a real advantage in Cooperstown and nothing on the site currently mentions it.</i></p></div>
+    <div><span class="q">Can you host during the day?</span>
+      <p>Yes. Breakfast and lunch events, brunches and daytime corporate gatherings all work, including on the days the dining room closes at 4PM.</p></div>
+    <div><span class="q">Where are you?</span>
+      <p>4874 State Highway 28, Cooperstown, a few minutes from the village and the Hall of Fame, with the Cooperstown Clubhouse next door.</p></div>
+  </div>
+</section>
+
+<section>
+  <p class="num">06</p>
+  <h2>One category the pages have no home for yet</h2>
+
+  <p>The call on 9 September named hospital lunches as a live request, somebody asking after roughly forty five people. Sports nights, music nights and facility buyouts came up in the same conversation.</p>
+
+  <p>The three experiences as drawn are shaped around dinners and celebrations, so a daytime group lunch inquiry arriving today has nowhere obvious to land. That is a gap in the page rather than in the offering, and it costs nothing to close: a group and corporate lunch line on page one, and the matching option in the form's dropdown, which is why it is already in the &sect;04 list. What that service actually consists of is Bob and Katie's call.</p>
+
+  <p>Facility buyouts are worth naming on the page for the same reason. It is the kind of thing people do not think to ask for unless a restaurant says it is possible.</p>
+</section>
+
+<section>
+  <p class="num">07</p>
+  <h2>How an inquiry actually reaches a person</h2>
+
+  <p>This part is invisible on the page and it is where event inquiries are most often lost, so it is worth being direct about it.</p>
+
+  <p>The website's current contact form has three fields and sends an email to <code>restaurant@cooperstownexperience.com</code>. It keeps no copy of anything. For a question about opening hours that is fine. For a wedding inquiry it means that if the message is filtered, misread or missed, there is no record it ever arrived and no way to know it happened.</p>
+
+  <p>Four things fix it, all inside the current arrangement and all done from our side:</p>
+
+  <ol class="steps">
+    <li><span class="rt">Every submission stored on the website itself</span>
+      <p>A dated, searchable list of every inquiry, exportable to a spreadsheet, independent of anybody's inbox. Email becomes the notification rather than the record.</p></li>
+    <li><span class="rt">Notifications sent through an authenticated mail route</span>
+      <p>Form mail sent the default way from a web host is filtered often, and silently. This is the single most common reason a restaurant never hears about an inquiry that was made.</p></li>
+    <li><span class="rt">An automatic reply to the guest, within seconds</span>
+      <p>Confirming what they sent and roughly when somebody will call. Costs nothing and is the difference between a lead who waits and a lead who sends the same form to the next venue.</p></li>
+    <li><span class="rt">One named person who owns the inbox, and one backup</span>
+      <p>Inquiries sent to everybody get answered by nobody. This is a name, not a system, and it is the only item on this list that we cannot put in place from our end.</p></li>
+  </ol>
+</section>
+
+<section>
+  <p class="num">08</p>
+  <h2>What we need back</h2>
+
+  <p>Answers to these can come as a reply to the email this arrived with. Nothing here needs a meeting, and photographs can follow after the pages are live.</p>
+
+  <ol class="asks">
+    <li><b>Capacity.</b> How many seated, and how many for a standing reception? Is there a separate private room, or is it the full dining room? This is the first question every inquiry asks and the pages cannot go live without it.</li>
+    <li><b>Buyouts.</b> Is a full restaurant buyout available, and on which days or times? Say no if it is no.</li>
+    <li><b>Booking terms.</b> Minimum notice you want, whether there is a deposit, and whether there is a food and beverage minimum. Rough is fine.</li>
+    <li><b>Two small ones.</b> Can guests bring their own cake, and is there a fee? And roughly how many parking spaces are on site?</li>
+    <li><b>Who owns an inquiry.</b> One name, one backup, and the email address the notifications should go to.</li>
+    <li><b>Brunch.</b> Is there a walk in brunch on weekends, or is brunch private events only? This decides whether <code>/brunch/</code> becomes a real page or a redirect. Either is fine, but right now it is a dead link and answers nothing.</li>
+    <li><b>The copy in &sect;03.</b> Approve it, or mark it up. Changes to dish names, package descriptions and anything about the food are yours to make and we will publish exactly what comes back.</li>
+    <li><b>Photographs.</b> Six to ten real pictures: the dining room set for a party, a table dressed, a plated dish, the bar. Phone photographs are completely fine. We will not use stock or AI generated imagery on this page.</li>
+  </ol>
+</section>
+
+<section>
+  <p class="num">09</p>
+  <h2>What happens after the answers</h2>
+
+  <p>First part of next week is achievable. The build itself is about a day.</p>
+
+  <ul class="plain">
+    <li>Both pages built in the site's existing design, published unlisted first so the group can look at them before anything is public.</li>
+    <li>Links added from the homepage, the menu page, the breakfast page and contact, so the events page is reachable from anywhere on the site.</li>
+    <li>Page titles, descriptions and social preview cards written, and both pages added to the sitemap so Google finds them.</li>
+    <li>The questions section marked up so assistants can quote the answers directly.</li>
+    <li>The form built, stored, tested end to end with a real submission, and confirmed to arrive.</li>
+    <li>The Google Business Profile updated to point at the events page, which will reach people faster in the first weeks than the page will on its own.</li>
+  </ul>
+
+  <p>Of that list, only the photographs and the capacity number are outside our hands. Everything else runs from here.</p>
+
+  <div class="warn">
+    <p><b>Worth being honest about what a web page will and will not do in week one.</b> A new page does not rank quickly. On its own it will take weeks to start turning up for someone searching for a Cooperstown venue, and the first bookings will almost certainly come from the Google profile, the banners Bob has coming, and people who already know Fenimore's. The page is what makes all of those land somewhere. It is worth building now and it is not the thing that fills the room in October.</p>
+  </div>
+</section>
+
+<section>
+  <p class="num">10</p>
+  <h2>What this document does not do</h2>
+  <div class="closer">
+    <p>It takes no position on the food. The packages, the dishes, the portions and the prices in Bob's outline are his and Katie's work and are reproduced here only as far as they need to appear on a web page.</p>
+    <p>It publishes no prices. Every figure in Bob's outline stays internal until the costing is done, which was his instruction.</p>
+    <p>It does not touch the Cooperstown Clubhouse or the Cooperstown Experience websites. Both should eventually link to this page and neither is in scope here.</p>
+    <p>Capacity, buyout policy, deposits and parking are stated nowhere on the current website and were not assumed. Every one of them is a question in &sect;08 rather than a number on the page.</p>
+  </div>
+</section>
+
+<footer>
+  Doble AI &middot; Fenimore's private events, working draft &middot; 10 September 2026<br>
+  Fenimore's Table, 4874 State Highway 28, Cooperstown NY &middot; fenimorestable.com<br>
+  Source for the offering: Bob Hickey's private event outline. Site facts checked against fenimorestable.com on 10 September 2026.<br>
+  Companion pages: <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-status/">where things stand</a> &middot; <a href="https://jroundshp.github.io/doble-ai-deliverables/cooperstown/">Cooperstown index</a><br>
+  Working draft. Link shared, not indexed.
+</footer>
+
+</div>
+</body>
+</html>
