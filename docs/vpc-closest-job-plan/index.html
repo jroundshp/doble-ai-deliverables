@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<title>VPC Closest-Job System Plan</title>
+<title>VPC Company AI System Plan</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   body { margin: 0; }
@@ -461,47 +461,169 @@
   .count { font-family: var(--f-mono); font-size: 12px; color: var(--ink-faint); }
   .score { font-family: var(--f-mono); font-size: 13.5px; font-weight: 500; color: var(--accent); }
   a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  /* ---------- figures ---------- */
+
+  figure { margin: 22px 0 6px; }
+  figure svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+  figcaption {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--ink-faint);
+    margin-top: 12px;
+    max-width: 62ch;
+  }
+
+  .objective figure { margin: 24px 0 0; }
+
+  .d-box { fill: var(--surface); stroke: var(--rule); stroke-width: 1.5; }
+  .d-box-a { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+  .d-box-r { fill: var(--rust-soft); stroke: var(--rust); stroke-width: 1.5; }
+  .d-box-d { fill: none; stroke: var(--rule); stroke-width: 1.5; stroke-dasharray: 5 4; }
+  .d-fill-a { fill: var(--accent); stroke: none; }
+
+  .d-t { font-family: var(--f-body); font-size: 13px; font-weight: 500; fill: var(--ink); }
+  .d-t-b { font-family: var(--f-display); font-size: 14.5px; font-weight: 600; fill: var(--ink); }
+  .d-t-s { font-family: var(--f-body); font-size: 11.5px; fill: var(--ink-soft); }
+  .d-t-k { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.09em; fill: var(--ink-faint); }
+  .d-t-ka { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.09em; fill: var(--accent); }
+  .d-t-kr { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.09em; fill: var(--rust); }
+  .d-t-n { font-family: var(--f-mono); font-size: 12px; font-weight: 500; fill: var(--surface); }
+  .d-t-ni { font-family: var(--f-mono); font-size: 12px; font-weight: 500; fill: var(--ink-soft); }
+  .d-t-on { font-family: var(--f-display); font-size: 14px; font-weight: 600; fill: var(--surface); }
+
+  .d-line { stroke: var(--ink-faint); stroke-width: 1.5; fill: none; }
+  .d-line-a { stroke: var(--accent); stroke-width: 1.5; fill: none; }
+  .d-line-d { stroke: var(--rule); stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+  .d-head { fill: var(--ink-faint); }
+  .d-head-a { fill: var(--accent); }
 </style>
 </head>
 <body>
 <div class="sheet">
 
   <header class="masthead">
-    <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan and Larry</b> &nbsp;/&nbsp; 10 September 2026</span>
-    <h1>Closest-job system: the full plan</h1>
-    <p class="dek">Larry's day with it, what VPC gets out of it, how Corey owns it so it survives whether or not Larry is here, why Grok Bot is the front door and not the filing cabinet, and every step between today and a tool people use on Monday morning.</p>
-    <p class="scope">Metering manholes and flumes first. Shelters come later, once there are enough of them to learn from. Companion document: <a href="https://jroundshp.github.io/doble-ai-deliverables/vpc-submittal-concept/">the submittal library concept</a>, which is where the twenty packages and the ranking output are written up. The website work order is a separate job and nothing here waits on it.</p>
+    <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan</b> &nbsp;/&nbsp; 10 September 2026</span>
+    <h1>VPC company AI system: the master plan</h1>
+    <p class="dek">One company account, holding VPC's own data, that new workflows get added to over time. Engineering goes first. Other departments come in behind it.</p>
+    <p class="scope">First workflow: the closest-job index for metering manholes and flumes, built with Larry and written up in <a href="https://jroundshp.github.io/doble-ai-deliverables/vpc-submittal-concept/">the submittal library concept</a>. The website work order is a separate project and neither one waits on the other.</p>
   </header>
 
   <div class="objective">
-    <span class="opt-label">What we are after</span>
-    <p class="lead">A job that comes in should land next to the jobs like it, with the reusable parts already identified and the parts that have to change already flagged.</p>
-    <ul class="conditions">
-      <li><b>Findable</b>The closest past job comes back because it matches, not because somebody remembered it.</li>
-      <li><b>Carried forward</b>What repeats arrives already assembled. What changes gets asked about instead of inherited quietly.</li>
-      <li><b>Owned by the company</b>The history lives on VPC's storage under VPC's accounts, so it does not walk out with any one person.</li>
-    </ul>
-    <p class="coda">None of this replaces the engineering. It removes the retrieval and the retyping in front of it.</p>
+    <span class="opt-label">The master plan</span>
+    <p class="lead">Seats under one company roof, workflows added by department, and the knowledge kept where VPC can always reach it.</p>
+
+    <figure>
+      <svg viewBox="0 0 720 372" role="img" aria-label="VPC holds one company account. Employees hold seats on it, department workflows are added under it, and the job records stay on VPC storage and Salesforce, which the workflows read.">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" class="d-head"/>
+          </marker>
+        </defs>
+
+        <text x="0" y="10" class="d-t-k">PEOPLE</text>
+        <rect x="0"   y="20" width="124" height="32" rx="16" class="d-box"/>
+        <rect x="149" y="20" width="124" height="32" rx="16" class="d-box"/>
+        <rect x="298" y="20" width="124" height="32" rx="16" class="d-box"/>
+        <rect x="447" y="20" width="124" height="32" rx="16" class="d-box"/>
+        <rect x="596" y="20" width="124" height="32" rx="16" class="d-box"/>
+        <text x="62"  y="40" text-anchor="middle" class="d-t">Corey, admin</text>
+        <text x="211" y="40" text-anchor="middle" class="d-t">Larry</text>
+        <text x="360" y="40" text-anchor="middle" class="d-t">2nd engineer</text>
+        <text x="509" y="40" text-anchor="middle" class="d-t">Sales</text>
+        <text x="658" y="40" text-anchor="middle" class="d-t">Future hires</text>
+
+        <path d="M 62 52 L 62 64 L 658 64 L 658 52" class="d-line-d"/>
+        <path d="M 360 64 L 360 84" class="d-line" marker-end="url(#ah)"/>
+        <text x="372" y="78" class="d-t-k">SEATS</text>
+
+        <rect x="0" y="90" width="720" height="54" class="d-box-a"/>
+        <text x="360" y="114" text-anchor="middle" class="d-t-b">VPC company account: Grok Bot organisation, Cursor alongside it</text>
+        <text x="360" y="132" text-anchor="middle" class="d-t-s">Corey administers &nbsp;&middot;&nbsp; VPC pays &nbsp;&middot;&nbsp; seats issued and revoked by VPC</text>
+
+        <path d="M 360 144 L 360 162" class="d-line"/>
+        <path d="M 82 162 L 638 162" class="d-line"/>
+        <path d="M 82 162 L 82 182"  class="d-line" marker-end="url(#ah)"/>
+        <path d="M 267 162 L 267 182" class="d-line" marker-end="url(#ah)"/>
+        <path d="M 452 162 L 452 182" class="d-line" marker-end="url(#ah)"/>
+        <path d="M 637 162 L 637 182" class="d-line" marker-end="url(#ah)"/>
+
+        <rect x="0"   y="188" width="165" height="62" class="d-box-a"/>
+        <rect x="185" y="188" width="165" height="62" class="d-box-d"/>
+        <rect x="370" y="188" width="165" height="62" class="d-box-d"/>
+        <rect x="555" y="188" width="165" height="62" class="d-box-d"/>
+        <text x="82"  y="214" text-anchor="middle" class="d-t">Engineering</text>
+        <text x="82"  y="233" text-anchor="middle" class="d-t-ka">CLOSEST JOB, FIRST</text>
+        <text x="267" y="214" text-anchor="middle" class="d-t">Quote history</text>
+        <text x="267" y="233" text-anchor="middle" class="d-t-k">NEXT</text>
+        <text x="452" y="214" text-anchor="middle" class="d-t">Shelters</text>
+        <text x="452" y="233" text-anchor="middle" class="d-t-k">LATER</text>
+        <text x="637" y="214" text-anchor="middle" class="d-t">Other departments</text>
+        <text x="637" y="233" text-anchor="middle" class="d-t-k">OPEN</text>
+
+        <path d="M 82 250 L 82 272 L 637 272 L 637 250" class="d-line-d"/>
+        <path d="M 360 272 L 360 296" class="d-line" marker-end="url(#ah)"/>
+        <text x="372" y="288" class="d-t-k">READS</text>
+
+        <rect x="0" y="302" width="720" height="58" class="d-box"/>
+        <text x="360" y="326" text-anchor="middle" class="d-t-b">VPC storage, the L and M drives, plus Salesforce</text>
+        <text x="360" y="346" text-anchor="middle" class="d-t-s">The records live here. The bot is the front door, never the filing cabinet.</text>
+      </svg>
+      <figcaption>Workflows get added under one roof rather than each person buying their own subscription. The bot reads what VPC owns, so swapping the front door later costs nothing.</figcaption>
+    </figure>
+
+    <p class="coda">Sequence: prove the closest-job index with Larry, add quote history, extend to shelters, then take the same account into other departments.</p>
   </div>
 
   <section>
     <div class="marker">01</div>
     <div class="body">
-      <h2>What the system is</h2>
-      <p>One thing: a closest-job index that runs on every RFQ before anybody opens a drawing. Describe the job coming in, get back the past jobs that are nearest to it, ranked, with a line on each saying what is different.</p>
-      <p>The loop, start to finish:</p>
+      <h2>What Corey owns</h2>
+      <p>Everything. That is the design, and it is the part worth settling before anything gets built.</p>
+
+      <figure>
+        <svg viewBox="0 0 720 238" role="img" aria-label="Doble AI builds the system and hands it over. VPC holds the accounts, seats, billing, job data, the index and the runbook. Removing Larry or removing Doble AI leaves the system running.">
+          <defs>
+            <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" class="d-head"/>
+            </marker>
+          </defs>
+
+          <rect x="0" y="52" width="132" height="62" class="d-box-d"/>
+          <text x="66" y="78" text-anchor="middle" class="d-t">Doble AI</text>
+          <text x="66" y="97" text-anchor="middle" class="d-t-s">builds and wires</text>
+
+          <path d="M 132 83 L 194 83" class="d-line" marker-end="url(#ah2)"/>
+          <text x="152" y="108" text-anchor="middle" class="d-t-k">HANDS OVER</text>
+
+          <rect x="200" y="14" width="520" height="152" class="d-box-a"/>
+          <text x="220" y="40" class="d-t-ka">VPC OWNS</text>
+
+          <rect x="220" y="54"  width="164" height="36" rx="18" class="d-box"/>
+          <rect x="398" y="54"  width="124" height="36" rx="18" class="d-box"/>
+          <rect x="536" y="54"  width="164" height="36" rx="18" class="d-box"/>
+          <rect x="220" y="104" width="164" height="36" rx="18" class="d-box"/>
+          <rect x="398" y="104" width="164" height="36" rx="18" class="d-box"/>
+          <text x="302" y="77"  text-anchor="middle" class="d-t">Accounts and seats</text>
+          <text x="460" y="77"  text-anchor="middle" class="d-t">Billing</text>
+          <text x="618" y="77"  text-anchor="middle" class="d-t">The job records</text>
+          <text x="302" y="127" text-anchor="middle" class="d-t">The index</text>
+          <text x="480" y="127" text-anchor="middle" class="d-t">The runbook</text>
+
+          <circle cx="8" cy="200" r="5" class="d-fill-a"/>
+          <text x="22" y="205" class="d-t">Larry leaves and the system still runs.</text>
+          <circle cx="378" cy="200" r="5" class="d-fill-a"/>
+          <text x="392" y="205" class="d-t">Doble AI leaves and the system still runs.</text>
+        </svg>
+        <figcaption>The two removal tests are the whole specification. If either one fails, the setup is wrong, and it is cheap to fix now and expensive to fix in a year.</figcaption>
+      </figure>
+
       <div class="table-wrap">
         <table>
-          <tr><td class="num">1</td><th>RFQ arrives</th><td>Sales enters it and Salesforce issues the number, the same as today.</td></tr>
-          <tr><td class="num">2</td><th>Drop the order in</th><td>The sales order goes into the tool. Nothing is retyped and nothing on the drive moves.</td></tr>
-          <tr><td class="num">3</td><th>Indexed history answers</th><td>Every past job is already fingerprinted, so the match happens against the whole record rather than against the folder somebody thinks to open.</td></tr>
-          <tr><td class="num">4</td><th>Ranked neighbours</th><td>Four or five past jobs, closest first, each with its carry list and its change list.</td></tr>
-          <tr><td class="num">5</td><th>Start from the package</th><td>Open the winner, work from it, and answer the flagged fields rather than hunting for them.</td></tr>
+          <tr><th>Continuity</th><td>Carries through a vacation, a retirement or a resignation. Larry's knowledge is the input rather than the dependency.</td></tr>
+          <tr><th>Visibility</th><td>Counts Corey reads without asking anyone: jobs indexed, searches run, which product families use it and which ignore it.</td></tr>
+          <tr><th>Room to extend</th><td>Sales, ductwork, InterActive Play. A new workflow under an account that already exists, not a rebuild.</td></tr>
         </table>
-      </div>
-      <p>It does not generate CAD. It does not decide what a job needs, which is engineering judgement and stays with Larry. And it is not the PDF library handed to a chatbot, which gives confident answers with nothing underneath them.</p>
-      <div class="pull">
-        <p><b>It already runs.</b> Treat job 69492 as the RFQ that just came in. The index puts 65067 on top at 76 percent, then lists three fields that carry over unchanged and three that have to change. That output is real, off the existing filenames, with nothing on VPC's drive renamed or moved.</p>
       </div>
     </div>
   </section>
@@ -509,47 +631,91 @@
   <section>
     <div class="marker">02</div>
     <div class="body">
-      <h2>Why it is worth building</h2>
-      <p>Five to ten submittals a week come through. A metering manhole runs three to five hours, and Larry's estimate is that sixty to seventy percent of one is already sitting somewhere in a job that was finished months ago.</p>
-      <p>That figure is a manhole figure. It was given about metering manholes, because that is what the question on the call was about, and it should not be stretched across the whole week until somebody has timed a shelter.</p>
-      <p>The retrieval itself is the part that fails quietly. Searching the submittal subdirectory by type works when the spelling holds, and the spelling does not always hold. Search the drive for <code>ultra bkt</code> and you get thirteen of the seventeen jobs that have one; the other four are typed <code>ulta bkt</code> or <code>ultra kkt</code> and simply do not come back. Nothing on the screen tells you four are missing. An index that normalises as it reads finds all seventeen, and nobody has to change how they name anything.</p>
-      <p>Underneath that sits a bigger gap. The order lives in Salesforce and the drawing lives on the server, and the only thing that joins the two is Larry.</p>
-      <p>The limit is worth naming now rather than later. An index built on finished packages answers what VPC has built before. It cannot answer what this job ought to be until the sales orders are in it, which is why they are the first ask in section 09.</p>
+      <h2>What Doble AI is for</h2>
+      <p>Fair question, and worth answering before the plan rather than after it.</p>
+      <p><b>Corey could set up the account himself this afternoon.</b> Buying a corporate Grok Bot organisation and issuing seats takes about an hour and does not need us. If that were the whole plan, we would say so and stop.</p>
+      <p>The account is not the system. What does not exist until somebody builds it:</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>The index</th><td>Every past job read, parsed and fingerprinted, with the misspellings normalised so a search finds all seventeen jobs instead of thirteen. This is software, and it does not come with a subscription.</td></tr>
+          <tr><th>The join</th><td>The Salesforce order and the server drawing brought together, which is the thing that currently only happens inside Larry's head.</td></tr>
+          <tr><th>The scoring</th><td>Deciding what makes two jobs similar, then changing it when Larry says the ranking is wrong. Judgement, tested against his, not a setting in a menu.</td></tr>
+          <tr><th>The handover</th><td>Company accounts, a second user, a runbook, and a re-index anybody at VPC can run. The unglamorous part, and the part that decides whether VPC owns an asset or rents a habit.</td></tr>
+          <tr><th>The word no</th><td>Telling VPC when to stop. Do not buy CPQ software, do not chase CAD generation, do not dump the PDF library into a chatbot. A vendor paid to expand scope does not say that.</td></tr>
+        </table>
+      </div>
+      <div class="pull decision">
+        <p><b>Where this sits commercially.</b> The first workflow is inside the current arrangement, not a new line item. Beyond it, each additional department is its own build with its own decision, and the honest version of that is: if there is no next workflow worth building, there is nothing to bill for. VPC keeps everything built up to that point either way.</p>
+      </div>
+      <p>And if Corey would rather have his own people run this, that is a real option and we would rather he took it than paid for something he can do internally. The index, the scoring and the runbook are documented as they are built, precisely so that route stays open.</p>
     </div>
   </section>
 
   <section>
     <div class="marker">03</div>
     <div class="body">
-      <h2>What VPC gets</h2>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Speed</th><td>The hunting stretch of a submittal shortens. On manholes that is the front end of a three to five hour job.</td></tr>
-          <tr><th>Capacity</th><td>More submittals move through the same headcount, which matters most in the weeks that run at ten rather than five.</td></tr>
-          <tr><th>Consistency</th><td>Two people starting from the same closest job produce packages that look like each other, which is the point of the folder scheme Dave Riggs already put in place.</td></tr>
-          <tr><th>Company knowledge</th><td>Years of configuration history stop being a naming habit and become something the company can query.</td></tr>
-          <tr><th>Continuity</th><td>If Larry takes a month off or retires, the record of what VPC has built is still readable by whoever sits down next.</td></tr>
-          <tr><th>Quote speed</th><td>The same index, asked what a job like this quoted at and what it turned out to be. That is the path to answering a customer faster, and it needs the sales orders.</td></tr>
-        </table>
+      <h2>The problem it solves</h2>
+      <p>Turnaround is not slow because anybody is inventing a new product. Five to ten submittals a week, three to five hours each on a metering manhole, and roughly sixty to seventy percent of one already sitting in a job finished months ago. The time goes into finding that job.</p>
+
+      <figure>
+        <svg viewBox="0 0 720 214" role="img" aria-label="Today the Salesforce order and the server drawing are joined only by Larry. With a company index, they are joined by something VPC owns.">
+          <defs>
+            <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" class="d-head"/>
+            </marker>
+          </defs>
+
+          <text x="0" y="10" class="d-t-k">TODAY</text>
+          <rect x="0"   y="24" width="140" height="48" class="d-box"/>
+          <rect x="190" y="24" width="140" height="48" class="d-box"/>
+          <text x="70"  y="46" text-anchor="middle" class="d-t">Salesforce</text>
+          <text x="70"  y="63" text-anchor="middle" class="d-t-s">the order</text>
+          <text x="260" y="46" text-anchor="middle" class="d-t">The server</text>
+          <text x="260" y="63" text-anchor="middle" class="d-t-s">the drawing</text>
+          <path d="M 70 72 L 140 122" class="d-line" marker-end="url(#ah3)"/>
+          <path d="M 260 72 L 190 122" class="d-line" marker-end="url(#ah3)"/>
+          <circle cx="165" cy="146" r="30" class="d-box-r"/>
+          <text x="165" y="151" text-anchor="middle" class="d-t">Larry</text>
+          <text x="165" y="202" text-anchor="middle" class="d-t-kr">ONE PERSON IS THE JOIN</text>
+
+          <path d="M 360 8 L 360 206" class="d-line-d"/>
+
+          <text x="390" y="10" class="d-t-k">WITH THE INDEX</text>
+          <rect x="390" y="24" width="140" height="48" class="d-box"/>
+          <rect x="580" y="24" width="140" height="48" class="d-box"/>
+          <text x="460" y="46" text-anchor="middle" class="d-t">Salesforce</text>
+          <text x="460" y="63" text-anchor="middle" class="d-t-s">the order</text>
+          <text x="650" y="46" text-anchor="middle" class="d-t">The server</text>
+          <text x="650" y="63" text-anchor="middle" class="d-t-s">the drawing</text>
+          <path d="M 460 72 L 520 122" class="d-line-a" marker-end="url(#ah3)"/>
+          <path d="M 650 72 L 590 122" class="d-line-a" marker-end="url(#ah3)"/>
+          <rect x="475" y="126" width="160" height="44" class="d-box-a"/>
+          <text x="555" y="153" text-anchor="middle" class="d-t">Company index</text>
+          <text x="555" y="202" text-anchor="middle" class="d-t-ka">THE JOIN IS AN ASSET</text>
+        </svg>
+        <figcaption>Larry's knowledge is real and it is not the problem. Where it lives is.</figcaption>
+      </figure>
+
+      <div class="pull">
+        <p><b>The search fails quietly.</b> Ask the drive for <code>ultra bkt</code> and thirteen of the seventeen jobs come back. Four are typed <code>ulta bkt</code> or <code>ultra kkt</code> and stay invisible, with nothing on screen to say they are missing. An index that normalises as it reads finds all seventeen, and nobody renames a file.</p>
       </div>
-      <p>This runs on its own track. It does not touch the website, it needs nothing from Amanda, and neither project can hold the other up.</p>
+      <p>Hiring another engineer buys drafting hours. It does not buy retrieval, because a new person has less of the history in their head than Larry does.</p>
     </div>
   </section>
 
   <section>
     <div class="marker">04</div>
     <div class="body">
-      <h2>What Larry gets</h2>
-      <p>The hour that goes into finding the right past job and retyping values out of it comes back. That is the whole offer, and it is deliberately narrow.</p>
-      <ul>
-        <li>Carry and change come back separated. The fields that repeat arrive filled. The ones that have to be re-established for this job, elevations and pipe stubs and project and customer, come up as questions rather than travelling across quietly from the job before.</li>
-        <li>It runs on his own convention. The vocabulary in the index is the one already in the filenames. Nobody is asking him to learn a new one or to rename a single file.</li>
-        <li>His cheat sheet is the head start rather than something this competes with. He has kept a spreadsheet of schematics and components for years, which means a hand-built index of this work already exists. We would rather learn from it than duplicate it.</li>
-        <li>He confirms the rankings. When the tool puts a past job on top, Larry says whether that is the one he would have opened. Where he disagrees, the scoring changes, not his answer.</li>
-        <li>Shelters stay out until he says otherwise. They are the larger share of his week and a different animal, and nothing about this approach is being assumed to carry.</li>
-      </ul>
-      <div class="pull">
-        <p>The tool takes a position on which past job is closest. Larry is the one who decides whether it is right, and that is true after it goes live, not only during the test.</p>
+      <h2>Who gets what</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Larry</th><td>The hunting and retyping hours come back. He confirms whether a ranking is right, and his filenames and cheat sheet are the backbone of the index rather than something it replaces. Shelters are not forced on him early.</td></tr>
+          <tr><th>2nd engineer</th><td>Conrad or Taylor on the same tool from week one, which is also what proves the system is not built around one person.</td></tr>
+          <tr><th>Sales, later</th><td>A faster first pass at a quote, from what jobs like this one actually quoted at and what they became.</td></tr>
+          <tr><th>Future hires</th><td>A seat on the company organisation, inheriting the bots and runbooks that already exist.</td></tr>
+          <tr><th>The company</th><td>Shorter turnaround on the same headcount, packages that resemble each other because they start from the same place, and years of configuration history that can finally be queried.</td></tr>
+          <tr><th>Amanda and the web</th><td>Unchanged. Separate project, separate track.</td></tr>
+        </table>
       </div>
     </div>
   </section>
@@ -557,98 +723,159 @@
   <section>
     <div class="marker">05</div>
     <div class="body">
-      <h2>Ownership, so it survives a departure</h2>
-      <p>This is the part that decides whether VPC has an asset or a dependency. It is worth settling before anything is built, because retrofitting ownership onto a tool somebody has been using for six months is a much worse conversation.</p>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Owner</th><td>Corey and VPC. Not Doble AI, and not Larry.</td></tr>
-          <tr><th>Larry's role</th><td>The principal user and the subject-matter authority. He decides whether a ranking is right. He is not the account holder.</td></tr>
-          <tr><th>Accounts</th><td>Company credentials and company hosting from day one, on a VPC domain or a VPC-owned workspace. No personal logins anywhere in the chain.</td></tr>
-          <tr><th>The corpus</th><td>The job records live on VPC storage, the L and M drives or wherever Corey lands after the Lockport move. The index is derived from them and can be rebuilt from them.</td></tr>
-          <tr><th>Runbook</th><td>A short written document: where the data sits, how to re-index, who to call, how to hand it to a different vendor. Written as we build, not after.</td></tr>
-          <tr><th>Second user</th><td>Somebody besides Larry uses it from the first week. Conrad or Taylor is the obvious candidate given they are already on the same submittal format.</td></tr>
-          <tr><th>Re-index</th><td>A documented, repeatable job that anyone can run when new work lands, not a favour to ask us for.</td></tr>
-          <tr><th>Corey's view</th><td>Counts he can read without asking anyone: jobs indexed, searches run, which product families are actually using it.</td></tr>
-        </table>
-      </div>
-      <div class="pull decision">
-        <p><b>The test for whether this is owned.</b> If Larry and Doble AI both disappeared tomorrow, could VPC point a new person or a new vendor at the data and the runbook and carry on? If the answer is anything other than yes, the setup is wrong and it is cheap to fix now.</p>
-      </div>
+      <h2>The first workflow, with Larry</h2>
+      <p>Engineering, metering manholes and flumes. Everything above is the shape of the system. This is the part that has to work before the rest is worth discussing.</p>
+
+      <figure>
+        <svg viewBox="0 0 720 118" role="img" aria-label="The loop: an RFQ arrives, the order goes in, the index matches it against every past job, ranked neighbours come back with carry and change lists, and the engineer starts from the closest package.">
+          <defs>
+            <marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" class="d-head"/>
+            </marker>
+          </defs>
+          <text x="0"   y="12" class="d-t-k">01</text>
+          <text x="150" y="12" class="d-t-k">02</text>
+          <text x="300" y="12" class="d-t-k">03</text>
+          <text x="450" y="12" class="d-t-k">04</text>
+          <text x="600" y="12" class="d-t-k">05</text>
+          <rect x="0"   y="24" width="120" height="60" class="d-box"/>
+          <rect x="150" y="24" width="120" height="60" class="d-box"/>
+          <rect x="300" y="24" width="120" height="60" class="d-box-a"/>
+          <rect x="450" y="24" width="120" height="60" class="d-box-a"/>
+          <rect x="600" y="24" width="120" height="60" class="d-box"/>
+          <text x="60"  y="50" text-anchor="middle" class="d-t">RFQ</text>
+          <text x="60"  y="69" text-anchor="middle" class="d-t-s">arrives</text>
+          <text x="210" y="50" text-anchor="middle" class="d-t">Order</text>
+          <text x="210" y="69" text-anchor="middle" class="d-t-s">goes in</text>
+          <text x="360" y="50" text-anchor="middle" class="d-t">Index</text>
+          <text x="360" y="69" text-anchor="middle" class="d-t-s">matches</text>
+          <text x="510" y="50" text-anchor="middle" class="d-t">Ranked</text>
+          <text x="510" y="69" text-anchor="middle" class="d-t-s">neighbours</text>
+          <text x="660" y="50" text-anchor="middle" class="d-t">Start from</text>
+          <text x="660" y="69" text-anchor="middle" class="d-t-s">the package</text>
+          <path d="M 120 54 L 148 54" class="d-line" marker-end="url(#ah4)"/>
+          <path d="M 270 54 L 298 54" class="d-line" marker-end="url(#ah4)"/>
+          <path d="M 420 54 L 448 54" class="d-line" marker-end="url(#ah4)"/>
+          <path d="M 570 54 L 598 54" class="d-line" marker-end="url(#ah4)"/>
+          <text x="360" y="106" text-anchor="middle" class="d-t-s">Nothing on the drive is renamed or moved. No CAD is generated. The engineering judgement stays with Larry.</text>
+        </svg>
+        <figcaption>The loop as it would run on a Monday morning.</figcaption>
+      </figure>
+
+      <figure>
+        <svg viewBox="0 0 720 190" role="img" aria-label="For job 69492, the index returns job 65067 at 76 percent. Three fields carry over unchanged: flume type, lid and staff gauge. Three have to change: body size, flume size and pipe size.">
+          <text x="0" y="10" class="d-t-ka">CARRIES OVER</text>
+          <text x="380" y="10" class="d-t-kr">HAS TO CHANGE</text>
+          <rect x="0" y="24"  width="340" height="42" class="d-box-a"/>
+          <rect x="0" y="76"  width="340" height="42" class="d-box-a"/>
+          <rect x="0" y="128" width="340" height="42" class="d-box-a"/>
+          <text x="18" y="50"  class="d-t">Flume type <tspan class="d-t-s">Parshall</tspan></text>
+          <text x="18" y="102" class="d-t">Lid <tspan class="d-t-s">dome</tspan></text>
+          <text x="18" y="154" class="d-t">Staff gauge <tspan class="d-t-s">engineering</tspan></text>
+          <rect x="380" y="24"  width="340" height="42" class="d-box-r"/>
+          <rect x="380" y="76"  width="340" height="42" class="d-box-r"/>
+          <rect x="380" y="128" width="340" height="42" class="d-box-r"/>
+          <text x="398" y="50"  class="d-t">Body <tspan class="d-t-s">48 in &#8594; 60 in</tspan></text>
+          <text x="398" y="102" class="d-t">Flume size <tspan class="d-t-s">6 in &#8594; 2 in</tspan></text>
+          <text x="398" y="154" class="d-t">Pipe <tspan class="d-t-s">24 in &#8594; 8 in</tspan></text>
+        </svg>
+        <figcaption>Real output, not an illustration. Job 69492 treated as the RFQ that just came in; the index put job 65067 on top at 76 percent and split the fields itself, working from the existing filenames alone.</figcaption>
+      </figure>
+
+      <p>One limit worth naming now. An index of finished packages answers what VPC has built before. It cannot answer what this job ought to be until the sales orders are in it, which is the first ask below.</p>
     </div>
   </section>
 
   <section>
     <div class="marker">06</div>
     <div class="body">
-      <h2>Where Grok Bot fits</h2>
-      <p>Grok Bot is a good front door. Larry types a job description the way he would say it out loud, and gets the ranked list back without learning a query language. That is a real benefit and it is why it is in the plan.</p>
-      <p>It is not where the history lives.</p>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Interface</th><td><span class="chip own">yes</span> &nbsp; Ask it in plain language, read the answer, follow it into the package.</td></tr>
-          <tr><th>Vault</th><td><span class="chip rent">no</span> &nbsp; The job records and the index sit on VPC storage. The agent reads them; it does not hold them.</td></tr>
-        </table>
-      </div>
-      <p>The reason is continuity again. Anything that exists only inside an agent's memory is gone when the account lapses, the vendor changes or the model is swapped, and there is no way to audit what it thinks it knows. Keeping the corpus on VPC's side means the front door can be replaced without losing a single job record, and a second interface can be added later without rebuilding anything underneath.</p>
+      <h2>The build path</h2>
+
+      <figure>
+        <svg viewBox="0 0 720 168" role="img" aria-label="Eight phases: align, corpus and index, five-job test, daily tool, start from it, quote history, shelters, handover. The first three are the near-term commitment; the rest are decided after the test.">
+          <path d="M 34 44 L 34 34 L 220 34 L 220 44" class="d-line-a"/>
+          <text x="127" y="24" text-anchor="middle" class="d-t-ka">NOW</text>
+          <path d="M 313 44 L 313 34 L 685 34 L 685 44" class="d-line-d"/>
+          <text x="499" y="24" text-anchor="middle" class="d-t-k">DECIDED AFTER THE TEST</text>
+
+          <path d="M 34 72 L 685 72" class="d-line-d"/>
+          <circle cx="34"  cy="72" r="17" class="d-fill-a"/>
+          <circle cx="127" cy="72" r="17" class="d-fill-a"/>
+          <circle cx="220" cy="72" r="17" class="d-fill-a"/>
+          <circle cx="313" cy="72" r="17" class="d-box"/>
+          <circle cx="406" cy="72" r="17" class="d-box"/>
+          <circle cx="499" cy="72" r="17" class="d-box"/>
+          <circle cx="592" cy="72" r="17" class="d-box"/>
+          <circle cx="685" cy="72" r="17" class="d-box"/>
+          <text x="34"  y="77" text-anchor="middle" class="d-t-n">0</text>
+          <text x="127" y="77" text-anchor="middle" class="d-t-n">1</text>
+          <text x="220" y="77" text-anchor="middle" class="d-t-n">2</text>
+          <text x="313" y="77" text-anchor="middle" class="d-t-ni">3</text>
+          <text x="406" y="77" text-anchor="middle" class="d-t-ni">4</text>
+          <text x="499" y="77" text-anchor="middle" class="d-t-ni">5</text>
+          <text x="592" y="77" text-anchor="middle" class="d-t-ni">6</text>
+          <text x="685" y="77" text-anchor="middle" class="d-t-ni">7</text>
+
+          <text x="34"  y="110" text-anchor="middle" class="d-t">Align</text>
+          <text x="127" y="110" text-anchor="middle" class="d-t">Corpus</text>
+          <text x="127" y="126" text-anchor="middle" class="d-t-s">and index</text>
+          <text x="220" y="110" text-anchor="middle" class="d-t">Five-job</text>
+          <text x="220" y="126" text-anchor="middle" class="d-t-s">test</text>
+          <text x="313" y="110" text-anchor="middle" class="d-t">Daily</text>
+          <text x="313" y="126" text-anchor="middle" class="d-t-s">tool</text>
+          <text x="406" y="110" text-anchor="middle" class="d-t">Start</text>
+          <text x="406" y="126" text-anchor="middle" class="d-t-s">from it</text>
+          <text x="499" y="110" text-anchor="middle" class="d-t">Quote</text>
+          <text x="499" y="126" text-anchor="middle" class="d-t-s">history</text>
+          <text x="592" y="110" text-anchor="middle" class="d-t">Shelters</text>
+          <text x="685" y="110" text-anchor="middle" class="d-t">Handover</text>
+
+          <text x="34" y="160" class="d-t-s">Phase 2 is one hour of Larry's time, and it is allowed to come back negative.</text>
+        </svg>
+        <figcaption>Phase 1 fingerprints the manhole and flume history and reports what would not parse. Phase 2 puts five live jobs through it: does the right past job come out on top, and is the difference list the one Larry would have written?</figcaption>
+      </figure>
+
+      <p>If the ranking is not the one Larry would have picked, that is a cheap answer arrived at early. The right response is to stop, rather than to retune the scoring until it agrees with us.</p>
     </div>
   </section>
 
   <section>
     <div class="marker">07</div>
     <div class="body">
-      <h2>From here to production</h2>
-      <p>Eight phases. Each one is useful on its own, and each gets built only if the one before it earned it.</p>
-      <div class="table-wrap">
-        <table>
-          <tr><td class="num">0</td><th>Align</th><td>Agree the scope, the ownership model in section 05 and what a good result looks like. Corey confirms ownership and access. One short conversation.</td></tr>
-          <tr><td class="num">1</td><th>Corpus and index</th><td>Point at the manhole and flume history on the server, fingerprint every job, and reconcile against Larry's cheat sheet. The output is a count of jobs indexed and a list of anything that would not parse.</td></tr>
-          <tr><td class="num">2</td><th>Five-job test</th><td>Five live jobs through the index. Does it put the right past job on top, and is the difference list the one Larry would have written? About an hour of his time, and it is the phase that decides whether the rest happens.</td></tr>
-          <tr><td class="num">3</td><th>Daily tool</th><td>If the test holds, make it usable every day: company hosting, company accounts, the Grok Bot front door, a second user, and the runbook written as we go.</td></tr>
-          <tr><td class="num">4</td><th>Start from it</th><td>Only if phase 3 is genuinely in use. The closest job comes back as a starting package with the job-specific fields pulled out and asked about. Needs Larry's list of which fields are always job-specific.</td></tr>
-          <tr><td class="num">5</td><th>Quote history</th><td>Add the sales orders so the index can answer what a job like this was quoted at, and what it ended up being. This is where turnaround on quoting improves rather than on drafting.</td></tr>
-          <tr><td class="num">6</td><th>Shelters</th><td>Extend to shelters once there are around ten with their packages. Sixty percent of the week, a different structure, and worth doing properly rather than early.</td></tr>
-          <tr><td class="num">7</td><th>Continuity</th><td>Hand over: runbook finished, re-index proved by somebody at VPC running it, access confirmed, Corey's counts in place.</td></tr>
-        </table>
-      </div>
-      <p>Phases 0 through 2 are the near-term commitment. Everything after phase 2 is a decision Corey makes with the test result in front of him.</p>
+      <h2>What we need to start</h2>
+      <p><b>From Corey</b></p>
+      <ol class="asks">
+        <li><b>Confirm the ownership model.</b> VPC holds the organisation, the seats, the billing, the hosting and the data.</li>
+        <li><b>Read access to the submittal history</b> on the server, manhole and flume directories. Nothing gets renamed or moved.</li>
+        <li><b>Name the second user.</b> Conrad or Taylor, on the tool from week one.</li>
+      </ol>
+      <p><b>From Larry</b></p>
+      <ol class="asks">
+        <li><b>The sales orders for the twenty jobs whose packages we already have.</b> His own offer on the call: what he is given, alongside what comes out.</li>
+        <li><b>A look at the cheat sheet.</b> Better to build on his spreadsheet than to build a second one beside it.</li>
+        <li><b>An hour on five live jobs.</b> The phase 2 test.</li>
+      </ol>
     </div>
   </section>
 
   <section>
     <div class="marker">08</div>
     <div class="body">
-      <h2>What we are not doing yet</h2>
-      <ul>
-        <li><b>No CPQ purchase.</b> Configure-price-quote software is a real category and it may be the right answer one day. Buying one before the history is indexed means paying for a system nobody can populate.</li>
-        <li><b>No CAD generation.</b> It was called dreamland in the room and that is the right label for now. SolidWorks stays where it is.</li>
-        <li><b>No chatbot dump.</b> Loading the PDF library into a general chatbot and asking it questions produces answers that sound right and cannot be checked. The index gives a job number to open.</li>
-        <li><b>No dependency on the website.</b> The work order for vpcfiberglass.com is a separate project on a separate track, and neither one is a prerequisite for the other.</li>
-      </ul>
-      <p>Each of these can be revisited. None of them should be started on the strength of a first result.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="marker">09</div>
-    <div class="body">
-      <h2>What we need</h2>
-      <p><b>From Larry</b></p>
-      <ol class="asks">
-        <li><b>The sales orders for the twenty jobs whose packages we already have.</b> The offer was his: a printout of what he is given alongside what comes out, so the translation between the two is visible. Paired to packages we already hold, those twenty are worth more than twenty new ones.</li>
-        <li><b>A look at the cheat sheet.</b> The spreadsheet of schematics and components. We would rather build on it than build a second one beside it.</li>
-        <li><b>An hour on five live jobs.</b> The phase 2 test. He tells us whether the ranking is the one he would have picked.</li>
-      </ol>
-      <p><b>From Corey</b></p>
-      <ol class="asks">
-        <li><b>Confirm the ownership model in section 05.</b> VPC owns the accounts, the hosting and the data, and the runbook comes with it.</li>
-        <li><b>Access to the submittal history on the server.</b> Read access to the manhole and flume directories is enough to start, and nothing gets renamed or moved.</li>
-      </ol>
+      <h2>What we are not doing</h2>
+      <div class="surfaces">
+        <span class="surfaces-label">NOT YET</span>
+        <span class="surface">No CPQ purchase</span>
+        <span class="surface">No CAD generation</span>
+        <span class="surface">No chatbot dump of the PDFs</span>
+        <span class="surface">No dependency on the website</span>
+      </div>
+      <p>Each is a real option one day. None should be started on the strength of a first result, and buying configure-price-quote software before the history is indexed means paying for a system nobody can populate.</p>
       <p class="quote">Where we have assumed something above, it is marked. We would rather be corrected early than politely.</p>
     </div>
   </section>
 
   <div class="closing">
-    Volume, hours and reuse figures are Larry's, given on the 9 September 2026 call, and the three to five hours and sixty to seventy percent are metering manhole numbers. The 69492 ranking is real output from the index running on the twenty packages delivered 9 September. Nothing in VPC's files has been renamed or moved. This document is link-shared and has not been sent.
+    Volume, hours and reuse figures are Larry's, given on the 9 September 2026 call, and the three to five hours and sixty to seventy percent are metering manhole numbers. The 69492 ranking is real output from the index running on the twenty packages delivered 9 September. Nothing in VPC's files has been renamed or moved.
   </div>
 
 </div>
