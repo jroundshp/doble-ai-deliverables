@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jroundshp.github.io/doble-ai-deliverables/concrete-warrior-sales/">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Who Actually Buys This</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+
+/* ── Palette inherited from the Concrete Warrior site, matching the winter
+      brief so the two read as one set. ─────────────────────────────────── */
+:root {
+  --graphite:  #14161a;
+  --graphite-2:#1d2026;
+  --steel:     #6b7480;
+  --steel-dim: #8b939d;
+  --bone:      #f2efe9;
+  --scoria:    #b4432a;
+  --scoria-br: #d15334;
+  --amber:     #c2870c;
+
+  --ground:    var(--bone);
+  --surface:   #fbfaf7;
+  --ink:       var(--graphite);
+  --ink-soft:  #4b525c;
+  --ink-mute:  var(--steel);
+  --rule:      #d5cfc4;
+  --rule-soft: #e6e1d7;
+  --band-neutral: #c3bcb0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:    var(--graphite);
+    --surface:   var(--graphite-2);
+    --ink:       var(--bone);
+    --ink-soft:  #c2c7ce;
+    --ink-mute:  var(--steel-dim);
+    --rule:      #343a43;
+    --rule-soft: #262b32;
+    --scoria:    var(--scoria-br);
+    --amber:     #d99b17;
+    --band-neutral: #444b55;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground:    var(--graphite);
+  --surface:   var(--graphite-2);
+  --ink:       var(--bone);
+  --ink-soft:  #c2c7ce;
+  --ink-mute:  var(--steel-dim);
+  --rule:      #343a43;
+  --rule-soft: #262b32;
+  --scoria:    var(--scoria-br);
+  --amber:     #d99b17;
+  --band-neutral: #444b55;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16.5px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.1rem, 4vw, 2.5rem) 5rem;
+}
+
+.display {
+  font-family: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-family: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: var(--scoria);
+}
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Masthead ─────────────────────────────────────────────────────────── */
+header.mast { border-top: 3px solid var(--scoria); padding-top: 1.6rem; }
+.mast h1 { font-size: clamp(2.7rem, 7.5vw, 4.6rem); margin: 0.7rem 0 0; }
+
+.thesis {
+  font-size: clamp(1.12rem, 2.2vw, 1.34rem);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 48ch;
+  margin: 1.35rem 0 0;
+  font-weight: 500;
+}
+
+.meta {
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 2.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* ── Section rhythm ───────────────────────────────────────────────────── */
+section { margin-top: clamp(3.2rem, 7vw, 5rem); }
+h2.sec { font-size: clamp(1.6rem, 3.4vw, 2.15rem); margin: 0.55rem 0 1.1rem; }
+h3.sub {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  text-transform: uppercase; font-weight: 700;
+  font-size: 1.2rem; margin: 2.2rem 0 0.5rem;
+}
+p { max-width: 68ch; }
+p + p { margin-top: 0.95rem; }
+
+/* ── Source block ─────────────────────────────────────────────────────── */
+.srcs { display: grid; gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin-top: 1.8rem; }
+@media (min-width: 44rem) { .srcs { grid-template-columns: repeat(2, 1fr); } }
+.src { background: var(--surface); padding: 1.15rem 1.25rem 1.3rem; }
+.src .n { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: var(--scoria); letter-spacing: 0.06em; }
+.src h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.12rem; line-height: 1.08; margin: 0.4rem 0 0.4rem; }
+.src p { font-size: 0.89rem; margin: 0 0 0.7rem; max-width: none; color: var(--ink-soft); }
+.src a { font-size: 0.82rem; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); word-break: break-word; }
+.src a:hover, .src a:focus-visible { color: var(--scoria); border-bottom-color: var(--scoria); }
+
+/* ── Headline figures ─────────────────────────────────────────────────── */
+.figs { display: grid; gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin-top: 1.8rem; }
+@media (min-width: 40rem) { .figs { grid-template-columns: repeat(3, 1fr); } }
+.fig { background: var(--surface); padding: 1.25rem 1.3rem 1.35rem; }
+.fig .v { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-weight: 700; font-size: clamp(2rem, 4.5vw, 2.7rem); line-height: 1; color: var(--scoria); font-variant-numeric: tabular-nums; }
+.fig .k { font-size: 0.88rem; color: var(--ink-soft); margin-top: 0.5rem; }
+.fig .d { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); margin-top: 0.55rem; }
+
+/* ── Tables ───────────────────────────────────────────────────────────── */
+.tbl-shell { overflow-x: auto; margin-top: 1.6rem; }
+table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.93rem; }
+thead th {
+  text-align: left; font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  text-transform: uppercase; letter-spacing: 0.11em; font-size: 0.72rem;
+  color: var(--ink-mute); font-weight: 600; padding: 0 0.9rem 0.55rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+tbody td { padding: 0.85rem 0.9rem 0.85rem 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+tbody td:last-child, thead th:last-child { padding-right: 0; }
+tbody tr td:first-child { font-weight: 600; color: var(--ink); }
+
+.pill {
+  display: inline-block; font-size: 0.66rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 700; padding: 0.18rem 0.45rem;
+  border: 1px solid currentColor; border-radius: 1px; white-space: nowrap;
+}
+.pill--hard { color: var(--scoria); }
+.pill--soft { color: var(--amber); }
+.pill--easy { color: var(--ink-mute); }
+
+/* ── Ordered steps ────────────────────────────────────────────────────── */
+ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 1.3rem 0 0; max-width: 62ch; }
+ol.steps li {
+  counter-increment: s; display: grid; grid-template-columns: 2.3rem 1fr;
+  gap: 0 0.7rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule-soft); align-items: baseline;
+}
+ol.steps li:last-child { border-bottom: 0; }
+ol.steps li::before { content: counter(s, decimal-leading-zero); font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--ink-mute); }
+/* Each li must hold exactly ONE element in column 2. A bare text node beside a
+   <b> becomes its own grid item and auto-places into the next row's 2.3rem
+   counter column, which renders as one word per line. Wrap li content in a
+   span and pin it. Same trap as .why in the winter brief. */
+ol.steps li > span { grid-column: 2; }
+ol.steps b { color: var(--ink); font-weight: 600; }
+
+/* ── Operator call list ───────────────────────────────────────────────── */
+.ops { list-style: none; counter-reset: o; padding: 0; margin: 1.5rem 0 0;
+       display: grid; gap: 1px; background: var(--rule-soft);
+       border: 1px solid var(--rule-soft); }
+@media (min-width: 34rem) { .ops { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 54rem) { .ops { grid-template-columns: repeat(3, 1fr); } }
+.ops li { counter-increment: o; background: var(--surface); padding: 0.7rem 0.9rem;
+          display: flex; gap: 0.7rem; align-items: baseline; font-size: 0.91rem; }
+.ops li::before { content: counter(o, decimal-leading-zero); font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; color: var(--ink-mute); flex: none; }
+
+/* ── Share bars ───────────────────────────────────────────────────────── */
+.shares { margin-top: 1.5rem; max-width: 44rem; }
+.share { display: grid; grid-template-columns: 10.5rem 1fr 3.2rem; gap: 0.8rem; align-items: center; padding: 0.34rem 0; }
+.share .nm { font-size: 0.89rem; }
+/* .track is blockified by being a grid item, but .bar is a plain inline span
+   inside it, so height and width are ignored and the bar renders empty.
+   It must be display:block. Caught by rendering, invisible in the HTML. */
+.share .track { height: 0.72rem; background: var(--rule-soft); border-radius: 1px; overflow: hidden; }
+.share .bar { display: block; height: 100%; background: var(--scoria); }
+.share .pc { font-size: 0.82rem; color: var(--ink-mute); text-align: right; }
+
+/* ── Callouts ─────────────────────────────────────────────────────────── */
+.caveat { max-width: 76ch; margin-top: 2rem; border: 1px solid var(--rule); border-left: 4px solid var(--ink-mute); padding: 1.2rem 1.3rem; background: var(--surface); }
+.caveat p { font-size: 0.94rem; margin: 0; max-width: none; }
+.caveat p + p { margin-top: 0.8rem; }
+.caveat .eyebrow { color: var(--ink-mute); display: block; margin-bottom: 0.5rem; }
+.caveat--flag { border-left-color: var(--scoria); }
+.caveat--flag .eyebrow { color: var(--scoria); }
+.caveat--gap { border-left-color: var(--amber); }
+.caveat--gap .eyebrow { color: var(--amber); }
+
+/* ── Next-doc link ────────────────────────────────────────────────────── */
+.onward { margin-top: 2rem; border: 1px solid var(--rule); border-top: 3px solid var(--scoria); background: var(--surface); padding: 1.4rem 1.4rem 1.5rem; }
+.onward h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.3rem; margin: 0.4rem 0 0.5rem; }
+.onward p { font-size: 0.94rem; max-width: 64ch; }
+.onward a.go { display: inline-block; margin-top: 1rem; font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.92rem; color: #fff; background: var(--scoria); padding: 0.6rem 1.2rem; text-decoration: none; border-radius: 1px; }
+.onward a.go:hover, .onward a.go:focus-visible { background: var(--ink); }
+
+/* ── Radius cards: inside vs outside the driving circle ───────────────── */
+.radius { display: grid; gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin-top: 1.8rem; }
+@media (min-width: 44rem) { .radius { grid-template-columns: 1.15fr 1fr; } }
+.rad { background: var(--surface); padding: 1.2rem 1.3rem 1.4rem; }
+.rad .n { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.06em; margin: 0 0 0.8rem; }
+.rad--in .n { color: var(--scoria); }
+.rad--out .n { color: var(--ink-mute); }
+.rad ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.3rem 1rem; grid-template-columns: repeat(2, 1fr); font-size: 0.93rem; }
+.rad--in li { font-weight: 600; }
+.rad--out li { color: var(--ink-soft); }
+.rad li::before { content: ""; display: inline-block; width: 0.42rem; height: 0.42rem; margin-right: 0.5rem; border-radius: 50%; vertical-align: 0.08em; }
+.rad--in li::before { background: var(--scoria); }
+.rad--out li::before { background: var(--band-neutral); }
+.rad-note { font-size: 0.85rem; color: var(--ink-mute); margin: 1rem 0 0; max-width: none; }
+
+ul.named { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.6rem; }
+ul.named li { font-size: 0.93rem; font-weight: 600; padding-left: 0.9rem; border-left: 2px solid var(--rule); }
+ul.named li span { display: block; font-weight: 400; font-size: 0.87rem; color: var(--ink-mute); margin-top: 0.1rem; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin-top: 1rem; font-size: 0.76rem; color: var(--ink-mute); }
+.legend div { display: flex; align-items: center; gap: 0.5rem; }
+.swatch { width: 1.5rem; height: 0.75rem; flex: none; border-radius: 1px; display: block; }
+.sw-near { background: var(--scoria); }
+.sw-far { background: var(--band-neutral); }
+
+footer { margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--ink-mute); }
+footer ul { padding: 0; list-style: none; margin: 0.8rem 0 0; display: grid; gap: 0.42rem; }
+footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); word-break: break-word; }
+footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-color: var(--scoria); }
+:focus-visible { outline: 2px solid var(--scoria); outline-offset: 2px; }
+
+/* ── Additions for this brief ─────────────────────────────────────────── */
+.odds { display:grid; gap:1px; background:var(--rule-soft); border:1px solid var(--rule-soft); margin-top:1.8rem; }
+@media (min-width:44rem){ .odds { grid-template-columns:repeat(2,1fr); } }
+.odd { background:var(--surface); padding:1.3rem 1.35rem 1.45rem; }
+.odd .n { font-family:"IBM Plex Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--scoria); margin:0 0 0.6rem; }
+.odd h3 { font-family:"Barlow Condensed","Arial Narrow",sans-serif; text-transform:uppercase; font-weight:700; font-size:1.25rem; line-height:1.05; margin:0 0 0.7rem; }
+.odd .v { font-family:"Barlow Condensed","Arial Narrow",sans-serif; font-weight:700; font-size:clamp(1.9rem,4vw,2.5rem); line-height:1; color:var(--scoria); font-variant-numeric:tabular-nums; }
+.odd .k { font-size:0.86rem; color:var(--ink-soft); margin:0.45rem 0 0; max-width:none; }
+.odd p { font-size:0.91rem; max-width:none; }
+.colours { list-style:none; padding:0; margin:1.5rem 0 0; display:grid; gap:1px; background:var(--rule-soft); border:1px solid var(--rule-soft); }
+@media (min-width:44rem){ .colours { grid-template-columns:repeat(3,1fr); } }
+.colours li { background:var(--surface); padding:1.1rem 1.2rem 1.25rem; }
+.colours .sw { width:2.6rem; height:0.7rem; display:block; border-radius:1px; margin-bottom:0.7rem; }
+.sw-y { background:#FFFF00; border:1px solid var(--rule); }
+.sw-r { background:#E06666; }
+.sw-b { background:#00FFFF; border:1px solid var(--rule); }
+.colours b { display:block; font-family:"Barlow Condensed","Arial Narrow",sans-serif; text-transform:uppercase; font-size:1.1rem; letter-spacing:0.02em; }
+.colours .ct { font-family:"IBM Plex Mono",monospace; font-size:0.8rem; color:var(--ink-mute); }
+.colours p { font-size:0.88rem; max-width:none; margin:0.6rem 0 0; color:var(--ink-soft); }
+.jobs { list-style:none; padding:0; margin:1.5rem 0 0; display:grid; gap:1px; background:var(--rule-soft); border:1px solid var(--rule-soft); }
+@media (min-width:40rem){ .jobs { grid-template-columns:repeat(2,1fr); } }
+@media (min-width:60rem){ .jobs { grid-template-columns:repeat(3,1fr); } }
+.jobs li { background:var(--surface); padding:0.85rem 1rem 0.95rem; font-size:0.9rem; }
+.jobs b { display:block; font-weight:600; }
+.jobs span { display:block; font-size:0.83rem; color:var(--ink-mute); margin-top:0.2rem; }
+.jobs li.lead { border-left:3px solid var(--scoria); }
+.jobs li.lead b { color:var(--scoria); }
+.deltas { list-style:none; padding:0; margin:1.4rem 0 0; display:grid; gap:0.5rem; max-width:52rem; }
+.deltas li { display:grid; grid-template-columns:1fr auto; gap:0.8rem; align-items:baseline; padding:0.5rem 0; border-bottom:1px solid var(--rule-soft); font-size:0.93rem; }
+.deltas .num { font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; color:var(--scoria); font-weight:500; white-space:nowrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <p class="eyebrow">Concrete Warrior &middot; New Town, North Dakota</p>
+    <h1 class="display">Who Actually Buys This</h1>
+    <p class="thesis">A read on the sales list, on the odds of moving topsoil and concrete before the season closes, and on what the market is saying right now. The list was never the problem. What is on it, and what is missing from it, both point the same way.</p>
+    <div class="meta">
+      <span class="mono">10 September 2026</span>
+      <span class="mono">66 days to 15 November</span>
+      <span>For Corey, Richard and Jeff</span>
+      <span>Odds are our judgement &middot; everything else is sourced</span>
+    </div>
+  </header>
+
+  <section>
+    <p class="eyebrow">The short answer</p>
+    <h2 class="sec display">Where this comes out</h2>
+
+    <p><strong>Topsoil will sell. The season plan will not.</strong> The yard is producing ahead of schedule and there is a real buyer set inside the circle, but 93% of the season's revenue still has no named buyer against it, and the window for delivering topsoil that has to be seeded closes in about four weeks. Most of what is produced after that becomes stockpile, which is inventory rather than a cheque.</p>
+
+    <p><strong>Concrete is the weaker line on today's evidence, and it is also the one with the clearest fix.</strong> The plant has been live since 24 August and has poured 20 yards, all of it used on site. The season plan is 10,100 yards. Nearly all of that rests on one relationship whose scope nobody has confirmed. But the reason concrete looks dead is partly that we have been looking in the wrong place, and the concrete section names eleven live jobs that prove it.</p>
+
+    <div class="odds">
+      <div class="odd">
+        <p class="n">ODDS 01 &middot; TOPSOIL, FULL PLAN</p>
+        <h3>Selling all 117,000 yards by 15 November</h3>
+        <p class="v">Roughly 1 in 6</p>
+        <p class="k">93,400 yards still to move across ten weeks, with no buyer named against any of it, and a placement window that shuts before the production window does.</p>
+      </div>
+      <div class="odd">
+        <p class="n">ODDS 02 &middot; TOPSOIL, REALISTIC</p>
+        <h3>Selling 30,000 to 50,000 yards</h3>
+        <p class="v">About even</p>
+        <p class="k">This is the outcome the current pipeline actually supports, and it turns almost entirely on two meetings held on 31 August whose results were never written down.</p>
+      </div>
+      <div class="odd">
+        <p class="n">ODDS 03 &middot; CONCRETE, FULL PLAN</p>
+        <h3>Pouring the 10,100 yard season</h3>
+        <p class="v">Roughly 1 in 8</p>
+        <p class="k">One account carries it. If the Dark Horse job is real, is concrete, and pours before freeze, the number is reachable. If any of those three is wrong, there is nothing behind it.</p>
+      </div>
+      <div class="odd">
+        <p class="n">ODDS 04 &middot; CONCRETE, FIRST SALE</p>
+        <h3>Selling the first outside yard this season</h3>
+        <p class="v">Better than 3 in 4</p>
+        <p class="k">Because there are eleven construction jobs live on Fort Berthold right now, at least one of them has a concrete subcontractor already licensed to it, and nobody has phoned any of them.</p>
+      </div>
+    </div>
+
+    <div class="caveat caveat--flag">
+      <span class="eyebrow">How to read those four numbers</span>
+      <p>They are our judgement, not a measurement, and they are on the page so they can be argued with rather than nodded at. Every figure underneath them is sourced and checkable. If you disagree with an outcome, the useful thing is to say which input is wrong, because each one hangs off two or three named facts rather than a model.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The list</p>
+    <h2 class="sec display">What we added, and what it changed</h2>
+
+    <p>The tracker went out with a lot of blank columns. A pass through the MHA TERO licence lists that the tribe itself published on 3 September, plus the Certified Indian Contractor list from 17 June, closed most of the gap. Those are the tribe's own records of who is cleared to work on Fort Berthold, and they carry a contact name, a phone, an email, a licence number and an expiry date for every company.</p>
+
+    <ul class="deltas">
+      <li><span>Rows carrying a phone number</span><span class="num">40 &rarr; 53 of 77</span></li>
+      <li><span>Rows carrying an email address</span><span class="num">10 &rarr; 44 of 77</span></li>
+      <li><span>Native Tier 1 reclamation contractors now reachable by email</span><span class="num">0 &rarr; 8 of 8</span></li>
+      <li><span>Rows marked &ldquo;we don&rsquo;t know who they are&rdquo; that are now verified as real, licensed and inside the circle</span><span class="num">4</span></li>
+      <li><span>Live Fort Berthold construction jobs added, each with a licensed subcontractor named on it</span><span class="num">11</span></li>
+      <li><span>Licensed material competitors added, for reference rather than calling</span><span class="num">6</span></li>
+    </ul>
+
+    <p>Everything new is appended below Richard&rsquo;s colour legend and labelled with the date and the source, so nothing above it moved and his triage is untouched.</p>
+
+    <h3 class="sub">Four red rows should come off red</h3>
+    <p>Richard marked 47 rows red, meaning the yard does not recognise the name. That was a fair verdict on a desk-research pass, and most of it stands. Four of those names turn out to hold current MHA TERO licences with a scope that fits what we sell:</p>
+    <ul class="named">
+      <li>D&amp;L Construction, Inc &middot; Parshall
+        <span>Licence 26-8497 to 29 October 2026. Scope printed as hydrovac and dirt work. Brittney Johnson, 701-862-2325.</span></li>
+      <li>Droptine Construction, LLC &middot; Watford City
+        <span>Licence 27-8780 to 29 January 2027. Scope includes dirt work. Dillon McWherter, 320-282-6819. Not the same company as Drop Tine Drill Bits, Inc.</span></li>
+      <li>Pennington Machine, LLC &middot; New Town, not Mandaree
+        <span>Licence 26-7697. Scope is road and site maintenance, dirt work, snow removal. Jerry Pennington, 701-627-4945. The town on our sheet was wrong.</span></li>
+      <li>Radiation Pros, LLC &middot; Watford City
+        <span>Licence 27-9067 to 29 April 2027, NORM and TENORM remediation. The licence record shows them working under Baker Consulting LLC, which is already row 23 on our sheet. That makes it a warm introduction rather than a cold call.</span></li>
+    </ul>
+
+    <div class="caveat caveat--gap">
+      <span class="eyebrow">And seven should probably go</span>
+      <p>B&nbsp;&amp;&nbsp;E Services, Buzz&rsquo;s Backhoe, Dale&rsquo;s Backhoe, JCR Excavating, The Revelator Services, Robert Meyer Construction and Hovex have no MHA TERO licence under those names on any list published on 3 September, and the yard does not know them. A second research pass found nothing new. They are noise on a sheet somebody has to work through, and clearing them costs nothing.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The triage</p>
+    <h2 class="sec display">What the colours are actually worth</h2>
+
+    <p>Richard answered the sheet in cell colour rather than text, which turned out to be the fastest useful answer we have had out of this engagement. Read as a commercial statement rather than a filing exercise, the three colours are worth very different amounts of money.</p>
+
+    <ul class="colours">
+      <li><span class="sw sw-y"></span><b>Yellow</b><span class="ct">15 rows &middot; discussed before</span>
+        <p>The only accounts that can realistically pay inside this season. They are already known, already being worked, and they are where the whole number lives. Nothing on this sheet is going to replace them by 15 November.</p></li>
+      <li><span class="sw sw-b"></span><b>Blue</b><span class="ct">15 rows &middot; known, never contacted</span>
+        <p>Looks like the target list and mostly is not, for this season. It is four public and tribal bodies that buy by posted bid, and ten operators and midstream companies that create the tonnage but hand the order to a sub, behind a prequalification gate that takes at least thirty days. Real money, next season&rsquo;s money.</p></li>
+      <li><span class="sw sw-r"></span><b>Red</b><span class="ct">47 rows &middot; 61% &middot; unknown</span>
+        <p>A verdict on the research, not on the yard. Four are worth keeping, seven should be deleted, and the Native Tier 1 reclamation firms in this block are genuinely valuable and simply have never been approached.</p></li>
+    </ul>
+
+    <h3 class="sub">The uncomfortable conclusion</h3>
+    <p>Put those three together and the list does not contain a hidden buyer. The accounts that can write a cheque before the ground freezes are the fifteen we already know about, and the constraint is not names. It is that two of them were met on 31 August and nobody recorded what happened.</p>
+
+    <div class="caveat caveat--flag">
+      <span class="eyebrow">The cheapest thing on this page</span>
+      <p>KS Industries and ExxonMobil were both met on 31 August. The outcome of both meetings exists nowhere in writing. Recovering those two answers costs one phone call and would move two of the four odds above more than anything else here.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The market</p>
+    <h2 class="sec display">What it is telling us right now</h2>
+
+    <p>The read we shipped on 7 September was built on a market that was slowing: rigs down, spuds down about a third year on year, one rig on Fort Berthold. <strong>That has turned, and it turned in the five weeks after the data we were using.</strong></p>
+
+    <div class="figs">
+      <div class="fig"><p class="v">26 &rarr; 33</p><p class="k">Rigs running in North Dakota, 13 July to 19 August, by operator</p><p class="d">Director&rsquo;s Cut, 20 Aug 2026</p></div>
+      <div class="fig"><p class="v">$86.60</p><p class="k">WTI at the date of the state briefing. North Dakota&rsquo;s June market price ran 36.5% above the state&rsquo;s own revenue forecast</p><p class="d">Director&rsquo;s Cut, 20 Aug 2026</p></div>
+      <div class="fig"><p class="v">+411</p><p class="k">Inactive wells added in a single month. Producing wells also hit an all-time high of 19,961</p><p class="d">Director&rsquo;s Cut, 20 Aug 2026</p></div>
+    </div>
+
+    <p>Completions have risen three months running, 55 in May, 65 in June, 74 in July, against a permit trend holding steady in the low nineties. Eight frac crews are working. This is not a boom, and nobody should be sold one, but it is a recovery from a July trough and it is the first genuinely positive activity signal this project has had.</p>
+
+    <h3 class="sub">And it is happening on our doorstep</h3>
+    <p>We pulled the state&rsquo;s live active drilling rig list this morning. Of the 34 rigs turning to the right in North Dakota today, <strong>17 sit within roughly 50 straight-line miles of the yard, and 11 within about 35</strong>. The closest is a Hess well about ten miles out. Two Burlington Resources rigs are drilling a pad at Demicks Lake, on the Mandaree side of Fort Berthold, roughly 17 miles away. An XTO well is about 14 miles out, and XTO is ExxonMobil&rsquo;s operating arm, which is the same company as one of the 31 August meetings.</p>
+
+    <div class="caveat">
+      <span class="eyebrow">Method, and its limit</span>
+      <p>Those distances are computed from the township and range in each well&rsquo;s legal location, converted to a position with an accuracy of roughly ten miles. They are straight-line, not driving. Treat &ldquo;17 of 34&rdquo; as <em>about half the state&rsquo;s drilling is in the counties around us</em>, which is the honest version, rather than as a count to quote at anybody.</p>
+    </div>
+
+    <h3 class="sub">Two corrections this pull forces</h3>
+    <p><strong>Phoenix Operating is not a Stanley story.</strong> Our sheet says they mean pad demand around Stanley. They went from one rig to three between July and August, the largest single operator increase in the state, and all three are in Divide and Burke counties, 52 to 59 miles out. Growing fast, in the wrong direction.</p>
+    <p><strong>Burlington Resources is missing from the sheet entirely,</strong> and it is running two rigs on the same Fort Berthold pad, closer to the yard than almost anything else drilling in North Dakota.</p>
+
+    <h3 class="sub">What rigs mean, and what they do not</h3>
+    <p>A rig means a new pad, and a new pad consumes scoria and aggregate for the pad and the lease road. It does not consume delivered topsoil, because the rule requires the operator to salvage eight inches of their own soil at construction and put it back at the end. Our topsoil market is the subset where that stockpile is short, lost or contaminated. The 411 inactive wells added last month are the better topsoil signal: a well going quiet is a reclamation job forming.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Topsoil</p>
+    <h2 class="sec display">Production is fine. Sales are the problem.</h2>
+
+    <p>Through 4 September the yard had produced 23,600 yards, which at its own $32 a yard is $755,200 of material. Week two closed at 11,800 yards against a 10,000 plan, the first week of the season to beat its own schedule. Nothing about the supply side is broken.</p>
+
+    <p>Jeff&rsquo;s answer on 4 September is the one that matters: the 10,000 yards a week is a production figure, and <strong>sales are unknown at this time</strong>. Topsoil and concrete together carry $6,774,000 of the $7,299,000 season, and none of it has a named buyer. Unknown is not the same as unsold, and it should never be written as though it were. But it is also not an order book.</p>
+
+    <h3 class="sub">The calendar is the harder constraint</h3>
+    <p>Topsoil that has to be seeded can only go down in two windows. The state&rsquo;s own specification prefers an early spring seeding before 24 May and accepts a dormant fall seeding after 20 October. Spring is largely unusable because road load restrictions run from about early March to late May, so heavy loads cannot move through the preferred window. That makes autumn the real delivery season, and it opens on 20 October. Production stops around 15 November when the ground gets too wet to scrape.</p>
+    <p><strong>So there are about four weeks in which topsoil for placement can both be produced and legally delivered.</strong> Material sold for stockpiling rather than immediate placement is not bound by that, and material already on the ground can keep moving for a couple of weeks after the trommels stop, which is the cheapest volume available and the least discussed.</p>
+
+    <div class="caveat caveat--gap">
+      <span class="eyebrow">What this means in plain terms</span>
+      <p>A stockpile is not a loss. It is next spring&rsquo;s inventory, and pre-positioning material before the March load bans is a genuine advantage. But it is not cash, and the reason this workstream opened was that creditors are waiting. Those are two different problems and the plan currently treats them as one.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Concrete</p>
+    <h2 class="sec display">We have been looking in the wrong place</h2>
+
+    <p>The plant went live on 24 August. As of the 4 September log it had produced 20 yards, on one day, for internal use, with the dollar cell deliberately empty. The season plan is 10,100 yards at $300, which is 42% of the season&rsquo;s revenue. Richard&rsquo;s own read on the call was blunt and correct: it is the demand side, not the supply side. The plant can do 250 yards an hour. The forecast is 500 a week.</p>
+
+    <p>Two things explain the softness better than anything on the old sheet did.</p>
+
+    <p><strong>The biggest pour in the circle finished in June.</strong> The 4 Bears Casino and Lodge expansion was a $100 million, seven-storey job with Kraus-Anderson as general contractor, and it completed this summer. Our sheet still carries Four Bears as a target. What is left on it is finish-out. That row should be downgraded.</p>
+
+    <p><strong>And the sheet is 78 rows of oilfield.</strong> Contractors, operators, midstream, hydrovac, trucking. That is the right shape for topsoil and for pad aggregate. It is the wrong shape for ready-mix, because ready-mix on this reservation is bought by people putting up buildings.</p>
+
+    <h3 class="sub">Eleven jobs are live on Fort Berthold right now</h3>
+    <p>Every one of these is a named project with at least one subcontractor holding a current MHA TERO licence tagged to it, on lists the tribe published on 3 September. This is not desk research producing company names nobody recognises. These are jobs, and they are being built this autumn.</p>
+
+    <ul class="jobs">
+      <li class="lead"><b>V. Judy Brugh Community Center</b><span>Innovative Concrete LLC is licensed to this job as a concrete contractor. Jeremy Beitler, 435-680-8385.</span></li>
+      <li><b>Twin Buttes High School</b><span>Five subcontractors licensed to it, including C.L. Linfoot and J. Benson Construction.</span></li>
+      <li><b>Twin Buttes Assisted Living Facility</b><span>Running alongside the school, sharing at least one subcontractor.</span></li>
+      <li><b>Fort Berthold Rural Water</b><span>Six subcontractors. Storms Construction is the prime; Bartlett &amp; West is the engineer.</span></li>
+      <li><b>Fort Berthold Housing Authority programme</b><span>Seven subcontractors, plus a public bid board at fbha.org/bids that nobody here has been watching.</span></li>
+      <li><b>Mandaree Clinic</b><span>Sixteen miles from the yard. Hunt Electric on site.</span></li>
+      <li><b>Mandaree School</b><span>Second live job in the same village.</span></li>
+      <li><b>Parshall Clinic</b><span>Seventeen miles. Earth Energy &amp; Water Systems on site.</span></li>
+      <li><b>TAT Museum</b><span>Exhibit fabricators are licensed to it, which usually means late stage. Confirm before spending a call.</span></li>
+      <li><b>Wolf Chief Store</b><span>Small commercial. Slab, apron, parking.</span></li>
+      <li><b>Son of Star</b><span>Furnishings supplier licensed, so likely late stage.</span></li>
+    </ul>
+
+    <p>The first of those is the single most direct lead this pass produced. A concrete subcontractor working a job on Fort Berthold needs a batch plant close enough to deliver inside a slump, and the nearest alternative is a competitor&rsquo;s. That is one phone call, and it has never been made.</p>
+
+    <div class="caveat caveat--flag">
+      <span class="eyebrow">The one number to confirm before anyone relies on it</span>
+      <p>The 10,000 yards attached to Jesse at Dark Horse is enormous for an RV park. Ten thousand cubic yards is a six-inch slab across about thirteen acres. The 29 August call also recorded that same job as the Woodstone road job, which raises the possibility that it is one job counted twice, or that the material is aggregate rather than concrete. Forty-two percent of the season&rsquo;s revenue is resting on it. Confirm the scope, the unit and the pour schedule before anything else on the concrete side is planned.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The gate nobody has checked</p>
+    <h2 class="sec display">We are not on the tribe&rsquo;s own vendor list</h2>
+
+    <p>MHA TERO publishes six lists of who is licensed to work on Fort Berthold. Across all of them there are about 1,058 companies. <strong>Concrete Warrior is not on any of them.</strong></p>
+
+    <p>The Certified Indian Contractor list, which is the one a Native-owned firm would appear on, was last reissued on 17 June 2026. Our own record has a TERO licence confirmed by Breanna on 6 August, which is after that date. So there are two possible explanations and they need different actions: either the licence exists and the published list is simply stale, or it does not appear where a buyer would look. <strong>Either way, a TERO-compliant buyer checking today does not find us.</strong> Desiree Conklin is the chief licensing specialist and is the person who settles it.</p>
+
+    <h3 class="sub">Meanwhile the incumbent is listed, and listed for exactly our work</h3>
+    <p>Strata Corporation, which is Knife River, holds MHA TERO Prime General Contractor licence 27-9089, valid to 29 April 2027. Its registered scope, in the tribe&rsquo;s own words, reads <em>construction, hazmat/reclamation, material supplier</em>. The competitor has reclamation and material supply written onto a current licence on the reservation, and we do not.</p>
+
+    <p>Five more licensed material suppliers sit on those same lists: Gratech (earthwork, aggregates, asphalt, currently tagged to a job on ND-23), Fisher Sand &amp; Gravel, Sundre Sand &amp; Gravel, Badlands Aggregate, and Dickinson Ready Mix, which holds an approved oilfield vendor licence for the sale of concrete products. Dickinson is about 130 miles away, so freight is still ours to win. But they are listed and we are not.</p>
+
+    <div class="caveat caveat--gap">
+      <span class="eyebrow">This is not the same thing as ISNetworld</span>
+      <p>ISNetworld, Veriforce and Avetta are the operator-side prequalification gates and they take at least thirty days. That work still matters and Breanna started it. The TERO listing is different: it is the tribe&rsquo;s gate, it governs the tribal and public jobs named earlier, and it is the one where being in New Town is supposed to be the advantage.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">What we would do</p>
+    <h2 class="sec display">In this order, this week</h2>
+
+    <ol class="steps">
+      <li><span><b>Recover the 31 August meetings.</b> KS Industries and ExxonMobil. What was said, what was asked for, what happens next. One call, and it moves the topsoil odds more than anything else on this page.</span></li>
+      <li><span><b>Confirm the Dark Horse job.</b> Scope, unit, and pour schedule. Is it 10,000 yards of concrete, or the Woodstone road job counted twice, or aggregate. Forty-two percent of the plan turns on the answer.</span></li>
+      <li><span><b>Call Innovative Concrete about the V. Judy Brugh Community Center.</b> A concrete subcontractor with a live licence on a reservation job is the shortest path to a first outside yard.</span></li>
+      <li><span><b>Settle the TERO listing with Desiree Conklin.</b> Either we are on the list and it needs reissuing, or we are not and it needs filing. Both are quick; neither has been done.</span></li>
+      <li><span><b>Work the eleven tribal jobs for their general contractors.</b> The subcontractors are named and reachable, and a subcontractor will tell you who the GC is in thirty seconds. That is the concrete pipeline this business does not currently have.</span></li>
+      <li><span><b>Email the eight Native Tier 1 reclamation firms.</b> They now have addresses for the first time. Baker Consulting first, because they write the specification that names the dirt and they front Radiation Pros.</span></li>
+      <li><span><b>Start watching fbha.org/bids.</b> Public, free, and it is the only place on this list where the work is announced rather than found.</span></li>
+      <li><span><b>Separate the stockpile decision from the sales decision.</b> If a meaningful share of the season ends up as inventory rather than revenue, that is a financing question for Corey, and it should be asked in October rather than discovered in November.</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <p class="eyebrow">Argue with this</p>
+    <h2 class="sec display">What would change our mind</h2>
+    <p>Each of these would move an odd above by a lot, and each is a question for the people who were in the room rather than something we can check from here.</p>
+    <ul class="named">
+      <li>The 31 August meetings went well and there is a verbal commitment nobody wrote down.
+        <span>This is the most likely single reason our topsoil read is too pessimistic.</span></li>
+      <li>The Dark Horse yardage is real, is concrete, and pours in October.
+        <span>Odds 03 goes from roughly 1 in 8 to better than even on that alone.</span></li>
+      <li>A large share of the topsoil is already being taken by a buyer we have not been told about.
+        <span>Jeff&rsquo;s &ldquo;unknown&rdquo; means unknown to the sheet, not unsold. Somebody may simply know.</span></li>
+      <li>Richard reads the eleven tribal jobs and says the mix specification or the haul rules them out.
+        <span>Entirely possible. He would know in a glance, and it would kill the concrete argument cleanly.</span></li>
+      <li>The TERO licence does exist and the published list is just behind.
+        <span>Likely, and it would turn the TERO listing from a gap into a five-minute administrative fix.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="eyebrow">Method and limits</p>
+    <h2 class="sec display">What is sourced and what is ours</h2>
+    <p><strong>Sourced and checkable:</strong> every rig count, price, permit, completion and well figure comes from the state Director&rsquo;s Cut of 20 August 2026 or the live DMR active drilling rig list pulled on 10 September. Every licence number, contact, phone, email, scope and expiry date comes from the MHA TERO lists dated 3 September 2026 and 17 June 2026. Every production and plan figure comes from Jeff&rsquo;s own workbook and daily log.</p>
+    <p><strong>Ours, and offered as judgement:</strong> the four odds, the reading of the three colours, and the conclusion that the concrete pipeline should be tribal vertical construction rather than oilfield. These are arguments, not findings.</p>
+    <p><strong>Approximate:</strong> rig distances, as set out under the market heading. About ten miles of error, straight-line rather than driving.</p>
+    <p><strong>Deliberately not here:</strong> margins, unit economics and any figure that should not travel outside the ownership group. Nothing on this page is written to be forwarded to a customer.</p>
+
+    <div class="srcs">
+      <div class="src">
+        <p class="n">SOURCE 01</p>
+        <h3>Director&rsquo;s Cut, 20 August 2026</h3>
+        <p>Rig counts by operator for 13 July and 19 August, WTI and North Dakota market price, permit and completion trends, well counts including the inactive-well change.</p>
+        <a href="https://www.dmr.nd.gov/dmr/sites/default/files/documents/Directors_Cut/2026/Directors_Cut_2026-08-20.pdf">dmr.nd.gov &middot; Directors_Cut_2026-08-20.pdf</a>
+      </div>
+      <div class="src">
+        <p class="n">SOURCE 02</p>
+        <h3>DMR active drilling rig list</h3>
+        <p>The live list of every rig turning in North Dakota, with operator, well name, legal location and county. Updated daily. Pulled 10 September 2026.</p>
+        <a href="https://www.dmr.nd.gov/oilgas/riglist.asp">dmr.nd.gov/oilgas/riglist.asp</a>
+      </div>
+      <div class="src">
+        <p class="n">SOURCE 03</p>
+        <h3>MHA TERO contractor lists</h3>
+        <p>Certified Indian Contractors, 17 June 2026. Approved Oilfield Vendors, General Contractors, Prime General, Prime Oilfield, Subcontractors with DOT exemption and Suppliers, all 3 September 2026. Contact, phone, email, licence, expiry and scope for about 1,058 companies.</p>
+        <a href="https://mhatero.com/contractor-lists/">mhatero.com/contractor-lists</a>
+      </div>
+      <div class="src">
+        <p class="n">SOURCE 04</p>
+        <h3>Ft. Berthold Housing Authority bid board</h3>
+        <p>Open solicitations, deadlines and the posting administrator. Public, and the only place on the target list where work is announced rather than hunted.</p>
+        <a href="https://www.fbha.org/bids">fbha.org/bids</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="onward">
+    <p class="eyebrow">The rest of the set</p>
+    <h3>The market page and the winter brief</h3>
+    <p>This brief is the sales half. The market data it leans on, ordered outward from the yard, is on the Bakken page, and the seasonal argument about what happens after 15 November is in the winter brief. The rig recovery reported here is newer than both, and both should be read with that in mind.</p>
+    <a class="go" href="../concrete-warrior-market/">Open the market page</a>
+  </div>
+
+  <footer>
+    <p>Prepared by Doble AI for Corey Hogan, Richard Sargent and Jeff &middot; 10 September 2026. Not for distribution outside the ownership group.</p>
+    <ul>
+      <li><a href="../concrete-warrior-market/">The Bakken Around New Town &middot; market data</a></li>
+      <li><a href="../concrete-warrior-winter/">The winter decision brief</a></li>
+      <li><a href="../concrete-warrior-season/">The season dashboard</a></li>
+    </ul>
+  </footer>
+</div>
+</body>
+</html>
