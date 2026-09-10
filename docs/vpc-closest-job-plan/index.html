@@ -177,6 +177,13 @@
     word-break: break-word;
   }
 
+  .note {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
   /* ---------- pull ---------- */
 
   .pull {
@@ -669,7 +676,7 @@
       <p>The account is not the system. What does not exist until somebody builds it:</p>
       <div class="table-wrap">
         <table>
-          <tr><th>The index</th><td>Every past job read, parsed and fingerprinted, with the misspellings normalised so a search finds all seventeen jobs instead of thirteen. This is software, and it does not come with a subscription.</td></tr>
+          <tr><th>The index</th><td>Every past job read, parsed and fingerprinted, so the detail buried inside a package becomes searchable and the drifting customer spellings stop hiding jobs. This is software, and it does not come with a subscription.</td></tr>
           <tr><th>The join</th><td>The Salesforce order and the server drawing brought together, which is the thing that currently only happens inside Larry's head.</td></tr>
           <tr><th>The scoring</th><td>Deciding what makes two jobs similar, then changing it when Larry says the ranking is wrong. Judgement, tested against his, not a setting in a menu.</td></tr>
           <tr><th>The handover</th><td>Company accounts, a second seat once the tool goes daily, a runbook, and a re-index anybody at VPC can run. The unglamorous part, and the part that decides whether VPC owns an asset or rents a habit.</td></tr>
@@ -690,6 +697,12 @@
     <div class="body">
       <h2>The problem it solves</h2>
       <p>Turnaround is not slow because anybody is inventing a new product. Five to ten submittals a week, three to five hours each on a metering manhole, and roughly sixty to seventy percent of one already sitting in a job finished months ago. The time goes into finding that job.</p>
+
+      <p>Nobody has to be persuaded that this is how the work runs, because it is already written down in VPC&rsquo;s own paperwork. The quote for job 69510 specifies the manhole like this:</p>
+
+      <blockquote class="pull"><p>Laserflow Manhole &ndash; 72&Prime; &Oslash; <b>*REFER TO 68674 REV A SUBMITTAL FOR DETAILS</b> &hellip; REFER TO 68674 REV A SUBMITTAL FOR DEPTHS</p></blockquote>
+
+      <p>A quoter reached for the closest past job and named it in the quote. Larry does the same thing on the drawing side, and keeps a spreadsheet of which building schematic was copied from which. Two departments, two systems, the same move. In both places the record of it survives only because the person who made it happened to write it down somewhere. An index is where that stops being luck. One caveat: 69510 is one quote out of the twenty we read closely, so it shows the habit exists and not how often. Counting it properly across the quote history is an afternoon of work, and it is worth doing before anyone puts a number on the saving.</p>
 
       <figure>
         <svg viewBox="0 0 720 214" role="img" aria-label="Today the Salesforce order and the server drawing are joined only by Larry. With a company index, they are joined by something VPC owns.">
@@ -731,7 +744,7 @@
       </figure>
 
       <div class="pull">
-        <p><b>The search fails quietly.</b> Ask the drive for <code>ultra bkt</code> and thirteen of the seventeen jobs come back. Four are typed <code>ulta bkt</code> or <code>ultra kkt</code> and stay invisible, with nothing on screen to say they are missing. An index that normalises as it reads finds all seventeen, and nobody renames a file.</p>
+        <p><b>The search fails quietly.</b> A folder is named <code>69016 -Claro Global - 24 in Parshall</code>, and that is the whole of what a search can see. The bracket, the staff gauge, the pipe sizes and the sampler are inside the package, invisible to the drive. Nobody can fix this by naming folders better either, because SolidWorks stops saving once the path runs long, which is Larry&rsquo;s own reason for keeping them short. Customer spellings drift on top of that, <code>CC Lynch</code> and <code>CC lynmch</code> sitting in the same result list. An index reads what is inside the package and normalises the spellings as it goes, so nothing on the drive has to be renamed.</p>
       </div>
       <p>Hiring another engineer buys drafting hours. It does not buy retrieval, because a new person has less of the history in their head than Larry does.</p>
     </div>
@@ -743,7 +756,7 @@
       <h2>Who gets what</h2>
       <div class="table-wrap">
         <table>
-          <tr><th>Larry</th><td>The hunting and retyping hours come back. He confirms whether a ranking is right, and his filenames and cheat sheet are the backbone of the index rather than something it replaces. Shelters are not forced on him early.</td></tr>
+          <tr><th>Larry</th><td>The hunting and retyping hours come back. He confirms whether a ranking is right, and the index is built on VPC&rsquo;s own quotes rather than on anything he has to keep up by hand. Shelters are not forced on him early.</td></tr>
           <tr><th>2nd engineer</th><td>Conrad or Taylor on a second seat once the tool goes daily at phase 3. That second seat is what proves the system is not built around one person.</td></tr>
           <tr><th>Sales, later</th><td>A faster first pass at a quote, from what jobs like this one actually quoted at and what they became.</td></tr>
           <tr><th>Future hires</th><td>A seat on the company organisation, inheriting the bots and runbooks that already exist.</td></tr>
@@ -801,26 +814,30 @@
       </figure>
 
       <figure>
-        <svg viewBox="0 0 720 190" role="img" aria-label="For job 69492, the index returns job 65067 at 76 percent. Three fields carry over unchanged: flume type, lid and staff gauge. Three have to change: body size, flume size and pipe size.">
+        <svg viewBox="0 0 720 242" role="img" aria-label="For job 69492, the index returns job 69312 at 70 percent. Three fields carry over unchanged: flume type, staff gauge and ultrasonic bracket. Five have to change: depth, lid, body size, flume size and pipe size.">
           <text x="0" y="10" class="d-t-ka">CARRIES OVER</text>
           <text x="380" y="10" class="d-t-kr">HAS TO CHANGE</text>
           <rect x="0" y="24"  width="340" height="42" class="d-box-a"/>
           <rect x="0" y="76"  width="340" height="42" class="d-box-a"/>
           <rect x="0" y="128" width="340" height="42" class="d-box-a"/>
           <text x="18" y="50"  class="d-t">Flume type <tspan class="d-t-s">Parshall</tspan></text>
-          <text x="18" y="102" class="d-t">Lid <tspan class="d-t-s">dome</tspan></text>
-          <text x="18" y="154" class="d-t">Staff gauge <tspan class="d-t-s">engineering</tspan></text>
-          <rect x="380" y="24"  width="340" height="42" class="d-box-r"/>
-          <rect x="380" y="76"  width="340" height="42" class="d-box-r"/>
-          <rect x="380" y="128" width="340" height="42" class="d-box-r"/>
-          <text x="398" y="50"  class="d-t">Body <tspan class="d-t-s">48 in &#8594; 60 in</tspan></text>
-          <text x="398" y="102" class="d-t">Flume size <tspan class="d-t-s">6 in &#8594; 2 in</tspan></text>
-          <text x="398" y="154" class="d-t">Pipe <tspan class="d-t-s">24 in &#8594; 8 in</tspan></text>
+          <text x="18" y="102" class="d-t">Staff gauge <tspan class="d-t-s">engineering</tspan></text>
+          <text x="18" y="154" class="d-t">Bracket <tspan class="d-t-s">316SS ultrasonic</tspan></text>
+          <rect x="380" y="24"  width="340" height="38" class="d-box-r"/>
+          <rect x="380" y="72"  width="340" height="38" class="d-box-r"/>
+          <rect x="380" y="120" width="340" height="38" class="d-box-r"/>
+          <rect x="380" y="168" width="340" height="38" class="d-box-r"/>
+          <rect x="380" y="216" width="340" height="26" class="d-box-r"/>
+          <text x="398" y="48"  class="d-t">Depth <tspan class="d-t-s">6 ft 5 in &#8594; 4 ft 10 in</tspan></text>
+          <text x="398" y="96"  class="d-t">Lid <tspan class="d-t-s">H20 adapter &#8594; dome</tspan></text>
+          <text x="398" y="144" class="d-t">Body <tspan class="d-t-s">48 in &#8594; 60 in</tspan></text>
+          <text x="398" y="192" class="d-t">Flume size <tspan class="d-t-s">6 in &#8594; 2 in</tspan></text>
+          <text x="398" y="234" class="d-t">Pipe <tspan class="d-t-s">18 in &#8594; 8 in</tspan></text>
         </svg>
-        <figcaption>Real output, not an illustration. Job 69492 treated as the RFQ that just came in; the index put job 65067 on top at 76 percent and split the fields itself, working from the existing filenames alone.</figcaption>
+        <figcaption>Real output, not an illustration. Job 69492 treated as the RFQ that just came in; the index put job 69312 on top at 70 percent and split the fields itself, reading nothing but the sales quotes VPC already writes.</figcaption>
       </figure>
 
-      <p>One limit worth naming now. An index of finished packages answers what VPC has built before. It cannot answer what this job ought to be until the sales orders are in it, which is the first ask below.</p>
+      <p>That ranking is defensible rather than proven. The tool prefers 69312 because the flume family matches; a person might well prefer 69446, which has the same lid and the closest depth. Which of the two Larry would actually open is exactly what the five live jobs in phase 2 are there to settle, and we would rather show the disagreement than tune it away.</p>
     </div>
   </section>
 
@@ -889,10 +906,9 @@
       </ol>
       <p><b>From Larry</b></p>
       <ol class="asks">
-        <li><b>The sales orders for the twenty jobs whose packages we already have.</b> His own offer on the call: what he is given, alongside what comes out.</li>
-        <li><b>A look at the cheat sheet.</b> Better to build on his spreadsheet than to build a second one beside it.</li>
-        <li><b>An hour on five live jobs.</b> The phase 2 test.</li>
+        <li><b>An hour on five live jobs.</b> The phase 2 test, and the only thing still outstanding on his side.</li>
       </ol>
+      <p class="note">Larry has already sent the rest. Twenty sales orders paired to the twenty submittal packages, his schematic spreadsheet, his parts list, and a walk through how he searches the server today. That material is what the section above is built on, and it is why the build path starts at phase 1 rather than at a discovery exercise.</p>
     </div>
   </section>
 
@@ -913,7 +929,7 @@
   </section>
 
   <div class="closing">
-    Volume, hours and reuse figures are Larry's, given on the 9 September 2026 call, and the three to five hours and sixty to seventy percent are metering manhole numbers. The 69492 ranking is real output from the index running on the twenty packages delivered 9 September. Nothing in VPC's files has been renamed or moved.
+    Volume, hours and reuse figures are Larry's, given on the 9 September 2026 call, and the three to five hours and sixty to seventy percent are metering manhole numbers. The 69492 ranking is real output from the index running on the twenty sales quotes and twenty submittal packages Larry sent on 9 and 10 September. The 69510 quote is reproduced from that set. Nothing in VPC's files has been renamed or moved.
   </div>
 
 </div>
