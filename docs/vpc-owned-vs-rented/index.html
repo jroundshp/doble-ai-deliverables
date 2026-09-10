@@ -335,10 +335,10 @@
 <body>
 <div class="sheet">
 <header class="masthead">
-  <p class="eyebrow">Doble AI &middot; Prepared for Corey Hogan &middot; 6 September 2026</p>
+  <p class="eyebrow">Doble AI &middot; Prepared for Corey Hogan &middot; 6 September 2026, corrected 10 September</p>
   <h1>What VPC owns, and what VPC rents</h1>
   <p class="standfirst">The web estate as it actually stands. Who holds what, what it is doing for VPC today, where the holes are, and the questions that decide which path is the right one.</p>
-  <p class="stamp">Checked live on <b>6 September 2026</b>. This replaces the 17 August fix guide, three of whose six items VPC has already shipped. It sits alongside the <a href="../vpc-findability/">findability review</a> of 1 September rather than replacing it: that document is the technical read, this one is the ownership map.</p>
+  <p class="stamp"><b>Corrected 10 September 2026.</b> The ownership table below said &ldquo;VPC owns it&rdquo; against three of the four sites. VPC owns the domains; a vendor hosts all four. See the correction directly under the table. Checked live on <b>6 September 2026</b>. This replaces the 17 August fix guide, three of whose six items VPC has already shipped. It sits alongside the <a href="../vpc-findability/">findability review</a> of 1 September rather than replacing it: that document is the technical read, this one is the ownership map.</p>
 </header>
 
 <section>
@@ -361,26 +361,26 @@
       <tbody>
         <tr>
           <td><code>vpcfiberglass.com</code></td>
-          <td>WordPress, VPC&rsquo;s own domain, custom theme</td>
-          <td><span class="state st-ok">VPC owns it</span> Built by Thomas Marketing Services, who hold an admin account on it</td>
+          <td>WordPress, custom theme. <b>Built and hosted by Thomas</b></td>
+          <td><span class="state st-part">VPC owns the domain</span> Thomas built the site and hosts it. VPC holds the domain and can grant a WordPress admin account, which it has</td>
           <td>23 pages, 15 case studies. Marketing pages for the divisions, but no product catalog of its own</td>
         </tr>
         <tr>
           <td><code>products.vpcfiberglass.com</code></td>
-          <td>Thomas Navigator platform</td>
-          <td><span class="state st-bad">Rented</span> Whether VPC can edit the templates is still an open question for the vendor</td>
+          <td>Thomas Navigator platform, <b>proprietary to Thomas</b></td>
+          <td><span class="state st-bad">Rented</span> Not WordPress. No WordPress credential reaches it. Whether the templates can carry Product markup is still open with the vendor</td>
           <td>289 URLs: 144 item pages, 121 view-item pages, 23 categories. Every actual product</td>
         </tr>
         <tr>
           <td><code>easyrecreation.com</code></td>
           <td>WordPress</td>
-          <td><span class="state st-ok">VPC owns it</span></td>
+          <td><span class="state st-part">VPC owns the domain</span> Build and hosting arrangement not yet established with us</td>
           <td>5 pages. EasyRec</td>
         </tr>
         <tr>
           <td><code>interactivewaterparks.com</code></td>
-          <td>Separate site</td>
-          <td><span class="state st-ok">VPC owns it</span></td>
+          <td>WordPress. <b>Built and hosted by a different vendor</b>, not Thomas</td>
+          <td><span class="state st-part">VPC owns the domain</span> The vendor built the templates, VPC wrote every page into them, and the vendor hosts it</td>
           <td>37 pages. InterActive Play</td>
         </tr>
         <tr>
@@ -391,6 +391,14 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="warn">
+    <div class="claim-head"><p class="claim-quote">Corrected 10 September: VPC owns the domains. A vendor hosts every one of the four sites.</p><span class="chip confirmed">Amanda Acker, 10 Sep</span></div>
+    <p>An earlier version of this table said <b>&ldquo;VPC owns it&rdquo;</b> against three of the four properties, and treated only the catalog as rented. That was too generous, and the correction came from inside the company rather than from our own checks.</p>
+    <p>On <b>10 September Amanda Acker</b> set it out directly. On the main site: &ldquo;They built the WordPress too. So they built the WordPress, and then I believe they host that. We own the domain. So we own vpcfiberglass.com. That&rsquo;s our domain. But they host those WordPress pages, and then they also host the catalog pages.&rdquo; On the play site: &ldquo;We own interactivewaterparks.com domain, but they host that website,&rdquo; built by a different vendor who supplied templates that VPC filled in page by page.</p>
+    <p><b>So the line this document drew in the wrong place.</b> The split is not main site owned, catalog rented. It is <b>domains owned, hosting rented, everywhere.</b> The catalog is still the sharpest case, because it also runs on software proprietary to the vendor and no WordPress credential reaches it. But the pattern holds across the estate, and it is the more useful thing to know.</p>
+    <p><b>What that changes in practice.</b> It explains why the off-server backup has been slow: it is a vendor ticket, not a setting VPC can reach. Amanda raised one on 9 September and was still chasing a response a day later. It also means a question this document put only to the catalog belongs to all four: if VPC ever moves, what comes with it.</p>
+    <p><b>One limit on this.</b> Amanda said &ldquo;I believe they host that&rdquo; about the main site, which is a well-placed belief from the person who deals with the vendor, not a hosting invoice. We have not seen the contract. The hosting arrangement for <code>easyrecreation.com</code> was not discussed at all and is marked unestablished above rather than guessed at.</p>
   </div>
   <p>The footer of every page on both <code>vpcfiberglass.com</code> and <code>products.vpcfiberglass.com</code> states it in public: &ldquo;Site created by Thomas Marketing Services and Powered by Navigator Platform.&rdquo; So this is not a discovery, it is a fact that has been on the page all along and that nobody had cause to read closely.</p>
   <p><b>One sentence for the whole architecture:</b> the marketing site and the product catalog are two different systems, on two different platforms, with two different owners, joined by a subdomain and a lot of links. Each page of the main site sends between 37 and 50 internal links into the catalog it does not control.</p>
@@ -436,10 +444,10 @@
   <p>Nothing below is rhetorical. Each one changes what the right next step is, and none of them can be answered from outside the company.</p>
   <h3>For the web vendor</h3>
   <ul class="plain">
-    <li>Can Product markup be added to the Navigator templates on <code>products.vpcfiberglass.com</code>, and at what cost? This is the single highest-value unanswered question in the estate.</li>
+    <li>Can Product markup be added to the Navigator templates on <code>products.vpcfiberglass.com</code>, and at what cost? This is the single highest-value unanswered question in the estate. <b>Put it as three options rather than one question</b>, because the vendor may say yes to one and no to another: does Thomas make the change and what does it charge; can VPC make it directly; or can VPC write the markup and hand Thomas the templates to install. The third is the one most often overlooked and it is frequently the cheapest for both sides.</li>
     <li>If not, can VPC publish a crawlable, marked-up version of the catalog on a domain it controls?</li>
-    <li>If VPC ever moves, does the product data export, and in what format?</li>
-    <li>Who holds the WordPress administrator credentials, and can VPC hold its own set?</li>
+    <li>If VPC ever moves, does the product data export, and in what format? <b>Now worth asking of all four properties, not just the catalog</b>, since a vendor hosts every one of them.</li>
+    <li>Who holds the WordPress administrator credentials, and can VPC hold its own set? <b>Answered 10 September:</b> VPC can and now has. The open half is hosting, which is a separate thing from the login and is the reason a backup takes a ticket.</li>
     <li>What has the current arrangement covered over the last twenty-four months, and what does it cost?</li>
     <li>Two specific defects: one of the catalog&rsquo;s search forms posts to a staging hostname and returns a 404, and the catalog&rsquo;s robots file opens with an invalid user-agent token.</li>
   </ul>
