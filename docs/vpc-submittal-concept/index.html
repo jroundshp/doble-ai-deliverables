@@ -513,12 +513,18 @@
   <section>
     <div class="marker">03</div>
     <div class="body">
-      <h2>The filenames are already doing the work</h2>
-      <p>A file in the metering manhole folder is named:</p>
+      <h2>The specification exists. It is split across three places.</h2>
+      <p>Larry described one of the twenty like this:</p>
       <div class="pull">
         <p><b>69492 - Rev B - Submittal Pkg 60 in MM - dome - 2 in parshall - ultra bkt - eng staff - 8 in pipes</b></p>
       </div>
-      <p>That is not a filename. It is a specification, and it holds in all twenty: job number, revision, body and size, lid type, flume type and size, bracket, staff gauge, options, pipe size. Somebody has been maintaining a structured record of every job for years, by hand, in the place nobody thinks to look.</p>
+      <p>That is a complete specification: job number, revision, body and size, lid type, flume type and size, bracket, staff gauge, options, pipe size. It holds in all twenty. What matters is where each part of it currently lives.</p>
+      <p><b>The folder name carries the first half.</b> On the drive that same job is <b>69492 - CC Lynch - 60 in MM - 2in Parshall</b>: job number, customer, body size, flume type and size. That is real, it is consistent across the folders, and it is what a search on the drive can actually see.</p>
+      <p><b>The rest is in the package and in Larry's head.</b> Bracket, staff gauge, pipe sizes, sampler, laser flow. None of it is in the folder name, and there is a specific reason it is not.</p>
+      <div class="pull">
+        <p>"I can not put all the details of what is in a subdirectory because of the directory tree naming limitation of SolidWorks. If the file name with directory structure has too many characters, SolidWorks will not save the file properly once the file is open. So I try to keep it short."</p>
+      </div>
+      <p>That is a hard ceiling, not an oversight. The path has a character budget, SolidWorks enforces it, and the budget is already spent on the things most worth searching. <b>So the full specification can never live in the folder name, no matter how carefully anyone names anything.</b> It has to live somewhere else, and that is the whole argument for an index: it reads the folder name and the package together and holds the complete line without touching the drive.</p>
       <p>Across the twenty the vocabulary is small, and the counts show how much of it repeats:</p>
       <div class="table-wrap">
         <table>
@@ -532,7 +538,7 @@
         </table>
       </div>
       <p>A small enough vocabulary that a job can be described completely in one line, and a stable enough one that two jobs can be compared without opening either.</p>
-      <p>There is a catch, and it is the reason this needs software rather than a better search box. <b>Search the drive for "ultra bkt" today and you get thirteen of the seventeen jobs that have one.</b> The other four are spelled "ulta bkt" or "ultra kkt", so they do not come back, and nothing tells you they are missing. An index that normalizes as it reads finds all seventeen, and nobody has to change how they name anything.</p>
+      <p>There is a second catch, and it is the reason this needs software rather than a better search box. A search on the drive matches the characters you type. Larry's own example: North East Technical Sales, Inc. is filed as <b>NETS</b>, so a search for the company name returns nothing at all. The same job can be reached by one spelling and missed by another, and nothing tells you what you missed. An index that normalizes as it reads finds both, <b>and nobody has to change how they name anything.</b></p>
     </div>
   </section>
 
@@ -540,7 +546,7 @@
     <div class="marker">04</div>
     <div class="body">
       <h2>One job, run through it</h2>
-      <p>This is running now, on the twenty, off the filenames alone. Treat 69492 as the job that just came in, a 60 inch manhole with a dome lid, a 2 inch Parshall flume, engineering staff gauge and 8 inch pipes, and ask what VPC has already built that is closest.</p>
+      <p>This is running now, on the twenty, off the configuration line for each one. Treat 69492 as the job that just came in, a 60 inch manhole with a dome lid, a 2 inch Parshall flume, engineering staff gauge and 8 inch pipes, and ask what VPC has already built that is closest.</p>
       <div class="table-wrap">
         <table>
           <tr><th>65067</th><td><span class="score">76%</span> &nbsp; 48 in MM, dome, 6 in Parshall, eng staff, 24 in pipes</td></tr>
