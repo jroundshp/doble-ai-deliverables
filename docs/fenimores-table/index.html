@@ -247,6 +247,9 @@
     display: flex; justify-content: space-between;
     align-items: center; flex-wrap: wrap; gap: 8px;
   }
+
+  .tscroll { overflow-x: auto; max-width: 100%; min-width: 0; -webkit-overflow-scrolling: touch; }
+  .tscroll table { min-width: 560px; }
 </style>
 </head>
 <body>
@@ -326,7 +329,7 @@
       <span class="section-title" style="color:#2563eb">Competitive Set</span>
     </div>
     <div class="section-body" style="padding:20px 24px">
-      <table>
+      <div class="tscroll"><table>
         <thead>
           <tr>
             <th>Business</th>
@@ -373,7 +376,7 @@
             <td><span class="badge badge-sister">Sister</span></td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
   </div>
 
