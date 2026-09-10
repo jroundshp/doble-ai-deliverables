@@ -464,7 +464,7 @@
 <div class="sheet">
 
   <header class="masthead">
-    <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan and Amanda</b> &nbsp;/&nbsp; 9 September 2026</span>
+    <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan and Amanda</b> &nbsp;/&nbsp; 9 September 2026, list re-crawled 10 September</span>
     <h1>VPC Website Work Order</h1>
     <p class="dek">What needs doing on the three WordPress sites, what has to be true before anyone touches anything, and two ways to run it.</p>
     <p class="scope">This hour is the website only. The quoting and submittal work with AI is a separate session with a separate document, and nothing here depends on it.</p>
@@ -496,6 +496,7 @@
     <div class="body">
       <h2>Three of the six are already done</h2>
       <p>Between 25 and 28 August, three of the six items from the August list shipped. The structured data now reads correctly as LocalBusiness with the Medina address and phone attached, the test-location page is gone, and only one Enduro page serves content. Nobody announced it. I found it by re-crawling the site.</p>
+      <p>The same thing happened again on 10 September. The InterActive Play homepage no longer carries the title <code>Homepage - Interactive Play</code>. It now reads <code>Commercial Splash Pads &amp; Aquatic Play | InterActive Play</code>, which is a real title written for a buyer rather than a WordPress default. That item has come off the list below. It is worth saying plainly that work is landing on these sites without reaching us, which is the argument for a short standing note whichever way section 09 goes.</p>
     </div>
   </section>
 
@@ -578,14 +579,14 @@
             <tr><th></th><th>Item</th><th>Where</th><th>Effort</th></tr>
           </thead>
           <tbody>
-            <tr><td class="num">1</td><td>A site-wide default og:image for the pages with no featured image of their own, which is the homepage and the archives, plus a Twitter card, which is missing everywhere. Case studies already carry an image</td><td class="where">Main site</td><td class="effort">20 min</td></tr>
+            <tr><td class="num">1</td><td>A site-wide default og:image, plus a Twitter card. Counted page by page on 10 September, 31 of the 42 URLs in the sitemaps carry no og:image, and the Twitter card is absent on all 42. Only three case studies carry an image of their own</td><td class="where">Main site</td><td class="effort">20 min</td></tr>
             <tr><td class="num">2</td><td>Turn author archives off, so the admin URL stops resolving and drops out of the sitemap</td><td class="where">Main site</td><td class="effort">15 min</td></tr>
             <tr><td class="num">3</td><td>A meta description on <code>/locations/</code></td><td class="where">Main site</td><td class="effort">10 min</td></tr>
             <tr><td class="num">4</td><td>Repoint the three Enduro redirects that land on a custom building, a Parshall flume and a manhole cover</td><td class="where">Main site</td><td class="effort">20 min</td></tr>
             <tr><td class="num">5</td><td>The same author fix for <code>/author/admin/</code> and <code>/author/aacker/</code></td><td class="where">EasyRec</td><td class="effort">15 min</td></tr>
             <tr><td class="num">6</td><td>Organization and LocalBusiness markup with address, phone and a parent link back to Virtual Polymer Compounds</td><td class="where">EasyRec and<br>InterActive Play</td><td class="effort">1 hr</td></tr>
-            <tr><td class="num">7</td><td>Retitle the page that currently reads "Homepage - Interactive Play"</td><td class="where">InterActive Play</td><td class="effort">5 min</td></tr>
-            <tr><td class="num">8</td><td>Heading structure. Four H1s on the EasyRec homepage, nine H1s and no H2 on <code>/ada-easy-stair/</code></td><td class="where">EasyRec</td><td class="effort">45 min</td></tr>
+            <tr><td class="num">7</td><td>Heading structure. Four H1s on the EasyRec homepage, nine H1s and no H2 on <code>/ada-easy-stair/</code></td><td class="where">EasyRec</td><td class="effort">45 min</td></tr>
+            <tr><td class="num">8</td><td>Clear the placeholder line out of the Products dropdown. All five categories still read &ldquo;Here comes a short description about the structure with three lines or less.&rdquo; It lives in the menu, so it sits on every page of the site</td><td class="where">InterActive Play</td><td class="effort">5 min</td></tr>
             <tr><td class="num">9</td><td>Product markup across 24 product pages and 6 categories. One template rather than 24 edits, and the drop-in WordPress pack is already built and demonstrated on the TriWave 100</td><td class="where">InterActive Play</td><td class="effort">3 to 4 hrs</td></tr>
             <tr><td class="num">10</td><td>FAQ markup, built only from what the resource pages and the 15 case studies already say today</td><td class="where">Main site</td><td class="effort">2 to 3 hrs</td></tr>
           </tbody>
@@ -594,7 +595,9 @@
 
       <p>Items 1 through 4 close out the August list. Item 9 carries the real weight: first product markup VPC owns anywhere, on a domain VPC definitely controls, and it becomes the template for the traditional FRP lines later.</p>
 
-      <p>One flag on item 9. A few of the play product pages disagree with themselves. On the TriWave 100, the meta description says 40 interactive features while the spec table says 20, and the body copy says four slides while the table says 2. Whoever knows the product settles those before we mark anything up, because the number that ends up in the markup becomes the one machines treat as authoritative.</p>
+      <p>One flag on item 9. A few of the play product pages disagree with themselves. On the TriWave 100, the meta description says 40 interactive features while the spec table says 20, and the body copy says four slides while the table says 2. Whoever knows the product settles those before we mark anything up, because the number that ends up in the markup becomes the one machines treat as authoritative. Both contradictions were still live on 10 September.</p>
+
+      <p>One addition to item 9 that costs nothing. All 24 play product pages already carry a visible FAQ block, the "Got Questions? We've Got Answers!" panel, and none of it is marked up. The same template pass that adds Product markup can carry the FAQ markup with it, using the answers already written on the page. That makes item 10 the second FAQ job rather than the first.</p>
 
       <div class="pull">
         <p>Everything on that list that does not require a decision from VPC is about a day of work.</p>
@@ -660,7 +663,7 @@
   </section>
 
   <div class="closing">
-    Every finding above traces to a published document. Nothing here is new analysis. Every open item re-checked live on 9 September 2026.
+    Every finding above traces to a published document. Every item on the day-one list was re-crawled live on 10 September 2026, one URL at a time. One item came off because it had been fixed, one was understated and is now counted, and one is new.
   </div>
 
 </div>
