@@ -496,7 +496,11 @@
     <div class="body">
       <h2>Three of the six are already done</h2>
       <p>Between 25 and 28 August, three of the six items from the August list shipped. The structured data now reads correctly as LocalBusiness with the Medina address and phone attached, the test-location page is gone, and only one Enduro page serves content. Nobody announced it. I found it by re-crawling the site.</p>
-      <p>The same thing happened again on 10 September. The InterActive Play homepage no longer carries the title <code>Homepage - Interactive Play</code>. It now reads <code>Commercial Splash Pads &amp; Aquatic Play | InterActive Play</code>, which is a real title written for a buyer rather than a WordPress default. That item has come off the list below. It is worth saying plainly that work is landing on these sites without reaching us, which is the argument for a short standing note whichever way section 09 goes.</p>
+      <p>The same thing happened again on 10 September. The InterActive Play homepage no longer carries the title <code>Homepage - Interactive Play</code>. It now reads <code>Commercial Splash Pads &amp; Aquatic Play | InterActive Play</code>, which is a real title written for a buyer rather than a WordPress default. That item has come off the list below.</p>
+
+      <p><b>And something else moved that is not on the list, and is not an improvement.</b> On 1 September the main site published five blog posts, the newest dated 5 July 2022. They are gone. <code>/blog/</code> now renders the words <b>&ldquo;No posts to display. No idea what happened.&rdquo;</b> to anybody who clicks it, the post sitemap has dropped out of the sitemap index, the REST endpoint returns an empty list, and all four categories survive with a post count of zero. Four independent signals, so this is not a caching artefact. Whether the posts were deleted, unpublished or moved, we cannot tell from outside, and it is worth someone at VPC knowing before a customer finds that sentence.</p>
+
+      <p>That is three changes in two weeks that we found by re-crawling rather than by being told. It is the argument for a short standing note whichever way section 09 goes.</p>
     </div>
   </section>
 
@@ -521,7 +525,7 @@
       </div>
 
       <div class="pull">
-        <p>Ten of the items we have found need a WordPress login and nothing else. No Thomas package, no contract conversation, no budget.</p>
+        <p>Nine of the ten items in section 06 need a WordPress login and nothing else. No Thomas package, no contract conversation, no budget. The tenth needs one answer about the play products first.</p>
       </div>
     </div>
   </section>
@@ -570,8 +574,8 @@
   <section>
     <div class="marker">06</div>
     <div class="body">
-      <h2>The day-one list</h2>
-      <p>Items 1 through 8 and item 10 need credentials and a template, and nothing else at all. Item 9 needs one short answer from whoever knows the play products, for the reason directly below the table.</p>
+      <h2>The list</h2>
+      <p>Here is the list, as it stands on 10 September. Every row was re-pulled live that day, so anything already fixed has come off rather than sitting here waiting to be discovered. Nine of the ten need credentials and a template and nothing else at all. Item 9 needs one short answer from whoever knows the play products, for the reason directly below the table.</p>
 
       <div class="table-wrap">
         <table>
@@ -587,13 +591,13 @@
             <tr><td class="num">6</td><td>Organization and LocalBusiness markup with address, phone and a parent link back to Virtual Polymer Compounds</td><td class="where">EasyRec and<br>InterActive Play</td><td class="effort">1 hr</td></tr>
             <tr><td class="num">7</td><td>Heading structure. Four H1s on the EasyRec homepage, nine H1s and no H2 on <code>/ada-easy-stair/</code></td><td class="where">EasyRec</td><td class="effort">45 min</td></tr>
             <tr><td class="num">8</td><td>Clear the placeholder line out of the Products dropdown. All five categories still read &ldquo;Here comes a short description about the structure with three lines or less.&rdquo; It lives in the menu, so it sits on every page of the site</td><td class="where">InterActive Play</td><td class="effort">5 min</td></tr>
-            <tr><td class="num">9</td><td>Product markup across 24 product pages and 6 categories. One template rather than 24 edits, and the drop-in WordPress pack is already built and demonstrated on the TriWave 100</td><td class="where">InterActive Play</td><td class="effort">3 to 4 hrs</td></tr>
+            <tr><td class="num">9</td><td>Product markup across 24 product pages and 6 categories. One template rather than 24 edits. <b>Nothing of this is live yet</b> &mdash; the play pages still carry Yoast’s WebPage and Breadcrumb blocks and no Product markup at all. What is already built is the drop-in WordPress pack, which we wrote and proved against the TriWave 100 on our own machine, so the work here is installing it rather than designing it</td><td class="where">InterActive Play</td><td class="effort">3 to 4 hrs</td></tr>
             <tr><td class="num">10</td><td>FAQ markup, built only from what the resource pages and the 15 case studies already say today</td><td class="where">Main site</td><td class="effort">2 to 3 hrs</td></tr>
           </tbody>
         </table>
       </div>
 
-      <p>Items 1 through 4 close out the August list. Item 9 carries the real weight: first product markup VPC owns anywhere, on a domain VPC definitely controls, and it becomes the template for the traditional FRP lines later.</p>
+      <p>That is the list. Items 1 through 4 close out the August list. Item 9 carries the real weight: first product markup VPC owns anywhere, on a domain VPC definitely controls, and it becomes the template for the traditional FRP lines later.</p>
 
       <p>One flag on item 9. A few of the play product pages disagree with themselves. On the TriWave 100, the meta description says 40 interactive features while the spec table says 20, and the body copy says four slides while the table says 2. Whoever knows the product settles those before we mark anything up, because the number that ends up in the markup becomes the one machines treat as authoritative. Both contradictions were still live on 10 September.</p>
 
@@ -613,7 +617,7 @@
         <li>Any FAQ answer with a number in it. NEMA ratings, lead time on a custom shelter. We do not publish a spec nobody gave us.</li>
         <li>Product page copy about how VPC actually sells. Who each line is for in your words, and whether a buyer is configuring from standard sizes or commissioning to a drawing.</li>
         <li>Two doors in the navigation. Plant and municipal FRP on one side, EasyRec and InterActive Play on the other. This moves live menus and URLs, which is precisely where indexing gets dropped, so it needs agreement before it needs work.</li>
-        <li>The blog, where the last post went up on 5 July 2022. Approval, not writing.</li>
+        <li>The blog. As of 10 September there is nothing in it at all, and the page tells a visitor so in those words. Whether that gets restored, redirected or retired is a VPC decision, and it is now a bigger one than the approval we asked for a week ago.</li>
       </ul>
       <p>Three more are not website credentials at all and are not for today: Lockport's Google profile publishes an 888 number that appears nowhere on the site, Amherst returns no profile in Maps, and Medina is sitting on three or four reviews after a decade of municipal customers.</p>
     </div>
@@ -647,13 +651,13 @@
           <span class="opt-label">Option A</span>
           <h3>We hand Amanda the work order</h3>
           <p>Every item written as a task with the exact markup, the file it goes in, and what to check afterward. Nobody outside VPC touches the site.</p>
-          <p class="needs"><b>What it needs</b>Roughly a day of Amanda's time across the three sites.</p>
+          <p class="needs"><b>What it needs</b> Roughly a day of Amanda's time across the three sites.</p>
         </div>
         <div class="opt">
           <span class="opt-label">Option B</span>
           <h3>Amanda hands us a login</h3>
           <p>A named admin account on the three WordPress sites, revocable in one click. We do the work, validate every block against what the page actually says, screenshot before and after, and re-crawl to prove it landed rather than tell you it did.</p>
-          <p class="needs"><b>What it needs</b>The backup above, an account, and about an hour of review at the end.</p>
+          <p class="needs"><b>What it needs</b> The backup above, an account, and about an hour of review at the end.</p>
         </div>
       </div>
 
@@ -663,7 +667,7 @@
   </section>
 
   <div class="closing">
-    Every finding above traces to a published document. Every item on the day-one list was re-crawled live on 10 September 2026, one URL at a time. One item came off because it had been fixed, one was understated and is now counted, and one is new.
+    Every finding above traces to a published document. Every item on the list in section 06 was re-crawled live on 10 September 2026, one URL at a time. One item came off because it had been fixed, one was understated and is now counted, and one is new. The ThomasNet figures in section 08 were read on screen on 9 September and could not be re-pulled, because the site answers automated requests with a block.
   </div>
 
 </div>
