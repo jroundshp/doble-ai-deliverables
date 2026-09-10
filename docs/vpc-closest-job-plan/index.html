@@ -461,6 +461,9 @@
   .count { font-family: var(--f-mono); font-size: 12px; color: var(--ink-faint); }
   .score { font-family: var(--f-mono); font-size: 13.5px; font-weight: 500; color: var(--accent); }
   a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  a.surface { color: var(--accent); border-color: var(--accent); text-decoration: none; white-space: normal; }
+  a.surface:hover { background: var(--accent-soft); }
+
   .objective .lead + .conditions { margin-top: 26px; }
 
   .conditions .obj-n {
@@ -674,6 +677,7 @@
       <div class="pull decision">
         <p><b>Where this sits commercially.</b> The first workflow is inside the current arrangement, not a new line item. Beyond it, each additional department is its own build with its own decision, and the honest version of that is: if there is no next workflow worth building, there is nothing to bill for. VPC keeps everything built up to that point either way.</p>
       </div>
+      <p><b>What the account costs.</b> A per-seat monthly subscription billed to VPC, plus our build time. We are not putting a seat rate on this page, because the published figures for these platforms and the figures on an actual invoice have a habit of disagreeing, and a number Corey plans around should come from the vendor rather than from us. We will confirm the current rate in writing before anything is signed.</p>
       <p>And if Corey would rather have his own people run this, that is a real option and we would rather he took it than paid for something he can do internally. The index, the scoring and the runbook are documented as they are built, precisely so that route stays open.</p>
     </div>
   </section>
@@ -752,6 +756,10 @@
     <div class="body">
       <h2>The first workflow, with Larry</h2>
       <p>Engineering, metering manholes and flumes. Everything above is the shape of the system. This is the part that has to work before the rest is worth discussing.</p>
+      <div class="surfaces">
+        <span class="surfaces-label">FULL WRITE-UP</span>
+        <a class="surface" href="https://jroundshp.github.io/doble-ai-deliverables/vpc-submittal-concept/">The twenty packages, the vocabulary and the ranking output</a>
+      </div>
 
       <figure>
         <svg viewBox="0 0 720 118" role="img" aria-label="The loop: an RFQ arrives, the order goes in, the index matches it against every past job, ranked neighbours come back with carry and change lists, and the engineer starts from the closest package.">
