@@ -550,12 +550,14 @@
           </marker>
         </defs>
 
-        <text x="0" y="10" class="d-t-k">PEOPLE</text>
+        <text x="0" y="10" class="d-t-k">ADMIN</text>
+        <text x="149" y="10" class="d-t-ka">SEAT ONE</text>
+        <text x="298" y="10" class="d-t-k">ADDED AS THE SYSTEM EARNS THEM</text>
         <rect x="0"   y="20" width="124" height="32" rx="16" class="d-box"/>
-        <rect x="149" y="20" width="124" height="32" rx="16" class="d-box"/>
-        <rect x="298" y="20" width="124" height="32" rx="16" class="d-box"/>
-        <rect x="447" y="20" width="124" height="32" rx="16" class="d-box"/>
-        <rect x="596" y="20" width="124" height="32" rx="16" class="d-box"/>
+        <rect x="149" y="20" width="124" height="32" rx="16" class="d-box-a"/>
+        <rect x="298" y="20" width="124" height="32" rx="16" class="d-box-d"/>
+        <rect x="447" y="20" width="124" height="32" rx="16" class="d-box-d"/>
+        <rect x="596" y="20" width="124" height="32" rx="16" class="d-box-d"/>
         <text x="62"  y="40" text-anchor="middle" class="d-t">Corey, admin</text>
         <text x="211" y="40" text-anchor="middle" class="d-t">Larry</text>
         <text x="360" y="40" text-anchor="middle" class="d-t">2nd engineer</text>
@@ -598,7 +600,7 @@
         <text x="360" y="326" text-anchor="middle" class="d-t-b">VPC storage, the L and M drives, plus Salesforce</text>
         <text x="360" y="346" text-anchor="middle" class="d-t-s">The records live here. The bot is the front door, never the filing cabinet.</text>
       </svg>
-      <figcaption>Workflows get added under one roof rather than each person buying their own subscription. The bot reads what VPC owns, so swapping the front door later costs nothing.</figcaption>
+      <figcaption>Workflows get added under one roof rather than each person buying their own subscription. Seats start at one, Larry's, and are added as the system earns them. The bot reads what VPC owns, so swapping the front door later costs nothing.</figcaption>
     </figure>
 
       <p>Sequence: prove the closest-job index with Larry, add quote history, extend to shelters, then take the same account into other departments. Each step earns the next one.</p>
@@ -670,14 +672,15 @@
           <tr><th>The index</th><td>Every past job read, parsed and fingerprinted, with the misspellings normalised so a search finds all seventeen jobs instead of thirteen. This is software, and it does not come with a subscription.</td></tr>
           <tr><th>The join</th><td>The Salesforce order and the server drawing brought together, which is the thing that currently only happens inside Larry's head.</td></tr>
           <tr><th>The scoring</th><td>Deciding what makes two jobs similar, then changing it when Larry says the ranking is wrong. Judgement, tested against his, not a setting in a menu.</td></tr>
-          <tr><th>The handover</th><td>Company accounts, a second user, a runbook, and a re-index anybody at VPC can run. The unglamorous part, and the part that decides whether VPC owns an asset or rents a habit.</td></tr>
+          <tr><th>The handover</th><td>Company accounts, a second seat once the tool goes daily, a runbook, and a re-index anybody at VPC can run. The unglamorous part, and the part that decides whether VPC owns an asset or rents a habit.</td></tr>
           <tr><th>The word no</th><td>Telling VPC when to stop. Do not buy CPQ software, do not chase CAD generation, do not dump the PDF library into a chatbot. A vendor paid to expand scope does not say that.</td></tr>
         </table>
       </div>
       <div class="pull decision">
         <p><b>Where this sits commercially.</b> The first workflow is inside the current arrangement, not a new line item. Beyond it, each additional department is its own build with its own decision, and the honest version of that is: if there is no next workflow worth building, there is nothing to bill for. VPC keeps everything built up to that point either way.</p>
       </div>
-      <p><b>What the account costs.</b> A per-seat monthly subscription billed to VPC, plus our build time. We are not putting a seat rate on this page, because the published figures for these platforms and the figures on an actual invoice have a habit of disagreeing, and a number Corey plans around should come from the vendor rather than from us. We will confirm the current rate in writing before anything is signed.</p>
+      <p><b>What the account costs.</b> A per-seat monthly subscription billed to VPC, plus our build time. The seat count starts at one, Larry's, and grows only as the system earns it: a second when the tool goes daily, and somewhere between two and four seats by the six-month mark if other people are getting value from it. Nobody pays for a seat before there is something on the other end of it.</p>
+      <p>We are not putting a seat rate on this page. The published figures for these platforms and the figures on an actual invoice have a habit of disagreeing, and a number Corey plans around should come from the vendor rather than from us. We will confirm the current rate in writing before anything is signed.</p>
       <p>And if Corey would rather have his own people run this, that is a real option and we would rather he took it than paid for something he can do internally. The index, the scoring and the runbook are documented as they are built, precisely so that route stays open.</p>
     </div>
   </section>
@@ -741,7 +744,7 @@
       <div class="table-wrap">
         <table>
           <tr><th>Larry</th><td>The hunting and retyping hours come back. He confirms whether a ranking is right, and his filenames and cheat sheet are the backbone of the index rather than something it replaces. Shelters are not forced on him early.</td></tr>
-          <tr><th>2nd engineer</th><td>Conrad or Taylor on the same tool from week one, which is also what proves the system is not built around one person.</td></tr>
+          <tr><th>2nd engineer</th><td>Conrad or Taylor on a second seat once the tool goes daily at phase 3. That second seat is what proves the system is not built around one person.</td></tr>
           <tr><th>Sales, later</th><td>A faster first pass at a quote, from what jobs like this one actually quoted at and what they became.</td></tr>
           <tr><th>Future hires</th><td>A seat on the company organisation, inheriting the bots and runbooks that already exist.</td></tr>
           <tr><th>The company</th><td>Shorter turnaround on the same headcount, packages that resemble each other because they start from the same place, and years of configuration history that can finally be queried.</td></tr>
@@ -882,7 +885,7 @@
       <ol class="asks">
         <li><b>Confirm the ownership model.</b> VPC holds the organisation, the seats, the billing, the hosting and the data.</li>
         <li><b>Read access to the submittal history</b> on the server, manhole and flume directories. Nothing gets renamed or moved.</li>
-        <li><b>Name the second user.</b> Conrad or Taylor, on the tool from week one.</li>
+        <li><b>Name who the second seat goes to.</b> Conrad or Taylor. The seat itself waits until phase 3, so this costs nothing today.</li>
       </ol>
       <p><b>From Larry</b></p>
       <ol class="asks">
