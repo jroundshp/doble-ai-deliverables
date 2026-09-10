@@ -461,6 +461,19 @@
   .count { font-family: var(--f-mono); font-size: 12px; color: var(--ink-faint); }
   .score { font-family: var(--f-mono); font-size: 13.5px; font-weight: 500; color: var(--accent); }
   a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  .objective .lead + .conditions { margin-top: 26px; }
+
+  .conditions .obj-n {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+
   /* ---------- figures ---------- */
 
   figure { margin: 22px 0 6px; }
@@ -510,8 +523,21 @@
   </header>
 
   <div class="objective">
-    <span class="opt-label">The master plan</span>
-    <p class="lead">Seats under one company roof, workflows added by department, and the knowledge kept where VPC can always reach it.</p>
+    <span class="opt-label">What we are trying to do</span>
+    <p class="lead">Three objectives, in the order they matter. Everything further down is a means to one of them.</p>
+    <ul class="conditions">
+      <li><span class="obj-n">Objective 01</span><b>Streamline quoting</b>Put AI on the part of quoting and submittal work that is retrieval and retyping rather than engineering. That is where the hours sit, and it is the part a machine can actually take.</li>
+      <li><span class="obj-n">Objective 02</span><b>Build a structure, not a tool</b>One company account and one master plan that other departments and other staff move onto as it proves out, so the second workflow costs a fraction of the first.</li>
+      <li><span class="obj-n">Objective 03</span><b>Turn it into an asset</b>Something worth more to VPC every month it runs. Each job that passes through makes the next search better, and the knowledge stays with the company as people come and go.</li>
+    </ul>
+    <p class="coda">The third objective is the one that outlives the other two, and it is the reason the ownership section sits where it does rather than at the back.</p>
+  </div>
+
+  <section>
+    <div class="marker">01</div>
+    <div class="body">
+      <h2>One roof, many workflows</h2>
+      <p>Seats under one company roof, workflows added by department, and the records kept where VPC can always reach them.</p>
 
     <figure>
       <svg viewBox="0 0 720 372" role="img" aria-label="VPC holds one company account. Employees hold seats on it, department workflows are added under it, and the job records stay on VPC storage and Salesforce, which the workflows read.">
@@ -572,11 +598,12 @@
       <figcaption>Workflows get added under one roof rather than each person buying their own subscription. The bot reads what VPC owns, so swapping the front door later costs nothing.</figcaption>
     </figure>
 
-    <p class="coda">Sequence: prove the closest-job index with Larry, add quote history, extend to shelters, then take the same account into other departments.</p>
-  </div>
+      <p>Sequence: prove the closest-job index with Larry, add quote history, extend to shelters, then take the same account into other departments. Each step earns the next one.</p>
+    </div>
+  </section>
 
   <section>
-    <div class="marker">01</div>
+    <div class="marker">02</div>
     <div class="body">
       <h2>What Corey owns</h2>
       <p>Everything. That is the design, and it is the part worth settling before anything gets built.</p>
@@ -629,7 +656,7 @@
   </section>
 
   <section>
-    <div class="marker">02</div>
+    <div class="marker">03</div>
     <div class="body">
       <h2>What Doble AI is for</h2>
       <p>Fair question, and worth answering before the plan rather than after it.</p>
@@ -652,7 +679,7 @@
   </section>
 
   <section>
-    <div class="marker">03</div>
+    <div class="marker">04</div>
     <div class="body">
       <h2>The problem it solves</h2>
       <p>Turnaround is not slow because anybody is inventing a new product. Five to ten submittals a week, three to five hours each on a metering manhole, and roughly sixty to seventy percent of one already sitting in a job finished months ago. The time goes into finding that job.</p>
@@ -704,7 +731,7 @@
   </section>
 
   <section>
-    <div class="marker">04</div>
+    <div class="marker">05</div>
     <div class="body">
       <h2>Who gets what</h2>
       <div class="table-wrap">
@@ -721,7 +748,7 @@
   </section>
 
   <section>
-    <div class="marker">05</div>
+    <div class="marker">06</div>
     <div class="body">
       <h2>The first workflow, with Larry</h2>
       <p>Engineering, metering manholes and flumes. Everything above is the shape of the system. This is the part that has to work before the rest is worth discussing.</p>
@@ -787,7 +814,7 @@
   </section>
 
   <section>
-    <div class="marker">06</div>
+    <div class="marker">07</div>
     <div class="body">
       <h2>The build path</h2>
 
@@ -840,7 +867,7 @@
   </section>
 
   <section>
-    <div class="marker">07</div>
+    <div class="marker">08</div>
     <div class="body">
       <h2>What we need to start</h2>
       <p><b>From Corey</b></p>
@@ -859,7 +886,7 @@
   </section>
 
   <section>
-    <div class="marker">08</div>
+    <div class="marker">09</div>
     <div class="body">
       <h2>What we are not doing</h2>
       <div class="surfaces">
