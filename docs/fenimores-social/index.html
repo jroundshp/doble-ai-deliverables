@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Working draft for review. Not for print or public posting.">
+<title>Fenimore's: Getting a Photo Posted the Same Day</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%93%B7</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --ground:   #F1F3F1;
+    --surface:  #FBFCFB;
+    --sunken:   #E7EAE8;
+    --ink:      #141817;
+    --muted:    #5A6462;
+    --hair:     #CBD2CF;
+    --accent:   #14514E;
+    --accent-soft: #DCE8E6;
+    --blocked:  #92600A;
+    --blocked-soft: #F2E7CE;
+    --confirmed:#2C6340;
+    --confirmed-soft: #DCE9DF;
+    --open:     #6B5A7A;
+    --open-soft:#E6E1EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+      --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+      --blocked:#D6A44A; --blocked-soft:#322611; --confirmed:#77B98C;
+      --confirmed-soft:#172A1D; --open:#B49FC7; --open-soft:#241E2B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+    --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+    --blocked:#D6A44A; --blocked-soft:#322611; --confirmed:#77B98C;
+    --confirmed-soft:#172A1D; --open:#B49FC7; --open-soft:#241E2B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground); color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px; line-height: 1.62; margin: 0; padding: 0 24px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; }
+  header.masthead { padding-top: 64px; display: flex; flex-direction: column; gap: 18px; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--accent); margin: 0;
+  }
+
+  h1 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: clamp(32px, 5.6vw, 46px);
+    line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; margin: 0;
+  }
+
+  .standfirst { font-size: 20px; line-height: 1.5; color: var(--muted); margin: 0; max-width: 60ch; }
+
+  .stamp {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 12px; line-height: 1.75; color: var(--muted);
+    border-top: 1px solid var(--hair); padding-top: 14px; margin: 0;
+  }
+  .stamp b { color: var(--ink); font-weight: 500; }
+
+  section { display: flex; flex-direction: column; gap: 16px; }
+  .num { font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.13em; color:var(--accent); text-transform:uppercase; margin:0; }
+
+  h2 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: 26px; letter-spacing: -0.01em; line-height: 1.15;
+    text-wrap: balance; margin: 0 0 6px; padding-bottom: 10px; border-bottom: 2px solid var(--ink);
+  }
+  h3 { font-family: Archivo, sans-serif; font-weight:600; font-size:19px; margin:0 0 6px; }
+  h4 { font-family: Archivo, sans-serif; font-weight:600; font-size:16px; margin:0 0 4px; }
+
+  p { margin: 0; max-width: 66ch; }
+  p + p { margin-top: -4px; }
+  strong, b { font-weight: 600; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+
+  code, .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 0.86em; }
+  code { background: var(--sunken); padding: 1px 5px; border-radius: 3px; word-break: break-word; }
+
+  .tag {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 7px; border-radius: 3px; white-space: nowrap;
+  }
+  .t-ok    { background: var(--confirmed-soft); color: var(--confirmed); }
+  .t-open  { background: var(--open-soft);      color: var(--open); }
+  .t-fix   { background: var(--blocked-soft);   color: var(--blocked); }
+
+  .warn { background:var(--blocked-soft); border-left:4px solid var(--blocked); padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
+  .closer { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .closer p { max-width: 62ch; }
+
+  ul.plain { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:9px; max-width:66ch; }
+  ul.tight { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:4px; max-width:66ch; }
+
+  ol.steps { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:18px; counter-reset:r; }
+  ol.steps li { background:var(--surface); border:1px solid var(--hair); border-left:4px solid var(--accent); padding:18px 22px; }
+  ol.steps li::before { counter-increment:r; content:"0" counter(r); font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; color:var(--accent); display:block; margin-bottom:6px; }
+  .rt { font-family:Archivo,sans-serif; font-weight:600; font-size:17.5px; display:block; margin-bottom:6px; }
+
+  ol.asks { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:16px; counter-reset:a; }
+  ol.asks li { background:var(--surface); border:1px solid var(--hair); border-left:4px solid var(--blocked); padding:16px 20px; }
+  ol.asks li::before { counter-increment:a; content:"Q" counter(a); font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; color:var(--blocked); display:block; margin-bottom:6px; }
+
+  .sheet > *, section > * { min-width: 0; }
+  .table-wrap { overflow-x: auto; max-width: 100%; min-width: 0; border: 1px solid var(--hair); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--hair); vertical-align: top; font-size: 15.5px; line-height: 1.5; }
+  th {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); background: var(--sunken);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .copy {
+    background: var(--surface); border: 1px solid var(--hair);
+    border-top: 3px solid var(--accent); padding: 26px 28px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .copy .caplab {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); margin: 0;
+  }
+  .copy h3 { font-size: 21px; }
+  .pkg { border-left: 3px solid var(--hair); padding-left: 18px; display:flex; flex-direction:column; gap:6px; }
+  .pkg .pname { font-family:Archivo,sans-serif; font-weight:700; font-size:15px; letter-spacing:.06em; text-transform:uppercase; }
+  .pkg .ptag { font-family:"Source Serif 4",Georgia,serif; font-style:italic; color:var(--muted); font-weight:400; letter-spacing:0; text-transform:none; font-size:16px; }
+
+  .blank {
+    background: var(--blocked-soft); color: var(--blocked);
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 0.82em; padding: 1px 6px; border-radius: 3px; font-weight: 500;
+  }
+
+  .fieldset {
+    background: var(--surface); border: 1px solid var(--hair);
+    padding: 18px 22px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .fieldset .fl {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  }
+  .opts { font-size: 15.5px; color: var(--muted); max-width: 66ch; }
+  .opts b { color: var(--ink); }
+
+  .faq { display:flex; flex-direction:column; gap:20px; }
+  .faq div { border-left:3px solid var(--accent); padding-left:18px; }
+  .faq .q { font-family:Archivo,sans-serif; font-weight:600; font-size:16.5px; display:block; margin-bottom:5px; }
+
+  footer {
+    border-top: 1px solid var(--hair); padding-top: 16px;
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11.5px; line-height: 1.8; color: var(--muted);
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; padding: 0 18px 72px; }
+    .closer, .warn, ol.steps li, ol.asks li, .copy, .fieldset { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <p class="eyebrow">Doble AI &middot; Working draft for review &middot; 10 September 2026</p>
+  <h1>Getting a photo from the floor in Cooperstown onto Instagram the same day</h1>
+  <p class="standfirst">A question came off the floor on the 9 September call: the staff are taking the pictures, so how do those pictures get posted without a wait? This is the answer, in three stages. The first one needs no new software and can start this week.</p>
+  <p class="stamp">
+    For <b>Bob, Brooks, Tammy, Katie and Corey.</b> Working draft, not a public page.<br>
+    This document is about one thing only: the path a photograph travels between the moment it is taken and the moment it appears on <b>@fenimorestable</b>. It does not move an account, change a login, or ask anyone to hand anything over.<br>
+    Companion pages: <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-events/">private events and the two pages</a>, <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-status/">where the website stands</a>, and the <a href="https://jroundshp.github.io/doble-ai-deliverables/cooperstown/">Cooperstown index</a>.
+  </p>
+</header>
+
+<section>
+  <p class="num">01</p>
+  <h2>What was asked</h2>
+  <p>Good photographs are already being taken at Fenimore's. The drinks set that went round recently is the example everyone had in mind. What is missing is the next step: once a picture exists, the path it takes is not written down anywhere, so it depends on someone remembering.</p>
+  <p>Three specific things came up in that stretch of the call, and all three are fixable:</p>
+  <ul class="plain">
+    <li><b>The photo has no destination.</b> It gets emailed to several people at once, which reads to each of them as somebody else's job.</li>
+    <li><b>The hour matters and is currently accidental.</b> A breakfast plate earns its keep at 7:40 in the morning. The same photograph at nine at night is decoration.</li>
+    <li><b>Social carries real weight in Cooperstown</b>, particularly with the younger crowd, so the gap between taking a picture and posting it is costing actual covers.</li>
+  </ul>
+  <p>All three come down to the same thing. The path is too long and nobody's name is written on it.</p>
+</section>
+
+<section>
+  <p class="num">02</p>
+  <h2>One rule before anything else: the pictures stay real</h2>
+  <div class="warn">
+    <p><b>Cooperstown has a low tolerance for posts that read as machine-made</b>, and that was said plainly on the call. A post that looks generated invites the reply <i>why would I go somewhere that isn't real</i>, and that is a hard thing to walk back in a town this size.</p>
+    <p>So the rule for everything below: <b>if nobody at Fenimore's held a camera, it does not post.</b> Every image is a real photograph of real food, real drinks, the real room, the real staff. No generated pictures, no generated people, no stock.</p>
+    <p>What software is genuinely good for here is the plumbing, and only the plumbing: the reminder, the hour, the crop, and a first draft of a caption written from a sentence a person actually said. The picture and the voice stay human. In a town of roughly 2,500 people, where the audience recognises the room and the staff in the photograph, that constraint is worth more than it costs.</p>
+  </div>
+</section>
+
+<section>
+  <p class="num">03</p>
+  <h2>Capture and publishing are two different jobs</h2>
+  <p>At the moment they travel together. The photograph and the decision to post it move as a single email, which means a picture can only move as fast as whoever opens that email. Separate them and the whole thing loosens up.</p>
+  <ul class="plain">
+    <li><b>Cooperstown owns capture.</b> The people standing next to the food take the pictures and write the line that goes with them. That is already happening and it is the half that cannot be done from anywhere else.</li>
+    <li><b>The accounts stay exactly where they are.</b> Nothing in this document requires moving @fenimorestable or changing who administers it.</li>
+    <li><b>One name owns the push for a given stretch of the week.</b> A single person, written where the staff can read it, rather than a group in which everyone can reasonably assume it is covered.</li>
+    <li><b>Nothing in the daily rhythm waits on an approval.</b> A photograph of today's lunch special does not need a review cycle. The pictures that carry the room and the pictures tied to an event or a price are different categories and should move at different speeds.</li>
+  </ul>
+  <p>That last point is the one that actually does the work. A photograph sent to five people has been sent to nobody, and no software fixes that. A photograph sent to one named person on a Saturday afternoon gets posted on a Saturday afternoon.</p>
+</section>
+
+<section>
+  <p class="num">04</p>
+  <h2>What is worth shooting, and the hour it is worth posting</h2>
+  <p>A photograph is worth the most on the day it is taken. A week later it is a stock image of your own restaurant. This is a starting grid, not a rule book, and the kitchen should move it around to fit how the days actually run.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>What</th><th>Shoot</th><th>Post</th><th>Working on</th></tr></thead>
+    <tbody>
+      <tr><td>The breakfast plate</td><td>6:45 to 8:00 am</td><td>Same morning, by 8:30</td><td>Almost nobody knows breakfast is served. This is the single highest-value habit on the list.</td></tr>
+      <tr><td>Lunch special or soup</td><td>10:30 to 11:30 am</td><td>By 11:15 am</td><td>Catches the Bassett and Main Street lunch decision while it is still being made.</td></tr>
+      <tr><td>A drink or cocktail</td><td>Any quiet moment</td><td>3:30 to 5:30 pm</td><td>The set already shot is exactly this. Drinks travel further than plates on Instagram.</td></tr>
+      <tr><td>Dinner plate</td><td>4:30 to 6:00 pm</td><td>4:45 to 5:30 pm</td><td>Post before people have decided where they are eating, not after.</td></tr>
+      <tr><td>The room, Thursday to Sunday</td><td>Early evening</td><td>Same evening</td><td>Answers the question a stranger is actually asking, which is what it feels like inside.</td></tr>
+      <tr><td>Game day, screens on</td><td>Saturday</td><td>Saturday morning, again near kickoff</td><td>Ties to the EverPass and screens question raised on the same call.</td></tr>
+      <tr><td>Event or party setup</td><td>The day before</td><td>Morning of</td><td>Feeds the private events work directly and shows the room dressed rather than empty.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <p class="num">05</p>
+  <h2>Stage one, this week, with no new software</h2>
+  <p>This is the part to print and put where the staff can see it. It is five steps and every one of them uses something the team already has on their phones.</p>
+  <ol class="steps">
+    <li><span class="rt">One album instead of an inbox</span>
+      <p>Make one shared phone album called <b>Fenimore's Posts</b>. A shared iPhone album or a shared Google Photos album both work and both are already on everyone's phone. Add everyone who takes pictures. From that point, nobody emails a photograph again.</p></li>
+    <li><span class="rt">Write the sentence with the picture</span>
+      <p>In the album comment, one line in your own words about what it is. <i>Short rib grilled cheese, back on the lunch menu today.</i> That sentence takes eight seconds and it is what makes the finished post sound like Fenimore's instead of like a template. It is also the thing no software can supply.</p></li>
+    <li><span class="rt">One name per stretch of the week</span>
+      <p>Somebody is the poster for weekday daytime. Somebody is the poster from Friday afternoon through Sunday night, which is when the restaurant is busiest and the pictures are best. Two names, written on the wall. <b>Who those two people are is the room's call, not ours.</b></p></li>
+    <li><span class="rt">Three posts a day, at the right hours</span>
+      <p>Morning, mid-afternoon, early evening, per the grid above. One post landing at the hour someone is deciding where to eat is worth more than four posted at midnight.</p></li>
+    <li><span class="rt">Say <i>posted</i> out loud</span>
+      <p>One message in the group text when it goes up. That single word is what ends the <i>I thought you were doing it</i> problem, and it costs nothing to add.</p></li>
+  </ol>
+  <p>The honest risk with stage one is that shared albums die quietly. Everyone joins, four people post for a week, and then it goes still with nobody deciding to stop. That is worth naming in advance because it is also the most useful result the two weeks can produce. If the album is empty by the second Friday, the friction is somewhere this document has not found, and building anything on top of it would be building on sand. Two weeks is a cheap way to find that out.</p>
+</section>
+
+<section>
+  <p class="num">06</p>
+  <h2>Stage two: a drop point built for a phone at the pass</h2>
+  <p>A shared album is a good start and it has a ceiling. It holds no schedule, it carries no categories, and it tells nobody that something new has arrived. The next step is a page built for one job.</p>
+  <div class="fieldset">
+    <p class="fl">Staff page &middot; fenimorestable.com, code protected, not linked from the site</p>
+    <p class="opts"><b>Photo</b> &middot; taken just now or picked from the roll</p>
+    <p class="opts"><b>What is it</b> &middot; breakfast / lunch special / drink / dinner / the room / game day / event</p>
+    <p class="opts"><b>One line in your words</b> &middot; the sentence from step two above</p>
+    <p class="opts"><b>When</b> &middot; today, or hold it for a date</p>
+  </div>
+  <p>What happens behind it: the picture lands in one queue with a timestamp and a category, the person on duty gets a notification that something arrived, three caption options get drafted from that one line in the restaurant's voice, and the post is slotted against the right hour rather than whenever someone next opens the app. A person picks a caption, edits it, and sends it. Nothing posts unread.</p>
+  <p>From the floor it is about twenty seconds standing at the pass. Nobody installs an app, nobody has a password to remember, and nobody has to wonder afterwards where the picture went.</p>
+  <p>Building this sits <b>inside the current arrangement</b>. It is not a new line item and there is no budget conversation attached to it. It is also the same shape for the Clubhouse, so if it works at Fenimore's it carries next door without being rebuilt.</p>
+</section>
+
+<section>
+  <p class="num">07</p>
+  <h2>Where software helps, and where it must not</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>The job</th><th>Who does it</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Taking the photograph</td><td><span class="tag t-ok">A person, on site</span></td><td>Never anything else. See &sect;02.</td></tr>
+      <tr><td>The sentence describing it</td><td><span class="tag t-ok">The person who took it</span></td><td>This is the voice. Eight seconds.</td></tr>
+      <tr><td>Drafting caption options</td><td><span class="tag t-open">Software, then a person</span></td><td>Three drafts from that sentence. A person picks and edits.</td></tr>
+      <tr><td>Choosing the hour</td><td><span class="tag t-open">Software</span></td><td>Rules from the grid, not judgement.</td></tr>
+      <tr><td>Crops and sizes per platform</td><td><span class="tag t-open">Software</span></td><td>Pure chore, worth automating.</td></tr>
+      <tr><td>Weekly reminders</td><td><span class="tag t-open">Software</span></td><td>Reads the events calendar: football Sunday, a private party booked, a special running.</td></tr>
+      <tr><td>Replying to comments and messages</td><td><span class="tag t-ok">A person</span></td><td>This is where bookings come from and it is worth the minutes.</td></tr>
+      <tr><td>Deciding what goes out at all</td><td><span class="tag t-ok">A person</span></td><td>Always.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <p class="num">08</p>
+  <h2>Stage three, once stage one is a habit: video</h2>
+  <p>Reels and short video came up on the call, along with the observation that there are people around, some of them young enough to have grown up doing it, who would happily shoot them. Both of those are right, and video is where the audience actually is in a town where social carries this much weight.</p>
+  <p>It is stage three for one reason. A team that does not yet have a working path for a still photograph will not sustain a video schedule, and a video programme that stalls after ten days does more harm than never starting. When the album is a habit and the daily post is landing at the right hour, the useful questions become frequency, who edits, and whether it is a paid arrangement.</p>
+</section>
+
+<section>
+  <p class="num">09</p>
+  <h2>What we need answered before building anything</h2>
+  <ol class="asks">
+    <li><b>Who are the two names?</b> One for weekday daytime, one for Friday afternoon through Sunday. This is the only item that blocks everything else, and it is a decision for the room rather than a question we can research.</li>
+    <li><b>Which account do posts go out from today, and who holds the login?</b> Not a request to change it. Just a written answer, because the question was asked on the call and never landed on one.</li>
+    <li><b>Any objection to a staff-only upload page on fenimorestable.com?</b> It would be code protected and linked from nowhere on the public site.</li>
+    <li><b>Is anyone already scheduling in Meta Business Suite?</b> If someone is, stage two should plug into that rather than sit beside it, and knowing now saves building the wrong thing.</li>
+  </ol>
+</section>
+
+<section>
+  <p class="num">10</p>
+  <h2>What this document does not do</h2>
+  <div class="closer">
+    <p>It moves no account and changes no login. Whoever administers @fenimorestable today still administers it after every stage described here.</p>
+    <p>It takes no position on how marketing hours are allocated or who should be doing what. That is a conversation for the people in it, not a line in a document.</p>
+    <p>It does not touch the website, the private events pages or the menu work. Those are separate and have their own drafts.</p>
+    <p>It assumes nothing about what has or has not been posted so far. Everything here is about the path forward.</p>
+    <p><b>If any of this is wrong, or if there is already a path that works and we have missed it, say so and we will rebuild this around what is actually there.</b></p>
+  </div>
+</section>
+
+<footer>
+  Doble AI &middot; Fenimore's social workflow, working draft &middot; 10 September 2026<br>
+  Fenimore's Table, 4874 State Highway 28, Cooperstown NY 13326 &middot; fenimorestable.com &middot; @fenimorestable on Instagram and Facebook<br>
+  Source: the Fenimore's team call of 9 September 2026. Social handles and address checked against fenimorestable.com on 10 September 2026.<br>
+  Companion pages: <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-events/">private events</a> &middot; <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-status/">website status</a> &middot; <a href="https://jroundshp.github.io/doble-ai-deliverables/cooperstown/">Cooperstown index</a><br>
+  Working draft. Link shared, not indexed.
+</footer>
+
+</div>
+</body>
+</html>
