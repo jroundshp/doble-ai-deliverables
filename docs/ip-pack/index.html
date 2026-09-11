@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>InterActive Play — Product Schema Plugin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600&display=swap">
+<style>
+  :root {
+    --ground:#F1F3F1; --surface:#FBFCFB; --sunken:#E7EAE8; --ink:#141817;
+    --muted:#5A6462; --hair:#CBD2CF; --accent:#14514E; --accent-soft:#DCE8E6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+      --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+    --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+  }
+  * { box-sizing:border-box; }
+  body {
+    background:var(--ground); color:var(--ink);
+    font-family:"Source Serif 4", Georgia, serif;
+    font-size:17px; line-height:1.62; margin:0; padding:0 24px 96px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet { max-width:680px; margin:0 auto; display:flex; flex-direction:column; gap:40px; }
+  header { padding-top:64px; display:flex; flex-direction:column; gap:16px; }
+  .eyebrow {
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size:11px; font-weight:500; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--accent); margin:0;
+  }
+  h1 {
+    font-family:Archivo, "Helvetica Neue", Arial, sans-serif; font-weight:700;
+    font-size:clamp(30px,5.5vw,42px); line-height:1.05; letter-spacing:-.02em;
+    text-wrap:balance; margin:0;
+  }
+  .standfirst { font-size:19px; line-height:1.5; color:var(--muted); margin:0; max-width:58ch; }
+  section { display:flex; flex-direction:column; gap:16px; }
+  h2 {
+    font-family:Archivo, "Helvetica Neue", Arial, sans-serif; font-weight:600;
+    font-size:22px; letter-spacing:-.01em; margin:0;
+    border-top:1px solid var(--hair); padding-top:26px;
+  }
+  p { margin:0; }
+  .dl {
+    background:var(--surface); border:1px solid var(--hair); border-radius:10px;
+    padding:26px; display:flex; flex-direction:column; gap:14px; align-items:flex-start;
+  }
+  .dl a.btn {
+    display:inline-block; background:var(--accent); color:var(--ground);
+    font-family:Archivo, Arial, sans-serif; font-weight:600; font-size:16px;
+    text-decoration:none; padding:13px 24px; border-radius:7px;
+  }
+  .dl .meta {
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size:12px; color:var(--muted);
+  }
+  ol { margin:0; padding-left:22px; display:flex; flex-direction:column; gap:9px; }
+  code {
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:14px;
+    background:var(--sunken); padding:2px 6px; border-radius:4px;
+  }
+  .note {
+    background:var(--accent-soft); border-radius:8px; padding:18px 20px;
+    font-size:16px; line-height:1.55;
+  }
+  footer {
+    border-top:1px solid var(--hair); padding-top:20px;
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size:12px; color:var(--muted);
+  }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <p class="eyebrow">Doble AI &middot; InterActive Play</p>
+    <h1>Product Schema Plugin</h1>
+    <p class="standfirst">One small WordPress plugin. Nothing to configure, and nothing a visitor sees changes.</p>
+  </header>
+
+  <section>
+    <div class="dl">
+      <a class="btn" href="vpc-product-schema-plugin.zip" download>Download the plugin</a>
+      <span class="meta">vpc-product-schema-plugin.zip &middot; 5 KB &middot; version 1.1</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it does</h2>
+    <p>Your product pages already list the specifications in a table a person can read and a machine cannot: footprint, deck height, capacity, feature count. The plugin republishes those same numbers in the format Google and the AI assistants parse. It adds nothing that is not already written on the page.</p>
+  </section>
+
+  <section>
+    <h2>Installing it</h2>
+    <ol>
+      <li>In WordPress, go to <b>Plugins &rarr; Add New &rarr; Upload Plugin</b>.</li>
+      <li>Choose the zip above. Click <b>Install Now</b>, then <b>Activate</b>.</li>
+      <li>Open Google&rsquo;s Rich Results Test on <code>/products/aquatic-play-structures/triwave-100/</code>.</li>
+    </ol>
+    <p>Only the TriWave 100 is filled in, so activating changes exactly one URL. Before, no product detected. After, a product carrying nine specifications. Deactivating puts it back. The other 23 are copies of that same block with their own numbers, and we will fill those in.</p>
+  </section>
+
+  <section>
+    <h2>One thing worth knowing</h2>
+    <div class="note">
+      <p>The play site now publishes a company record in its markup, logo and all, which it did not in early September. The plugin references that record rather than publishing its own. While you are in Yoast, that record is missing three fields: the street address, the phone number, and the link up to VPC as the parent company. They are on Yoast&rsquo;s settings screen rather than in any file.</p>
+    </div>
+  </section>
+
+  <footer>
+    Prepared by Doble AI &middot; 11 September 2026 &middot; john@dobleai.com
+  </footer>
+
+</div>
+</body>
+</html>
