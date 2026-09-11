@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Internal working note. Not for print or public posting.">
+<title>Fenimore's Table: The Three Menus, Reconciled</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --ground:   #F1F3F1;
+    --surface:  #FBFCFB;
+    --sunken:   #E7EAE8;
+    --ink:      #141817;
+    --muted:    #5A6462;
+    --hair:     #CBD2CF;
+    --accent:   #14514E;
+    --accent-soft: #DCE8E6;
+    --blocked:  #92600A;
+    --blocked-soft: #F2E7CE;
+    --confirmed:#2C6340;
+    --confirmed-soft: #DCE9DF;
+    --open:     #6B5A7A;
+    --open-soft:#E6E1EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:   #0F1413;
+      --surface:  #171D1C;
+      --sunken:   #1E2524;
+      --ink:      #E6EAE8;
+      --muted:    #98A29F;
+      --hair:     #2E3836;
+      --accent:   #62B7AF;
+      --accent-soft: #17322F;
+      --blocked:  #D6A44A;
+      --blocked-soft: #322611;
+      --confirmed:#77B98C;
+      --confirmed-soft: #172A1D;
+      --open:     #B49FC7;
+      --open-soft:#241E2B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:   #0F1413;
+    --surface:  #171D1C;
+    --sunken:   #1E2524;
+    --ink:      #E6EAE8;
+    --muted:    #98A29F;
+    --hair:     #2E3836;
+    --accent:   #62B7AF;
+    --accent-soft: #17322F;
+    --blocked:  #D6A44A;
+    --blocked-soft: #322611;
+    --confirmed:#77B98C;
+    --confirmed-soft: #172A1D;
+    --open:     #B49FC7;
+    --open-soft:#241E2B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.62;
+    margin: 0;
+    padding: 0 24px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; }
+
+  header.masthead { padding-top: 64px; display: flex; flex-direction: column; gap: 18px; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--accent); margin: 0;
+  }
+
+  h1 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: clamp(32px, 5.6vw, 46px);
+    line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; margin: 0;
+  }
+
+  .standfirst { font-size: 20px; line-height: 1.5; color: var(--muted); margin: 0; max-width: 60ch; }
+
+  .stamp {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 12px; line-height: 1.75; color: var(--muted);
+    border-top: 1px solid var(--hair); padding-top: 14px; margin: 0;
+  }
+  .stamp b { color: var(--ink); font-weight: 500; }
+
+  section { display: flex; flex-direction: column; gap: 16px; }
+
+  .num { font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.13em; color:var(--accent); text-transform:uppercase; margin:0; }
+
+  h2 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: 26px; letter-spacing: -0.01em; line-height: 1.15;
+    text-wrap: balance; margin: 0 0 6px; padding-bottom: 10px; border-bottom: 2px solid var(--ink);
+  }
+  h3 { font-family: Archivo, sans-serif; font-weight:600; font-size:19px; margin:0 0 6px; }
+
+  p { margin: 0; max-width: 66ch; }
+  p + p { margin-top: -4px; }
+  strong, b { font-weight: 600; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+
+  code, .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 0.86em; }
+  code { background: var(--sunken); padding: 1px 5px; border-radius: 3px; word-break: break-word; }
+
+  .tag {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 9.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 7px; border-radius: 3px; white-space: nowrap;
+  }
+  .t-ok    { background: var(--confirmed-soft); color: var(--confirmed); }
+  .t-open  { background: var(--open-soft);      color: var(--open); }
+  .t-fix   { background: var(--blocked-soft);   color: var(--blocked); }
+
+  .warn { background:var(--blocked-soft); border-left:4px solid var(--blocked); padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
+  .closer { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .closer p { max-width: 62ch; }
+
+  ul.plain { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:9px; max-width:66ch; }
+
+  ol.steps { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:18px; counter-reset:r; }
+  ol.steps li { background:var(--surface); border:1px solid var(--hair); border-left:4px solid var(--accent); padding:18px 22px; }
+  ol.steps li::before { counter-increment:r; content:"0" counter(r); font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; color:var(--accent); display:block; margin-bottom:6px; }
+  .rt { font-family:Archivo,sans-serif; font-weight:600; font-size:17.5px; display:block; margin-bottom:6px; }
+
+  .sheet > *, section > * { min-width: 0; }
+  .table-wrap { overflow-x: auto; max-width: 100%; min-width: 0; border: 1px solid var(--hair); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 600px; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--hair); vertical-align: top; font-size: 15.5px; line-height: 1.5; }
+  th {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); background: var(--sunken);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .statelist { display: flex; flex-direction: column; gap: 18px; }
+  .statelist div { border-left: 3px solid var(--hair); padding-left: 18px; }
+  .statelist .lab {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; display: block; margin-bottom: 4px;
+  }
+  .statelist .ok   { border-left-color: var(--confirmed); }
+  .statelist .fix  { border-left-color: var(--blocked); }
+  .statelist .open { border-left-color: var(--open); }
+  .statelist .ok   .lab { color: var(--confirmed); }
+  .statelist .fix  .lab { color: var(--blocked); }
+  .statelist .open .lab { color: var(--open); }
+
+  footer {
+    border-top: 1px solid var(--hair); padding-top: 16px;
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11.5px; line-height: 1.8; color: var(--muted);
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; padding: 0 18px 72px; }
+    .closer, .warn, ol.steps li { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+<header class="masthead">
+  <p class="eyebrow">Doble AI &middot; Menu sync readout &middot; 11 September 2026</p>
+  <h1>The three new menus, and what it took to line the website up with them</h1>
+  <p class="standfirst">Breakfast, lunch and dinner all changed. The pages people read were nearly right. The layer underneath them, the part search engines and AI assistants actually quote, was still describing the old card. This is what we found and what we changed.</p>
+  <p class="stamp">
+    For Grace Klak, with Corey Hogan and the Cooperstown side. Internal only, not a public page.<br>
+    Every change below was made under our own <code>dobleai</code> account and shows in the page revision history, so the site's own record says who touched what.<br>
+    Checked against the live pages on <b>11 September 2026</b> after the changes went in.<br>
+    Companion pages: the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-status/">status readout</a>, the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-table/">site audit</a>, the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-events/">private events brief</a> and the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-social/">social workflow</a>.
+  </p>
+</header>
+
+<section>
+  <p class="num">01</p>
+  <h2>The short version</h2>
+  <p>Every menu page has two layers. There is the copy a guest reads, and there is a block of machine-readable data underneath it that tells Google and ChatGPT what the restaurant serves and what it costs. Both have to say the same thing.</p>
+  <p>When the three new cards went in, the visible copy was updated and the machine layer was not. So the page a guest saw was showing the new dinner card while the data underneath was still offering Moody Blue Chips, Tuna Nachos, a Pork Belly Banh Mi Bowl and four desserts the kitchen no longer makes. An assistant asked about dinner at Fenimore's would have answered from the old card.</p>
+  <p>That is now fixed, along with a handful of price and spelling items. The menu page carries <b>48 dishes</b> in the machine layer and they match the page exactly. The breakfast page, which had no machine-readable menu at all, now carries <b>37</b>.</p>
+</section>
+
+<section>
+  <p class="num">02</p>
+  <h2>What we found that was not consistent</h2>
+  <p>Four different sources were saying four different things: the printed 9-8 cards, the visible website, the machine layer under the website, and Toast.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>What disagreed</th><th>Where it stood</th></tr></thead>
+      <tbody>
+        <tr><td><b>The entire dinner card</b></td><td>New card live on the visible page. Machine layer still listing the old one, including a Sandwiches section and a Flatbread Pizza section that no longer exist.</td></tr>
+        <tr><td><b>Side Salad</b></td><td>On the 9-8 lunch card at $4. Missing from the website's Sides list, which showed only three of the four.</td></tr>
+        <tr><td><b>Kids Pasta</b></td><td>In Toast at $12. Not on the website until today.</td></tr>
+        <tr><td><b>Kids Hot Dog</b></td><td>On the website at $10. Not in Toast.</td></tr>
+        <tr><td><b>The breakfast page</b></td><td>37 items, none of them machine-readable. Breakfast is the new daypart and it was the one page a search engine could not read.</td></tr>
+        <tr><td><b><code>/brunch/</code></b></td><td>Returning a 404. Not linked anywhere on the site, but still live as an address for anything that pointed at it before the rename.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <p class="num">03</p>
+  <h2>The pricing issues</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>What we found</th><th>Outcome</th></tr></thead>
+      <tbody>
+        <tr><td><b>Lunch salad, add protein</b></td><td>Website read Grilled Chicken $7, Grilled Steak $10, Grilled Salmon $10. The 9-8 lunch card reads Chicken $6, Salmon $8, Steak $9. All three were wrong, and the line was printed twice on the page.</td><td><span class="tag t-ok">Corrected</span></td></tr>
+        <tr><td><b>Signature Wings</b></td><td>$18 on the website, $17 in Toast. The 9-8 card says $18, and Tammy has confirmed $18.</td><td><span class="tag t-ok">Website was right</span></td></tr>
+        <tr><td><b>Praline Banana Bread</b></td><td>$14 on the homepage and $10 on the menu page at the same time. The new dessert card retires the item, so the contradiction retires with it.</td><td><span class="tag t-ok">Moot</span></td></tr>
+        <tr><td><b>Kids Pasta</b></td><td>$12 in Toast, absent from the website.</td><td><span class="tag t-ok">Now on both</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <p class="num">04</p>
+  <h2>The naming issues</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Was</th><th>Now</th></tr></thead>
+      <tbody>
+        <tr><td>Fire-Roasted Chicken &ldquo;La Brasa&rdquo;</td><td><b>Fenimore Half Chicken</b>, per Tammy. Corrected in the machine layer, where the old name was still live.</td></tr>
+        <tr><td>loaded French Toast</td><td><b>Loaded French Toast</b>. Lowercase on the breakfast page, capitalised on the card.</td></tr>
+        <tr><td>Moody Blue Chips / Blue Cheese Chips</td><td><b>Neither.</b> Tammy confirmed the kitchen offers no version of it. Already gone from the visible page, still in the machine layer. Removed.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <p class="num">05</p>
+  <h2>Everything changed today</h2>
+  <p>Seven items, each verified on the live page afterwards.</p>
+  <ol class="steps">
+    <li><b>Lunch add-protein prices corrected</b> to the 9-8 card, in both places they appear.</li>
+    <li><b>Side Salad $4 added</b> to the lunch Sides list, which now matches the card's four.</li>
+    <li><b>&ldquo;Loaded French Toast&rdquo; capitalised</b> on the breakfast page.</li>
+    <li><b>The menu page's machine layer rebuilt from scratch</b> against the live page: 48 dishes across 14 sections, lunch and dinner. Every retired item is gone and every new one is in, including Salmon Ball, both flatbreads, the new dessert four, and Kids Pasta.</li>
+    <li><b>The breakfast page given a machine-readable menu for the first time:</b> 37 items across five sections, with the vegetarian dishes marked as vegetarian so a dietary search can find them.</li>
+    <li><b><code>/brunch/</code> now redirects to <code>/breakfast/</code></b> instead of returning a 404. Reversible in one click if brunch ever becomes a page of its own.</li>
+    <li><b>A private events page created as a draft</b>, with the structure, the questions and every answer we can already write. It is deliberately not published, so a half-finished page cannot be indexed. Each open item is marked in the page itself, ready for Bob's answers.</li>
+  </ol>
+</section>
+
+<section>
+  <p class="num">06</p>
+  <h2>What Tammy is doing, and what not to change</h2>
+  <p>Tammy is bringing Toast in line with the three cards. That matters here for one reason: where Toast and the website disagree, <b>the card decides</b>, and on the wings the website was already right. Nothing on the site should move to match a Toast figure without checking the card first.</p>
+  <p>The two menus now agree on the kids section in both directions. Pasta was added to the website and the Hot Dog, which Toast does not carry, is gone from both.</p>
+</section>
+
+<section>
+  <p class="num">07</p>
+  <h2>Still open</h2>
+  <ul class="plain">
+    <li><b>Bob's answers on private events.</b> Buyout, lead time, deposit or minimum, outside cake and cutting fee, the parking count, and final copy for the three experiences and the Celebration Brunch. The draft page has a marked slot for each.</li>
+    <li><b>The capacity split.</b> We have 95 indoors and 140 in summer with the patio. Still needed: whether those are seated or standing figures, which months the patio is open, and what happens to a large booking if the weather turns.</li>
+    <li><b>Six to ten real photographs of the room.</b> No stock and no generated images.</li>
+    <li><b>The patio is invisible online.</b> It appears nowhere on the website, in the machine layer, or on the Google profile, and it is the thing that takes a party from 95 to 140.</li>
+  </ul>
+  <p class="rt">One thing worth a look rather than an action. The homepage now shows the same salmon photograph twice, in the second and third slots, and the rice bowl that used to sit between them is gone. It may well be deliberate. If it is not, it happened somewhere in today's edits and is a two-minute swap.</p>
+</section>
+
+<p class="closer">
+  Doble AI &middot; Fenimore's Table menu sync &middot; 11 September 2026<br>
+  Fenimore's Table, 4874 State Highway 28, Cooperstown NY &middot; fenimorestable.com<br>
+  Card figures read from the 9-8 breakfast and lunch PDFs. Dinner reconciled against the live page, since no dinner card reached us. Live pages re-fetched after every change.<br>
+  Internal working note. Link-shared, not indexed.
+</p>
+</div>
+</body>
+</html>
