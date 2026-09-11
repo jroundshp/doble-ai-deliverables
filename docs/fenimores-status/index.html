@@ -180,183 +180,248 @@
 <div class="sheet">
 
 <header class="masthead">
-  <p class="eyebrow">Doble AI &middot; Status readout &middot; 9 September 2026</p>
-  <h1>Fenimore's Table, where things stand</h1>
-  <p class="standfirst">The kitchen has moved quickly. In the last week Fenimore's has published a breakfast service, a lunch card and a full dinner card, and the website has taken on all three without changing anything about how a search engine or an assistant reads them. This is a snapshot of both halves on one page.</p>
+  <p class="eyebrow">Doble AI &middot; Status readout &middot; 10 September 2026</p>
+  <h1>Fenimore's Table: what is left to finish</h1>
+  <p class="standfirst">Most of the website rebuild landed on 9 September. What remains is a short list, and nearly all of it is waiting on an answer rather than on work. This page is that list, plus the changes worth making on the Google profile.</p>
   <p class="stamp">
     For Corey Hogan and the Cooperstown side. Internal only, not a public page.<br>
-    Every figure below was checked against the live site and Google on <b>9 September 2026</b>. Nothing is carried forward from the July audit without a fresh look.<br>
-    Menu content is the kitchen's call and this readout takes no position on it. What follows is about whether the website and the profiles say the same thing the kitchen is actually serving.<br>
-    For the detail behind any of this: the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-table/">Fenimore's Table site audit</a> grades the whole digital presence channel by channel, and the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-dinner/">dinner card readout</a> of 2 September carries the menu comparison this page summarises.
+    Every figure below was re-checked against the live site and the Google profile on <b>10 September 2026</b>, uncached. Nothing is carried forward from the 9 September readout without a fresh look, and one thing that readout claimed has been corrected in section 03.<br>
+    Menu content is the kitchen's call and this page takes no position on it. What follows is about whether the website and the profile say the same thing the kitchen is actually serving.<br>
+    Companion pages: the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-table/">site audit</a>, the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-dinner/">dinner card readout</a>, the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-events/">private events brief</a> and the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-social/">social workflow</a>.
   </p>
 </header>
 
 <section>
   <p class="num">01</p>
-  <h2>The short version</h2>
-  <p>Three menus are live where there was one. A breakfast service now opens at 6:30AM, which is a genuinely new daypart and the most interesting thing on this page. The site publishes all of it as readable text, which is worth more than it sounds.</p>
-  <p>The layer underneath has now been rebuilt. On 9 September the site went from carrying no structured data at all to publishing <code>Restaurant</code> schema with the correct hours and address, per-page titles and descriptions, Open Graph tags and a sitemap that resolves. What a machine can see about this restaurant has changed more in one afternoon than in the two months before it.</p>
+  <h2>Where the project actually is</h2>
+  <p>The machine-readable layer is built and holding. Schema, page titles, descriptions, social cards and the heading structure were all re-verified today and all of them are live and correct. The zoom lock that had been on every page since July is gone.</p>
+  <p>Three things now stand between this and finished. One is a question only the operators can answer, and it is currently being answered three different ways by three different surfaces. One is a setting that needs a click in the dashboard. The rest is content nobody has sent yet.</p>
 </section>
 
 <section>
   <p class="num">02</p>
-  <h2>What is on the menu now</h2>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Service</th><th>Where it lives</th><th>Price band</th></tr></thead>
-      <tbody>
-        <tr><td><b>Breakfast</b><br>6:30AM to 11AM, about 25 items</td><td><code>/breakfast/</code>, a new page</td><td>$8 to $15</td></tr>
-        <tr><td><b>Lunch</b><br>starts at 11AM</td><td>on <code>/menu/</code></td><td>$11 to $24</td></tr>
-        <tr><td><b>Dinner</b><br>entrees after 5pm, plus flatbreads, kids and dessert</td><td>on <code>/menu/</code></td><td>entrees $30 to $37</td></tr>
-      </tbody>
-    </table>
+  <h2>Done, verified today, and not to be redone</h2>
+  <p>Listed so that nobody spends an afternoon rebuilding something that already works.</p>
+  <div class="statelist">
+    <div class="ok">
+      <span class="lab">Verified 10 Sept</span>
+      <p><b><code>Restaurant</code> schema on every page.</b> Carries the trading hours as <code>Mo,Th,Fr,Sa,Su 06:30-21:00</code> and <code>Tu,We 06:30-16:00</code>, the full postal address, coordinates, the logo and a <code>$$</code> price band. Before 9 September the site said nothing machine-readable about itself.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Verified 10 Sept</span>
+      <p><b>Titles and descriptions on all five pages.</b> Titles run 53 to 65 characters, descriptions 136 to 159, and every one of them names Cooperstown.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Verified 10 Sept</span>
+      <p><b>Open Graph and Twitter cards on all five pages.</b> A link shared in a message or on Facebook renders with a title, a description and an image.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Verified 10 Sept</span>
+      <p><b>One <code>h1</code> per page, on all five.</b> The menu page had been carrying three.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Resolved since 9 Sept</span>
+      <p><b>Pinch-to-zoom works again.</b> The viewport now reads <code>width=device-width, initial-scale=1.0</code> with no <code>user-scalable=0</code>. The 9 September readout listed this as open. It is done.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Resolved since 9 Sept</span>
+      <p><b>The wings now read &ldquo;Korean BBQ.&rdquo;</b> The misspelling flagged on 9 September has been corrected on the live page.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Verified 10 Sept</span>
+      <p><b>The new lunch card is published.</b> The menu page was updated 9 September at 19:16 and matches the printed card dated 9-8, including Signature Wings, the Fall Harvest Salad and the five paninis.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Fixed 10 Sept</span>
+      <p><b>The contact page hours.</b> Its body block had been publishing 6:30AM to 9PM on Tuesday and Wednesday while the footer on the same page said 4PM. Corrected in the database and verified uncached.</p>
+    </div>
+    <div class="ok">
+      <span class="lab">Verified 10 Sept</span>
+      <p><b>Facebook, Instagram, online ordering, reservations and the Cooperstown Clubhouse cross-link are all present</b> on the homepage. The ordering and reservation links point at Toast and could not be opened from an automated check, which blocks them by design. Worth one human click to confirm they land where they should.</p>
+    </div>
   </div>
-
-  <p>The two menu PDFs dated 9-8 match what is published. Two things are left to close between the printed card and the page:</p>
-
-  <ul class="plain">
-    <li>Both printed cards carry a <b>vegetarian legend</b>. The website publishes no vegetarian markers, so a guest reading online cannot tell which items carry it.</li>
-    <li>The printed lunch card says <b>&ldquo;Lunch menu starts at 11am.&rdquo;</b> That line is not on the page, and it is the only thing that separates the lunch and dinner cards for someone reading them stacked together.</li>
-  </ul>
-
-  <p>Four naming and price questions are still open across the card, the website and Toast. They matter more than they look, because the next step after the card is final is putting these words into markup, and markup has to match the page exactly.</p>
-
-  <ul class="plain">
-    <li><b>Moody Blue Chips</b> on the site, Blue Cheese Chips on the proposed card.</li>
-    <li><b>Hot Pepperoni</b> on the site, with the hot honey named only inside the description.</li>
-    <li><b>Wings</b> read $18 on the site and $17 in Toast. Toast was not re-checked today; that figure is from the 2 September readout.</li>
-    <li><b>Praline Banana Bread</b> appears on the homepage and inside the flat $10 dessert group on the menu page.</li>
-  </ul>
-
-  <p>Two spellings on the live page are worth catching while someone is in there: the wings read &ldquo;Koren BBQ,&rdquo; and the flatbread reads &ldquo;Salciccia.&rdquo;</p>
 </section>
 
 <section>
   <p class="num">03</p>
-  <h2>Hours, and what Google is telling people</h2>
+  <h2>A correction to the 9 September readout</h2>
+  <div class="warn">
+    <p><b>The sitemap does not resolve, and our last note said it did.</b> That note reported <code>robots.txt</code> now pointing at <code>sitemap_index.xml</code> and listing the five real pages. <code>robots.txt</code> does point there. The file itself returns <b>404</b>, and so does every other address it could live at: <code>wp-sitemap.xml</code>, <code>sitemap.xml</code>, <code>page-sitemap.xml</code> and <code>rankmath-sitemap.xml</code>. Re-checked uncached on 10 September.</p>
+    <p>The practical effect is that the one file telling Google where to find the site's pages is currently pointing at a dead address, and there is no sitemap behind it. On a five-page site Google will find the pages anyway, so this is not urgent. It is worth closing because it is a two-minute fix and because a dead sitemap declaration is the kind of thing that stays broken for a year.</p>
+    <p>Rank Math is installed and its sitemap module is not serving. Its settings are not reachable through this site's API, so this is a toggle in the WordPress dashboard rather than a code change.</p>
+  </div>
+</section>
 
-  <p>The hours agree everywhere, which is worth stating because it is the one thing on this site that is fully consistent. Google publishes <b>Wednesday 6:30 AM to 4 PM</b> from a claimed profile rated <b>4.1&#9733;</b>, categorised as a Restaurant and linked to the website. The homepage, <code>/menu/</code>, <code>/breakfast/</code> and <code>/drinks/</code> all carry the same standing hours: Tuesday to Wednesday 6:30AM to 4PM, Thursday to Monday 6:30AM to 9PM.</p>
+<section>
+  <p class="num">04</p>
+  <h2>The one question that blocks everything: which nights is dinner</h2>
+
+  <p>Four sources currently answer this, and they do not agree. Three of them are live and public right now.</p>
 
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Where</th><th>What it says</th><th></th></tr></thead>
+      <thead><tr><th>Source</th><th>What it says</th><th>Dinner on Monday?</th></tr></thead>
       <tbody>
-        <tr><td>Google Business Profile</td><td>Wednesday 6:30 AM to 4 PM</td><td><span class="tag t-ok">Current</span></td></tr>
-        <tr><td>Homepage</td><td>Tues&ndash;Wed 6:30AM to 4PM, Thurs&ndash;Mon 6:30AM to 9PM</td><td><span class="tag t-ok">Current</span></td></tr>
-        <tr><td><code>/menu/</code></td><td>Tues&ndash;Wed 6:30AM to 4PM, Thurs&ndash;Mon 6:30AM to 9PM</td><td><span class="tag t-ok">Current</span></td></tr>
-        <tr><td><code>/breakfast/</code></td><td>Tues&ndash;Wed 6:30AM to 4PM, Thurs&ndash;Mon 6:30AM to 9PM</td><td><span class="tag t-ok">Current</span></td></tr>
-        <tr><td><code>/drinks/</code></td><td>Tues&ndash;Wed 6:30AM to 4PM, Thurs&ndash;Mon 6:30AM to 9PM</td><td><span class="tag t-ok">Current</span></td></tr>
+        <tr><td>Website footer, all five pages</td><td>Thurs to Mon, 6:30AM to 9PM</td><td><span class="tag t-fix">Yes</span></td></tr>
+        <tr><td><code>Restaurant</code> schema, all five pages</td><td><code>Mo,Th,Fr,Sa,Su 06:30-21:00</code></td><td><span class="tag t-fix">Yes</span></td></tr>
+        <tr><td>Google Business Profile</td><td>Monday 6:30 AM to 9 PM</td><td><span class="tag t-fix">Yes</span></td></tr>
+        <tr><td>Corey, 10 September</td><td>Dinner Thursday, Friday, Saturday, Sunday</td><td><span class="tag t-ok">No</span></td></tr>
+        <tr><td>The Six Thousand Dollar Week, 18 August</td><td>Thursday to Saturday evenings</td><td><span class="tag t-ok">No</span></td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="warn">
-    <p><b>None of it is in markup.</b> The hours sit in the page text and on the Google profile, and nowhere in structured data. An assistant asked when Fenimore's is open has nothing on the site it can read with confidence, so it takes the profile's answer or works from prose. That is fine while the two agree. It is the profile carrying the site rather than the site carrying itself, and it breaks the next time the hours move and only one of them is updated.</p>
+    <p><b>Three public surfaces are currently selling a Monday dinner.</b> If Monday is a 4PM close, then a local who checks the website or Google and drives out on a Monday evening finds the kitchen shut. That is the single most expensive thing on this page, because the whole point of the autumn push is to bring in people who live here, and a local who makes that drive once does not make it twice.</p>
+    <p>Nothing else in this section can be corrected until somebody says which is true, because the answer has to be written into the page text, the schema and the Google profile in one pass. One sentence unblocks all three.</p>
   </div>
 
-</section>
-
-<section>
-  <p class="num">04</p>
-  <h2>What a search engine and an assistant can actually read</h2>
-
-  <div class="statelist">
-    <div class="ok">
-      <span class="lab">Working</span>
-      <p><b>The menu is real HTML text, with every price next to its dish.</b> This was always the site's one genuine asset and it is untouched. It is why the comparison work was possible at all, and it is what most restaurant sites lose by posting the menu as a PDF or an image.</p>
-    </div>
-    <div class="ok">
-      <span class="lab">Built 9 September</span>
-      <p><b><code>Restaurant</code> schema, live on every page.</b> It carries the real trading hours as <code>Mo,Th,Fr,Sa,Su 06:30-21:00</code> and <code>Tu,We 06:30-16:00</code>, the full postal address, a price band and the logo. Before this the site said nothing machine-readable about itself and Google's profile was the only correct source. The site now states its own hours, and they agree with the profile and with the page text.</p>
-    </div>
-    <div class="ok">
-      <span class="lab">Built 9 September</span>
-      <p><b>Titles and descriptions, written per page.</b> All five run 48 to 56 characters on the title and 136 to 159 on the description, and every one names Cooperstown. The homepage title was previously the business name plus an entire tagline sentence, which Google cut off mid-phrase.</p>
-    </div>
-    <div class="ok">
-      <span class="lab">Built 9 September</span>
-      <p><b>Open Graph and Twitter cards on all five pages.</b> Shared in a message or on Facebook, a link now renders with a title, a description and an image instead of a bare URL.</p>
-    </div>
-    <div class="ok">
-      <span class="lab">Built 9 September</span>
-      <p><b>The sitemap resolves.</b> <code>robots.txt</code> had been declaring <code>wp-sitemap.xml</code>, which returned 404. It now points at <code>sitemap_index.xml</code>, which lists the five real pages and nothing hollow.</p>
-    </div>
-    <div class="ok">
-      <span class="lab">Built 9 September</span>
-      <p><b>One <code>h1</code> on the menu page.</b> It had been carrying three, one each for Menu, Lunch Menu and Dinner Menu. Lunch and Dinner are now <code>h2</code>, level with the other section headings.</p>
-    </div>
-    <div class="fix">
-      <span class="lab">Open, blocked</span>
-      <p><b><code>Menu</code> and <code>MenuItem</code> markup for individual dishes.</b> This is the remaining large item and it is deliberately not done. Marking up dish names and prices that disagree with the printed card and with Toast would be worse than leaving it, so it waits on the four naming and price questions being settled.</p>
-    </div>
-    <div class="fix">
-      <span class="lab">Open</span>
-      <p><b>The mobile viewport blocks pinch-to-zoom.</b> Every page carries <code>user-scalable=0</code>. This is an accessibility failure rather than a search one, and it affects anyone who needs to enlarge the menu text.</p>
-    </div>
-    <div class="fix">
-      <span class="lab">Open</span>
-      <p><b>Seven of the eight homepage images carry no alt text.</b> The interior pages are clean. Alt text should describe what each photograph actually shows, which needs someone who knows the dishes rather than a guess from a filename.</p>
-    </div>
-    <div class="open">
-      <span class="lab">Unanswered</span>
-      <p><code>/brunch/</code> still returns 404, and the word brunch does not appear anywhere on the site. What was built is breakfast. Those are two different searches. Now that a redirect tool is installed, pointing the old URL at <code>/breakfast/</code> is a two-minute job whenever the decision is made.</p>
-    </div>
-  </div>
+  <h3>And the homepage contradicts itself</h3>
+  <p>Separate from the Monday question, and fixable the moment the above is answered:</p>
+  <ul class="plain">
+    <li>The homepage <b>body block</b> publishes <b>Tues to Wed, 6:30AM to 9PM</b>.</li>
+    <li>The <b>footer on the same page</b> publishes <b>Tues to Wed, 6:30AM to 4PM</b>.</li>
+    <li>The <b>schema on the same page</b> publishes <code>Tu,We 06:30-16:00</code>, which is 4PM.</li>
+  </ul>
+  <p>Two of the three agree, so the body block is the outlier. This is the same defect that was found and fixed on the contact page yesterday, in a second place. Verified uncached on 10 September.</p>
 </section>
 
 <section>
   <p class="num">05</p>
-  <h2>Where the menus sit against the neighbours</h2>
+  <h2>The Google Business Profile</h2>
 
-  <p>The competitive set is Corey's and was settled in the dinner readout. Nothing in the dinner comparison has changed: the $37 New York strip sits below Upstate at $40 and Mel's at $38 and above Council Rock at $27.95, with 1909 at the Otesaga in a different tier entirely at $48 to $140. Five formats appeared on none of the cards we could read, and four of them are on the proposed card.</p>
+  <p>Checked signed-out on 10 September. The fundamentals are in good shape and better than the July figures: the profile is <b>claimed</b>, rated <b>4.1&#9733; across 58 reviews</b>, up from 42 in July. Category is Restaurant. The website field points correctly at <code>https://www.fenimorestable.com/</code>, the phone reads (607) 547-2767 and the address reads 4874 NY-28, Cooperstown NY 13326. A Menu link, an online ordering link and a reservations link are all present.</p>
 
-  <p><b>Breakfast opens a daypart the set was never built for.</b> The comparison work was done on dinner. A 6:30AM service on the Route 28 corridor is a different fight, and it is one where the location reads as an advantage rather than the drawback it is at dinner: families heading to the tournament complexes pass the door before the village is awake.</p>
+  <p>Here is what the profile publishes for the week, which is the same shape the website and the schema carry:</p>
 
-  <p>Two consequences worth naming. Stagecoach Coffee was filed in the dinner readout as running against lunch rather than dinner; at 6:30am to 6pm it is now a direct breakfast comparison. And the Main Street breakfast rooms overlap a service they were not graded against.</p>
-
-  <div class="warn">
-    <p><b>What we have not checked is when any of them open.</b> No claim that Fenimore's has the earliest door in Cooperstown is supported yet. That is one morning of verification and it should happen before the early slot is used in any marketing.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Google publishes</th></tr></thead>
+      <tbody>
+        <tr><td>Monday</td><td>6:30 AM to 9 PM</td></tr>
+        <tr><td>Tuesday</td><td>6:30 AM to 4 PM</td></tr>
+        <tr><td>Wednesday</td><td>6:30 AM to 4 PM</td></tr>
+        <tr><td>Thursday</td><td>6:30 AM to 9 PM</td></tr>
+        <tr><td>Friday</td><td>6:30 AM to 9 PM</td></tr>
+        <tr><td>Saturday</td><td>6:30 AM to 9 PM</td></tr>
+        <tr><td>Sunday</td><td>6:30 AM to 9 PM</td></tr>
+      </tbody>
+    </table>
   </div>
+
+  <h3>Changes worth making</h3>
+
+  <ol class="steps">
+    <li><span class="rt">Monday, once the dinner question is answered</span>
+      <p>If dinner is Thursday to Sunday, Monday needs to move to a 4PM close here at the same time it moves on the site. Doing one without the other puts the two surfaces back out of step.</p></li>
+    <li><span class="rt">Add &ldquo;Serves breakfast&rdquo; to the profile's attributes</span>
+      <p>This is the highest-value item on the list. Breakfast is the new daypart and &ldquo;serves breakfast&rdquo; is a filter people actually use. The public panel today shows Takeout and Wheelchair accessible. Dine-in, serves breakfast, serves lunch, serves dinner, accepts reservations, outdoor seating, good for kids, alcohol and parking are not visible on it. Some of those may already be set and simply not surfaced to a signed-out visitor, so this is a list to confirm in the dashboard rather than a list of known gaps.</p></li>
+    <li><span class="rt">Add a secondary category</span>
+      <p>The profile is categorised as Restaurant and nothing else. Restaurant should stay as the primary. Adding <b>Breakfast restaurant</b> as a secondary is how a profile surfaces in a breakfast search, and it costs nothing.</p></li>
+    <li><span class="rt">Publish a Post about breakfast</span>
+      <p>No Updates or Posts are visible on the profile. A Google Post is the cheapest surface Corey owns on this property, it shows directly in the profile panel, and a new 6:30AM breakfast service with a new card is exactly what it is for. This is also the surface that reaches somebody typing &ldquo;breakfast near me&rdquo; while sitting in a car on Route 28.</p></li>
+    <li><span class="rt">Seed the Questions and Answers</span>
+      <p>The profile carries no questions. An owner can post and answer their own, and those answers show in the panel and get read by assistants. The ones every inquiry opens with: do you serve breakfast and from what time, is there parking, do you take reservations, are you open to the public, what time does lunch start, do you have a private room and how many does it seat.</p></li>
+    <li><span class="rt">Set the price level</span>
+      <p>The profile carries no price band. The site's own schema says <code>$$</code>. It is a filter in Google Maps and it takes one click.</p></li>
+    <li><span class="rt">Confirm every review has a reply</span>
+      <p>58 reviews, of which 36 are five stars and 7 are one star. Whether the one-star reviews carry owner replies was not visible on a signed-out check, so this is a confirmation rather than a finding. Replying to all of them is free and it is read by both people and assistants.</p></li>
+  </ol>
+
+  <p>None of the above needs a developer. All of it is inside the Google Business Profile dashboard.</p>
 </section>
 
 <section>
   <p class="num">06</p>
+  <h2>Content that is missing, and who has it</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>What is missing</th><th>Who has it</th><th>What it blocks</th></tr></thead>
+      <tbody>
+        <tr><td><b>The dinner menu.</b> Breakfast and lunch arrived 9 September, dinner was to follow. Nothing has come. The site still serves the older dinner card: NY Strip $37, Fire-Roasted Chicken &ldquo;La Brasa&rdquo; $30, Grilled Salmon $33.</td><td>Laura</td><td>The menu markup, and the full site re-audit</td></tr>
+        <tr><td><b>Seated and standing capacity, by event format.</b> Stated nowhere on the site, and it is the first question every event inquiry opens with.</td><td>Whoever can walk the room and count it</td><td>The whole private events page</td></tr>
+        <tr><td><b>Six to ten real photographs of the room.</b> No stock, no generated imagery.</td><td>Cooperstown side</td><td>The private events page</td></tr>
+        <tr><td><b>Alt text for six homepage food photographs.</b> Needs somebody who knows which dish is in which frame.</td><td>Kitchen</td><td>Accessibility, and image search</td></tr>
+        <tr><td><b>A decision on <code>/brunch/</code>,</b> which still returns 404. The word brunch appears nowhere on the site. What exists is breakfast, and those are two different searches.</td><td>Cooperstown side</td><td>Nothing else, but it is a live 404</td></tr>
+        <tr><td><b>Four naming and price items</b> still unsettled across the card, the site and Toast: Moody Blue Chips against Blue Cheese Chips, the hot honey on the Hot Pepperoni, wings at $18 on the site against $17 in Toast, and the Praline Banana Bread. Toast has not been re-checked since 2 September.</td><td>Kitchen and Toast</td><td><code>Menu</code> and <code>MenuItem</code> markup, held deliberately</td></tr>
+        <tr><td><b>Vegetarian markers.</b> Both printed cards carry a V legend and the website publishes no markers, so a guest reading online cannot tell which dishes qualify.</td><td>Kitchen</td><td>Nothing, but it is a question guests ask</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Two small things we can fix without asking anyone</h3>
+  <ul class="plain">
+    <li>The homepage prints <b>&ldquo;Etrees&rdquo;</b> where it should read <b>Entrees</b>. The menu page spells it correctly.</li>
+    <li>The printed lunch card says <b>&ldquo;Lunch menu starts at 11am.&rdquo;</b> That line is not on the page, and it is the only thing separating the lunch and dinner cards for somebody reading them stacked together.</li>
+  </ul>
+</section>
+
+<section>
+  <p class="num">07</p>
+  <h2>The breakfast claim, now that it has been checked</h2>
+
+  <p>The 9 September readout flagged that no claim about Fenimore's having the earliest door in Cooperstown was supported, because nobody had checked when the neighbours open. That has now been checked.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Where</th><th>Opens</th><th>Days</th></tr></thead>
+      <tbody>
+        <tr><td><b>Fenimore's Table</b></td><td>6:30 AM</td><td>Seven</td></tr>
+        <tr><td>Stagecoach Coffee</td><td>6:30 AM</td><td>Seven</td></tr>
+        <tr><td>Schneider's Bakery</td><td>6:30 AM (7:30 Sunday)</td><td>Seven</td></tr>
+        <tr><td>Doubleday Cafe</td><td>7:00 AM</td><td>Seven</td></tr>
+        <tr><td>Cooperstown Diner</td><td>7:00 AM</td><td>Wednesday to Sunday</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><b>6:30 is a tie, not a lead.</b> Do not build a campaign on being first to open, because two other places open at the same minute and one of them is a coffee shop that has been doing it for years. Published hours were read from each listing; they were not confirmed by standing outside the door.</p>
+
+  <p>What Fenimore's has that none of those four have is Route 28, a parking lot and a hundred seats. Every one of the others is in the village, where parking is the thing people complain about. If there is a line to run on breakfast, that is the line, and it is a stronger one than the clock.</p>
+
+  <p>One conflict to settle before the competitive set is used again: the 9 September call recorded Cooperstown Diner as open three days a week, and its published hours read Wednesday to Sunday. Also from that call, and already applied: Nicoletta's has been closed for six to eight months.</p>
+</section>
+
+<section>
+  <p class="num">08</p>
   <h2>What to do next, in order</h2>
 
   <ol class="steps">
-    <li><span class="rt">Settle the names and the prices</span>
-      <p>One name each for the blue cheese chips and the hot honey pepperoni, one price for the wings and one for the banana bread, agreed across the printed card, the website and Toast. This is the kitchen's call and it is now the gating item for everything below.</p></li>
-    <li><span class="rt">Then mark up the menu</span>
-      <p><code>Menu</code> with a section per group and a <code>MenuItem</code> per dish, each carrying its name, description and price. This is the step that turns &ldquo;where can I get schnitzel near Cooperstown&rdquo; into a question the site can answer. It cannot be done honestly until the step above is finished.</p></li>
-    <li><span class="rt">Unlock pinch-to-zoom</span>
-      <p>Remove <code>user-scalable=0</code> from the viewport tag. Small change, and it is the difference between a guest being able to enlarge the menu on a phone and not.</p></li>
-    <li><span class="rt">Write alt text for the homepage photographs</span>
-      <p>Seven images, describing what is actually in each one. Worth doing with someone who knows the dishes rather than inferring from filenames.</p></li>
-    <li><span class="rt">Decide what happens to /brunch/</span>
-      <p>Redirect it to <code>/breakfast/</code>, or publish something at that URL. Either answers a search the site currently ignores; leaving it as a 404 answers nothing.</p></li>
+    <li><span class="rt">Answer the dinner question</span>
+      <p>Thursday to Sunday, or Thursday to Monday. One sentence. It unblocks the page text, the schema and the Google profile, and until it is answered three public surfaces continue to advertise a Monday dinner.</p></li>
+    <li><span class="rt">Turn the Rank Math sitemap back on</span>
+      <p>A toggle in the WordPress dashboard, then confirm <code>sitemap_index.xml</code> returns XML rather than a 404 page. No developer needed.</p></li>
+    <li><span class="rt">Write the dinner answer into all three surfaces in one pass</span>
+      <p>Page text, schema and Google profile together, plus the homepage body block that currently contradicts its own footer, plus the Etrees typo while somebody is in there.</p></li>
+    <li><span class="rt">Work the Google profile list in section 05</span>
+      <p>Serves breakfast, the secondary category, a Post about the new breakfast service, the seeded questions and the price level. An hour of clicking, no code, and it is the surface that reaches people who have never heard of the restaurant.</p></li>
+    <li><span class="rt">Get the capacity number</span>
+      <p>Seated and standing, by event format. It is the blocking question on the private events brief sent on 10 September, and it is the first thing every inquiry asks.</p></li>
+    <li><span class="rt">Then the dinner menu, then the menu markup</span>
+      <p>Once Laura's dinner card arrives and the four naming and price items agree across the card, the site and Toast, the dish-level markup can go in. Marking up names and prices that disagree with the register would be worse than leaving it, which is why it has been held.</p></li>
     <li><span class="rt">Then an llms.txt, and not before</span>
       <p>Worth publishing once the menu markup is in and stable. Before that it would only state the confusion more confidently.</p></li>
   </ol>
 </section>
 
 <section>
-  <p class="num">07</p>
-  <h2>What this readout does not contain</h2>
+  <p class="num">09</p>
+  <h2>What this page does not contain</h2>
   <div class="closer">
     <p>No opinion on the menu itself. Dishes, pricing and the shape of the card are the kitchen's craft and this page takes no position on any of it.</p>
-    <p>No Toast data was pulled today. The wings figure is carried from the 2 September readout and should be confirmed at the register.</p>
-    <p>No competitor opening times were verified. The breakfast comparison in section 05 is a position worth testing, not a finding.</p>
-    <p>The Google review count was not visible on a signed-out check. The rating is 4.1&#9733; and has held there since 17 August; the last confirmed count is 42, from July.</p>
-    <p>No time or cost has been put against anything in section 06.</p>
+    <p>No Toast data was pulled. The wings figure is carried from the 2 September readout and should be confirmed at the register.</p>
+    <p>The Google attribute list in section 05 was read from a signed-out profile panel. Attributes that are set but not surfaced publicly would not appear there, which is why that item asks for confirmation in the dashboard rather than reporting a gap.</p>
+    <p>Competitor opening times in section 07 were read from published listings, not observed.</p>
+    <p>No time or cost has been put against anything in section 08.</p>
   </div>
 </section>
 
 <footer>
-  Doble AI &middot; Fenimore's Table status readout &middot; 9 September 2026<br>
+  Doble AI &middot; Fenimore's Table status readout &middot; Revised 10 September 2026, superseding the 9 September version<br>
   Fenimore's Table, 4874 State Highway 28, Cooperstown NY &middot; fenimorestable.com<br>
-  Site figures fetched from fenimorestable.com on 9 September 2026: homepage, <code>/menu/</code>, <code>/breakfast/</code>, <code>/drinks/</code>, <code>robots.txt</code>. Google figures from a signed-out profile check the same day.<br>
-  Companion pages: the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-dinner/">dinner card readout</a> of 2 September and the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-table/">Fenimore's Table site audit</a>, which carries the channel-by-channel grades and the full recommendation list.<br>
+  Site figures fetched uncached from fenimorestable.com on 10 September 2026: homepage, <code>/menu/</code>, <code>/breakfast/</code>, <code>/drinks/</code>, <code>/contact-us/</code>, <code>robots.txt</code>, the page API and the sitemap addresses. Google figures from a signed-out profile panel the same day.<br>
+  Companion pages: the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-dinner/">dinner card readout</a>, the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-table/">site audit</a>, the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-events/">private events brief</a> and the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-social/">social workflow</a>.<br>
   Internal working note. Link-shared, not indexed.
 </footer>
 
