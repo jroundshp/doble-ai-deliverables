@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>EasyRec: what changed on the new site, 11 September</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #F4F4EF; color: #1F2622;
+         -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  .page { max-width: 860px; margin: 0 auto; padding: 0 24px 100px; }
+
+  .hero { padding: 58px 0 34px; border-bottom: 1px solid rgba(47,111,106,0.2); }
+  .tag { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600;
+         letter-spacing: 0.2em; text-transform: uppercase; color: #2F6F6A; margin-bottom: 20px; }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #2F6F6A; }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(32px, 5.2vw, 50px);
+             font-weight: 500; line-height: 1.07; margin-bottom: 18px; }
+  .hero p { font-size: 19px; color: #46524C; max-width: 660px; }
+  .hero p + p { margin-top: 13px; }
+
+  .toc { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .toc a { font-size: 14px; text-decoration: none; color: #2F6F6A; border: 1px solid rgba(47,111,106,0.3);
+           border-radius: 40px; padding: 6px 15px; }
+  .toc a:hover { background: #2F6F6A; color: #fff; }
+
+  section { padding-top: 56px; }
+  h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 500;
+       margin-bottom: 6px; }
+  .kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+            color: #7C8C84; margin-bottom: 10px; }
+  p.body { font-size: 17px; color: #33413A; max-width: 680px; margin-bottom: 15px; }
+  p.body strong { font-weight: 600; }
+
+  .card { background: #fff; border: 1px solid rgba(47,111,106,0.22); border-radius: 10px;
+          padding: 26px 24px; margin-top: 22px; }
+  .card h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+
+  .callout { background: #fff; border-left: 3px solid #C77B3C; padding: 20px 22px;
+             margin: 24px 0; max-width: 720px; }
+  .callout strong { display: block; margin-bottom: 6px; }
+
+  ol.steps { max-width: 680px; margin: 4px 0 18px 0; padding-left: 22px; }
+  ol.steps li { font-size: 17px; color: #33413A; margin-bottom: 11px; padding-left: 4px; }
+
+  details { margin-top: 20px; background: #fff; border: 1px solid rgba(47,111,106,0.22);
+            border-radius: 10px; padding: 16px 20px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 15px; }
+  pre { margin-top: 15px; background: #1F2622; color: #E8E6DE; padding: 18px; border-radius: 6px;
+        overflow-x: auto; font-size: 12.5px; line-height: 1.5; }
+  code { font-family: 'SF Mono', Menlo, Consolas, monospace; }
+  pre.short { font-size: 13px; }
+
+  model-viewer { background: #F4F4EF; border-radius: 6px; }
+
+  .foot { margin-top: 70px; padding-top: 22px; border-top: 1px solid rgba(47,111,106,0.2);
+          font-size: 14px; color: #7C8C84; }
+  @media (max-width: 560px) { .card { padding: 20px 16px; } }
+
+  table.chg { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 15px; }
+  table.chg th, table.chg td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(47,111,106,0.18); vertical-align: top; }
+  table.chg th { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #7C8C84; font-weight: 600; }
+  .wrap { overflow-x: auto; }
+  ul.plain { max-width: 680px; margin: 4px 0 18px 22px; }
+  ul.plain li { font-size: 17px; color: #33413A; margin-bottom: 10px; }
+  a.inline { color: #2F6F6A; }
+  .pill { display:inline-block; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+          font-weight:600; padding:3px 9px; border-radius:20px; }
+  .pill.done { background:#E4EFE9; color:#2F6F6A; }
+  .pill.you  { background:#F6E7D8; color:#9A5A22; }
+  .pill.open { background:#EDEDE7; color:#6B7770; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="tag">EasyRec</div>
+    <h1>What changed on the new site</h1>
+    <p>Amanda, this is the record of what we did on <strong>new.easyrecreation.com</strong> on
+       11 September, after you sent the login. Everything here is live now. Nothing on the old
+       site was touched.</p>
+    <p>We worked under our own WordPress account, <strong>dobleai</strong>, so every edit is
+       separated from yours in the page history. There is a section at the bottom showing you
+       how to read it.</p>
+    <div class="toc">
+      <a href="#bench">The bench page</a>
+      <a href="#colour">A colour worth knowing about</a>
+      <a href="#house">Housekeeping</a>
+      <a href="#you">One thing we could not do</a>
+      <a href="#open">Still open</a>
+      <a href="#trail">How to see our edits</a>
+    </div>
+  </div>
+
+  <section id="bench">
+    <div class="kicker">Live now &middot; <span class="pill done">Done</span></div>
+    <h2>Both tools are on the bench page</h2>
+    <p class="body">They sit on
+       <a class="inline" href="https://new.easyrecreation.com/easy-stack-bench/">new.easyrecreation.com/easy-stack-bench/</a>,
+       one above the colour grid and one below it. Both are single blocks of HTML in Elementor
+       widgets. No plugin, no licence, nothing to keep updated. Deleting the widget removes the
+       tool and leaves the rest of the page alone.</p>
+
+    <div class="card">
+      <h3>The 3D viewer</h3>
+      <p class="body">It runs on a bench model that was already in your media library from July,
+         <code>69543_Depew_Bench_1.glb</code>. We checked the file before using it: valid glTF 2
+         out of SolidWorks, one mesh, 2,580 triangles, 115 KB, and it measures 77 by 18 by 18
+         inches, which is the bench. At that size it will open quickly on a phone.</p>
+      <p class="body">To show a different product, change the file name in the widget to another
+         GLB's URL. Everything else stays as it is.</p>
+    </div>
+
+    <div class="card">
+      <h3>The colour and logo preview</h3>
+      <p class="body">Sixteen swatches, a logo upload, drag to position, slider to size. The logo
+         file never leaves the visitor's browser. Three hidden fields carry the colour, the file
+         name and the placement, so when you point a quote form at them the rep gets all three
+         with the request instead of a phone call.</p>
+      <p class="body">The sixteen images are your own, read straight off the colour grid further
+         down the page rather than typed in by us, so the pairing cannot drift from what the page
+         already shows.</p>
+      <p class="body"><strong>One limit.</strong> Those sixteen files are small,
+         mostly 209 pixels wide, and nothing larger exists on the server. We capped the preview at
+         a size where they still look like a bench rather than blowing them up. The upgrade is a
+         single photograph: a plain white bench with no graphics on it, square on from the side.
+         With that one shot, all sixteen colours come off it and a customer's logo sits on a real
+         surface.</p>
+    </div>
+  </section>
+
+  <section id="colour">
+    <div class="kicker">Found while mapping the colours &middot; <span class="pill done">Fixed</span></div>
+    <h2>Cobalt Blue was showing the Signal Blue bench</h2>
+    <p class="body">On the new site, Cobalt Blue RAL 5013 and Signal Blue RAL 5005 were pointing at
+       two files that are <strong>byte for byte the same image</strong>. We checked by hashing them,
+       rather than by reading the file names, which is the only way this one shows up: the file had
+       landed as <code>EasyStackBench_5005-1.jpg</code>, so it looks right in the media library and
+       it looks right in the widget.</p>
+    <p class="body">It came across in the move, not from anything anyone did on the page.</p>
+    <p class="body">The live site has the right picture at
+       <code>EasyStackBench_5003.jpg</code>. We uploaded that file to the new media library and
+       repointed Cobalt Blue at it. The grid and the preview now both show the correct bench.</p>
+    <p class="body">Worth a look at the other fifteen when you have a moment. We checked all sixteen
+       for duplicates and this was the only one, but we can only compare what is there, not tell you
+       whether a given photo is the colour it claims to be.</p>
+  </section>
+
+  <section id="house">
+    <div class="kicker">Small things &middot; <span class="pill done">Done</span></div>
+    <h2>Housekeeping</h2>
+    <div class="wrap">
+    <table class="chg">
+      <tr><th>What</th><th>Before</th><th>Now</th></tr>
+      <tr><td>Site title</td><td>My WordPress</td><td>EasyRec</td></tr>
+      <tr><td>Tagline</td><td>Blank</td><td>Fiberglass benches, ADA pool stairs and ladders</td></tr>
+      <tr><td>Sample Page</td><td>Published</td><td>In the trash</td></tr>
+      <tr><td>"WordPress Resources at GreenGeeks"</td><td>Published</td><td>In the trash</td></tr>
+      <tr><td>"Hello world!" post</td><td>Published</td><td>In the trash</td></tr>
+    </table>
+    </div>
+    <p class="body">The title and tagline are what browsers and search results show, so every page
+       now reads as EasyRec rather than as a blank WordPress install. Change either in
+       <strong>Settings &rarr; General</strong> if you want different wording. The three deleted
+       items are in the trash, not gone, so they can be restored.</p>
+  </section>
+
+  <section id="you">
+    <div class="kicker">Needs a click in wp-admin &middot; <span class="pill you">Over to you</span></div>
+    <h2>The one thing we could not do from here</h2>
+    <p class="body">The new site is still open to Google. We checked again after finishing:
+       no page carries a noindex tag, robots.txt invites crawling and the sitemap is live.</p>
+    <p class="body">This one switch is not reachable through the WordPress API, so it cannot be
+       done the way everything else here was done. It is a checkbox:</p>
+    <ol class="steps">
+      <li><strong>Settings &rarr; Reading</strong>.</li>
+      <li>Tick <strong>Discourage search engines from indexing this site</strong>, and save.</li>
+      <li>Untick it the day you launch, and not before.</li>
+    </ol>
+    <p class="body">We deliberately did not reach for a workaround. There is a way to force the
+       same result with a code snippet, and it would have left a second switch for somebody to
+       find at launch. A site that stays invisible after go-live because of a forgotten snippet is
+       a worse problem than the one being solved.</p>
+  </section>
+
+  <section id="open">
+    <div class="kicker">Not started, and why &middot; <span class="pill open">Open</span></div>
+    <h2>Still open</h2>
+
+    <div class="card">
+      <h3>The pool measuring form</h3>
+      <p class="body">Still the piece with the most value in it, and still the one we have not
+         built. MetForm keeps its forms out of the WordPress API entirely, so unlike everything
+         else on this page it cannot be built remotely. It is a job in the MetForm screens.</p>
+      <p class="body">There is a second reason to slow down on it. A quote form that is built but
+         whose email routing is wrong is worse than the Google Form, because nobody notices until
+         a customer asks why they never heard back. Before it gets built, someone needs to say
+         where submissions go and whether they should also be stored in WordPress.</p>
+      <p class="body">The four things the current form does that generate the phone calls are on
+         the earlier page, and they have not changed: the first water depth point has no label of
+         its own, nothing asks which gutter profile the pool has, multi-point steps arrive as one
+         comma-separated string, and there is no way to attach a photo.</p>
+    </div>
+
+    <div class="card">
+      <h3>Questions, none of them urgent</h3>
+      <ul class="plain">
+        <li><strong>Is it PloyCor or PolyCor?</strong> Both sites spell it
+            <code>PloyCor&reg;</code> on the bench page. It may well be right and we did not want
+            to change a product name on a guess.</li>
+        <li><strong>Who is easyrecreation0mh?</strong> There is a third administrator on the new
+            site under that name, on a Gmail address, shown as "Crystal Nova". It may be
+            perfectly ordinary, from the install or the theme purchase. If nobody recognises it,
+            it should come off.</li>
+        <li><strong>Is an SEO plugin part of the plan?</strong> There is none on the new site
+            right now, so no page has a meta description and there is no product markup. That is
+            not a problem today. It becomes one the day the site launches, because it is far
+            easier to build in before go-live than to retrofit after.</li>
+        <li><strong>Can somebody shoot the white bench?</strong> The one photograph described
+            further up is the single thing that would most improve the logo preview, and it needs
+            a camera rather than any of us. A plain white bench, no graphics, square on from the
+            side, against a wall.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="trail">
+    <div class="kicker">How to check our work</div>
+    <h2>Seeing what we changed, and what you changed</h2>
+    <p class="body">Everything above was done under a WordPress account called
+       <strong>dobleai</strong>, created for this so our edits never appear under your name.</p>
+    <p class="body">On the Easy Stack Bench page, open <strong>Pages &rarr; Easy Stack Bench</strong>
+       and look at <strong>Revisions</strong>. The saves from 11 September are ours. Everything
+       before them, back to July, is yours. You can compare any two side by side, and you can
+       restore an earlier one if you want something undone.</p>
+    <p class="body">If anything here is not what you wanted, say so and we will change it back.
+       Nothing we did is hard to reverse.</p>
+  </section>
+
+  <div class="foot">Doble AI &middot; 11 September 2026 &middot; Prepared for EasyRec, a division of VPC Fiberglass</div>
+
+</div>
+</body>
+</html>
