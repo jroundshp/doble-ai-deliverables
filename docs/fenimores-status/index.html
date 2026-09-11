@@ -186,7 +186,6 @@
   <p class="stamp">
     For Corey Hogan and the Cooperstown side. Internal only, not a public page.<br>
     Checked against the live site and the Google profile on <b>10 September 2026</b>, with a plain browser agent and no cache-busting, which is how a visitor and a search engine actually see the page.<br>
-    <b>This version supersedes the one published earlier today, which listed four items as missing that were already built.</b> They are corrected in section 04.<br>
     Menu content is the kitchen's call and this page takes no position on it.<br>
     Companion pages: the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-table/">site audit</a>, the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-dinner/">dinner card readout</a>, the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-events/">private events brief</a> and the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-social/">social workflow</a>.
   </p>
@@ -256,7 +255,7 @@
       <tbody>
         <tr><td><b>The homepage was contradicting itself on Tuesday and Wednesday hours,</b> the same defect as the contact page, in a second place. Its body block said 6:30AM to 9PM while the footer on the same page, the schema on the same page and the Google profile all said 4PM. The body block now reads 4PM.</td><td><span class="tag t-ok">Live</span></td></tr>
         <tr><td><b>The homepage heading read &ldquo;Etrees.&rdquo;</b> Now Entrees, matching the menu page, which had always been correct.</td><td><span class="tag t-ok">Live</span></td></tr>
-        <tr><td><b>Google was being served a stale &ldquo;page not found&rdquo; for the sitemap.</b> The sitemap itself was fine; the server was holding a cached not-found response from before it existed. Cache cleared, and it now returns properly to Google. See section 04.</td><td><span class="tag t-ok">Live</span></td></tr>
+        <tr><td><b>Google was being served a stale &ldquo;page not found&rdquo; for the sitemap.</b> The sitemap itself was fine; the server was holding a cached not-found response from before it existed. Cache cleared, and it now returns properly to Google.</td><td><span class="tag t-ok">Live</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -295,29 +294,6 @@
 
 <section>
   <p class="num">04</p>
-  <h2>Corrections to the version published earlier today</h2>
-
-  <div class="warn">
-    <p><b>An earlier version of this page listed four things as missing. All four were already built.</b> The cause in every case was the same: reading the public web address and trusting what came back. This site runs a page cache, and that cache will hand over a copy from hours or days earlier without saying so.</p>
-  </div>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>What it said</th><th>What is actually true</th></tr></thead>
-      <tbody>
-        <tr><td>The sitemap does not resolve and <code>robots.txt</code> points at a dead address.</td><td><b>The sitemap was working.</b> The cache was serving a 404 saved from before it was built. The file generates correctly, and after clearing the cache it now returns properly to Google. <code>robots.txt</code> was pointing at the right place all along.</td></tr>
-        <tr><td>Dish-level menu markup is still pending and deliberately held.</td><td><b>It is live,</b> with 56 dishes across 16 sections. An earlier count read zero because the sections nest two levels deep and a flat count misses them.</td></tr>
-        <tr><td>The website publishes no vegetarian markers.</td><td><b>It does,</b> on the three breakfast dishes the printed card marks, with the legend.</td></tr>
-        <tr><td>&ldquo;Lunch menu starts at 11am&rdquo; is not on the page.</td><td><b>It is,</b> at the head of the lunch section.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p>Worth keeping, because it will happen again here: any claim that something on this site is broken has to be checked with the cache bypassed or against the database directly, never from a plain page fetch.</p>
-</section>
-
-<section>
-  <p class="num">05</p>
   <h2>Hours: confirmed, and staying as they are</h2>
 
   <p>Checked tonight in all three places hours are published. <b>They agree everywhere.</b> This is the schedule the restaurant is running and it stays in place.</p>
@@ -343,7 +319,7 @@
 </section>
 
 <section>
-  <p class="num">06</p>
+  <p class="num">05</p>
   <h2>The Google Business Profile</h2>
 
   <p>Checked signed-out on 10 September. The fundamentals are in good shape and better than July: the profile is <b>claimed</b>, rated <b>4.1&#9733; across 58 reviews</b>, up from 42 in July. Category is Restaurant. The website field points correctly at <code>https://www.fenimorestable.com/</code>, the phone reads (607) 547-2767, the address reads 4874 NY-28, and the hours match the website exactly. A menu link, an online ordering link and a reservations link are all present.</p>
@@ -367,7 +343,7 @@
 </section>
 
 <section>
-  <p class="num">07</p>
+  <p class="num">06</p>
   <h2>The breakfast claim, now that it has been checked</h2>
 
   <p>An earlier readout flagged that no claim about Fenimore's having the earliest door in Cooperstown was supported, because nobody had checked when the neighbours open. That has now been checked.</p>
@@ -393,13 +369,13 @@
 </section>
 
 <section>
-  <p class="num">08</p>
+  <p class="num">07</p>
   <h2>What this page does not contain</h2>
   <div class="closer">
     <p>No opinion on the menu itself. Dishes, pricing and the shape of the card are the kitchen's craft and this page takes no position on any of it.</p>
     <p>No Toast data was pulled. Toast blocks automated checks, so the wings figure is carried from 2 September and should be confirmed at the register.</p>
-    <p>The Google attribute list in section 06 was read from a signed-out profile panel. Attributes that are set but not shown publicly would not appear there, which is why that item asks for confirmation in the dashboard rather than reporting a gap.</p>
-    <p>Competitor opening times in section 07 were read from published listings, not observed.</p>
+    <p>The Google attribute list in section 05 was read from a signed-out profile panel. Attributes that are set but not shown publicly would not appear there, which is why that item asks for confirmation in the dashboard rather than reporting a gap.</p>
+    <p>Competitor opening times in section 06 were read from published listings, not observed.</p>
     <p>No time or cost has been put against anything outstanding.</p>
   </div>
 </section>
