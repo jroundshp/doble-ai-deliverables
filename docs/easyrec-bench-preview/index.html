@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>EasyRec: Bench Color and Logo Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #F4F4EF; color: #1F2622;
+         -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  .page { max-width: 880px; margin: 0 auto; padding: 0 24px 90px; }
+  .hero { padding: 60px 0 36px; border-bottom: 1px solid rgba(47,111,106,0.2); }
+  .tag { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600;
+         letter-spacing: 0.2em; text-transform: uppercase; color: #2F6F6A; margin-bottom: 20px; }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #2F6F6A; }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(32px, 5.2vw, 50px);
+             font-weight: 500; line-height: 1.07; margin-bottom: 18px; }
+  .hero p { font-size: 19px; color: #46524C; max-width: 680px; }
+  h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 500;
+       margin: 54px 0 14px; }
+  p.body { font-size: 17px; color: #33413A; max-width: 680px; margin-bottom: 14px; }
+  .demo { background: #fff; border: 1px solid rgba(47,111,106,0.22); border-radius: 10px;
+          padding: 28px 24px; margin-top: 24px; }
+  .callout { background: #fff; border-left: 3px solid #C77B3C; padding: 20px 22px;
+             margin: 26px 0; max-width: 720px; }
+  .callout strong { display: block; margin-bottom: 6px; }
+  details { margin-top: 26px; background: #fff; border: 1px solid rgba(47,111,106,0.22);
+            border-radius: 10px; padding: 18px 22px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 16px; }
+  pre { margin-top: 16px; background: #1F2622; color: #E8E6DE; padding: 18px; border-radius: 6px;
+        overflow-x: auto; font-size: 12.5px; line-height: 1.5; }
+  code { font-family: 'SF Mono', Menlo, Consolas, monospace; }
+  .foot { margin-top: 60px; padding-top: 22px; border-top: 1px solid rgba(47,111,106,0.2);
+          font-size: 14px; color: #7C8C84; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="tag">EasyRec</div>
+    <h1>Pick a color, drop a logo on it</h1>
+    <p>A working answer to the configurator question, built so it runs anywhere without a
+       plugin, a library or a build step. Try it below, then take the code.</p>
+  </div>
+
+  <h2>Try it</h2>
+  <p class="body">Choose a color. Upload any logo file from this computer and drag it where
+     you want it. Nothing is uploaded anywhere; the file never leaves your browser.</p>
+
+  <div class="demo">
+<div id="erb">
+  <div class="erb-stage">
+    <img id="erb-bench" src="" alt="Easy Stack Bench">
+    <div id="erb-logo" hidden><img id="erb-logo-img" src="" alt=""></div>
+  </div>
+
+  <div class="erb-controls">
+    <div class="erb-row">
+      <span class="erb-label">Color</span>
+      <div id="erb-swatches" class="erb-swatches"></div>
+    </div>
+
+    <div class="erb-row">
+      <span class="erb-label">Your logo</span>
+      <div class="erb-logo-controls">
+        <label class="erb-btn">
+          Upload a file
+          <input type="file" id="erb-file" accept="image/png,image/jpeg,image/svg+xml" hidden>
+        </label>
+        <input type="range" id="erb-size" min="8" max="60" value="24" disabled
+               aria-label="Logo size">
+        <button type="button" id="erb-clear" class="erb-btn erb-btn-quiet" hidden>Remove</button>
+      </div>
+    </div>
+
+    <p id="erb-hint" class="erb-hint">Choose a color. Upload a logo and drag it where you want it.</p>
+    <p id="erb-summary" class="erb-summary"></p>
+
+    <!-- These three travel with the quote request. Point your form at them. -->
+    <input type="hidden" name="bench_color"  id="erb-out-color">
+    <input type="hidden" name="logo_filename" id="erb-out-file">
+    <input type="hidden" name="logo_position" id="erb-out-pos">
+  </div>
+</div>
+
+<style>
+#erb{--erb-ink:#1b1f23;--erb-line:#d8dce0;--erb-bg:#f4f5f6;max-width:440px;margin:0 auto;
+  font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--erb-ink)}
+#erb *{box-sizing:border-box}
+#erb [hidden]{display:none!important}
+#erb .erb-stage{position:relative;background:var(--erb-bg);border:1px solid var(--erb-line);
+  border-radius:6px;overflow:hidden;touch-action:none;aspect-ratio:400/284}
+#erb #erb-bench{display:block;width:100%;height:100%;object-fit:contain}
+#erb #erb-logo{position:absolute;left:50%;top:38%;width:24%;transform:translate(-50%,-50%);
+  cursor:grab;touch-action:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
+#erb #erb-logo.erb-dragging{cursor:grabbing}
+#erb #erb-logo img{display:block;width:100%;height:auto;pointer-events:none}
+#erb .erb-controls{padding:18px 0 0}
+#erb .erb-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+#erb .erb-label{flex:0 0 74px;padding-top:6px;font-size:13px;letter-spacing:.04em;
+  text-transform:uppercase;color:#5b6570}
+#erb .erb-swatches{flex:1 1 300px;display:flex;flex-wrap:wrap;gap:8px}
+#erb .erb-sw{width:34px;height:34px;padding:0;border:2px solid transparent;border-radius:50%;
+  cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.18)}
+#erb .erb-sw:focus-visible{outline:2px solid #1b1f23;outline-offset:2px}
+#erb .erb-sw[aria-pressed="true"]{border-color:var(--erb-ink)}
+#erb .erb-logo-controls{flex:1 1 300px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#erb .erb-btn{display:inline-block;padding:8px 14px;border:1px solid var(--erb-ink);
+  border-radius:4px;background:var(--erb-ink);color:#fff;font-size:14px;cursor:pointer}
+#erb .erb-btn-quiet{background:none;color:var(--erb-ink)}
+#erb #erb-size{flex:1 1 140px;min-width:120px}
+#erb #erb-size:disabled{opacity:.4}
+#erb .erb-hint,#erb .erb-summary{margin:0;font-size:14px;color:#5b6570}
+#erb .erb-summary{margin-top:4px;color:var(--erb-ink);font-weight:600}
+@media (max-width:520px){#erb .erb-label{flex-basis:100%;padding-top:0}}
+</style>
+
+<script>
+(function () {
+  var BASE = 'https://easyrecreation.com/wp-content/uploads/';
+
+  // Flip this to true once you have the white-bench photo, and put its
+  // URL in PHOTO. Every color is then produced from that one image.
+  var USE_PHOTO = false;
+  var PHOTO = '';
+
+  // Name, RAL, swatch color, photo. Pairing taken from the live
+  // easy-stack-bench page. The filenames do not always match the RAL
+  // code, which is their filing, not a mistake here.
+  var COLORS = [
+    ['Traffic Red',    'RAL 3020', '#a72920', '2020/03/EasyStackBench_3002.jpg'],
+    ['Wine Red',       'RAL 3005', '#5e2129', '2020/03/EasyStackBench_3005.jpg'],
+    ['Orange',         'RAL 2004', '#e25303', '2020/03/EasyStackBench_2008.jpg'],
+    ['Golden Yellow',  'RAL 1004', '#e2b007', '2024/02/EasyStackBench_1023-golden-yellow.jpg'],
+    ['Traffic Yellow', 'RAL 1023', '#f7ba0b', '2024/02/EasyStackBench_1023-trafficyellow-01.jpg'],
+    ['Traffic Green',  'RAL 6024', '#308446', '2020/03/EasyStackBench_6024-6032.jpg'],
+    ['Fir Green',      'RAL 6009', '#27352a', '2020/03/EasyStackBench_6005.jpg'],
+    ['Light Blue',     'RAL 5012', '#0089b6', '2024/02/EasyStackBench_light-blue-01.jpg'],
+    ['Signal Blue',    'RAL 5005', '#005387', '2020/03/EasyStackBench_5005.jpg'],
+    ['Cobalt Blue',    'RAL 5013', '#1e213d', '2020/03/EasyStackBench_5003.jpg'],
+    ['Terra Brown',    'RAL 8028', '#4e3b31', '2020/03/EasyStackBench_8028.jpg'],
+    ['Traffic Black',  'RAL 9017', '#1e1e1e', '2020/03/EasyStackBench_9017.jpg'],
+    ['Iron Gray',      'RAL 7011', '#52595d', '2020/03/EasyStackBench_7011.jpg'],
+    ['Cool Gray',      'RAL 7040', '#9da3a6', '2020/03/EasyStackBench_7040.jpg'],
+    ['Silk Gray',      'RAL 7044', '#cac4b0', '2020/03/EasyStackBench_7044.jpg'],
+    ['White',          'RAL 9016', '#f1f0ea', '2020/03/EasyStackBench_9016.jpg']
+  ];
+
+  var root    = document.getElementById('erb');
+  var stage   = root.querySelector('.erb-stage');
+  var bench   = document.getElementById('erb-bench');
+  var logo    = document.getElementById('erb-logo');
+  var logoImg = document.getElementById('erb-logo-img');
+  var size    = document.getElementById('erb-size');
+  var clear   = document.getElementById('erb-clear');
+  var hint    = document.getElementById('erb-hint');
+  var summary = document.getElementById('erb-summary');
+  var outColor = document.getElementById('erb-out-color');
+  var outFile  = document.getElementById('erb-out-file');
+  var outPos   = document.getElementById('erb-out-pos');
+
+  var chosen = null, filename = '', pos = { x: 50, y: 38 };
+
+  COLORS.forEach(function (c, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'erb-sw';
+    b.style.background = c[2];
+    b.title = c[0] + ' ' + c[1];
+    b.setAttribute('aria-label', c[0] + ' ' + c[1]);
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { pick(i); });
+    document.getElementById('erb-swatches').appendChild(b);
+  });
+
+  function pick(i) {
+    chosen = COLORS[i];
+    if (USE_PHOTO && PHOTO) {
+      bench.src = PHOTO;
+      bench.style.mixBlendMode = 'multiply';
+      stage.style.background = chosen[2];
+    } else {
+      bench.src = BASE + chosen[3];
+    }
+    bench.alt = 'Easy Stack Bench in ' + chosen[0] + ' ' + chosen[1];
+    Array.prototype.forEach.call(root.querySelectorAll('.erb-sw'), function (b, n) {
+      b.setAttribute('aria-pressed', n === i ? 'true' : 'false');
+    });
+    write();
+  }
+
+  document.getElementById('erb-file').addEventListener('change', function (e) {
+    var f = e.target.files && e.target.files[0];
+    if (!f) return;
+    filename = f.name;
+    var r = new FileReader();
+    r.onload = function (ev) {
+      logoImg.src = ev.target.result;
+      logo.hidden = false;
+      size.disabled = false;
+      clear.hidden = false;
+      hint.textContent = 'Drag the logo to move it. Use the slider to size it.';
+      write();
+    };
+    r.readAsDataURL(f);
+  });
+
+  size.addEventListener('input', function () {
+    logo.style.width = size.value + '%';
+    write();
+  });
+
+  clear.addEventListener('click', function () {
+    logo.hidden = true;
+    size.disabled = true;
+    clear.hidden = true;
+    filename = '';
+    logoImg.src = '';
+    document.getElementById('erb-file').value = '';
+    hint.textContent = 'Choose a color. Upload a logo and drag it where you want it.';
+    write();
+  });
+
+  var dragging = false;
+  logo.addEventListener('pointerdown', function (e) {
+    dragging = true;
+    logo.classList.add('erb-dragging');
+    logo.setPointerCapture(e.pointerId);
+  });
+  logo.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var r = stage.getBoundingClientRect();
+    pos.x = Math.min(95, Math.max(5, ((e.clientX - r.left) / r.width) * 100));
+    pos.y = Math.min(95, Math.max(5, ((e.clientY - r.top) / r.height) * 100));
+    logo.style.left = pos.x + '%';
+    logo.style.top  = pos.y + '%';
+    write();
+  });
+  logo.addEventListener('pointerup', function (e) {
+    dragging = false;
+    logo.classList.remove('erb-dragging');
+    logo.releasePointerCapture(e.pointerId);
+  });
+
+  function write() {
+    outColor.value = chosen ? chosen[0] + ' (' + chosen[1] + ')' : '';
+    outFile.value  = filename;
+    outPos.value   = filename
+      ? Math.round(pos.x) + '% across, ' + Math.round(pos.y) + '% down, ' + size.value + '% wide'
+      : '';
+    var parts = [];
+    if (chosen) parts.push(chosen[0] + ' ' + chosen[1]);
+    if (filename) parts.push('logo: ' + filename);
+    summary.textContent = parts.join('  |  ');
+  }
+
+  pick(8); // opens on Signal Blue
+})();
+</script>
+
+  </div>
+
+  <div class="callout">
+    <strong>What it still needs: one photograph.</strong>
+    The sixteen color files on the bench page are flat illustrations at 209 by 143 pixels,
+    made as swatches for the color grid, and there is nothing larger on the server. The
+    preview is capped at a size where they hold up, but they will not carry a full-width
+    feature. One photograph of a plain white bench with no graphics on it, shot square-on
+    from the side, produces all sixteen colors from that single image and lets a customer's
+    logo sit on the real surface. There is a switch at the top of the code for it.
+  </div>
+
+  <h2>Take the code</h2>
+  <p class="body">Paste the whole thing into an Elementor HTML widget. The three hidden
+     fields at the bottom carry the color, the file name and the placement, so the quote
+     form collects all three with the request.</p>
+
+  <details>
+    <summary>Show the code</summary>
+    <pre><code>&lt;!-- ===================================================================
+     EasyRec bench preview: pick a color, drop a logo on it.
+
+     TO USE: paste everything from &lt;div id="erb"&gt; down to the last
+     &lt;/script&gt; into an Elementor HTML widget. Nothing else needed,
+     no plugin, no library, no build step.
+
+     You can also just double-click this file to see it run in a browser.
+
+     The 16 photos are the ones already on
+     easyrecreation.com/easy-stack-bench/, loaded straight from your
+     media library. Swap any URL below and the swatch follows it.
+
+     ONE THING TO KNOW: those 16 files are flat illustrations of the
+     bench, 209 x 143 pixels, and nothing larger exists on the server.
+     They were made as little color-grid swatches, which is all the page
+     uses them for today. So this is capped at a size where they still
+     hold up, rather than blown up into mush.
+
+     The upgrade is one photograph: a plain white bench with no graphics
+     on it, shot square-on from the side. Put its URL in PHOTO below and
+     set USE_PHOTO to true, and all 16 colors come off that single image
+     with the logo sitting on the real surface.
+     =================================================================== --&gt;
+
+&lt;div id="erb"&gt;
+  &lt;div class="erb-stage"&gt;
+    &lt;img id="erb-bench" src="" alt="Easy Stack Bench"&gt;
+    &lt;div id="erb-logo" hidden&gt;&lt;img id="erb-logo-img" src="" alt=""&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="erb-controls"&gt;
+    &lt;div class="erb-row"&gt;
+      &lt;span class="erb-label"&gt;Color&lt;/span&gt;
+      &lt;div id="erb-swatches" class="erb-swatches"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="erb-row"&gt;
+      &lt;span class="erb-label"&gt;Your logo&lt;/span&gt;
+      &lt;div class="erb-logo-controls"&gt;
+        &lt;label class="erb-btn"&gt;
+          Upload a file
+          &lt;input type="file" id="erb-file" accept="image/png,image/jpeg,image/svg+xml" hidden&gt;
+        &lt;/label&gt;
+        &lt;input type="range" id="erb-size" min="8" max="60" value="24" disabled
+               aria-label="Logo size"&gt;
+        &lt;button type="button" id="erb-clear" class="erb-btn erb-btn-quiet" hidden&gt;Remove&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;p id="erb-hint" class="erb-hint"&gt;Choose a color. Upload a logo and drag it where you want it.&lt;/p&gt;
+    &lt;p id="erb-summary" class="erb-summary"&gt;&lt;/p&gt;
+
+    &lt;!-- These three travel with the quote request. Point your form at them. --&gt;
+    &lt;input type="hidden" name="bench_color"  id="erb-out-color"&gt;
+    &lt;input type="hidden" name="logo_filename" id="erb-out-file"&gt;
+    &lt;input type="hidden" name="logo_position" id="erb-out-pos"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+#erb{--erb-ink:#1b1f23;--erb-line:#d8dce0;--erb-bg:#f4f5f6;max-width:440px;margin:0 auto;
+  font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--erb-ink)}
+#erb *{box-sizing:border-box}
+#erb [hidden]{display:none!important}
+#erb .erb-stage{position:relative;background:var(--erb-bg);border:1px solid var(--erb-line);
+  border-radius:6px;overflow:hidden;touch-action:none;aspect-ratio:400/284}
+#erb #erb-bench{display:block;width:100%;height:100%;object-fit:contain}
+#erb #erb-logo{position:absolute;left:50%;top:38%;width:24%;transform:translate(-50%,-50%);
+  cursor:grab;touch-action:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
+#erb #erb-logo.erb-dragging{cursor:grabbing}
+#erb #erb-logo img{display:block;width:100%;height:auto;pointer-events:none}
+#erb .erb-controls{padding:18px 0 0}
+#erb .erb-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+#erb .erb-label{flex:0 0 74px;padding-top:6px;font-size:13px;letter-spacing:.04em;
+  text-transform:uppercase;color:#5b6570}
+#erb .erb-swatches{flex:1 1 300px;display:flex;flex-wrap:wrap;gap:8px}
+#erb .erb-sw{width:34px;height:34px;padding:0;border:2px solid transparent;border-radius:50%;
+  cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.18)}
+#erb .erb-sw:focus-visible{outline:2px solid #1b1f23;outline-offset:2px}
+#erb .erb-sw[aria-pressed="true"]{border-color:var(--erb-ink)}
+#erb .erb-logo-controls{flex:1 1 300px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#erb .erb-btn{display:inline-block;padding:8px 14px;border:1px solid var(--erb-ink);
+  border-radius:4px;background:var(--erb-ink);color:#fff;font-size:14px;cursor:pointer}
+#erb .erb-btn-quiet{background:none;color:var(--erb-ink)}
+#erb #erb-size{flex:1 1 140px;min-width:120px}
+#erb #erb-size:disabled{opacity:.4}
+#erb .erb-hint,#erb .erb-summary{margin:0;font-size:14px;color:#5b6570}
+#erb .erb-summary{margin-top:4px;color:var(--erb-ink);font-weight:600}
+@media (max-width:520px){#erb .erb-label{flex-basis:100%;padding-top:0}}
+&lt;/style&gt;
+
+&lt;script&gt;
+(function () {
+  var BASE = 'https://easyrecreation.com/wp-content/uploads/';
+
+  // Flip this to true once you have the white-bench photo, and put its
+  // URL in PHOTO. Every color is then produced from that one image.
+  var USE_PHOTO = false;
+  var PHOTO = '';
+
+  // Name, RAL, swatch color, photo. Pairing taken from the live
+  // easy-stack-bench page. The filenames do not always match the RAL
+  // code, which is their filing, not a mistake here.
+  var COLORS = [
+    ['Traffic Red',    'RAL 3020', '#a72920', '2020/03/EasyStackBench_3002.jpg'],
+    ['Wine Red',       'RAL 3005', '#5e2129', '2020/03/EasyStackBench_3005.jpg'],
+    ['Orange',         'RAL 2004', '#e25303', '2020/03/EasyStackBench_2008.jpg'],
+    ['Golden Yellow',  'RAL 1004', '#e2b007', '2024/02/EasyStackBench_1023-golden-yellow.jpg'],
+    ['Traffic Yellow', 'RAL 1023', '#f7ba0b', '2024/02/EasyStackBench_1023-trafficyellow-01.jpg'],
+    ['Traffic Green',  'RAL 6024', '#308446', '2020/03/EasyStackBench_6024-6032.jpg'],
+    ['Fir Green',      'RAL 6009', '#27352a', '2020/03/EasyStackBench_6005.jpg'],
+    ['Light Blue',     'RAL 5012', '#0089b6', '2024/02/EasyStackBench_light-blue-01.jpg'],
+    ['Signal Blue',    'RAL 5005', '#005387', '2020/03/EasyStackBench_5005.jpg'],
+    ['Cobalt Blue',    'RAL 5013', '#1e213d', '2020/03/EasyStackBench_5003.jpg'],
+    ['Terra Brown',    'RAL 8028', '#4e3b31', '2020/03/EasyStackBench_8028.jpg'],
+    ['Traffic Black',  'RAL 9017', '#1e1e1e', '2020/03/EasyStackBench_9017.jpg'],
+    ['Iron Gray',      'RAL 7011', '#52595d', '2020/03/EasyStackBench_7011.jpg'],
+    ['Cool Gray',      'RAL 7040', '#9da3a6', '2020/03/EasyStackBench_7040.jpg'],
+    ['Silk Gray',      'RAL 7044', '#cac4b0', '2020/03/EasyStackBench_7044.jpg'],
+    ['White',          'RAL 9016', '#f1f0ea', '2020/03/EasyStackBench_9016.jpg']
+  ];
+
+  var root    = document.getElementById('erb');
+  var stage   = root.querySelector('.erb-stage');
+  var bench   = document.getElementById('erb-bench');
+  var logo    = document.getElementById('erb-logo');
+  var logoImg = document.getElementById('erb-logo-img');
+  var size    = document.getElementById('erb-size');
+  var clear   = document.getElementById('erb-clear');
+  var hint    = document.getElementById('erb-hint');
+  var summary = document.getElementById('erb-summary');
+  var outColor = document.getElementById('erb-out-color');
+  var outFile  = document.getElementById('erb-out-file');
+  var outPos   = document.getElementById('erb-out-pos');
+
+  var chosen = null, filename = '', pos = { x: 50, y: 38 };
+
+  COLORS.forEach(function (c, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'erb-sw';
+    b.style.background = c[2];
+    b.title = c[0] + ' ' + c[1];
+    b.setAttribute('aria-label', c[0] + ' ' + c[1]);
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function () { pick(i); });
+    document.getElementById('erb-swatches').appendChild(b);
+  });
+
+  function pick(i) {
+    chosen = COLORS[i];
+    if (USE_PHOTO &amp;&amp; PHOTO) {
+      bench.src = PHOTO;
+      bench.style.mixBlendMode = 'multiply';
+      stage.style.background = chosen[2];
+    } else {
+      bench.src = BASE + chosen[3];
+    }
+    bench.alt = 'Easy Stack Bench in ' + chosen[0] + ' ' + chosen[1];
+    Array.prototype.forEach.call(root.querySelectorAll('.erb-sw'), function (b, n) {
+      b.setAttribute('aria-pressed', n === i ? 'true' : 'false');
+    });
+    write();
+  }
+
+  document.getElementById('erb-file').addEventListener('change', function (e) {
+    var f = e.target.files &amp;&amp; e.target.files[0];
+    if (!f) return;
+    filename = f.name;
+    var r = new FileReader();
+    r.onload = function (ev) {
+      logoImg.src = ev.target.result;
+      logo.hidden = false;
+      size.disabled = false;
+      clear.hidden = false;
+      hint.textContent = 'Drag the logo to move it. Use the slider to size it.';
+      write();
+    };
+    r.readAsDataURL(f);
+  });
+
+  size.addEventListener('input', function () {
+    logo.style.width = size.value + '%';
+    write();
+  });
+
+  clear.addEventListener('click', function () {
+    logo.hidden = true;
+    size.disabled = true;
+    clear.hidden = true;
+    filename = '';
+    logoImg.src = '';
+    document.getElementById('erb-file').value = '';
+    hint.textContent = 'Choose a color. Upload a logo and drag it where you want it.';
+    write();
+  });
+
+  var dragging = false;
+  logo.addEventListener('pointerdown', function (e) {
+    dragging = true;
+    logo.classList.add('erb-dragging');
+    logo.setPointerCapture(e.pointerId);
+  });
+  logo.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    var r = stage.getBoundingClientRect();
+    pos.x = Math.min(95, Math.max(5, ((e.clientX - r.left) / r.width) * 100));
+    pos.y = Math.min(95, Math.max(5, ((e.clientY - r.top) / r.height) * 100));
+    logo.style.left = pos.x + '%';
+    logo.style.top  = pos.y + '%';
+    write();
+  });
+  logo.addEventListener('pointerup', function (e) {
+    dragging = false;
+    logo.classList.remove('erb-dragging');
+    logo.releasePointerCapture(e.pointerId);
+  });
+
+  function write() {
+    outColor.value = chosen ? chosen[0] + ' (' + chosen[1] + ')' : '';
+    outFile.value  = filename;
+    outPos.value   = filename
+      ? Math.round(pos.x) + '% across, ' + Math.round(pos.y) + '% down, ' + size.value + '% wide'
+      : '';
+    var parts = [];
+    if (chosen) parts.push(chosen[0] + ' ' + chosen[1]);
+    if (filename) parts.push('logo: ' + filename);
+    summary.textContent = parts.join('  |  ');
+  }
+
+  pick(8); // opens on Signal Blue
+})();
+&lt;/script&gt;
+</code></pre>
+  </details>
+
+  <div class="foot">Doble AI &middot; 11 September 2026 &middot; Prepared for EasyRec, a division of VPC Fiberglass</div>
+
+</div>
+</body>
+</html>
