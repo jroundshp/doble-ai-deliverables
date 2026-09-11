@@ -834,10 +834,14 @@
           <text x="398" y="192" class="d-t">Flume size <tspan class="d-t-s">6 in &#8594; 2 in</tspan></text>
           <text x="398" y="234" class="d-t">Pipe <tspan class="d-t-s">18 in &#8594; 8 in</tspan></text>
         </svg>
-        <figcaption>Real output, not an illustration. Job 69492 treated as the RFQ that just came in; the index put job 69312 on top at 70 percent and split the fields itself, reading nothing but the sales quotes VPC already writes.</figcaption>
+        <figcaption>Real output, not an illustration. Job 69492 treated as the RFQ that just came in; the index ranked job 69312 against it and split the fields itself, reading nothing but the sales quotes VPC already writes.</figcaption>
       </figure>
 
-      <p>That ranking is defensible rather than proven. The tool prefers 69312 because the flume family matches; a person might well prefer 69446, which has the same lid and the closest depth. Which of the two Larry would actually open is exactly what the five live jobs in phase 2 are there to settle, and we would rather show the disagreement than tune it away.</p>
+      <p>That ranking is defensible rather than proven, and Larry has already moved it once. Our first version leaned on depth, because depth is the field that varies most across the twenty orders. He pointed out that the height of a manhole is parametric, so the drawing regenerates when it changes and matching on it saves him nothing. He starts from diameter, then the flume model, then the lid, because changing a lid is cheaper than changing a flume. The tool now runs in his order. We kept the earlier weighting alongside it rather than deleting it, so the two rankings can be put side by side on a real job and the answer can come from the person who would open the file.</p>
+
+      <p>That exchange is worth more than the ranking it corrected. It is the reason this phase is one hour of an engineer's time rather than a specification written in advance, and it is why phase 2 is allowed to come back negative.</p>
+
+      <p>The tool also stops short of deciding anything. VPC already has a step where production compares the sales order, the approved submittal and the customer purchase order, and where Larry, sales and production settle the differences between them. So when two documents on the same order disagree, the index names the fields that differ and puts the pair in front of a person. It does not pick a winner. That rule came from Larry describing how the work already runs, not from us.</p>
     </div>
   </section>
 
