@@ -172,7 +172,7 @@
     <div class="kicker">Needs a click in wp-admin &middot; <span class="pill you">Over to you</span></div>
     <h2>The one thing we could not do from here</h2>
     <p class="body">The new site is still open to Google. We checked again after finishing:
-       no page carries a noindex tag, robots.txt invites crawling and the sitemap is live.</p>
+       robots.txt invites crawling and no page carries a noindex tag.</p>
     <p class="body">This one switch is not reachable through the WordPress API, so it cannot be
        done the way everything else here was done. It is a checkbox:</p>
     <ol class="steps">
@@ -219,6 +219,11 @@
             right now, so no page has a meta description and there is no product markup. That is
             not a problem today. It becomes one the day the site launches, because it is far
             easier to build in before go-live than to retrofit after.</li>
+        <li><strong>The sitemap answers 404.</strong> A curious one, and worth settling before
+            launch rather than after. <code>wp-sitemap.xml</code> returns a perfectly good index,
+            three entries, contents correct and updating. It just returns it with a 404 status
+            attached, and Google reads the status, not the body. Nothing to do about it while the
+            site is closed off, but it wants an answer the week you open it up.</li>
         <li><strong>Can somebody shoot the white bench?</strong> The one photograph described
             further up is the single thing that would most improve the logo preview, and it needs
             a camera rather than any of us. A plain white bench, no graphics, square on from the
