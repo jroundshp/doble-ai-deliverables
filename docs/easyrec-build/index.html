@@ -87,6 +87,7 @@
        how to read it.</p>
     <div class="toc">
       <a href="#bench">The bench page</a>
+      <a href="#configurator">The configurator question</a>
       <a href="#colour">A colour worth knowing about</a>
       <a href="#house">Housekeeping</a>
       <a href="#you">One thing we could not do</a>
@@ -110,6 +111,10 @@
          <code>69543_Depew_Bench_1.glb</code>. We checked the file before using it: valid glTF 2
          out of SolidWorks, one mesh, 2,580 triangles, 115 KB, and it measures 77 by 18 by 18
          inches, which is the bench. At that size it will open quickly on a phone.</p>
+      <p class="body"><strong>The sixteen colours now drive the model itself.</strong> Pick a
+         swatch under the viewer and the bench changes colour while you are turning it. All sixteen
+         come off Conrad's single export, so there is nothing for him to redo and nothing to keep
+         in sync.</p>
       <p class="body">To show a different product, change the file name in the widget to another
          GLB's URL. Everything else stays as it is.</p>
     </div>
@@ -129,6 +134,62 @@
          single photograph: a plain white bench with no graphics on it, square on from the side.
          With that one shot, all sixteen colours come off it and a customer's logo sits on a real
          surface.</p>
+    </div>
+  </section>
+
+  <section id="configurator">
+    <div class="kicker">Answering your note &middot; <span class="pill done">Half of it is live</span></div>
+    <h2>The configurator question</h2>
+    <p class="body">You asked whether we can keep the 3D file, lay a logo on it and change the
+       colour of the bench. Those two halves have different answers, and it is worth separating
+       them because one of them is already done.</p>
+
+    <div class="card">
+      <h3>Colour in 3D: yes, and it is running now</h3>
+      <p class="body">The model has one material, which is the easy case. The viewer recolours it
+         live, so the swatches you already had on the page now change the bench you are turning.
+         Go and click a few.</p>
+    </div>
+
+    <div class="card">
+      <h3>A logo in 3D: not with this file, and the reason is fixable</h3>
+      <p class="body">We opened Conrad's export and read what is inside it. It carries geometry and
+         surface normals, and nothing else: no texture coordinates, no textures, no images. Texture
+         coordinates are the thing that tells a 3D program where on a surface a picture goes. With
+         none in the file, there is nowhere for artwork to land. That is a property of how the file
+         was exported, not a limit of the viewer.</p>
+      <p class="body">Conrad could re-export with a mapped panel on the side. It would work, and it
+         would need doing again on every model he changes, which is a standing cost on a catalogue
+         that grows.</p>
+    </div>
+
+    <div class="card">
+      <h3>Which is why your second idea is the better one</h3>
+      <p class="body">You offered a static image with a flat area for the logo, the way Yeti does
+         it. That is the one we would take. A logo only has to look right from one angle to convince
+         somebody, and it looks more convincing sitting on a photograph than on a render.</p>
+      <p class="body">So: the 3D view for turning the bench and choosing a colour, a photograph for
+         putting a customer's badge on it. Not a compromise. They are good at different jobs.</p>
+      <p class="body"><strong>What the photograph needs to be.</strong> All sixteen colours are
+         produced from this one shot, so it is worth getting right once.</p>
+      <ul class="plain">
+        <li>A <strong>white</strong> bench, RAL 9016, with no graphics on it.</li>
+        <li>Square on from the side, camera at bench height rather than looking down at it.</li>
+        <li>The whole side panel in frame, evenly lit, with no hard shadow crossing it.</li>
+        <li>Plain background, and as large a file as you have. 2000 pixels wide or better.</li>
+      </ul>
+      <p class="body">There is a near miss already on the live site at
+         <code>2020/02/IMG_3806-scaled.jpg</code>, 2560 by 1707. It is exactly the right shot except
+         the InterActive Play logo is already printed on the panel, so it cannot carry somebody
+         else's. Same setup, clean bench, and we are there.</p>
+    </div>
+
+    <div class="card">
+      <h3>One note on the Hulck page</h3>
+      <p class="body">The trailer configurator you liked is built on Expivi, a commercial platform
+         that sites licence by the month. Worth knowing when you are comparing it to something built
+         into the site, because the gap you are seeing is partly a product someone is paying for
+         rather than a technique we are missing.</p>
     </div>
   </section>
 
@@ -192,8 +253,8 @@
 
     <div class="card">
       <h3>The pool measuring form</h3>
-      <p class="body">Still the piece with the most value in it, and still the one we have not
-         built. MetForm keeps its forms out of the WordPress API entirely, so unlike everything
+      <p class="body">Parked rather than dropped, since the configurator is plainly the thing on
+         your mind. Still the one we have not built. MetForm keeps its forms out of the WordPress API entirely, so unlike everything
          else on this page it cannot be built remotely. It is a job in the MetForm screens.</p>
       <p class="body">There is a second reason to slow down on it. A quote form that is built but
          whose email routing is wrong is worse than the Google Form, because nobody notices until
