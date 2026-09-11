@@ -4,36 +4,61 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>EasyRec: Bench Color and Logo Preview</title>
+<title>EasyRec: the 3D viewer, the logo preview, and the measuring form</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Inter', -apple-system, sans-serif; background: #F4F4EF; color: #1F2622;
          -webkit-font-smoothing: antialiased; line-height: 1.6; }
-  .page { max-width: 880px; margin: 0 auto; padding: 0 24px 90px; }
-  .hero { padding: 60px 0 36px; border-bottom: 1px solid rgba(47,111,106,0.2); }
+  .page { max-width: 860px; margin: 0 auto; padding: 0 24px 100px; }
+
+  .hero { padding: 58px 0 34px; border-bottom: 1px solid rgba(47,111,106,0.2); }
   .tag { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600;
          letter-spacing: 0.2em; text-transform: uppercase; color: #2F6F6A; margin-bottom: 20px; }
   .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #2F6F6A; }
   .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(32px, 5.2vw, 50px);
              font-weight: 500; line-height: 1.07; margin-bottom: 18px; }
-  .hero p { font-size: 19px; color: #46524C; max-width: 680px; }
-  h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 500;
-       margin: 54px 0 14px; }
-  p.body { font-size: 17px; color: #33413A; max-width: 680px; margin-bottom: 14px; }
-  .demo { background: #fff; border: 1px solid rgba(47,111,106,0.22); border-radius: 10px;
-          padding: 28px 24px; margin-top: 24px; }
+  .hero p { font-size: 19px; color: #46524C; max-width: 660px; }
+  .hero p + p { margin-top: 13px; }
+
+  .toc { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .toc a { font-size: 14px; text-decoration: none; color: #2F6F6A; border: 1px solid rgba(47,111,106,0.3);
+           border-radius: 40px; padding: 6px 15px; }
+  .toc a:hover { background: #2F6F6A; color: #fff; }
+
+  section { padding-top: 56px; }
+  h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 500;
+       margin-bottom: 6px; }
+  .kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+            color: #7C8C84; margin-bottom: 10px; }
+  p.body { font-size: 17px; color: #33413A; max-width: 680px; margin-bottom: 15px; }
+  p.body strong { font-weight: 600; }
+
+  .card { background: #fff; border: 1px solid rgba(47,111,106,0.22); border-radius: 10px;
+          padding: 26px 24px; margin-top: 22px; }
+  .card h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+
   .callout { background: #fff; border-left: 3px solid #C77B3C; padding: 20px 22px;
-             margin: 26px 0; max-width: 720px; }
+             margin: 24px 0; max-width: 720px; }
   .callout strong { display: block; margin-bottom: 6px; }
-  details { margin-top: 26px; background: #fff; border: 1px solid rgba(47,111,106,0.22);
-            border-radius: 10px; padding: 18px 22px; }
-  summary { cursor: pointer; font-weight: 600; font-size: 16px; }
-  pre { margin-top: 16px; background: #1F2622; color: #E8E6DE; padding: 18px; border-radius: 6px;
+
+  ol.steps { max-width: 680px; margin: 4px 0 18px 0; padding-left: 22px; }
+  ol.steps li { font-size: 17px; color: #33413A; margin-bottom: 11px; padding-left: 4px; }
+
+  details { margin-top: 20px; background: #fff; border: 1px solid rgba(47,111,106,0.22);
+            border-radius: 10px; padding: 16px 20px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 15px; }
+  pre { margin-top: 15px; background: #1F2622; color: #E8E6DE; padding: 18px; border-radius: 6px;
         overflow-x: auto; font-size: 12.5px; line-height: 1.5; }
   code { font-family: 'SF Mono', Menlo, Consolas, monospace; }
-  .foot { margin-top: 60px; padding-top: 22px; border-top: 1px solid rgba(47,111,106,0.2);
+  pre.short { font-size: 13px; }
+
+  model-viewer { background: #F4F4EF; border-radius: 6px; }
+
+  .foot { margin-top: 70px; padding-top: 22px; border-top: 1px solid rgba(47,111,106,0.2);
           font-size: 14px; color: #7C8C84; }
+  @media (max-width: 560px) { .card { padding: 20px 16px; } }
 </style>
 </head>
 <body>
@@ -41,16 +66,66 @@
 
   <div class="hero">
     <div class="tag">EasyRec</div>
-    <h1>Pick a color, drop a logo on it</h1>
-    <p>A working answer to the configurator question, built so it runs anywhere without a
-       plugin, a library or a build step. Try it below, then take the code.</p>
+    <h1>Everything you asked about, in one place</h1>
+    <p>Three answers to your 11 September note: the 3D viewer, the bench preview with a
+       customer's logo on it, and why the measuring form generates so many phone calls.</p>
+    <p>Two of the three you can do yourself from this page. The code is here, it works, and
+       you can copy it. The third is a build, and it's the one worth handing over.</p>
+    <div class="toc">
+      <a href="#viewer">The 3D viewer</a>
+      <a href="#preview">The logo preview</a>
+      <a href="#measuring">The measuring form</a>
+      <a href="#noindex">One minute today</a>
+    </div>
   </div>
 
-  <h2>Try it</h2>
-  <p class="body">Choose a color. Upload any logo file from this computer and drag it where
-     you want it. Nothing is uploaded anywhere; the file never leaves your browser.</p>
+  <section id="viewer">
+    <div class="kicker">You can do this today</div>
+    <h2>The 3D viewer is not a plugin</h2>
+    <p class="body">The Open Channel Flow flume page you liked runs <strong>model-viewer</strong>,
+       a web component Google publishes and gives away. There is nothing to install, nothing to
+       license and no page builder involved. It reads the same GLB that Conrad already exports
+       from SolidWorks.</p>
+    <p class="body">Here it is running on this page. Drag it. On a phone, use one finger.</p>
 
-  <div class="demo">
+    <div class="card">
+      <h3>Live, right now</h3>
+      <model-viewer
+        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+        alt="Sample 3D model, shown to demonstrate the viewer"
+        camera-controls auto-rotate
+        style="width:100%;height:420px"></model-viewer>
+      <p class="body" style="margin-top:14px;margin-bottom:0;font-size:15px;color:#7C8C84;">
+        That is a sample model from the project's own documentation, used here so you can see
+        the behaviour before you have a bench file. Yours would be Conrad's GLB.</p>
+    </div>
+
+    <p class="body" style="margin-top:24px;">To use it: upload the GLB to the media library
+       like any other file, copy its URL, and drop this into an Elementor HTML widget.</p>
+    <pre class="short"><code>&lt;script type="module"
+  src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"&gt;&lt;/script&gt;
+
+&lt;model-viewer
+  src="https://easyrecreation.com/wp-content/uploads/YOUR-FILE.glb"
+  alt="Easy Stack Bench"
+  camera-controls
+  auto-rotate
+  style="width:100%;height:480px"&gt;
+&lt;/model-viewer&gt;</code></pre>
+    <p class="body"><strong>One thing to watch.</strong> Keep the GLB small. Anything over
+       about 10&nbsp;MB is slow on a phone, and SolidWorks exports are heavier than they need to
+       be by default. If a file feels sluggish, ask Conrad to decimate the mesh before export.</p>
+  </section>
+
+  <section id="preview">
+    <div class="kicker">You can do this today</div>
+    <h2>Pick a color, drop a logo on it</h2>
+    <p class="body">This is the piece you were hunting for a plugin to do. It is a single block
+       of HTML with no dependencies. Try it here first: choose a color, upload any logo file
+       from your computer, then drag it and size it. Nothing is uploaded anywhere. The file
+       never leaves your browser.</p>
+
+    <div class="card">
 <div id="erb">
   <div class="erb-stage">
     <img id="erb-bench" src="" alt="Easy Stack Bench">
@@ -261,26 +336,15 @@
 })();
 </script>
 
-  </div>
+    </div>
 
-  <div class="callout">
-    <strong>What it still needs: one photograph.</strong>
-    The sixteen color files on the bench page are flat illustrations at 209 by 143 pixels,
-    made as swatches for the color grid, and there is nothing larger on the server. The
-    preview is capped at a size where they hold up, but they will not carry a full-width
-    feature. One photograph of a plain white bench with no graphics on it, shot square-on
-    from the side, produces all sixteen colors from that single image and lets a customer's
-    logo sit on the real surface. There is a switch at the top of the code for it.
-  </div>
+    <p class="body" style="margin-top:24px;">The three hidden fields at the bottom of the code
+       carry the color, the file name and the placement, so your quote form collects all three
+       with the request. Your rep stops reading "see notes" and calling to ask.</p>
 
-  <h2>Take the code</h2>
-  <p class="body">Paste the whole thing into an Elementor HTML widget. The three hidden
-     fields at the bottom carry the color, the file name and the placement, so the quote
-     form collects all three with the request.</p>
-
-  <details>
-    <summary>Show the code</summary>
-    <pre><code>&lt;!-- ===================================================================
+    <details>
+      <summary>Show the code to paste into an Elementor HTML widget</summary>
+      <pre><code>&lt;!-- ===================================================================
      EasyRec bench preview: pick a color, drop a logo on it.
 
      TO USE: paste everything from &lt;div id="erb"&gt; down to the last
@@ -515,7 +579,87 @@
 })();
 &lt;/script&gt;
 </code></pre>
-  </details>
+    </details>
+
+    <div class="callout">
+      <strong>It needs one photograph from you.</strong>
+      The sixteen color files on the bench page are flat illustrations of the bench, 209 by 143
+      pixels. They were made as swatches for the color grid, which is all that page asks of
+      them, and there is nothing larger on the server. The preview above is capped at a size
+      where they still hold up, but they will not carry a full-width feature.
+      <br><br>
+      What fixes it is <strong>one photograph: a plain white bench, no graphics on it, shot
+      square-on from the side.</strong> All sixteen colors come off that single image, and a
+      customer's logo then sits on the real surface instead of on a drawing. There is a switch
+      at the top of the code (<code>USE_PHOTO</code>) for exactly that. Your IMG_3806 is the
+      right shot, but the InterActive Play logo is already printed on the panel, so it cannot
+      host somebody else's.
+    </div>
+
+    <p class="body"><strong>Why not 3D for this one.</strong> Putting a customer's artwork on a
+       3D bench means Conrad rebuilds each model with a surface reserved and mapped for the
+       graphic, and again every time a product changes. The flat version does the job the
+       customer actually wants done, which is seeing their own logo on their own color before
+       they commit.</p>
+  </section>
+
+  <section id="measuring">
+    <div class="kicker">This one is a build</div>
+    <h2>Why the measuring form generates phone calls</h2>
+    <p class="body">The reps are right not to trust what comes back. The form carries the
+       instructions but not the drawings, and that guide is almost entirely drawings. Four
+       specific things, all of them structural rather than anybody's fault:</p>
+
+    <ol class="steps">
+      <li><strong>The first water depth reading has no label of its own.</strong> Points two,
+          three and four are each named. Point one shares its box with the paragraph of
+          instructions above it, so that number lands in the spreadsheet with nothing to say
+          what it measures.</li>
+      <li><strong>No question asks which gutter profile the pool has.</strong> A through F are
+          described, then six open boxes appear and the customer picks one to type into with no
+          picture in front of them.</li>
+      <li><strong>Multi-point steps arrive as one line of text.</strong> The rounded-corner step
+          asks for seven measurements typed into a single box, in order, separated by commas.</li>
+      <li><strong>The photos cannot be attached.</strong> They are required, but they arrive as
+          a separate email that somebody matches back to the right row by hand.</li>
+    </ol>
+
+    <p class="body">Every one of those is a phone call. The PDF alternative is a 15&nbsp;MB
+       download, which is its own problem at the side of a pool.</p>
+
+    <div class="card">
+      <h3>What belongs there instead</h3>
+      <p class="body" style="margin-bottom:10px;">One step per screen on a phone, with the
+         drawing on screen and a box beside each circle on it, so the customer fills in the
+         picture rather than translating it into a sentence.</p>
+      <p class="body" style="margin-bottom:10px;">Tap your gutter profile and only those boxes
+         appear. The photo uploads inside the same submission. Anything outside the ranges you
+         already publish, the 30 to 58 inch width and the 36 to 58 inch depth, gets caught while
+         they are still at the pool with the tape in their hand.</p>
+      <p class="body" style="margin-bottom:0;">Your rep opens one labeled summary per pool.</p>
+    </div>
+
+    <p class="body" style="margin-top:22px;">That is a build rather than a paste, which is why
+       it is the piece worth handing over. Send a login for the new site and it gets built there,
+       then you review it and change whatever you want changed.</p>
+  </section>
+
+  <section id="noindex">
+    <div class="kicker">Worth a minute today</div>
+    <h2>The new site is open to Google</h2>
+    <p class="body">Unrelated to any of the above. <strong>new.easyrecreation.com</strong> is
+       being crawled as it stands. All eight pages load normally, none carry a noindex tag,
+       robots.txt invites crawling and the sitemap is live, so the sample page and the default
+       hosting post are public under the title "My WordPress &ndash; Blank".</p>
+    <ol class="steps">
+      <li>In the new site's WordPress admin, go to <strong>Settings &rarr; Reading</strong>.</li>
+      <li>Tick <strong>Discourage search engines from indexing this site</strong>, and save.</li>
+      <li>Untick it the day you launch, and not before.</li>
+    </ol>
+    <p class="body">It is not a permanent fix and it is not meant to be. It is the thirty-second
+       version that stops a half-built site from being indexed under someone else's name for
+       your products.</p>
+  </section>
 
   <div class="foot">Doble AI &middot; 11 September 2026 &middot; Prepared for EasyRec, a division of VPC Fiberglass</div>
 
