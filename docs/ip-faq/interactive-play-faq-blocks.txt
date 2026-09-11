@@ -56,7 +56,7 @@ Q: How much space does the TriWave Model 200 need?
 A: The TriWave Model 200 requires a minimum footprint of 4,300 sq ft / 399.4 sq m. The unit itself measures 63’ 3” x 47’ 4” x 18’ 8” (L/W/H), with a top deck height of 108 in / 2.74 m.
 
 Q: How many guests can the TriWave Model 200 serve?
-A: Up to 172 water players. The structure carries 10 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide..
+A: Up to 172 water players. The structure carries 10 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide.
 
 Q: What kind of pool does the TriWave Model 200 install over?
 A: Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
@@ -80,7 +80,7 @@ JSON-LD:
       "name": "How many guests can the TriWave Model 200 serve?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Up to 172 water players. The structure carries 10 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide.."
+        "text": "Up to 172 water players. The structure carries 10 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide."
       }
     },
     {
@@ -101,7 +101,7 @@ Q: How much space does the TriWave Model 300 need?
 A: The TriWave Model 300 requires a minimum footprint of 6,300 sq ft / 585.3 sq m. The unit itself measures 62’ 8” x 54’ x 18’ 8” (L/W/H), with a top deck height of 108 in / 2.74 m.
 
 Q: How many guests can the TriWave Model 300 serve?
-A: Up to 420 water players. The structure carries 26 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide..
+A: Up to 420 water players. The structure carries 26 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide.
 
 Q: What kind of pool does the TriWave Model 300 install over?
 A: Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
@@ -125,7 +125,7 @@ JSON-LD:
       "name": "How many guests can the TriWave Model 300 serve?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Up to 420 water players. The structure carries 26 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide.."
+        "text": "Up to 420 water players. The structure carries 26 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide."
       }
     },
     {
