@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Ellicottville Bake Shop &amp; Alpine Bistro &mdash; Progress Update, 11 September 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F7F3EA;
+    color: #2B2019;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(180,83,9,0.18);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B45309;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #B45309;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #2B2019;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #5A4636;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(180,83,9,0.22);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #2B2019;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9C7C5A;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #fff0f0;
+    border: 1px solid #fca5a5;
+    border-left: 4px solid #dc2626;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #dc2626;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #7f1d1d; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(220,38,38,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(180,83,9,0.14);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FCF8F1; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #9C7C5A; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #2B2019; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(180,83,9,0.18); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #9C7C5A;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(180,83,9,0.09); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #5A4636; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #2B2019; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(120,53,15,0.12); color: #78350f; }
+  .badge-sister { background: rgba(21,128,61,0.12); color: #15803d; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #5A4636; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #2B2019; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #5A4636; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #F3E9DA; border: 1px solid rgba(180,83,9,0.14);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #2B2019; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #5A4636; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(180,83,9,0.05); border: 1px solid rgba(180,83,9,0.22);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #B45309; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #5A4636; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FCF8F1; border-bottom: 1px solid rgba(180,83,9,0.1); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #B45309; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #2B2019; }
+  .rec-detail { font-size: 14px; color: #5A4636; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #3d1f0e 0%, #B45309 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #f3ddc4; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #B45309;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #e7c9a6; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(180,83,9,0.14);
+    font-size: 11px; color: #9C7C5A;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+<style>
+  a { color:#B45309; text-decoration:underline; text-underline-offset:2px; }
+  .win { background:#f0fdf4; border:1px solid #86efac; border-left:4px solid #16a34a; border-radius:8px; padding:16px 20px; margin-bottom:14px; }
+  .win-label { font-size:12px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#15803d; margin-bottom:6px; }
+  .win p { font-size:15px; color:#14532d; line-height:1.6; }
+  .biz-head { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; }
+  .biz-name { font-family:'Playfair Display',serif; font-size:26px; font-weight:500; color:#2B2019; }
+  .score-pill { font-size:13px; font-weight:800; color:#fff; background:#B45309; padding:3px 12px; border-radius:20px; }
+  .delta-up { font-size:13px; font-weight:700; color:#15803d; }
+  .claim { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:2px 7px; border-radius:4px; margin-right:8px; white-space:nowrap; }
+  .claim-render { background:rgba(21,128,61,.12); color:#15803d; }
+  .claim-third  { background:rgba(37,99,235,.12); color:#1d4ed8; }
+  .claim-self   { background:rgba(180,83,9,.12);  color:#B45309; }
+  .claim-infer  { background:rgba(126,34,206,.12); color:#7e22ce; }
+  .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; background:rgba(180,83,9,.09); padding:1px 6px; border-radius:4px; }
+  .hours-tbl td { font-size:14px; }
+  .hours-bad { color:#b91c1c; font-weight:600; }
+  .route { border:1px solid rgba(180,83,9,.18); border-radius:8px; padding:16px 20px; margin-bottom:12px; background:#FCF8F1; }
+  .route h4 { font-size:16px; color:#2B2019; margin-bottom:6px; }
+  .route p { font-size:14px; color:#5A4636; line-height:1.6; }
+  .owner { font-size:10.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; padding:2px 8px; border-radius:20px; margin-left:10px; vertical-align:2px; white-space:nowrap; }
+  .own-bake { background:rgba(180,83,9,.13); color:#B45309; }
+  .own-alp  { background:rgba(126,34,206,.12); color:#7e22ce; }
+  .own-both { background:rgba(71,85,105,.12); color:#475569; }
+</style>
+</head>
+<style>.key-finding p + p{margin-top:10px}</style>
+<body>
+<div class="page">
+
+  <div style="margin:0 0 4px;background:#f0fdf4;border:1px solid #86efac;border-left:4px solid #16a34a;border-radius:8px;padding:16px 20px">
+    <div style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#15803d;font-weight:700;margin-bottom:8px">Current document &middot; 11 September 2026</div>
+    <p style="font-size:14px;line-height:1.65;color:#2B2019;margin:0">Every figure below was pulled from the live pages on the morning of <strong>11 September 2026</strong>, not carried over from the previous document. This replaces the <a href="../hogan-ellicottville-refresh/">24 August refresh</a>, which stays online for the record.</p>
+  </div>
+
+  <div class="hero">
+    <div class="tag">Progress Update &middot; 11 September 2026 &middot; Ellicottville, New York</div>
+    <h1>Where the two<br>Ellicottville sites<br>stand now</h1>
+    <p>Three weeks ago the audit on these two businesses said the writing was done and the wiring was not. Most of the wiring is now in. This is an update on what has been fixed since then across findability, searchability, accuracy, hours and general cleanup, followed by what is still worth doing. It also covers the third site in the group, <span class="mono">ellicottvillecoffee.com</span>, which changed materially this week.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">7.0 / 10 <span class="delta-up">&uarr; from 5.5</span></div><div class="stat-label">Alpine Bistro</div></div>
+      <div class="stat"><div class="stat-val">6.5 / 10 <span class="delta-up">&uarr; from 6.0</span></div><div class="stat-label">Ellicottville Bake Shop</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">01</div><div class="section-title">Findability</div></div>
+    <div class="section-body">
+      <p class="position-intro">Findability is whether a search engine can reach a page at all, and whether it lands on one version of it.</p>
+
+      <p class="position-intro"><strong>Alpine was quietly running three copies of itself.</strong> The site answered on the plain address, the www address and the insecure address as three separate live sites rather than forwarding between them. Search signals were splitting three ways and nothing on the surface showed it. All three now forward to one address. <span class="claim claim-render">verified by render</span></p>
+
+      <p class="position-intro"><strong>Two Bake Shop pages had been set to hide from search</strong>, which was recommendation 02 in August. They are visible again, and there is now no hide-from-search instruction anywhere on the site. The <span class="mono">robots.txt</span> line that Google ignores but Bing obeys is also gone. <span class="claim claim-render">verified by render</span></p>
+
+      <p class="position-intro">Both sites now serve a correct, self-referencing canonical on every page, so no page is competing with a duplicate of itself. <span class="claim claim-render">verified by render</span></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">02</div><div class="section-title">Searchability</div></div>
+    <div class="section-body">
+      <p class="position-intro">Searchability is whether a machine reading the page can tell what the business is, where it is, when it is open and what it sells. This is the layer that decides whether an AI assistant can answer a question about you, and it is where the largest single move happened on each site.</p>
+
+      <p class="position-intro"><strong>The Bake Shop's structured data went from generic to complete.</strong> August graded this the lowest thing on the site: present but with no bakery type, no address, no hours, no phone. The homepage, About and Menu now each carry a Bakery record with a postal address, an opening-hours specification, an organization and a breadcrumb trail, and About and Menu are additionally typed for what they are. <span class="claim claim-render">verified by render</span></p>
+
+      <p class="position-intro"><strong>Alpine's structured data was worse than absent, it was contradictory.</strong> Two blocks on the same page disagreed about the hours and the address, which is the one failure mode that actively misleads rather than merely leaving a gap. They agree now, on every page. On top of that, the ten questions on the About page are marked up as an FAQ, which is what allows an answer to be lifted directly into a search result or an assistant's reply, and the menu link points at the menu rather than the About page. <span class="claim claim-render">verified by render</span></p>
+
+      <p class="position-intro">Alpine also had no social preview image on five of its six pages, so sharing the menu or the event page to Facebook or a text message produced a bare link with no picture. All six now carry one. <span class="claim claim-render">verified by render</span></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">03</div><div class="section-title">Accuracy, and the hours</div></div>
+    <div class="section-body">
+
+      <div class="win">
+        <div class="win-label">The hours now agree on five surfaces</div>
+        <p>Sunday through Thursday 8&nbsp;AM to 4&nbsp;PM, Friday 8 to 8, Saturday 8 to 9. That now reads the same on alpinebistrony.com, in the data search engines read from it, on ellicottvillecoffee.com, on the Alpine Bistro Google profile and on the Ellicottville Coffee Company Google profile. <span class="claim claim-render">verified by render</span></p>
+      </div>
+
+      <p class="position-intro">The coffee site was the one place they disagreed, and it was wrong on all seven days: it told customers the place stayed open an hour later Sunday through Thursday, opened an hour short on Friday and closed two hours early on Saturday. Those were corrected this week by the person holding that login, and the correction carried through to the Google profile attached to that site, which we checked a day at a time rather than reading the single row Google displays for today. <span class="claim claim-render">verified by render</span></p>
+
+      <p class="position-intro">Three other accuracy problems on the coffee site went with it. The homepage no longer claims the beans are roasted in house. The founding story now reads as history rather than as a description of who runs the place today. And an offer of guided fly fishing and snowshoe trips, with no way to book them anywhere on the site, has been removed. <span class="claim claim-render">verified by render</span></p>
+
+      <p class="position-intro">On Alpine, the phone number and the price range are now in the formats Google expects, a wine was listed twice on the bar page and now appears once, and the same in-house roasting claim was removed from the five places it appeared. <span class="claim claim-render">verified by render</span></p>
+
+      <div class="key-finding">
+        <div class="key-finding-label">One small thing still sitting in the coffee site</div>
+        <p>The Location and Hours block still carries a second phone number, <span class="mono">(716) 217-4047</span>, inside its stored content. Nobody sees it, because Square displays the synced business number over the top of it. It would become visible if that sync were ever switched off. <span class="claim claim-render">verified by render</span></p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">04</div><div class="section-title">Cleanup</div></div>
+    <div class="section-body">
+
+      <p class="position-intro"><strong>Alpine's images went from 25.9&nbsp;MB to 3.5&nbsp;MB</strong>, an 87% cut, with the event page alone dropping from 13.3&nbsp;MB to 1.6&nbsp;MB. On ski-town mobile signal this was the slowest thing either business owned, and it was the page selling the highest-margin drinks. <span class="claim claim-render">verified by render</span></p>
+
+      <p class="position-intro"><strong>Pinch-to-zoom works again on phones.</strong> The theme had been blocking it, which is a real accessibility problem on a menu page and an annoyance everywhere else. <span class="claim claim-render">verified by render</span></p>
+
+      <p class="position-intro"><strong>The padlock warning is gone from every Alpine page.</strong> The cause turned out to sit deeper than the logo setting everyone suspected: WordPress had the site's own address stored insecurely and was handing out image paths to match. Fixing it at that root also created the forwarding described in section 01. Fifty image references moved to secure addresses, and there are now zero insecure references on the site. <span class="claim claim-render">verified by render</span></p>
+
+      <p class="position-intro">Every content image on Alpine now has alt text, for screen readers and for image search, and the event page no longer has two headings competing to say what the page is about. <span class="claim claim-render">verified by render</span></p>
+
+      <p class="position-intro">One thing worth stating plainly before the next section. <strong>Most of what is in this update is invisible to somebody standing on Washington Street.</strong> Image weight, insecure references and duplicate hostnames are all real and all worth fixing, and none of them puts a person in a chair. The items in the next section are the ones that can.</p>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">05</div><div class="section-title">What we could work on next</div></div>
+    <div class="section-body">
+
+      <div class="key-finding">
+        <div class="key-finding-label">The biggest one: the two businesses barely point at each other</div>
+        <p>Alpine links to the Bake Shop from all six of its pages. The coffee site links to Alpine three times on its homepage and names it six times. <strong>The Bake Shop links to Alpine zero times, and the word "Alpine" does not appear on its homepage, About, Menu, Contact, Catering or Employment page at all.</strong> <span class="claim claim-render">re-verified 11 September</span></p>
+        <p>So the traffic flows one way. Two of the three sites feed Alpine, and the site with the strongest content in the group, a block away, with its own customer base and its own Google profile, sends nothing. The same asymmetry shows up in the two Google profiles: Ellicottville Coffee Company carries 163 reviews to Alpine Bistro's 74, at the same address and phone number.</p>
+        <p>Cross-promotion here is not a marketing campaign, it is a handful of honest links and a paragraph on each site saying what the other one is. It is the cheapest item on this list and the only one that moves customers rather than rankings.</p>
+      </div>
+
+      <div class="rec-list">
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">01</div><div class="rec-title">Link the three businesses to each other, deliberately <span class="owner own-both">Both</span></div></div>
+          <div class="rec-detail">Start with the Bake Shop, which currently mentions Alpine nowhere. A line on the About page and a link in the footer, pointing at a café and bar run by the same family a block away, is worth more to a visiting skier than any technical item on this list. Then decide whether the coffee site should point at the Bake Shop too, which today it does not.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">02</div><div class="rec-title">Fix the Bake Shop sitemap and the private events links <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail">The sitemap currently submits four lists of the theme's internal scaffolding, layouts and layout groups and service groups, while the real content is not submitted at all. Thirty-two real pages are missing, including every individual breakfast sandwich page and the private events page. That private events page is a proper 403-word page and sixteen pages across the site link to it, but every one of those links points at an address that redirects, and the real page is in no sitemap. This is a settings change and a find-and-replace, not writing.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">03</div><div class="rec-title">Mark up the Alpine menu <span class="owner own-alp">Alpine</span></div></div>
+          <div class="rec-detail">The dishes and prices are already real text on the page rather than a PDF or a photograph, which is the hard part and which most restaurant sites get wrong. Marking them up as a menu is what lets an assistant answer what Alpine serves and what it costs. Nothing new has to be written.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">04</div><div class="rec-title">Verify both sites in Bing <span class="owner own-both">Both</span></div></div>
+          <div class="rec-detail">Neither site has a Bing verification tag or file. ChatGPT's search runs on Bing's index, so this is the cheapest single thing either business can do for AI visibility. Ten minutes each.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">05</div><div class="rec-title">Answer vegan and gluten free somewhere on the Alpine site <span class="owner own-alp">Alpine</span></div></div>
+          <div class="rec-detail">Both are asked constantly in a ski town and neither is answered anywhere on the site. Two sentences added to the existing FAQ inherit the FAQ markup automatically, so the work really is writing two sentences.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">06</div><div class="rec-title">Give the four thin Alpine pages something to hold on to <span class="owner own-alp">Alpine</span></div></div>
+          <div class="rec-detail">Home, menu, bar and event sit between 316 and 344 words each. Now that the technical work is done this is the ceiling, and it is the slowest item here because it is genuinely writing rather than configuration.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">07</div><div class="rec-title">Turn off the author archives <span class="owner own-both">Both</span></div></div>
+          <div class="rec-detail"><span class="mono">/author/alpineadmin/</span> and <span class="mono">/author/admin/</span> both load, publishing an internal account name as a public page. Five minutes on each site.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">08</div><div class="rec-title">Decide about the two Google profiles <span class="owner own-both">Both</span></div></div>
+          <div class="rec-detail">This is a business decision rather than a website job, which is why it is last rather than because it matters least. 163 reviews on one profile and 74 on the other is a real asset either way, and the wrong move burns it. Merging preserves review equity, deleting destroys it. It deserves its own conversation regardless of who does the building. <span class="claim claim-infer">our reading, not a finding</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">06</div><div class="section-title">Check it yourselves</div></div>
+    <div class="section-body">
+<!--
+  CANONICAL "run the AI test yourself" instructions.
+  Single source of truth. Paste into any audit that asks a client to test their own
+  AI visibility, then adapt only the five prompts to their business.
+
+  WHY THIS FILE EXISTS: three published audits (tiveron-law, vpc-fiberglass,
+  homestead-realty-wny) shipped telling clients to "use a private or logged-out
+  window." That is correct for Google and Perplexity ONLY. Anyone who followed it on
+  ChatGPT was reading their own personalised memory back as if it were the market,
+  and on Grok they just hit a login wall. Corrected 2026-08-18.
+
+  Verify before reuse: all four vendors change these controls often.
+  Methodology lives in memory: workflow_ai_visibility_audit.
+-->
+
+<p><strong>Set each engine up properly, because "use a private window" is only correct for two of the four.</strong></p>
+
+<p><strong>Google</strong> and <strong>Perplexity</strong>: an incognito window is the right control. It drops your account and your search history. On Google it will <em>not</em> change your location, which it reads from your internet connection, so results still reflect where the browser physically is.</p>
+
+<p><strong>ChatGPT</strong>: incognito will not do it. ChatGPT's Memory is attached to the account rather than the browser, it is switched on by default, and a private window does not touch it. Use <strong>Temporary Chat</strong> instead, the mode that ignores memory and history entirely. If you are signed in, also open Settings and read what Memory has stored about the business, which is worth knowing in its own right.</p>
+
+<p><strong>Grok</strong>: it requires a sign-in, so incognito only produces a login screen. Sign in and <strong>start a brand new conversation</strong> rather than continuing an existing thread, since an open thread carries its own context.</p>
+
+<p><strong>Have five different people run it, not one.</strong> These systems are not deterministic. The same question asked twice can name different businesses, so one person running it once is a sample of one and can mislead in either direction. Five people means five different accounts, histories and connections, and what comes back is the range rather than a single reading.</p>
+
+<p><strong>Keep it comparable.</strong> Use the prompts word for word, since rephrasing changes the answer. Same order, same day. Screenshot every answer, including the sources or citations panel where the engine shows one, because who gets <em>cited</em> matters as much as who gets named. Put everything in one shared folder labelled by person and engine. If everyone is on the same office connection, Google sees one location for all of them, which is fine as long as you know it.</p>
+
+<p>Re-run the identical set monthly. The movement in those answers is the scoreboard for the rest of the work.</p>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">07</div><div class="section-title">Three ways to take this forward</div></div>
+    <div class="section-body">
+
+      <div class="route">
+        <h4>Take it and run it yourselves</h4>
+        <p>Nothing here is withheld. Items 01, 04 and 07 are things your own people can do straight from the text, and item 05 is two sentences. If you have someone with the hours, that is the right answer and we will say so.</p>
+      </div>
+
+      <div class="route">
+        <h4>We specify, your people build</h4>
+        <p>We turn each item into something buildable, your team builds it, and we check the result against the original finding. You keep the work and the keys. Quoted once we agree the scope.</p>
+      </div>
+
+      <div class="route">
+        <h4>Hand us the keys</h4>
+        <p>We do the work, you review everything before it goes live, and every account stays in your name. Quoted once we agree the scope.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>The wiring is mostly in. The connections between the businesses are not.</h2>
+    <p>Both sites got materially better in the last three weeks and the technical list is the shortest it has been. What is left splits cleanly into an afternoon of settings work and one genuine decision about how the three businesses point at each other.</p>
+    <a class="cta-btn" href="mailto:john@dobleai.com">Talk it through</a>
+    <div class="cta-sub">Doble AI &middot; Progress update, 11 September 2026 &middot; Both sites re-verified that morning</div>
+  </div>
+
+  <div class="footer">
+    <span>Doble AI &middot; Ellicottville progress update &middot; 11 September 2026</span>
+    <span>Supersedes the 24 August refresh &middot; Link-shared, not indexed</span>
+  </div>
+
+</div>
+</body>
+</html>
