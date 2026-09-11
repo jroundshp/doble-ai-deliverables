@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>VPC Digital Presence</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #eff1ee;
+    --surface: #ffffff;
+    --ink: #16191b;
+    --ink-soft: #575f61;
+    --ink-faint: #7d8688;
+    --rule: #d2d7d3;
+    --rule-soft: #e2e6e2;
+    --accent: #0e5c67;
+    --accent-soft: #e2edee;
+    --rust: #a34c1c;
+    --rust-soft: #f6e8e0;
+    --moss: #3c6636;
+    --moss-soft: #e5eee2;
+
+    --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #131718;
+      --surface: #1b2022;
+      --ink: #e7ebe8;
+      --ink-soft: #a3adad;
+      --ink-faint: #7d8688;
+      --rule: #313839;
+      --rule-soft: #262c2e;
+      --accent: #5cb4c0;
+      --accent-soft: #1a2f33;
+      --rust: #e08c58;
+      --rust-soft: #2e2119;
+      --moss: #86b57c;
+      --moss-soft: #1c2a1c;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #131718;
+    --surface: #1b2022;
+    --ink: #e7ebe8;
+    --ink-soft: #a3adad;
+    --ink-faint: #7d8688;
+    --rule: #313839;
+    --rule-soft: #262c2e;
+    --accent: #5cb4c0;
+    --accent-soft: #1a2f33;
+    --rust: #e08c58;
+    --rust-soft: #2e2119;
+    --moss: #86b57c;
+    --moss-soft: #1c2a1c;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 38px 24px 88px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    border-top: 3px solid var(--ink);
+    padding-top: 18px;
+    margin-bottom: 40px;
+  }
+
+  .stamp {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+  .stamp b { color: var(--ink-soft); font-weight: 500; }
+
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(34px, 6vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+
+  .scope {
+    font-size: 14.5px;
+    color: var(--ink-faint);
+    margin: 12px 0 0;
+    max-width: 58ch;
+  }
+
+  .dek {
+    font-size: 17.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  /* ---------- sections ---------- */
+
+  section {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 0 20px;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .marker {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    padding-top: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  .body { min-width: 0; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p:last-child { margin-bottom: 0; }
+
+  .body > ul, .body > ol { max-width: 66ch; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--f-mono);
+    font-size: 0.88em;
+    background: var(--rule-soft);
+    padding: 1px 5px;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+
+  /* ---------- pull ---------- */
+
+  .pull {
+    border-left: 3px solid var(--accent);
+    padding: 3px 0 3px 18px;
+    margin: 20px 0;
+    max-width: 62ch;
+  }
+
+  .pull p {
+    font-size: 17px;
+    line-height: 1.48;
+    margin: 0;
+  }
+
+  .pull.decision { border-left-color: var(--rust); }
+
+  /* ---------- objective ---------- */
+
+  .objective {
+    background: var(--accent-soft);
+    padding: 30px 30px 26px;
+    margin-bottom: 8px;
+  }
+
+  .objective .opt-label { margin-bottom: 12px; }
+
+  .objective .lead {
+    font-size: 21px;
+    line-height: 1.42;
+    letter-spacing: -0.008em;
+    max-width: 40ch;
+    margin: 0;
+  }
+
+  .surfaces {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin: 22px 0 26px;
+  }
+
+  .surfaces .surfaces-label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 4px;
+  }
+
+  .surface {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 4px 9px;
+    white-space: nowrap;
+  }
+
+  .conditions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px 26px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .conditions li {
+    margin: 0;
+    border-top: 2px solid var(--accent);
+    padding-top: 11px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .conditions b {
+    font-family: var(--f-display);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .objective .coda {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    margin: 26px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
+  /* ---------- tables ---------- */
+
+  .table-wrap { overflow-x: auto; margin: 18px 0 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    line-height: 1.42;
+  }
+
+  th {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    padding: 0 14px 8px 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  th:last-child, td:last-child { padding-right: 0; }
+
+  .num {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    width: 22px;
+    padding-right: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .effort {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .where { font-size: 13px; color: var(--ink-soft); white-space: nowrap; }
+  .prop { font-family: var(--f-mono); font-size: 13px; word-break: break-all; }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .chip.own { background: var(--moss-soft); color: var(--moss); }
+  .chip.rent { background: var(--rust-soft); color: var(--rust); }
+
+  /* ---------- option cards ---------- */
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 20px 0 22px;
+  }
+
+  .opt {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 20px;
+  }
+
+  .opt-label {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .opt h3 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+
+  .opt p { font-size: 14.5px; line-height: 1.5; margin: 0 0 12px; max-width: none; }
+
+  .opt .needs {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 10px;
+    margin: 0;
+  }
+
+  .opt .needs b {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* ---------- lists ---------- */
+
+  ul, ol { padding-left: 20px; margin: 0 0 14px; }
+  li { margin-bottom: 8px; }
+  li:last-child { margin-bottom: 0; }
+
+  ol.asks { counter-reset: ask; list-style: none; padding-left: 0; }
+
+  ol.asks li { position: relative; padding-left: 34px; margin-bottom: 12px; }
+
+  ol.asks li::before {
+    counter-increment: ask;
+    content: counter(ask);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--surface);
+    background: var(--accent);
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .quote {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--rule);
+    padding-left: 16px;
+    margin: 16px 0 0;
+    max-width: 62ch;
+  }
+
+  .closing {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 3px solid var(--ink);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 620px) {
+    .sheet { padding: 26px 18px 68px; }
+    section { grid-template-columns: 1fr; gap: 0; }
+    .marker { padding-top: 0; margin-bottom: 8px; }
+    .where { white-space: normal; }
+  }
+</style><style>
+  .chip.mixed { background: var(--accent-soft); color: var(--accent); }
+  .opt.pick { border-color: var(--accent); border-width: 2px; padding: 19px 24px; grid-column: 1 / -1; }
+  .opt.pick p { max-width: 62ch; }
+  .opt.pick .opt-label { color: var(--accent); }
+  .opt.pick h3 { color: var(--ink); }
+  .rec {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--surface);
+    background: var(--accent);
+    padding: 3px 8px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .closing a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .closing a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .closing .links { display: block; margin-top: 8px; text-transform: none; letter-spacing: 0.01em; font-size: 11.5px; }
+  .peer { font-size: 14.5px; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <span class="stamp">Doble AI &nbsp;/&nbsp; For <b>Corey Hogan</b> &nbsp;/&nbsp; Internal &nbsp;/&nbsp; 11 September 2026</span>
+    <h1>VPC Digital Presence</h1>
+    <p class="dek">Half the product website is rented. Here is what that costs, what the competition does instead, and three ways to go.</p>
+  </header>
+
+  <div class="objective">
+    <span class="opt-label">The short version</span>
+    <p class="lead">ThomasNet is working. Keep it. The product catalog is the part VPC does not own, and that is the decision in front of you.</p>
+  </div>
+
+  <section>
+    <div class="marker">01</div>
+    <div class="body">
+      <h2>What you have now</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Property</th><th>Runs on</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="prop">vpcfiberglass.com</td>
+              <td>WordPress. VPC owns the domain and holds an admin login. Thomas built it and hosts it.</td>
+              <td><span class="chip own">Owned</span></td>
+            </tr>
+            <tr>
+              <td class="prop">products.vpcfiberglass.com</td>
+              <td>Thomas Navigator. Vendor software. No VPC login reaches it.</td>
+              <td><span class="chip rent">Rented</span></td>
+            </tr>
+            <tr>
+              <td class="prop">ThomasNet profile</td>
+              <td>Directory listing. Unpaid.</td>
+              <td><span class="chip own">Working</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The footer of every page on the main site says it out loud already: <b>Site created by Thomas Marketing Services and Powered by Navigator Platform.</b> Anyone who scrolls to the bottom can read who owns what.</p>
+
+      <p>The ThomasNet listing earns its keep. Search FRP Shelters and VPC comes back on page one, without paying for placement. That is a real lead channel and it should stay.</p>
+
+      <div class="pull decision">
+        <p>The problem is not ThomasNet. The problem is that half the product website is rented.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">02</div>
+    <div class="body">
+      <h2>What competitors are doing</h2>
+      <p>Every name below was checked live on 11 September 2026. The status column is what the site itself shows.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Company</th><th>Digital presence</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="peer">Shelter Works</td><td>Own site, own stack</td><td><span class="chip own">Owned</span></td></tr>
+            <tr><td class="peer">MEKCO</td><td>Own site, own stack</td><td><span class="chip own">Owned</span></td></tr>
+            <tr><td class="peer">Warminster Fiberglass</td><td>Own site, own stack</td><td><span class="chip own">Owned</span></td></tr>
+            <tr><td class="peer">Beetle Plastics</td><td>Own site, own stack</td><td><span class="chip own">Owned</span></td></tr>
+            <tr><td class="peer">Engineered Fiberglass / EFC</td><td>Own site, own stack</td><td><span class="chip own">Owned</span></td></tr>
+            <tr><td class="peer">Romtec Utilities</td><td>Own site, own stack</td><td><span class="chip own">Owned</span></td></tr>
+            <tr><td class="peer">Plasti-Fab (NOV)</td><td>Brand page on the parent company domain</td><td><span class="chip own">Owned</span></td></tr>
+            <tr><td class="peer">ArmorCore</td><td>Thomas Marketing Services marker in the footer</td><td><span class="chip rent">Thomas-built</span></td></tr>
+            <tr><td class="peer"><b>VPC</b></td><td>Owned front end, rented product catalog</td><td><span class="chip mixed">Mixed</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pull">
+        <p>In 2026, owning the full site is normal. Renting the catalog is not.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">03</div>
+    <div class="body">
+      <h2>Options for you</h2>
+
+      <div class="options">
+        <div class="opt">
+          <span class="opt-label">Option A</span>
+          <h3>Stay as-is</h3>
+          <p>Keep WordPress, Navigator and ThomasNet exactly as they are. Cheapest in the short term. Nothing to manage.</p>
+          <p class="needs"><b>Trade-off</b>Split ownership continues for the next three to five years. The best description of a VPC product keeps living on someone else's platform.</p>
+        </div>
+
+        <div class="opt">
+          <span class="opt-label">Option B</span>
+          <h3>Patch the current site</h3>
+          <p>Fix findability on the pages VPC already controls. Leave Navigator as the catalog. Work we can start now.</p>
+          <p class="needs"><b>Trade-off</b>Buys time and improves what is there. Does not fix ownership. The catalog stays rented.</p>
+        </div>
+
+        <div class="opt pick">
+          <span class="rec">Recommended</span>
+          <span class="opt-label">Option C</span>
+          <h3>Rebuild and own everything</h3>
+          <p>A new VPC-owned site with product pages, SEO, GEO and schema in place on day one. Bring the good Thomas catalog copy home onto VPC pages, with redirects so nothing is lost.</p>
+          <p class="needs"><b>Result</b>ThomasNet stays as a lead channel, not as the product website. VPC owns a digital asset it can move, sell or hand to anyone.</p>
+        </div>
+      </div>
+
+      <div class="pull decision">
+        <p><b>The ask.</b> Keep ThomasNet for leads. Stop renting the product site. Own the full digital presence.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="closing">
+    Doble AI &nbsp;&middot;&nbsp; VPC digital options &nbsp;&middot;&nbsp; 11 September 2026 &nbsp;&middot;&nbsp; Internal
+    <span class="links">
+      Companion documents:
+      <a href="../vpc-work-order/">Website work order</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-findability/">Findability review</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-closest-job-plan/">Closest job plan</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
