@@ -1,0 +1,410 @@
+InterActive Play — per-product FAQ blocks
+Prepared by Doble AI, 11 September 2026
+
+Every question and answer below is built only from the specification table already
+published on that product's own page. No new claims.
+
+### TriWave Model 100
+https://interactivewaterparks.com/products/aquatic-play-structures/triwave-100/
+
+Q: How much space does the TriWave Model 100 need?
+A: The TriWave Model 100 requires a minimum footprint of 4,300 sq ft / 399.4 sq m. The unit itself measures 60’ x 45’ x 16’ 7” (L/W/H), with a top deck height of 108 in / 2.74 m.
+
+Q: How many guests can the TriWave Model 100 serve?
+A: Up to 172 water players. The structure carries 20 interactive water features and 2 slides – closed flume tube slides (8 ft and 9 ft high).
+
+Q: What kind of pool does the TriWave Model 100 install over?
+A: Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://interactivewaterparks.com/products/aquatic-play-structures/triwave-100/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much space does the TriWave Model 100 need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The TriWave Model 100 requires a minimum footprint of 4,300 sq ft / 399.4 sq m. The unit itself measures 60’ x 45’ x 16’ 7” (L/W/H), with a top deck height of 108 in / 2.74 m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many guests can the TriWave Model 100 serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 172 water players. The structure carries 20 interactive water features and 2 slides – closed flume tube slides (8 ft and 9 ft high)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of pool does the TriWave Model 100 install over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility."
+      }
+    }
+  ]
+}
+
+### TriWave Model 200
+https://interactivewaterparks.com/products/aquatic-play-structures/triwave-200/
+
+Q: How much space does the TriWave Model 200 need?
+A: The TriWave Model 200 requires a minimum footprint of 4,300 sq ft / 399.4 sq m. The unit itself measures 63’ 3” x 47’ 4” x 18’ 8” (L/W/H), with a top deck height of 108 in / 2.74 m.
+
+Q: How many guests can the TriWave Model 200 serve?
+A: Up to 172 water players. The structure carries 10 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide..
+
+Q: What kind of pool does the TriWave Model 200 install over?
+A: Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://interactivewaterparks.com/products/aquatic-play-structures/triwave-200/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much space does the TriWave Model 200 need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The TriWave Model 200 requires a minimum footprint of 4,300 sq ft / 399.4 sq m. The unit itself measures 63’ 3” x 47’ 4” x 18’ 8” (L/W/H), with a top deck height of 108 in / 2.74 m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many guests can the TriWave Model 200 serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 172 water players. The structure carries 10 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide.."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of pool does the TriWave Model 200 install over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility."
+      }
+    }
+  ]
+}
+
+### TriWave Model 300
+https://interactivewaterparks.com/products/aquatic-play-structures/triwave-300/
+
+Q: How much space does the TriWave Model 300 need?
+A: The TriWave Model 300 requires a minimum footprint of 6,300 sq ft / 585.3 sq m. The unit itself measures 62’ 8” x 54’ x 18’ 8” (L/W/H), with a top deck height of 108 in / 2.74 m.
+
+Q: How many guests can the TriWave Model 300 serve?
+A: Up to 420 water players. The structure carries 26 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide..
+
+Q: What kind of pool does the TriWave Model 300 install over?
+A: Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://interactivewaterparks.com/products/aquatic-play-structures/triwave-300/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much space does the TriWave Model 300 need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The TriWave Model 300 requires a minimum footprint of 6,300 sq ft / 585.3 sq m. The unit itself measures 62’ 8” x 54’ x 18’ 8” (L/W/H), with a top deck height of 108 in / 2.74 m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many guests can the TriWave Model 300 serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 420 water players. The structure carries 26 interactive water features and 4 slides – 3 large, closed flume body slides and 1 open flume slide.."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of pool does the TriWave Model 300 install over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility."
+      }
+    }
+  ]
+}
+
+### Misty Island 100
+https://interactivewaterparks.com/products/aquatic-play-structures/misty-island-100/
+
+Q: How much space does the Misty Island 100 need?
+A: The Misty Island 100 requires a minimum footprint of 5,300 sq ft / 492.3 sq m. The unit itself measures 47’8″ x 26’2″ x 28’6″ (L/W/H), with a top deck height of 180 in / 4.5 m.
+
+Q: How many guests can the Misty Island 100 serve?
+A: Up to 212 water players. The structure carries 37 interactive water features and 3 slides – Large open flume body slide and toddler racers.
+
+Q: What kind of pool does the Misty Island 100 install over?
+A: Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://interactivewaterparks.com/products/aquatic-play-structures/misty-island-100/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much space does the Misty Island 100 need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Misty Island 100 requires a minimum footprint of 5,300 sq ft / 492.3 sq m. The unit itself measures 47’8″ x 26’2″ x 28’6″ (L/W/H), with a top deck height of 180 in / 4.5 m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many guests can the Misty Island 100 serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 212 water players. The structure carries 37 interactive water features and 3 slides – Large open flume body slide and toddler racers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of pool does the Misty Island 100 install over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility."
+      }
+    }
+  ]
+}
+
+### Misty Island 200
+https://interactivewaterparks.com/products/aquatic-play-structures/misty-island-200/
+
+Q: How much space does the Misty Island 200 need?
+A: The Misty Island 200 requires a minimum footprint of 6,000 sq ft / 557.4 sq m. The unit itself measures 51’10” x 20’9″ x 30’10″ (L/W/H), with a top deck height of 180 in / 4.5 m.
+
+Q: How many guests can the Misty Island 200 serve?
+A: Up to 240 water players. The structure carries 40 interactive water features and 4 slides – 2 large open flume body slides and 2 toddler racers.
+
+Q: What kind of pool does the Misty Island 200 install over?
+A: Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://interactivewaterparks.com/products/aquatic-play-structures/misty-island-200/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much space does the Misty Island 200 need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Misty Island 200 requires a minimum footprint of 6,000 sq ft / 557.4 sq m. The unit itself measures 51’10” x 20’9″ x 30’10″ (L/W/H), with a top deck height of 180 in / 4.5 m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many guests can the Misty Island 200 serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 240 water players. The structure carries 40 interactive water features and 4 slides – 2 large open flume body slides and 2 toddler racers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of pool does the Misty Island 200 install over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shallow depth pool 6-8 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility."
+      }
+    }
+  ]
+}
+
+### Waterfall Model 100
+https://interactivewaterparks.com/products/aquatic-play-structures/waterfall-model-100/
+
+Q: How much space does the Waterfall Model 100 need?
+A: The Waterfall Model 100 requires a minimum footprint of 3,700 sq ft / 343.7 sq m. The unit itself measures 18’9” x 24’10” x 25’6” (L/W/H), with a top deck height of 84 in / 2.13 m.
+
+Q: How many guests can the Waterfall Model 100 serve?
+A: Up to 148 water players. The structure carries 13 interactive water features and 3 slides – 2 toddler racers and an open flume body slide.
+
+Q: What kind of pool does the Waterfall Model 100 install over?
+A: Shallow depth pool 6-12 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://interactivewaterparks.com/products/aquatic-play-structures/waterfall-model-100/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much space does the Waterfall Model 100 need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Waterfall Model 100 requires a minimum footprint of 3,700 sq ft / 343.7 sq m. The unit itself measures 18’9” x 24’10” x 25’6” (L/W/H), with a top deck height of 84 in / 2.13 m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many guests can the Waterfall Model 100 serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 148 water players. The structure carries 13 interactive water features and 3 slides – 2 toddler racers and an open flume body slide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of pool does the Waterfall Model 100 install over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shallow depth pool 6-12 inches deep. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility."
+      }
+    }
+  ]
+}
+
+### Waterfall Model 200
+https://interactivewaterparks.com/products/aquatic-play-structures/waterfall-model-200/
+
+Q: How much space does the Waterfall Model 200 need?
+A: The Waterfall Model 200 requires a minimum footprint of 2,700 sq ft / 250.8 sq m. The unit itself measures 16’ x 24’8” x 25’ (L/W/H), with a top deck height of 66 in / 1.6 m.
+
+Q: How many guests can the Waterfall Model 200 serve?
+A: Up to 108 water players. The structure carries 10 interactive water features and 4 – Enclosed tube slides.
+
+Q: What kind of pool does the Waterfall Model 200 install over?
+A: Shallow depth pool or zero-depth pool. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://interactivewaterparks.com/products/aquatic-play-structures/waterfall-model-200/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much space does the Waterfall Model 200 need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Waterfall Model 200 requires a minimum footprint of 2,700 sq ft / 250.8 sq m. The unit itself measures 16’ x 24’8” x 25’ (L/W/H), with a top deck height of 66 in / 1.6 m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many guests can the Waterfall Model 200 serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 108 water players. The structure carries 10 interactive water features and 4 – Enclosed tube slides."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of pool does the Waterfall Model 200 install over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shallow depth pool or zero-depth pool. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility."
+      }
+    }
+  ]
+}
+
+### Waterfall Model 300
+https://interactivewaterparks.com/products/aquatic-play-structures/waterfall-model-300/
+
+Q: How much space does the Waterfall Model 300 need?
+A: The Waterfall Model 300 requires a minimum footprint of 3,550 sq ft / 329.8 sq m. The unit itself measures 24’8″ x 29’ x 24’10″ (L/W/H), with a top deck height of 78 in / 1.9 m.
+
+Q: How many guests can the Waterfall Model 300 serve?
+A: Up to 142 water players. The structure carries 12 interactive water features and 2 – Open flume body slide and enclosed tube slide.
+
+Q: What kind of pool does the Waterfall Model 300 install over?
+A: Shallow depth pool. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://interactivewaterparks.com/products/aquatic-play-structures/waterfall-model-300/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much space does the Waterfall Model 300 need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Waterfall Model 300 requires a minimum footprint of 3,550 sq ft / 329.8 sq m. The unit itself measures 24’8″ x 29’ x 24’10″ (L/W/H), with a top deck height of 78 in / 1.9 m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many guests can the Waterfall Model 300 serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 142 water players. The structure carries 12 interactive water features and 2 – Open flume body slide and enclosed tube slide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of pool does the Waterfall Model 300 install over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shallow depth pool. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility."
+      }
+    }
+  ]
+}
+
+### Waterfall Model 400
+https://interactivewaterparks.com/products/aquatic-play-structures/multi-level-water-play-unit-waterfall-model-400/
+
+Q: How much space does the Waterfall Model 400 need?
+A: The Waterfall Model 400 requires a minimum footprint of 2,000 sq ft / 185.8 sq m. The unit itself measures 31’10” x 33’4″ x 23.5’ (L/W/H), with a top deck height of 108 in / 2.7 m.
+
+Q: How many guests can the Waterfall Model 400 serve?
+A: Up to 100 water players. The structure carries 19 interactive water features and 2 – Enclosed tube slides.
+
+Q: What kind of pool does the Waterfall Model 400 install over?
+A: Shallow depth pool. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility.
+
+JSON-LD:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://interactivewaterparks.com/products/aquatic-play-structures/multi-level-water-play-unit-waterfall-model-400/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much space does the Waterfall Model 400 need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Waterfall Model 400 requires a minimum footprint of 2,000 sq ft / 185.8 sq m. The unit itself measures 31’10” x 33’4″ x 23.5’ (L/W/H), with a top deck height of 108 in / 2.7 m."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many guests can the Waterfall Model 400 serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Up to 100 water players. The structure carries 19 interactive water features and 2 – Enclosed tube slides."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of pool does the Waterfall Model 400 install over?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shallow depth pool. All models can be customized with your selection of water play toys and designed to a footprint and scale that fits your facility."
+      }
+    }
+  ]
+}
