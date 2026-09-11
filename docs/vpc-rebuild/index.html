@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>VPC Product Site: Rebuilt</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #eff1ee;
+    --surface: #ffffff;
+    --ink: #16191b;
+    --ink-soft: #575f61;
+    --ink-faint: #7d8688;
+    --rule: #d2d7d3;
+    --rule-soft: #e2e6e2;
+    --accent: #0e5c67;
+    --accent-soft: #e2edee;
+    --rust: #a34c1c;
+    --rust-soft: #f6e8e0;
+    --moss: #3c6636;
+    --moss-soft: #e5eee2;
+
+    --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #131718;
+      --surface: #1b2022;
+      --ink: #e7ebe8;
+      --ink-soft: #a3adad;
+      --ink-faint: #7d8688;
+      --rule: #313839;
+      --rule-soft: #262c2e;
+      --accent: #5cb4c0;
+      --accent-soft: #1a2f33;
+      --rust: #e08c58;
+      --rust-soft: #2e2119;
+      --moss: #86b57c;
+      --moss-soft: #1c2a1c;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #131718;
+    --surface: #1b2022;
+    --ink: #e7ebe8;
+    --ink-soft: #a3adad;
+    --ink-faint: #7d8688;
+    --rule: #313839;
+    --rule-soft: #262c2e;
+    --accent: #5cb4c0;
+    --accent-soft: #1a2f33;
+    --rust: #e08c58;
+    --rust-soft: #2e2119;
+    --moss: #86b57c;
+    --moss-soft: #1c2a1c;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 38px 24px 88px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    border-top: 3px solid var(--ink);
+    padding-top: 18px;
+    margin-bottom: 40px;
+  }
+
+  .stamp {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+  .stamp b { color: var(--ink-soft); font-weight: 500; }
+
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(34px, 6vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+
+  .scope {
+    font-size: 14.5px;
+    color: var(--ink-faint);
+    margin: 12px 0 0;
+    max-width: 58ch;
+  }
+
+  .dek {
+    font-size: 17.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  /* ---------- sections ---------- */
+
+  section {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 0 20px;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .marker {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    padding-top: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  .body { min-width: 0; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p:last-child { margin-bottom: 0; }
+
+  .body > ul, .body > ol { max-width: 66ch; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--f-mono);
+    font-size: 0.88em;
+    background: var(--rule-soft);
+    padding: 1px 5px;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+
+  /* ---------- pull ---------- */
+
+  .pull {
+    border-left: 3px solid var(--accent);
+    padding: 3px 0 3px 18px;
+    margin: 20px 0;
+    max-width: 62ch;
+  }
+
+  .pull p {
+    font-size: 17px;
+    line-height: 1.48;
+    margin: 0;
+  }
+
+  .pull.decision { border-left-color: var(--rust); }
+
+  /* ---------- objective ---------- */
+
+  .objective {
+    background: var(--accent-soft);
+    padding: 30px 30px 26px;
+    margin-bottom: 8px;
+  }
+
+  .objective .opt-label { margin-bottom: 12px; }
+
+  .objective .lead {
+    font-size: 21px;
+    line-height: 1.42;
+    letter-spacing: -0.008em;
+    max-width: 40ch;
+    margin: 0;
+  }
+
+  .surfaces {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin: 22px 0 26px;
+  }
+
+  .surfaces .surfaces-label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 4px;
+  }
+
+  .surface {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 4px 9px;
+    white-space: nowrap;
+  }
+
+  .conditions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px 26px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .conditions li {
+    margin: 0;
+    border-top: 2px solid var(--accent);
+    padding-top: 11px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .conditions b {
+    font-family: var(--f-display);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .objective .coda {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    margin: 26px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
+  /* ---------- tables ---------- */
+
+  .table-wrap { overflow-x: auto; margin: 18px 0 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    line-height: 1.42;
+  }
+
+  th {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    padding: 0 14px 8px 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  th:last-child, td:last-child { padding-right: 0; }
+
+  .num {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    width: 22px;
+    padding-right: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .effort {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .where { font-size: 13px; color: var(--ink-soft); white-space: nowrap; }
+  .prop { font-family: var(--f-mono); font-size: 13px; word-break: break-all; }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .chip.own { background: var(--moss-soft); color: var(--moss); }
+  .chip.rent { background: var(--rust-soft); color: var(--rust); }
+
+  /* ---------- option cards ---------- */
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 20px 0 22px;
+  }
+
+  .opt {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 20px;
+  }
+
+  .opt-label {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .opt h3 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+
+  .opt p { font-size: 14.5px; line-height: 1.5; margin: 0 0 12px; max-width: none; }
+
+  .opt .needs {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 10px;
+    margin: 0;
+  }
+
+  .opt .needs b {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* ---------- lists ---------- */
+
+  ul, ol { padding-left: 20px; margin: 0 0 14px; }
+  li { margin-bottom: 8px; }
+  li:last-child { margin-bottom: 0; }
+
+  ol.asks { counter-reset: ask; list-style: none; padding-left: 0; }
+
+  ol.asks li { position: relative; padding-left: 34px; margin-bottom: 12px; }
+
+  ol.asks li::before {
+    counter-increment: ask;
+    content: counter(ask);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--surface);
+    background: var(--accent);
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .quote {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--rule);
+    padding-left: 16px;
+    margin: 16px 0 0;
+    max-width: 62ch;
+  }
+
+  .closing {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 3px solid var(--ink);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 620px) {
+    .sheet { padding: 26px 18px 68px; }
+    section { grid-template-columns: 1fr; gap: 0; }
+    .marker { padding-top: 0; margin-bottom: 8px; }
+    .where { white-space: normal; }
+  }
+</style><style>
+  .chip.mixed { background: var(--accent-soft); color: var(--accent); }
+  .opt.pick { border-color: var(--accent); border-width: 2px; padding: 19px 24px; grid-column: 1 / -1; }
+  .opt.pick p { max-width: 62ch; }
+  .opt.pick .opt-label { color: var(--accent); }
+  .opt.pick h3 { color: var(--ink); }
+  .rec {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--surface);
+    background: var(--accent);
+    padding: 3px 8px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .closing a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .closing a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .closing .links { display: block; margin-top: 8px; text-transform: none; letter-spacing: 0.01em; font-size: 11.5px; }
+  .peer { font-size: 14.5px; }
+  .scope a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .scope a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+</style>
+<style>
+  .biglink{display:block;background:var(--accent-soft);border:2px solid var(--accent);
+    border-radius:3px;padding:22px 24px;margin:24px 0 6px;text-decoration:none;color:inherit}
+  .biglink:hover{background:var(--surface)}
+  .biglink .u{font-family:var(--f-mono);font-size:15px;color:var(--accent);word-break:break-all;display:block;margin-top:7px}
+  .biglink b{font-family:var(--f-display);font-size:18px;font-weight:600;display:block}
+  .biglink .w{font-size:13.5px;color:var(--ink-soft);margin-top:10px;display:block}
+  .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0 4px}
+  @media (max-width:620px){.grid2{grid-template-columns:1fr}}
+  .box{background:var(--surface);border:1px solid var(--rule);padding:18px 20px}
+  .box h3{font-family:var(--f-display);font-size:15.5px;font-weight:600;margin:0 0 9px}
+  .box p{font-size:14.5px;line-height:1.5;margin:0;max-width:none;color:var(--ink-soft)}
+  .box .big{font-family:var(--f-display);font-size:28px;font-weight:700;letter-spacing:-.02em;
+    color:var(--accent);line-height:1;display:block;margin-bottom:8px}
+  .box.ok .big{color:var(--moss)}
+  ul.tick{list-style:none;padding-left:0}
+  ul.tick li{position:relative;padding-left:26px;margin-bottom:10px}
+  ul.tick li::before{content:"";position:absolute;left:2px;top:8px;width:9px;height:9px;
+    border-radius:50%;background:var(--moss)}
+  ul.todo li::before{background:var(--rust)}
+  ul.tick li b{font-weight:600}
+  .lede2{font-size:17px;color:var(--ink-soft);max-width:62ch;margin:0 0 18px}
+  .frame-open{border-left:3px solid var(--ink);padding:4px 0 4px 22px;margin:6px 0 30px}
+  .frame-open p{font-size:17px;line-height:1.52;margin:0 0 13px;max-width:60ch}
+  .frame-open p:last-child{margin-bottom:0}
+  .frame-open b{font-weight:600}
+</style>
+
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <span class="stamp">Doble AI &nbsp;/&nbsp; For <b>Corey Hogan</b> &nbsp;/&nbsp; Internal &nbsp;/&nbsp; 11 September 2026</span>
+    <h1>VPC Product Site: Rebuilt</h1>
+    <p class="dek">We rebuilt VPC's product catalog on infrastructure VPC would own, using VPC's own data. It is finished enough to open. Here is what we found, what it does, and what is still missing.</p>
+    <p class="scope">Nothing here touches a live VPC site. Nothing is indexed. No login was used, and none exists for the rented catalog. Companion documents: <a href="../vpc-digital-options/">digital options</a>, <a href="../vpc-work-order/">website work order</a>, <a href="../vpc-findability/">findability review</a>.</p>
+  </header>
+
+  <div class="frame-open">
+    <p>VPC is a $12 million business with 57 people. Companies that size own their digital presence.
+    They do not rent the half of it that holds every product.</p>
+    <p>That is not a matter of taste. It is a question of who controls the record a buyer finds, and
+    now also the record an AI assistant reads back when someone asks it for a supplier. Right now a
+    vendor controls both, and has been describing VPC inaccurately while doing it.</p>
+    <p><b>Owning it is the position worth being in for the next five years.</b> One company controls
+    its products, its specifications, its photography and its search presence, and can move any of it
+    whenever it wants. That is the argument. The rest of this page is the evidence and the build.</p>
+  </div>
+
+  <div class="objective">
+    <span class="opt-label">The short version</span>
+    <p class="lead">VPC already has the best product data in its category. The platform it sits on is hiding it, duplicating it, and describing VPC as a company one tenth its size.</p>
+  </div>
+
+  <section>
+    <div class="marker">01</div>
+    <div class="body">
+      <h2>What we found</h2>
+      <p>Four things, all checked on live pages on 11 September.</p>
+
+      <div class="grid2">
+        <div class="box">
+          <span class="big">1,137</span>
+          <h3>URLs for 140 products</h3>
+          <p>The catalog publishes the same item once per industry. The 12 inch Parshall flume exists at eight addresses with identical text, and every one of them tells Google it is the original.</p>
+        </div>
+        <div class="box ok">
+          <span class="big">1,188</span>
+          <h3>specifications already tagged</h3>
+          <p>Every spec on every product is machine readable. This is genuinely good work and it is the asset the whole rebuild is built on.</p>
+        </div>
+        <div class="box">
+          <span class="big">0 of 18</span>
+          <h3>competitors with product markup</h3>
+          <p>We checked eighteen companies, including Greenheck. Not one publishes product data a search engine or an AI assistant can read. This ground is unclaimed.</p>
+        </div>
+        <div class="box">
+          <span class="big">200px</span>
+          <h3>photography shown to buyers</h3>
+          <p>The catalog displays product photos at 200 by 200. The same server holds the originals at up to 6000 by 4000. VPC has been paying for professional photography and showing thumbnails.</p>
+        </div>
+      </div>
+
+      <p>There is a fifth, and it is the one that stings. Until this morning the ThomasNet profile described VPC as a company with roughly $1 million in revenue and 8 employees. VPC is 57 people and booked $11.97 million in 2025. Amanda has filed the correction. Nobody at VPC put those numbers there, and nobody was told they were wrong.</p>
+
+      <div class="pull decision">
+        <p>None of this is a criticism of VPC's product data. The data is the best in the peer set. The problem is that VPC does not control where it lives or how it is presented.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">02</div>
+    <div class="body">
+      <h2>What we built</h2>
+      <p>A complete working product site, generated from VPC's own catalog data. Open it on a phone or a laptop. It is real, not a mockup.</p>
+
+      <a class="biglink" href="https://vpc-catalog-preview.vercel.app">
+        <b>Open the preview</b>
+        <span class="u">vpc-catalog-preview.vercel.app</span>
+        <span class="w">Unpublished and blocked from search three separate ways. Every page carries a banner saying so. Safe to forward.</span>
+      </a>
+
+      <p>Worth opening two pages in particular. The <b>12 inch Parshall flume</b> has a 3D model you can drag, its full spec table, nine documents and three CAD files. The <b>Water and Wastewater</b> page shows how one product serves many industries without being copied.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>&nbsp;</th><th>Rented catalog today</th><th>The rebuild</th></tr></thead>
+          <tbody>
+            <tr><td>Addresses per product</td><td>Up to 11, all claiming to be the original</td><td>One</td></tr>
+            <tr><td>Product markup</td><td>Present but malformed</td><td>Correct on all 140</td></tr>
+            <tr><td>Question and answer markup</td><td>None</td><td>139 pages</td></tr>
+            <tr><td>Interactive 3D</td><td>None</td><td>62 products</td></tr>
+            <tr><td>Photography</td><td>200 by 200</td><td>Full resolution</td></tr>
+            <tr><td>Page titles</td><td>Lead with the item number</td><td>Lead with the product</td></tr>
+            <tr><td>Who owns it</td><td>Thomas</td><td>VPC</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The 3D is the part no competitor in the peer set has on a product page except Open Channel Flow, which is the site Amanda pointed us at. Those models are built from VPC's own engineering files. Nothing was drawn for this.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">03</div>
+    <div class="body">
+      <h2>Why any of this matters</h2>
+      <p>Three different things get confused with each other, and they fail in different ways.</p>
+      <ul class="tick">
+        <li><b>Findable.</b> The page exists, it gets crawled, and nothing points somewhere else. A thousand duplicate pages each claiming to be the original is a findability failure, and it is self inflicted by the platform.</li>
+        <li><b>Readable.</b> A machine can tell what the product is and what it does. VPC's spec data is excellent and the wrapper around it is broken, so the information sits on the page and stays invisible.</li>
+        <li><b>Searchable by an assistant.</b> When a buyer asks ChatGPT or Perplexity for a 12 inch Parshall flume supplier, something has to be readable enough to answer with. Nobody in this category has built for that yet.</li>
+      </ul>
+      <p>VPC's business makes this unusually important. Two thirds of VPC's customers over six years never bought a second time, and the top of the revenue stack gets rebuilt from different names most years. A business like that does not use its website to keep customers. It uses it to find the next ones.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">04</div>
+    <div class="body">
+      <h2>What is fine-tuning and what is not</h2>
+      <p>This matters before anyone judges the preview, because the two are easy to mix up.</p>
+      <div class="grid2">
+        <div class="box">
+          <h3>Fine-tuning</h3>
+          <p>Copy on the industry pages. Which photograph leads each section. Colour and spacing. Category names. The quote form. Which products deserve their own write-ups. All of this is a afternoon's work once someone at VPC has opinions.</p>
+        </div>
+        <div class="box">
+          <h3>Structural, and already done</h3>
+          <p>One address per product. Correct product markup. Industries as links rather than copies. Redirects mapped from all 1,137 old addresses. 3D from the engineering files. These are the expensive decisions and they are made.</p>
+        </div>
+      </div>
+      <p>The preview will look unfinished in places. That is expected and it is the cheap half.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">05</div>
+    <div class="body">
+      <h2>What we have not done</h2>
+      <ul class="tick todo">
+        <li><b>InterActive Play and EasyRec.</b> Both sit on their own domains with a different vendor. InterActive Play is the largest division by six year revenue at 44%, and it is another 57 pages. It is a separate decision and a separate conversation, deliberately kept out of this one.</li>
+        <li><b>The marketing pages on the main site.</b> 23 pages and 15 case studies. This build is the product catalog only.</li>
+        <li><b>CAD downloads on the preview.</b> The drawings are 615 MB, and one file alone is 145 MB. They are all captured and sit on our machine. The preview links show them without the download to keep the site fast.</li>
+        <li><b>The AI visibility baseline.</b> We have not yet measured whether VPC or anyone else shows up in ChatGPT, Perplexity, Gemini or Grok for the queries that matter. That should be captured before anything ships, so the same questions asked again later prove the change.</li>
+        <li><b>Project and case study pages.</b> Romtec publishes 411 of them. VPC has 15. For a business that wins new buyers every year, this is the largest single gap we found and it is not built yet.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">06</div>
+    <div class="body">
+      <h2>What we would do next</h2>
+      <ol class="asks">
+        <li><b>Someone at VPC opens the preview and marks it up.</b> Amanda, Dave and James between them will spot wrong category names and bad photo choices in an hour. That feedback is worth more than another month of our guessing.</li>
+        <li><b>Decide the question this is really about, which is ownership.</b> The preview is evidence, not a proposal. The decision is whether VPC keeps renting the half of its website that holds every product.</li>
+        <li><b>Run the AI visibility baseline before anything goes live</b>, so there is a real before and after rather than an argument.</li>
+        <li><b>Get Conrad's SolidWorks exports for the enclosures.</b> The flumes all have 3D. Most enclosures do not, because their drawings are in a format we cannot convert. He can export them directly.</li>
+        <li><b>Treat project pages as the next build.</b> Not more products. Finished jobs, with the problem, the part and the site. That is what a specifying engineer searches for.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">07</div>
+    <div class="body">
+      <h2>How this was checked</h2>
+      <p>Every number above came from a live page on 11 September 2026, not from a report or a tool's summary.</p>
+      <p>The competitor set began as our list and was corrected by Amanda, who confirmed four names, flagged three as unsure, and added eleven more sectioned by division. Dave Riggs and James Minner have not yet ruled on the unsure ones. The eighteen company finding holds regardless, because it is true of every name anyone has proposed.</p>
+      <p>The catalog was read the same way a search engine reads it. We crawled all 151 listing pages, found 1,137 item addresses, and reduced them to 140 products by their item numbers. Duplicate pairs were compared byte for byte. Product markup was checked three ways, as JSON, as microdata and as RDFa, because an earlier check that only looked at one of the three missed VPC's own markup and we had to correct it.</p>
+      <p>The site you can open was generated by a script from that captured data, so nothing on it was typed by hand and anything wrong in it is wrong in the source too.</p>
+    </div>
+  </section>
+
+  <footer class="closing">
+    Doble AI &nbsp;&middot;&nbsp; VPC product site rebuild &nbsp;&middot;&nbsp; 11 September 2026 &nbsp;&middot;&nbsp; Internal
+    <span class="links">
+      Companion documents:
+      <a href="../vpc-digital-options/">Digital options</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-work-order/">Website work order</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-findability/">Findability review</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-closest-job-plan/">Closest job plan</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
