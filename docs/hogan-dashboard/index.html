@@ -177,6 +177,17 @@ ul.items li.done:first-child::before{top:6px}
 .slot .sl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--open);margin-bottom:7px}
 .slot .sr{font-size:13.5px;color:var(--ink3);line-height:1.5}
+.roster{border:1px solid var(--good);border-radius:3px;padding:12px 13px;background:var(--good-wash);margin-bottom:11px}
+.roster .rl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--good);margin-bottom:9px}
+ul.people{list-style:none}
+ul.people li{padding:6px 0;border-bottom:1px dotted var(--rule);font-size:13.5px;line-height:1.5;color:var(--ink2)}
+ul.people li:last-child{border-bottom:none;padding-bottom:0}
+ul.people li:first-child{padding-top:0}
+ul.people b{color:var(--ink);font-weight:600;display:block}
+ul.people em{color:var(--ink3)}
+.roster .rn{font-size:12.5px;color:var(--ink2);line-height:1.5;margin-top:9px;padding-top:9px;
+  border-top:1px dotted var(--rule)}
 .heard{font-size:13px;color:var(--ink2);line-height:1.55}
 .heard .hl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--ink3);display:block;margin-bottom:6px}
@@ -281,8 +292,16 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
     <div class="blocks">
       <div class="block people">
         <h4>Who is on it</h4>
-        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
-        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Amanda holds the website. Larry Ricigliano runs submittals (larry@vpcfiberglass.com, 716-868-4905). Amanda has also named James Minner, Jeff Minner, David Riggs, Nick Kozlowski and Conrad Diver, Conrad for the technical files. <em>None of this is confirmed as the core group.</em></div>
+        <div class="roster"><div class="rl">From Corey, 12 September</div>
+          <ul class="people">
+            <li><b>James Minner</b> <span>Day-to-day management. Jeff Minner's son.</span></li>
+            <li><b>Steve Intihar</b> <span>Production</span></li>
+            <li><b>Nick Kozlowski</b> <span>Leads the sales team, with David Riggs</span></li>
+            <li><b>David Riggs</b> <span>Leads the sales team, with Nick Kozlowski</span></li>
+          </ul>
+          <p class="rn">Corey's caveat: there are other key people in the factory and on the administrative side, and who they are depends on whether it is InterActive Play and the water parks or traditional VPC.</p>
+        </div>
+        <div class="heard"><span class="hl">Also in play, from our own work</span>Amanda holds the website. Larry Ricigliano runs submittals (larry@vpcfiberglass.com, 716-868-4905). Conrad Diver was named by Amanda for the technical files. <em>These are working contacts rather than the core group Corey describes.</em></div>
       </div>
       <div class="block">
         <h4>Where it stands</h4>
@@ -338,8 +357,13 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
     <div class="blocks">
       <div class="block people">
         <h4>Who is on it</h4>
-        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
-        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Amanda manages this site. <em>She is also the VPC site owner, so anything that lands here lands on the same desk.</em></div>
+        <div class="roster"><div class="rl">From Corey, 12 September</div>
+          <ul class="people">
+            <li><b>Matt Greco</b> <span>General manager, across both the Bake Shop and Alpine Bistro</span></li>
+            <li><b>Jackie</b> <span>Assistant manager here. <em>Corey wrote "something like Jackie", so check the spelling before using it.</em></span></li>
+          </ul>
+        </div>
+        <div class="heard"><span class="hl">Also in play, from our own work</span>Amanda manages this site. <em>She is also the VPC site owner, so anything that lands here lands on the same desk.</em></div>
       </div>
       <div class="block">
         <h4>Where it stands</h4>
@@ -385,8 +409,13 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
     <div class="blocks">
       <div class="block people">
         <h4>Who is on it</h4>
-        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
-        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Grace manages this site and Ellicottville Coffee. Bo is described as the marketing lead. Matt and Leslie are in the Ellicottville gap-closing meeting. Christine was being brought in for a fresh look at the bourbon bar and the use of the space. <em>Christine was not yet hired as of 9 September.</em></div>
+        <div class="roster"><div class="rl">From Corey, 12 September</div>
+          <ul class="people">
+            <li><b>Matt Greco</b> <span>General manager, across both Alpine Bistro and the Bake Shop</span></li>
+            <li><b>Leslie</b> <span>Assistant manager here</span></li>
+          </ul>
+        </div>
+        <div class="heard"><span class="hl">Also in play, from our own work</span>Grace manages this site and Ellicottville Coffee. Bo is described as the marketing lead. Christine was being brought in for a fresh look at the bourbon bar and the use of the space, and was not yet hired as of 9 September.</div>
       </div>
       <div class="block">
         <h4>Where it stands</h4>
@@ -638,8 +667,14 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
     <div class="blocks">
       <div class="block people">
         <h4>Who is on it</h4>
-        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
-        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>The site lists a property manager but does not name one. Jennifer Hogan is at the same Getzville address. <em>We have never had a name for who runs this day to day.</em></div>
+        <div class="roster"><div class="rl">From Corey, 12 September</div>
+          <ul class="people">
+            <li><b>Jennifer Hogan</b> <span>Runs it day to day. Schedules the five-man work crew, handles tenants, goes to court on evictions. Corey's wife, and the two of them talk about Homestead several times a day.</span></li>
+            <li><b>Deanna Janeczko</b> <span>Bookkeeping. The route to tenants, and the person who knows where rents and bills actually stand.</span></li>
+            <li><b>A five-man work crew</b> <span>Scheduled by Jennifer</span></li>
+          </ul>
+          <p class="rn">This was the emptiest people block on the page an hour ago. It is now the fullest, and it changes who we should be talking to: on anything about rents, arrears or the profile reviews, that is Deanna.</p>
+        </div>
       </div>
       <div class="block">
         <h4>Where it stands</h4>
@@ -766,7 +801,7 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
   <h2>Open with you</h2>
   <p class="sec-sub">Questions that shape the dashboard rather than any single business</p>
   <ul class="qlist">
-    <li><div class="qt">Who is on each business</div><div class="qd">The 12 September email. Every people block on this page fills in from your answer, and until it does this dashboard is describing work without describing who does it.</div></li>
+    <li><div class="qt">Who is on each business, the rest of it</div><div class="qd">Your reply on 12 September filled in VPC, Homestead and both Ellicottville businesses, and those blocks are now populated. <b>Still open: Fenimore's Table, Cooperstown Clubhouse, the Cooperstown Experience, Patriot Stone and Concrete Warrior, and Davison Road.</b> You said more would follow from you or Breanna. One small thing to confirm when it does: the Bake Shop assistant manager, which you wrote as "something like Jackie".</div></li>
     <li><div class="qt">Does Tiveron Law belong in the nine</div><div class="qd">Asked in the same email. It changes what we track and what we stop tracking.</div></li>
     <li><div class="qt">The three things question, reopened</div><div class="qd">On the 9 September call the room was asked to name the top three things on each person's mind. The meeting moved on and it was never answered. It is the only place the people running these businesses would have set the priorities themselves, rather than us reading them off the work. Worth asking again, in writing, one person at a time.</div></li>
     <li><div class="qt">Closing the Ellicottville gap</div><div class="qd">The one that costs money every week it waits. Revenue against expenses in Ellicottville is running roughly <b>three to four thousand dollars a week</b> to the wrong side. That is a project rather than a task: work out where the gap actually sits between the two businesses, put a plan against it, and run the plan. Everything else on this page can wait behind it.</div></li>
