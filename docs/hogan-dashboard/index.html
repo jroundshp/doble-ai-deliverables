@@ -89,6 +89,9 @@ h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3.3vw,32px)
 .tile .sub{font-size:12.8px;color:var(--ink2);line-height:1.45}
 
 /* the nine: index grid */
+.projrow{margin-top:26px;padding-top:22px;border-top:1px dashed var(--rule2)}
+.projlab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:12px}
 .grid9{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:12px}
 a.card{display:block;background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:16px 17px;
   text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:border-color .13s,transform .13s}
@@ -106,6 +109,9 @@ a.card .cline{font-size:13.2px;color:var(--ink2);line-height:1.5}
 /* per-business panels */
 .biz{scroll-margin-top:16px;border-top:1px solid var(--rule);margin-top:40px;padding-top:36px}
 .biz:first-of-type{border-top:none;margin-top:0;padding-top:0}
+.biz.sub{border-top:1px dashed var(--rule2);margin-top:30px;padding-top:26px;padding-left:18px;
+  border-left:2px solid var(--accent-wash)}
+.biz.sub .bizhead h3{font-size:clamp(20px,2.4vw,24px)}
 .bizhead{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;margin-bottom:5px}
 .bizhead h3{font-family:'Playfair Display',Georgia,serif;font-size:clamp(23px,3vw,29px);font-weight:500;
   line-height:1.14;letter-spacing:-.01em}
@@ -132,6 +138,19 @@ a.card .cline{font-size:13.2px;color:var(--ink2);line-height:1.5}
 @media (min-width:860px){.blocks{grid-template-columns:1fr 1fr}}
 .block{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:16px 17px;box-shadow:var(--shadow)}
 .block.people{background:var(--open-wash);border-color:var(--open)}
+.divisions{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:15px 16px;margin-bottom:16px}
+.dvlab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:11px}
+.dvtable{width:100%;border-collapse:collapse;font-size:13.5px}
+.dvtable td{padding:9px 10px 9px 0;border-bottom:1px dotted var(--rule);vertical-align:top;color:var(--ink2)}
+.dvtable tr:last-child td{border-bottom:none}
+.dvn{font-weight:600;color:var(--ink);white-space:nowrap;width:1%}
+.dvw{white-space:nowrap;width:1%;font-family:'IBM Plex Mono',monospace;font-size:12px}
+.dvw a{text-decoration:none}
+.dvtable b{color:var(--ink)}
+@media (max-width:640px){.dvtable,.dvtable tr,.dvtable td{display:block;width:auto}
+  .dvtable td{border-bottom:none;padding:2px 0}
+  .dvtable tr{border-bottom:1px dotted var(--rule);padding:9px 0;display:block}}
 .block h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink3);font-weight:500;margin-bottom:11px}
 .block.people h4{color:var(--open)}
@@ -163,8 +182,14 @@ ul.items li.done:first-child::before{top:6px}
   color:var(--ink3);display:block;margin-bottom:6px}
 .heard em{color:var(--ink3);font-style:italic}
 
-.deeplink{margin-top:14px;font-size:13.5px}
-.deeplink a{font-weight:500}
+.docs{margin-top:16px}
+.docs .dlab{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:8px}
+.docs .drow{display:flex;flex-wrap:wrap;gap:7px}
+.docs a{display:inline-block;font-size:13px;text-decoration:none;background:var(--surface);
+  border:1px solid var(--rule);border-radius:3px;padding:6px 11px;color:var(--accent-deep);font-weight:500}
+.docs a:hover{border-color:var(--accent);background:var(--accent-wash)}
+.docs a.primary{border-color:var(--accent);background:var(--accent-wash)}
 
 /* open questions */
 .qlist{list-style:none}
@@ -188,10 +213,10 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
 <header class="hero">
   <span class="tag">Operating Dashboard · Prepared for Corey Hogan</span>
   <h1>Nine businesses, one page</h1>
-  <p class="lede">Where each business stands right now, who is on it, what the priorities are, and what we are aiming at a year out. Built to be walked through <strong>one business at a time, once a week</strong>. Every fact on this page was checked at its source on the date shown, not carried over from an earlier document.</p>
+  <p class="lede">Where each business stands right now, who is on it, what the priorities are, and what we are aiming at a year out. Built to be walked through <strong>one business at a time, once a week</strong>. The nine sit under six headings, because Ellicottville is two businesses and Cooperstown is three, and Davison Road is on the board underneath as a project rather than a business. <strong>Every fact here was re-checked against the live sites on 12 September</strong> rather than carried over from an earlier document.</p>
   <div class="mast-meta">
     <span><b>Compiled</b> 12 September 2026</span>
-    <span><b>Contact details</b> verified against each live site, 12 September</span>
+    <span><b>Every site re-swept</b> 12 September</span>
     <span><b>Scores</b> from the audit set, dated per business</span>
     <span><b>Private link</b> · not indexed</span>
   </div>
@@ -206,23 +231,26 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
   <h2>The portfolio at a glance</h2>
   <p class="sec-sub">Nine businesses · four states · seven industries</p>
   <div class="tiles">
-    <div class="tile"><div class="lab">Businesses tracked</div><div class="val">9</div><div class="sub">Plus Concrete Warrior, paired with Patriot Stone</div></div>
+    <div class="tile"><div class="lab">Businesses tracked</div><div class="val">9</div><div class="sub">Under six headings, plus Davison Road as a project</div></div>
     <div class="tile"><div class="lab">Audit score range</div><div class="val">2.8–6.4</div><div class="sub">Homestead Realty lowest, VPC highest</div></div>
     <div class="tile"><div class="lab">Portfolio average</div><div class="val">4.7</div><div class="sub">Across the nine scored audits</div></div>
     <div class="tile"><div class="lab">Sites we now hold admin on</div><div class="val">4</div><div class="sub">Fenimore's, VPC, Bake Shop, Alpine Bistro</div></div>
-    <div class="tile"><div class="lab">Waiting on someone else</div><div class="val">6</div><div class="sub">Blocking items, listed per business</div></div>
+    <div class="tile"><div class="lab">Blocked on someone</div><div class="val">25</div><div class="sub">Marked in red against each business</div></div>
   </div>
 
   <div class="grid9">
     <a class="card" href="#vpc"><span class="cnum">01</span><div class="scorewrap"><span class="score">6.4</span><span class="scoref">/ 10</span></div><span class="cname">VPC / Virtual Polymer Compounds</span><span class="ccat">Manufacturing · Medina, Lockport &amp; Amherst NY</span><span class="cline">Best-built site in the portfolio. Rebuild agreed and on ice. Submittal tool built on 20 paired jobs.</span></a>
-    <a class="card" href="#bakeshop"><span class="cnum">02</span><div class="scorewrap"><span class="score">6.0</span><span class="scoref">/ 10</span></div><span class="cname">Ellicottville Bake Shop</span><span class="ccat">Bakery · Ellicottville NY</span><span class="cline">Biggest improvement in the portfolio after the August rebuild. Six items sitting with Amanda.</span></a>
-    <a class="card" href="#tiveron"><span class="cnum">03</span><div class="scorewrap"><span class="score">6.0</span><span class="scoref">/ 10</span></div><span class="cname">Tiveron Law</span><span class="ccat">Law · Five offices, Western NY</span><span class="cline">Rebrand fixed for people, not for machines. Whether it belongs in the nine is your call.</span></a>
-    <a class="card" href="#alpine"><span class="cnum">04</span><div class="scorewrap"><span class="score">5.5</span><span class="scoref">/ 10</span></div><span class="cname">Alpine Bistro</span><span class="ccat">Café &amp; Wine Bar · Ellicottville NY</span><span class="cline">Healthy Google profile carrying the whole thing. A full rebuild is built and waiting on a decision.</span></a>
-    <a class="card" href="#fenimores"><span class="cnum">05</span><div class="scorewrap"><span class="score">4.5</span><span class="scoref">/ 10</span></div><span class="cname">Fenimore's Table</span><span class="ccat">Gastro-pub · Cooperstown NY</span><span class="cline">Site rebuilt 9 September. Private events page live. Blocked on one name and one email address.</span></a>
-    <a class="card" href="#clubhouse"><span class="cnum">06</span><div class="scorewrap"><span class="score">4.1</span><span class="scoref">/ 10</span></div><span class="cname">Cooperstown Clubhouse</span><span class="ccat">Team Dining · Cooperstown NY</span><span class="cline">Nothing actioned yet. Still trading under two different names in public.</span></a>
-    <a class="card" href="#experience"><span class="cnum">07</span><div class="scorewrap"><span class="score">3.4</span><span class="scoref">/ 10</span></div><span class="cname">Cooperstown Experience</span><span class="ccat">Tournament Complex · Cooperstown NY</span><span class="cline">Real differentiators, almost none of them findable. No phone number published anywhere on the site.</span></a>
-    <a class="card" href="#patriot"><span class="cnum">08</span><div class="scorewrap"><span class="score">3.2</span><span class="scoref">/ 10</span></div><span class="cname">Patriot Stone Supply / Concrete Warrior</span><span class="ccat">Aggregate · Denton TX &amp; New Town ND</span><span class="cline">Patriot Stone on hold. Concrete Warrior launched 11 September with profile and analytics live.</span></a>
-    <a class="card" href="#homestead"><span class="cnum">09</span><div class="scorewrap"><span class="score">2.8</span><span class="scoref">/ 10</span></div><span class="cname">Homestead Realty WNY</span><span class="ccat">Rental Housing · Getzville NY</span><span class="cline">Forty years and sixty units, represented by three listings and an unclaimed Google profile.</span></a>
+    <a class="card" href="#ellicottville"><span class="cnum">02</span><div class="scorewrap"><span class="score">6.0</span><span class="scoref">&amp; 5.5 / 10</span></div><span class="cname">Ellicottville</span><span class="ccat">Two businesses · Ellicottville NY</span><span class="cline">Ellicottville Bake Shop and Alpine Bistro, with Ellicottville Coffee under the Bistro. Both sites have been worked on and both scores moved. The gap now is trade, not markup.</span></a>
+    <a class="card" href="#cooperstown"><span class="cnum">03</span><div class="scorewrap"><span class="score">3.4–4.5</span><span class="scoref">/ 10</span></div><span class="cname">Cooperstown</span><span class="ccat">Three businesses · Cooperstown NY</span><span class="cline">Fenimore's Table, Cooperstown Clubhouse and the Cooperstown Experience. One programme on and beside one set of grounds: the ballfields, both restaurants, and the hotel that may follow.</span></a>
+    <a class="card" href="#patriot"><span class="cnum">04</span><div class="scorewrap"><span class="score">3.2</span><span class="scoref">/ 10</span></div><span class="cname">Patriot Stone Supply / Concrete Warrior</span><span class="ccat">Aggregate · Denton TX &amp; New Town ND</span><span class="cline">Patriot Stone on hold. Concrete Warrior launched 11 September with profile and analytics live.</span></a>
+    <a class="card" href="#homestead"><span class="cnum">05</span><div class="scorewrap"><span class="score">2.8</span><span class="scoref">/ 10</span></div><span class="cname">Homestead Realty WNY</span><span class="ccat">Rental Housing · Getzville NY</span><span class="cline">Forty years and sixty units, represented by three listings and an unclaimed Google profile.</span></a>
+    <a class="card" href="#tiveron"><span class="cnum">06</span><div class="scorewrap"><span class="score">6.0</span><span class="scoref">/ 10</span></div><span class="cname">Tiveron Law</span><span class="ccat">Law · Five offices, Western NY</span><span class="cline">Rebrand fixed for people, not for machines. Whether it belongs in the nine is your call.</span></a>
+  </div>
+  <div class="projrow">
+    <div class="projlab">Also on the board, not one of the nine</div>
+    <div class="grid9">
+    <a class="card" href="#davison"><span class="cnum">P1</span><span class="cname">Davison Road, Lockport</span><span class="ccat">Property &amp; zoning · Lockport NY</span><span class="cline">Eight parcels bought in 2024, rezoned out of residential use in 2025, and one unanswered question with a clock on it.</span></a>
+    </div>
   </div>
 </section>
 
@@ -230,15 +258,25 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
   <h2>Business by business</h2>
   <p class="sec-sub">Same four blocks each time · who, where, next, a year out</p>
 
-  <!-- 01 VPC -->
+  <!-- 01 VPC / Virtual Polymer Compounds -->
   <div class="biz" id="vpc">
     <div class="bizhead"><h3>01 · VPC / Virtual Polymer Compounds</h3><span class="chip s-hi">6.4 / 10</span><span class="chip">Reviewed 1 Sep, re-verified 5 Sep</span></div>
-    <p class="bizcat">Manufacturing · Medina, Lockport &amp; Amherst NY · Five divisions across three domains, including EasyRec, InterActive Play, Composite Fan and Primary Plastics</p>
+    <p class="bizcat">Manufacturing · Medina, Lockport &amp; Amherst NY · The parent company, with five divisions under it</p>
     <div class="nap">
       <span class="napitem"><span class="nl">Web</span><a href="https://www.vpcfiberglass.com/" target="_blank" rel="noopener">vpcfiberglass.com</a></span>
       <span class="napitem"><span class="nl">Phone</span><a href="tel:+15857359668">585-735-9668</a></span>
       <span class="napitem"><span class="nl">Fax</span>585-735-9965</span>
-      <span class="napitem"><span class="nl">Also</span>easyrecreation.com · interactivewaterparks.com</span>
+      <span class="napitem"><span class="nl">Catalog</span>products.vpcfiberglass.stage.thomasnet-navigator.com</span>
+    </div>
+    <div class="divisions">
+      <div class="dvlab">The five divisions, and where each one lives online</div>
+      <table class="dvtable">
+        <tr><td class="dvn">VPC Fiberglass</td><td class="dvw"><a href="https://www.vpcfiberglass.com/" target="_blank" rel="noopener">vpcfiberglass.com</a></td><td class="dvs">The parent site. Well built. Carries three separate company entities in its markup, which muddies who the company is.</td></tr>
+        <tr><td class="dvn">EasyRec</td><td class="dvw"><a href="https://easyrecreation.com/" target="_blank" rel="noopener">easyrecreation.com</a></td><td class="dvs">Its own site, and it serves <b>no structured data at all</b>. A second copy at new.easyrecreation.com is publicly indexable.</td></tr>
+        <tr><td class="dvn">InterActive Play</td><td class="dvw"><a href="https://interactivewaterparks.com/" target="_blank" rel="noopener">interactivewaterparks.com</a></td><td class="dvs">Its own site, with a company block but no product markup. Neither this nor EasyRec tells a machine that VPC owns it, except in the footer copyright line.</td></tr>
+        <tr><td class="dvn">Composite Fan</td><td class="dvw">compositefan.com</td><td class="dvs">VPC owns the domain and it lands on the <b>corporate homepage</b>, not on a Composite Fan page. The division itself is an anchor link, /divisions/#cft.</td></tr>
+        <tr><td class="dvn">Primary Plastics</td><td class="dvw">no site of its own</td><td class="dvs">Also just an anchor link, /divisions/#pp. Between them, these last two carry roughly a sixth of six-year sales and neither has a page.</td></tr>
+      </table>
     </div>
     <div class="blocks">
       <div class="block people">
@@ -250,8 +288,9 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <h4>Where it stands</h4>
         <ul class="items">
           <li><b>Highest score in the portfolio, and still invisible.</b> The site is genuinely well built. Ask an engineer's question about who makes FRP enclosures and VPC is not in the answer.</li>
-          <li class="done">3D viewer and configurator are live. Product schema is live on two pages as a working pilot.</li>
-          <li>Catalog is 140 products across 1,137 URLs, running on the web vendor's platform rather than anything VPC controls.</li>
+          <li class="done">The 3D viewer and configurator are live on EasyRec.</li>
+          <li>Product markup is <b>written and tested but not yet on any VPC site</b>. Checked on 12 September: InterActive Play carries an Organization block and no product markup, and EasyRec serves no structured data at all. The work is ready to install, which is a different thing from installed.</li>
+          <li>Catalog is 140 products, running on the web vendor's platform rather than on anything VPC controls.</li>
           <li class="done">Amanda has agreed to the rebuild and to moving the catalog off Thomas. Her condition is that lead volume holds and then grows.</li>
           <li>Submittal tool is built on 20 sales orders paired to 20 submittals. Larry has replied. Intake is closed and we build on the corpus we hold.</li>
         </ul>
@@ -273,12 +312,24 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <p>Each of the five divisions readable as its own business. Two of them currently have no page at all, only an anchor link on a shared one.</p>
       </div>
     </div>
-    <p class="deeplink"><a href="../vpc-overview/">Open the VPC overview →</a></p>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../vpc-overview/">The short version</a>
+      <a href="../vpc-digital-design-brief/">Website design brief</a>
+      <a href="../vpc-2027-2028-plan/">2027 and 2028 plan</a>
+      <a href="../vpc-work-order/">Website work order</a>
+      <a href="../vpc-findability/">Full findability review</a>
+      <a href="../vpc-fiberglass/">Original audit</a>
+      <a href="../easyrec/">EasyRec 3D viewer</a>
+    </div></div>
   </div>
 
-  <!-- 02 Bake Shop -->
-  <div class="biz" id="bakeshop">
-    <div class="bizhead"><h3>02 · Ellicottville Bake Shop</h3><span class="chip s-hi">6.0 / 10</span><span class="chip">Re-verified 1 Sep</span></div>
+  <!-- 02 Ellicottville -->
+  <div class="biz" id="ellicottville">
+    <div class="bizhead"><h3>02 · Ellicottville</h3><span class="chip">Two businesses</span></div>
+    <p class="bizcat">Ellicottville NY · Ellicottville Bake Shop and Alpine Bistro. Ellicottville Coffee is a sub-brand of the Bistro rather than a business of its own. Each one has its own panel and its own documents below.</p>
+  <!-- 02 Ellicottville Bake Shop -->
+  <div class="biz sub" id="bakeshop">
+    <div class="bizhead"><h3>Ellicottville Bake Shop</h3><span class="chip s-hi">6.0 / 10</span><span class="chip">Re-verified 1 Sep</span></div>
     <p class="bizcat">Bakery · Ellicottville NY</p>
     <div class="nap">
       <span class="napitem"><span class="nl">Web</span><a href="https://ellicottvillebakeshop.com/" target="_blank" rel="noopener">ellicottvillebakeshop.com</a></span>
@@ -295,8 +346,8 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <ul class="items">
           <li class="done"><b>The largest improvement in the portfolio.</b> 5.5 to 6.0 after the rebuild launched in August, and it held on re-check.</li>
           <li class="done">Bakery markup shipped in September and it is correct.</li>
-          <li>The sitemap submits sixteen pieces of theme furniture and leaves out twenty-nine real pages, twenty-five of which are individual menu items.</li>
-          <li>Nine FAQ answers on the site are not marked up as questions and answers. Three menu pages still carry placeholder text.</li>
+          <li>The sitemap still has it backwards. Checked 12 September: it submits <b>twelve pieces of theme furniture and seven real pages</b>, and the sitemaps that would list the individual menu items return errors, so the menu is invisible to search.</li>
+          <li>Nine FAQ answers on the site are not marked up as questions and answers.</li>
           <li class="blocked">The August catering PDF prints a 3:30 close while the site and the Google profile both say 2:30.</li>
         </ul>
       </div>
@@ -315,54 +366,18 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <p>The FAQ content marked up properly, which is the single most repeatable way to get named in an AI answer.</p>
       </div>
     </div>
-    <p class="deeplink"><a href="../ellicottville-bake-shop/">Open the Bake Shop audit →</a></p>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../ellicottville-bake-shop/">Digital presence audit</a>
+      <a href="../hogan-ellicottville-refresh/">Audit refresh, 24 August</a>
+      <a href="../hogan-ellicottville-september/">Progress update, 11 September</a>
+      <a href="../ellicottville-qr-strategy/">Counter card and QR</a>
+    </div></div>
   </div>
 
-  <!-- 03 Tiveron -->
-  <div class="biz" id="tiveron">
-    <div class="bizhead"><h3>03 · Tiveron Law</h3><span class="chip s-hi">6.0 / 10</span><span class="chip">Re-audited 10 Sep</span></div>
-    <p class="bizcat">Law · Amherst, Buffalo, Ellicottville, Lancaster &amp; Lockport NY</p>
-    <div class="nap">
-      <span class="napitem"><span class="nl">Web</span><a href="https://www.tiveronlaw.com/" target="_blank" rel="noopener">tiveronlaw.com</a></span>
-      <span class="napitem"><span class="nl">Phone</span><a href="tel:+17166367600">716-636-7600</a></span>
-      <span class="napitem"><span class="nl">Note</span><span class="flagnote">the team page publishes a different number in its metadata</span></span>
-    </div>
-    <div class="blocks">
-      <div class="block people">
-        <h4>Who is on it</h4>
-        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group and stakeholders, and before that, whether this belongs in the nine at all.</div></div>
-        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Diane R. Tiveron is managing partner. Jennifer Hogan works out of the same Amherst address. <em>Who maintains the website has been asked twice and never answered.</em></div>
-      </div>
-      <div class="block">
-        <h4>Where it stands</h4>
-        <ul class="items">
-          <li class="done"><b>The headline problem is largely fixed.</b> The 2022 rebrand had left the old firm name on nearly every blog post title. Re-sampled across the full sitemap, the readable articles now all read Tiveron Law.</li>
-          <li>The old name still appears exactly six times on every page, all of it in the machine-readable layer rather than anywhere a visitor would see it.</li>
-          <li class="blocked">The team page publishes a phone number in its metadata that does not match the office.</li>
-          <li>Directory listings are split three ways: some renamed, some carrying the new name on an old web address, some still under the old name outright.</li>
-          <li>A fix guide was sent on 17 August and has never been answered.</li>
-        </ul>
-      </div>
-      <div class="block">
-        <h4>Priorities now</h4>
-        <ul class="items">
-          <li class="blocked"><b>Your call first: is Tiveron in the nine or not?</b> Everything below depends on the answer.</li>
-          <li class="blocked">The wrong phone number on the team page, which is the one item here that can cost a real call.</li>
-          <li class="blocked">Who receives the fix guide. Without a name it sits where it has sat since August.</li>
-        </ul>
-      </div>
-      <div class="block">
-        <h4>Twelve months out</h4>
-        <p>Deliberately open. This is the one business in the nine whose place in the portfolio is unsettled, and setting a year target before that is decided would be putting the cart first.</p>
-      </div>
-    </div>
-    <p class="deeplink"><a href="../tiveron-law/">Open the Tiveron audit →</a></p>
-  </div>
-
-  <!-- 04 Alpine -->
-  <div class="biz" id="alpine">
-    <div class="bizhead"><h3>04 · Alpine Bistro</h3><span class="chip s-mid">5.5 / 10</span><span class="chip">Re-audited 24 Aug</span></div>
-    <p class="bizcat">Café &amp; Wine Bar · Ellicottville NY</p>
+  <!-- 03 Alpine Bistro -->
+  <div class="biz sub" id="alpine">
+    <div class="bizhead"><h3>Alpine Bistro</h3><span class="chip s-mid">5.5 / 10</span><span class="chip">Re-audited 24 Aug</span></div>
+    <p class="bizcat">Café &amp; Wine Bar · Ellicottville NY · Ellicottville Coffee is a sub-brand of Alpine Bistro, not a separate business</p>
     <div class="nap">
       <span class="napitem"><span class="nl">Web</span><a href="https://alpinebistrony.com/" target="_blank" rel="noopener">alpinebistrony.com</a></span>
       <span class="napitem"><span class="nl">Phone</span><a href="tel:+17169932478">716-993-2478</a></span>
@@ -378,8 +393,8 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <ul class="items">
           <li><b>A 4.6-star Google profile is carrying the discoverability almost single-handed.</b> The website contributes very little.</li>
           <li class="done">An SEO layer went in during August and moved the technical score from the bottom grade to a middle one. That work was done properly.</li>
-          <li class="blocked">The new markup carries two conflicting sets of opening hours, one of which tells Google the bistro closes at five every day including Friday and Saturday.</li>
-          <li>The mobile site still blocks pinch-to-zoom.</li>
+          <li class="done"><b>The conflicting opening hours are fixed.</b> Re-checked 12 September: there is now one set of hours in the markup and it reads 8 to 4 Sunday through Thursday, 8 to 8 Friday, 8 to 9 Saturday. That matches what we settled on 11 September.</li>
+          <li class="done"><b>The mobile zoom lock is gone.</b> Also re-checked 12 September. Both of the technical faults this audit led with have now been cleared.</li>
           <li class="done">The logo and mixed-content faults are fixed. The root cause was a single wrong setting, and correcting it also created redirects that had been missing.</li>
           <li class="done">The hours dispute is closed. The coffee site was right all along.</li>
         </ul>
@@ -387,9 +402,9 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
       <div class="block">
         <h4>Priorities now</h4>
         <ul class="items">
-          <li class="blocked"><b>A full rebuild is already built and sitting behind a private link.</b> It has not been sent. That is John's call to make with you, and it is the biggest open decision on this business.</li>
-          <li>The conflicting hours in the markup, which is actively telling Google something false.</li>
-          <li>The mobile zoom lock.</li>
+          <li class="blocked"><b>Closing the Ellicottville gap.</b> The weekly bleed is the real priority here, not the website. See the open items at the foot of this page.</li>
+          <li>A full rebuild is built and sitting behind a private link, not sent.</li>
+          <li>With the hours and the zoom lock cleared, what is left on the site itself is content rather than defects.</li>
         </ul>
       </div>
       <div class="block">
@@ -398,12 +413,23 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <p>The website doing a real share of the discovery work instead of leaving it all to the Google profile.</p>
       </div>
     </div>
-    <p class="deeplink"><a href="../alpine-bistro-ellicottville/">Open the Alpine Bistro audit →</a></p>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../alpine-bistro-ellicottville/">Digital presence audit</a>
+      <a href="../hogan-6k-week/">The Six Thousand Dollar Week</a>
+      <a href="../hogan-ellicottville-refresh/">Audit refresh, 24 August</a>
+      <a href="../hogan-ellicottville-september/">Progress update, 11 September</a>
+      <a href="../ellicottville-qr-strategy/">Counter card and QR</a>
+    </div></div>
   </div>
 
-  <!-- 05 Fenimore's -->
-  <div class="biz" id="fenimores">
-    <div class="bizhead"><h3>05 · Fenimore's Table</h3><span class="chip s-mid">4.5 / 10</span><span class="chip">Score predates the 9 Sep rebuild</span></div>
+  </div>
+  <!-- 03 Cooperstown -->
+  <div class="biz" id="cooperstown">
+    <div class="bizhead"><h3>03 · Cooperstown</h3><span class="chip">Three businesses</span></div>
+    <p class="bizcat">Cooperstown NY · Fenimore's Table, Cooperstown Clubhouse and the Cooperstown Experience. They share grounds and they appear to share people, so a name given for one may well belong to another. Each has its own panel and its own documents below.</p>
+  <!-- 03 Fenimore's Table -->
+  <div class="biz sub" id="fenimores">
+    <div class="bizhead"><h3>Fenimore's Table</h3><span class="chip s-mid">4.5 / 10</span><span class="chip">Score predates the 9 Sep rebuild</span></div>
     <p class="bizcat">Gastro-pub · Cooperstown NY · On and beside the Cooperstown Experience grounds</p>
     <div class="nap">
       <span class="napitem"><span class="nl">Web</span><a href="https://www.fenimorestable.com/" target="_blank" rel="noopener">fenimorestable.com</a></span>
@@ -419,12 +445,12 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
       <div class="block">
         <h4>Where it stands</h4>
         <ul class="items">
-          <li class="done"><b>The site was rebuilt on 9 September</b> and we hold administrator access, so changes no longer wait on a vendor.</li>
+          <li class="done"><b>The site was heavily updated, edited and repaired on 9 September.</b> Not a rebuild. We hold administrator access, so changes no longer wait on a vendor.</li>
           <li class="done">Three menus are live, including a breakfast service opening at 6:30. Hours have moved with it.</li>
           <li class="done">The private events page is live, at 95 indoors and 140 in summer with the patio.</li>
           <li>The score of 4.5 predates all of this. It has been annotated rather than re-scored, and a proper re-audit is waiting on the dinner menu.</li>
-          <li>The brunch page returns an error and there is no brunch content anywhere on the site, while brunch is being sold as an events package.</li>
-          <li>A social workflow document is written and has not been sent.</li>
+          <li>Checked 12 September: <b>/brunch/ now redirects to the breakfast page, and the word brunch does not appear on it once.</b> The link works and the content does not exist, while brunch is being sold as an events package.</li>
+          <li>A social workflow document is written and has not been sent. It carries the two-layer approach: a scheduled backbone plus same-day photographs from the floor.</li>
         </ul>
       </div>
       <div class="block">
@@ -432,6 +458,7 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <ul class="items">
           <li class="blocked"><b>One name and one email address are blocking the enquiry form.</b> Who owns event enquiries, and who backs them up. Nothing further gets built until that comes back.</li>
           <li class="blocked">We owe Bob a draft of the automatic reply that goes to a guest who enquires.</li>
+          <li class="blocked"><b>A six-month social calendar, built in one week and scheduled.</b> Every holiday and every event anyone already knows about, sat down once, dated and published on a schedule. Boots-on-the-ground posts from the floor then mix into a calendar that is already running rather than starting from an empty week.</li>
           <li>The dinner menu, which is the trigger for the full re-audit.</li>
           <li>The phone number is not tappable on a phone, which on a restaurant site is a real cost.</li>
           <li><b>Worth knowing:</b> two different capacity figures are circulating. The page says 95 and 140. A separate document says 100 and 60. If anyone quotes the second pair, that document is where it came from.</li>
@@ -443,12 +470,19 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <p>Breakfast and lunch known locally. The estimate in the room was that most of the area does not know they exist.</p>
       </div>
     </div>
-    <p class="deeplink"><a href="../fenimores-status/">Open the Fenimore's status page →</a></p>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../fenimores-status/">Where things stand</a>
+      <a href="../fenimores-table/">Digital presence audit</a>
+      <a href="../fenimores-events/">Private events pages</a>
+      <a href="../fenimores-social/">Photos to Facebook and Instagram</a>
+      <a href="../fenimores-menu-sync/">The three menus, reconciled</a>
+      <a href="../fenimores-dinner/">Dinner card readout</a>
+    </div></div>
   </div>
 
-  <!-- 06 Clubhouse -->
-  <div class="biz" id="clubhouse">
-    <div class="bizhead"><h3>06 · Cooperstown Clubhouse</h3><span class="chip s-mid">4.1 / 10</span><span class="chip">Re-verified 24 Aug</span></div>
+  <!-- 04 Cooperstown Clubhouse -->
+  <div class="biz sub" id="clubhouse">
+    <div class="bizhead"><h3>Cooperstown Clubhouse</h3><span class="chip s-mid">4.1 / 10</span><span class="chip">Re-verified 24 Aug</span></div>
     <p class="bizcat">Team Dining · Cooperstown NY · Also trades as Rookie's Craft House</p>
     <div class="nap">
       <span class="napitem"><span class="nl">Web</span><a href="https://www.cooperstownclubhouse.com/" target="_blank" rel="noopener">cooperstownclubhouse.com</a></span>
@@ -467,7 +501,7 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
           <li class="done">The Google rating recovered strongly from 2.4 earlier in the year and now sits at 4.0. Somebody has been working it.</li>
           <li>The homepage carries five top-level headings and no subheadings, which leaves a reader and a machine without a structure.</li>
           <li>Fourteen of fifteen images have no description attached, so they are invisible to search.</li>
-          <li>No page description and no structured data at all.</li>
+          <li>Re-checked 12 September: there is now a page description, and still <b>no structured data at all</b>. The marquee, the five headings, the missing image descriptions and the empty markup were all still true this morning.</li>
           <li class="blocked">The venue still trades under a second name on Yelp and on social.</li>
         </ul>
       </div>
@@ -485,13 +519,17 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <p>Team dining findable by the people who book it, which today it is not.</p>
       </div>
     </div>
-    <p class="deeplink"><a href="../cooperstown-clubhouse/">Open the Clubhouse audit →</a></p>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../cooperstown-clubhouse/">Digital presence audit, the full list of what is still open</a>
+      <a href="../clubhouse-domain-cleanup/">Rookie's conversion review</a>
+      <a href="../cooperstown/">Cooperstown: where things stand</a>
+    </div></div>
   </div>
 
-  <!-- 07 Experience -->
-  <div class="biz" id="experience">
-    <div class="bizhead"><h3>07 · Cooperstown Experience</h3><span class="chip s-lo">3.4 / 10</span><span class="chip">Re-verified 11 Aug</span></div>
-    <p class="bizcat">Tournament Complex · 4850 NY-28, Cooperstown NY</p>
+  <!-- 05 Cooperstown Experience -->
+  <div class="biz sub" id="experience">
+    <div class="bizhead"><h3>Cooperstown Experience</h3><span class="chip s-lo">3.4 / 10</span><span class="chip">Re-verified 11 Aug</span></div>
+    <p class="bizcat">Tournament Complex · 4850 NY-28, Cooperstown NY · The whole programme: the ballfields, both restaurants on and beside the grounds, and the hotel that may follow</p>
     <div class="nap">
       <span class="napitem"><span class="nl">Web</span><a href="https://cooperstownexperience.com/" target="_blank" rel="noopener">cooperstownexperience.com</a></span>
       <span class="napitem"><span class="nl">Phone</span>607-446-0110</span>
@@ -526,12 +564,18 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <p>The Hall of Fame awards presentation understood as the thing Dreams Park cannot copy.</p>
       </div>
     </div>
-    <p class="deeplink"><a href="../cooperstown-experience/">Open the Cooperstown Experience audit →</a></p>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../cooperstown-experience/">Digital presence audit</a>
+      <a href="../cooperstown/">Cooperstown: where things stand</a>
+      <a href="../fenimores-status/">Fenimore's Table</a>
+      <a href="../cooperstown-clubhouse/">Cooperstown Clubhouse</a>
+    </div></div>
   </div>
 
-  <!-- 08 Patriot / CW -->
+  </div>
+  <!-- 04 Patriot Stone Supply / Concrete Warrior -->
   <div class="biz" id="patriot">
-    <div class="bizhead"><h3>08 · Patriot Stone Supply / Concrete Warrior</h3><span class="chip s-lo">3.2 / 10</span><span class="chip s-new">Concrete Warrior launched 11 Sep</span></div>
+    <div class="bizhead"><h3>04 · Patriot Stone Supply / Concrete Warrior</h3><span class="chip s-lo">3.2 / 10</span><span class="chip s-new">Concrete Warrior launched 11 Sep</span></div>
     <p class="bizcat">Aggregate · Denton TX and New Town ND · Two businesses, tracked as one line because they compete for the same resources</p>
     <div class="nap">
       <span class="napitem"><span class="nl">Patriot Stone</span><a href="https://patriotstonesupply.com/" target="_blank" rel="noopener">patriotstonesupply.com</a></span>
@@ -548,7 +592,7 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
       <div class="block">
         <h4>Where it stands</h4>
         <ul class="items">
-          <li class="blocked"><b>Patriot Stone is on hold.</b> Its audit finding stands: a location business you cannot locate, with no address published and no Google profile at all.</li>
+          <li class="blocked"><b>Patriot Stone is on hold, and its core finding is unchanged.</b> Re-checked 12 September: the site names a yard manager and a phone number and publishes <b>no address, no city and no state anywhere</b>. A location business you cannot locate.</li>
           <li class="done"><b>Concrete Warrior launched on 11 September.</b> Site live, Google profile live, Search Console and Analytics both connected the same day.</li>
           <li>No score for Concrete Warrior yet, and that is deliberate. Scoring a one-day-old site grades it F on every findability measure for having no history rather than for any fault.</li>
           <li>A formal audit is set for around 10 October, which gives a real before and after against the clean launch-day baseline.</li>
@@ -570,12 +614,20 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <p>A decision on Patriot Stone, which is currently neither progressing nor formally stopped.</p>
       </div>
     </div>
-    <p class="deeplink"><a href="../concrete-warrior-launch/">Concrete Warrior launch summary →</a> &nbsp;·&nbsp; <a href="../patriot-stone-supply/">Patriot Stone audit →</a></p>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../concrete-warrior-season/">Season dashboard, refreshed Mondays</a>
+      <a href="../concrete-warrior-launch/">The site is live</a>
+      <a href="../concrete-warrior-gbp/">Google Business Profile playbook</a>
+      <a href="../concrete-warrior-sales/">Who actually buys this</a>
+      <a href="../concrete-warrior-nd/">Competitive landscape</a>
+      <a href="../concrete-warrior-market/">The Bakken around New Town</a>
+      <a href="../patriot-stone-supply/">Patriot Stone audit</a>
+    </div></div>
   </div>
 
-  <!-- 09 Homestead -->
+  <!-- 05 Homestead Realty WNY -->
   <div class="biz" id="homestead">
-    <div class="bizhead"><h3>09 · Homestead Realty WNY</h3><span class="chip s-lo">2.8 / 10</span><span class="chip">Lowest in the portfolio</span></div>
+    <div class="bizhead"><h3>05 · Homestead Realty WNY</h3><span class="chip s-lo">2.8 / 10</span><span class="chip">Lowest in the portfolio</span></div>
     <p class="bizcat">Rental Housing · Getzville NY</p>
     <div class="nap">
       <span class="napitem"><span class="nl">Web</span><a href="https://homesteadrealtywny.com/" target="_blank" rel="noopener">homesteadrealtywny.com</a></span>
@@ -594,7 +646,7 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <ul class="items">
           <li><b>Nearly forty years of operating history and more than sixty units, represented online by three listings.</b> The gap between the real business and the visible one is the widest in the portfolio.</li>
           <li class="blocked">The Google profile is unclaimed, which means every review left on it has gone unanswered because nobody can answer them.</li>
-          <li>The homepage title tag is empty, which is the single most basic thing a website can get wrong.</li>
+          <li>The homepage title tag is <b>completely empty</b>, still true on 12 September, along with no page description and no structured data. That is the most basic thing a website can get wrong.</li>
           <li>Most of the visible presence sits on a third-party listings site rather than on the company's own.</li>
         </ul>
       </div>
@@ -612,9 +664,102 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <p>Available units findable directly, so a tenant search reaches Homestead instead of a competitor with a better listing.</p>
       </div>
     </div>
-    <p class="deeplink"><a href="../homestead-realty-wny/">Open the Homestead audit →</a></p>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../homestead-realty-wny/">Digital presence audit, the full list of what needs to happen</a>
+    </div></div>
+  </div>
+  <!-- 06 Tiveron Law -->
+  <div class="biz" id="tiveron">
+    <div class="bizhead"><h3>06 · Tiveron Law</h3><span class="chip s-hi">6.0 / 10</span><span class="chip">Re-audited 10 Sep</span></div>
+    <p class="bizcat">Law · Amherst, Buffalo, Ellicottville, Lancaster &amp; Lockport NY</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Web</span><a href="https://www.tiveronlaw.com/" target="_blank" rel="noopener">tiveronlaw.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span><a href="tel:+17166367600">716-636-7600</a></span>
+      <span class="napitem"><span class="nl">Note</span><span class="flagnote">the team page publishes 716-363-7600 in its description, two digits transposed</span></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group and stakeholders, and before that, whether this belongs in the nine at all.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Diane R. Tiveron is managing partner. Jennifer Hogan works out of the same Amherst address. <em>Who maintains the website has been asked twice and never answered.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li class="done"><b>The headline problem is largely fixed.</b> The 2022 rebrand had left the old firm name on nearly every blog post title. Re-sampled across the full sitemap, the readable articles now all read Tiveron Law.</li>
+          <li>The old name still appears <b>exactly six times on every page</b>, confirmed again on 12 September, all of it in the machine-readable layer rather than anywhere a visitor would see it.</li>
+          <li class="blocked">The team page description, which is the text Google shows in results, reads <b>716-363-7600</b>. The real number is 716-636-7600. Two digits are transposed, and it was still wrong on 12 September.</li>
+          <li>Directory listings are split three ways: some renamed, some carrying the new name on an old web address, some still under the old name outright.</li>
+          <li>A fix guide was sent on 17 August and has never been answered.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>Your call first: is Tiveron in the nine or not?</b> Everything below depends on the answer.</li>
+          <li class="blocked">The transposed phone number on the team page, which is the one item here that can cost a real call.</li>
+          <li class="blocked">Who receives the fix guide. Without a name it sits where it has sat since August.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>Deliberately open. This is the one business in the nine whose place in the portfolio is unsettled, and setting a year target before that is decided would be putting the cart first.</p>
+      </div>
+    </div>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../tiveron-law/">Digital presence audit</a>
+      <a href="../tiveron-site-fixes/">Site fix guide</a>
+    </div></div>
   </div>
 
+
+</section>
+
+<section>
+  <h2>Davison Road, Lockport</h2>
+  <p class="sec-sub">A property and zoning project rather than an operating business · brief frozen at v2.5 since 2 September</p>
+
+  <div class="biz" id="davison">
+    <div class="bizhead"><h3>P1 · Davison Road, Lockport</h3><span class="chip s-lo">Article 78 lost</span><span class="chip">Awaiting Corey and Jeff</span></div>
+    <p class="bizcat">Davison Road Properties LLC · Eight parcels, roughly 38,000 square feet of office space on Davison Road and Professional Parkway, acquired January 2024</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Campaign site</span>davisonroadestates.com</span>
+      <span class="napitem"><span class="nl">Note</span><span class="flagnote">the site still argues the case the court rejected, and carries empty counters and typos</span></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Who is driving this, and who needs to be in the room for the zoning route.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Jeff has been deeply involved and is reading the brief alongside you. Recckio is the broker. <em>The council side matters too: Wyche holds the ward that contains the corridor.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li><b>The plan was adaptive reuse to residential.</b> In March 2025 the Common Council rezoned sixty corridor parcels to Mixed Office, a district that does not permit dwellings, and the Article 78 challenge to that was lost.</li>
+          <li>Only two of the eight units are tenanted, and eight of nineteen buildings along the corridor are empty.</li>
+          <li class="done"><b>Medical tenancy is off the table, and you were the one who said so.</b> The old hospital a couple of miles away is closed, and the replacement absorbed its physicians on its own campus. That correction argues your side: the city zoned the corridor exclusively for a tenant base that no longer exists.</li>
+          <li>The brief is finished and frozen at version 2.5, with the design boards attached, waiting on your read and Jeff's.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>The only item on this whole page with a clock on it.</b> Whether the appeal window is still open turns on when notice of entry was served, and the automatic court notice does not count. Six months past entry and still unanswered. A docket check settles it either way, and until someone looks, nobody knows whether the option exists.</li>
+          <li>The strongest route is asking the new council to permit residential by special use permit. Three of six aldermen changed after November, and this council already backed off a housing moratorium under public pressure.</li>
+          <li>A fresh use variance on 770 with the boards attached is the parallel track. Every Mixed Office use marketed to, quoted and turned down, written down with dates, is the evidence that route needs.</li>
+          <li class="blocked">Nothing goes to neighbours while the campaign site contradicts it. Fix the site first or take it dark.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>A route to residential that is actually open, whether that comes from the council changing the text, a use variance, or the appeal if the clock turns out to have been running.</p>
+        <p>The buildings earning something in the meantime. Childcare, county tenancy and ordinary service tenants are permitted today, and that is one tenant at a time over years rather than a single answer.</p>
+      </div>
+    </div>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../hogan-davison-road/">Davison Road: where things stand</a>
+    </div></div>
+  </div>
 </section>
 
 <section>
@@ -623,10 +768,14 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
   <ul class="qlist">
     <li><div class="qt">Who is on each business</div><div class="qd">The 12 September email. Every people block on this page fills in from your answer, and until it does this dashboard is describing work without describing who does it.</div></li>
     <li><div class="qt">Does Tiveron Law belong in the nine</div><div class="qd">Asked in the same email. It changes what we track and what we stop tracking.</div></li>
-    <li><div class="qt">The coffee business</div><div class="qd">There is a coffee operation in Ellicottville that is not in these nine and that we cannot name with confidence. Either it belongs on this page or it does not, and we would rather ask than guess.</div></li>
     <li><div class="qt">The three things question, reopened</div><div class="qd">On the 9 September call the room was asked to name the top three things on each person's mind. The meeting moved on and it was never answered. It is the only place the people running these businesses would have set the priorities themselves, rather than us reading them off the work. Worth asking again, in writing, one person at a time.</div></li>
-    <li><div class="qt">Alpine Bistro rebuild</div><div class="qd">Built, private, and not sent. It needs a yes or a no rather than continuing to sit.</div></li>
+    <li><div class="qt">Closing the Ellicottville gap</div><div class="qd">The one that costs money every week it waits. Revenue against expenses in Ellicottville is running roughly <b>three to four thousand dollars a week</b> to the wrong side. That is a project rather than a task: work out where the gap actually sits between the two businesses, put a plan against it, and run the plan. Everything else on this page can wait behind it.</div></li>
   </ul>
+  <div class="docs" style="margin-top:26px"><div class="dlab">Across the portfolio</div><div class="drow">
+    <a href="../hogan-portfolio/">The nine audits, one summary</a>
+    <a href="../hogan-ai-approach/">AI across the portfolio</a>
+    <a href="../hogan-6k-week/">The Six Thousand Dollar Week</a>
+  </div></div>
 </section>
 
 <footer>
