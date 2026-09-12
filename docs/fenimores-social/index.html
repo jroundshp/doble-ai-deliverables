@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="googlebot" content="noindex, nofollow">
-<meta name="description" content="Working draft for review. Not for print or public posting.">
-<title>Fenimore's: Photos from the Floor to Facebook and Instagram</title>
+<meta name="description" content="Working brief for the Fenimore's team. Not for print or public posting.">
+<title>Fenimore's Social Media Plan, September 2026 to March 2027</title>
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJz48dGV4dCB5PScuOWVtJyBmb250LXNpemU9JzkwJz7wn5O3PC90ZXh0Pjwvc3ZnPg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +52,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  .sheet { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; }
+  .sheet { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; }
   header.masthead { padding-top: 64px; display: flex; flex-direction: column; gap: 18px; }
 
   .eyebrow {
@@ -84,21 +84,17 @@
     font-weight: 700; font-size: 26px; letter-spacing: -0.01em; line-height: 1.15;
     text-wrap: balance; margin: 0 0 6px; padding-bottom: 10px; border-bottom: 2px solid var(--ink);
   }
-  h3 { font-family: Archivo, sans-serif; font-weight:600; font-size:19px; margin:0 0 6px; }
-  h4 { font-family: Archivo, sans-serif; font-weight:600; font-size:16px; margin:0 0 4px; }
+  h3 { font-family: Archivo, sans-serif; font-weight:600; font-size:19px; margin:10px 0 2px; }
 
   p { margin: 0; max-width: 66ch; }
-  p + p { margin-top: -4px; }
   strong, b { font-weight: 600; }
   a { color: var(--accent); text-underline-offset: 3px; }
-
-  code, .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 0.86em; }
-  code { background: var(--sunken); padding: 1px 5px; border-radius: 3px; word-break: break-word; }
+  code { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 0.86em; background: var(--sunken); padding: 1px 5px; border-radius: 3px; word-break: break-word; }
 
   .tag {
     font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
     font-size: 9.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 3px 7px; border-radius: 3px; white-space: nowrap;
+    padding: 3px 7px; border-radius: 3px; white-space: nowrap; display: inline-block;
   }
   .t-ok    { background: var(--confirmed-soft); color: var(--confirmed); }
   .t-open  { background: var(--open-soft);      color: var(--open); }
@@ -106,66 +102,35 @@
 
   .warn { background:var(--blocked-soft); border-left:4px solid var(--blocked); padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
   .closer { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
-  .closer p { max-width: 62ch; }
 
   ul.plain { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:9px; max-width:66ch; }
-  ul.tight { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:4px; max-width:66ch; }
 
-  ol.steps { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:18px; counter-reset:r; }
-  ol.steps li { background:var(--surface); border:1px solid var(--hair); border-left:4px solid var(--accent); padding:18px 22px; }
-  ol.steps li::before { counter-increment:r; content:"0" counter(r); font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; color:var(--accent); display:block; margin-bottom:6px; }
-  .rt { font-family:Archivo,sans-serif; font-weight:600; font-size:17.5px; display:block; margin-bottom:6px; }
+  .layers { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px; }
+  .layer { background:var(--surface); border:1px solid var(--hair); border-top:4px solid var(--accent); padding:20px 22px; display:flex; flex-direction:column; gap:10px; }
+  .layer.ground { border-top-color: var(--confirmed); }
+  .layer .lab { font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0; }
+  .layer h3 { margin:0; }
 
   ol.asks { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:16px; counter-reset:a; }
   ol.asks li { background:var(--surface); border:1px solid var(--hair); border-left:4px solid var(--blocked); padding:16px 20px; }
   ol.asks li::before { counter-increment:a; content:"Q" counter(a); font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; color:var(--blocked); display:block; margin-bottom:6px; }
+  ol.asks li.first { border-left-width: 6px; }
 
   .sheet > *, section > * { min-width: 0; }
   .table-wrap { overflow-x: auto; max-width: 100%; min-width: 0; border: 1px solid var(--hair); background: var(--surface); }
-  table { border-collapse: collapse; width: 100%; min-width: 560px; }
-  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--hair); vertical-align: top; font-size: 15.5px; line-height: 1.5; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; }
+  th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--hair); vertical-align: top; font-size: 15px; line-height: 1.5; }
   th {
     font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
     font-size: 10.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--muted); background: var(--sunken);
   }
+  td.d { white-space: nowrap; font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 13px; }
+  tr.month td { background: var(--accent-soft); font-family: Archivo, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: .04em; color: var(--accent); padding: 8px 14px; }
   tbody tr:last-child td { border-bottom: none; }
 
-  .copy {
-    background: var(--surface); border: 1px solid var(--hair);
-    border-top: 3px solid var(--accent); padding: 26px 28px;
-    display: flex; flex-direction: column; gap: 18px;
-  }
-  .copy .caplab {
-    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-    font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--accent); margin: 0;
-  }
-  .copy h3 { font-size: 21px; }
-  .pkg { border-left: 3px solid var(--hair); padding-left: 18px; display:flex; flex-direction:column; gap:6px; }
-  .pkg .pname { font-family:Archivo,sans-serif; font-weight:700; font-size:15px; letter-spacing:.06em; text-transform:uppercase; }
-  .pkg .ptag { font-family:"Source Serif 4",Georgia,serif; font-style:italic; color:var(--muted); font-weight:400; letter-spacing:0; text-transform:none; font-size:16px; }
-
-  .blank {
-    background: var(--blocked-soft); color: var(--blocked);
-    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-    font-size: 0.82em; padding: 1px 6px; border-radius: 3px; font-weight: 500;
-  }
-
-  .fieldset {
-    background: var(--surface); border: 1px solid var(--hair);
-    padding: 18px 22px; display: flex; flex-direction: column; gap: 10px;
-  }
-  .fieldset .fl {
-    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-    font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
-  }
-  .opts { font-size: 15.5px; color: var(--muted); max-width: 66ch; }
-  .opts b { color: var(--ink); }
-
-  .faq { display:flex; flex-direction:column; gap:20px; }
-  .faq div { border-left:3px solid var(--accent); padding-left:18px; }
-  .faq .q { font-family:Archivo,sans-serif; font-weight:600; font-size:16.5px; display:block; margin-bottom:5px; }
+  .legend { display:flex; flex-wrap:wrap; gap:10px 18px; font-size:14.5px; color:var(--muted); }
+  .legend span.tag { margin-right:6px; }
 
   footer {
     border-top: 1px solid var(--hair); padding-top: 16px;
@@ -175,7 +140,7 @@
 
   @media (max-width: 560px) {
     body { font-size: 16px; padding: 0 18px 72px; }
-    .closer, .warn, ol.steps li, ol.asks li, .copy, .fieldset { padding: 18px 16px; }
+    .closer, .warn, ol.asks li, .layer { padding: 18px 16px; }
   }
 </style>
 </head>
@@ -183,264 +148,163 @@
 <div class="sheet">
 
 <header class="masthead">
-  <p class="eyebrow">Doble AI &middot; Working draft for review &middot; 10 September 2026</p>
-  <h1>Photos from the floor to Facebook and Instagram</h1>
-  <p class="standfirst">A question came off the floor on the 9 September call: the staff are taking the pictures, so how do those pictures get posted the same day rather than sitting in an inbox? This is the answer. Two layers: a calendar built well ahead that publishes itself, and a same-day layer of real photographs on top of it. Phase one starts with a single call between Cooperstown and Buffalo, needs no new software, and can happen this week.</p>
+  <p class="eyebrow">Doble AI &middot; Working brief &middot; Updated 12 September 2026</p>
+  <h1>Fenimore's social media plan, September to March</h1>
+  <p class="standfirst">Two parts running at the same time. The posts we already know are coming get built ahead and scheduled so they publish on their own. The people at the restaurant post what's happening that day, without waiting on anyone.</p>
   <p class="stamp">
-    For <b>Bob, Brooks, Tammy, Katie and Corey.</b> Working draft, not a public page.<br>
-    This document is about one thing only: the path a photograph travels between the moment it is taken and the moment it appears on <b>@fenimorestable</b> on both platforms. It does not move an account, change a login, or ask anyone to hand anything over.<br>
-    Companion pages: <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-events/">private events and the two pages</a>, <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-status/">where the website stands</a>, and the <a href="https://jroundshp.github.io/doble-ai-deliverables/cooperstown/">Cooperstown index</a>.
+    For the <b>Fenimore's and Cooperstown Experience team.</b> Working brief, not a public page.<br>
+    <b>This page changes as you send feedback.</b> New dates, corrected hours and anything we got wrong get added here, and the log at the bottom says what changed and when. The link stays the same.<br>
+    Companion pages: <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-events/">private events</a>, <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-status/">where the website stands</a>, and the <a href="https://jroundshp.github.io/doble-ai-deliverables/cooperstown/">Cooperstown index</a>.
   </p>
 </header>
 
 <section>
   <p class="num">01</p>
-  <h2>What was asked</h2>
-  <p>Good photographs are already being taken at Fenimore's. The drinks set that went round recently is the example everyone had in mind. What is missing is the next step: once a picture exists, the path it takes is not written down anywhere, so it depends on someone remembering.</p>
-  <p>Three specific things came up in that stretch of the call, and all three are fixable:</p>
-  <ul class="plain">
-    <li><b>The photo has no destination.</b> It gets emailed to several people at once, which reads to each of them as somebody else's job.</li>
-    <li><b>The hour matters and is currently accidental.</b> A breakfast plate earns its keep at 7:40 in the morning. The same photograph at nine at night is decoration.</li>
-    <li><b>Social carries real weight in Cooperstown</b>, particularly with the younger crowd, so the gap between taking a picture and posting it is costing actual covers.</li>
-  </ul>
-  <p>All three come down to the same thing. The path is too long and nobody's name is written on it.</p>
+  <h2>The plan</h2>
+  <div class="layers">
+    <div class="layer">
+      <p class="lab">Part one &middot; built ahead</p>
+      <h3>Scheduled posts that publish themselves</h3>
+      <p>Most of the next six months is already on the calendar: every football Sunday, Thanksgiving, Christmas, New Year's, the long weekends, the Super Bowl. Each of those posts gets written ahead of time, with its photo, caption and link, and scheduled for its date in Meta Business Suite.</p>
+      <p>A post scheduled in September goes out on Thanksgiving morning whether or not anyone is near a phone.</p>
+    </div>
+    <div class="layer ground">
+      <p class="lab">Part two &middot; same day</p>
+      <h3>The people on the ground post as things happen</h3>
+      <p>A good plate, a full room on a game day, a special the kitchen just put up. Whoever takes the photo, or whoever is posting that stretch, puts it up right then instead of emailing it around.</p>
+      <p>Each person uses their own login. Nobody shares a password.</p>
+    </div>
+  </div>
+  <p>The two parts fit together because everyone who posts can see the same planner. The scheduled posts keep a steady rhythm going through the slow weeks and the busy ones, and the same-day photos fill the gaps in between. If a photo in someone's hand is better than what's scheduled for that slot, swap it instead of running both.</p>
+  <p>Honestly, part two is the harder one. Part one is a few sittings of desk work and then it runs. Part two depends on people remembering during service, and that usually fades after the first couple of weeks unless one person owns each stretch of the week. That's why the first question at the bottom of this page is about names.</p>
 </section>
 
 <section>
   <p class="num">02</p>
-  <h2>One rule before anything else: the pictures stay real</h2>
+  <h2>Every photo is a real one</h2>
   <div class="warn">
-    <p><b>Posts that read as machine-made have already drawn pushback here</b>, and it was said plainly on the call: <i>why would I go somewhere that isn't real</i>. In a town of roughly 2,500 people that is hard to walk back.</p>
-    <p><b>So the rule for everything below: if nobody at Fenimore's held a camera, it does not post.</b> Real food, real drinks, the real room, the real staff. No generated pictures, no stock.</p>
-    <p>Software does the plumbing only: the reminder, the hour, the crop, and a first caption draft written from a sentence a person actually said.</p>
+    <p><b>Posts that look machine-made have already drawn pushback in Cooperstown.</b> It was said plainly on the 9 September call: why would anyone go somewhere that isn't real? In a village this size that's hard to walk back.</p>
+    <p>So both parts use real photographs of Fenimore's: the actual food, drinks, room and staff. That includes the scheduled posts. The best time to shoot for them is an ordinary weekday, well before the date, like shooting a wings plate on a quiet Thursday for the Thanksgiving night game.</p>
   </div>
 </section>
 
 <section>
   <p class="num">03</p>
-  <h2>Capture and publishing are two different jobs</h2>
-  <p>At the moment they travel together. The photograph and the decision to post it move as a single email, which means a picture can only move as fast as whoever opens that email. Separate them and the whole thing loosens up.</p>
-  <ul class="plain">
-    <li><b>Cooperstown owns capture.</b> The people standing next to the food take the pictures and write the line that goes with them. That is already happening and it is the half that cannot be done from anywhere else.</li>
-    <li><b>The accounts stay exactly where they are.</b> Nothing in this document requires moving @fenimorestable or changing who administers it.</li>
-    <li><b>One name owns the push for a given stretch of the week.</b> A single person, written where the staff can read it, rather than a group in which everyone can reasonably assume it is covered.</li>
-    <li><b>Nothing in the daily rhythm waits on an approval.</b> A photograph of today's lunch special does not need a review cycle. The pictures that carry the room and the pictures tied to an event or a price are different categories and should move at different speeds.</li>
-  </ul>
-  <p>That last point is the one that actually does the work. A photograph sent to five people has been sent to nobody, and no software fixes that. A photograph sent to one named person on a Saturday afternoon gets posted on a Saturday afternoon.</p>
+  <h2>The proposed calendar</h2>
+  <p>This is a starting concept. The football and holiday dates below are confirmed. The town's own events need someone local to fill in the dates, because you know them better than any calendar online. <b>If there are other dates that could be built ahead and scheduled, send them and they'll go on this list.</b></p>
+  <p>Holiday posts run twice: once a week or two early, when people are deciding where to go, and again on the day. Every holiday post also needs Fenimore's hours for that day, which is marked below where we still need it.</p>
+  <div class="legend">
+    <span><span class="tag t-ok">Confirmed</span>date is set</span>
+    <span><span class="tag t-open">Date from town</span>someone local fills it in</span>
+    <span><span class="tag t-fix">Needs details</span>hours, menu or offer to confirm</span>
+  </div>
+
+  <h3>Every week, all season</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>When</th><th>The post</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td class="d">Every Sunday to Jan 10</td><td>Game day post in the morning with the Sunday specials, 12 noon to 9pm. The NFL regular season ends Jan 10.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+      <tr><td class="d">Mondays and Thursdays</td><td>Afternoon reminder that Monday Night and Thursday Night Football are on the screens.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+      <tr><td class="d">Every Sunday</td><td>Sunday brunch, once the days, hours, menu and drink prices are confirmed. The website doesn't list brunch yet.</td><td><span class="tag t-fix">Needs details</span></td></tr>
+      <tr><td class="d">One weekday morning</td><td>Breakfast from 6:30am. Most people driving past still don't know it's served.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Dated posts, October to March</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Date</th><th>Occasion</th><th>The post</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr class="month"><td colspan="4">October</td></tr>
+      <tr><td class="d">Sat Oct 10 to Mon Oct 12</td><td>Columbus Day weekend</td><td>Fall visitors in town for the foliage. Breakfast and lunch posts both days.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+      <tr><td class="d">Oct, date TBC</td><td>Village Halloween parade</td><td>Families on Main Street. A post that afternoon.</td><td><span class="tag t-open">Date from town</span></td></tr>
+      <tr><td class="d">Sat Oct 31</td><td>Halloween</td><td>Falls on a Saturday this year. Post the week before and on the day.</td><td><span class="tag t-fix">Needs details</span></td></tr>
+
+      <tr class="month"><td colspan="4">November</td></tr>
+      <tr><td class="d">Wed Nov 11</td><td>Veterans Day</td><td>A thank-you post in the morning. Add an offer if you decide to run one.</td><td><span class="tag t-fix">Needs details</span></td></tr>
+      <tr><td class="d">Thu Nov 26</td><td>Thanksgiving, plus Chiefs at Bills, 8:20pm on NBC</td><td>The Bills' first-ever home Thanksgiving game. Holiday hours post in mid-November, game night post that afternoon.</td><td><span class="tag t-fix">Needs hours</span></td></tr>
+      <tr><td class="d">Fri Nov 27 and Sat Nov 28</td><td>Black Friday and Small Business Saturday</td><td>Gift cards. Starts the gift card run through December.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+
+      <tr class="month"><td colspan="4">December</td></tr>
+      <tr><td class="d">All month</td><td>Gift cards</td><td>One gift card post a week.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+      <tr><td class="d">Dec, dates TBC</td><td>Holiday events in town</td><td>The Farmers' Museum Candlelight Evening and the village holiday market bring people into Cooperstown in the evenings.</td><td><span class="tag t-open">Date from town</span></td></tr>
+      <tr><td class="d">Thu Dec 24</td><td>Christmas Eve</td><td>Holiday hours post the week before.</td><td><span class="tag t-fix">Needs hours</span></td></tr>
+      <tr><td class="d">Fri Dec 25</td><td>Christmas, plus Bills at Broncos, 4:30pm on Netflix</td><td>Only if Fenimore's is open. The game is streaming only, so it's worth saying it's on the screens.</td><td><span class="tag t-fix">Needs hours</span></td></tr>
+      <tr><td class="d">Thu Dec 31 and Fri Jan 1</td><td>New Year's Eve and New Year's Day</td><td>A New Year's Eve post the week before, and a New Year's Day breakfast post that morning.</td><td><span class="tag t-fix">Needs hours</span></td></tr>
+
+      <tr class="month"><td colspan="4">January</td></tr>
+      <tr><td class="d">Sat Jan 16 to Mon Jan 18</td><td>NFL Wild Card weekend and Martin Luther King Jr. weekend</td><td>Same weekend this year, so a long weekend with playoff games on. A strong one.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+      <tr><td class="d">Sat Jan 23 and Sun Jan 24</td><td>NFL Divisional round</td><td>Game day posts both days.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+      <tr><td class="d">Mon Jan 25</td><td>College football national championship</td><td>Evening game from Las Vegas, 7:30pm on ESPN.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+      <tr><td class="d">Sun Jan 31</td><td>AFC and NFC Championship games</td><td>Game day post in the morning.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+
+      <tr class="month"><td colspan="4">February and March</td></tr>
+      <tr><td class="d">Early Feb, TBC</td><td>Cooperstown Winter Carnival</td><td>Usually the first weekend of February. The 2027 dates aren't published yet.</td><td><span class="tag t-open">Date from town</span></td></tr>
+      <tr><td class="d">Sun Feb 14</td><td>Super Bowl LXI and Valentine's Day</td><td>Both on the same Sunday. Two posts: Valentine's brunch or dinner, and the game. Run the Valentine's post the week before.</td><td><span class="tag t-fix">Needs details</span></td></tr>
+      <tr><td class="d">Mon Feb 15</td><td>Presidents' Day</td><td>End of a long weekend. Breakfast and lunch post.</td><td><span class="tag t-ok">Confirmed</span></td></tr>
+      <tr><td class="d">Wed Mar 17</td><td>St. Patrick's Day</td><td>A Wednesday, when Fenimore's closes at 4pm. A daytime post unless you plan to open later.</td><td><span class="tag t-fix">Needs details</span></td></tr>
+      <tr><td class="d">Sun Mar 28</td><td>Easter</td><td>A natural brunch post, run the week before.</td><td><span class="tag t-fix">Needs details</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Anything that gets booked goes onto this same calendar too: a private party, live music, a menu change, a change in hours.</p>
 </section>
 
 <section>
   <p class="num">04</p>
-  <h2>How the person on the floor actually gets to post</h2>
-  <p>Neither of the two things people usually assume. Not a shared username and password, and not full administrator rights either.</p>
-  <p><b>Nobody should be handed a password.</b> A shared login cannot be withdrawn from one person without changing it for everyone, it makes the activity log useless because every post came from the same account, and it breaks two-factor authentication, which is the thing standing between the accounts and someone taking them. It also creates a genuinely awkward moment the day somebody leaves.</p>
-  <p><b>What happens instead:</b> each person signs in as themselves, and someone who already has full control grants them a role on the Facebook Page and on the linked Instagram account. The password never moves. This is done from Meta Business Suite, under the people or access settings for the Page.</p>
-  <p><b>The level they need is the small one.</b> Enough to create a post, schedule it, and reply to comments and messages. Not settings, not billing, not advertising, and not the ability to add or remove other people. Meta describes this as task access or partial access depending on which panel you land in, and they rename these screens often enough that whoever does the granting should read the labels in front of them rather than work from anyone's screenshot, including ours.</p>
+  <h2>How the people at the restaurant get to post</h2>
+  <p><b>Nobody gets handed the password.</b> A shared login can't be taken back from one person without changing it for everyone, and it breaks the two-factor login that protects the account.</p>
+  <p>Instead, each person signs in to their own Facebook or Instagram account. Someone who already has full control of the Fenimore's page adds them in Meta Business Suite with permission to create posts, schedule them, and reply to comments and messages. They don't get settings, billing, ads, or the ability to add other people. Meta renames these screens often, so follow the labels on the screen in front of you.</p>
+  <p>Staff often turn this down because they worry about their personal profile, so say this when you ask: being added to a business page gives the restaurant nothing on their private profile. Nothing posts there and their friends see nothing. They just get a switch on their phone to move between themselves and Fenimore's.</p>
   <div class="warn">
-    <p><b>Two conditions have to be true first, and neither is visible to us from outside.</b> The Instagram account has to be a professional account, business or creator rather than personal, and it has to be linked to the Facebook Page. If either is missing, the roles and the scheduling simply do not exist as options and the screens will look broken to whoever is trying to follow instructions. Somebody with access should confirm both before anyone is added.</p>
+    <p><b>Check two things first.</b> The Instagram account has to be a professional account, not a personal one, and it has to be linked to the Facebook page. If either is missing, the options to add people and schedule posts won't show up, and the screens will look broken. We can't see either from outside.</p>
   </div>
-  <p><b>The objection that comes up every time, worth answering before it is asked:</b> being added to a business Page gives the business nothing at all on that person's private profile. It does not post to their profile, their friends cannot see it, and the only visible difference on their phone is a switcher for moving between themselves and the restaurant. Staff turn this down for a reason that is not true, so say it out loud when you ask them.</p>
-  <p>Grant it to both of the named posters in phase one rather than to one of them, and keep full control with at least two people. A single administrator is fine right up until the Saturday they are unreachable.</p>
+  <p>Then, for the daily rhythm:</p>
+  <ul class="plain">
+    <li><b>One named poster for each stretch of the week.</b> For example, one person for weekday daytime and one from Friday afternoon through Sunday, when the restaurant is busiest and the photos are best. A photo sent to five people usually gets posted by nobody.</li>
+    <li><b>Look at the planner before posting.</b> If something is already scheduled for that hour, hold yours for the next gap. It takes about fifteen seconds on a phone.</li>
+    <li><b>Post at the hour people are deciding.</b> Breakfast by 8:30am, lunch by 11:15am, drinks and dinner between 4:30 and 5:30pm, game days in the morning and again near kickoff.</li>
+    <li><b>Whoever posts in a stretch also answers the comments and messages.</b> That's where bookings and "are you open for breakfast?" questions come in.</li>
+  </ul>
 </section>
 
 <section>
   <p class="num">05</p>
-  <h2>What a finished post is actually made of</h2>
-  <p>Four pieces, and the fourth one behaves completely differently on the two platforms, which is the part that gets missed.</p>
-  <ol class="steps">
-    <li><span class="rt">The photograph</span>
-      <p>Real, per the rule above. One good one beats four.</p></li>
-    <li><span class="rt">The caption</span>
-      <p>What it is, and a reason to come now rather than at some point. The sentence written by whoever took the picture is the raw material for this.</p></li>
-    <li><span class="rt">The tag</span>
-      <p>The location tag first, because that is how a visitor searching Cooperstown finds the room at all, and it is currently the cheapest thing on this list to start doing. Then the sister accounts where the post genuinely involves them, and any person or supplier actually in the shot. A handful of hashtags, not thirty.</p></li>
-    <li><span class="rt">The link, which is where the platforms split</span>
-      <p>On Facebook a URL in the post text is tappable and goes where it says. On Instagram it is not. A link in an Instagram caption renders as plain text that nobody can tap, so the caption has to send people to the profile instead, and the profile link has to be worth arriving at.</p></li>
-  </ol>
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>The link</th><th>Facebook</th><th>Instagram</th></tr></thead>
-    <tbody>
-      <tr><td>In the post text</td><td>Tappable. Put the real URL in.</td><td>Not tappable. Do not paste one in.</td></tr>
-      <tr><td>What the caption says instead</td><td>Nothing extra needed.</td><td>Point at the bio: <i>menu link is in our bio</i>.</td></tr>
-      <tr><td>The permanent link</td><td>Buttons on the Page.</td><td>The single bio link, plus the profile action buttons.</td></tr>
-      <tr><td>Stories</td><td>Less used here.</td><td>The link sticker is tappable, which makes Stories the one place Instagram behaves like Facebook.</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <p>The pages worth linking to all resolve as of 10 September: <code>fenimorestable.com/breakfast/</code>, <code>/menu/</code> and <code>/drinks/</code>, plus the Toast ordering and reservation links already on the homepage. So a breakfast post has somewhere real to send people, which was not true of the site a fortnight ago.</p>
-  <div class="copy">
-    <p class="caplab">The same photograph, posted twice</p>
-    <h3>A breakfast plate, shot at 7:15 on a Tuesday</h3>
-    <div class="pkg">
-      <span class="pname">Facebook <span class="ptag">link goes in the post</span></span>
-      <p>Breakfast is on from 6:30 every morning, and most people driving past still have no idea. Today it is the <span class="blank">dish</span>. Full breakfast menu: fenimorestable.com/breakfast/</p>
-      <p class="opts">Tagged: <b>Cooperstown, New York</b></p>
-    </div>
-    <div class="pkg">
-      <span class="pname">Instagram <span class="ptag">link goes to the bio</span></span>
-      <p>Breakfast is on from 6:30 every morning. Today it is the <span class="blank">dish</span>. Breakfast menu link is in our bio.</p>
-      <p class="opts">Tagged: <b>Cooperstown, New York</b> &middot; location tag on the post itself, not only in the caption</p>
-    </div>
-    <p>Same picture, same sentence, two endings. That difference is the entire reason a post cannot simply be copied from one platform to the other.</p>
-  </div>
-  <div class="warn">
-    <p><b>One thing to check on a phone, because we cannot see it signed out.</b> As of 10 September the Instagram bio for @fenimorestable reads <i>Cooperstown, NY / Elevated dining &amp; craft cocktails</i> and says nothing about breakfast. Whether there is a link in it, and where that link points, is not visible to us without an account. If the strategy is to point Instagram at the bio, then the bio link is load-bearing and somebody should look at what it currently does.</p>
-  </div>
+  <h2>One detail that trips people up: links</h2>
+  <p>On Facebook, a web address in the post can be tapped. On Instagram it can't, so an Instagram caption should say "menu link in our bio" and the link in the bio has to go somewhere useful. As of 10 September the @fenimorestable Instagram bio reads <i>Cooperstown, NY / Elevated dining &amp; craft cocktails</i> and doesn't mention breakfast. Where its link points isn't visible to us signed out, so someone should check it on a phone.</p>
+  <p>The pages worth linking to are <code>fenimorestable.com/breakfast/</code>, <code>/menu/</code>, <code>/drinks/</code> and <code>/private-events/</code>.</p>
 </section>
 
 <section>
   <p class="num">06</p>
-  <h2>What is worth shooting, and the hour it is worth posting</h2>
-  <p>A photograph is worth the most on the day it is taken. A week later it is a stock image of your own restaurant. This is a starting grid, not a rule book, and the kitchen should move it around to fit how the days actually run.</p>
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>What</th><th>Shoot</th><th>Post</th><th>Working on</th></tr></thead>
-    <tbody>
-      <tr><td>The breakfast plate</td><td>6:45 to 8:00 am</td><td>Same morning, by 8:30</td><td>Almost nobody knows breakfast is served. This is the single highest-value habit on the list.</td></tr>
-      <tr><td>Lunch special or soup</td><td>10:30 to 11:00 am</td><td>By 11:15 am</td><td>Catches the Bassett and Main Street lunch decision while it is still being made, which is why the shoot window closes before the post goes out.</td></tr>
-      <tr><td>A drink or cocktail</td><td>Any quiet moment</td><td>3:30 to 5:30 pm</td><td>The set already shot is exactly this. Drinks travel further than plates on Instagram.</td></tr>
-      <tr><td>Dinner plate</td><td>3:45 to 4:45 pm</td><td>4:45 to 5:30 pm</td><td>Post before people have decided where they are eating, not after. Shoot it during setup rather than during service.</td></tr>
-      <tr><td>The room, Thursday to Sunday</td><td>Early evening</td><td>Same evening</td><td>Answers the question a stranger is actually asking, which is what it feels like inside.</td></tr>
-      <tr><td>Game day, screens on</td><td>Any earlier game day</td><td>Morning of, then again near kickoff</td><td>Ties to the EverPass and screens question raised on the same call. One good shot of a full room with the screens on carries the whole season.</td></tr>
-      <tr><td>Event or party setup</td><td>The day before</td><td>Morning of</td><td>Feeds the private events work directly and shows the room dressed rather than empty.</td></tr>
-    </tbody>
-  </table>
-  </div>
-</section>
-
-<section>
-  <p class="num">07</p>
-  <h2>Two layers: a calendar built well ahead, and a same-day layer on top of it</h2>
-  <p>Everything above describes the same-day layer, which is the half that has to happen in Cooperstown because that is where the camera is. It is only half. Underneath it belongs a planned calendar, built in advance and scheduled to publish on its own, and that half is better done anywhere except on the floor during service.</p>
-
-  <h3>The backbone: built ahead, scheduled once, publishes itself</h3>
-  <p>A surprising amount of the year is known months out. None of it needs to be written on the morning it goes out, and the office that already does the design work is the right place to build it, on an ordinary weekday, with time to make it good. On the call the schedule was described as being worked about a month in advance, so this is not a new idea so much as an existing one worth formalising and then extending.</p>
-  <p>What belongs on it, and most of these can be written in one sitting for a whole season:</p>
-  <ul class="plain">
-    <li><b>The football calendar.</b> Monday night, Thursday night, Sunday afternoons, the college Saturdays. Every one of those dates is already published by the leagues, and each is a reason to post that is known in August. Ties directly to the screens and the EverPass question from the same call.</li>
-    <li><b>The holidays that move covers.</b> Thanksgiving, Christmas Eve, New Year's Eve, Valentine's Day, Easter, Mother's Day. These need lead time rather than same-day inspiration, because people book them a week or three ahead, which means the post has to run before the week they are deciding.</li>
-    <li><b>The dates the town runs on.</b> Induction weekend, the tournament weeks, the shoulder weeks either side when Cooperstown empties out and a breakfast message is worth more than a dinner one. Whoever knows the town fills in the actual dates. We would be guessing.</li>
-    <li><b>Anything already booked.</b> Private events, live music, a menu changing over, a change in hours. These come from Cooperstown and go onto the same calendar rather than into a separate document.</li>
-    <li><b>The standing weekly beats.</b> If breakfast is the thing nobody knows about, it earns a recurring slot rather than depending on someone remembering to photograph an omelette.</li>
-  </ul>
-  <p><b>Then schedule it, so it publishes without anybody being available.</b> That is the actual point. A post scheduled on a Tuesday in September goes out on Thanksgiving morning whether or not a single person is near a phone, and the same is true of a Sunday kickoff or a New Year's Eve service. Every argument in this document about who is around at which hour disappears for the planned layer, because nobody has to be around at all.</p>
-
-  <h3>The same-day layer sits in the gaps</h3>
-  <p>The photographs then fill in around the backbone rather than carrying the whole load. That is a much smaller ask of the floor, and a much more realistic one: nobody has to invent a posting programme mid-service, they just have to notice a good plate and send it.</p>
-  <p><b>So anyone who can post has to be able to see what is already scheduled.</b> Without that, two breakfast posts land ninety minutes apart, or a drinks photo goes up on top of an events push that took a fortnight to arrange. That is not a discipline problem, it is a visibility problem, and it resolves the moment the schedule is something people can look at.</p>
-  <div class="closer">
-    <p><b>The useful part: the calendar is already paid for.</b> Meta Business Suite has a planner showing everything scheduled across the Facebook Page and the Instagram account on one view, and the task-level access described above includes seeing it. So this is not a tool to build or buy. It is a screen that already exists, and it becomes visible to the floor the same afternoon the access is granted.</p>
-  </div>
-  <p>Three conventions make the two layers work together, and they are worth agreeing out loud rather than assuming:</p>
-  <ul class="plain">
-    <li><b>The scheduled posts are the backbone and the daily photo fills the gaps between them.</b> The photograph is opportunistic by design, which is its value and also the reason it yields.</li>
-    <li><b>Look at the planner before posting, every time.</b> If something is already going out in that slot, hold yours for the next one. On a phone that check is about fifteen seconds.</li>
-    <li><b>If the photograph in your hand is better than what is scheduled, say so and swap it rather than running both.</b> A great omelette on a Tuesday beats a planned post about the same meal, and two posts an hour apart are worth less than either alone. This one needs a person to decide, which is why it is a convention and not a rule.</li>
-  </ul>
-</section>
-
-<section>
-  <p class="num">08</p>
-  <h2>Phase one: one call, then a daily rhythm</h2>
-
-  <h3>It starts with a call, not a photograph</h3>
-  <p>Phase one does not begin with somebody photographing an omelette. It begins with one working call between the people in Cooperstown and the people in Buffalo, both sides on at the same time, going through this document and settling the detail while everyone is still on the line.</p>
-  <p>What that call has to produce, and it can produce all of it in one sitting:</p>
-  <ul class="plain">
-    <li><b>The schedule of pre-set posts, built out as far as the season goes.</b> The football dates, the holiday stretch, the weeks the town runs on, anything already booked. Buffalo builds and schedules them, because that is the work they already do and it wants lead time and a proper desk. Cooperstown supplies the dates, because those are the ones nobody outside the town knows. Then it publishes on its own and no one has to think about it again.</li>
-    <li><b>The two names, with their access granted before the call ends.</b> Not noted down to sort out afterwards. Granting it takes a few minutes and it is the single item most likely to become <i>we will deal with that later</i> and then never be dealt with, which leaves everything else stranded.</li>
-    <li><b>The album made and everybody added to it.</b> Two minutes, on the call, so nobody is chasing an invitation on Saturday.</li>
-    <li><b>The posting hours agreed</b> against the grid above, adjusted to how the days actually run rather than how they look on paper.</li>
-    <li><b>Who answers comments and messages in each stretch</b>, which is a different question from who posts and is worth asking out loud.</li>
-  </ul>
-  <p>An hour, perhaps ninety minutes, everyone live. This does not survive being settled by email. Every item on that list is a small decision that generates two more, and a thread stalls on the first one and then sits there.</p>
-
-  <h3>Then the daily rhythm, which is the part for the wall</h3>
-  <p>Five steps, and every one of them uses something the team already has on their phones.</p>
-  <ol class="steps">
-    <li><span class="rt">One album instead of an inbox</span>
-      <p>Make one shared phone album called <b>Fenimore's Posts</b>. A shared iPhone album or a shared Google Photos album both work and both are already on everyone's phone. Add everyone who takes pictures. From that point, nobody emails a photograph again.</p></li>
-    <li><span class="rt">Send three things with the picture, not one</span>
-      <p>In the album comment: <b>one line in your own words</b> about what it is, <b>where it should send people</b> if anywhere, and <b>anything worth tagging</b>. <i>Short rib grilled cheese, back on the lunch menu today. Link to the lunch menu. Nobody to tag.</i></p>
-      <p>Eight seconds, and it is what makes the finished post sound like Fenimore's rather than like a template. Whoever posts it then handles the Facebook and Instagram difference, which is not the photographer's problem to solve.</p></li>
-    <li><span class="rt">One name per stretch of the week</span>
-      <p>Somebody is the poster for weekday daytime. Somebody is the poster from Friday afternoon through Sunday night, which is when the restaurant is busiest and the pictures are best. Two names, written on the wall. <b>Who those two people are is the room's call, not ours.</b></p>
-      <p><b>The stretch includes answering people, not only posting.</b> Comments and direct messages are where bookings, party enquiries and "are you open for breakfast" actually arrive, and an unanswered message on a Saturday is a lost table rather than a missed like. Whoever holds the stretch holds the replies.</p></li>
-    <li><span class="rt">Check the planner, then post at the right hour</span>
-      <p>Open the planner first and see what is already scheduled for today. Then post into a gap: morning, mid-afternoon, early evening, per the grid above. One post landing at the hour someone is deciding where to eat is worth more than four posted at midnight, and two landing an hour apart cancel each other out.</p></li>
-    <li><span class="rt">Say <i>posted</i> out loud</span>
-      <p>One message in the group text when it goes up. That single word is what ends the <i>I thought you were doing it</i> problem, and it costs nothing to add.</p></li>
-  </ol>
-  <p>The honest risk with phase one is that shared albums die quietly. Everyone joins, four people post for a week, and then it goes still with nobody deciding to stop. That is worth naming in advance because it is also the most useful result the two weeks can produce. If the album is empty by the second Friday, the friction is somewhere this document has not found, and building anything on top of it would be building on sand. Two weeks is a cheap way to find that out.</p>
-</section>
-
-<section>
-  <p class="num">09</p>
-  <h2>Where software helps, and where it must not</h2>
-  <div class="table-wrap">
-  <table>
-    <thead><tr><th>The job</th><th>Who does it</th><th>Note</th></tr></thead>
-    <tbody>
-      <tr><td>Taking the photograph</td><td><span class="tag t-ok">A person, on site</span></td><td>Never anything else. Real photographs only.</td></tr>
-      <tr><td>The sentence describing it</td><td><span class="tag t-ok">The person who took it</span></td><td>This is the voice. Eight seconds.</td></tr>
-      <tr><td>Drafting caption options</td><td><span class="tag t-open">Software, then a person</span></td><td>Three drafts from that sentence. A person picks and edits.</td></tr>
-      <tr><td>Choosing the hour</td><td><span class="tag t-open">Software</span></td><td>Rules from the grid, not judgement.</td></tr>
-      <tr><td>Crops and sizes per platform</td><td><span class="tag t-open">Software</span></td><td>Pure chore, worth automating.</td></tr>
-      <tr><td>Putting the link in the right place</td><td><span class="tag t-open">Software</span></td><td>A fixed rule, and exactly the kind of thing a person forgets at 6:45am.</td></tr>
-      <tr><td>Showing what is already scheduled</td><td><span class="tag t-open">Software</span></td><td>The planner already does this for anyone who has been granted access.</td></tr>
-      <tr><td>Deciding who gets access</td><td><span class="tag t-ok">A person, with full control</span></td><td>Never automated, never a shared password.</td></tr>
-      <tr><td>Weekly reminders</td><td><span class="tag t-open">Software</span></td><td>Reads the events calendar: football Sunday, a private party booked, a special running.</td></tr>
-      <tr><td>Replying to comments and messages</td><td><span class="tag t-ok">A person</span></td><td>This is where bookings come from and it is worth the minutes.</td></tr>
-      <tr><td>Deciding what goes out at all</td><td><span class="tag t-ok">A person</span></td><td>Always.</td></tr>
-    </tbody>
-  </table>
-  </div>
-</section>
-
-<section>
-  <p class="num">10</p>
-  <h2>What comes later, in outline only</h2>
-  <p>Two things worth knowing exist. Neither is a decision for this week, and neither should take a minute of attention away from the call above.</p>
-  <p><b>A drop point built for a phone.</b> A shared album has a ceiling: no schedule, no categories, and no way of telling anyone something new has arrived. The step up is a small staff-only page on fenimorestable.com where someone at the pass sends a photo, a category and their one line, and it lands in a queue that notifies whoever is on duty and drafts the two platform versions. We would build and host it, inside the current arrangement, with nothing for Fenimore's to buy or install.</p>
-  <p><b>Video, reels and carousels.</b> Raised on the call, and right: short video is where the younger audience in Cooperstown actually is, and there are people around who would happily shoot it. It needs a frequency, someone to edit, and a decision about whether it is paid.</p>
-  <div class="warn">
-    <p><b>Both wait on phase one, and that is not a stalling tactic.</b> If the photographs are landing and the calendar is running, both of these become obvious and easy to specify. If they are not, neither one fixes it, and a video programme that stalls after ten days costs more than never starting.</p>
-  </div>
-</section>
-
-<section>
-  <p class="num">11</p>
-  <h2>What we need answered before building anything</h2>
+  <h2>What we need to get started</h2>
   <ol class="asks">
-    <li><b>Who are the two names?</b> One for weekday daytime, one for Friday afternoon through Sunday. This is the only item that blocks everything else, and it is a decision for the room rather than a question we can research.</li>
-    <li><b>Who currently has full control of the Facebook Page, and will they grant task-level access to those two names?</b> This is the second blocker and it is the practical form of a question asked on the call that never landed on an answer. Nobody is being asked to give up anything: the grant takes a few minutes, it can be withdrawn in one, and it involves no password changing hands.</li>
-    <li><b>Is the Instagram account a professional account and linked to the Facebook Page?</b> If it is not, that has to happen before anyone can be added or anything scheduled, and it is invisible to us from outside.</li>
-    <li><b>What does the Instagram bio link point at today?</b> Someone needs to look on a phone. If Instagram posts are going to say <i>link in bio</i>, that link is doing real work, and the bio currently makes no mention of breakfast.</li>
-    <li><b>Is anyone already scheduling in Meta Business Suite, how far ahead is the schedule built, and who would build the football and holiday backbone?</b> If posts are already planned a month out, everyone who posts needs to be able to see that from day one, and anything built later should plug into it rather than sit beside it. The backbone itself is a sitting or two of work for a whole season, and it is worth doing before the football weekends and the holiday stretch rather than during them.</li>
+    <li class="first"><b>Who at Fenimore's should be set up to post?</b> Two names, one for each stretch of the week. This is the one that blocks part two, and it's the team's decision, not ours.</li>
+    <li><b>Who has full control of the Facebook page?</b> They're the person who adds those two names. It takes a few minutes, and they can remove someone just as quickly.</li>
+    <li><b>Dates we've missed, and the holiday hours.</b> Reply with any town events, local traditions or plans that belong on the calendar, and whether Fenimore's is open on Thanksgiving, Christmas Eve, Christmas Day and New Year's. We'll add them to this page as they come in.</li>
   </ol>
+  <div class="closer">
+    <p>This brief doesn't move any account, change any login, or take work away from anyone. Whoever runs @fenimorestable today still runs it. If there's already a way of doing this that works and we've missed it, tell us and we'll rebuild the plan around it.</p>
+  </div>
 </section>
 
 <section>
-  <p class="num">12</p>
-  <h2>What this document does not do</h2>
-  <div class="closer">
-    <ul class="plain">
-      <li><b>No account moves and no password changes hands.</b> Whoever runs @fenimorestable still runs it. The access granted on the call sits below theirs and can be withdrawn in about a minute.</li>
-      <li><b>No work is taken away from anyone.</b> The planned calendar goes where that work already happens. The same-day photograph goes to the people holding the camera.</li>
-      <li><b>It does not touch the website, the events pages or the menus.</b> Those have their own drafts.</li>
-      <li><b>It makes no judgment about what has or has not been posted so far.</b> This is about the path forward.</li>
-      <li><b>If any of it is wrong, say so.</b> If there is already a path that works and we have missed it, we will rebuild this around what is actually there.</li>
-    </ul>
-  </div>
+  <p class="num">Log</p>
+  <h2>What changed</h2>
+  <ul class="plain">
+    <li><b>12 September 2026.</b> Rebuilt as the working plan: the two-part approach up front and a proposed calendar through March 2027. Sports dates confirmed against the NFL and College Football Playoff schedules.</li>
+    <li><b>10 September 2026.</b> First draft, built from the 9 September team call.</li>
+  </ul>
 </section>
 
 <footer>
-  Doble AI &middot; Fenimore's social workflow, working draft &middot; 10 September 2026<br>
+  Doble AI &middot; Fenimore's social media plan, working brief &middot; updated 12 September 2026<br>
   Fenimore's Table, 4874 State Highway 28, Cooperstown NY 13326 &middot; fenimorestable.com &middot; @fenimorestable on Instagram and Facebook<br>
-  Source: the Fenimore's team call of 9 September 2026. Social handles and address checked against fenimorestable.com on 10 September 2026.<br>
-  Companion pages: <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-events/">private events</a> &middot; <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-status/">website status</a> &middot; <a href="https://jroundshp.github.io/doble-ai-deliverables/cooperstown/">Cooperstown index</a><br>
-  Working draft. Link shared, not indexed.
+  Hours on this page (breakfast from 6:30am, Tuesday and Wednesday close at 4pm) checked against fenimorestable.com on 12 September 2026. Sunday specials from Fenimore's own 12 September ad.<br>
+  Sports dates: NFL.com 2026 Thanksgiving and Christmas schedule releases; NFL 2026 playoff schedule (Wild Card Jan 16 to 18, Divisional Jan 23 and 24, Conference Championships Jan 31, Super Bowl LXI Feb 14); College Football Playoff 2026-27 schedule (national championship Jan 25).<br>
+  Working brief. Link shared, not indexed.
 </footer>
 
 </div>
