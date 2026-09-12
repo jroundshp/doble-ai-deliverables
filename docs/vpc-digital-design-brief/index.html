@@ -796,7 +796,7 @@
         <li>Certifications and the domestic content story as crawlable text on a page, not only as a PDF. A PDF is evidence; the page is what gets found and quoted.</li>
         <li>Specifications and drawings named so the filename and the product name match, so a search for the product finds the drawing.</li>
         <li>A sitemap and a clean robots file on every owned property, and an llms.txt on the hub. The hub has no llms.txt today.</li>
-        <li>Staging locked. new.easyrecreation.com is indexable right now and publishing a sitemap.</li>
+        <li>Staging locked. new.easyrecreation.com is indexable right now: no noindex tag, and a robots file that lets crawlers in.</li>
       </ul>
 
       <div class="pull decision">
@@ -858,7 +858,7 @@
     <div class="marker">09</div>
     <div class="body">
       <h2>The order to build it in</h2>
-      <p>The sequence is not arbitrary. Each phase either unblocks the next one or feeds something the owner plan needs on a date.</p>
+      <p>The sequence is not arbitrary. Each phase either unblocks the next one or feeds something the owner plan needs on a date. Two of them do not wait on anything: phase 0 and phase 2 can both start this week, whatever is decided about ownership, and they are marked below.</p>
 
       <div class="table-wrap">
         <table>
@@ -866,9 +866,9 @@
             <tr><th class="num">#</th><th>Phase</th><th>Why here</th></tr>
           </thead>
           <tbody>
-            <tr><td class="num">0</td><td>Lock the staging site</td><td>One checkbox, and it is competing with a live VPC site while it stays unticked. Nothing else on this list is more urgent or cheaper.</td></tr>
+            <tr><td class="num">0</td><td>Lock the staging site &nbsp;<span class="chip rec">Ungated</span></td><td>One checkbox, and it is competing with a live VPC site while it stays unticked. Nothing else on this list is more urgent or cheaper, and nothing about it depends on the ownership call.</td></tr>
             <tr><td class="num">1</td><td>Decide ownership</td><td>Option C in digital options: rebuild the hub and bring the catalog home. Every phase below assumes this answer.</td></tr>
-            <tr><td class="num">2</td><td>Entity and cross links</td><td>Parent and child declared, visible parentage, one set of contact facts, compositefan.com repointed. Small work, and it pays from the day it ships rather than at launch.</td></tr>
+            <tr><td class="num">2</td><td>Entity and cross links &nbsp;<span class="chip rec">Ungated</span></td><td>Parent and child declared, visible parentage, one set of contact facts, compositefan.com repointed. Small work on sites VPC already controls, it pays from the day it ships rather than at launch, and every hour of it survives a rebuild. Worth doing even if the answer to phase 1 turns out to be no.</td></tr>
             <tr><td class="num">3</td><td>IA and design system</td><td>Hub, both doors, the two division sites, and pages for Fan and Plastics. Decided once, applied everywhere.</td></tr>
             <tr><td class="num">4</td><td>Door A and the resource library</td><td>Guide specs, CAD, domestic content packets. This is what the engineer sprint in the owner plan hands out, so it has to exist before that program starts.</td></tr>
             <tr><td class="num">5</td><td>Door B and the EasyRec tools</td><td>Aquatic hub, cross promotion modules, measuring flow and configurator. Ready ahead of the winter aquatic bid season.</td></tr>
@@ -878,6 +878,12 @@
           </tbody>
         </table>
       </div>
+
+      <h3 class="sub">Who builds it</h3>
+      <p>Doble AI does the build, with Amanda on the VPC side. The split that works: we do the architecture, the design system, the templates, the schema, the catalog migration and the redirects. Amanda holds the things only someone inside VPC can hold, which is the vendor relationships, the domain and registrar access, the content nobody outside the company has, and the changes that need a VPC login rather than an API call.</p>
+      <p>The ownership test is the same one set out in the <a href="../vpc-closest-job-plan/">closest job plan</a>, and it is the part worth settling before anything gets built. VPC owns the domains, the hosting, the accounts, the code and the content. Doble AI leaves and the site still runs. If that is not true at the end, the setup was wrong.</p>
+      <p>Scope and terms are a separate conversation and this brief does not settle them. A rebuild on this scale is its own piece of work, not something that quietly rides along inside the current arrangement, and you should see what it is before you agree to it.</p>
+      <p><b>One decision this raises that is yours alone.</b> Thomas built and hosts the main site today. A rebuild changes what that relationship is for, and it may end it. That is a call about a supplier you have a history with, so we are not going to make it inside a design document. Tell us what you want to happen and we will design around it either way.</p>
 
       <h3 class="sub">What this brief deliberately does not do</h3>
       <ul>
@@ -913,6 +919,7 @@
           <li>The ownership call. Stay, patch, or rebuild and own it. Section 03 and everything after it assumes the third answer, and we should not start phase 3 until you have said so.</li>
           <li>Whether Composite Fan and Primary Plastics are part of the growth plan. If they are, they get pages and a budget. If they are not, say so and we will stop treating 17 percent of sales as a gap.</li>
           <li>Analytics access, so the metrics above stop being a wish list.</li>
+          <li>What happens to the Thomas relationship. A rebuild changes what they are doing for VPC, and that is your call to make before we scope anything.</li>
         </ol>
       </div>
 
