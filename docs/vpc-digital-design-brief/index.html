@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>VPC Digital Design Brief</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #eff1ee;
+    --surface: #ffffff;
+    --ink: #16191b;
+    --ink-soft: #575f61;
+    --ink-faint: #7d8688;
+    --rule: #d2d7d3;
+    --rule-soft: #e2e6e2;
+    --accent: #0e5c67;
+    --accent-soft: #e2edee;
+    --rust: #a34c1c;
+    --rust-soft: #f6e8e0;
+    --moss: #3c6636;
+    --moss-soft: #e5eee2;
+
+    --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #131718;
+      --surface: #1b2022;
+      --ink: #e7ebe8;
+      --ink-soft: #a3adad;
+      --ink-faint: #7d8688;
+      --rule: #313839;
+      --rule-soft: #262c2e;
+      --accent: #5cb4c0;
+      --accent-soft: #1a2f33;
+      --rust: #e08c58;
+      --rust-soft: #2e2119;
+      --moss: #86b57c;
+      --moss-soft: #1c2a1c;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #131718;
+    --surface: #1b2022;
+    --ink: #e7ebe8;
+    --ink-soft: #a3adad;
+    --ink-faint: #7d8688;
+    --rule: #313839;
+    --rule-soft: #262c2e;
+    --accent: #5cb4c0;
+    --accent-soft: #1a2f33;
+    --rust: #e08c58;
+    --rust-soft: #2e2119;
+    --moss: #86b57c;
+    --moss-soft: #1c2a1c;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 38px 24px 88px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    border-top: 3px solid var(--ink);
+    padding-top: 18px;
+    margin-bottom: 40px;
+  }
+
+  .stamp {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+  .stamp b { color: var(--ink-soft); font-weight: 500; }
+
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(34px, 6vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+
+  .scope {
+    font-size: 14.5px;
+    color: var(--ink-faint);
+    margin: 12px 0 0;
+    max-width: 58ch;
+  }
+
+  .dek {
+    font-size: 17.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  /* ---------- sections ---------- */
+
+  section {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 0 20px;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .marker {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    padding-top: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  .body { min-width: 0; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p:last-child { margin-bottom: 0; }
+
+  .body > ul, .body > ol { max-width: 66ch; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--f-mono);
+    font-size: 0.88em;
+    background: var(--rule-soft);
+    padding: 1px 5px;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+
+  /* ---------- pull ---------- */
+
+  .pull {
+    border-left: 3px solid var(--accent);
+    padding: 3px 0 3px 18px;
+    margin: 20px 0;
+    max-width: 62ch;
+  }
+
+  .pull p {
+    font-size: 17px;
+    line-height: 1.48;
+    margin: 0;
+  }
+
+  .pull.decision { border-left-color: var(--rust); }
+
+  /* ---------- objective ---------- */
+
+  .objective {
+    background: var(--accent-soft);
+    padding: 30px 30px 26px;
+    margin-bottom: 8px;
+  }
+
+  .objective .opt-label { margin-bottom: 12px; }
+
+  .objective .lead {
+    font-size: 21px;
+    line-height: 1.42;
+    letter-spacing: -0.008em;
+    max-width: 40ch;
+    margin: 0;
+  }
+
+  .surfaces {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin: 22px 0 26px;
+  }
+
+  .surfaces .surfaces-label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 4px;
+  }
+
+  .surface {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 4px 9px;
+    white-space: nowrap;
+  }
+
+  .conditions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px 26px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .conditions li {
+    margin: 0;
+    border-top: 2px solid var(--accent);
+    padding-top: 11px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .conditions b {
+    font-family: var(--f-display);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .objective .coda {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    margin: 26px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
+  /* ---------- tables ---------- */
+
+  .table-wrap { overflow-x: auto; margin: 18px 0 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    line-height: 1.42;
+  }
+
+  th {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    padding: 0 14px 8px 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  th:last-child, td:last-child { padding-right: 0; }
+
+  .num {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    width: 22px;
+    padding-right: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .effort {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .where { font-size: 13px; color: var(--ink-soft); white-space: nowrap; }
+  .prop { font-family: var(--f-mono); font-size: 13px; word-break: break-all; }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .chip.own { background: var(--moss-soft); color: var(--moss); }
+  .chip.rent { background: var(--rust-soft); color: var(--rust); }
+
+  /* ---------- option cards ---------- */
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 20px 0 22px;
+  }
+
+  .opt {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 20px;
+  }
+
+  .opt-label {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .opt h3 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+
+  .opt p { font-size: 14.5px; line-height: 1.5; margin: 0 0 12px; max-width: none; }
+
+  .opt .needs {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 10px;
+    margin: 0;
+  }
+
+  .opt .needs b {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* ---------- lists ---------- */
+
+  ul, ol { padding-left: 20px; margin: 0 0 14px; }
+  li { margin-bottom: 8px; }
+  li:last-child { margin-bottom: 0; }
+
+  ol.asks { counter-reset: ask; list-style: none; padding-left: 0; }
+
+  ol.asks li { position: relative; padding-left: 34px; margin-bottom: 12px; }
+
+  ol.asks li::before {
+    counter-increment: ask;
+    content: counter(ask);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--surface);
+    background: var(--accent);
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .quote {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--rule);
+    padding-left: 16px;
+    margin: 16px 0 0;
+    max-width: 62ch;
+  }
+
+  .closing {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 3px solid var(--ink);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 620px) {
+    .sheet { padding: 26px 18px 68px; }
+    section { grid-template-columns: 1fr; gap: 0; }
+    .marker { padding-top: 0; margin-bottom: 8px; }
+    .where { white-space: normal; }
+  }
+</style><style>
+  .chip.mixed { background: var(--accent-soft); color: var(--accent); }
+  .opt.pick { border-color: var(--accent); border-width: 2px; padding: 19px 24px; grid-column: 1 / -1; }
+  .opt.pick p { max-width: 62ch; }
+  .opt.pick .opt-label { color: var(--accent); }
+  .opt.pick h3 { color: var(--ink); }
+  .rec {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--surface);
+    background: var(--accent);
+    padding: 3px 8px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .closing a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .closing a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .closing .links { display: block; margin-top: 8px; text-transform: none; letter-spacing: 0.01em; font-size: 11.5px; }
+  .peer { font-size: 14.5px; }
+  .scope a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .scope a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+</style>
+
+<style>
+  .goals { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 6px; }
+  .goal { background: var(--surface); border: 1px solid var(--rule); padding: 20px; }
+  .goal.home { border-color: var(--accent); border-width: 2px; padding: 19px; }
+  .goal h3 { font-family: var(--f-display); font-weight: 600; font-size: 18px; line-height: 1.2; margin: 0 0 10px; }
+  .goal p { font-size: 14.5px; line-height: 1.5; margin: 0 0 11px; max-width: none; }
+  .goal p:last-child { margin-bottom: 0; }
+  .yr { font-family: var(--f-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 8px; }
+  .chip.stretch { background: var(--rust-soft); color: var(--rust); }
+  .chip.firm { background: var(--moss-soft); color: var(--moss); }
+  .chip.open { background: var(--accent-soft); color: var(--accent); }
+  h3.sub { font-family: var(--f-display); font-weight: 600; font-size: 18px; line-height: 1.25; margin: 30px 0 10px; }
+  h3.sub:first-child { margin-top: 0; }
+  .kicker { font-family: var(--f-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-faint); margin: 26px 0 8px; }
+  .srcs { list-style: none; padding: 0; margin: 16px 0 0; }
+  .srcs li { border-top: 1px solid var(--rule-soft); padding: 11px 0; margin: 0; font-size: 14.5px; line-height: 1.45; }
+  .srcs li:first-child { border-top: 1px solid var(--rule); }
+  .srcs b { display: block; font-family: var(--f-display); font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .srcs a { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-faint); text-decoration: none; word-break: break-all; border-bottom: 1px solid var(--rule-soft); }
+  .srcs a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .body > p a, .goal a, li a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .body > p a:hover, .goal a:hover, li a:hover { border-bottom-color: var(--accent); }
+  td .lane { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
+  .place { font-weight: 600; white-space: nowrap; }
+  .divtable th:first-child { width: 92px; }
+  .note { font-size: 13.5px; color: var(--ink-faint); line-height: 1.5; margin-top: 12px; max-width: 66ch; }
+</style>
+
+<style>
+  .chip.check { background: var(--rust-soft); color: var(--rust); }
+  .chip.risk { background: var(--rust-soft); color: var(--rust); }
+  .chip.rec { background: var(--accent-soft); color: var(--accent); }
+  .doors { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 22px 0 6px; }
+  .door { background: var(--surface); border: 1px solid var(--rule); border-top: 3px solid var(--accent); padding: 18px 20px; }
+  .door.b { border-top-color: var(--moss); }
+  .door.c { border-top-color: var(--rust); }
+  .door h4 { font-family: var(--f-display); font-weight: 600; font-size: 16px; margin: 0 0 4px; }
+  .door .u { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-faint); display: block; margin-bottom: 9px; word-break: break-all; }
+  .door p { font-size: 14px; line-height: 1.5; margin: 0 0 9px; max-width: none; }
+  .door p:last-child { margin-bottom: 0; }
+  .door ul { padding-left: 17px; margin: 0; font-size: 14px; line-height: 1.45; }
+  .door li { margin-bottom: 5px; }
+  .findings { list-style: none; padding: 0; margin: 18px 0 0; }
+  .findings li { border-top: 1px solid var(--rule-soft); padding: 12px 0; margin: 0; font-size: 14.5px; line-height: 1.5; }
+  .findings li:first-child { border-top: 1px solid var(--rule); }
+  .findings b { font-family: var(--f-display); font-size: 15px; font-weight: 600; }
+  .estate th:first-child, .estate td:first-child { width: 234px; }
+  .estate .prop { word-break: break-word; }
+  .stack { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .ask-block { background: var(--surface); border: 1px solid var(--rule); padding: 20px 22px; margin: 18px 0 0; }
+  .ask-block h4 { font-family: var(--f-display); font-weight: 600; font-size: 16px; margin: 0 0 10px; }
+  .ask-block ol { margin: 0; padding-left: 20px; font-size: 14.5px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan and Amanda Acker</b> &nbsp;/&nbsp; 12 September 2026</span>
+    <h1>VPC digital design brief</h1>
+    <p class="dek">What the digital presence should look like across every division, how the sites relate to each other, and how the whole estate works as a sales tool for the 2027 setup year and the 2028 target.</p>
+    <p class="scope">Every claim about the current estate in section 02 was checked live on 12 September 2026, against the pages as they served that morning. Nothing here uses VPC analytics, because we do not have access to them. Companion detail: <a href="../vpc-2027-2028-plan/">2027 and 2028 owner plan</a>, <a href="../vpc-digital-options/">digital options</a>, <a href="../vpc-findability/">findability review</a>, <a href="../vpc-work-order/">website work order</a>, <a href="../vpc-closest-job-plan/">closest job plan</a>, <a href="../easyrec-build/">EasyRec build</a>.</p>
+  </header>
+
+  <div class="objective">
+    <span class="opt-label">00 &nbsp;The short version</span>
+    <p class="lead">VPC has five divisions, three public domains and one rented catalog, and a buyer cannot tell from the outside that they are one company. The fix is a single owned hub with two clearly marked doors, municipal and plant FRP on one side and aquatic and recreation on the other, with the division sites kept as owned siblings that say whose they are in the markup and not only in the copyright line. The catalog comes home. That is the difference between a brochure and the thing an engineer uses to start a quote.</p>
+  </div>
+
+  <section>
+    <div class="marker">01</div>
+    <div class="body">
+      <h2>The premise this is designed against</h2>
+      <p>The <a href="../vpc-2027-2028-plan/">2027 and 2028 owner plan</a> is treated here as settled: Traditional FRP funds the floor, InterActive Play buys the upside, EasyRec is the short cycle attach, and municipal work gets specified into a drawing eighteen months to three years before anyone breaks ground. A website that only describes the company is worth very little against that. A website that gets VPC specified, and then makes the quote easy to start, is worth a great deal.</p>
+
+      <p>Five people have to be able to land, recognize what they are looking at, and act. They do not want the same things, and today they all arrive at the same front door.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Who lands</th><th>What they came for</th><th>What has to be one click away</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="place">Consulting engineer</td><td>A product they can put in a drawing without writing it from scratch</td><td>Guide spec in CSI format, CAD and STEP files, dimensional data, domestic content statement</td></tr>
+            <tr><td class="place">Utility project manager</td><td>Confidence in the manufacturer, and a name to give the engineer</td><td>Installed examples, certifications, who to call, plant locations</td></tr>
+            <tr><td class="place">GC or construction manager</td><td>Lead time and whether the submittal will go through</td><td>Lead times, submittal support, or-equal language, a quote form that takes a file</td></tr>
+            <tr><td class="place">Parks or aquatic buyer</td><td>What a splash pad or a pool deck costs and looks like</td><td>Project types, photography, design assist path, accessories</td></tr>
+            <tr><td class="place">Rep or dealer</td><td>Cut sheets and a clean way to submit an order</td><td>Catalog clarity, measuring tools, where to buy, order paths</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pull decision">
+        <p>Design rule for the whole estate: every page answers one buyer's question and ends in one quote path. If a page cannot say which of the five it is for, it is a brochure page.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">02</div>
+    <div class="body">
+      <h2>What VPC has today</h2>
+
+      <div class="table-wrap">
+        <table class="estate">
+          <thead>
+            <tr><th>Property</th><th>Role today</th><th>Ownership</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="prop">vpcfiberglass.com</td><td>Company front door and the Traditional FRP site</td><td><span class="chip own">Owned</span> WordPress. VPC owns the domain and holds admin. Thomas built and hosts it.</td></tr>
+            <tr><td class="prop">products.vpcfiberglass.com</td><td>The product catalog, and the only place VPC's product data is machine readable</td><td><span class="chip rent">Rented</span> Thomas Navigator. No VPC login reaches it.</td></tr>
+            <tr><td class="prop">interactivewaterparks.com</td><td>InterActive Play</td><td><span class="chip own">Owned</span> WordPress VPC controls</td></tr>
+            <tr><td class="prop">easyrecreation.com</td><td>EasyRec</td><td><span class="chip own">Owned</span> WordPress VPC controls</td></tr>
+            <tr><td class="prop">new.easyrecreation.com</td><td>The EasyRec rebuild, in progress</td><td><span class="chip own">Owned</span> Staging. See the finding below.</td></tr>
+            <tr><td class="prop">compositefan.com</td><td>Points at the corporate homepage</td><td><span class="chip own">Owned</span> Redirect only</td></tr>
+            <tr><td class="prop">Composite Fan Technology<br>Primary Plastics</td><td>About 12.8 percent and 4.6 percent of six year sales, with no page of their own</td><td><span class="chip mixed">Anchors</span> Both live at /divisions/ as #cft and #pp</td></tr>
+            <tr><td class="prop">ThomasNet profile</td><td>Directory listing</td><td><span class="chip mixed">Unproven</span> Keep only if attribution shows it pays</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">What we found this morning</h3>
+      <ul class="findings">
+        <li><span class="chip risk">Act now</span> &nbsp;<b>The EasyRec staging site is open to search engines.</b> new.easyrecreation.com serves a 200, carries no noindex tag, and publishes its own sitemap at /wp-sitemap.xml. It is a near copy of easyrecreation.com competing with the real site for the same terms. The setting that fixes this is a checkbox in WordPress reading, and it is not reachable over the API, so somebody has to click it.</li>
+        <li><b>Two divisions share one URL.</b> Composite Fan and Primary Plastics are anchor links on the /divisions/ page, at #cft and #pp. Together they have been about 17 percent of six year sales. A page fragment cannot rank, cannot carry its own title or description, and cannot be sent to a buyer as a link that means anything.</li>
+        <li><b>compositefan.com lands on the corporate homepage.</b> VPC owns the domain and it resolves to vpcfiberglass.com with a canonical pointing at the homepage. Somebody typing the division name by hand gets a general page about fiberglass.</li>
+        <li><b>The division sites admit their parent only in the copyright line.</b> easyrecreation.com reads "A Division of" in the footer, and interactivewaterparks.com reads "Interactive Play is a Division of" in the same place. That is the weakest position on the page, and neither site says it in the markup: there is no parentOrganization on either.</li>
+        <li><b>easyrecreation.com publishes no structured data at all.</b> No Organization, no Product, nothing. interactivewaterparks.com has an Organization block but no parent link and no Product markup.</li>
+        <li><b>The corporate homepage declares itself three times.</b> There is an Organization node with a proper identifier, plus a second Organization and a LocalBusiness with no identifier at all. Three unreconciled descriptions of one company is how an entity gets read as ambiguous.</li>
+        <li><b>No llms.txt on the main domain.</b> The path returns the WordPress 404 page.</li>
+        <li><b>The best product data VPC has sits on the rented platform.</b> 1,188 specifications across 140 products, none of it on a page VPC owns. The owned pages carry no Product markup.</li>
+      </ul>
+
+      <p class="note"><span class="chip check">Confirm with Amanda</span> &nbsp;Whether VPC owns other division domains beyond compositefan.com; whether the Navigator agreement allows redirects from the catalog URLs at exit; whether any analytics already splits form submissions by source. None of those can be read from outside.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">03</div>
+    <div class="body">
+      <h2>The architecture to build toward</h2>
+      <p>One company, two buyer doors, and a clear home for every division. The hub carries the corporate identity and routes; the doors separate the two buyers who have nothing in common; the division sites stay where they are and stop behaving like orphans.</p>
+
+      <div class="doors">
+        <div class="door">
+          <h4>The hub</h4>
+          <span class="u">vpcfiberglass.com</span>
+          <p>Who VPC is, where it manufactures, the certifications, careers, contact, and the router into everything else.</p>
+          <ul>
+            <li>Owns the Organization identity, the addresses and the phone</li>
+            <li>Owns the domestic content story as readable text</li>
+            <li>Owns the engineer resource library</li>
+            <li>Two large doors above the fold, not a product grid</li>
+          </ul>
+        </div>
+        <div class="door b">
+          <h4>Door A, municipal and plant FRP</h4>
+          <span class="u">vpcfiberglass.com/frp/</span>
+          <p>Flumes, metering manholes, shelters and enclosures, troughs and weirs, duct, fans. Where the consulting engineer lands and where a spec gets written.</p>
+          <ul>
+            <li>Product families with real specifications</li>
+            <li>Guide specs, CAD, STEP, domestic content packets</li>
+            <li>Lead times and submittal support for GCs</li>
+            <li>The RFQ form, with file upload</li>
+          </ul>
+        </div>
+        <div class="door c">
+          <h4>Door B, aquatic and recreation</h4>
+          <span class="u">vpcfiberglass.com/aquatic/</span>
+          <p>A chooser, not a catalog. It exists so a parks buyer never has to scroll past a manhole to find a splash pad.</p>
+          <ul>
+            <li>Routes to InterActive Play and to EasyRec</li>
+            <li>Speaks capital plans, bonds and pool remodels</li>
+            <li>Surfaces the EasyRec attach on the way through</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub">Paths on one domain, not subdomains</h3>
+      <p>Put the two doors on vpcfiberglass.com as /frp/ and /aquatic/ rather than on frp.vpcfiberglass.com and aquatic.vpcfiberglass.com. Everything the hub earns in search then counts for the doors, there is one certificate and one WordPress to keep patched, and nobody has to remember which subdomain a resource lives on. A subdomain only makes sense if a division is going to be run, hosted or sold separately, and there is no sign that either of these is.</p>
+      <p>The two existing division sites are the exception, and they should stay on their own domains. interactivewaterparks.com and easyrecreation.com both have history, links and buyers who know the names. Moving them would throw that away to fix a problem that a footer line and a schema field can fix instead.</p>
+
+      <h3 class="sub">Composite Fan and Primary Plastics need a page each</h3>
+      <p>Not a site each. A real page at /composite-fan/ and /primary-plastics/, with its own title, its own description, its own products and its own quote path, linked from the hub and from Door A. compositefan.com then points at /composite-fan/ instead of at the homepage, which costs nothing and immediately starts working. Seventeen percent of six year sales is too much revenue to leave living at a page fragment.</p>
+
+      <h3 class="sub">The catalog comes home</h3>
+      <p>Product truth moves onto VPC pages: the specifications, the downloads and the Product markup. Navigator becomes an optional lead channel rather than the system of record, with redirects from the old catalog URLs so nothing that has been linked or bookmarked breaks. The directory listing stays only if attribution shows it pays for itself. This is Option C in <a href="../vpc-digital-options/">digital options</a>, and nothing else in this brief works properly until that call is made.</p>
+
+      <div class="pull decision">
+        <p>The test for the whole architecture: a stranger should be able to tell within five seconds which door they are in, and within one click that it is all VPC.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">04</div>
+    <div class="body">
+      <h2>What goes on each property</h2>
+
+      <h3 class="sub">Hub home</h3>
+      <ul>
+        <li>One line on what VPC is: a fiberglass manufacturer, plants in Medina and Lockport, about 57 people, made in the USA and ready for federally funded work.</li>
+        <li>Two doors, given equal weight and equal size. Municipal and plant FRP, aquatic and recreation.</li>
+        <li>Proof above the fold: certifications, notable installations, and a strip of engineer resources that goes straight to the library.</li>
+        <li>A third, quieter strip for Composite Fan and Primary Plastics, so those buyers have somewhere to go without diluting the two doors.</li>
+        <li>Phone, quote email and both plant addresses, identical to every other property.</li>
+      </ul>
+
+      <h3 class="sub">Door A, the FRP sales tool</h3>
+      <ul>
+        <li>Product families, each with machine readable specifications rather than a picture and a paragraph.</li>
+        <li>The resource library kept at VPC owned URLs. The 316 files already sit on VPC's own WordPress uploads, so they carry across as they are and the links engineers have saved keep working.</li>
+        <li>A "for engineers" section: guide specs, CAD and STEP, domestic content packets, and a lunch and learn request form that books the meeting rather than starting a thread.</li>
+        <li>A "for contractors" section: lead times, submittal support and or-equal language, which is the page a GC actually needs and almost nobody publishes.</li>
+        <li>The RFQ form on VPC's own Gravity Forms, with file upload, on VPC pages. Never only inside the catalog.</li>
+        <li>The public promise stays what the contact page already says in Corey's name: a quote inside 24 hours when the specifications are complete. The form's job is to collect complete specifications so that promise is keepable.</li>
+      </ul>
+      <p class="note">The closest job index is internal. It never appears on the public site, it is not a feature to advertise, and it is not mentioned in any public copy. Same for anything touching Salesforce.</p>
+
+      <h3 class="sub">Door B, the aquatic hub</h3>
+      <ul>
+        <li>A two card chooser with real photography: InterActive Play for the park itself, EasyRec for what goes around the water.</li>
+        <li>Language the buyer uses: capital improvement plan, bond, splash pad, pool remodel, accessibility upgrade.</li>
+        <li>An EasyRec module on every path through, so the attach happens while the buyer is already reading.</li>
+      </ul>
+
+      <h3 class="sub">interactivewaterparks.com</h3>
+      <ul>
+        <li>Project types, and photo and video proof of installations rather than renderings.</li>
+        <li>Two distinct paths, and this is the one thing the site does not do today: design assist for a 2028 opening, and buy now for this coming summer. They are different buyers on different clocks and they should not share a form.</li>
+        <li>A "complete the site" module on every project and quote path, carrying benches, ADA stairs and accessories.</li>
+        <li>Links up to the hub for shelters, enclosures and chemical buildings, because a park that needs one will not think to look for it on a fiberglass site.</li>
+        <li>"A division of VPC Fiberglass" in the header, in the footer and in the markup, not only in the copyright line.</li>
+      </ul>
+
+      <h3 class="sub">easyrecreation.com</h3>
+      <ul>
+        <li>Catalog clarity first. This is a products site and it should read like one.</li>
+        <li>The ADA measuring flow as one question per screen with photographs inside the form, built as a form rather than a PDF somebody prints. It exists to stop the phone tag that a wrong measurement causes.</li>
+        <li>Bench color and logo preview, so a buyer can see what they are ordering before they ask.</li>
+        <li>A clear where-to-buy path for reps and dealers, and an order path that produces a labeled submission.</li>
+        <li>Cross links up to InterActive Play and to the hub.</li>
+        <li>The staging site locked before anything else on this list. See <a href="../easyrec-build/">the EasyRec build</a>.</li>
+      </ul>
+
+      <h3 class="sub">Composite Fan and Primary Plastics</h3>
+      <ul>
+        <li>One real page each, with its own products, its own buyer language and its own quote path.</li>
+        <li>Fan buyers are chemical, pulp and paper, and wastewater plant people. They should not have to read water and wastewater copy written for flumes to work out whether VPC makes what they need.</li>
+        <li>compositefan.com points at the Composite Fan page.</li>
+      </ul>
+      <p class="note"><span class="chip check">Confirm with Amanda</span> &nbsp;Whether either division has product literature, photography or a product list good enough to build a page from today, or whether that content has to be made first.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">05</div>
+    <div class="body">
+      <h2>How the properties promote each other</h2>
+      <p>Cross promotion is contextual and sales led. It is not a reciprocal link block in every footer, which helps nobody and looks like what it is.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>From</th><th>To</th><th>How</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="place">Hub</td><td>Both doors, Fan, Plastics</td><td>Primary navigation and the two homepage doors</td></tr>
+            <tr><td class="place">Door A</td><td>Hub</td><td>Footer parent line to the company, certifications and careers</td></tr>
+            <tr><td class="place">InterActive Play</td><td>EasyRec</td><td>A "complete the site" module on every project and quote path: benches, ADA stairs, accessories</td></tr>
+            <tr><td class="place">EasyRec</td><td>InterActive Play</td><td>A single contextual banner: building a splash pad or a park?</td></tr>
+            <tr><td class="place">Play or EasyRec</td><td>FRP</td><td>Only where it is relevant. Shelters, enclosures and chemical buildings at aquatic sites. Never a manhole in front of a parks buyer.</td></tr>
+            <tr><td class="place">Every property</td><td>The same phone, quote address and plant addresses</td><td>Identical wording and formatting everywhere</td></tr>
+            <tr><td class="place">Every property</td><td>The parent company</td><td>Named in the header and footer, and declared in the markup as parentOrganization</td></tr>
+            <tr><td class="place">Articles and resources</td><td>One door</td><td>Every article ends in exactly one call to action, chosen for who reads it</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pull">
+        <p>The rule that keeps this honest: a cross link earns its place by being useful to the person reading, not by being useful to VPC. Everything else is a link farm with a nicer font.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">06</div>
+    <div class="body">
+      <h2>Findability and AI visibility</h2>
+      <p>Two audiences read these pages before a human does: the search index, and the AI assistants that engineers and parks staff now ask first. Both need to work out that five names are one company, and what that company makes.</p>
+
+      <h3 class="sub">Fix the entity first</h3>
+      <p>This is the part that is broken today and the part that everything else compounds off.</p>
+      <ul class="conditions">
+        <li><b>One Organization, one identifier</b> The hub declares VPC once, with a stable identifier, and the duplicate Organization and LocalBusiness blocks without identifiers come out. Three descriptions of one company is how a search engine ends up unsure which is the company.</li>
+        <li><b>Parent and children declared</b> Each division site names VPC as parentOrganization. The hub names them back. This is the single cheapest change on the list and it is the one that makes the five names read as one business.</li>
+        <li><b>Visible parentage, not only markup</b> "A division of VPC Fiberglass" in the header and footer of both division sites, linked, not buried in a copyright string that a reader treats as furniture.</li>
+        <li><b>One set of contact facts</b> Name, addresses and phone identical across every property and anywhere VPC is listed. Different formatting is read as different companies.</li>
+      </ul>
+
+      <h3 class="sub">Then the page level work</h3>
+      <ul>
+        <li>Title, meta description, H1 and a social image on every key template, written for the page rather than generated from the post name. No property ships a default WordPress title.</li>
+        <li>Product markup on the product pages VPC owns, once the catalog comes home. This is the asset nobody in the peer set has, and today it only exists on the rented platform.</li>
+        <li>FAQPage markup only where there are real questions and real answers on the page. The markup gets cut down to the visible copy, never the other way round.</li>
+        <li>LocalBusiness only where it is accurate, which means the plants, not every division.</li>
+        <li>WebSite with a search action only if site search actually works.</li>
+        <li>Certifications and the domestic content story as crawlable text on a page, not only as a PDF. A PDF is evidence; the page is what gets found and quoted.</li>
+        <li>Specifications and drawings named so the filename and the product name match, so a search for the product finds the drawing.</li>
+        <li>A sitemap and a clean robots file on every owned property, and an llms.txt on the hub. The hub has no llms.txt today.</li>
+        <li>Staging locked. new.easyrecreation.com is indexable right now and publishing a sitemap.</li>
+      </ul>
+
+      <div class="pull decision">
+        <p><b>What we are not going to claim.</b> Schema and a clean technical setup do not, on their own, get VPC cited by an AI assistant. They are the floor that makes a page readable. What actually moves citation is being mentioned in places the models already read, and having one clear identity they can attach those mentions to. That is why the entity work above comes before the markup checklist, and why the engineer program in the owner plan matters more to findability than any tag on any page.</p>
+      </div>
+
+      <p>The corollary: do not leave product truth on Navigator and describe the result as an owned presence. If the best machine readable description of a VPC product lives on someone else's platform, that is where it gets read from, and VPC does not control what happens to it.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">07</div>
+    <div class="body">
+      <h2>The site as a sales system</h2>
+      <p>Each row is a line from the <a href="../vpc-2027-2028-plan/">owner plan</a> and the job the website has to do for it.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>What sales needs</th><th>What the site has to do</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="place">Get specified by the engineer</td><td>Guide specs, CAD and STEP, product pages a drawing can cite, domestic content packets, and a lunch and learn request that books a date</td></tr>
+            <tr><td class="place">Mid construction FRP packages</td><td>Find the product fast, see the lead time, start the quote. This is a speed problem, not a content problem.</td></tr>
+            <tr><td class="place">Split the 2027 and 2028 play pipeline</td><td>Case studies tagged by opening year, and two separate paths: design assist for a later opening, buy now for this summer</td></tr>
+            <tr><td class="place">Raise the EasyRec attach rate</td><td>Accessories surfaced on every Play quote path, and a measuring flow that removes the phone calls a wrong measurement causes</td></tr>
+            <tr><td class="place">Find bid and capital plan work</td><td>Public pages using the words those buyers search, by project type rather than by product code</td></tr>
+            <tr><td class="place">Support reps and dealers</td><td>Clean cut sheets, a configurator, and an order path that arrives labeled correctly</td></tr>
+            <tr><td class="place">Keep the 24 hour quote promise</td><td>A form that collects complete specifications, and a confirmation screen that sets the expectation the promise depends on</td></tr>
+            <tr><td class="place">The owner dashboard</td><td>Nothing. It is internal. The public site feeds it by producing one clean URL per product and one clean form submission per lead.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The internal AI work stays internal. The corporate account and the closest job index described in the <a href="../vpc-closest-job-plan/">closest job plan</a> make the people faster; the public site makes both of them faster still by giving every product exactly one owned address that the humans and the tools can agree on.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">08</div>
+    <div class="body">
+      <h2>Design system and how it should behave</h2>
+      <p>One visual language across the estate, with a division accent color so a buyer knows which door they are standing in without feeling like they have been handed off to a different company.</p>
+
+      <ul class="conditions">
+        <li><b>Shared, not uniform</b> One type scale, one button, one form pattern, one photographic style. Division accent colors on top. Same family, different rooms.</li>
+        <li><b>Photography, not stock</b> Proof sits next to the call to action, and it is a photograph of something VPC built. A stock image of a water treatment plant helps nobody decide anything.</li>
+        <li><b>Mobile first</b> Municipal engineers and parks staff read on phones, often standing on a site. Tables scroll, forms work with one thumb, and nothing important hides behind a hover.</li>
+        <li><b>Forms before chat</b> A form that takes a drawing as an upload beats a chat widget that cannot. The RFQ is the most important object on the estate and it should look like it.</li>
+        <li><b>Accessible on purpose</b> Contrast, focus states, real labels and keyboard paths. EasyRec sells ADA products, so an inaccessible EasyRec page is an argument against the product.</li>
+        <li><b>Fast</b> Compressed images and no multi megabyte hero. A slow page on a phone on a job site is a page nobody reads.</li>
+        <li><b>English only for now</b> No Spanish until there is a real twin with a real reviewer behind it. A machine translated page under a Spanish tag is worse than no Spanish page.</li>
+      </ul>
+
+      <p class="note">House rule carried across from the rest of this work: no em dashes in client copy, and every property ships with a real title. Nothing goes live reading like a default install.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">09</div>
+    <div class="body">
+      <h2>The order to build it in</h2>
+      <p>The sequence is not arbitrary. Each phase either unblocks the next one or feeds something the owner plan needs on a date.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th class="num">#</th><th>Phase</th><th>Why here</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">0</td><td>Lock the staging site</td><td>One checkbox, and it is competing with a live VPC site while it stays unticked. Nothing else on this list is more urgent or cheaper.</td></tr>
+            <tr><td class="num">1</td><td>Decide ownership</td><td>Option C in digital options: rebuild the hub and bring the catalog home. Every phase below assumes this answer.</td></tr>
+            <tr><td class="num">2</td><td>Entity and cross links</td><td>Parent and child declared, visible parentage, one set of contact facts, compositefan.com repointed. Small work, and it pays from the day it ships rather than at launch.</td></tr>
+            <tr><td class="num">3</td><td>IA and design system</td><td>Hub, both doors, the two division sites, and pages for Fan and Plastics. Decided once, applied everywhere.</td></tr>
+            <tr><td class="num">4</td><td>Door A and the resource library</td><td>Guide specs, CAD, domestic content packets. This is what the engineer sprint in the owner plan hands out, so it has to exist before that program starts.</td></tr>
+            <tr><td class="num">5</td><td>Door B and the EasyRec tools</td><td>Aquatic hub, cross promotion modules, measuring flow and configurator. Ready ahead of the winter aquatic bid season.</td></tr>
+            <tr><td class="num">6</td><td>Catalog migration</td><td>Product pages and Product markup on owned URLs, with redirects from every Navigator address.</td></tr>
+            <tr><td class="num">7</td><td>Findability pass</td><td>Titles, descriptions, social images, sitemaps, llms.txt, and a crawl to prove none of it regressed.</td></tr>
+            <tr><td class="num">8</td><td>Sales enablement pack</td><td>One pagers and the exact URLs to hand the top 25 engineers of record and the parks contacts.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">What this brief deliberately does not do</h3>
+      <ul>
+        <li>Put the closest job index, or anything reading Salesforce, on the public web.</li>
+        <li>Leave the product system of record on Navigator while calling the result an owned presence.</li>
+        <li>Drop park buyers into flume catalogs without a reason they can see.</li>
+        <li>Launch any staging domain without noindex, ever again.</li>
+        <li>Put a Doble AI or Atlas brand anywhere on a VPC property. These are VPC's sites.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">10</div>
+    <div class="body">
+      <h2>How we will know it worked, and what we need</h2>
+
+      <h3 class="sub">Metrics</h3>
+      <p>Every one of these needs VPC analytics we do not have today, so the first job is access rather than a target. No baselines are stated here because inventing them would make the whole set worthless.</p>
+      <ul>
+        <li>Organic and AI referral landings on FRP product and resource pages.</li>
+        <li>Quote form starts and completions, split by door: FRP, Play, EasyRec.</li>
+        <li>EasyRec attach rate on quotes that started on the Play side.</li>
+        <li>Engineer resource downloads: guide specs, CAD and STEP, domestic content packets.</li>
+        <li>Time to first response on complete RFQs, measured against the 24 hour promise.</li>
+        <li>Zero staging pages in the index, and zero default titles across the estate.</li>
+        <li>Product markup live on pages VPC owns, not only on the rented host.</li>
+      </ul>
+
+      <div class="ask-block">
+        <h4>What we need from Corey</h4>
+        <ol>
+          <li>The ownership call. Stay, patch, or rebuild and own it. Section 03 and everything after it assumes the third answer, and we should not start phase 3 until you have said so.</li>
+          <li>Whether Composite Fan and Primary Plastics are part of the growth plan. If they are, they get pages and a budget. If they are not, say so and we will stop treating 17 percent of sales as a gap.</li>
+          <li>Analytics access, so the metrics above stop being a wish list.</li>
+        </ol>
+      </div>
+
+      <div class="ask-block">
+        <h4>What we need from Amanda</h4>
+        <ol>
+          <li>Tick the search engine visibility box on new.easyrecreation.com this week. It cannot be done over the API.</li>
+          <li>The domain list. What VPC owns beyond compositefan.com, and who the registrar is.</li>
+          <li>Whether the Navigator agreement allows redirects from the catalog URLs when VPC leaves.</li>
+          <li>Whether Composite Fan and Primary Plastics have product literature and photography good enough to build pages from, or whether that content has to be created.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <footer class="closing">
+    Doble AI &nbsp;&middot;&nbsp; VPC digital design brief &nbsp;&middot;&nbsp; 12 September 2026 &nbsp;&middot;&nbsp; Prepared for Corey Hogan and Amanda Acker
+    <span class="links">
+      Companion documents:
+      <a href="../vpc-2027-2028-plan/">2027 and 2028 owner plan</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-digital-options/">Digital options</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-findability/">Findability review</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-work-order/">Website work order</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-closest-job-plan/">Closest job plan</a> &nbsp;&middot;&nbsp;
+      <a href="../easyrec-build/">EasyRec build</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
