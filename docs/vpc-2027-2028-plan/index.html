@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>VPC 2027 and 2028</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #eff1ee;
+    --surface: #ffffff;
+    --ink: #16191b;
+    --ink-soft: #575f61;
+    --ink-faint: #7d8688;
+    --rule: #d2d7d3;
+    --rule-soft: #e2e6e2;
+    --accent: #0e5c67;
+    --accent-soft: #e2edee;
+    --rust: #a34c1c;
+    --rust-soft: #f6e8e0;
+    --moss: #3c6636;
+    --moss-soft: #e5eee2;
+
+    --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #131718;
+      --surface: #1b2022;
+      --ink: #e7ebe8;
+      --ink-soft: #a3adad;
+      --ink-faint: #7d8688;
+      --rule: #313839;
+      --rule-soft: #262c2e;
+      --accent: #5cb4c0;
+      --accent-soft: #1a2f33;
+      --rust: #e08c58;
+      --rust-soft: #2e2119;
+      --moss: #86b57c;
+      --moss-soft: #1c2a1c;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #131718;
+    --surface: #1b2022;
+    --ink: #e7ebe8;
+    --ink-soft: #a3adad;
+    --ink-faint: #7d8688;
+    --rule: #313839;
+    --rule-soft: #262c2e;
+    --accent: #5cb4c0;
+    --accent-soft: #1a2f33;
+    --rust: #e08c58;
+    --rust-soft: #2e2119;
+    --moss: #86b57c;
+    --moss-soft: #1c2a1c;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 38px 24px 88px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    border-top: 3px solid var(--ink);
+    padding-top: 18px;
+    margin-bottom: 40px;
+  }
+
+  .stamp {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+  .stamp b { color: var(--ink-soft); font-weight: 500; }
+
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(34px, 6vw, 50px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+
+  .scope {
+    font-size: 14.5px;
+    color: var(--ink-faint);
+    margin: 12px 0 0;
+    max-width: 58ch;
+  }
+
+  .dek {
+    font-size: 17.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  /* ---------- sections ---------- */
+
+  section {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 0 20px;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .marker {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    padding-top: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  .body { min-width: 0; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+
+  p { margin: 0 0 14px; max-width: 66ch; }
+  p:last-child { margin-bottom: 0; }
+
+  .body > ul, .body > ol { max-width: 66ch; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--f-mono);
+    font-size: 0.88em;
+    background: var(--rule-soft);
+    padding: 1px 5px;
+    border-radius: 2px;
+    word-break: break-word;
+  }
+
+  /* ---------- pull ---------- */
+
+  .pull {
+    border-left: 3px solid var(--accent);
+    padding: 3px 0 3px 18px;
+    margin: 20px 0;
+    max-width: 62ch;
+  }
+
+  .pull p {
+    font-size: 17px;
+    line-height: 1.48;
+    margin: 0;
+  }
+
+  .pull.decision { border-left-color: var(--rust); }
+
+  /* ---------- objective ---------- */
+
+  .objective {
+    background: var(--accent-soft);
+    padding: 30px 30px 26px;
+    margin-bottom: 8px;
+  }
+
+  .objective .opt-label { margin-bottom: 12px; }
+
+  .objective .lead {
+    font-size: 21px;
+    line-height: 1.42;
+    letter-spacing: -0.008em;
+    max-width: 40ch;
+    margin: 0;
+  }
+
+  .surfaces {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin: 22px 0 26px;
+  }
+
+  .surfaces .surfaces-label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 4px;
+  }
+
+  .surface {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 4px 9px;
+    white-space: nowrap;
+  }
+
+  .conditions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px 26px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .conditions li {
+    margin: 0;
+    border-top: 2px solid var(--accent);
+    padding-top: 11px;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .conditions b {
+    font-family: var(--f-display);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .objective .coda {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    margin: 26px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
+  /* ---------- tables ---------- */
+
+  .table-wrap { overflow-x: auto; margin: 18px 0 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    line-height: 1.42;
+  }
+
+  th {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    padding: 0 14px 8px 0;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  th:last-child, td:last-child { padding-right: 0; }
+
+  .num {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    width: 22px;
+    padding-right: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .effort {
+    font-family: var(--f-mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .where { font-size: 13px; color: var(--ink-soft); white-space: nowrap; }
+  .prop { font-family: var(--f-mono); font-size: 13px; word-break: break-all; }
+
+  /* ---------- chips ---------- */
+
+  .chip {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .chip.own { background: var(--moss-soft); color: var(--moss); }
+  .chip.rent { background: var(--rust-soft); color: var(--rust); }
+
+  /* ---------- option cards ---------- */
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 20px 0 22px;
+  }
+
+  .opt {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 20px;
+  }
+
+  .opt-label {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .opt h3 {
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+  }
+
+  .opt p { font-size: 14.5px; line-height: 1.5; margin: 0 0 12px; max-width: none; }
+
+  .opt .needs {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule-soft);
+    padding-top: 10px;
+    margin: 0;
+  }
+
+  .opt .needs b {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  /* ---------- lists ---------- */
+
+  ul, ol { padding-left: 20px; margin: 0 0 14px; }
+  li { margin-bottom: 8px; }
+  li:last-child { margin-bottom: 0; }
+
+  ol.asks { counter-reset: ask; list-style: none; padding-left: 0; }
+
+  ol.asks li { position: relative; padding-left: 34px; margin-bottom: 12px; }
+
+  ol.asks li::before {
+    counter-increment: ask;
+    content: counter(ask);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--surface);
+    background: var(--accent);
+    width: 21px;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .quote {
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--rule);
+    padding-left: 16px;
+    margin: 16px 0 0;
+    max-width: 62ch;
+  }
+
+  .closing {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 3px solid var(--ink);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 620px) {
+    .sheet { padding: 26px 18px 68px; }
+    section { grid-template-columns: 1fr; gap: 0; }
+    .marker { padding-top: 0; margin-bottom: 8px; }
+    .where { white-space: normal; }
+  }
+</style><style>
+  .chip.mixed { background: var(--accent-soft); color: var(--accent); }
+  .opt.pick { border-color: var(--accent); border-width: 2px; padding: 19px 24px; grid-column: 1 / -1; }
+  .opt.pick p { max-width: 62ch; }
+  .opt.pick .opt-label { color: var(--accent); }
+  .opt.pick h3 { color: var(--ink); }
+  .rec {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--surface);
+    background: var(--accent);
+    padding: 3px 8px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .closing a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .closing a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .closing .links { display: block; margin-top: 8px; text-transform: none; letter-spacing: 0.01em; font-size: 11.5px; }
+  .peer { font-size: 14.5px; }
+  .scope a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .scope a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+</style>
+
+<style>
+  .goals { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 6px; }
+  .goal { background: var(--surface); border: 1px solid var(--rule); padding: 20px; }
+  .goal.home { border-color: var(--accent); border-width: 2px; padding: 19px; }
+  .goal h3 { font-family: var(--f-display); font-weight: 600; font-size: 18px; line-height: 1.2; margin: 0 0 10px; }
+  .goal p { font-size: 14.5px; line-height: 1.5; margin: 0 0 11px; max-width: none; }
+  .goal p:last-child { margin-bottom: 0; }
+  .yr { font-family: var(--f-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 8px; }
+  .chip.stretch { background: var(--rust-soft); color: var(--rust); }
+  .chip.firm { background: var(--moss-soft); color: var(--moss); }
+  .chip.open { background: var(--accent-soft); color: var(--accent); }
+  h3.sub { font-family: var(--f-display); font-weight: 600; font-size: 18px; line-height: 1.25; margin: 30px 0 10px; }
+  h3.sub:first-child { margin-top: 0; }
+  .kicker { font-family: var(--f-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-faint); margin: 26px 0 8px; }
+  .srcs { list-style: none; padding: 0; margin: 16px 0 0; }
+  .srcs li { border-top: 1px solid var(--rule-soft); padding: 11px 0; margin: 0; font-size: 14.5px; line-height: 1.45; }
+  .srcs li:first-child { border-top: 1px solid var(--rule); }
+  .srcs b { display: block; font-family: var(--f-display); font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .srcs a { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-faint); text-decoration: none; word-break: break-all; border-bottom: 1px solid var(--rule-soft); }
+  .srcs a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .body > p a, .goal a, li a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .body > p a:hover, .goal a:hover, li a:hover { border-bottom-color: var(--accent); }
+  td .lane { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
+  .place { font-weight: 600; white-space: nowrap; }
+  .divtable th:first-child { width: 92px; }
+  .note { font-size: 13.5px; color: var(--ink-faint); line-height: 1.5; margin-top: 12px; max-width: 66ch; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <span class="stamp">Doble AI &nbsp;/&nbsp; Prepared for <b>Corey Hogan</b> &nbsp;/&nbsp; 12 September 2026</span>
+    <h1>VPC in 2027 and 2028</h1>
+    <p class="dek">How to get the best year VPC can still make out of 2027, and how to set 2028 up as the record year at roughly thirty percent above baseline.</p>
+    <p class="scope">Built from VPC's own profit and loss exports through 9 September 2026, the division income accounts, public funding documents for New York, Texas and Florida, and the work already running with Larry on the closest job index. Backlog, capacity and ship dates are not in anything we hold, so every one of those is marked as a question for the books rather than answered here. Companion detail: <a href="../vpc-closest-job-plan/">closest job plan</a>, <a href="../vpc-digital-options/">digital options</a>, <a href="../vpc-findability/">findability review</a>, <a href="../vpc-work-order/">website work order</a>.</p>
+  </header>
+
+  <div class="objective">
+    <span class="opt-label">00 &nbsp;The short version</span>
+    <p class="lead">2027 is won by shipping what is already sold and getting named in specs that pay later. 2028 is the year to aim the thirty percent at, because it harvests design stage work being decided right now. A record year needs backlog and shop capacity behind it, and both of those numbers live in VPC's books rather than in this document.</p>
+  </div>
+
+  <section>
+    <div class="marker">&nbsp;</div>
+    <div class="body">
+      <h2>The two goals, stated plainly</h2>
+
+      <div class="goals">
+        <div class="goal">
+          <span class="yr">2027 &nbsp;&middot;&nbsp; <span class="chip stretch">Stretch</span></span>
+          <h3>Best year VPC can still make</h3>
+          <p>Almost all of 2027's revenue comes from work already won, plus late cycle wins that are short enough to fabricate and ship inside the year. Aquatic work sold through this coming winter and spring can still open in summer 2027. Municipal FRP that broke ground in September 2026 is not an open sales window. It is a job someone else got specified into eighteen months ago.</p>
+          <p>So the 2027 job is to maximize shippable dollars out of the existing book and stop pretending the greenfield press releases are leads.</p>
+        </div>
+        <div class="goal home">
+          <span class="yr">2028 &nbsp;&middot;&nbsp; <span class="chip open">Home run</span></span>
+          <h3>Roughly thirty percent up on baseline</h3>
+          <p>2028 is the first year that can be built rather than harvested. The designs being drawn in late 2026 and 2027 bid in 2027 and build in 2028. Getting VPC named in those is a 2026 and 2027 activity with a 2028 payout.</p>
+          <p>That makes 2028 the high confidence record attempt, and it makes the next six months the part that decides it.</p>
+        </div>
+      </div>
+
+      <h3 class="sub">What thirty percent actually equals</h3>
+      <p>Pick the baseline first. The number changes the whole plan, and only you can set it.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>If the baseline is</th><th>It is</th><th>2028 target at +30%</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="place">2025, last closed year</td><td>$11.97M total income</td><td><b>about $15.6M</b></td></tr>
+            <tr><td class="place">2023, best year on record</td><td>$13.43M total income</td><td><b>about $17.4M</b></td></tr>
+            <tr><td class="place">2026, once it closes</td><td>not yet known</td><td><b>raise the bar to match</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><b>2026 is running ahead of 2025.</b> January through August booked $7.88M against $6.32M for the same eight months of 2025, up 24.7 percent. Whether that clears the 2023 peak depends entirely on how September through December land, and the last two years split the calendar too differently to guess from: the first eight months were 66.7 percent of 2024 and 52.8 percent of 2025. There is no honest projection to make from a fourteen point spread. The books will settle it in January, and if 2026 beats $13.43M then the 2028 target moves up with it.</p>
+
+      <p class="note">All three figures above are total income from VPC's profit and loss, not the sales by customer report. The two disagree year by year, most sharply in 2023, and the bridge between them has not been explained yet. Whichever one you pick has to be the one you measure against in 2028 as well.</p>
+
+      <div class="pull decision">
+        <p><b>The honest verdict.</b> 2028 is the record year to plan for. Calling 2027 the record attempt only makes sense if firm backlog already covers most of the way past $13.43M and the shop has the hours to ship it. Nobody has put those two numbers side by side yet. Do that, then decide on <b>15 October 2026</b>: 2027 as the stretch, or 2028 as the primary.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">01</div>
+    <div class="body">
+      <h2>Why some of this is already too late, and some of it is early</h2>
+      <p>Most of the frustration in a growth plan comes from running three sales lanes off one clock. They do not keep the same time, and two of them were decided a long way back.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Lane</th><th>Cycle</th><th>Decision point</th><th>Selling now fills</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="place">Municipal FRP<br><span class="lane">flumes, manholes, enclosures</span></td>
+              <td>18 to 36 months, design to bid to build</td>
+              <td>The preliminary engineering report, then 60 to 90 percent design, inside the consulting engineer's drawings. The purchase order often lands mid construction.</td>
+              <td>2028 and later</td>
+            </tr>
+            <tr>
+              <td class="place">Splash and aquatic<br><span class="lane">InterActive Play</span></td>
+              <td>Bid winter into spring, fabricate 12 to 20 weeks or more, open for summer</td>
+              <td>Parks capital plans, bond and referendum money, and the aquatic designer</td>
+              <td>Late 2027 and 2028</td>
+            </tr>
+            <tr>
+              <td class="place">Accessories<br><span class="lane">EasyRec</span></td>
+              <td>Weeks to months</td>
+              <td>The same aquatic buyer, usually late and usually as a separate line</td>
+              <td>2027</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>EasyRec is the only one of the three that can still move next year's number, because it sells and ships inside the same season.</p>
+
+      <h3 class="sub">The funding clock sits on top of all three</h3>
+      <p>Federal water appropriations fall hard next year. Bluefield Research puts FY2026 at $23.4 billion and FY2027 at an estimated $8.6 billion, a drop of about 63 percent, as the infrastructure act supplemental and the pandemic relief money run out. Two things matter more than the headline:</p>
+      <ul>
+        <li><b>$26.8 billion of infrastructure act revolving fund money is still converting</b> into project agreements and will keep converting into the early 2030s. Of $40.7 billion allotted, only $13.9 billion has reached project level agreements. The money is committed. It just has not turned into jobs yet.</li>
+        <li><b>Pandemic relief money is the only hard stop.</b> Unspent funds revert to the Treasury on 31 December 2026, which is what produces the rush of small municipal projects going out this fall.</li>
+      </ul>
+
+      <div class="pull">
+        <p>Chase what is in design, on a funding list, or about to bid for 2027 and 2028 construction. A groundbreaking photograph is a job VPC either won or lost eighteen months ago.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">02</div>
+    <div class="body">
+      <h2>2027: the best year still available</h2>
+      <p>The first move takes about a week, and everything else on this page is sized off it.</p>
+
+      <h3 class="sub">This week: get the truth out of the books</h3>
+      <p>Six numbers. None of them are in anything Doble AI holds, and the plan cannot be sized without them.</p>
+      <ol class="asks">
+        <li><b>Backlog by ship month, through the end of 2028.</b> Signed orders only, no quotes. This is the single number that decides whether 2027 is a record attempt.</li>
+        <li><b>How much of that backlog is InterActive Play.</b> That division has been 44 percent of six year sales and it is the most volatile line in the company.</li>
+        <li><b>Shop capacity, written down.</b> Fabrication hours available per month by product family, against the hours the backlog already consumes. A record year VPC cannot build is a forecast, not a plan.</li>
+        <li><b>On time ship percentage for the last twelve months.</b> If it is poor, capacity is not the constraint, scheduling is, and the fix is cheaper.</li>
+        <li><b>The revenue recognition rule, in one sentence.</b> The customer report and the profit and loss disagree year by year, and 2023 is the extreme case: $10.21M on one and $13.43M on the other. Until someone says which one a 2028 target is measured on, the target is not defined.</li>
+        <li><b>Third party revenue split out from intercompany.</b> VPC bills work to other companies you own, and 2025 carried more of it than 2024 did. Growing total revenue by thirty percent and growing outside revenue by thirty percent are two different jobs with two different sales plans. Ava can split it in an afternoon.</li>
+      </ol>
+
+      <h3 class="sub">Q4 2026: lock what 2027 can ship</h3>
+      <ul class="conditions">
+        <li><b>Lock the shippable dollars</b> Take the backlog file and mark every line as shippable in 2027, shippable in 2028, or at risk. The 2027 revenue plan is the first column plus whatever short cycle work can still be sold.</li>
+        <li><b>Kill the dead quotes</b> Every open quote older than ninety days is either chased to a yes or a no, or closed. An open quote log nobody has pruned makes the pipeline look twice its real size and hides the jobs worth calling.</li>
+        <li><b>Write the capacity envelope</b> One page, signed by production, saying what the shop can ship per month in 2027. Sales sells against that number rather than around it.</li>
+        <li><b>Engineer sprint</b> Top twenty five consulting engineers of record by volume in New York, Texas and Florida. A named owner, a call, a lunch and learn booked, a current guide specification in their hands.</li>
+        <li><b>Build America packet</b> One document per product family covering domestic content and compliance, ready to attach the moment a revolving fund job appears. A missing packet is a disqualification, not a negotiation.</li>
+        <li><b>Mid construction packages</b> Jobs already under construction still buy flumes, manholes and enclosures late. Those are real 2027 purchase orders and they are the only part of the municipal lane that can still move next year.</li>
+      </ul>
+
+      <h3 class="sub">The 2027 program</h3>
+      <p><b>InterActive Play.</b> Two lists, kept separate. One is what is still buyable for a summer 2027 opening, which means it has to be sold and released to fabrication by roughly March. The other is designs being drawn now for 2028 openings, where the job is to get named in the drawing rather than to quote. Do not let the second list get scored as pipeline for next year.</p>
+      <p><b>EasyRec.</b> Attach it to every aquatic quote that goes out, without exception. Benches, ADA stairs and accessories are short cycle, they ship inside the same year they are sold, and they travel to a buyer who is already talking to VPC. At 4.9 percent of six year sales it is the smallest lane and the easiest one to double.</p>
+      <p><b>Make the quote promise real.</b> The contact page already commits to it in your own name: all price quotations are responded to within 24 hours of request so long as all necessary specifications are provided. Measure it. If the real median is three days, either the promise comes down or the process comes up, and the closest job work in section 06 is the cheapest way to bring the process up.</p>
+
+      <h3 class="sub">The scoreboard for 2027</h3>
+      <p>Four numbers on one page, reviewed monthly: on time ship percentage, quote turnaround against the twenty four hour promise, backlog against the monthly ship target, and revenue mix by division. Nothing else. A dashboard with twenty metrics gets read once.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">03</div>
+    <div class="body">
+      <h2>2028: the home run</h2>
+      <p>A thirty percent year is not a harder version of this year. It is a different year, and it is mostly decided before it starts.</p>
+
+      <h3 class="sub">What has to be true by 31 December 2027</h3>
+      <ul class="conditions">
+        <li><b>Backlog heavy entry</b> VPC walks into January 2028 with a large majority of the target already signed. If 2028 opens needing to sell most of its own year, it will not be a record year.</li>
+        <li><b>Spec position banked</b> A countable number of 2028 construction jobs where VPC is named or basis of design in the engineer's drawings, tracked as a list with names on it rather than as a feeling.</li>
+        <li><b>Capacity proven, not assumed</b> Either the shop demonstrated it can ship the monthly rate during 2027, or the added capacity is bought and installed during 2027. Not both decided in January.</li>
+        <li><b>Quote turnaround fixed</b> The twenty four hour promise being met on standard products, so the extra volume does not arrive and sit.</li>
+      </ul>
+
+      <h3 class="sub">How the year runs</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Quarter</th><th>The job</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="place">Q1 2028</td><td>Release aquatic work to fabrication for summer openings. Close the winter bid season on municipal FRP. Confirm the capacity plan against the real order book rather than the December forecast.</td></tr>
+            <tr><td class="place">Q2 2028</td><td>Ship the aquatic season. Protect the schedule, because a late splash pad is a lost reference for 2029. Keep the engineer program running through the quarter when everyone is busiest, because that is what fills 2029.</td></tr>
+            <tr><td class="place">Q3 2028</td><td>Municipal FRP shipping weight. Attack the fall revolving fund and bond cycle. This is the quarter that decides whether the year lands on target or a little under.</td></tr>
+            <tr><td class="place">Q4 2028</td><td>Close out, then repeat the same October decision for 2029 and 2030. The plan is a loop, not a one year push.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">The mix rule</h3>
+      <p>Traditional FRP and EasyRec fund the floor. They are steadier, they ship in shorter cycles, and they are what keeps a bad aquatic year from becoming a bad company year. InterActive Play buys the upside, and it is the only division that can add several million dollars on a handful of contracts, but it cannot be the only path to the number. It has been 44 percent of six year sales and it has also been the line that swings hardest.</p>
+      <div class="pull decision">
+        <p>Write the 2028 target as three division numbers that add up, not one company number. If the plan only works when InterActive Play has a great year, it is a bet rather than a plan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">04</div>
+    <div class="body">
+      <h2>Division plays</h2>
+      <p>The plan runs through Traditional FRP, InterActive Play and EasyRec. Two divisions sit outside it, and that is a choice worth naming: Composite Fan Technology has been 12.8 percent of six year sales and Primary Plastics 4.6 percent. Composite Fan Technology is not small. It is left out here because the thirty percent path runs through the other three, and if it has its own growth plan it belongs in the same books session rather than in a footnote.</p>
+
+      <h3 class="sub">Traditional FRP &nbsp;<span class="chip firm">The floor</span></h3>
+      <div class="table-wrap">
+        <table class="divtable">
+          <tbody>
+            <tr><td class="place">Role</td><td>32.9 percent of six year sales. Steadier than the play side and the division where a specification win compounds, because engineers reuse the detail that worked.</td></tr>
+            <tr><td class="place">Now</td><td>Name the top twenty five engineers of record by volume across New York, Texas and Florida. Get a current guide specification into each one. Book lunch and learns for the winter.</td></tr>
+            <tr><td class="place">2027</td><td>Chase mid construction packages on jobs already building. Go at utility project managers directly, not only through the consultant. On construction manager at risk jobs, get in front of the manager before the guaranteed maximum price is set, because after that the number is fixed and substitution gets hard.</td></tr>
+            <tr><td class="place">2028</td><td>Convert the specification positions taken in 2026 and 2027. Track them as a named list with a construction year against each one.</td></tr>
+            <tr><td class="place">Do not</td><td>Do not bid unspecified work on price alone against local fabricators. Do not show up to a revolving fund job without the domestic content packet. Do not treat a groundbreaking announcement as a lead.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">InterActive Play &nbsp;<span class="chip stretch">The upside</span></h3>
+      <div class="table-wrap">
+        <table class="divtable">
+          <tbody>
+            <tr><td class="place">Role</td><td>44.1 percent of six year sales, and the most volatile line in the company. It is also the division where the customers do not repeat: a resort builds one waterpark, pays once, and often buys under a new entity name the next time.</td></tr>
+            <tr><td class="place">Now</td><td>Split the pipeline by opening year, 2027 against 2028, and stop mixing them. Track bond and referendum votes and municipal parks capital plans, because that money is public months before an RFP appears.</td></tr>
+            <tr><td class="place">2027</td><td>Sell only what can be released to fabrication in time to open for summer. Take the rest to 2028 deliberately rather than losing it on schedule.</td></tr>
+            <tr><td class="place">2028</td><td>Get named in aquatic designers' drawings during 2027. Work the trade calendar where the operators are, including the waterpark outlook coverage from Hotel and Leisure Advisors.</td></tr>
+            <tr><td class="place">Do not</td><td>Do not let this division be the whole growth plan. Do not sell a summer opening that the shop cannot release in time.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">One quiet asset here. The roughly fifteen thousand dollar winterization and de-winterization charge that shows up against the water parks is the only recurring revenue anywhere in six years of sales, and it is attached to the division with the worst repeat rate. Every park VPC has built is a small annuity nobody is managing. Counting them is a one afternoon job.</p>
+
+      <h3 class="sub">EasyRec &nbsp;<span class="chip open">The easiest lift</span></h3>
+      <div class="table-wrap">
+        <table class="divtable">
+          <tbody>
+            <tr><td class="place">Role</td><td>4.9 percent of six year sales. Short cycle, catalog driven, and it ships inside the year it is sold, which makes it the only division that can move the 2027 number late.</td></tr>
+            <tr><td class="place">Now</td><td>Attach it to every aquatic quote. Put the accessory line in front of the same buyer who is already reading a splash pad proposal.</td></tr>
+            <tr><td class="place">2027</td><td>Measure attach rate as a percentage of aquatic quotes that carry an EasyRec line. Sell accessibility compliance to municipal pools and school districts, which is a different buyer with its own budget cycle.</td></tr>
+            <tr><td class="place">2028</td><td>Clean submissions from reps and dealers through the measuring guide and configurator work, so orders arrive labeled correctly and do not come back as rework.</td></tr>
+            <tr><td class="place">Do not</td><td>Do not treat it as an afterthought on the quote. Do not let it stay the division nobody owns a number for.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Where to find the work, by type</h3>
+      <ul>
+        <li><b>Engineer lunch and learns.</b> The consulting engineer writes the specification eighteen months before the purchase order. It is the best hour anyone at VPC spends.</li>
+        <li><b>Utility project managers.</b> The owner side, who can tell you what is in design before it is public and who can ask the engineer for a product by name.</li>
+        <li><b>Construction managers before the guaranteed maximum price.</b> There is a window on every construction manager at risk job where the product is still open. After the price is set it closes.</li>
+        <li><b>Parks capital plans and bond measures.</b> Aquatic money is voted on in public and appears in a capital improvement plan long before it appears on a bid board.</li>
+        <li><b>Bid boards, filtered.</b> BidNet and city portals, watched on product keywords rather than browsed: flume, metering manhole, enclosure, splash pad, ADA stair, pool lift.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">05</div>
+    <div class="body">
+      <h2>Where to hunt</h2>
+      <p>New York first, because it is home and there are already two plants in it. Then Texas and Florida, which carry the largest funded water programs in the country and the longest aquatic season. Add a fourth state only once the process works in these, because a customer list with nobody working it is a spreadsheet.</p>
+
+      <p>A twenty row design stage list is already built from the state funding documents. Ten of them are below. The remaining ten are in the sheet John holds.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Target</th><th>State</th><th>Lane</th><th>Next action</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="place">Medina EPG</td><td>NY</td><td><span class="lane">Municipal FRP</span></td><td>Home ground. VPC&#39;s Ridge Road plant is in Medina. Call the utility directly and ask who the engineer of record is.</td></tr>
+            <tr><td class="place">Canandaigua</td><td>NY</td><td><span class="lane">Municipal FRP</span></td><td>Identify the consulting engineer and get a guide specification in front of them before design closes.</td></tr>
+            <tr><td class="place">Amsterdam</td><td>NY</td><td><span class="lane">Municipal FRP</span></td><td>Confirm the current design stage against the clean water revolving fund plan, then book the engineer.</td></tr>
+            <tr><td class="place">Bath</td><td>NY</td><td><span class="lane">Municipal FRP</span></td><td>Same play. Smaller job, short drive, good reference.</td></tr>
+            <tr><td class="place">Alexandria Bay</td><td>NY</td><td><span class="lane">Municipal FRP</span></td><td>Check whether it is on the pandemic relief clock, which would pull the schedule into this fall.</td></tr>
+            <tr><td class="place">Weslaco</td><td>TX</td><td><span class="lane">Municipal FRP</span></td><td>Texas water board priority list. Find the engineer, send the domestic content packet with the specification.</td></tr>
+            <tr><td class="place">Kingsville</td><td>TX</td><td><span class="lane">Municipal FRP</span></td><td>Garver is the engineer. Garver is a multi state firm, so one relationship here is worth more than one job.</td></tr>
+            <tr><td class="place">East Rio Hondo</td><td>TX</td><td><span class="lane">Municipal FRP</span></td><td>Water supply corporation. Buys direct more often than a city does, so go at the owner.</td></tr>
+            <tr><td class="place">DeLand</td><td>FL</td><td><span class="lane">Municipal FRP</span></td><td>On the Florida revolving fund plan. Confirm the stage, then the engineer.</td></tr>
+            <tr><td class="place">Dallas and San Antonio</td><td>TX</td><td><span class="lane">Aquatic</span></td><td>Bond funded aquatic programs. Track the capital improvement items and the aquatic designer, not the bid board.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Also on the list: Albion, Endicott, Pineland, Ballinger, Mart, Flagler Beach, Waccasassa, Groveland and Wildwood. Each row in the sheet carries the funding stage and the source document it came from. Re-check the stage against the current plan before anyone makes a call, because these documents are amended during the year and a row can move from design to under construction without notice.</p>
+
+      <h3 class="sub">Keeping it current</h3>
+      <ul class="conditions">
+        <li><b>Monthly</b> Pull the New York, Texas and Florida intended use plans and priority lists, diff them against last month, and add the new funded and design stage rows. This is the job that keeps the list alive, and it is the one most likely to be skipped.</li>
+        <li><b>Weekly</b> BidNet and the city portals, filtered to VPC product keywords. Summaries only, not a browse.</li>
+        <li><b>Quarterly</b> The federal loan program closings, plus parks bond results and the waterpark trade outlook, for the aquatic side.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">06</div>
+    <div class="body">
+      <h2>How the AI account accelerates sales</h2>
+      <p>The plan above adds work: more engineers to touch, more funding documents to read, more quotes to turn around faster. VPC has 57 people and none of them are sitting idle. The corporate account is how the extra work gets absorbed without hiring against every line of it.</p>
+
+      <p>The shape is already agreed in the <a href="../vpc-closest-job-plan/">closest job plan</a>: one VPC owned corporate Grok Bot account with Corey as administrator, seats issued and revoked by VPC, and the records staying on VPC's own drives and in Salesforce. The bot is the front door. It is not the filing cabinet. Every workflow below runs against data VPC already owns, so swapping the front door later costs nothing.</p>
+
+      <h3 class="sub">Lane by lane</h3>
+
+      <ul class="conditions">
+        <li><b>01 &nbsp;Quote speed</b> The first workflow, already under way with Larry. Index the metering manhole and flume submittal history, rank the closest past jobs against a new quote, flag which fields carry over and which have to change, and flag where the sales order, the submittal and the purchase order disagree. Five to ten submittals a week at three to five hours each, with most of the content already sitting in a job finished months ago. The hours go into finding it. Larry takes the first seat.</li>
+        <li><b>02 &nbsp;Design stage watch</b> Read the New York, Texas and Florida funding documents every month, diff them, and surface only the new funded and design stage rows. Draft the first outreach email to the engineer or utility named on each one. Keep the stage tag current as a row moves from design to funded to bid to construction. This is the section 05 job, and it is the one a person will quietly stop doing in March.</li>
+        <li><b>03 &nbsp;Bid board triage</b> Watch BidNet and the city portals on VPC product keywords, then summarize only the ones that match something VPC actually makes. The value is the noise it removes, not the leads it finds.</li>
+        <li><b>04 &nbsp;Specifications and compliance</b> Keep the guide specification language in construction specification format, current and ready to send, plus a domestic content one pager per product family. When a revolving fund job appears, the right packet comes out in minutes instead of being rebuilt.</li>
+        <li><b>05 &nbsp;Sales enablement</b> One pagers by product family, competitor cut sheet comparisons, lunch and learn outlines for the engineer program, and outbound that reads like a person wrote it. Anything that reads like a template gets deleted by the same engineers VPC is trying to reach.</li>
+        <li><b>06 &nbsp;Play and recreation</b> Track bond votes, referendums and parks capital plans so the aquatic pipeline is built from public records rather than from RFPs. Summarize the waterpark trade coverage. On the EasyRec side, support the measuring guide and configurator work so reps and dealers submit clean, labeled orders instead of sketches that come back as rework.</li>
+        <li><b>07 &nbsp;Owner dashboard</b> One weekly page for Corey: backlog against the ship calendar, open quote age, new design stage rows, and any job at risk of shipping late. Four things, and nothing that exists only to look good on a slide.</li>
+      </ul>
+
+      <h3 class="sub">Findability is the inbound half</h3>
+      <p>Everything above is outbound. The other half is being found by the engineer who is already searching, and by the AI answers that engineers now use before they search. That means product and question markup on pages VPC owns rather than rents, which is the decision set out in <a href="../vpc-digital-options/">digital options</a> and the gap list in the <a href="../vpc-findability/">findability review</a>. The directory listing stays only if the analytics show it pays for itself.</p>
+
+      <h3 class="sub">Rules for this account</h3>
+      <ul>
+        <li>Seats and billing sit under VPC. Corey administers. Seats are added only when a workflow has earned one, starting at one seat for Larry.</li>
+        <li>Customer files never live only inside a vendor chat. The drive is the record. The bot reads it.</li>
+        <li>No unsupervised loops and nothing that commits VPC to anything. Every output is a draft a person sends.</li>
+        <li>It does not replace Larry and it does not replace a salesperson. It removes search time and triage time, which is what both of them are currently spending their hours on.</li>
+        <li>Custom buildings and shelters are out of scope for now, and that is deliberate. They are the largest share of the engineering work and the hardest to model, and nothing in the material we hold supports modeling them yet. Metering manholes and flumes first, then quote history, then the harder families.</li>
+      </ul>
+
+      <p class="note">On cost. The first workflow sits inside the current arrangement rather than as a new line item. Beyond it, the account is a per seat monthly subscription billed to VPC plus build time, and we are not putting a seat rate on this page, because the published figures and the figures on an invoice have a habit of disagreeing. We will confirm the current rate in writing before anything is signed.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">07</div>
+    <div class="body">
+      <h2>What to keep on the desk</h2>
+      <p>Most of these are reissued on a schedule, which is the whole reason the monthly and quarterly rhythm in section 05 is worth keeping. The two state funding documents are the ones that change often enough to matter.</p>
+      <ul class="srcs">
+        <li><b>Bluefield Research, the federal water funding cliff</b>The FY2026 to FY2027 drop, the four funding timelines, and which states are exposed.<br><a href="https://www.bluefieldresearch.com/ns/u-s-federal-water-funding-cliff-masks-four-distinct-timelines-and-uneven-state-exposure/">bluefieldresearch.com</a></li>
+        <li><b>Congressional Research Service IF13177</b>FY2026 water appropriations and congressionally directed spending.<br><a href="https://www.everycrsreport.com/reports/IF13177.html">everycrsreport.com/reports/IF13177.html</a></li>
+        <li><b>EPA domestic content FAQs for manufacturers</b>The compliance document behind the packet in section 02.<br><a href="https://www.epa.gov/system/files/documents/2025-06/baba-faqs-for-manufacturers.pdf">epa.gov</a></li>
+        <li><b>HydroKnowledge, selling water technology through engineering consultants</b>Why the specification, not the bid, is where the sale happens.<br><a href="https://hydroknowledge.com/insights/selling-water-tech-through-engineering-consultants/">hydroknowledge.com</a></li>
+        <li><b>Projul, wastewater treatment plant construction timeline</b>The 18 to 36 month cycle, stage by stage.<br><a href="https://projul.com/blog/construction-wastewater-treatment-plant-guide/">projul.com</a></li>
+        <li><b>Hotel and Leisure Advisors, waterparks in 2026</b>Operator side outlook for the InterActive Play pipeline.<br><a href="https://hladvisors.com/waterparks-continue-to-innovate-in-2026/">hladvisors.com</a></li>
+        <li><b>New York clean water intended use plan</b>The source for the New York rows in section 05.<br><a href="https://efc.ny.gov/iup">efc.ny.gov/iup</a> &nbsp;&middot;&nbsp; <a href="https://efc.ny.gov/system/files/documents/2025/10/final-2026-cwsrf-iup_1.pdf">2026 plan, PDF</a></li>
+        <li><b>New York drinking water intended use plan, 2026</b>The drinking water side of the same list.<br><a href="https://www.health.ny.gov/environmental/water/drinking/iup/docs/final_intended_use_plan_2026.pdf">health.ny.gov</a></li>
+        <li><b>Texas Water Development Board priority lists, SFY2026</b>Clean water and drinking water, the source for the Texas rows.<br><a href="https://www.twdb.texas.gov/financial/programs/CWSRF/doc/SFY2026/SFY_2026_CWSRF_PPL.pdf">clean water PDF</a> &nbsp;&middot;&nbsp; <a href="https://www.twdb.texas.gov/financial/programs/dwsrf/doc/SFY2026-DWSRF-PPL-Amended.pdf">drinking water PDF, amended</a></li>
+        <li><b>Florida DEP clean water intended use plan, FFY26 draft</b>The source for the Florida rows.<br><a href="https://floridadep.gov/sites/default/files/CWSRF%20Base%20%20BIL%20IUP%20FFY26_5-12-26.pdf">floridadep.gov</a></li>
+        <li><b>EPA closed infrastructure loans</b>Large projects that have money and are heading into construction.<br><a href="https://www.epa.gov/wifia/wifia-closed-loans">epa.gov/wifia/wifia-closed-loans</a></li>
+        <li><b>VPC contact page</b>Where the twenty four hour quote commitment is published, in Corey's name.<br><a href="https://www.vpcfiberglass.com/contact-us/">vpcfiberglass.com/contact-us/</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">08</div>
+    <div class="body">
+      <h2>The next ninety days</h2>
+      <p>Each item below has a date and a test, so nobody has to argue later about whether it got done. If they are all closed by mid December, the 2028 target is a plan. If they are not, it is a hope.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th class="num">#</th><th>Item</th><th>By</th><th>Done when</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">1</td><td>Backlog file by ship month through 2028</td><td class="effort">7 days</td><td>One file, signed orders only, opened in the books session</td></tr>
+            <tr><td class="num">2</td><td>2027 go or no go on the record attempt</td><td class="effort">15 Oct</td><td>A written call: 2027 stretch, or 2028 primary</td></tr>
+            <tr><td class="num">3</td><td>Quote turnaround measured</td><td class="effort">30 days</td><td>Median hours from request to quote, published against the 24 hour promise</td></tr>
+            <tr><td class="num">4</td><td>Capacity envelope written</td><td class="effort">30 days</td><td>Monthly shippable hours by product family, signed by production</td></tr>
+            <tr><td class="num">5</td><td>Top 25 engineers of record touched</td><td class="effort">90 days</td><td>Named list, owner per name, first contact logged for all 25</td></tr>
+            <tr><td class="num">6</td><td>Domestic content packet on every revolving fund bid</td><td class="effort">Immediate</td><td>100 percent, tracked as an exception report rather than a target</td></tr>
+            <tr><td class="num">7</td><td>EasyRec attach rate</td><td class="effort">60 days</td><td>Percentage of aquatic quotes carrying an EasyRec line, baselined then set</td></tr>
+            <tr><td class="num">8</td><td>InterActive Play pipeline split by opening year</td><td class="effort">30 days</td><td>Two lists, 2027 and 2028, with nothing counted twice</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">09</div>
+    <div class="body">
+      <h2>What kills the home run</h2>
+      <ul class="conditions">
+        <li><b>Concentration</b> InterActive Play has been 44 percent of sales and it does not repeat. One large contract slipping a quarter takes the year with it. The mix rule in section 03 is the only defense.</li>
+        <li><b>The shop</b> If fabrication cannot ship the monthly rate, every extra order becomes a late order and a damaged reference. Capacity is the one constraint that cannot be fixed in December.</li>
+        <li><b>A slower hangover than expected</b> The revolving fund money committed under the infrastructure act is real, but it converts into projects on a schedule nobody at VPC controls. If it converts slower than assumed, 2028 municipal volume arrives in 2029.</li>
+        <li><b>The relief money scramble</b> Everything racing to be obligated before 31 December 2026 makes this fall look busier than the underlying market is. Do not read a busy October as a trend.</li>
+        <li><b>Losing the specification</b> Getting written out of a drawing at 90 percent design is silent. Nobody calls to tell you. It shows up as a lost bid eighteen months later.</li>
+        <li><b>Slow quotes</b> The site promises 24 hours in Corey's name. An engineer who waits three days goes to the fabricator who answered.</li>
+        <li><b>A compliance miss</b> One missing domestic content packet is a disqualification on a funded job, not a negotiation.</li>
+        <li><b>Declaring 2027 too early</b> Calling 2027 the record year before the backlog file exists is the most likely way to spend 2027 chasing a number the shop was never able to ship, and to arrive at 2028 with no specification position built.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="marker">10</div>
+    <div class="body">
+      <h2>What we need from you</h2>
+      <ol class="asks">
+        <li><b>Set the baseline.</b> 2025 at $11.97M, 2023 at $13.43M, or 2026 once it closes. Pick from the profit and loss, say whether the target is total revenue or outside revenue, and the thirty percent number becomes real.</li>
+        <li><b>Put an hour on the calendar this week for the books.</b> The six numbers in section 02, with whoever can pull them. Everything else on this page is sized off that hour.</li>
+        <li><b>Approve the design stage list and the first seat.</b> New York, Texas and Florida monitored monthly, and Larry's seat on the VPC corporate account so the closest job work keeps moving.</li>
+        <li><b>Decide the digital ownership path.</b> Stay, patch, or rebuild and own it. The three options and their trade-offs are in <a href="../vpc-digital-options/">digital options</a>, and the inbound half of section 06 depends on which one you pick.</li>
+        <li><b>Make the call on 15 October.</b> 2027 as the stretch year, or 2028 as the primary record attempt. Either answer is workable. Not answering is the one that costs a year.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer class="closing">
+    Doble AI &nbsp;&middot;&nbsp; VPC 2027 and 2028 owner plan &nbsp;&middot;&nbsp; 12 September 2026 &nbsp;&middot;&nbsp; Prepared for Corey Hogan
+    <span class="links">
+      Companion documents:
+      <a href="../vpc-closest-job-plan/">Closest job plan</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-digital-options/">Digital options</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-findability/">Findability review</a> &nbsp;&middot;&nbsp;
+      <a href="../vpc-work-order/">Website work order</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
