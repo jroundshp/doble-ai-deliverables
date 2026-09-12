@@ -608,14 +608,14 @@
 
       <h3 class="sub">What we found this morning</h3>
       <ul class="findings">
-        <li><span class="chip risk">Act now</span> &nbsp;<b>The EasyRec staging site is open to search engines.</b> new.easyrecreation.com serves a 200, carries no noindex tag, and publishes its own sitemap at /wp-sitemap.xml. It is a near copy of easyrecreation.com competing with the real site for the same terms. The setting that fixes this is a checkbox in WordPress reading, and it is not reachable over the API, so somebody has to click it.</li>
+        <li><span class="chip risk">Act now</span> &nbsp;<b>The EasyRec staging site is open to search engines.</b> new.easyrecreation.com serves a 200 and carries no noindex tag, and its robots file allows crawlers everywhere except /wp-admin/. It is a near copy of the live site, under the same brand and the same product terms, with nothing telling a crawler to stay out. The setting that fixes it is a checkbox in WordPress under Settings and Reading. It is not reachable over the API, so somebody has to click it.</li>
         <li><b>Two divisions share one URL.</b> Composite Fan and Primary Plastics are anchor links on the /divisions/ page, at #cft and #pp. Together they have been about 17 percent of six year sales. A page fragment cannot rank, cannot carry its own title or description, and cannot be sent to a buyer as a link that means anything.</li>
         <li><b>compositefan.com lands on the corporate homepage.</b> VPC owns the domain and it resolves to vpcfiberglass.com with a canonical pointing at the homepage. Somebody typing the division name by hand gets a general page about fiberglass.</li>
         <li><b>The division sites admit their parent only in the copyright line.</b> easyrecreation.com reads "A Division of" in the footer, and interactivewaterparks.com reads "Interactive Play is a Division of" in the same place. That is the weakest position on the page, and neither site says it in the markup: there is no parentOrganization on either.</li>
         <li><b>easyrecreation.com publishes no structured data at all.</b> No Organization, no Product, nothing. interactivewaterparks.com has an Organization block but no parent link and no Product markup.</li>
         <li><b>The corporate homepage declares itself three times.</b> There is an Organization node with a proper identifier, plus a second Organization and a LocalBusiness with no identifier at all. Three unreconciled descriptions of one company is how an entity gets read as ambiguous.</li>
         <li><b>No llms.txt on the main domain.</b> The path returns the WordPress 404 page.</li>
-        <li><b>The best product data VPC has sits on the rented platform.</b> 1,188 specifications across 140 products, none of it on a page VPC owns. The owned pages carry no Product markup.</li>
+        <li><b>The best product data VPC has sits on the rented platform.</b> The catalog tags a specification against every product; the pages VPC owns carry no Product markup at all. The exact counts are the ones measured for <a href="../vpc-digital-options/">digital options</a> on 11 September, and they are a moving target on a platform we cannot log into, so treat the totals as of that date rather than as a standing figure.</li>
       </ul>
 
       <p class="note"><span class="chip check">Confirm with Amanda</span> &nbsp;Whether VPC owns other division domains beyond compositefan.com; whether the Navigator agreement allows redirects from the catalog URLs at exit; whether any analytics already splits form submissions by source. None of those can be read from outside.</p>
@@ -735,6 +735,7 @@
         <li>One real page each, with its own products, its own buyer language and its own quote path.</li>
         <li>Fan buyers are chemical, pulp and paper, and wastewater plant people. They should not have to read water and wastewater copy written for flumes to work out whether VPC makes what they need.</li>
         <li>compositefan.com points at the Composite Fan page.</li>
+        <li>One set of product pages, not two. Door A lists fans as a product family with the specs and the quote path; the division page is the buyer's entry, written for the chemical, pulp and paper and wastewater reader, and it links to the same product pages rather than restating them. Two copies of the same fan content competing with each other is the problem the catalog already has, and it should not be rebuilt by hand.</li>
       </ul>
       <p class="note"><span class="chip check">Confirm with Amanda</span> &nbsp;Whether either division has product literature, photography or a product list good enough to build a page from today, or whether that content has to be made first.</p>
     </div>
