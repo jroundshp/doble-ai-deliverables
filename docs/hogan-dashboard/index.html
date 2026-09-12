@@ -163,6 +163,11 @@ ul.items li{padding:8px 0;border-bottom:1px dotted var(--rule);font-size:14px;li
 ul.items li:last-child{border-bottom:none;padding-bottom:0}
 ul.items li:first-child{padding-top:0}
 ul.items b{color:var(--ink);font-weight:600}
+ul.shipped{list-style:none;margin:9px 0 0;padding:0}
+ul.shipped li{position:relative;padding:5px 0 5px 15px;border-bottom:none;font-size:13.2px;
+  line-height:1.5;color:var(--ink2)}
+ul.shipped li::before{content:'';position:absolute;left:0;top:12px;width:5px;height:5px;
+  border-radius:50%;background:var(--good)}
 ul.items li.blocked{position:relative;padding-left:16px}
 ul.items li.blocked::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;
   background:var(--crit)}
@@ -255,7 +260,7 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
     <a class="card" href="#cooperstown"><span class="cnum">03</span><div class="scorewrap"><span class="score">3.4–4.5</span><span class="scoref">/ 10</span></div><span class="cname">Cooperstown</span><span class="ccat">Three businesses · Cooperstown NY</span><span class="cline">Fenimore's Table, Cooperstown Clubhouse and the Cooperstown Experience. One programme on and beside one set of grounds: the ballfields, both restaurants, and the hotel that may follow.</span></a>
     <a class="card" href="#patriot"><span class="cnum">04</span><div class="scorewrap"><span class="score">3.2</span><span class="scoref">/ 10</span></div><span class="cname">Patriot Stone Supply / Concrete Warrior</span><span class="ccat">Aggregate · Denton TX &amp; New Town ND</span><span class="cline">Patriot Stone on hold. Concrete Warrior launched 11 September with profile and analytics live.</span></a>
     <a class="card" href="#homestead"><span class="cnum">05</span><div class="scorewrap"><span class="score">2.8</span><span class="scoref">/ 10</span></div><span class="cname">Homestead Realty WNY</span><span class="ccat">Rental Housing · Getzville NY</span><span class="cline">Forty years and sixty units, represented by three listings and an unclaimed Google profile.</span></a>
-    <a class="card" href="#tiveron"><span class="cnum">06</span><div class="scorewrap"><span class="score">6.0</span><span class="scoref">/ 10</span></div><span class="cname">Tiveron Law</span><span class="ccat">Law · Five offices, Western NY</span><span class="cline">Rebrand fixed for people, not for machines. Whether it belongs in the nine is your call.</span></a>
+    <a class="card" href="#tiveron"><span class="cnum">06</span><div class="scorewrap"><span class="score">6.0</span><span class="scoref">/ 10</span></div><span class="cname">Tiveron Law</span><span class="ccat">Law · Five offices, Western NY</span><span class="cline">Rebrand fixed for people, not for machines. Whether it belongs in the nine is your call, so it sits at the foot of the page.</span></a>
   </div>
   <div class="projrow">
     <div class="projlab">Also on the board, not one of the nine</div>
@@ -421,11 +426,20 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
         <h4>Where it stands</h4>
         <ul class="items">
           <li><b>A 4.6-star Google profile is carrying the discoverability almost single-handed.</b> The website contributes very little.</li>
-          <li class="done">An SEO layer went in during August and moved the technical score from the bottom grade to a middle one. That work was done properly.</li>
-          <li class="done"><b>The conflicting opening hours are fixed.</b> Re-checked 12 September: there is now one set of hours in the markup and it reads 8 to 4 Sunday through Thursday, 8 to 8 Friday, 8 to 9 Saturday. That matches what we settled on 11 September.</li>
-          <li class="done"><b>The mobile zoom lock is gone.</b> Also re-checked 12 September. Both of the technical faults this audit led with have now been cleared.</li>
-          <li class="done">The logo and mixed-content faults are fixed. The root cause was a single wrong setting, and correcting it also created redirects that had been missing.</li>
-          <li class="done">The hours dispute is closed. The coffee site was right all along.</li>
+          <li class="done">An SEO layer went in during August, before any of ours, and it moved the technical score from the bottom grade to a middle one. <b>That work was done properly</b>: the name, phone, address and cuisine were all correct. The one defect inside it was the hours, entered as a single generic span, which is what we corrected.</li>
+          <li class="done"><b>We worked this site over on 9 September as well, once John had WordPress access.</b> Ten repairs, all verified on the rendered page:
+            <ul class="shipped">
+              <li>Opening hours split by day across all six pages, which is the fault the audit led with</li>
+              <li>Pinch-to-zoom unblocked</li>
+              <li>FAQ markup on the ten questions already sitting on the About page, unmarked</li>
+              <li><b>Images cut from 25.9 MB to 3.5 MB</b>, an 87% reduction, with the event page alone going from 13.3 MB to 1.6 MB</li>
+              <li>Fifty insecure image references moved to https, and alt text added to every content image</li>
+              <li>Phone and price band normalised, a duplicate wine removed from the bar list, and a claim about roasting pulled from five places where it was not true</li>
+            </ul>
+          </li>
+          <li class="done"><b>Then a root cause nobody had found.</b> The site address was stored insecurely in the database, which is what kept breaking the logo. Fixing that also revealed the site had been serving <b>a complete duplicate of itself over plain http with no redirect</b>. Search signals were splitting three ways. All three now redirect to one address.</li>
+          <li class="done"><b>Re-checked 12 September: both technical faults the audit led with are cleared.</b> One set of hours in the markup reading 8 to 4 Sunday through Thursday, 8 to 8 Friday, 8 to 9 Saturday, and no zoom lock.</li>
+          <li class="done">The hours dispute is closed. The coffee site was right all along, and the hours now agree across the site, the markup, the Google profile and the plugin panel. If they ever need changing, that is a five-surface job rather than a one-surface job.</li>
         </ul>
       </div>
       <div class="block">
@@ -474,7 +488,17 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
       <div class="block">
         <h4>Where it stands</h4>
         <ul class="items">
-          <li class="done"><b>The site was heavily updated, edited and repaired on 9 September.</b> Not a rebuild. We hold administrator access, so changes no longer wait on a vendor.</li>
+          <li class="done"><b>We worked the site over on 9 September.</b> Not a rebuild, and worth being precise about what it was:
+            <ul class="shipped">
+              <li>SEO plugin installed and configured, with Restaurant markup carrying the hours, the address and the price band</li>
+              <li>Menu markup covering <b>56 dishes across 16 sections</b>, so the menu is machine-readable for the first time</li>
+              <li>Page titles and descriptions written on five pages, plus social cards and a working sitemap</li>
+              <li><b>Images cut from 31 MB to 5.8 MB</b>, which is the whole page weight problem on a phone</li>
+              <li>Pinch-to-zoom unblocked, and the menu page reduced from three top-level headings to one</li>
+              <li>Menu accuracy: "Koren" corrected to "Korean" in four places, vegetarian marks added to the three breakfast items the printed card marks, and a line added saying lunch starts at 11</li>
+            </ul>
+          </li>
+          <li class="done">We hold administrator access, so none of this waited on a vendor and neither will the next round.</li>
           <li class="done">Three menus are live, including a breakfast service opening at 6:30. Hours have moved with it.</li>
           <li class="done">The private events page is live, at 95 indoors and 140 in summer with the patio.</li>
           <li>The score of 4.5 predates all of this. It has been annotated rather than re-scored, and a proper re-audit is waiting on the dinner menu.</li>
@@ -703,50 +727,6 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
       <a class="primary" href="../homestead-realty-wny/">Digital presence audit, the full list of what needs to happen</a>
     </div></div>
   </div>
-  <!-- 06 Tiveron Law -->
-  <div class="biz" id="tiveron">
-    <div class="bizhead"><h3>06 · Tiveron Law</h3><span class="chip s-hi">6.0 / 10</span><span class="chip">Re-audited 10 Sep</span></div>
-    <p class="bizcat">Law · Amherst, Buffalo, Ellicottville, Lancaster &amp; Lockport NY</p>
-    <div class="nap">
-      <span class="napitem"><span class="nl">Web</span><a href="https://www.tiveronlaw.com/" target="_blank" rel="noopener">tiveronlaw.com</a></span>
-      <span class="napitem"><span class="nl">Phone</span><a href="tel:+17166367600">716-636-7600</a></span>
-      <span class="napitem"><span class="nl">Note</span><span class="flagnote">the team page publishes 716-363-7600 in its description, two digits transposed</span></span>
-    </div>
-    <div class="blocks">
-      <div class="block people">
-        <h4>Who is on it</h4>
-        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group and stakeholders, and before that, whether this belongs in the nine at all.</div></div>
-        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Diane R. Tiveron is managing partner. Jennifer Hogan works out of the same Amherst address. <em>Who maintains the website has been asked twice and never answered.</em></div>
-      </div>
-      <div class="block">
-        <h4>Where it stands</h4>
-        <ul class="items">
-          <li class="done"><b>The headline problem is largely fixed.</b> The 2022 rebrand had left the old firm name on nearly every blog post title. Re-sampled across the full sitemap, the readable articles now all read Tiveron Law.</li>
-          <li>The old name still appears <b>exactly six times on every page</b>, confirmed again on 12 September, all of it in the machine-readable layer rather than anywhere a visitor would see it.</li>
-          <li class="blocked">The team page description, which is the text Google shows in results, reads <b>716-363-7600</b>. The real number is 716-636-7600. Two digits are transposed, and it was still wrong on 12 September.</li>
-          <li>Directory listings are split three ways: some renamed, some carrying the new name on an old web address, some still under the old name outright.</li>
-          <li>A fix guide was sent on 17 August and has never been answered.</li>
-        </ul>
-      </div>
-      <div class="block">
-        <h4>Priorities now</h4>
-        <ul class="items">
-          <li class="blocked"><b>Your call first: is Tiveron in the nine or not?</b> Everything below depends on the answer.</li>
-          <li class="blocked">The transposed phone number on the team page, which is the one item here that can cost a real call.</li>
-          <li class="blocked">Who receives the fix guide. Without a name it sits where it has sat since August.</li>
-        </ul>
-      </div>
-      <div class="block">
-        <h4>Twelve months out</h4>
-        <p>Deliberately open. This is the one business in the nine whose place in the portfolio is unsettled, and setting a year target before that is decided would be putting the cart first.</p>
-      </div>
-    </div>
-    <div class="docs"><div class="dlab">Documents</div><div class="drow">
-      <a class="primary" href="../tiveron-law/">Digital presence audit</a>
-      <a href="../tiveron-site-fixes/">Site fix guide</a>
-    </div></div>
-  </div>
-
 
 </section>
 
@@ -798,13 +778,63 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
 </section>
 
 <section>
+  <h2>Tiveron Law</h2>
+  <p class="sec-sub">Last on the page on purpose · whether it belongs in the portfolio at all is still your call</p>
+
+  <div class="biz" id="tiveron">
+    <div class="bizhead"><h3>Tiveron Law</h3><span class="chip s-hi">6.0 / 10</span><span class="chip">Re-audited 10 Sep</span></div>
+    <p class="bizcat">Law · Amherst, Buffalo, Ellicottville, Lancaster &amp; Lockport NY</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Web</span><a href="https://www.tiveronlaw.com/" target="_blank" rel="noopener">tiveronlaw.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span><a href="tel:+17166367600">716-636-7600</a></span>
+      <span class="napitem"><span class="nl">Note</span><span class="flagnote">the team page publishes 716-363-7600 in its description, two digits transposed</span></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group and stakeholders, and before that, whether this belongs in the nine at all.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Diane R. Tiveron is managing partner. Jennifer Hogan works out of the same Amherst address. <em>Who maintains the website has been asked twice and never answered.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li class="done"><b>The headline problem is largely fixed.</b> The 2022 rebrand had left the old firm name on nearly every blog post title. Re-sampled across the full sitemap, the readable articles now all read Tiveron Law.</li>
+          <li>The old name still appears <b>exactly six times on every page</b>, confirmed again on 12 September, all of it in the machine-readable layer rather than anywhere a visitor would see it.</li>
+          <li class="blocked">The team page description, which is the text Google shows in results, reads <b>716-363-7600</b>. The real number is 716-636-7600. Two digits are transposed, and it was still wrong on 12 September.</li>
+          <li>Directory listings are split three ways: some renamed, some carrying the new name on an old web address, some still under the old name outright.</li>
+          <li>A fix guide was sent on 17 August and has never been answered.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>Your call first: is Tiveron in the nine or not?</b> Everything below depends on the answer.</li>
+          <li class="blocked">The transposed phone number on the team page, which is the one item here that can cost a real call.</li>
+          <li class="blocked">Who receives the fix guide. Without a name it sits where it has sat since August.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>Deliberately open. This is the one business in the nine whose place in the portfolio is unsettled, and setting a year target before that is decided would be putting the cart first.</p>
+      </div>
+    </div>
+    <div class="docs"><div class="dlab">Documents</div><div class="drow">
+      <a class="primary" href="../tiveron-law/">Digital presence audit</a>
+      <a href="../tiveron-site-fixes/">Site fix guide</a>
+    </div></div>
+  </div>
+
+
+</section>
+
+<section>
   <h2>Open with you</h2>
   <p class="sec-sub">Questions that shape the dashboard rather than any single business</p>
   <ul class="qlist">
-    <li><div class="qt">Who is on each business, the rest of it</div><div class="qd">Your reply on 12 September filled in VPC, Homestead and both Ellicottville businesses, and those blocks are now populated. <b>Still open: Fenimore's Table, Cooperstown Clubhouse, the Cooperstown Experience, Patriot Stone and Concrete Warrior, and Davison Road.</b> You said more would follow from you or Breanna. One small thing to confirm when it does: the Bake Shop assistant manager, which you wrote as "something like Jackie".</div></li>
-    <li><div class="qt">Does Tiveron Law belong in the nine</div><div class="qd">Asked in the same email. It changes what we track and what we stop tracking.</div></li>
-    <li><div class="qt">The three things question, reopened</div><div class="qd">On the 9 September call the room was asked to name the top three things on each person's mind. The meeting moved on and it was never answered. It is the only place the people running these businesses would have set the priorities themselves, rather than us reading them off the work. Worth asking again, in writing, one person at a time.</div></li>
     <li><div class="qt">Closing the Ellicottville gap</div><div class="qd">The one that costs money every week it waits. Revenue against expenses in Ellicottville is running roughly <b>three to four thousand dollars a week</b> to the wrong side. That is a project rather than a task: work out where the gap actually sits between the two businesses, put a plan against it, and run the plan. Everything else on this page can wait behind it.</div></li>
+    <li><div class="qt">Who is on each business, the rest of it</div><div class="qd">Your reply on 12 September filled in VPC, Homestead and both Ellicottville businesses, and those blocks are now populated. <b>Still open: Fenimore's Table, Cooperstown Clubhouse, the Cooperstown Experience, Patriot Stone and Concrete Warrior, and Davison Road.</b> You said more would follow from you or Breanna. One small thing to confirm when it does: the Bake Shop assistant manager, which you wrote as "something like Jackie".</div></li>
+    <li><div class="qt">The three things question, reopened</div><div class="qd">On the 9 September call the room was asked to name the top three things on each person's mind. The meeting moved on and it was never answered. It is the only place the people running these businesses would have set the priorities themselves, rather than us reading them off the work. Worth asking again, in writing, one person at a time.</div></li>
+    <li><div class="qt">Does Tiveron Law belong in the nine</div><div class="qd">Asked in the same email. It changes what we track and what we stop tracking.</div></li>
   </ul>
   <div class="docs" style="margin-top:26px"><div class="dlab">Across the portfolio</div><div class="drow">
     <a href="../hogan-portfolio/">The nine audits, one summary</a>
