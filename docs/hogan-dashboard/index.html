@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Hogan Portfolio — Operating Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F4EF; --surface:#FBFBF8; --surface2:#EBEBE4; --raise:#FFFFFF;
+  --ink:#1F2622; --ink2:#5A635E; --ink3:#8C948F;
+  --rule:#DEDED5; --rule2:#C9C9BE;
+  --accent:#2F6F6A; --accent-deep:#245954; --accent-wash:#E2EDEC;
+  --good:#2F6B4F; --good-wash:#E0EBE4;
+  --warn:#8A6410; --warn-wash:#F4EAD2;
+  --crit:#9B2C1E; --crit-wash:#F4DFDB;
+  --open:#6A5AA8; --open-wash:#E9E6F4;
+  --shadow:0 1px 2px rgba(31,38,34,.04), 0 10px 28px -22px rgba(31,38,34,.34);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#151917; --surface:#1E2320; --surface2:#282E2A; --raise:#232925;
+    --ink:#E9E7DF; --ink2:#A6AEA9; --ink3:#7C847F;
+    --rule:#333A36; --rule2:#454D48;
+    --accent:#5FA69F; --accent-deep:#7CBDB6; --accent-wash:#1C2E2C;
+    --good:#6EA687; --good-wash:#1B2922;
+    --warn:#C9962E; --warn-wash:#2F2711;
+    --crit:#D9614A; --crit-wash:#34201C;
+    --open:#9A8DD4; --open-wash:#241F33;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -22px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#151917; --surface:#1E2320; --surface2:#282E2A; --raise:#232925;
+  --ink:#E9E7DF; --ink2:#A6AEA9; --ink3:#7C847F;
+  --rule:#333A36; --rule2:#454D48;
+  --accent:#5FA69F; --accent-deep:#7CBDB6; --accent-wash:#1C2E2C;
+  --good:#6EA687; --good-wash:#1B2922;
+  --warn:#C9962E; --warn-wash:#2F2711;
+  --crit:#D9614A; --crit-wash:#34201C;
+  --open:#9A8DD4; --open-wash:#241F33;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -22px rgba(0,0,0,.8);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ground);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+.page{max-width:1080px;margin:0 auto;padding:0 22px 110px}
+a{color:var(--accent-deep)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* masthead */
+.hero{padding:60px 0 34px;border-bottom:1px solid var(--rule2)}
+.tag{display:inline-flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+  font-weight:500;letter-spacing:.19em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.tag::before{content:'';display:block;width:24px;height:1px;background:var(--accent)}
+h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,5.6vw,58px);font-weight:500;
+  line-height:1.05;letter-spacing:-.015em;margin-bottom:16px;text-wrap:balance}
+.lede{font-size:18px;line-height:1.58;color:var(--ink2);max-width:64ch}
+.lede strong{color:var(--ink);font-weight:600}
+.mast-meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+  color:var(--ink3);margin-top:22px}
+.mast-meta b{color:var(--ink2);font-weight:500}
+
+/* how to use */
+.howto{background:var(--accent-wash);border:1px solid var(--accent);border-radius:4px;padding:18px 20px;margin:26px 0 0}
+.howto h4{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent-deep);font-weight:500;margin-bottom:9px}
+.howto p{font-size:14.5px;color:var(--ink2);margin-bottom:8px}
+.howto p:last-child{margin-bottom:0}
+.howto strong{color:var(--ink)}
+
+/* section frame */
+section{padding:46px 0 0;border-top:1px solid var(--rule);margin-top:46px}
+h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3.3vw,32px);font-weight:500;
+  line-height:1.12;margin-bottom:6px;letter-spacing:-.01em}
+.sec-sub{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink3);margin-bottom:24px}
+
+/* summary tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:28px}
+.tile{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:15px 16px;box-shadow:var(--shadow)}
+.tile .lab{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:8px;line-height:1.4}
+.tile .val{font-family:'Playfair Display',Georgia,serif;font-size:32px;font-weight:500;line-height:1;
+  font-variant-numeric:tabular-nums;margin-bottom:5px}
+.tile .sub{font-size:12.8px;color:var(--ink2);line-height:1.45}
+
+/* the nine: index grid */
+.grid9{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:12px}
+a.card{display:block;background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:16px 17px;
+  text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:border-color .13s,transform .13s}
+a.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+a.card .cnum{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;color:var(--ink3);
+  display:block;margin-bottom:7px}
+a.card .cname{font-weight:600;font-size:16.5px;line-height:1.25;margin-bottom:3px;display:block}
+a.card .ccat{font-size:12.5px;color:var(--ink3);display:block;margin-bottom:11px}
+a.card .cline{font-size:13.2px;color:var(--ink2);line-height:1.5}
+.scorewrap{display:flex;align-items:baseline;gap:8px;margin-bottom:9px}
+.score{font-family:'Playfair Display',Georgia,serif;font-size:27px;font-weight:500;line-height:1;
+  font-variant-numeric:tabular-nums}
+.scoref{font-size:11.5px;color:var(--ink3)}
+
+/* per-business panels */
+.biz{scroll-margin-top:16px;border-top:1px solid var(--rule);margin-top:40px;padding-top:36px}
+.biz:first-of-type{border-top:none;margin-top:0;padding-top:0}
+.bizhead{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;margin-bottom:5px}
+.bizhead h3{font-family:'Playfair Display',Georgia,serif;font-size:clamp(23px,3vw,29px);font-weight:500;
+  line-height:1.14;letter-spacing:-.01em}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  padding:4px 9px;border-radius:3px;background:var(--surface2);color:var(--ink2);white-space:nowrap}
+.chip.s-hi{background:var(--good-wash);color:var(--good)}
+.chip.s-mid{background:var(--warn-wash);color:var(--warn)}
+.chip.s-lo{background:var(--crit-wash);color:var(--crit)}
+.chip.s-new{background:var(--accent-wash);color:var(--accent-deep)}
+.bizcat{font-size:13.5px;color:var(--ink3);margin-bottom:14px}
+
+/* contact strip */
+.nap{display:flex;flex-wrap:wrap;gap:8px 10px;margin-bottom:20px}
+.napitem{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--rule);
+  border-radius:3px;padding:7px 12px;font-size:13.5px}
+.napitem .nl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink3)}
+.napitem a{text-decoration:none;font-weight:500}
+.napitem a:hover{text-decoration:underline}
+.napitem .flagnote{font-size:11.5px;color:var(--warn);font-style:italic}
+
+/* four blocks */
+.blocks{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:860px){.blocks{grid-template-columns:1fr 1fr}}
+.block{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:16px 17px;box-shadow:var(--shadow)}
+.block.people{background:var(--open-wash);border-color:var(--open)}
+.block h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink3);font-weight:500;margin-bottom:11px}
+.block.people h4{color:var(--open)}
+.block p{font-size:14px;line-height:1.55;color:var(--ink2);margin-bottom:9px}
+.block p:last-child{margin-bottom:0}
+.block strong{color:var(--ink);font-weight:600}
+
+ul.items{list-style:none}
+ul.items li{padding:8px 0;border-bottom:1px dotted var(--rule);font-size:14px;line-height:1.5;color:var(--ink2)}
+ul.items li:last-child{border-bottom:none;padding-bottom:0}
+ul.items li:first-child{padding-top:0}
+ul.items b{color:var(--ink);font-weight:600}
+ul.items li.blocked{position:relative;padding-left:16px}
+ul.items li.blocked::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;
+  background:var(--crit)}
+ul.items li.blocked:first-child::before{top:6px}
+ul.items li.done{position:relative;padding-left:16px}
+ul.items li.done::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:50%;
+  background:var(--good)}
+ul.items li.done:first-child::before{top:6px}
+
+/* the empty people slot */
+.slot{border:1px dashed var(--open);border-radius:3px;padding:12px 13px;background:var(--raise);margin-bottom:11px}
+.slot .sl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--open);margin-bottom:7px}
+.slot .sr{font-size:13.5px;color:var(--ink3);line-height:1.5}
+.heard{font-size:13px;color:var(--ink2);line-height:1.55}
+.heard .hl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink3);display:block;margin-bottom:6px}
+.heard em{color:var(--ink3);font-style:italic}
+
+.deeplink{margin-top:14px;font-size:13.5px}
+.deeplink a{font-weight:500}
+
+/* open questions */
+.qlist{list-style:none}
+.qlist li{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--open);
+  border-radius:3px;padding:14px 16px;margin-bottom:11px}
+.qlist .qt{font-weight:600;font-size:15px;margin-bottom:5px}
+.qlist .qd{font-size:13.8px;color:var(--ink2);line-height:1.55}
+
+footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
+  display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--ink3)}
+
+@media (max-width:560px){
+  .hero{padding:40px 0 26px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <span class="tag">Operating Dashboard · Prepared for Corey Hogan</span>
+  <h1>Nine businesses, one page</h1>
+  <p class="lede">Where each business stands right now, who is on it, what the priorities are, and what we are aiming at a year out. Built to be walked through <strong>one business at a time, once a week</strong>. Every fact on this page was checked at its source on the date shown, not carried over from an earlier document.</p>
+  <div class="mast-meta">
+    <span><b>Compiled</b> 12 September 2026</span>
+    <span><b>Contact details</b> verified against each live site, 12 September</span>
+    <span><b>Scores</b> from the audit set, dated per business</span>
+    <span><b>Private link</b> · not indexed</span>
+  </div>
+  <div class="howto">
+    <h4>How this page is meant to be used</h4>
+    <p>Click any business below to jump to it. Each one carries the same four blocks in the same order, so the walkthrough has a rhythm: <strong>who is on it, where it stands, what is next, where it is going.</strong></p>
+    <p>The people blocks are deliberately unfinished. They fill in from Corey's reply to the 12 September email. Where a name has come up on a call we have noted it in grey, marked as unconfirmed, because a name we overheard is not the same thing as a name Corey gave us.</p>
+  </div>
+</header>
+
+<section>
+  <h2>The portfolio at a glance</h2>
+  <p class="sec-sub">Nine businesses · four states · seven industries</p>
+  <div class="tiles">
+    <div class="tile"><div class="lab">Businesses tracked</div><div class="val">9</div><div class="sub">Plus Concrete Warrior, paired with Patriot Stone</div></div>
+    <div class="tile"><div class="lab">Audit score range</div><div class="val">2.8–6.4</div><div class="sub">Homestead Realty lowest, VPC highest</div></div>
+    <div class="tile"><div class="lab">Portfolio average</div><div class="val">4.7</div><div class="sub">Across the nine scored audits</div></div>
+    <div class="tile"><div class="lab">Sites we now hold admin on</div><div class="val">4</div><div class="sub">Fenimore's, VPC, Bake Shop, Alpine Bistro</div></div>
+    <div class="tile"><div class="lab">Waiting on someone else</div><div class="val">6</div><div class="sub">Blocking items, listed per business</div></div>
+  </div>
+
+  <div class="grid9">
+    <a class="card" href="#vpc"><span class="cnum">01</span><div class="scorewrap"><span class="score">6.4</span><span class="scoref">/ 10</span></div><span class="cname">VPC / Virtual Polymer Compounds</span><span class="ccat">Manufacturing · Medina, Lockport &amp; Amherst NY</span><span class="cline">Best-built site in the portfolio. Rebuild agreed and on ice. Submittal tool built on 20 paired jobs.</span></a>
+    <a class="card" href="#bakeshop"><span class="cnum">02</span><div class="scorewrap"><span class="score">6.0</span><span class="scoref">/ 10</span></div><span class="cname">Ellicottville Bake Shop</span><span class="ccat">Bakery · Ellicottville NY</span><span class="cline">Biggest improvement in the portfolio after the August rebuild. Six items sitting with Amanda.</span></a>
+    <a class="card" href="#tiveron"><span class="cnum">03</span><div class="scorewrap"><span class="score">6.0</span><span class="scoref">/ 10</span></div><span class="cname">Tiveron Law</span><span class="ccat">Law · Five offices, Western NY</span><span class="cline">Rebrand fixed for people, not for machines. Whether it belongs in the nine is your call.</span></a>
+    <a class="card" href="#alpine"><span class="cnum">04</span><div class="scorewrap"><span class="score">5.5</span><span class="scoref">/ 10</span></div><span class="cname">Alpine Bistro</span><span class="ccat">Café &amp; Wine Bar · Ellicottville NY</span><span class="cline">Healthy Google profile carrying the whole thing. A full rebuild is built and waiting on a decision.</span></a>
+    <a class="card" href="#fenimores"><span class="cnum">05</span><div class="scorewrap"><span class="score">4.5</span><span class="scoref">/ 10</span></div><span class="cname">Fenimore's Table</span><span class="ccat">Gastro-pub · Cooperstown NY</span><span class="cline">Site rebuilt 9 September. Private events page live. Blocked on one name and one email address.</span></a>
+    <a class="card" href="#clubhouse"><span class="cnum">06</span><div class="scorewrap"><span class="score">4.1</span><span class="scoref">/ 10</span></div><span class="cname">Cooperstown Clubhouse</span><span class="ccat">Team Dining · Cooperstown NY</span><span class="cline">Nothing actioned yet. Still trading under two different names in public.</span></a>
+    <a class="card" href="#experience"><span class="cnum">07</span><div class="scorewrap"><span class="score">3.4</span><span class="scoref">/ 10</span></div><span class="cname">Cooperstown Experience</span><span class="ccat">Tournament Complex · Cooperstown NY</span><span class="cline">Real differentiators, almost none of them findable. No phone number published anywhere on the site.</span></a>
+    <a class="card" href="#patriot"><span class="cnum">08</span><div class="scorewrap"><span class="score">3.2</span><span class="scoref">/ 10</span></div><span class="cname">Patriot Stone Supply / Concrete Warrior</span><span class="ccat">Aggregate · Denton TX &amp; New Town ND</span><span class="cline">Patriot Stone on hold. Concrete Warrior launched 11 September with profile and analytics live.</span></a>
+    <a class="card" href="#homestead"><span class="cnum">09</span><div class="scorewrap"><span class="score">2.8</span><span class="scoref">/ 10</span></div><span class="cname">Homestead Realty WNY</span><span class="ccat">Rental Housing · Getzville NY</span><span class="cline">Forty years and sixty units, represented by three listings and an unclaimed Google profile.</span></a>
+  </div>
+</section>
+
+<section>
+  <h2>Business by business</h2>
+  <p class="sec-sub">Same four blocks each time · who, where, next, a year out</p>
+
+  <!-- 01 VPC -->
+  <div class="biz" id="vpc">
+    <div class="bizhead"><h3>01 · VPC / Virtual Polymer Compounds</h3><span class="chip s-hi">6.4 / 10</span><span class="chip">Reviewed 1 Sep, re-verified 5 Sep</span></div>
+    <p class="bizcat">Manufacturing · Medina, Lockport &amp; Amherst NY · Five divisions across three domains, including EasyRec, InterActive Play, Composite Fan and Primary Plastics</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Web</span><a href="https://www.vpcfiberglass.com/" target="_blank" rel="noopener">vpcfiberglass.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span><a href="tel:+15857359668">585-735-9668</a></span>
+      <span class="napitem"><span class="nl">Fax</span>585-735-9965</span>
+      <span class="napitem"><span class="nl">Also</span>easyrecreation.com · interactivewaterparks.com</span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Amanda holds the website. Larry Ricigliano runs submittals (larry@vpcfiberglass.com, 716-868-4905). Amanda has also named James Minner, Jeff Minner, David Riggs, Nick Kozlowski and Conrad Diver, Conrad for the technical files. <em>None of this is confirmed as the core group.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li><b>Highest score in the portfolio, and still invisible.</b> The site is genuinely well built. Ask an engineer's question about who makes FRP enclosures and VPC is not in the answer.</li>
+          <li class="done">3D viewer and configurator are live. Product schema is live on two pages as a working pilot.</li>
+          <li>Catalog is 140 products across 1,137 URLs, running on the web vendor's platform rather than anything VPC controls.</li>
+          <li class="done">Amanda has agreed to the rebuild and to moving the catalog off Thomas. Her condition is that lead volume holds and then grows.</li>
+          <li>Submittal tool is built on 20 sales orders paired to 20 submittals. Larry has replied. Intake is closed and we build on the corpus we hold.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>One unticked checkbox.</b> The blog privacy setting is a single click inside WordPress and it is still not done.</li>
+          <li class="blocked"><b>A second copy of EasyRec is publicly indexable.</b> new.easyrecreation.com is a near copy of the live site, under the same brand, with nothing telling search engines to ignore it. First question for Amanda.</li>
+          <li class="blocked"><b>We cannot scope without one number.</b> The split of daily enquiries between organic search, catalog click-through and ThomasNet. Only VPC can answer it.</li>
+          <li>Send the overview document, which is the short version rather than the full review.</li>
+          <li><b>Yours alone:</b> what happens to Thomas. The brief hands you the decision rather than making it.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>The catalog living on VPC's own stack with product markup across all 140 products, so a search engine and an AI assistant can both read what VPC actually makes.</p>
+        <p>The quoting and submittal tool in Larry's hands as a working instrument rather than a prototype.</p>
+        <p>Each of the five divisions readable as its own business. Two of them currently have no page at all, only an anchor link on a shared one.</p>
+      </div>
+    </div>
+    <p class="deeplink"><a href="../vpc-overview/">Open the VPC overview →</a></p>
+  </div>
+
+  <!-- 02 Bake Shop -->
+  <div class="biz" id="bakeshop">
+    <div class="bizhead"><h3>02 · Ellicottville Bake Shop</h3><span class="chip s-hi">6.0 / 10</span><span class="chip">Re-verified 1 Sep</span></div>
+    <p class="bizcat">Bakery · Ellicottville NY</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Web</span><a href="https://ellicottvillebakeshop.com/" target="_blank" rel="noopener">ellicottvillebakeshop.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span><a href="tel:+17166999116">716-699-9116</a></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Amanda manages this site. <em>She is also the VPC site owner, so anything that lands here lands on the same desk.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li class="done"><b>The largest improvement in the portfolio.</b> 5.5 to 6.0 after the rebuild launched in August, and it held on re-check.</li>
+          <li class="done">Bakery markup shipped in September and it is correct.</li>
+          <li>The sitemap submits sixteen pieces of theme furniture and leaves out twenty-nine real pages, twenty-five of which are individual menu items.</li>
+          <li>Nine FAQ answers on the site are not marked up as questions and answers. Three menu pages still carry placeholder text.</li>
+          <li class="blocked">The August catering PDF prints a 3:30 close while the site and the Google profile both say 2:30.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>Six items are sitting with Amanda</b> and we are deliberately not starting them on her behalf. The main one is a screenshot from Google's testing tool that tells us whether the markup is being read.</li>
+          <li class="blocked"><b>An account literally named "admin" still has full administrator rights.</b> Raised on 9 September, nobody has acted.</li>
+          <li>Two sitemap toggles that would remove the theme furniture and add the real pages.</li>
+          <li>The catering PDF closing time, which contradicts two other places you publish it.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>Each menu item findable on its own, so a search for a specific pastry in Ellicottville reaches the bakery rather than a directory.</p>
+        <p>The FAQ content marked up properly, which is the single most repeatable way to get named in an AI answer.</p>
+      </div>
+    </div>
+    <p class="deeplink"><a href="../ellicottville-bake-shop/">Open the Bake Shop audit →</a></p>
+  </div>
+
+  <!-- 03 Tiveron -->
+  <div class="biz" id="tiveron">
+    <div class="bizhead"><h3>03 · Tiveron Law</h3><span class="chip s-hi">6.0 / 10</span><span class="chip">Re-audited 10 Sep</span></div>
+    <p class="bizcat">Law · Amherst, Buffalo, Ellicottville, Lancaster &amp; Lockport NY</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Web</span><a href="https://www.tiveronlaw.com/" target="_blank" rel="noopener">tiveronlaw.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span><a href="tel:+17166367600">716-636-7600</a></span>
+      <span class="napitem"><span class="nl">Note</span><span class="flagnote">the team page publishes a different number in its metadata</span></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group and stakeholders, and before that, whether this belongs in the nine at all.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Diane R. Tiveron is managing partner. Jennifer Hogan works out of the same Amherst address. <em>Who maintains the website has been asked twice and never answered.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li class="done"><b>The headline problem is largely fixed.</b> The 2022 rebrand had left the old firm name on nearly every blog post title. Re-sampled across the full sitemap, the readable articles now all read Tiveron Law.</li>
+          <li>The old name still appears exactly six times on every page, all of it in the machine-readable layer rather than anywhere a visitor would see it.</li>
+          <li class="blocked">The team page publishes a phone number in its metadata that does not match the office.</li>
+          <li>Directory listings are split three ways: some renamed, some carrying the new name on an old web address, some still under the old name outright.</li>
+          <li>A fix guide was sent on 17 August and has never been answered.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>Your call first: is Tiveron in the nine or not?</b> Everything below depends on the answer.</li>
+          <li class="blocked">The wrong phone number on the team page, which is the one item here that can cost a real call.</li>
+          <li class="blocked">Who receives the fix guide. Without a name it sits where it has sat since August.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>Deliberately open. This is the one business in the nine whose place in the portfolio is unsettled, and setting a year target before that is decided would be putting the cart first.</p>
+      </div>
+    </div>
+    <p class="deeplink"><a href="../tiveron-law/">Open the Tiveron audit →</a></p>
+  </div>
+
+  <!-- 04 Alpine -->
+  <div class="biz" id="alpine">
+    <div class="bizhead"><h3>04 · Alpine Bistro</h3><span class="chip s-mid">5.5 / 10</span><span class="chip">Re-audited 24 Aug</span></div>
+    <p class="bizcat">Café &amp; Wine Bar · Ellicottville NY</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Web</span><a href="https://alpinebistrony.com/" target="_blank" rel="noopener">alpinebistrony.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span><a href="tel:+17169932478">716-993-2478</a></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Grace manages this site and Ellicottville Coffee. Bo is described as the marketing lead. Matt and Leslie are in the Ellicottville gap-closing meeting. Christine was being brought in for a fresh look at the bourbon bar and the use of the space. <em>Christine was not yet hired as of 9 September.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li><b>A 4.6-star Google profile is carrying the discoverability almost single-handed.</b> The website contributes very little.</li>
+          <li class="done">An SEO layer went in during August and moved the technical score from the bottom grade to a middle one. That work was done properly.</li>
+          <li class="blocked">The new markup carries two conflicting sets of opening hours, one of which tells Google the bistro closes at five every day including Friday and Saturday.</li>
+          <li>The mobile site still blocks pinch-to-zoom.</li>
+          <li class="done">The logo and mixed-content faults are fixed. The root cause was a single wrong setting, and correcting it also created redirects that had been missing.</li>
+          <li class="done">The hours dispute is closed. The coffee site was right all along.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>A full rebuild is already built and sitting behind a private link.</b> It has not been sent. That is John's call to make with you, and it is the biggest open decision on this business.</li>
+          <li>The conflicting hours in the markup, which is actively telling Google something false.</li>
+          <li>The mobile zoom lock.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>The bourbon bar positioning carried through the site rather than living only in conversation, assuming the Christine meeting lands and the direction holds.</p>
+        <p>The website doing a real share of the discovery work instead of leaving it all to the Google profile.</p>
+      </div>
+    </div>
+    <p class="deeplink"><a href="../alpine-bistro-ellicottville/">Open the Alpine Bistro audit →</a></p>
+  </div>
+
+  <!-- 05 Fenimore's -->
+  <div class="biz" id="fenimores">
+    <div class="bizhead"><h3>05 · Fenimore's Table</h3><span class="chip s-mid">4.5 / 10</span><span class="chip">Score predates the 9 Sep rebuild</span></div>
+    <p class="bizcat">Gastro-pub · Cooperstown NY · On and beside the Cooperstown Experience grounds</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Web</span><a href="https://www.fenimorestable.com/" target="_blank" rel="noopener">fenimorestable.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span><a href="tel:+16075472767">607-547-2767</a></span>
+      <span class="napitem"><span class="nl">Note</span><span class="flagnote">the number is text only, so it is not tappable on a phone</span></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Bob is driving private events. Brooks is working alongside him. Laura sent the new menus. Grace is posting for now. Katie is costing the event packages. <em>Fenimore's, the Clubhouse and the Experience appear to share people, so these may not sit under this business.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li class="done"><b>The site was rebuilt on 9 September</b> and we hold administrator access, so changes no longer wait on a vendor.</li>
+          <li class="done">Three menus are live, including a breakfast service opening at 6:30. Hours have moved with it.</li>
+          <li class="done">The private events page is live, at 95 indoors and 140 in summer with the patio.</li>
+          <li>The score of 4.5 predates all of this. It has been annotated rather than re-scored, and a proper re-audit is waiting on the dinner menu.</li>
+          <li>The brunch page returns an error and there is no brunch content anywhere on the site, while brunch is being sold as an events package.</li>
+          <li>A social workflow document is written and has not been sent.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>One name and one email address are blocking the enquiry form.</b> Who owns event enquiries, and who backs them up. Nothing further gets built until that comes back.</li>
+          <li class="blocked">We owe Bob a draft of the automatic reply that goes to a guest who enquires.</li>
+          <li>The dinner menu, which is the trigger for the full re-audit.</li>
+          <li>The phone number is not tappable on a phone, which on a restaurant site is a real cost.</li>
+          <li><b>Worth knowing:</b> two different capacity figures are circulating. The page says 95 and 140. A separate document says 100 and 60. If anyone quotes the second pair, that document is where it came from.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>Private events running as a real revenue line, with every enquiry stored as a searchable record on Fenimore's own site rather than scattered across inboxes.</p>
+        <p>Breakfast and lunch known locally. The estimate in the room was that most of the area does not know they exist.</p>
+      </div>
+    </div>
+    <p class="deeplink"><a href="../fenimores-status/">Open the Fenimore's status page →</a></p>
+  </div>
+
+  <!-- 06 Clubhouse -->
+  <div class="biz" id="clubhouse">
+    <div class="bizhead"><h3>06 · Cooperstown Clubhouse</h3><span class="chip s-mid">4.1 / 10</span><span class="chip">Re-verified 24 Aug</span></div>
+    <p class="bizcat">Team Dining · Cooperstown NY · Also trades as Rookie's Craft House</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Web</span><a href="https://www.cooperstownclubhouse.com/" target="_blank" rel="noopener">cooperstownclubhouse.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span><a href="tel:+16074861483">607-486-1483</a></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Nothing specific to this business. The Cooperstown side appears to share a team across the Clubhouse, Fenimore's and the Experience. <em>This is the emptiest people block of the nine.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li><b>None of the findings has been actioned.</b> This is the one business in the portfolio where nothing has moved since the audit.</li>
+          <li class="done">The Google rating recovered strongly from 2.4 earlier in the year and now sits at 4.0. Somebody has been working it.</li>
+          <li>The homepage carries five top-level headings and no subheadings, which leaves a reader and a machine without a structure.</li>
+          <li>Fourteen of fifteen images have no description attached, so they are invisible to search.</li>
+          <li>No page description and no structured data at all.</li>
+          <li class="blocked">The venue still trades under a second name on Yelp and on social.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>Pick one name and use it everywhere.</b> This is a business decision rather than a website job, and it has to be settled before the rest is worth doing.</li>
+          <li>Image descriptions and a page description, which together are an afternoon of work.</li>
+          <li>Basic structured data so the venue reads as a restaurant with hours and a location.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>One name, everywhere, with the rating still climbing and the profile answering reviews rather than absorbing them.</p>
+        <p>Team dining findable by the people who book it, which today it is not.</p>
+      </div>
+    </div>
+    <p class="deeplink"><a href="../cooperstown-clubhouse/">Open the Clubhouse audit →</a></p>
+  </div>
+
+  <!-- 07 Experience -->
+  <div class="biz" id="experience">
+    <div class="bizhead"><h3>07 · Cooperstown Experience</h3><span class="chip s-lo">3.4 / 10</span><span class="chip">Re-verified 11 Aug</span></div>
+    <p class="bizcat">Tournament Complex · 4850 NY-28, Cooperstown NY</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Web</span><a href="https://cooperstownexperience.com/" target="_blank" rel="noopener">cooperstownexperience.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span>607-446-0110</span>
+      <span class="napitem"><span class="nl">Note</span><span class="flagnote">that number is from our research, not from the site. Checked 12 Sep: no phone number anywhere on the homepage and no contact page.</span></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>The only published contact is a shared mailbox, manager@cooperstownexperience.com. <em>No individual has been named to us for this business.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li><b>A brand new complex entering a market Dreams Park has held since 1996.</b> The differentiators are real and almost none of them are findable.</li>
+          <li>Awards presented inside the Hall of Fame, girls softball, weekend formats and dining on site are the things that separate it. A parent searching for a tournament will not find any of them.</li>
+          <li class="blocked">There is no way to phone the complex from its own website. No number on the homepage, and no contact page at all.</li>
+          <li>The stated goal is three fields by 1 June: roughly fifteen teams, 225 children and 800 people on site, with ambition to reach between three and eight fields.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>Publish a phone number and a contact page.</b> This is the lowest-effort, highest-cost item anywhere in the portfolio. A new complex with no reachable contact loses bookings silently.</li>
+          <li>Put the four differentiators on the site in language a parent would search for.</li>
+          <li>The June deadline works backwards from tournament booking cycles, which run well ahead of the season.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>Three fields booked for 1 June, with the complex named when a parent or a coach asks where to play in Cooperstown.</p>
+        <p>The Hall of Fame awards presentation understood as the thing Dreams Park cannot copy.</p>
+      </div>
+    </div>
+    <p class="deeplink"><a href="../cooperstown-experience/">Open the Cooperstown Experience audit →</a></p>
+  </div>
+
+  <!-- 08 Patriot / CW -->
+  <div class="biz" id="patriot">
+    <div class="bizhead"><h3>08 · Patriot Stone Supply / Concrete Warrior</h3><span class="chip s-lo">3.2 / 10</span><span class="chip s-new">Concrete Warrior launched 11 Sep</span></div>
+    <p class="bizcat">Aggregate · Denton TX and New Town ND · Two businesses, tracked as one line because they compete for the same resources</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Patriot Stone</span><a href="https://patriotstonesupply.com/" target="_blank" rel="noopener">patriotstonesupply.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span><a href="tel:+17015803207">701-580-3207</a></span>
+      <span class="napitem"><span class="nl">Concrete Warrior</span><a href="https://concretewarriorsupply.com/" target="_blank" rel="noopener">concretewarriorsupply.com</a></span>
+      <span class="napitem"><span class="nl">Phone</span><a href="tel:+17016272200">701-627-2200</a></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>Richard Sargent is named as Yard Manager on the Patriot Stone site. Jeff and Breanna are on the Concrete Warrior thread. <em>Richard was not on the 11 September email.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li class="blocked"><b>Patriot Stone is on hold.</b> Its audit finding stands: a location business you cannot locate, with no address published and no Google profile at all.</li>
+          <li class="done"><b>Concrete Warrior launched on 11 September.</b> Site live, Google profile live, Search Console and Analytics both connected the same day.</li>
+          <li>No score for Concrete Warrior yet, and that is deliberate. Scoring a one-day-old site grades it F on every findability measure for having no history rather than for any fault.</li>
+          <li>A formal audit is set for around 10 October, which gives a real before and after against the clean launch-day baseline.</li>
+          <li class="blocked">The truck magnets cannot be printed until the USDOT number is confirmed.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>Confirm the USDOT number.</b> One number, and it is holding the whole magnet run.</li>
+          <li>Six of the eight materials are homepage cards with no page behind them. One of them can be written from facts already published.</li>
+          <li>No photographs and no reviews on the Google profile yet, which for a yard is most of how customers choose.</li>
+          <li>Sales remains the open question. Most of the projected revenue has no named buyer against it.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>The October audit as a genuine before and after, which we have only managed to produce once across every business we have worked on.</p>
+        <p>A decision on Patriot Stone, which is currently neither progressing nor formally stopped.</p>
+      </div>
+    </div>
+    <p class="deeplink"><a href="../concrete-warrior-launch/">Concrete Warrior launch summary →</a> &nbsp;·&nbsp; <a href="../patriot-stone-supply/">Patriot Stone audit →</a></p>
+  </div>
+
+  <!-- 09 Homestead -->
+  <div class="biz" id="homestead">
+    <div class="bizhead"><h3>09 · Homestead Realty WNY</h3><span class="chip s-lo">2.8 / 10</span><span class="chip">Lowest in the portfolio</span></div>
+    <p class="bizcat">Rental Housing · Getzville NY</p>
+    <div class="nap">
+      <span class="napitem"><span class="nl">Web</span><a href="https://homesteadrealtywny.com/" target="_blank" rel="noopener">homesteadrealtywny.com</a></span>
+      <span class="napitem"><span class="nl">Rentals</span><a href="tel:+17169326550">716-932-6550</a></span>
+      <span class="napitem"><span class="nl">Office</span><a href="tel:+17166367600">716-636-7600</a></span>
+      <span class="napitem"><span class="nl">Note</span><span class="flagnote">the office line is the same number Tiveron publishes</span></span>
+    </div>
+    <div class="blocks">
+      <div class="block people">
+        <h4>Who is on it</h4>
+        <div class="slot"><div class="sl">Awaiting Corey</div><div class="sr">Core group running it day to day, and the major stakeholders with their roles.</div></div>
+        <div class="heard"><span class="hl">Names we have heard, roles unconfirmed</span>The site lists a property manager but does not name one. Jennifer Hogan is at the same Getzville address. <em>We have never had a name for who runs this day to day.</em></div>
+      </div>
+      <div class="block">
+        <h4>Where it stands</h4>
+        <ul class="items">
+          <li><b>Nearly forty years of operating history and more than sixty units, represented online by three listings.</b> The gap between the real business and the visible one is the widest in the portfolio.</li>
+          <li class="blocked">The Google profile is unclaimed, which means every review left on it has gone unanswered because nobody can answer them.</li>
+          <li>The homepage title tag is empty, which is the single most basic thing a website can get wrong.</li>
+          <li>Most of the visible presence sits on a third-party listings site rather than on the company's own.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Priorities now</h4>
+        <ul class="items">
+          <li class="blocked"><b>Claim the Google profile.</b> Free, not website work, and the highest-value single action available anywhere in these nine businesses.</li>
+          <li>Fill the empty title tag.</li>
+          <li>Publish the units on the company's own site rather than renting that ground from a listings platform.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>Twelve months out</h4>
+        <p>The profile claimed, the reviews answered, and forty years of history working as the asset it should be rather than sitting invisible.</p>
+        <p>Available units findable directly, so a tenant search reaches Homestead instead of a competitor with a better listing.</p>
+      </div>
+    </div>
+    <p class="deeplink"><a href="../homestead-realty-wny/">Open the Homestead audit →</a></p>
+  </div>
+
+</section>
+
+<section>
+  <h2>Open with you</h2>
+  <p class="sec-sub">Questions that shape the dashboard rather than any single business</p>
+  <ul class="qlist">
+    <li><div class="qt">Who is on each business</div><div class="qd">The 12 September email. Every people block on this page fills in from your answer, and until it does this dashboard is describing work without describing who does it.</div></li>
+    <li><div class="qt">Does Tiveron Law belong in the nine</div><div class="qd">Asked in the same email. It changes what we track and what we stop tracking.</div></li>
+    <li><div class="qt">The coffee business</div><div class="qd">There is a coffee operation in Ellicottville that is not in these nine and that we cannot name with confidence. Either it belongs on this page or it does not, and we would rather ask than guess.</div></li>
+    <li><div class="qt">The three things question, reopened</div><div class="qd">On the 9 September call the room was asked to name the top three things on each person's mind. The meeting moved on and it was never answered. It is the only place the people running these businesses would have set the priorities themselves, rather than us reading them off the work. Worth asking again, in writing, one person at a time.</div></li>
+    <li><div class="qt">Alpine Bistro rebuild</div><div class="qd">Built, private, and not sent. It needs a yes or a no rather than continuing to sit.</div></li>
+  </ul>
+</section>
+
+<footer>
+  <span>Hogan Portfolio · Operating Dashboard · 12 September 2026</span>
+  <span>Prepared by Doble AI · <a href="https://dobleai.com">dobleai.com</a></span>
+</footer>
+
+</div>
+</body>
+</html>
