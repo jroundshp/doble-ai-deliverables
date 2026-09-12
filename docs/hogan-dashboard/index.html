@@ -138,6 +138,15 @@ a.card .cline{font-size:13.2px;color:var(--ink2);line-height:1.5}
 @media (min-width:860px){.blocks{grid-template-columns:1fr 1fr}}
 .block{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:16px 17px;box-shadow:var(--shadow)}
 .block.people{background:var(--open-wash);border-color:var(--open)}
+.groupnote{background:var(--accent-wash);border:1px solid var(--accent);border-radius:4px;
+  padding:16px 18px;margin:18px 0 4px}
+.gnlab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent-deep);margin-bottom:10px}
+.groupnote p{font-size:14px;line-height:1.55;color:var(--ink2);margin-bottom:10px}
+.groupnote p:last-child{margin-bottom:0}
+.groupnote b{color:var(--ink)}
+.gnlink a{font-weight:500;font-size:13.5px;text-decoration:none}
+.gnlink a:hover{text-decoration:underline}
 .divisions{background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:15px 16px;margin-bottom:16px}
 .dvlab{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink3);margin-bottom:11px}
@@ -351,6 +360,12 @@ footer{border-top:1px solid var(--rule2);margin-top:56px;padding-top:22px;
   <div class="biz" id="ellicottville">
     <div class="bizhead"><h3>02 · Ellicottville</h3><span class="chip">Two businesses</span></div>
     <p class="bizcat">Ellicottville NY · Ellicottville Bake Shop and Alpine Bistro. Ellicottville Coffee is a sub-brand of the Bistro rather than a business of its own. Each one has its own panel and its own documents below.</p>
+    <div class="groupnote">
+      <div class="gnlab">Next, and it covers both businesses</div>
+      <p><b>Ellicottville needs the social plan we just built for Fenimore's.</b> Nothing like it exists here yet. The Fenimore's version runs September to March and has three parts: a calendar of posts written once and scheduled to publish themselves, people on the floor posting the same day as things actually happen, and a rule that every photograph is a real one rather than anything generated.</p>
+      <p>It fits Ellicottville better than it fits Cooperstown, for two reasons. The two businesses share a general manager, so one calendar can feed both accounts without doubling anyone's work. And a ski town has a known calendar already sitting there: the season opening, the festivals, the holidays. That is most of six months of posts that can be sat down in a week and dated, which leaves the people in the shop free to post the things nobody can schedule.</p>
+      <p class="gnlink"><a href="../fenimores-social/">The Fenimore's plan, as the model →</a></p>
+    </div>
   <!-- 02 Ellicottville Bake Shop -->
   <div class="biz sub" id="bakeshop">
     <div class="bizhead"><h3>Ellicottville Bake Shop</h3><span class="chip s-hi">6.0 / 10</span><span class="chip">Re-verified 1 Sep</span></div>
