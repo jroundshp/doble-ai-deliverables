@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Everything done on Fenimore's Table in the last week, in one place. Working brief, not a public page.">
+<title>Fenimore's Catch-Up</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJz48dGV4dCB5PScuOWVtJyBmb250LXNpemU9JzkwJz7wn5O3PC90ZXh0Pjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --ground:#F1F3F1; --surface:#FBFCFB; --sunken:#E7EAE8; --ink:#141817; --muted:#5A6462; --hair:#CBD2CF;
+    --accent:#14514E; --accent-soft:#DCE8E6; --blocked:#92600A; --blocked-soft:#F2E7CE;
+    --confirmed:#2C6340; --confirmed-soft:#DCE9DF; --open:#6B5A7A; --open-soft:#E6E1EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8; --muted:#98A29F; --hair:#2E3836;
+      --accent:#62B7AF; --accent-soft:#17322F; --blocked:#D6A44A; --blocked-soft:#322611;
+      --confirmed:#77B98C; --confirmed-soft:#172A1D; --open:#B49FC7; --open-soft:#241E2B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8; --muted:#98A29F; --hair:#2E3836;
+    --accent:#62B7AF; --accent-soft:#17322F; --blocked:#D6A44A; --blocked-soft:#322611;
+    --confirmed:#77B98C; --confirmed-soft:#172A1D; --open:#B49FC7; --open-soft:#241E2B;
+  }
+  * { box-sizing:border-box; }
+  body { background:var(--ground); color:var(--ink); font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size:17px; line-height:1.62; margin:0; padding:0 24px 96px; -webkit-font-smoothing:antialiased; }
+  .sheet { max-width:820px; margin:0 auto; display:flex; flex-direction:column; gap:44px; }
+  header.masthead { padding-top:64px; display:flex; flex-direction:column; gap:18px; }
+  .eyebrow, .num { font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:11px; font-weight:500;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin:0; }
+  h1 { font-family:Archivo, "Helvetica Neue", Arial, sans-serif; font-weight:700; font-size:clamp(32px, 5.6vw, 46px);
+    line-height:1.05; letter-spacing:-0.02em; text-wrap:balance; margin:0; }
+  .standfirst { font-size:20px; line-height:1.5; color:var(--muted); margin:0; max-width:60ch; }
+  .stamp { font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:12px; line-height:1.75; color:var(--muted);
+    border-top:1px solid var(--hair); padding-top:14px; margin:0; }
+  .stamp b { color:var(--ink); font-weight:500; }
+  section { display:flex; flex-direction:column; gap:16px; }
+  h2 { font-family:Archivo, "Helvetica Neue", Arial, sans-serif; font-weight:700; font-size:26px; letter-spacing:-0.01em;
+    line-height:1.15; text-wrap:balance; margin:0 0 6px; padding-bottom:10px; border-bottom:2px solid var(--ink); }
+  h3 { font-family:Archivo, sans-serif; font-weight:600; font-size:19px; margin:10px 0 2px; }
+  p { margin:0; max-width:66ch; }
+  strong, b { font-weight:600; }
+  a { color:var(--accent); text-underline-offset:3px; word-break:break-word; }
+  .warn { background:var(--blocked-soft); border-left:4px solid var(--blocked); padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
+  .closer { background:var(--accent-soft); border-left:4px solid var(--accent); padding:22px 24px; display:flex; flex-direction:column; gap:12px; }
+  ul.plain { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:9px; max-width:66ch; }
+  .card { background:var(--surface); border:1px solid var(--hair); border-top:4px solid var(--accent); padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
+  .lab { font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0; }
+  ol.check { margin:0; padding:0; list-style:none; counter-reset:c; display:flex; flex-direction:column; gap:8px; }
+  ol.check li { counter-increment:c; display:grid; grid-template-columns:30px 1fr; align-items:baseline; }
+  ol.check li::before { content:counter(c); font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--accent); }
+
+  .people { display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:12px; }
+  .person { background:var(--surface); border:1px solid var(--hair); padding:14px 16px; display:flex; flex-direction:column; gap:4px; }
+  .person b { font-family:Archivo, sans-serif; font-size:16px; }
+  .person span { font-size:15px; color:var(--muted); line-height:1.5; }
+
+  .days { display:flex; flex-direction:column; gap:0; border-left:2px solid var(--hair); margin-left:6px; }
+  .day { position:relative; padding:0 0 22px 22px; display:flex; flex-direction:column; gap:6px; }
+  .day::before { content:""; position:absolute; left:-7px; top:7px; width:12px; height:12px; border-radius:50%; background:var(--accent); }
+  .day .d { font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
+  .day ul { margin:0; padding-left:18px; display:flex; flex-direction:column; gap:5px; max-width:64ch; }
+
+  .tablewrap { overflow-x:auto; border:1px solid var(--hair); background:var(--surface); }
+  table { border-collapse:collapse; width:100%; min-width:560px; font-size:15.5px; line-height:1.5; }
+  th { font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+    text-align:left; font-weight:500; padding:10px 14px; border-bottom:1px solid var(--hair); background:var(--sunken); }
+  td { padding:11px 14px; border-bottom:1px solid var(--hair); vertical-align:top; }
+  tr:last-child td { border-bottom:0; }
+  .tag { display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+    padding:2px 7px; border-radius:3px; white-space:nowrap; }
+  .t-done { background:var(--confirmed-soft); color:var(--confirmed); }
+  .t-wait { background:var(--blocked-soft); color:var(--blocked); }
+  .t-ours { background:var(--open-soft); color:var(--open); }
+
+  .links { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:12px; }
+  .link { background:var(--surface); border:1px solid var(--hair); border-top:4px solid var(--accent); padding:14px 16px; display:flex; flex-direction:column; gap:6px; text-decoration:none; color:var(--ink); }
+  .link b { font-family:Archivo, sans-serif; font-size:16.5px; color:var(--accent); }
+  .link span { font-size:14.5px; color:var(--muted); line-height:1.5; }
+  .link .when { font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; }
+
+  .sheet > *, section > * { min-width:0; }
+  footer { border-top:1px solid var(--hair); padding-top:16px; font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size:11.5px; line-height:1.8; color:var(--muted); }
+  @media (max-width:560px) {
+    body { font-size:16px; padding:0 18px 72px; }
+    .closer, .warn, .card { padding:18px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <p class="eyebrow">Doble AI &middot; Catch-up brief &middot; 14 September 2026</p>
+  <h1>Fenimore's Table: the last week, in one place</h1>
+  <p class="standfirst">A lot has moved on Fenimore's since the team call on 9 September: the website, a live private events page, a social media plan and a string of emails. This page pulls it together so you can walk into the Cooperstown call knowing where everything stands.</p>
+  <p class="stamp">
+    For <b>Christine Scirto</b>, ahead of the introduction to the Fenimore's group.<br>
+    Compiled from the emails sent on the Fenimore's threads between 9 and 14 September and checked against fenimorestable.com on 14 September.<br>
+    Every document mentioned is linked in section 07. Working brief, not a public page.
+  </p>
+</header>
+
+<section>
+  <div class="card">
+    <p class="lab">The short version</p>
+    <ol class="check">
+      <li><span><b>The private events page is live</b> at fenimorestable.com/private-events/. It has three packages plus a Celebration Brunch, no prices yet, and call and email buttons.</span></li>
+      <li><span><b>The inquiry form is the next build.</b> The system behind it is installed. It is waiting on one thing: who event inquiries go to, and a backup.</span></li>
+      <li><span><b>Bob is sending real photos</b> of the dining room set up for an event. The page is all words until they arrive.</span></li>
+      <li><span><b>The website got a major overhaul on 9 to 11 September</b>: menus, hours, search markup, speed, and analytics as of today.</span></li>
+      <li><span><b>Social media has a plan and a playbook.</b> Shelley schedules, Grace posts weekdays and makes the graphics, and Bob's weekly ad set is waiting on a few confirmations.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <p class="num">01</p>
+  <h2>Who's who in Cooperstown</h2>
+  <p>Fenimore's Table, the Cooperstown Clubhouse and the Cooperstown Experience run as one venture with one team. Roles below are from Breanna Murphy's list on 14 September.</p>
+  <div class="people">
+    <div class="person"><b>Corey Hogan &amp; Bob Hickey</b><span>50/50 partners. Bob is the one on site, and he is driving private events.</span></div>
+    <div class="person"><b>Shelley Bostwick</b><span>Manager at Fenimore's. Now scheduling the Facebook and Instagram posts, with an events posting calendar she built with Bob.</span></div>
+    <div class="person"><b>Tammy Loucks</b><span>Operations manager on site. Confirmed hours and menu prices last week, and is bringing Toast in line with the new cards.</span></div>
+    <div class="person"><b>Katie Cole</b><span>Culinary director for both restaurants. Costing the event packages, which is why no prices are published yet.</span></div>
+    <div class="person"><b>Brooks Mixen-Allen</b><span>Assistant manager at the Clubhouse, and helping Bob with events and marketing on site.</span></div>
+    <div class="person"><b>Grace Klak</b><span>At Tiveron. Posts on weekdays, makes graphics in Canva, and holds the Google accounts for the site.</span></div>
+  </div>
+  <p>Two things worth knowing going in. The Clubhouse is <b>closed for the season</b> and reopens in the spring. And Bob emailed you the <b>Private Event Coordinator training manual</b> on 10 September, so that document is already in your inbox.</p>
+</section>
+
+<section>
+  <p class="num">02</p>
+  <h2>How the week went</h2>
+  <div class="days">
+    <div class="day">
+      <span class="d">Wed 9 Sept</span>
+      <ul>
+        <li>Whole-team call on Fenimore's: menus, events, social posting, and a room that said clearly it doesn't want AI-looking posts.</li>
+        <li>New breakfast and lunch menus arrived. We got administrator access to the website and did the first big round of work on it the same day.</li>
+      </ul>
+    </div>
+    <div class="day">
+      <span class="d">Thu 10 Sept</span>
+      <ul>
+        <li>"Where things stand" readout sent to Corey: what was changed on the site and what was left.</li>
+        <li>Bob's private events outline turned into a written brief with the page copy, the form layout and a questions section.</li>
+        <li>Bob sent you the events training manual.</li>
+      </ul>
+    </div>
+    <div class="day">
+      <span class="d">Fri 11 Sept</span>
+      <ul>
+        <li><b>Private events page published.</b> Capacity set with Corey at up to 95 indoors and 140 in summer with the patio.</li>
+        <li>The inquiry form system installed on the site: every inquiry stored on Fenimore's own site, an instant reply to the guest, and alerts to an owner plus a backup.</li>
+        <li>All three menus reconciled against the printed cards, Toast and the website. Dinner hours clarified to Thursday through Monday, 4PM to 9PM.</li>
+        <li>Sitemap fixed. Grace asked to set up Google Analytics and Search Console.</li>
+      </ul>
+    </div>
+    <div class="day">
+      <span class="d">Sat 12 Sept</span>
+      <ul>
+        <li>Bob posted Sunday Football and Sunday Brunch ads. John replied that the website has no public brunch listed yet and offered to build a brunch page once the details are set.</li>
+        <li>The social media plan went to the group: posts built ahead and scheduled, plus same-day photos from the floor, with a calendar through March.</li>
+      </ul>
+    </div>
+    <div class="day">
+      <span class="d">Sun 13 Sept</span>
+      <ul>
+        <li>John and Bob spoke by phone. Bob will email the address inquiries should go to for now, send photos of the room, and wants the events section to feel a level above the rest of the site.</li>
+      </ul>
+    </div>
+    <div class="day">
+      <span class="d">Mon 14 Sept</span>
+      <ul>
+        <li>Shelley and Grace settled who posts: Shelley schedules, Grace posts weekdays and does graphics. Shelley said brunch is currently the breakfast menu until brunch specials are worked out.</li>
+        <li>The posting playbook went to the group. John replied to Bob's seven weekly ads with what needs confirming first.</li>
+        <li>Google Analytics installed on every page of the site.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="num">03</p>
+  <h2>Private events, where your work starts</h2>
+  <p>The page at <a href="https://www.fenimorestable.com/private-events/">fenimorestable.com/private-events/</a> went up on 11 September. The idea was to get it live and let the group mark it up rather than wait for every answer. Here's what's on it: <b>The Fenimore</b> (casual, buffet or family style), <b>The Signature</b> (upscale, with an optional cocktail hour), <b>The Grand</b> (plated, white tablecloth), and the <b>Celebration Brunch</b>. There's also a daytime and group lunch section, an enhancements list, and a questions section written to answer what every inquiry asks first. It has no prices, per Bob's instruction to wait for Katie's costing. The homepage "Book a Special Event" button points to it.</p>
+
+  <h3>What Bob asked for, and where each piece is</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Request</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>An events page with his packages, enhancements and a questions section</td><td><span class="tag t-done">Live</span></td><td>Built from his outline. Wording on the food is his and Katie's to change.</td></tr>
+        <tr><td>Every inquiry stored in a searchable record rather than an inbox</td><td><span class="tag t-done">Installed</span></td><td>Stored on Fenimore's own site, exportable to a spreadsheet, no cap on volume.</td></tr>
+        <tr><td>A short first screen on a phone, with the detail on a second step</td><td><span class="tag t-wait">Next</span></td><td>The form itself is about a day to build once we know where inquiries go.</td></tr>
+        <tr><td>Instant confirmation to the guest</td><td><span class="tag t-ours">On us</span></td><td>John drafts the wording and sends it to Bob to approve.</td></tr>
+        <tr><td>Alert to a coordinator plus a backup</td><td><span class="tag t-wait">Waiting</span></td><td>Needs a name and email for each. Bob gave his own address by phone for testing and will confirm it by email. The permanent owner is still to be decided.</td></tr>
+        <tr><td>Real photos, and a page that feels a level above the rest of the site</td><td><span class="tag t-wait">Waiting</span></td><td>Bob is sending six to ten photos with the room staged for an event. No stock or AI images on this page.</td></tr>
+        <tr><td>A more prominent shortcut from the homepage</td><td><span class="tag t-ours">On us</span></td><td>A button already exists near the top. Bob would like it more visible, like a box to the side.</td></tr>
+        <tr><td>Published prices</td><td><span class="tag t-wait">Held</span></td><td>Until Katie finishes costing the packages.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="warn">
+    <p><b>Two capacity figures are going around.</b> The live page says up to 95 indoors and 140 in summer with the patio, which is what Corey and John agreed on 11 September. A three-page layout document Bob circulated says about 100 indoors plus 60 on the patio. If a caller quotes the second pair, that document is where it came from. It's worth settling which one stands, and whether they are seated or standing counts.</p>
+  </div>
+
+  <h3>Decisions still open on the events side</h3>
+  <p>Bob's manual has its own launch checklist, and most of it is still open. These are the ones a first proposal will run into:</p>
+  <ul class="plain">
+    <li>Deposit amount, cancellation terms, service charge, food and beverage minimums, and how long a date is held.</li>
+    <li>Final per-person pricing for the four packages. Bob's ranges are preliminary and internal.</li>
+    <li>Who supplies the enhancements (chairs, linens, lighting, dance floor, staging). The page says they are quoted on selection.</li>
+    <li>Outside cake and any cutting fee, and the number of parking spaces on site. Parking is worth saying out loud on the page, since it's a real advantage over the village.</li>
+    <li>Whether brunch is a public Sunday service or an events package only (more in section 05).</li>
+  </ul>
+
+  <h3>Demand Bob has already mentioned</h3>
+  <ul class="plain">
+    <li>A group of about 60 doctors who want to bring in a screen.</li>
+    <li>A motor coach of about 55 on a Hall of Fame trip, looking for a buffet.</li>
+    <li>A hospital party. The size came through differently on two calls, so confirm it with Bob before quoting a number.</li>
+    <li>Bob has a list of 100 or more target organizations for outbound event sales, and he expects events to out-earn the regular restaurant.</li>
+  </ul>
+  <p>Two local facts worth using: the <b>Hampton Inn is next door</b> at 4882 State Highway 28 (it's on the page), and <b>Bassett Medical Center</b> is a few miles up the same road, which is where the hospital and doctor groups come from.</p>
+</section>
+
+<section>
+  <p class="num">04</p>
+  <h2>The website: what changed, and what's left</h2>
+  <p>We hold administrator access to fenimorestable.com, so changes don't wait on a vendor. The detailed record is the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-status/">Where things stand</a> readout (dated 10 September) and the <a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-menu-sync/">menu sync</a> from 11 September. The highlights:</p>
+  <ul class="plain">
+    <li><b>Search engines and AI assistants can now read the restaurant.</b> Hours, address, price band and every menu item with its price are in machine-readable form on the menu and breakfast pages, and page titles and descriptions are written for every page.</li>
+    <li><b>Menus match the printed cards.</b> Wrong add-on prices corrected, retired dishes removed, "Koren" fixed to "Korean," vegetarian items marked, and Fire-Roasted Chicken renamed Fenimore Half Chicken per Tammy.</li>
+    <li><b>Hours agree everywhere.</b> Two pages had been contradicting themselves on Tuesday and Wednesday. Dinner now reads Thursday through Monday, 4PM to 9PM.</li>
+    <li><b>Faster on a phone.</b> Homepage photos converted to a lighter format, and pinch-to-zoom turned back on so people can enlarge the menu.</li>
+    <li><b>Sitemap fixed and Google Analytics live</b> on every page as of today.</li>
+  </ul>
+  <p>Since the 10 September readout, a few of its open items have closed: the events page is live, capacity is set, and the old /brunch/ address now forwards to the breakfast page.</p>
+
+  <h3>Still open on the site</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Item</th><th>Who has it</th></tr></thead>
+      <tbody>
+        <tr><td>Search Console access for our reporting account, so we can check how Google indexes each page. Grace updated a role today, but it isn't showing on our end yet.</td><td>Grace</td></tr>
+        <tr><td>The phone number on the homepage is plain text, so it can't be tapped to call on a phone.</td><td>Us</td></tr>
+        <tr><td>A share image, so links posted to Facebook or texted show a picture. Needs someone to choose a real photo.</td><td>Cooperstown side</td></tr>
+        <tr><td>Weekly specials. The menu says only "Weekly Special, chef-inspired," so Chicken Riggies, Fish Fry and Prime Rib aren't named anywhere a guest can check.</td><td>Bob and Katie to confirm, then us</td></tr>
+        <tr><td>A proper re-audit and new score. The July score of 4.5 predates all of this work.</td><td>Us</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <p class="num">05</p>
+  <h2>Social media</h2>
+  <p>There are two documents, and they work together.</p>
+  <ul class="plain">
+    <li><a href="https://jroundshp.github.io/doble-ai-deliverables/fen-soc/"><b>The social media plan</b></a> says <i>what</i> gets posted and when. Posts for dates we already know (every football Sunday, Thanksgiving night Chiefs at Bills, Christmas, a Super Bowl on Valentine's Day) are built ahead with real photos and scheduled. Same-day photos from the floor fill in around them. The calendar runs through Easter and still needs town events and holiday hours.</li>
+    <li><a href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-social-playbook/"><b>The posting playbook</b></a> says <i>how</i>. It covers every post from start to finish: check the planner, take a real photo, tag and add the location, write the caption, share to the story right away, and have staff like it from their personal accounts. It includes copy-and-paste captions.</li>
+  </ul>
+  <p><b>Who posts:</b> Shelley schedules and keeps the events posting calendar she built with Bob. Grace posts on weekdays and makes graphics in Canva (she prefers that to AI images). Bob shares specials to the Celebrate Cooperstown and Milford Facebook groups. Katie, Shelley, Brooks and Bob all have access to the Facebook page.</p>
+
+  <h3>Bob's weekly ad set</h3>
+  <p>Bob put together seven ads meant to repeat every week: Private Events, Thursday Chicken Riggies, Friday Fish Fry, Saturday Prime Rib, two Sunday Football ads and Sunday Brunch. John's reply on 14 September asked Bob to confirm a few things so the ads and the website say the same thing:</p>
+  <ul class="plain">
+    <li>The three dinner specials as standing weekly items, with prices and sides as Katie serves them.</li>
+    <li>Game Day Nachos and the Sunday Football prices, if they belong on the menu.</li>
+    <li><b>Sunday brunch hours and the mimosa and Bloody Mary prices.</b> The ad says 10 to 2 and $5. An earlier ad said 10 to 4. Shelley says brunch is the breakfast menu for now. Brunch is on hold until this is settled, and then a brunch page gets built.</li>
+    <li>Happy Hour days, times and prices, if it's going ahead. Tuesday and Wednesday close at 4, so an evening happy hour can't be advertised as daily.</li>
+  </ul>
+  <p>The Private Events ad also still says "Coming Soon," and it can now say "Now Booking" and link to the live page.</p>
+</section>
+
+<section>
+  <p class="num">06</p>
+  <h2>Waiting on, at a glance</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>What</th><th>From</th><th>What it unlocks</th></tr></thead>
+      <tbody>
+        <tr><td>Inquiry email address in writing, plus a permanent owner and a backup</td><td>Bob</td><td>The inquiry form goes live</td></tr>
+        <tr><td>Six to ten photos of the room set for an event</td><td>Bob</td><td>The events page stops being all words</td></tr>
+        <tr><td>Package pricing</td><td>Katie</td><td>"Starting at" prices on the page</td></tr>
+        <tr><td>Which capacity figure stands, seated or standing</td><td>Bob and Corey</td><td>What every caller gets told</td></tr>
+        <tr><td>Weekly specials, brunch details, Happy Hour</td><td>Bob, Katie, Shelley</td><td>Menu page, a brunch page, and ads that match</td></tr>
+        <tr><td>Town event dates and holiday hours</td><td>Anyone local</td><td>The rest of the social calendar</td></tr>
+        <tr><td>Search Console access</td><td>Grace</td><td>A page-by-page check of how Google sees the site</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <p class="num">07</p>
+  <h2>Every document, in one list</h2>
+  <div class="links">
+    <a class="link" href="https://www.fenimorestable.com/private-events/"><span class="when">Live on the site</span><b>Private events page</b><span>What guests see today.</span></a>
+    <a class="link" href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-events/"><span class="when">10 September</span><b>Private events brief</b><span>Bob's outline turned into page copy, the form layout and the questions section.</span></a>
+    <a class="link" href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-status/"><span class="when">10 September</span><b>Where things stand</b><span>Everything changed on the website, and what was left at the time.</span></a>
+    <a class="link" href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-menu-sync/"><span class="when">11 September</span><b>The three menus, reconciled</b><span>Cards, website and Toast lined up, and what changed.</span></a>
+    <a class="link" href="https://jroundshp.github.io/doble-ai-deliverables/fen-soc/"><span class="when">12 September</span><b>Social media plan</b><span>The two-part approach and the calendar through March.</span></a>
+    <a class="link" href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-social-playbook/"><span class="when">14 September</span><b>Posting playbook</b><span>Step by step for everyone who posts, with captions to copy.</span></a>
+    <a class="link" href="https://jroundshp.github.io/doble-ai-deliverables/hogan-dashboard/#cooperstown"><span class="when">Updated 14 September</span><b>Operating dashboard, Cooperstown</b><span>All nine of Corey's businesses on one page. This link opens the Cooperstown section.</span></a>
+    <a class="link" href="https://jroundshp.github.io/doble-ai-deliverables/fenimores-table/"><span class="when">July, annotated since</span><b>Original site audit</b><span>The starting point. The score predates last week's work.</span></a>
+  </div>
+</section>
+
+<section>
+  <div class="closer">
+    <p>Questions or corrections on any of this, send them to John. This page gets updated as things come in, and the link stays the same.</p>
+  </div>
+</section>
+
+<footer>
+  Doble AI &middot; Fenimore's catch-up brief &middot; 14 September 2026<br>
+  Fenimore's Table, 4874 State Highway 28, Cooperstown NY 13326 &middot; (607) 547-2767 &middot; fenimorestable.com<br>
+  Sources: emails sent on the Fenimore's threads 9 to 14 September, the 13 September call with Bob, Breanna Murphy's roster of 14 September, and fenimorestable.com checked 14 September.<br>
+  Working brief. Link shared, not indexed.
+</footer>
+
+</div>
+</body>
+</html>
