@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="How the Fenimore's team posts on Facebook and Instagram. Working playbook, not for public posting.">
+<title>Fenimore's Posting Playbook</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJz48dGV4dCB5PScuOWVtJyBmb250LXNpemU9JzkwJz7wn5O3PC90ZXh0Pjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+  :root {
+    --ground:   #F1F3F1;
+    --surface:  #FBFCFB;
+    --sunken:   #E7EAE8;
+    --ink:      #141817;
+    --muted:    #5A6462;
+    --hair:     #CBD2CF;
+    --accent:   #14514E;
+    --accent-soft: #DCE8E6;
+    --blocked:  #92600A;
+    --blocked-soft: #F2E7CE;
+    --confirmed:#2C6340;
+    --confirmed-soft: #DCE9DF;
+    --open:     #6B5A7A;
+    --open-soft:#E6E1EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+      --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+      --blocked:#D6A44A; --blocked-soft:#322611; --confirmed:#77B98C;
+      --confirmed-soft:#172A1D; --open:#B49FC7; --open-soft:#241E2B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+    --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+    --blocked:#D6A44A; --blocked-soft:#322611; --confirmed:#77B98C;
+    --confirmed-soft:#172A1D; --open:#B49FC7; --open-soft:#241E2B;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground); color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px; line-height: 1.62; margin: 0; padding: 0 24px 96px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px; }
+  header.masthead { padding-top: 64px; display: flex; flex-direction: column; gap: 18px; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--accent); margin: 0;
+  }
+
+  h1 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: clamp(32px, 5.6vw, 46px);
+    line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; margin: 0;
+  }
+
+  .standfirst { font-size: 20px; line-height: 1.5; color: var(--muted); margin: 0; max-width: 60ch; }
+
+  .stamp {
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 12px; line-height: 1.75; color: var(--muted);
+    border-top: 1px solid var(--hair); padding-top: 14px; margin: 0;
+  }
+  .stamp b { color: var(--ink); font-weight: 500; }
+
+  section { display: flex; flex-direction: column; gap: 16px; }
+  .num { font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.13em; color:var(--accent); text-transform:uppercase; margin:0; }
+
+  h2 {
+    font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; font-size: 26px; letter-spacing: -0.01em; line-height: 1.15;
+    text-wrap: balance; margin: 0 0 6px; padding-bottom: 10px; border-bottom: 2px solid var(--ink);
+  }
+  h3 { font-family: Archivo, sans-serif; font-weight:600; font-size:19px; margin:10px 0 2px; }
+
+  p { margin: 0; max-width: 66ch; }
+  strong, b { font-weight: 600; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  code { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 0.86em; background: var(--sunken); padding: 1px 5px; border-radius: 3px; word-break: break-word; }
+
+  .warn { background:var(--blocked-soft); border-left:4px solid var(--blocked); padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
+  .closer { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 22px 24px; display: flex; flex-direction: column; gap: 12px; }
+
+  ul.plain { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:9px; max-width:66ch; }
+
+  /* the phone checklist */
+  .card { background:var(--surface); border:1px solid var(--hair); border-top:4px solid var(--accent); padding:20px 22px; display:flex; flex-direction:column; gap:12px; }
+  .card .lab { font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0; }
+  ol.check { margin:0; padding:0; list-style:none; counter-reset:c; display:flex; flex-direction:column; gap:8px; }
+  ol.check li { counter-increment:c; display:grid; grid-template-columns: 30px 1fr; align-items:baseline; }
+  ol.check li::before { content:counter(c); font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--accent); }
+
+  /* the long step list */
+  ol.steps { margin:0; padding:0; list-style:none; counter-reset:s; display:flex; flex-direction:column; gap:22px; }
+  ol.steps > li { counter-increment:s; display:grid; grid-template-columns: 44px 1fr; gap:0 6px; }
+  ol.steps > li::before {
+    content:counter(s,decimal-leading-zero); font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:500;
+    color:var(--accent); padding-top:3px;
+  }
+  ol.steps > li > div { display:flex; flex-direction:column; gap:8px; min-width:0; }
+  ol.steps h3 { margin:0; }
+  ol.steps li.big > div { background:var(--accent-soft); border-left:4px solid var(--accent); padding:16px 18px; margin-left:-4px; }
+
+  .split { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px; }
+  .plat { background:var(--surface); border:1px solid var(--hair); border-top:4px solid var(--accent); padding:20px 22px; display:flex; flex-direction:column; gap:10px; }
+  .plat.ig { border-top-color: var(--open); }
+  .plat .lab { font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:0; }
+  .plat h3 { margin:0; }
+
+  .bio {
+    background:var(--sunken); border-radius:6px; padding:14px 16px; font-family:-apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size:14.5px; line-height:1.45; max-width:340px;
+  }
+  .bio .h { font-weight:600; }
+  .bio .l { color:var(--accent); }
+  .bio .new { background:var(--confirmed-soft); color:var(--confirmed); border-radius:3px; padding:0 4px; }
+
+  .tpl { background:var(--surface); border:1px solid var(--hair); display:flex; flex-direction:column; }
+  .tpl .top { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:10px 16px; border-bottom:1px solid var(--hair); background:var(--sunken); }
+  .tpl .top b { font-family:Archivo,sans-serif; font-size:15px; }
+  .tpl .top span { font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); align-self:center; }
+  .tpl pre {
+    margin:0; padding:16px; white-space:pre-wrap; word-break:break-word;
+    font-family:-apple-system, "Segoe UI", Roboto, sans-serif; font-size:15.5px; line-height:1.5; color:var(--ink);
+  }
+  .tpl button {
+    align-self:flex-start; margin:0 16px 14px; font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em;
+    text-transform:uppercase; background:transparent; color:var(--accent); border:1px solid var(--accent); border-radius:3px;
+    padding:6px 10px; cursor:pointer;
+  }
+  .tpl button.done { background:var(--accent); color:var(--surface); }
+
+  .sheet > *, section > * { min-width: 0; }
+
+  footer {
+    border-top: 1px solid var(--hair); padding-top: 16px;
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 11.5px; line-height: 1.8; color: var(--muted);
+  }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; padding: 0 18px 72px; }
+    .closer, .warn, .card, .plat { padding: 18px 16px; }
+    ol.steps > li { grid-template-columns: 34px 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <p class="eyebrow">Doble AI &middot; Playbook &middot; 14 September 2026</p>
+  <h1>How we post on Fenimore's Facebook and Instagram</h1>
+  <p class="standfirst">More of us can post to @fenimorestable now, which is good. This page is so every post goes up the same way no matter whose phone it came from.</p>
+  <p class="stamp">
+    For <b>everyone with posting access</b> to the Fenimore's Table Facebook page and Instagram account.<br>
+    The short version is right below. Keep this link on your phone. The details and the copy-and-paste captions are further down.<br>
+    Companion page: the <a href="https://jroundshp.github.io/doble-ai-deliverables/fen-soc/">social media plan and calendar</a>, which says <i>what</i> gets posted and when. This page is <i>how</i>.
+  </p>
+</header>
+
+<section>
+  <div class="card">
+    <p class="lab">The short version &middot; every post</p>
+    <ol class="check">
+      <li><span>Check the planner in Meta Business Suite so you don't double up.</span></li>
+      <li><span>Real photo taken at Fenimore's. Hold the phone upright.</span></li>
+      <li><span>Tag the other accounts in it, and add the location "Fenimore's Table."</span></li>
+      <li><span>Caption: the news in the first line, two to four sentences, then the sign-off.</span></li>
+      <li><span>Link: Facebook, paste it. Instagram, "More details in our bio."</span></li>
+      <li><span>Instagram only: the four hashtags at the end.</span></li>
+      <li><span>Post it, then <b>immediately share it to the story</b> on both.</span></li>
+      <li><span>Switch to your personal account and <b>like it</b>. Share it if you want.</span></li>
+      <li><span>Answer the comments and messages that come in that day.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <p class="num">01</p>
+  <h2>Who does what</h2>
+  <ul class="plain">
+    <li><b>Shelley</b> schedules posts and keeps the events posting calendar she worked out with Bob.</li>
+    <li><b>Grace</b> posts on weekdays and makes the graphics in Canva. If a post needs a graphic (hours, a holiday, a price list), send the idea to Grace with the date you need it by.</li>
+    <li><b>Everyone else with access</b> posts what's happening on the floor that day, and does steps 8 and 9 on every post, including posts you didn't make.</li>
+  </ul>
+  <p>Everybody posts from Meta Business Suite (or the Facebook and Instagram apps) signed in as themselves, switched over to Fenimore's Table. If Business Suite ever asks you for the Instagram password, stop there and message Grace. Don't go hunting for the login. It usually means the connection between the two accounts needs refreshing, and that's a two-minute fix for whoever has full control of the page.</p>
+  <div class="warn">
+    <p><b>Photos are real ones, taken at Fenimore's.</b> The actual plates, the bar, the room, the people (with their OK). Graphics with text on them go through Grace in Canva. A regular in Cooperstown can tell a stock photo from our dining room, and they'll say so.</p>
+  </div>
+</section>
+
+<section>
+  <p class="num">02</p>
+  <h2>The step by step</h2>
+  <p>Do it in this order. The caption comes near the end on purpose: once the photo, tags and location are set, the caption mostly writes itself.</p>
+
+  <ol class="steps">
+    <li><div>
+      <h3>Check the planner</h3>
+      <p>Open Meta Business Suite and tap <b>Planner</b>. If something is already scheduled within a couple of hours of when you want to post, hold yours for the next gap, or ask Shelley whether yours should replace it. Fifteen seconds.</p>
+    </div></li>
+
+    <li><div>
+      <h3>Pick the photo</h3>
+      <p>Hold the phone upright, not sideways. Instagram crops a sideways photo into a narrow strip, and the food ends up at the edges. Take a few and use the best one. Natural light beats flash, so a plate by the front windows beats a plate at the pass.</p>
+      <p>Up to ten photos in one post is fine (a carousel). Put the strongest one first, because that's the only one most people see.</p>
+    </div></li>
+
+    <li><div>
+      <h3>Tag the accounts in it</h3>
+      <p>On Instagram, tap <b>Tag people</b> on the photo. On Facebook, type <code>@</code> in the caption and pick the page from the list. Tag:</p>
+      <ul class="plain">
+        <li><b>@cooperstownexperience</b> on anything tied to tournament families, a team dinner, or a Cooperstown Experience event.</li>
+        <li><b>@cooperstownclubhouse</b> when the post involves the Clubhouse. It's closed for the season now, so this comes back in the spring.</li>
+        <li><b>A brewery, farm or supplier</b> whose product is in the photo. Search the name in the app and check it's the real account (right town, real posts) before you tag it.</li>
+        <li><b>Staff or guests</b> only if they said yes.</li>
+      </ul>
+      <p>When the post matters to the other account too, use <b>Invite collaborator</b> on Instagram instead of a plain tag. If they accept, the same post shows on both profiles and their followers see it. For a Cooperstown Experience team dinner, that's the move.</p>
+    </div></li>
+
+    <li><div>
+      <h3>Add the location</h3>
+      <p>Every post. Choose <b>Fenimore's Table</b> if it comes up in the list, and <b>Cooperstown, New York</b> if it doesn't. Visitors planning a trip browse the Cooperstown location page, and that's how they find us rather than the place down the street.</p>
+    </div></li>
+
+    <li><div>
+      <h3>Write the caption</h3>
+      <p>First line is the news: "Sunday Football, noon to 9." Facebook cuts everything after the first line or two behind "See more," so don't warm up. Two to four sentences, then the link line (see section 03), then the sign-off block.</p>
+      <p>Prices, hours and specials go in only if they're on the current menu or Shelley has confirmed them. A wrong price in a post is a wrong price at the register.</p>
+    </div></li>
+
+    <li><div>
+      <h3>Instagram only: hashtags</h3>
+      <p>These four, at the end, every time. Leave them off Facebook.</p>
+      <p><code>#Cooperstown #CooperstownNY #FenimoresTable #OtsegoLake</code></p>
+      <p>During tournament season add <code>#CooperstownBaseball</code>. Skip the long lists of thirty. They look like spam and don't help.</p>
+    </div></li>
+
+    <li><div>
+      <h3>Post it, or schedule it</h3>
+      <p>Same-day photo: post it now. Anything for a later date: schedule it in Business Suite and it'll show in the planner for everyone. On Instagram, if it's a video, tap <b>Edit cover</b> on the last screen and pick a frame that isn't blurry.</p>
+    </div></li>
+
+    <li class="big"><div>
+      <h3>Immediately share it to the story</h3>
+      <p>Right after it goes up, still signed in as Fenimore's Table. Before anything else.</p>
+      <p><b>Instagram:</b> tap the paper airplane under the post, then <b>Add to story</b>. Before you share, add a <b>Link sticker</b> (the sticker icon at the top) and point it at the page the post is about. A story link is the only tappable link on Instagram besides the bio, so use it.</p>
+      <p><b>Facebook:</b> tap <b>Share</b> under the post, then <b>Share to story</b>.</p>
+      <p>Why it matters: plenty of our followers watch stories and never scroll down far enough to hit the post. It takes about ten seconds for each one.</p>
+    </div></li>
+
+    <li class="big"><div>
+      <h3>Switch to your personal account and like it</h3>
+      <p>Find the post from your own Facebook and your own Instagram and like it. Everyone with access does this on every Fenimore's post, not just the person who posted it. If you want, share it to your personal Facebook too. The like is every time; the share is your call.</p>
+      <p>Facebook and Instagram decide how many people see a post partly from how fast people react to it in the first hour. Our personal accounts know a lot more people in Otsego County than the restaurant page does, so a few quick likes from staff push the post in front of their friends.</p>
+    </div></li>
+
+    <li><div>
+      <h3>Facebook groups, for specials and events</h3>
+      <p>Bob already shares Fenimore's specials to the <b>Celebrate Cooperstown</b> and <b>Milford</b> Facebook groups, where posts wait for the group admin to approve them. If you want to share something there, check with Bob first so the group doesn't get it twice.</p>
+    </div></li>
+
+    <li><div>
+      <h3>Answer comments and messages that day</h3>
+      <p>"Are you open for breakfast?" and "can I book a table for twelve?" come in as comments and messages. Whoever posted watches them that day. A question answered in an hour usually turns into a visit, and one answered on Thursday usually doesn't. If you don't know the answer, say you'll check, and ask Shelley.</p>
+    </div></li>
+  </ol>
+</section>
+
+<section>
+  <p class="num">03</p>
+  <h2>Links work differently on each one</h2>
+  <p>This is the rule that trips people up most.</p>
+  <div class="split">
+    <div class="plat">
+      <p class="lab">Facebook</p>
+      <h3>Paste the link right in the post</h3>
+      <p>A web address in a Facebook post can be tapped. Paste the full address on its own line near the end, before the sign-off.</p>
+      <p>The ones we use:</p>
+      <ul class="plain">
+        <li><code>fenimorestable.com/breakfast/</code></li>
+        <li><code>fenimorestable.com/menu/</code></li>
+        <li><code>fenimorestable.com/drinks/</code></li>
+        <li><code>fenimorestable.com/private-events/</code></li>
+        <li>Reservations and online ordering: use the <b>Reserve a Table</b> and <b>Order Online</b> buttons on fenimorestable.com. Copy the address from there.</li>
+      </ul>
+    </div>
+    <div class="plat ig">
+      <p class="lab">Instagram</p>
+      <h3>Links in a caption don't work</h3>
+      <p>If you paste a web address into an Instagram caption, it shows up as plain text nobody can tap. So don't paste it. End the caption with:</p>
+      <p><code>More details in our bio.</code></p>
+      <p>That sends people to the profile, where the bio ends with <b>More details 👇</b> and the link sits right underneath it. The finger points at the one spot on Instagram that can be tapped.</p>
+      <div class="bio">
+        <div class="h">Fenimore's Table</div>
+        <div>Cooperstown, NY</div>
+        <div>Elevated dining &amp; craft cocktails</div>
+        <div><span class="new">More details 👇</span></div>
+        <div class="l">🔗 order.toasttab.com/online/fenimorestable and 1 more</div>
+      </div>
+      <p>The story link sticker (step 8) is the other tappable spot.</p>
+    </div>
+  </div>
+  <div class="warn">
+    <p><b>One-time setup, for Grace.</b> As of 14 September the @fenimorestable bio reads <i>Cooperstown, NY / Elevated dining &amp; craft cocktails</i> with no "More details 👇" line yet. Add it as the last line of the bio (Edit profile, then Bio) so the link lands right under the finger. The bio links for ordering and reservations stay as they are. Nobody else needs to touch the profile.</p>
+  </div>
+</section>
+
+<section>
+  <p class="num">04</p>
+  <h2>The sign-off block</h2>
+  <p>Every post ends with this, exactly as written. People stop scrolling for the photo and then look for the phone number and the address, so they're always in the same place.</p>
+  <div class="tpl">
+    <div class="top"><b>Sign-off</b><span>Both platforms</span></div>
+<pre>Fenimore's Table · 4874 State Hwy 28, Cooperstown
+📞 (607) 547-2767</pre>
+    <button type="button">Copy</button>
+  </div>
+</section>
+
+<section>
+  <p class="num">05</p>
+  <h2>Copy-and-paste captions</h2>
+  <p>Swap anything in [brackets] and post. Each one has the sign-off built in. Facebook versions carry the link; Instagram versions carry the bio line and hashtags.</p>
+
+  <h3>Sunday Football</h3>
+  <div class="tpl">
+    <div class="top"><b>Sunday Football</b><span>Facebook</span></div>
+<pre>Sunday Football is on at Fenimore's, noon to 9. $5 drafts, well drinks, house wine and Bloody Marys, and $10 wings, flatbread pizza and game day nachos. [Today it's the Steelers at the Patriots at 1.] Grab a seat by the screens.
+
+fenimorestable.com/menu/
+
+Fenimore's Table · 4874 State Hwy 28, Cooperstown
+📞 (607) 547-2767</pre>
+    <button type="button">Copy</button>
+  </div>
+  <div class="tpl">
+    <div class="top"><b>Sunday Football</b><span>Instagram</span></div>
+<pre>Sunday Football, noon to 9. $5 drafts, well drinks, house wine and Bloody Marys. $10 wings, flatbread and game day nachos. [Today it's the Steelers at the Patriots at 1.] More details in our bio.
+
+Fenimore's Table · 4874 State Hwy 28, Cooperstown
+📞 (607) 547-2767
+#Cooperstown #CooperstownNY #FenimoresTable #OtsegoLake</pre>
+    <button type="button">Copy</button>
+  </div>
+
+  <h3>Breakfast</h3>
+  <div class="tpl">
+    <div class="top"><b>Breakfast</b><span>Facebook</span></div>
+<pre>Breakfast starts at 6:30 every morning at Fenimore's, until 11. [This is the (dish name), one sentence on what's in it.] Coffee's on.
+
+fenimorestable.com/breakfast/
+
+Fenimore's Table · 4874 State Hwy 28, Cooperstown
+📞 (607) 547-2767</pre>
+    <button type="button">Copy</button>
+  </div>
+  <div class="tpl">
+    <div class="top"><b>Breakfast</b><span>Instagram</span></div>
+<pre>Breakfast from 6:30, every morning until 11. [This is the (dish name), one sentence on what's in it.] More details in our bio.
+
+Fenimore's Table · 4874 State Hwy 28, Cooperstown
+📞 (607) 547-2767
+#Cooperstown #CooperstownNY #FenimoresTable #OtsegoLake</pre>
+    <button type="button">Copy</button>
+  </div>
+
+  <h3>Something from the floor today</h3>
+  <div class="tpl">
+    <div class="top"><b>From the floor</b><span>Either, edit the link line</span></div>
+<pre>[One sentence on what's in the photo: the special the kitchen just put up, a full bar for the game, the first fire of the season.] [One sentence on when to come in for it.]
+
+[Facebook: paste the menu link. Instagram: More details in our bio.]
+
+Fenimore's Table · 4874 State Hwy 28, Cooperstown
+📞 (607) 547-2767</pre>
+    <button type="button">Copy</button>
+  </div>
+
+  <h3>Private events</h3>
+  <div class="tpl">
+    <div class="top"><b>Private events</b><span>Facebook</span></div>
+<pre>Planning a team dinner, a rehearsal dinner or a birthday? Fenimore's hosts private events for up to 95 guests inside, and up to 140 in summer with the patio open. Tell us the date and headcount and we'll take it from there.
+
+fenimorestable.com/private-events/
+
+Fenimore's Table · 4874 State Hwy 28, Cooperstown
+📞 (607) 547-2767</pre>
+    <button type="button">Copy</button>
+  </div>
+  <div class="tpl">
+    <div class="top"><b>Private events</b><span>Instagram</span></div>
+<pre>Team dinner, rehearsal dinner, birthday. Fenimore's hosts private events for up to 95 guests inside, up to 140 in summer with the patio open. Send us the date and headcount. More details in our bio.
+
+Fenimore's Table · 4874 State Hwy 28, Cooperstown
+📞 (607) 547-2767
+#Cooperstown #CooperstownNY #FenimoresTable #OtsegoLake</pre>
+    <button type="button">Copy</button>
+  </div>
+
+  <p>No brunch caption yet. For now, per Shelley, brunch is the breakfast and brunch items already on the menu, and the brunch specials are still being worked out. Once those are set, a brunch caption goes here with the confirmed hours and prices.</p>
+</section>
+
+<section>
+  <p class="num">06</p>
+  <h2>A few don'ts</h2>
+  <ul class="plain">
+    <li>Don't post as Fenimore's from your personal profile, or post Fenimore's news on your personal profile first. Page first, then share.</li>
+    <li>Don't paste links into Instagram captions.</li>
+    <li>Don't reply to a bad review or an angry comment in the moment. Screenshot it and send it to Shelley. A calm answer the next morning reads better than a fast one.</li>
+    <li>Don't ask for or pass around passwords. If you can't get in, message Grace.</li>
+  </ul>
+</section>
+
+<section>
+  <p class="num">Log</p>
+  <h2>What changed</h2>
+  <ul class="plain">
+    <li><b>14 September 2026.</b> First version, written for the wider group now posting.</li>
+  </ul>
+</section>
+
+<footer>
+  Doble AI &middot; Fenimore's posting playbook &middot; 14 September 2026<br>
+  Fenimore's Table, 4874 State Highway 28, Cooperstown NY 13326 &middot; (607) 547-2767 &middot; @fenimorestable on Instagram and Facebook<br>
+  Hours, phone and site links checked against fenimorestable.com on 14 September 2026. Instagram bio, and the @cooperstownexperience and @cooperstownclubhouse handles, checked on Instagram the same day. Sunday specials from Fenimore's own 12 September ad. Private event capacity from the live private-events page.<br>
+  Instagram and Facebook rename their buttons often. If a label here doesn't match your screen, look for the closest one.<br>
+  Working playbook. Link shared, not indexed.
+</footer>
+
+</div>
+<script>
+  document.querySelectorAll('.tpl button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var text = b.parentElement.querySelector('pre').innerText;
+      var done = function () { b.textContent = 'Copied'; b.classList.add('done'); setTimeout(function () { b.textContent = 'Copy'; b.classList.remove('done'); }, 1600); };
+      if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, function () {}); }
+    });
+  });
+</script>
+</body>
+</html>
