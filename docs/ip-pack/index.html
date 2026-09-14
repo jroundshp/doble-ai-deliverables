@@ -64,7 +64,7 @@
     font-size:12px; color:var(--muted);
   }
   ol { margin:0; padding-left:22px; display:flex; flex-direction:column; gap:9px; }
-  code {
+  code { overflow-wrap:anywhere;
     font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:14px;
     background:var(--sunken); padding:2px 6px; border-radius:4px;
   }
@@ -86,19 +86,20 @@
   <header>
     <p class="eyebrow">Doble AI &middot; InterActive Play</p>
     <h1>Product Schema Plugin</h1>
-    <p class="standfirst">One small WordPress plugin. Nothing to configure, and nothing a visitor sees changes.</p>
+    <p class="standfirst">One small WordPress plugin covering all 24 product pages. Nothing to configure, and nothing a visitor sees changes.</p>
   </header>
 
   <section>
     <div class="dl">
       <a class="btn" href="vpc-product-schema-plugin.zip" download>Download the plugin</a>
-      <span class="meta">vpc-product-schema-plugin.zip &middot; 5 KB &middot; version 1.1</span>
+      <span class="meta">vpc-product-schema-plugin.zip &middot; 10 KB &middot; version 1.2 &middot; 14 September 2026</span>
     </div>
   </section>
 
   <section>
     <h2>What it does</h2>
     <p>Your product pages already list the specifications in a table a person can read and a machine cannot: footprint, deck height, capacity, feature count. The plugin republishes those same numbers in the format Google and the AI assistants parse. It adds nothing that is not already written on the page.</p>
+    <p>Version 1.2 covers all 24 product pages: the 9 aquatic play structures and the 15 water play features. On the 9 structure pages it also marks up the three questions in the &ldquo;Got Questions?&rdquo; panel, word for word as they appear on the page.</p>
   </section>
 
   <section>
@@ -106,20 +107,22 @@
     <ol>
       <li>In WordPress, go to <b>Plugins &rarr; Add New &rarr; Upload Plugin</b>.</li>
       <li>Choose the zip above. Click <b>Install Now</b>, then <b>Activate</b>.</li>
-      <li>Open Google&rsquo;s Rich Results Test on <code>/products/aquatic-play-structures/triwave-100/</code>.</li>
+      <li>If version 1.1 is already installed, WordPress offers <b>Replace current with uploaded</b>. Choose it.</li>
+      <li>If the site uses a page cache, clear it so the pages pick up the new version.</li>
+      <li>Open <a href="https://validator.schema.org/">validator.schema.org</a> and paste in any product page address.</li>
     </ol>
-    <p>Only the TriWave 100 is filled in, so activating changes exactly one URL. Before, no product detected. After, a product carrying nine specifications. Deactivating puts it back. The other 23 are copies of that same block with their own numbers, and we will fill those in.</p>
+    <p>A structure page such as <code>/products/aquatic-play-structures/misty-island-100/</code> shows a Product and an FAQPage. A water play feature page such as <code>/products/water-play-features/jet-stream/</code> shows a Product. Deactivating removes everything the plugin adds.</p>
   </section>
 
   <section>
     <h2>One thing worth knowing</h2>
     <div class="note">
-      <p>The play site now publishes a company record in its markup, logo and all, which it did not in early September. The plugin references that record rather than publishing its own. While you are in Yoast, that record is missing three fields: the street address, the phone number, and the link up to VPC as the parent company. They are on Yoast&rsquo;s settings screen rather than in any file.</p>
+      <p>The plugin keeps a copy of each page&rsquo;s figures and FAQ text. If a spec or an FAQ answer is edited on a page later, the matching line in the plugin needs the same edit, because Google expects the marked-up questions to match what a visitor sees. The README inside the zip shows where.</p>
     </div>
   </section>
 
   <footer>
-    Prepared by Doble AI &middot; 11 September 2026 &middot; john@dobleai.com
+    Prepared by Doble AI &middot; 14 September 2026 &middot; john@dobleai.com
   </footer>
 
 </div>
