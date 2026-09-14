@@ -1,0 +1,280 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "@id": "https://ellicottvillebakeshop.com/menu/#menu",
+  "name": "Ellicottville Bake Shop Menu",
+  "url": "https://ellicottvillebakeshop.com/menu/",
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Breakfast Menu",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Southwest Sunrise",
+          "description": "Scrambled egg, cheese, peppers, onion, and sausage with chipotle aioli, served on a warm brioche roll.",
+          "offers": {
+            "@type": "Offer",
+            "price": "11.75",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Smoked Salmon on Everything Bagel",
+          "description": "Smoked salmon, sliced red onion, tomato, capers, and spinach with lemon dill cream cheese on a bagel.",
+          "offers": {
+            "@type": "Offer",
+            "price": "12.75",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Canadian Bacon Pepper Jack",
+          "description": "Canadian bacon, pepper jack cheese, and a scrambled egg on your choice of bagel.",
+          "offers": {
+            "@type": "Offer",
+            "price": "11.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Avocado Egg White",
+          "description": "Avocado, egg whites, tomato, and spinach on an English muffin.",
+          "offers": {
+            "@type": "Offer",
+            "price": "11.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "The Ellicottville",
+          "description": "Choice of sausage, bacon, or Canadian bacon with cheddar, roasted red pepper aioli, spinach, and scrambled eggs on sourdough.",
+          "offers": {
+            "@type": "Offer",
+            "price": "11.75",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Pesto Melt",
+          "description": "Scrambled egg, pesto, tomato, and melted mozzarella, served on sourdough.",
+          "offers": {
+            "@type": "Offer",
+            "price": "8.75",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Sausage Egg & Cheddar Biscuit",
+          "description": "Locally sourced sausage topped with gooey NYS cheddar cheese and a scrambled egg on a buttermilk biscuit.",
+          "offers": {
+            "@type": "Offer",
+            "price": "11.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Veggie Ellicottville",
+          "description": "Scrambled egg, NYS cheddar, roasted red pepper aioli, spinach, and scrambled on fresh baked sourdough.",
+          "offers": {
+            "@type": "Offer",
+            "price": "8.75",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Pastry Menu",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Almond Croissants",
+          "description": "Crispy, buttery layers filled with creamy almond frangipane and finished with toasted almonds and powdered sugar.",
+          "offers": {
+            "@type": "Offer",
+            "price": "6.75",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cinnamon Buns",
+          "description": "Pillowy cardamom-infused dough with a buttery cinnamon-sugar filling and homemade glaze.",
+          "offers": {
+            "@type": "Offer",
+            "price": "5.75",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Pain Au Chocolat",
+          "description": "Buttery, flaky croissant dough wrapped around rich, bittersweet chocolate for a perfectly crisp, indulgent bite.",
+          "offers": {
+            "@type": "Offer",
+            "price": "5.75",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cookies",
+          "description": "Chocolate Chip, Snickerdoodle, Peanut Butter, and Oatmeal.",
+          "offers": {
+            "@type": "Offer",
+            "price": "1.50",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Specialty Cookies",
+          "description": "Dipped cookies, stuffed cookies, and seasonal flavors inspired by the best of the season!",
+          "offers": {
+            "@type": "Offer",
+            "price": "3.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Scones",
+          "description": "Blueberry Lemon, White Chocolate Raspberry, Jalapeno Cheddar, and Seasonal. (Scone flavors may vary; please call ahead to check.)",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Muffins",
+          "description": "Blueberry, Chocolate Chip, and Seasonal. (Muffin flavors may vary; please call ahead to check.)",
+          "offers": {
+            "@type": "Offer",
+            "price": "3.50",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Morning Buns",
+          "description": "Buttery, flaky layers rolled with cinnamon sugar and baked until golden, then finished with a sweet glaze for the perfect morning treat.",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.50",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Lunch Menu",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "California Club Bagel",
+          "description": "Ham and turkey with bacon, avocado aioli, pickled onion, romaine, and tomato on an everything bagel.",
+          "offers": {
+            "@type": "Offer",
+            "price": "12.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Turkey Bacon Italiano",
+          "description": "Turkey, thick-cut bacon, local cheddar cheese topped with mixed greens, tomatoes, red onion, and pepper aioli on Crusty Italian.",
+          "offers": {
+            "@type": "Offer",
+            "price": "12.25",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Hammy Honey",
+          "description": "Black forest ham, Swiss cheese, tomatoes, shaved red onion, and honey Dijon on Honey Wheat Bread.",
+          "offers": {
+            "@type": "Offer",
+            "price": "11.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Chicken Salad Croissant",
+          "description": "House-made chicken salad with tender chicken, celery, and toasted pecans on a croissant or your choice of bread (Contains Nuts).",
+          "offers": {
+            "@type": "Offer",
+            "price": "11.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "BLT",
+          "description": "Thick-cut peppered bacon, lettuce, tomato, and garlic aioli on Farmhouse White Bread.",
+          "offers": {
+            "@type": "Offer",
+            "price": "11.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Sourdough Grilled Cheese",
+          "description": "Grilled sourdough bread with melted cheese, toasted until golden brown.",
+          "offers": {
+            "@type": "Offer",
+            "price": "7.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Burrata Toast",
+          "description": "Sourdough, lightly toasted with butter, topped with creamy burrata, fresh tomatoes, pesto, and honey-infused crispy chili oil, finished with everything bagel seasoning.",
+          "offers": {
+            "@type": "Offer",
+            "price": "9.25",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Tuscan Turkey Chop",
+          "description": "Turkey, bacon, pepper jack, tomato, red onion, and pickled onion chopped with garlic aioli, red wine vinegar, and Italian seasoning, topped with romaine on a house-made brioche roll.",
+          "offers": {
+            "@type": "Offer",
+            "price": "11.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Berry Vinaigrette Salad",
+          "description": "Spinach and romaine topped with fresh berries, feta, red onion, and spiced pistachios—sweet, savory, and perfectly balanced.",
+          "offers": {
+            "@type": "Offer",
+            "price": "8.50",
+            "priceCurrency": "USD"
+          }
+        }
+      ],
+      "description": "All sandwiches are served with chips and pickles on the side."
+    }
+  ]
+}
+</script>

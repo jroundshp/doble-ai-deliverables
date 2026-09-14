@@ -1,0 +1,81 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://ellicottvillebakeshop.com/about/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best bakery in Ellicottville for fresh, from-scratch baked goods?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For fresh, from-scratch baked goods in Ellicottville, the Ellicottville Bake Shop offers artisan breads, hand-rolled bagels, pastries, and breakfast made fresh daily. We use traditional techniques like long fermentation, slow proofing, hand-shaped doughs, and hand-laminated pastries, along with carefully selected, high-quality ingredients. Everything is made without preservatives and is best enjoyed fresh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes Ellicottville Bake Shop’s baked goods different from grocery store products?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our baked goods are made from scratch and without preservatives, using real, carefully selected ingredients and traditional baking techniques. We hand-shape our doughs, hand-roll our bagels, and use long fermentation, slow proofing, and hand-lamination for our pastries. We bake fresh daily, so our breads, bagels, and pastries are made to be enjoyed fresh—not to sit on a shelf for weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I keep Ellicottville Bake Shop pastries fresh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our pastries are best enjoyed the same day they’re purchased. If you’re saving them for later, keep them in an airtight container at room temperature. Avoid refrigerating pastries, as this can affect their texture. Pastries such as croissants can be “re-crisped” in the oven for a few minutes. This can help bring back their flaky, crisp texture and extend their enjoyment for about one additional day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do Ellicottville Bake Shop’s cookies and bars stay fresh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our cookies and bars are best enjoyed within 2–3 days when stored properly at room temperature. You can also freeze them to keep them fresh longer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do fresh, preservative-free baked goods have a shorter shelf life?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because we don’t use preservatives, our baked goods don’t have the extended shelf life of many store-bought products. We use real, high-quality ingredients and bake fresh daily, so our breads, pastries, cookies, and other baked goods are made to be enjoyed fresh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I get breakfast made with fresh, from-scratch ingredients in Ellicottville?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can get a fresh, from-scratch breakfast at Ellicottville Bake Shop in the Village of Ellicottville. We serve breakfast sandwiches, freshly baked breads and bagels, pastries, and coffee made with quality ingredients and prepared fresh daily."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Ellicottville Bake Shop offer catering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ellicottville Bake Shop offers catering for pastries by the dozen, breakfast sandwich trays, and lunch sandwich trays. Our catering options are a convenient choice for meetings, gatherings, events, and groups in Ellicottville."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I order baked goods from Ellicottville Bake Shop ahead of time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Ellicottville Bake Shop offers online ordering with order-ahead capabilities, allowing you to place your order in advance for pickup. This is a convenient option when you want to make sure your favorite breads, pastries, breakfast items, or other baked goods are ready when you arrive."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of baked goods does Ellicottville Bake Shop make?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ellicottville Bake Shop makes a variety of from-scratch breads, pastries, and baked goods, including croissants, almond croissants, pain au chocolat, Danishes, morning buns, cookies, seasonal bars, hand-rolled bagels, sourdough bread, sourdough English muffins, biscuits, and more. Our selection changes with the seasons, so there is always something fresh to discover."
+      }
+    }
+  ]
+}
+</script>

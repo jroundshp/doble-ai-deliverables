@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Ellicottville Bake Shop &mdash; FAQ and Menu Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600&display=swap">
+<style>
+  :root{--ground:#F1F3F1;--surface:#FBFCFB;--sunken:#E7EAE8;--ink:#141817;--muted:#5A6462;
+    --hair:#CBD2CF;--accent:#14514E;--accent-soft:#DCE8E6;--flag:#92600A;--flag-soft:#F2E7CE;}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#0F1413;--surface:#171D1C;
+    --sunken:#1E2524;--ink:#E6EAE8;--muted:#98A29F;--hair:#2E3836;--accent:#62B7AF;--accent-soft:#17322F;
+    --flag:#D6A44A;--flag-soft:#322611;}}
+  :root[data-theme="dark"]{--ground:#0F1413;--surface:#171D1C;--sunken:#1E2524;--ink:#E6EAE8;
+    --muted:#98A29F;--hair:#2E3836;--accent:#62B7AF;--accent-soft:#17322F;--flag:#D6A44A;--flag-soft:#322611;}
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--ink);font-family:"Source Serif 4",Georgia,serif;
+    font-size:17px;line-height:1.62;margin:0;padding:0 24px 96px;-webkit-font-smoothing:antialiased}
+  .sheet{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+  header{padding-top:64px;display:flex;flex-direction:column;gap:16px}
+  .eyebrow{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:11px;font-weight:500;
+    letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0}
+  h1{font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:700;
+    font-size:clamp(30px,5.5vw,42px);line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+  .standfirst{font-size:19px;line-height:1.5;color:var(--muted);margin:0;max-width:58ch}
+  section{display:flex;flex-direction:column;gap:16px}
+  h2{font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:600;font-size:22px;
+    letter-spacing:-.01em;margin:0;border-top:1px solid var(--hair);padding-top:26px}
+  h3{font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-weight:600;font-size:18px;margin:0}
+  p{margin:0}
+  .dl{background:var(--surface);border:1px solid var(--hair);border-radius:10px;padding:24px;
+    display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+  .dl a.btn{display:inline-block;background:var(--accent);color:var(--ground);
+    font-family:Archivo,Arial,sans-serif;font-weight:600;font-size:16px;text-decoration:none;
+    padding:13px 24px;border-radius:7px}
+  .meta{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;color:var(--muted)}
+  .flag{background:var(--flag-soft);border-left:3px solid var(--flag);border-radius:0 8px 8px 0;
+    padding:18px 20px;font-size:16px;line-height:1.55;display:flex;flex-direction:column;gap:10px}
+  .prod{background:var(--surface);border:1px solid var(--hair);border-radius:10px;padding:22px 24px;gap:12px}
+  .prod .url{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;
+    color:var(--muted);word-break:break-all}
+  .qa{padding-top:10px;border-top:1px solid var(--hair)}
+  .qa .q{font-weight:600;margin-bottom:4px}
+  .qa .a{color:var(--muted);font-size:16px}
+  details{margin-top:6px}
+  summary{cursor:pointer;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    font-size:12px;color:var(--accent)}
+  pre{background:var(--sunken);border-radius:7px;padding:14px;overflow-x:auto;margin:10px 0 0}
+  code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.5}
+  button.copy{margin-top:8px;font-family:Archivo,Arial,sans-serif;font-size:13px;font-weight:600;
+    background:var(--accent-soft);color:var(--accent);border:1px solid var(--hair);
+    border-radius:6px;padding:7px 14px;cursor:pointer}
+  ol,ul{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:9px}
+  footer{border-top:1px solid var(--hair);padding-top:20px;
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12px;color:var(--muted)}
+  a{color:var(--accent)}
+  table{border-collapse:collapse;width:100%;font-size:15px}
+  td,th{border-bottom:1px solid var(--hair);padding:8px 10px;text-align:left}
+  th{font-family:Archivo,Arial,sans-serif;font-size:13px;color:var(--muted);font-weight:600}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <p class="eyebrow">Doble AI &middot; Ellicottville Bake Shop</p>
+    <h1>FAQ and Menu Code</h1>
+    <p class="standfirst">Two blocks, ready to paste. Every question, answer, dish, description and price is copied word for word from the live About and Menu pages on 14 September 2026.</p>
+  </header>
+
+  <section>
+    <h2>How to add each block</h2>
+    <ol>
+      <li>Open the page (About or Menu) with <b>Edit with Elementor</b>.</li>
+      <li>Drag an <b>HTML</b> widget onto the page. The bottom of the page is fine; it shows nothing to visitors.</li>
+      <li>Click <b>Copy code</b> below and paste the whole block into the widget, including the first and last lines.</li>
+      <li>Click <b>Update</b>, then clear the LiteSpeed cache.</li>
+      <li>To check it: paste the page address into <a href="https://validator.schema.org/">validator.schema.org</a>. The About page should show an <b>FAQPage</b> with 9 questions; the Menu page should show a <b>Menu</b> with 25 items.</li>
+    </ol>
+    <div class="flag">
+      <p><b>One thing to keep in mind.</b> The code is a copy of what the page says today. If a question, answer or price changes on the page, change it in the code too, so the two always match. Morning Buns are $4.50 here because that is what the Menu page shows; if Toast&rsquo;s $5.00 is the current price, update both.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="prod dl">
+      <h3>About page: FAQ code</h3>
+      <span class="url">ellicottvillebakeshop.com/about/ &middot; 9 questions</span>
+      <button class="copy" type="button" data-target="faq">Copy code</button>
+      <a href="bake-shop-faq-code.txt" class="meta">or open it as a text file</a>
+      <details><summary>Show the code</summary><pre><code id="faq">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;FAQPage&quot;,
+  &quot;@id&quot;: &quot;https://ellicottvillebakeshop.com/about/#faq&quot;,
+  &quot;mainEntity&quot;: [
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;What is the best bakery in Ellicottville for fresh, from-scratch baked goods?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;For fresh, from-scratch baked goods in Ellicottville, the Ellicottville Bake Shop offers artisan breads, hand-rolled bagels, pastries, and breakfast made fresh daily. We use traditional techniques like long fermentation, slow proofing, hand-shaped doughs, and hand-laminated pastries, along with carefully selected, high-quality ingredients. Everything is made without preservatives and is best enjoyed fresh.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;What makes Ellicottville Bake Shop’s baked goods different from grocery store products?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Our baked goods are made from scratch and without preservatives, using real, carefully selected ingredients and traditional baking techniques. We hand-shape our doughs, hand-roll our bagels, and use long fermentation, slow proofing, and hand-lamination for our pastries. We bake fresh daily, so our breads, bagels, and pastries are made to be enjoyed fresh—not to sit on a shelf for weeks.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;How do I keep Ellicottville Bake Shop pastries fresh?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Our pastries are best enjoyed the same day they’re purchased. If you’re saving them for later, keep them in an airtight container at room temperature. Avoid refrigerating pastries, as this can affect their texture. Pastries such as croissants can be “re-crisped” in the oven for a few minutes. This can help bring back their flaky, crisp texture and extend their enjoyment for about one additional day.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;How long do Ellicottville Bake Shop’s cookies and bars stay fresh?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Our cookies and bars are best enjoyed within 2–3 days when stored properly at room temperature. You can also freeze them to keep them fresh longer.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Why do fresh, preservative-free baked goods have a shorter shelf life?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Because we don’t use preservatives, our baked goods don’t have the extended shelf life of many store-bought products. We use real, high-quality ingredients and bake fresh daily, so our breads, pastries, cookies, and other baked goods are made to be enjoyed fresh.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Where can I get breakfast made with fresh, from-scratch ingredients in Ellicottville?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;You can get a fresh, from-scratch breakfast at Ellicottville Bake Shop in the Village of Ellicottville. We serve breakfast sandwiches, freshly baked breads and bagels, pastries, and coffee made with quality ingredients and prepared fresh daily.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Does Ellicottville Bake Shop offer catering?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Yes. Ellicottville Bake Shop offers catering for pastries by the dozen, breakfast sandwich trays, and lunch sandwich trays. Our catering options are a convenient choice for meetings, gatherings, events, and groups in Ellicottville.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;Can I order baked goods from Ellicottville Bake Shop ahead of time?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Yes. Ellicottville Bake Shop offers online ordering with order-ahead capabilities, allowing you to place your order in advance for pickup. This is a convenient option when you want to make sure your favorite breads, pastries, breakfast items, or other baked goods are ready when you arrive.&quot;
+      }
+    },
+    {
+      &quot;@type&quot;: &quot;Question&quot;,
+      &quot;name&quot;: &quot;What kind of baked goods does Ellicottville Bake Shop make?&quot;,
+      &quot;acceptedAnswer&quot;: {
+        &quot;@type&quot;: &quot;Answer&quot;,
+        &quot;text&quot;: &quot;Ellicottville Bake Shop makes a variety of from-scratch breads, pastries, and baked goods, including croissants, almond croissants, pain au chocolat, Danishes, morning buns, cookies, seasonal bars, hand-rolled bagels, sourdough bread, sourdough English muffins, biscuits, and more. Our selection changes with the seasons, so there is always something fresh to discover.&quot;
+      }
+    }
+  ]
+}
+&lt;/script&gt;
+</code></pre></details>
+    </div>
+  </section>
+
+  <section>
+    <div class="prod dl">
+      <h3>Menu page: Menu code</h3>
+      <span class="url">ellicottvillebakeshop.com/menu/ &middot; 3 sections &middot; 25 items</span>
+      <button class="copy" type="button" data-target="menu">Copy code</button>
+      <a href="bake-shop-menu-code.txt" class="meta">or open it as a text file</a>
+      <details><summary>Show the code</summary><pre><code id="menu">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Menu&quot;,
+  &quot;@id&quot;: &quot;https://ellicottvillebakeshop.com/menu/#menu&quot;,
+  &quot;name&quot;: &quot;Ellicottville Bake Shop Menu&quot;,
+  &quot;url&quot;: &quot;https://ellicottvillebakeshop.com/menu/&quot;,
+  &quot;hasMenuSection&quot;: [
+    {
+      &quot;@type&quot;: &quot;MenuSection&quot;,
+      &quot;name&quot;: &quot;Breakfast Menu&quot;,
+      &quot;hasMenuItem&quot;: [
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Southwest Sunrise&quot;,
+          &quot;description&quot;: &quot;Scrambled egg, cheese, peppers, onion, and sausage with chipotle aioli, served on a warm brioche roll.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;11.75&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Smoked Salmon on Everything Bagel&quot;,
+          &quot;description&quot;: &quot;Smoked salmon, sliced red onion, tomato, capers, and spinach with lemon dill cream cheese on a bagel.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;12.75&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Canadian Bacon Pepper Jack&quot;,
+          &quot;description&quot;: &quot;Canadian bacon, pepper jack cheese, and a scrambled egg on your choice of bagel.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;11.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Avocado Egg White&quot;,
+          &quot;description&quot;: &quot;Avocado, egg whites, tomato, and spinach on an English muffin.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;11.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;The Ellicottville&quot;,
+          &quot;description&quot;: &quot;Choice of sausage, bacon, or Canadian bacon with cheddar, roasted red pepper aioli, spinach, and scrambled eggs on sourdough.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;11.75&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Pesto Melt&quot;,
+          &quot;description&quot;: &quot;Scrambled egg, pesto, tomato, and melted mozzarella, served on sourdough.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;8.75&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Sausage Egg &amp; Cheddar Biscuit&quot;,
+          &quot;description&quot;: &quot;Locally sourced sausage topped with gooey NYS cheddar cheese and a scrambled egg on a buttermilk biscuit.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;11.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Veggie Ellicottville&quot;,
+          &quot;description&quot;: &quot;Scrambled egg, NYS cheddar, roasted red pepper aioli, spinach, and scrambled on fresh baked sourdough.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;8.75&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        }
+      ]
+    },
+    {
+      &quot;@type&quot;: &quot;MenuSection&quot;,
+      &quot;name&quot;: &quot;Pastry Menu&quot;,
+      &quot;hasMenuItem&quot;: [
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Almond Croissants&quot;,
+          &quot;description&quot;: &quot;Crispy, buttery layers filled with creamy almond frangipane and finished with toasted almonds and powdered sugar.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;6.75&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Cinnamon Buns&quot;,
+          &quot;description&quot;: &quot;Pillowy cardamom-infused dough with a buttery cinnamon-sugar filling and homemade glaze.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;5.75&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Pain Au Chocolat&quot;,
+          &quot;description&quot;: &quot;Buttery, flaky croissant dough wrapped around rich, bittersweet chocolate for a perfectly crisp, indulgent bite.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;5.75&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Cookies&quot;,
+          &quot;description&quot;: &quot;Chocolate Chip, Snickerdoodle, Peanut Butter, and Oatmeal.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;1.50&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Specialty Cookies&quot;,
+          &quot;description&quot;: &quot;Dipped cookies, stuffed cookies, and seasonal flavors inspired by the best of the season!&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;3.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Scones&quot;,
+          &quot;description&quot;: &quot;Blueberry Lemon, White Chocolate Raspberry, Jalapeno Cheddar, and Seasonal. (Scone flavors may vary; please call ahead to check.)&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;4.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Muffins&quot;,
+          &quot;description&quot;: &quot;Blueberry, Chocolate Chip, and Seasonal. (Muffin flavors may vary; please call ahead to check.)&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;3.50&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Morning Buns&quot;,
+          &quot;description&quot;: &quot;Buttery, flaky layers rolled with cinnamon sugar and baked until golden, then finished with a sweet glaze for the perfect morning treat.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;4.50&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        }
+      ]
+    },
+    {
+      &quot;@type&quot;: &quot;MenuSection&quot;,
+      &quot;name&quot;: &quot;Lunch Menu&quot;,
+      &quot;hasMenuItem&quot;: [
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;California Club Bagel&quot;,
+          &quot;description&quot;: &quot;Ham and turkey with bacon, avocado aioli, pickled onion, romaine, and tomato on an everything bagel.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;12.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Turkey Bacon Italiano&quot;,
+          &quot;description&quot;: &quot;Turkey, thick-cut bacon, local cheddar cheese topped with mixed greens, tomatoes, red onion, and pepper aioli on Crusty Italian.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;12.25&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Hammy Honey&quot;,
+          &quot;description&quot;: &quot;Black forest ham, Swiss cheese, tomatoes, shaved red onion, and honey Dijon on Honey Wheat Bread.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;11.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Chicken Salad Croissant&quot;,
+          &quot;description&quot;: &quot;House-made chicken salad with tender chicken, celery, and toasted pecans on a croissant or your choice of bread (Contains Nuts).&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;11.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;BLT&quot;,
+          &quot;description&quot;: &quot;Thick-cut peppered bacon, lettuce, tomato, and garlic aioli on Farmhouse White Bread.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;11.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Sourdough Grilled Cheese&quot;,
+          &quot;description&quot;: &quot;Grilled sourdough bread with melted cheese, toasted until golden brown.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;7.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Burrata Toast&quot;,
+          &quot;description&quot;: &quot;Sourdough, lightly toasted with butter, topped with creamy burrata, fresh tomatoes, pesto, and honey-infused crispy chili oil, finished with everything bagel seasoning.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;9.25&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Tuscan Turkey Chop&quot;,
+          &quot;description&quot;: &quot;Turkey, bacon, pepper jack, tomato, red onion, and pickled onion chopped with garlic aioli, red wine vinegar, and Italian seasoning, topped with romaine on a house-made brioche roll.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;11.00&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        },
+        {
+          &quot;@type&quot;: &quot;MenuItem&quot;,
+          &quot;name&quot;: &quot;Berry Vinaigrette Salad&quot;,
+          &quot;description&quot;: &quot;Spinach and romaine topped with fresh berries, feta, red onion, and spiced pistachios—sweet, savory, and perfectly balanced.&quot;,
+          &quot;offers&quot;: {
+            &quot;@type&quot;: &quot;Offer&quot;,
+            &quot;price&quot;: &quot;8.50&quot;,
+            &quot;priceCurrency&quot;: &quot;USD&quot;
+          }
+        }
+      ],
+      &quot;description&quot;: &quot;All sandwiches are served with chips and pickles on the side.&quot;
+    }
+  ]
+}
+&lt;/script&gt;
+</code></pre></details>
+    </div>
+  </section>
+
+  <footer>Doble AI &middot; Prepared for Amanda Acker &middot; 14 September 2026 &middot; Sentinel bs-code-v1</footer>
+</div>
+<script>
+document.querySelectorAll('button.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=document.getElementById(b.dataset.target).textContent;
+    navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy code'},2000)});
+  });
+});
+</script>
+</body>
+</html>
