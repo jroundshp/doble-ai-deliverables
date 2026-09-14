@@ -117,14 +117,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 </header>
 
 <div class="score">
-  <div class="big num">9.0<small> / 10</small></div>
+  <div class="big num">9.1<small> / 10</small></div>
   <div class="lede">
     <p><strong>The About page now answers questions in a form AI assistants can quote, and the Menu page tells search engines every dish and price.</strong> That was the biggest gap on the site, and it closed today.</p>
-    <p class="intro">Everything that makes the site findable is done: 40 of 40. Five fixes stand between today and a 10, each listed below with its points and exactly what to do.</p>
+    <p class="intro">Everything that makes the site findable is done: 40 of 40. Four fixes stand between today and a 10, each listed below with its points and exactly what to do.</p>
   </div>
   <div class="groups">
     <div class="g"><span class="label">Consistent</span><div class="bar"><i style="width:76%"></i></div><span class="pts num">19 of 25</span></div>
-    <div class="g"><span class="label">Working</span><div class="bar"><i style="width:95%"></i></div><span class="pts num">19 of 20</span></div>
+    <div class="g"><span class="label">Working</span><div class="bar"><i style="width:100%"></i></div><span class="pts num">20 of 20</span></div>
     <div class="g"><span class="label">Findable</span><div class="bar"><i style="width:100%"></i></div><span class="pts num">40 of 40</span></div>
     <div class="g"><span class="label">Complete</span><div class="bar"><i style="width:80%"></i></div><span class="pts num">12 of 15</span></div>
   </div>
@@ -193,13 +193,13 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   <div class="group">
     <div class="group-head">
       <div><h2>Working</h2><p class="q">Does every link, image and screen do what a visitor expects?</p></div>
-      <div class="tally num">19<small> / 20</small></div>
+      <div class="tally num">20<small> / 20</small></div>
     </div>
     <div class="group-body">
       <div class="row ok"><div class="mark">✓</div><div class="t"><b>No broken links or missing images</b><span>The homepage share image loads, and no page links anywhere that fails.</span></div><div class="p num">6 / 6</div></div>
       <div class="row ok"><div class="mark">✓</div><div class="t"><b>Social and ordering links work</b><span>Facebook, Instagram and Toast links all go to the right place. The Private Events menu item now goes straight to the page.</span></div><div class="p num">4 / 4</div></div>
       <div class="row ok"><div class="mark">✓</div><div class="t"><b>Displays correctly on a phone</b><span>Checked again in iPhone 15 emulation (393 × 852) on six pages: nothing runs off the screen, and the cookie banner fits with every button visible.</span></div><div class="p num">6 / 6</div></div>
-      <div class="row todo"><div class="mark">!</div><div class="t"><b>Links go straight to the page</b><span>Two old addresses still take two hops, first through www. and then to the page: /ebs-menu to the Menu, and /wholesale-inquiries, the catering link in the Instagram bio.</span><div class="fix">Change the Instagram catering link to /catering-and-special-orders/, and point the /ebs-menu redirect straight at /menu/.</div></div><div class="p num">3 / 4</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Links go straight to the page</b><span>All 44 links between pages on the site go directly to their page with no redirect, including the Private Events menu item.</span></div><div class="p num">4 / 4</div></div>
     </div>
   </div>
 </section>
@@ -246,9 +246,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
         <tr><td>Events page: add an event or hide it</td><td>Complete</td><td>Events page</td><td class="r">+3</td></tr>
         <tr><td>Toast bread and pickup hours confirmed</td><td>Consistent</td><td>Toast or Menu page</td><td class="r">+2</td></tr>
         <tr><td>Facebook address in the Bakery code block</td><td>Consistent</td><td>Insert Headers and Footers</td><td class="r">+1</td></tr>
-        <tr><td>Instagram catering link and /ebs-menu redirect</td><td>Working</td><td>Instagram, redirects</td><td class="r">+1</td></tr>
       </tbody>
-      <tfoot><tr><td colspan="3">From 90 to 100</td><td class="r">+10</td></tr></tfoot>
+      <tfoot><tr><td colspan="3">From 91 to 100</td><td class="r">+9</td></tr></tfoot>
     </table>
   </div>
 </section>
@@ -259,7 +258,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   <ul>
     <li><strong>Google profile:</strong> 4.4 stars from 110 reviews, listed as a Bakery with the right address, phone and hours. Google marks the hours as "updated by others," meaning a member of the public last changed them. Confirming them from the owner's account makes them official.</li>
     <li><strong>Facebook:</strong> address, phone, email and links are all correct. The intro could mention the daily hours and the village location, as the Instagram bio does.</li>
-    <li><strong>Instagram:</strong> bio, hours, address and links all match the website.</li>
+    <li><strong>Instagram:</strong> bio, hours, address and links all match the website. The "Contact for Catering Inquiries" link uses an old address (/wholesale-inquiries) that takes two redirects before it lands on the catering page. Changing it to /catering-and-special-orders/ makes it direct.</li>
+    <li><strong>Old menu address:</strong> /ebs-menu, which still turns up in search results, takes two redirects to reach the Menu page. That redirect is set on the hosting server, not in WordPress.</li>
   </ul>
 </section>
 
@@ -275,6 +275,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 <footer>Doble AI · Ellicottville Bake Shop website audit · Draft, 14 September 2026 (evening)</footer>
 </div>
-<!-- sentinel: bs-audit-v1-9.0 -->
+<!-- sentinel: bs-audit-v2-9.1 -->
 </body>
 </html>
