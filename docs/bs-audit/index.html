@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bake Shop Website Scorecard</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+:root{
+  --ground:#F5F1EA; --surface:#FFFDF9; --sunk:#EDE6DA; --ink:#231F1A; --muted:#6B6258; --rule:#DDD3C4;
+  --accent:#E8680C; --accent-soft:#FBE3CF;
+  --good:#2F7A4B; --good-soft:#DCEFE2; --warn:#A8620A; --warn-soft:#F8E8CC; --ask:#3E5C8A; --ask-soft:#E1E8F3;
+  --display:"Playfair Display", Georgia, "Times New Roman", serif;
+  --body:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+    --accent:#F7913D; --accent-soft:#3D2716;
+    --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+  --accent:#F7913D; --accent-soft:#3D2716;
+  --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0;padding:48px 20px 72px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,5vw,2.75rem)}
+h2{font-size:1.6rem}
+h3{font-size:1.05rem;font-family:var(--body);font-weight:600}
+p{margin:0;max-width:66ch}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.draft{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+.num{font-variant-numeric:tabular-nums}
+header{display:flex;flex-direction:column;gap:14px}
+header .meta{color:var(--muted);font-size:.95rem}
+
+/* score */
+.score{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.big{font-family:var(--display);font-size:5rem;line-height:1;font-weight:700}
+.big small{font-size:1.5rem;color:var(--muted);font-weight:600}
+.score .lede{display:flex;flex-direction:column;gap:10px}
+.groups{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-top:1px solid var(--rule);padding-top:20px}
+.g{display:flex;flex-direction:column;gap:6px}
+.g .label{font-size:.85rem;font-weight:600}
+.g .pts{font-size:.85rem;color:var(--muted)}
+.bar{height:6px;background:var(--sunk);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+@media (max-width:620px){.score{grid-template-columns:1fr}.groups{grid-template-columns:repeat(2,1fr)}}
+
+/* sections */
+section{display:flex;flex-direction:column;gap:18px}
+.intro{color:var(--muted)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.how div{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+.how strong{font-size:.95rem}
+@media (max-width:620px){.how{grid-template-columns:1fr}}
+
+.then{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--surface)}
+.then .col{padding:20px;display:flex;flex-direction:column;gap:10px}
+.then .col+.col{border-left:1px solid var(--rule)}
+.then ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+@media (max-width:620px){.then{grid-template-columns:1fr}.then .col+.col{border-left:0;border-top:1px solid var(--rule)}}
+
+.group{background:var(--surface);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.group-head{background:var(--sunk);padding:20px 24px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.group-head .q{color:var(--muted);font-size:.95rem;margin-top:4px}
+.group-head .tally{font-family:var(--display);font-size:1.8rem;font-weight:700;white-space:nowrap}
+.group-head .tally small{font-size:1rem;color:var(--muted)}
+.group-body{padding:8px 24px 20px}
+.row{display:grid;grid-template-columns:28px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:start}
+.row:last-child{border-bottom:0}
+.mark{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:2px}
+.ok .mark{background:var(--good-soft);color:var(--good)}
+.todo .mark{background:var(--warn-soft);color:var(--warn)}
+.check .mark{background:var(--ask-soft);color:var(--ask)}
+.row .t{display:flex;flex-direction:column;gap:4px}
+.row .t b{font-weight:600}
+.row .t span{color:var(--muted);font-size:.92rem}
+.row .fix{color:var(--ink);font-size:.92rem;background:var(--ground);border-radius:8px;padding:8px 12px;margin-top:6px}
+.row .p{font-size:.9rem;font-weight:600;white-space:nowrap;text-align:right}
+.todo .p{color:var(--warn)} .ok .p{color:var(--good)} .check .p{color:var(--ask)}
+.was{font-size:.85rem;color:var(--muted);font-weight:500}
+.chip{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:1px 8px;border-radius:999px;background:var(--ask-soft);color:var(--ask);margin-left:6px;vertical-align:2px}
+
+.table-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+td.r{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;color:var(--warn);white-space:nowrap}
+tfoot td{font-weight:700;background:var(--sunk)}
+
+.aside{background:var(--surface);border:1px dashed var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.aside ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.sources{font-size:.9rem;color:var(--muted)}
+.sources ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--rule);padding-top:18px}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div><span class="draft">Draft for review</span></div>
+  <div class="eyebrow">Website audit · ellicottvillebakeshop.com</div>
+  <h1>Ellicottville Bake Shop</h1>
+  <p class="meta">Checked on the live site the evening of 14 September 2026, after the last round of updates. Prepared by Doble AI for Amanda Acker.</p>
+</header>
+
+<div class="score">
+  <div class="big num">9.0<small> / 10</small></div>
+  <div class="lede">
+    <p><strong>The About page now answers questions in a form AI assistants can quote, and the Menu page tells search engines every dish and price.</strong> That was the biggest gap on the site, and it closed today.</p>
+    <p class="intro">Everything that makes the site findable is done: 40 of 40. Five fixes stand between today and a 10, each listed below with its points and exactly what to do.</p>
+  </div>
+  <div class="groups">
+    <div class="g"><span class="label">Consistent</span><div class="bar"><i style="width:76%"></i></div><span class="pts num">19 of 25</span></div>
+    <div class="g"><span class="label">Working</span><div class="bar"><i style="width:95%"></i></div><span class="pts num">19 of 20</span></div>
+    <div class="g"><span class="label">Findable</span><div class="bar"><i style="width:100%"></i></div><span class="pts num">40 of 40</span></div>
+    <div class="g"><span class="label">Complete</span><div class="bar"><i style="width:80%"></i></div><span class="pts num">12 of 15</span></div>
+  </div>
+</div>
+
+<section>
+  <h2>How this score works</h2>
+  <div class="how">
+    <div><strong>Only the website counts</strong><span>Every point is something the person running the site can change. Star ratings and review counts are not scored.</span></div>
+    <div><strong>100 points, four groups</strong><span>Is the information the same everywhere? Does everything work? Can people find it? Does the site tell the whole story?</span></div>
+    <div><strong>A 10 is reachable</strong><span>Each missing point is named with its fix. Finish the list and the site scores 10.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Where we started</h2>
+  <p class="intro">The new site launched on 21 August. Our first audit of it, on 24 August, found the problems on the left. Tonight's check found them fixed.</p>
+  <div class="then">
+    <div class="col">
+      <div class="eyebrow">24 August</div>
+      <ul>
+        <li>The sitemap sent Google 16 theme building-block pages and left the real pages out</li>
+        <li>No bakery, address, phone or hours in the information search engines read</li>
+        <li>robots.txt asked search engines to wait 60 seconds between pages</li>
+        <li>Not verified with Bing, which feeds ChatGPT search and Copilot</li>
+        <li>Five main headings on the homepage, none on Contact</li>
+        <li>A dead logo image on every page, and a public page showing the "admin" login name</li>
+        <li>A footer Facebook link to a page Facebook reports as unavailable</li>
+        <li>No link to Alpine Bistro</li>
+        <li>No FAQ or menu markup anywhere</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="eyebrow">14 September</div>
+      <ul>
+        <li>The sitemap lists only real pages; the building blocks are gone</li>
+        <li>Every page carries a Bakery record with address, phone and hours</li>
+        <li>robots.txt is open, with no delay</li>
+        <li>Verified with Bing</li>
+        <li>One main heading on the homepage and on Contact</li>
+        <li>The dead logo is gone and the login page redirects home</li>
+        <li>The footer and Yoast both point to the working Facebook page</li>
+        <li>Every page links to Alpine Bistro</li>
+        <li>FAQ markup on About and Menu markup for all 25 dishes, both matching the pages</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Consistent</h2><p class="q">Does everyone see the same address, phone, hours and links, wherever they look?</p></div>
+      <div class="tally num">19<small> / 25</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Address, phone and email match everywhere</b><span>Website, business record, Google profile, Facebook, Instagram and Toast agree. Both catering menus carry the same phone number, and the breakfast menu the same address.</span></div><div class="p num">8 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Hours match everywhere, except one menu</b><span>The website, business record, Google profile and Instagram say 7:30 to 2:30 daily. The breakfast catering menu PDF still reads "Daily! 7:30 am – 3:30 pm." The file on the site has not changed since 20 August.</span><div class="fix">Confirm which is right. If it's 2:30, update the PDF and upload it over the old one.</div></div><div class="p num">5 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Social profiles in the business record are current</b><span>Yoast now lists the working Facebook page. The separate Bakery code block that runs on every page still lists the old facebook.com/people/ address.</span><div class="fix">In Settings › Insert Headers and Footers, in the Bakery code, change the Facebook address under "sameAs" to facebook.com/p/Ellicottville-Bake-Shop-61550512007239/.</div></div><div class="p num">3 / 4</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Online ordering matches the website <span class="chip">Please confirm</span></b><span>Morning Buns now read $5.00 on the Menu page, matching Toast. Two questions remain: the Smoked Salmon and Canadian Bacon sandwiches come on a bialy on Toast but on a bagel on the website, and on Monday afternoon Toast showed "Opens Thursday at 6:30 AM" while Google showed Tuesday at 7:30.</span><div class="fix">Confirm the bread and Toast's pickup schedule, then update whichever side is out of date.</div></div><div class="p num">3 / 5</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Working</h2><p class="q">Does every link, image and screen do what a visitor expects?</p></div>
+      <div class="tally num">19<small> / 20</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>No broken links or missing images</b><span>The homepage share image loads, and no page links anywhere that fails.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Social and ordering links work</b><span>Facebook, Instagram and Toast links all go to the right place. The Private Events menu item now goes straight to the page.</span></div><div class="p num">4 / 4</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Displays correctly on a phone</b><span>Checked again in iPhone 15 emulation (393 × 852) on six pages: nothing runs off the screen, and the cookie banner fits with every button visible.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Links go straight to the page</b><span>Two old addresses still take two hops, first through www. and then to the page: /ebs-menu to the Menu, and /wholesale-inquiries, the catering link in the Instagram bio.</span><div class="fix">Change the Instagram catering link to /catering-and-special-orders/, and point the /ebs-menu redirect straight at /menu/.</div></div><div class="p num">3 / 4</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Findable</h2><p class="q">Can Google, Bing and AI assistants read what the bakery is, where it is, and what it sells?</p></div>
+      <div class="tally num">40<small> / 40</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Sitemap lists only real pages</b><span>18 pages, including Private Events, Seasonal Coffee and Brunch Sips. The two form test pages added today have been removed.</span></div><div class="p num">8 / 8</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Open to search engines, verified with Bing</b><span>No crawl delay. Bing verification feeds ChatGPT search, Copilot and DuckDuckGo.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Titles, descriptions and headings</b><span>Every main page has its own title, description and main heading. The Privacy Policy and the menu category listing pages have no description, which is normal for those pages and not scored.</span></div><div class="p num">8 / 8</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Bakery business record</b><span>Address, phone, email, hours and menu link on every page, matching the Google profile.</span></div><div class="p num">8 / 8</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>FAQ markup on the About page</b><span>New today. All nine questions and answers are marked up, and every one matches the page word for word.</span></div><div class="p num">5 / 5</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Menu markup on the Menu page</b><span>New today. All 25 dishes are marked up with their descriptions and prices, and every price matches the page, including the new $5.00 Morning Buns.</span></div><div class="p num">3 / 3</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Photo descriptions</b><span>Every content photo has a description, including the five Seasonal Coffee drinks (Pumpkin Cookie Butter Latte, Cinnamon Roll Latte, Maple Pecan Pie Latte, Candy Apple Chai, Apple Crisp Iced Coffee) and both Private Events photos.</span></div><div class="p num">2 / 2</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Complete</h2><p class="q">Does the site tell the whole story a customer is looking for?</p></div>
+      <div class="tally num">12<small> / 15</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Story, menu, catering and private events</b><span>About with FAQ, a full menu with prices, catering and special orders, private events, seasonal coffee, brunch sips and employment are all written.</span></div><div class="p num">12 / 12</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>The Events page</b><span>It still reads "There are no scheduled events at this time. Check back soon!"</span><div class="fix">Add Fall Fest or another upcoming event, or set the page to not show in search until there is one.</div></div><div class="p num">0 / 3</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The path to 10</h2>
+  <p class="intro">Everything still open, in one place. None of it needs new code. Each fix is a small edit or a question to confirm.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Fix</th><th>Group</th><th>Where</th><th style="text-align:right">Points</th></tr></thead>
+      <tbody>
+        <tr><td>Hours on the breakfast catering PDF</td><td>Consistent</td><td>PDF in Media</td><td class="r">+3</td></tr>
+        <tr><td>Events page: add an event or hide it</td><td>Complete</td><td>Events page</td><td class="r">+3</td></tr>
+        <tr><td>Toast bread and pickup hours confirmed</td><td>Consistent</td><td>Toast or Menu page</td><td class="r">+2</td></tr>
+        <tr><td>Facebook address in the Bakery code block</td><td>Consistent</td><td>Insert Headers and Footers</td><td class="r">+1</td></tr>
+        <tr><td>Instagram catering link and /ebs-menu redirect</td><td>Working</td><td>Instagram, redirects</td><td class="r">+1</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="3">From 90 to 100</td><td class="r">+10</td></tr></tfoot>
+    </table>
+  </div>
+</section>
+
+<section class="aside">
+  <h2>Beyond the website</h2>
+  <p>Not scored. These live on other platforms, and ratings are up to customers.</p>
+  <ul>
+    <li><strong>Google profile:</strong> 4.4 stars from 110 reviews, listed as a Bakery with the right address, phone and hours. Google marks the hours as "updated by others," meaning a member of the public last changed them. Confirming them from the owner's account makes them official.</li>
+    <li><strong>Facebook:</strong> address, phone, email and links are all correct. The intro could mention the daily hours and the village location, as the Instagram bio does.</li>
+    <li><strong>Instagram:</strong> bio, hours, address and links all match the website.</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <h3>How we checked</h3>
+  <ul>
+    <li>Every page in the sitemap fetched the evening of 14 September 2026, and all 86 internal links and images checked; six key pages loaded in a real browser in iPhone 15 emulation</li>
+    <li>Sitemap, robots.txt, redirects and page code read directly from the live site; FAQ and Menu markup compared line by line with the visible page</li>
+    <li>Both catering menu PDFs downloaded from the site and read</li>
+    <li>Google profile read from Google Maps, signed out, the morning of 14 September; Facebook, Instagram and Toast from screenshots taken that afternoon</li>
+  </ul>
+</section>
+
+<footer>Doble AI · Ellicottville Bake Shop website audit · Draft, 14 September 2026 (evening)</footer>
+</div>
+<!-- sentinel: bs-audit-v1-9.0 -->
+</body>
+</html>
