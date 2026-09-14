@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Ellicottville Status, 14 September 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F7F3EA;
+    color: #2B2019;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 120px; }
+
+  /* ── Header ── */
+  .hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid rgba(180,83,9,0.18);
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B45309;
+    margin-bottom: 20px;
+  }
+  .tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #B45309;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 500;
+    color: #2B2019;
+    line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: #5A4636;
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 40px;
+  }
+  .stats { display: flex; gap: 0; flex-wrap: wrap; }
+  .stat {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgba(180,83,9,0.22);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #2B2019;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9C7C5A;
+  }
+
+  /* ── Alert Banner ── */
+  .alert {
+    margin-top: 40px;
+    background: #fff0f0;
+    border: 1px solid #fca5a5;
+    border-left: 4px solid #dc2626;
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .alert-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #dc2626;
+    margin-bottom: 6px;
+  }
+  .alert p { font-size: 15px; color: #7f1d1d; line-height: 1.6; }
+  .alert code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: rgba(220,38,38,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  /* ── Sections ── */
+  .section {
+    margin-top: 48px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(180,83,9,0.14);
+  }
+  .section-head { padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
+  .section-num {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.7;
+  }
+  .section-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .section-body { padding: 28px 24px; background: #FCF8F1; }
+
+  /* ── Fact Grid ── */
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; }
+  @media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+  .fact-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: #9C7C5A; margin-bottom: 6px;
+  }
+  .fact-val { font-size: 16px; color: #2B2019; line-height: 1.6; }
+
+  /* ── Competitor Table ── */
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  thead tr { border-bottom: 1px solid rgba(180,83,9,0.18); }
+  th {
+    text-align: left; padding: 8px 12px 12px; font-size: 12px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #9C7C5A;
+  }
+  th:first-child { padding-left: 0; }
+  th:last-child  { padding-right: 0; }
+  tbody tr { border-bottom: 1px solid rgba(180,83,9,0.09); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 12px; color: #5A4636; vertical-align: top; line-height: 1.45; }
+  td:first-child { padding-left: 0; font-weight: 600; color: #2B2019; white-space: nowrap; }
+  td:last-child  { padding-right: 0; }
+  .geo { white-space: nowrap; }
+
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-high   { background: rgba(185,28,28,0.1);  color: #b91c1c; }
+  .badge-med    { background: rgba(180,83,9,0.1);   color: #b45309; }
+  .badge-lowmed { background: rgba(194,65,12,0.1);  color: #c2410c; }
+  .badge-low    { background: rgba(120,53,15,0.12); color: #78350f; }
+  .badge-sister { background: rgba(21,128,61,0.12); color: #15803d; }
+
+  /* ── Position Cards ── */
+  .position-intro { font-size: 17px; color: #5A4636; line-height: 1.7; margin-bottom: 20px; }
+  .position-intro strong { color: #2B2019; }
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .card-grid { grid-template-columns: 1fr; } }
+  .pos-card { border-radius: 8px; padding: 16px; }
+  .pos-card-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .pos-card-text { font-size: 15px; line-height: 1.55; color: #5A4636; }
+
+  /* ── Audit Grid ── */
+  .audit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .audit-grid { grid-template-columns: 1fr; } }
+  .audit-card {
+    background: #F3E9DA; border: 1px solid rgba(180,83,9,0.14);
+    border-radius: 8px; padding: 14px 16px;
+  }
+  .audit-card-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .audit-channel { font-size: 15px; font-weight: 600; color: #2B2019; }
+  .grade {
+    font-size: 13px; font-weight: 800; color: #fff;
+    padding: 2px 8px; border-radius: 4px; flex-shrink: 0;
+  }
+  .grade-a  { background: #15803d; }
+  .grade-b  { background: #1d4ed8; }
+  .grade-bm { background: #1e40af; }
+  .grade-cp { background: #7d5a1e; }
+  .grade-c  { background: #b45309; }
+  .grade-dp { background: #b45010; }
+  .grade-d  { background: #c2410c; }
+  .grade-f  { background: #b91c1c; }
+  .audit-note { font-size: 14px; color: #5A4636; line-height: 1.5; }
+
+  .key-finding {
+    background: rgba(180,83,9,0.05); border: 1px solid rgba(180,83,9,0.22);
+    border-radius: 8px; padding: 16px 20px;
+  }
+  .key-finding-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: #B45309; margin-bottom: 8px;
+  }
+  .key-finding p { font-size: 16px; color: #5A4636; line-height: 1.65; }
+
+  /* ── Recommendations ── */
+  .rec-list { display: flex; flex-direction: column; gap: 0; }
+  .rec-item { padding: 20px 24px; background: #FCF8F1; border-bottom: 1px solid rgba(180,83,9,0.1); }
+  .rec-item:last-child { border-bottom: none; }
+  .rec-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+  .rec-num { font-size: 12px; font-weight: 700; color: #B45309; letter-spacing: 0.12em; flex-shrink: 0; }
+  .rec-title { font-size: 16px; font-weight: 600; color: #2B2019; }
+  .rec-detail { font-size: 14px; color: #5A4636; line-height: 1.65; padding-left: 30px; }
+
+  /* ── CTA Footer ── */
+  .cta-block {
+    margin-top: 56px;
+    background: linear-gradient(135deg, #3d1f0e 0%, #B45309 100%);
+    border-radius: 12px; padding: 40px 36px; text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px;
+    font-weight: 500; color: #ffffff; margin-bottom: 12px;
+  }
+  .cta-block p {
+    font-size: 17px; color: #f3ddc4; line-height: 1.6;
+    max-width: 540px; margin: 0 auto 28px;
+  }
+  .cta-btn {
+    display: inline-block; background: #ffffff; color: #B45309;
+    font-size: 15px; font-weight: 700; padding: 14px 32px;
+    border-radius: 6px; text-decoration: none; letter-spacing: 0.02em;
+    transition: opacity 0.15s;
+  }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-sub { margin-top: 14px; font-size: 13px; color: #e7c9a6; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(180,83,9,0.14);
+    font-size: 11px; color: #9C7C5A;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+</style>
+<style>
+  a { color:#B45309; text-decoration:underline; text-underline-offset:2px; }
+  .win { background:#f0fdf4; border:1px solid #86efac; border-left:4px solid #16a34a; border-radius:8px; padding:16px 20px; margin-bottom:14px; }
+  .win-label { font-size:12px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#15803d; margin-bottom:6px; }
+  .win p { font-size:15px; color:#14532d; line-height:1.6; }
+  .biz-head { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px; }
+  .biz-name { font-family:'Playfair Display',serif; font-size:26px; font-weight:500; color:#2B2019; }
+  .score-pill { font-size:13px; font-weight:800; color:#fff; background:#B45309; padding:3px 12px; border-radius:20px; }
+  .delta-up { font-size:13px; font-weight:700; color:#15803d; }
+  .claim { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:2px 7px; border-radius:4px; margin-right:8px; white-space:nowrap; }
+  .claim-render { background:rgba(21,128,61,.12); color:#15803d; }
+  .claim-third  { background:rgba(37,99,235,.12); color:#1d4ed8; }
+  .claim-self   { background:rgba(180,83,9,.12);  color:#B45309; }
+  .claim-infer  { background:rgba(126,34,206,.12); color:#7e22ce; }
+  .mono { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; background:rgba(180,83,9,.09); padding:1px 6px; border-radius:4px; }
+  .hours-tbl td { font-size:14px; }
+  .hours-bad { color:#b91c1c; font-weight:600; }
+  .route { border:1px solid rgba(180,83,9,.18); border-radius:8px; padding:16px 20px; margin-bottom:12px; background:#FCF8F1; }
+  .route h4 { font-size:16px; color:#2B2019; margin-bottom:6px; }
+  .route p { font-size:14px; color:#5A4636; line-height:1.6; }
+  .owner { font-size:10.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; padding:2px 8px; border-radius:20px; margin-left:10px; vertical-align:2px; white-space:nowrap; }
+  .own-bake { background:rgba(180,83,9,.13); color:#B45309; }
+  .own-alp  { background:rgba(126,34,206,.12); color:#7e22ce; }
+  .own-both { background:rgba(71,85,105,.12); color:#475569; }
+</style>
+</head>
+<style>
+  .done-list { list-style:none; padding:0; margin:0; }
+  .done-list li { padding:12px 0; border-bottom:1px solid rgba(180,83,9,.1); font-size:15px; color:#5A4636; line-height:1.6; }
+  .done-list li:last-child { border-bottom:none; }
+  .done-list b { color:#2B2019; }
+  .sub-head { font-family:'Playfair Display',serif; font-size:21px; font-weight:500; color:#2B2019; margin:30px 0 10px; }
+  .sub-head:first-child { margin-top:0; }
+  .steps { margin:10px 0 0 30px; padding-left:18px; font-size:14px; color:#5A4636; line-height:1.65; }
+  .steps li { margin-bottom:4px; }
+</style>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="tag">Status &middot; 14 September 2026 &middot; Ellicottville, New York</div>
+    <h1>Alpine Bistro and<br>the Bake Shop:<br>done, and still to do</h1>
+    <p>For Grace and Amanda. Everything finished to date on <span class="mono">alpinebistrony.com</span>, <span class="mono">ellicottvillecoffee.com</span> and <span class="mono">ellicottvillebakeshop.com</span>, and what is left, sorted by site so each of you can go straight to your own list. We re-checked every item on the live sites this morning, 14 September. Nothing here is carried over from notes.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">01</div><div class="section-title">Done: Alpine Bistro and the coffee site</div></div>
+    <div class="section-body">
+
+      <div class="win">
+        <div class="win-label">The hours agree everywhere</div>
+        <p>Sunday through Thursday 8&nbsp;AM to 4&nbsp;PM, Friday 8 to 8, Saturday 8 to 9. Those hours are in the footer of every Alpine page, in the data search engines read from those pages, and on the coffee site, where they had been wrong on all seven days. Both Google profiles showed the same week when we checked them day by day on 11 September. <span class="claim claim-render">coffee site re-rendered 14 Sep</span></p>
+      </div>
+
+      <div class="sub-head">On ellicottvillecoffee.com</div>
+      <ul class="done-list">
+        <li><b>Hours corrected on all seven days.</b></li>
+        <li><b>The homepage no longer says the beans are roasted in house.</b> It now reads "prepared using Ellicottville Coffee Company's small batch roasted coffee beans."</li>
+        <li><b>The founding story reads as history.</b> It now says "former owner."</li>
+        <li><b>The guided fly fishing and snowshoe trips line is gone.</b> It offered something visitors had no way to book.</li>
+      </ul>
+
+      <div class="sub-head">On alpinebistrony.com</div>
+      <ul class="done-list">
+        <li><b>Images went from 25.9&nbsp;MB to 3.5&nbsp;MB.</b> The event page alone dropped from 13.3&nbsp;MB to 1.6&nbsp;MB, which matters most on a phone in the village.</li>
+        <li><b>Hours are entered day by day</b> in the data on each page, in the 24-hour format Google expects.</li>
+        <li><b>The ten About page questions are marked up as an FAQ</b>, so a search result or an AI assistant can quote the answers directly.</li>
+        <li><b>Every page shows a photo when shared.</b> Five of the six used to share as a bare link. Each one now uses a photo already on that page, sized so WhatsApp shows it too.</li>
+        <li><b>One address for the site.</b> The www and http versions used to load as separate copies. All of them now forward to <span class="mono">https://alpinebistrony.com</span>.</li>
+        <li><b>Zero insecure references left</b>, including the header logo. The padlock warning is gone.</li>
+        <li><b>Pinch to zoom works on phones again.</b> The theme had been blocking it.</li>
+        <li><b>Every content image has alt text.</b></li>
+        <li><b>Each page has exactly one main heading.</b> The event page used to have two.</li>
+        <li><b>The event page's menu link points at the menu.</b></li>
+        <li><b>The in-house roasting claim is out of all five places it appeared</b>: page copy, meta description, both share previews and the structured data.</li>
+        <li><b>Phone and price range use one format everywhere</b>, and the Bordeaux Blanc appears once on the bar list instead of twice.</li>
+      </ul>
+      <p class="position-intro" style="margin-top:14px;font-size:15px">The Local SEO setup underneath all this (name, phone, address, cuisine, per-page menu links) was already right before we started, and we left it alone. <span class="claim claim-render">all 6 pages re-checked 14 Sep</span></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">02</div><div class="section-title">Done: the Bake Shop</div></div>
+    <div class="section-body">
+      <ul class="done-list">
+        <li><b>The site now describes itself as a bakery.</b> Every page carries a Bakery record with the address, hours and phone, where it used to say only "organization." This was the biggest single improvement across either site this month.</li>
+        <li><b>The crawl delay is out of robots.txt.</b> It had been limiting Bing to about one page a minute.</li>
+        <li><b>Two pages that were hidden from search are visible again.</b></li>
+        <li><b>Four portfolio pages are set to show in search</b> (bakery events, private events, the seasonal coffee menu and the brunch cocktail menu), each with a proper canonical. Catering stays hidden on purpose, since that tile goes straight to the form.</li>
+        <li><b>The demo link and the placeholder text are gone.</b></li>
+        <li><b>Headings fixed on three pages.</b> Menu went from four main headings to one, Catering from none to one, and the homepage from five to three.</li>
+        <li><b>The broken homepage photo is repaired.</b> It pointed at a file that no longer existed. It now uses the same photo from the library.</li>
+        <li><b>The www address forwards to the main one</b>, so the site loads at a single address.</li>
+      </ul>
+      <p class="position-intro" style="margin-top:14px;font-size:15px"><span class="claim claim-render">re-checked 14 Sep</span></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">03</div><div class="section-title">Still to do: the Bake Shop</div></div>
+    <div class="section-body">
+      <p class="position-intro">Items 01 and 02 go together and are worth more than everything else on this list. Both are switches on one Yoast screen.</p>
+
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">01</div><div class="rec-title">Turn Portfolio on in search <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail">The four portfolio pages are set to show individually, but Yoast leaves a whole content type out of the sitemap while the type-level switch is off. So Google still isn't told about them: <span class="mono">cpt_portfolio-sitemap.xml</span> returns a 404 today.
+            <ol class="steps">
+              <li>Yoast SEO &rsaquo; Settings &rsaquo; Content types &rsaquo; Portfolio</li>
+              <li>Switch "Show portfolio in search results" on, then save</li>
+              <li>Check <span class="mono">ellicottvillebakeshop.com/cpt_portfolio-sitemap.xml</span>: the 404 should become a list of four pages. Catering keeps its own hidden setting.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">02</div><div class="rec-title">Turn Theme Layouts off in search <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail">Eight of the theme's internal building blocks (slide-1, slide-2, header and footer layouts, a popup) are live, indexable pages, and the sitemap hands them to Google. Yoast's own help text under the switch explains that turning it off also takes them out of the sitemap.
+            <ol class="steps">
+              <li>Same screen, Content types &rsaquo; Theme Layouts</li>
+              <li>Switch "Show theme layouts in search results" off, then save</li>
+              <li>The sitemap index also lists three small "group" sitemaps from the theme. They're thin and worth switching off the same way if they appear on that screen.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">03</div><div class="rec-title">Fix the homepage share image <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail">The homepage sends two share images. The first is <span class="mono">cookie-butter-cinnamon-bun.jpg</span>, which no longer exists. The second is the 209&times;80 logo, which is below Facebook's minimum size. The result is that a shared homepage link shows no picture.
+            <ol class="steps">
+              <li>Edit the Home page &rsaquo; Yoast SEO panel &rsaquo; Social tab</li>
+              <li>Set the Facebook and X image to Cookie Butter Bun from the media library</li>
+              <li>Paste the homepage into Facebook's Sharing Debugger and click Scrape Again</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">04</div><div class="rec-title">Replace the Facebook link <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail">The Facebook icon in the footer of every page points at <span class="mono">facebook.com/people/Ellicottville-Bake-Shop/</span>, which Facebook reports as unavailable even when you're signed in. The same address is in the Bakery record and in Yoast's publisher setting. We need the working page address from whoever runs the Bake Shop's Facebook, and then all three places can be updated.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">05</div><div class="rec-title">Link to Alpine Bistro <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail">Alpine links to the Bake Shop from all six of its pages. The Bake Shop doesn't link back, and the word "Alpine" appears nowhere on its homepage, About, Menu, Contact or Catering page. A sentence on About and a footer link to a café and bar run by the same family a block away is the cheapest item on either list. It's also the one most likely to send an actual customer across the street.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">06</div><div class="rec-title">Point the Private Events links at the real page <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail">Links around the site go to <span class="mono">/private-events/</span>, which forwards to <span class="mono">/portfolio/private-events/</span>. Pointing the menu and the page links straight at the second address saves a redirect on every click. Once item 01 is done, that page is also in the sitemap.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">07</div><div class="rec-title">Two slider captions from H1 to H2 <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail">The homepage still has three main headings, and two of them are slide captions. In Elementor, open the Slide 1 and Slide 2 layouts, select each title and set its HTML tag to H2. The captions will look exactly the same.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">08</div><div class="rec-title">Alt text on two Private Events photos <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail"><span class="mono">IMG_9015-1.jpg</span> and <span class="mono">Dusk-819x1024-1.jpg</span> still show an empty description. The descriptions are already written in the media library, but the page overrides them. Open Private Events in Elementor and re-select each image from the library so it picks them up.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">09</div><div class="rec-title">Turn off author archives <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail"><span class="mono">/author/admin/</span>, <span class="mono">/author/dobleai/</span> and an author page for Amanda's account all load as public pages, which publishes login names. Yoast SEO &rsaquo; Settings &rsaquo; Advanced &rsaquo; Author archives, switch off.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">10</div><div class="rec-title">Verify the site with Bing, after 01 and 02 <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail">Bing's index feeds Microsoft Copilot, DuckDuckGo and Yahoo, and it's one of the sources ChatGPT search draws on. Sign in at <span class="mono">bing.com/webmasters</span>, use Import from Google Search Console if the site is there, or paste the meta tag code into Yoast SEO &rsaquo; Settings &rsaquo; Site connections &rsaquo; Bing. Then submit <span class="mono">sitemap_index.xml</span>. Do this after items 01 and 02, because submitting today's sitemap would send Bing the theme scaffolding and none of the portfolio pages.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">04</div><div class="section-title">Still to do: Alpine and the coffee site</div></div>
+    <div class="section-body">
+      <p class="position-intro">A shorter list, because most of the technical work here is finished. Item 03 is the one I'd do first. It takes two sentences and it answers questions people ask every day.</p>
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">01</div><div class="rec-title">Link the coffee site to the Bake Shop <span class="owner own-alp">Alpine</span></div></div>
+          <div class="rec-detail">The coffee site links to Alpine but not to the Bake Shop. One line and a link in the About section would close the loop, once the Bake Shop links back to Alpine.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">02</div><div class="rec-title">Delete the old phone number in the coffee site's hours block <span class="owner own-alp">Alpine</span></div></div>
+          <div class="rec-detail">The Location and Hours block on the Square site still has <span class="mono">(716) 217-4047</span> saved inside it. Visitors don't see it, because Square shows the synced number, (716) 993-2478, on top. It would appear if that sync were ever turned off. Remove it the next time that block is open in Square &rsaquo; Website.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">03</div><div class="rec-title">Answer vegan and gluten free in the FAQ <span class="owner own-alp">Alpine</span></div></div>
+          <div class="rec-detail">Neither word appears anywhere on alpinebistrony.com. Add two answers to the existing About page FAQ, and they're automatically covered by the FAQ markup already in place.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">04</div><div class="rec-title">Mark up the menu <span class="owner own-alp">Alpine</span></div></div>
+          <div class="rec-detail">The dishes and prices on the menu page are already real text instead of a PDF or a photo, which is the hard part. Marking them up as a menu is what lets an assistant answer "what does Alpine serve and what does it cost." You don't need to write anything new.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">05</div><div class="rec-title">Give the four short pages more to say <span class="owner own-alp">Alpine</span></div></div>
+          <div class="rec-detail">Home, Menu, Bar and Event each run between 316 and 344 words. This is the slowest item on the list because it needs actual writing: what the bourbon bar is like, what a private event includes, what regulars order. It's also where the site has the most room to grow.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">06</div><div class="rec-title">Turn off the author archive <span class="owner own-alp">Alpine</span></div></div>
+          <div class="rec-detail"><span class="mono">/author/alpineadmin/</span> loads as a public page. Rank Math &rsaquo; Titles &amp; Meta &rsaquo; Authors, switch Author Archives off.</div>
+        </div>
+
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">07</div><div class="rec-title">Verify the site with Bing <span class="owner own-alp">Alpine</span></div></div>
+          <div class="rec-detail">Same reasoning as Bake Shop item 10, except Alpine can go today because its sitemap is already clean. Paste Bing's code into Rank Math &rsaquo; General Settings &rsaquo; Webmaster Tools &rsaquo; Bing, then submit <span class="mono">alpinebistrony.com/sitemap_index.xml</span>. About ten minutes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><div class="section-num">05</div><div class="section-title">Decisions that sit with the owners</div></div>
+    <div class="section-body">
+      <p class="position-intro">These aren't website jobs, so they're here to keep them visible, not to assign them.</p>
+      <div class="rec-list">
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">A</div><div class="rec-title">The two Google profiles at 16 Washington Street <span class="owner own-both">Owners</span></div></div>
+          <div class="rec-detail">Ellicottville Coffee Company has 163 reviews and Alpine Bistro has 74, with the same address and phone. Keeping both is fine. If they are ever combined, a proper merge keeps the reviews and deleting one throws them away. <span class="claim claim-infer">our reading, not a finding</span></div>
+        </div>
+        <div class="rec-item">
+          <div class="rec-header"><div class="rec-num">B</div><div class="rec-title">Two Bake Shop headings that need wording <span class="owner own-bake">Bake Shop</span></div></div>
+          <div class="rec-detail">The About page splits one sentence across two main headings, and the Contact page has none. Both need a line of copy before anyone can fix the markup. Our suggestions are "About Ellicottville Bake Shop" and "Visit the Bake Shop," but the wording is the owners' call.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Doble AI &middot; Ellicottville status &middot; 14 September 2026</span>
+    <span>Re-checked on the live sites that morning &middot; Link-shared, not indexed</span>
+  </div>
+
+</div>
+</body>
+</html>
