@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>VPC, InterActive Play and EasyRec: the list</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #F4F4EF; color: #1F2622;
+         -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  .page { max-width: 860px; margin: 0 auto; padding: 0 20px 100px; }
+
+  .hero { padding: 58px 0 34px; border-bottom: 1px solid rgba(47,111,106,0.2); }
+  .tag { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600;
+         letter-spacing: 0.2em; text-transform: uppercase; color: #2F6F6A; margin-bottom: 20px; }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #2F6F6A; }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(32px, 5.2vw, 50px);
+             font-weight: 500; line-height: 1.07; margin-bottom: 18px; }
+  .hero p { font-size: 19px; color: #46524C; max-width: 660px; }
+  .hero p + p { margin-top: 13px; }
+
+  .toc { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .toc a { font-size: 14px; text-decoration: none; color: #2F6F6A; border: 1px solid rgba(47,111,106,0.3);
+           border-radius: 40px; padding: 6px 15px; }
+  .toc a:hover { background: #2F6F6A; color: #fff; }
+
+  section { padding-top: 60px; }
+  h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 500;
+       margin-bottom: 8px; line-height: 1.15; }
+  .kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+            color: #7C8C84; margin-bottom: 10px; }
+  p.body { font-size: 17px; color: #33413A; max-width: 680px; margin-bottom: 15px; }
+  p.body strong { font-weight: 600; }
+  a { color: #2F6F6A; }
+
+  .item { background: #fff; border: 1px solid rgba(47,111,106,0.22); border-radius: 10px;
+          padding: 24px 24px 20px; margin-top: 20px; }
+  .item h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; display: flex; gap: 12px;
+             align-items: baseline; }
+  .item h3 .n { font-family: 'Playfair Display', Georgia, serif; color: #2F6F6A; font-weight: 500;
+                font-size: 22px; min-width: 22px; }
+  .time { font-size: 13px; color: #7C8C84; margin: 0 0 12px 34px; }
+  .item .lbl { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+               color: #7C8C84; margin: 14px 0 6px; }
+  .item p, .item li { font-size: 16px; color: #33413A; }
+  .item p + p { margin-top: 8px; }
+  .item ol, .item ul { padding-left: 22px; }
+  .item li { margin-bottom: 6px; }
+  .top { border-left: 3px solid #C77B3C; }
+
+  pre { margin-top: 8px; background: #1F2622; color: #E8E6DE; padding: 14px 16px; border-radius: 6px;
+        font-size: 13px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+  code { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 0.92em; }
+  p code, li code { background: #EEF0EA; padding: 1px 5px; border-radius: 4px; word-break: break-word; }
+
+  .row { border-top: 1px solid rgba(47,111,106,0.14); padding: 12px 0; }
+  .row:first-of-type { border-top: 0; }
+  .where { font-size: 13px; word-break: break-all; margin-bottom: 4px; }
+  .copyline { display: flex; gap: 12px; align-items: flex-start; }
+  .copyline .txt { font-size: 15px; color: #1F2622; flex: 1; }
+  button.copy { font: 600 13px 'Inter', sans-serif; color: #2F6F6A; background: #fff; cursor: pointer;
+                border: 1px solid rgba(47,111,106,0.4); border-radius: 30px; padding: 4px 13px;
+                flex-shrink: 0; }
+  button.copy:hover { background: #2F6F6A; color: #fff; }
+  button.copy.done { background: #2F6F6A; color: #fff; }
+
+  details { margin-top: 10px; border: 1px solid rgba(47,111,106,0.18); border-radius: 8px;
+            padding: 12px 16px; background: #FBFBF8; }
+  summary { cursor: pointer; font-weight: 600; font-size: 15px; }
+  .muted { font-weight: 400; color: #7C8C84; font-size: 13px; word-break: break-all; }
+  .faq { margin: 12px 0 10px; }
+  .faq .q { font-weight: 600; margin-top: 10px; font-size: 15px; }
+  .faq .a { font-size: 15px; color: #33413A; }
+
+  .done-list li { list-style: none; position: relative; padding-left: 4px; }
+  .done-list li::before { content: '\2713'; color: #2F6F6A; font-weight: 700; position: absolute; left: -20px; }
+
+  .foot { margin-top: 70px; padding-top: 22px; border-top: 1px solid rgba(47,111,106,0.2);
+          font-size: 14px; color: #7C8C84; }
+  @media (max-width: 560px) {
+    .item { padding: 20px 16px 16px; }
+    .time { margin-left: 0; }
+    .copyline { flex-direction: column; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="tag">VPC &middot; InterActive Play &middot; EasyRec</div>
+    <h1>The list for the three sites</h1>
+    <p>Everything here was checked on the live sites on 15 September. Each site starts with the
+       items that matter most, and every piece of copy is ready to paste.</p>
+    <div class="toc">
+      <a href="#main">VPC main site</a>
+      <a href="#ip">InterActive Play</a>
+      <a href="#easyrec">EasyRec</a>
+      <a href="#questions">Four questions</a>
+    </div>
+  </div>
+
+  <!-- ============ MAIN SITE ============ -->
+  <section id="main">
+    <div class="kicker">vpcfiberglass.com</div>
+    <h2>VPC main site</h2>
+
+    <div class="item top">
+      <h3><span class="n">1</span>Point the three old Enduro addresses at the Enduro case study</h3>
+      <div class="time">About 10 minutes</div>
+      <p>These three addresses still open the custom building, the Parshall flume and the manhole
+         cover instead of the Enduro enclosure. WordPress is forwarding them on its own because each
+         of those case studies once lived at an Enduro address, which is why there is no rule to find.
+         A rule in the Redirection plugin runs first and wins.</p>
+      <div class="lbl">In Tools &rarr; Redirection, add three rules</div>
+<pre><code>/vpc-case-studies/enduro-standard-equipment-enclosure-2/
+/vpc-case-studies/enduro-standard-equipment-enclosure-3/
+/vpc-case-studies/enduro-standard-equipment-enclosure-4/
+
+Target for all three:
+/vpc-case-studies/enduro-standard-equipment-enclosure-5/</code></pre>
+      <div class="lbl">Check it</div>
+      <p>Clear the site cache, then open each old address in a new private window. Your usual browser
+         will hold on to the old destination for a while and make a working fix look broken.</p>
+    </div>
+
+    <div class="item top">
+      <h3><span class="n">2</span>Send the two removed pages somewhere useful</h3>
+      <div class="time">About 10 minutes</div>
+      <p><code>/locations/</code> and <code>/blog/</code> now return "page not found." Anyone arriving
+         from an old link or a search result lands on an error. Two more rules in Redirection:</p>
+<pre><code>/locations/  &rarr;  /contact-us/               (all three addresses are there)
+/blog/       &rarr;  /resources/case-studies/</code></pre>
+      <p>The Resources page still links to <code>/blog/</code>. Remove that link or point it at
+         Case Studies.</p>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">3</span>One company record on the homepage, not three</h3>
+      <div class="time">About 20 minutes</div>
+      <p>The homepage source carries three separate descriptions of the company for search engines:
+         the one Yoast writes, a second plain Organization block added by hand, and a LocalBusiness
+         block added by hand that carries the address and phone. The plain second Organization adds
+         nothing the other two do not already say, and two records with the same name and different
+         details make machines guess which one is right.</p>
+      <div class="lbl">The correction, if you agree</div>
+      <p>Remove the hand-added block that begins <code>"@type": "Organization"</code>. Keep the
+         LocalBusiness block. It was most likely pasted into the theme header, a code-snippets plugin
+         or a header-scripts setting, so those are the three places to look.</p>
+      <div class="lbl">Check it</div>
+      <p>Paste <code>https://www.vpcfiberglass.com/</code> into
+         <a href="https://validator.schema.org/">validator.schema.org</a>. You should see one
+         Organization and one LocalBusiness.</p>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">4</span>Meta descriptions for the case studies</h3>
+      <div class="time">About 30 minutes, 14 pages</div>
+      <p>None of these pages has one, so Google writes its own from whatever text it finds first.
+         Open each page in the editor, scroll to the Yoast SEO box, and paste into
+         <strong>Meta description</strong>. Every fact in each line is already on that page.</p>
+      
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/">/vpc-case-studies/</a></div>
+        <div class="copyline"><span class="txt">Case studies from VPC Fiberglass, including chemical feed buildings, metering manholes, scrubber systems, direct burial duct and equipment shelters.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/enduro-standard-equipment-enclosure-5/">/vpc-case-studies/enduro-standard-equipment-enclosure-5/</a></div>
+        <div class="copyline"><span class="txt">How VPC Fiberglass built twenty-six custom Enduro shelters for the Canal Road Water Treatment Plant in Somerset, NJ, delivered on time and on budget.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/storm-drain-manhole-cover/">/vpc-case-studies/storm-drain-manhole-cover/</a></div>
+        <div class="copyline"><span class="txt">Wichita, KS replaced stolen cast-iron storm drain covers with hinged fiberglass manhole covers and frames from VPC that will not rust or corrode.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/project-spotlight-patrick-space-force-base-custom-fiberglass-building/">/vpc-case-studies/project-spotlight-patrick-space-force-base-custom-fiberglass-building/</a></div>
+        <div class="copyline"><span class="txt">Two single-piece molded FRP pump enclosures for Patrick Space Force Base, 12 x 19.5 ft and 9 x 15 ft, engineered for risk category IV winds.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/36-inch-parshall-flume-fiberglass/">/vpc-case-studies/36-inch-parshall-flume-fiberglass/</a></div>
+        <div class="copyline"><span class="txt">A 36-inch fiberglass Parshall flume designed for Intel&#x27;s plant in Johnstown, Ohio, with stilling wells and flow accessories built for periodic submergence.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/custom-fiberglass-building/">/vpc-case-studies/custom-fiberglass-building/</a></div>
+        <div class="copyline"><span class="txt">The Headworks Building at the Village of Akron, NY wastewater plant: 17 x 48 x 14 ft, built in six sections, the largest product VPC has made.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/custom-fiberglass-building-booster-pump-skid-package/">/vpc-case-studies/custom-fiberglass-building-booster-pump-skid-package/</a></div>
+        <div class="copyline"><span class="txt">A 19 x 10 x 11 ft single-piece molded fiberglass building for a booster pump skid package, insulated to R-28 with a full HVAC package.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/fiberglass-scrubber-system/">/vpc-case-studies/fiberglass-scrubber-system/</a></div>
+        <div class="copyline"><span class="txt">A 60-inch fiberglass scrubber vessel in vinyl ester resin, with a mist eliminator and sound enclosure, built by VPC&#x27;s Composite Fan Division.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/metering-chlorination-building/">/vpc-case-studies/metering-chlorination-building/</a></div>
+        <div class="copyline"><span class="txt">A single-piece fiberglass metering chlorination building set on a concrete valve vault, housing a chemical feed skid, SCADA and an eye wash station.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/custom-fiberglass-chemical-feed-buildings/">/vpc-case-studies/custom-fiberglass-chemical-feed-buildings/</a></div>
+        <div class="copyline"><span class="txt">Two insulated FRP enclosures, 5 x 5 x 8 ft and 8 x 5 x 8 ft, built with Lutz Jesco for a Florida customer to the 2020 Florida Building Code.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/custom-building-with-removable-roof-hatch/">/vpc-case-studies/custom-building-with-removable-roof-hatch/</a></div>
+        <div class="copyline"><span class="txt">An insulated fiberglass shelter for the City of Rome water resource recovery facility, with a removable roof hatch so pumps can be craned in or out.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/fiberglass-shelter-with-windows/">/vpc-case-studies/fiberglass-shelter-with-windows/</a></div>
+        <div class="copyline"><span class="txt">A custom insulated FRP shelter with windows for an energy services and power operations facility, housing electrical and control equipment.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/vpc-case-studies/laserflow-fiberglass-metering-manhole/">/vpc-case-studies/laserflow-fiberglass-metering-manhole/</a></div>
+        <div class="copyline"><span class="txt">A 48-inch by 18-foot FRP metering manhole built for the ISCO LaserFlow sensor at Carpenter Technologies in Tanner, Alabama, with no field coring.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://www.vpcfiberglass.com/resources/case-studies/">/resources/case-studies/</a></div>
+        <div class="copyline"><span class="txt">Case studies of VPC fiberglass buildings, Parshall flumes, manhole covers, scrubbers and direct burial duct on projects from New York to Florida.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">5</span>Turn on X (Twitter) card data</h3>
+      <div class="time">2 minutes</div>
+      <p>No page on the site sends it, so a link shared on X shows up as a bare line of text.
+         In <strong>Yoast SEO &rarr; Settings &rarr; Site features</strong>, switch on
+         <strong>X card data</strong> and save. The InterActive Play site already has it on.</p>
+    </div>
+  </section>
+
+  <!-- ============ INTERACTIVE PLAY ============ -->
+  <section id="ip">
+    <div class="kicker">interactivewaterparks.com</div>
+    <h2>InterActive Play</h2>
+
+    <div class="item top">
+      <h3><span class="n">1</span>Get plugin v1.2 to Jo&atilde;o</h3>
+      <div class="time">5 minutes for you, one upload for him</div>
+      <p>The product markup is still the first version: TriWave 100 is the only page of the 24 that
+         has it, and none has FAQ markup yet. Send Jo&atilde;o this link. He replaces the plugin
+         with the new zip and clears the page cache.</p>
+<pre><code>https://jroundshp.github.io/doble-ai-deliverables/ip-pack/</code></pre>
+      <div class="lbl">Check it</div>
+      <p>Paste the TriWave 200 page into <a href="https://validator.schema.org/">validator.schema.org</a>.
+         It should show a Product and an FAQPage.</p>
+    </div>
+
+    <div class="item top">
+      <h3><span class="n">2</span>Take the placeholder text off Wee Womper</h3>
+      <div class="time">5 minutes</div>
+      <p>The "Our Latest Water Play Creations" block on the Wee Womper page still shows the theme's
+         sample line to visitors:</p>
+<pre><code>Here comes a short description with a two lines about projects.</code></pre>
+      <p>Replace it with a line of your own or delete it. We checked all 54 pages on the site and
+         this is the only one carrying it.</p>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">3</span>The company record: forward the filter to Jo&atilde;o</h3>
+      <div class="time">2 minutes</div>
+      <p>The company record Yoast publishes still has no address, no phone and no link to VPC as the
+         parent company. The filter code in the 14 September email adds all three. It needs to go to
+         Jo&atilde;o or Stephanie at Digital Silk.</p>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">4</span>Meta descriptions for 13 product pages</h3>
+      <div class="time">About 30 minutes</div>
+      <p>Ten of these run longer than Google shows (165 to 240 characters, so they get cut off
+         mid-sentence) and three have none. Paste each into the Yoast SEO box on that page.</p>
+      
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/water-play-features/water-play-features-rusher/">/products/water-play-features/water-play-features-rusher/</a></div>
+        <div class="copyline"><span class="txt">The Rusher is an air-powered water blaster kids aim side to side and up and down, fired by a trigger on the handle. Built of 304 stainless steel.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/water-play-features/">/products/water-play-features/</a></div>
+        <div class="copyline"><span class="txt">Interactive water play features that blend fun, education and entertainment for all ages, including the Power Plunge, Thump Pump, Rain Maker and Cannon.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/lazy-rivers/">/products/lazy-rivers/</a></div>
+        <div class="copyline"><span class="txt">Turn a lazy river into an interactive attraction with shooting galleries and pour-over zones, or switch interactivity off for a casual float.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/splash-pads/">/products/splash-pads/</a></div>
+        <div class="copyline"><span class="txt">Commercial splash pads with customizable designs and interactive water features for all ages, plus an activation system that helps conserve water.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/water-play-features/jet-stream/">/products/water-play-features/jet-stream/</a></div>
+        <div class="copyline"><span class="txt">The Jet Stream releases five powerful water jets straight down into the pool at the press of a button, with a water flow you can customize.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/water-play-features/fanatic/">/products/water-play-features/fanatic/</a></div>
+        <div class="copyline"><span class="txt">Kids pull a rope to start the Fanatic, sending water through a sweeping pipe and out a cast bronze fan nozzle in a roughly 120-degree spray.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/water-play-features/water-play-features-triple-buzz/">/products/water-play-features/water-play-features-triple-buzz/</a></div>
+        <div class="copyline"><span class="txt">Wave a hand and the Triple Buzz springs to life. Each nozzle has its own digital proximity sensor, so kids start and stop the water themselves.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/water-play-features/water-play-features-powerplunge/">/products/water-play-features/water-play-features-powerplunge/</a></div>
+        <div class="copyline"><span class="txt">The Power Plunge holds 750 gallons, stands about 30 feet tall and bursts into a 360-degree spray of water after a steam whistle warns the crowd.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/water-play-features/water-play-features-thump-pump/">/products/water-play-features/water-play-features-thump-pump/</a></div>
+        <div class="copyline"><span class="txt">Kids push the Thump Pump&#x27;s T-handle plunger to fire a burst of air up through a pool floor grate, a big splash made for water battle zones.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/water-play-features/water-play-features-oh-chute/">/products/water-play-features/water-play-features-oh-chute/</a></div>
+        <div class="copyline"><span class="txt">The Oh Chute water wheel spins as water flows from its fill spout, sending cascades below. It mounts high on a fiberglass I-beam to draw guests in.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/aquatic-play-structures/triwave-100/">/products/aquatic-play-structures/triwave-100/</a></div>
+        <div class="copyline"><span class="txt">The TriWave 100 multi-level water play unit has 20 interactive water features, two tube slides, a giant tippy bucket and room for up to 172 players.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/aquatic-play-structures/misty-island-100/">/products/aquatic-play-structures/misty-island-100/</a></div>
+        <div class="copyline"><span class="txt">The Misty Island 100 play structure has 37 interactive features, the 750-gallon Power Plunge, air cannons for water battles and room for 212 players.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+      <div class="row">
+        <div class="where"><a href="https://interactivewaterparks.com/products/aquatic-play-structures/misty-island-200/">/products/aquatic-play-structures/misty-island-200/</a></div>
+        <div class="copyline"><span class="txt">The Misty Island 200 play structure has 40 interactive features, the 750-gallon Power Plunge, four slides and air cannons that start water battles.</span>
+          <button class="copy" type="button">Copy</button></div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">5</span>Real FAQs for the 15 water play feature pages</h3>
+      <div class="time">About an hour</div>
+      <p>You rewrote the FAQs on the nine play structures. The 15 feature pages (Cannon, Rain
+         Maker, Thump Pump and the rest) still carry the three questions about a multi-level play
+         structure, which none of them is. Below are three questions per feature, written from that
+         page's own description and spec table. Replace the existing three with these.</p>
+      <p>Once they are live we will add the FAQ markup to the plugin, so there is nothing extra
+         for Digital Silk to do.</p>
+      
+      <details>
+        <summary>Rusher <span class="muted">/products/water-play-features/water-play-features-rusher/</span></summary>
+        <div class="faq"><p class="q">How do kids use the Rusher?</p><p class="a">They pull the built-in trigger on the handle to fire this air-powered blaster, then aim it side to side and up and down to direct the water.</p><p class="q">What size is the Rusher and how much water does it need?</p><p class="a">The Rusher measures 32” x 14” x 44” and has a flow requirement of 5 GPM.</p><p class="q">Does the Rusher need an air compressor?</p><p class="a">Yes. The Rusher requires an air compressor, which Interactive Play provides. It is built from laser-cut 304 stainless steel with 316 stainless steel assembly hardware and an IP69K stainless steel sensor, and it works on splash pads, aquatic play units and lazy rivers.</p></div>
+        <textarea class="src" hidden>How do kids use the Rusher?
+They pull the built-in trigger on the handle to fire this air-powered blaster, then aim it side to side and up and down to direct the water.
+
+What size is the Rusher and how much water does it need?
+The Rusher measures 32” x 14” x 44” and has a flow requirement of 5 GPM.
+
+Does the Rusher need an air compressor?
+Yes. The Rusher requires an air compressor, which Interactive Play provides. It is built from laser-cut 304 stainless steel with 316 stainless steel assembly hardware and an IP69K stainless steel sensor, and it works on splash pads, aquatic play units and lazy rivers.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Wee Womper <span class="muted">/products/water-play-features/water-play-features-wee-womper/</span></summary>
+        <div class="faq"><p class="q">Who is the Wee Womper designed for?</p><p class="a">Younger water players. Kids press the button tucked into the handle, and a stream of water sized for smaller players comes out of the barrel.</p><p class="q">What are the Wee Womper’s dimensions and flow requirement?</p><p class="a">The Wee Womper measures 14” x 32” x 36” and needs 5 GPM of water flow.</p><p class="q">Where can the Wee Womper be installed?</p><p class="a">It is listed for splash pads, aquatic play units and lazy rivers. The body is laser-cut 304 stainless steel with corrosion and chemical-resistant coatings, and the assembly hardware is 316 stainless steel with no sharp edges.</p></div>
+        <textarea class="src" hidden>Who is the Wee Womper designed for?
+Younger water players. Kids press the button tucked into the handle, and a stream of water sized for smaller players comes out of the barrel.
+
+What are the Wee Womper’s dimensions and flow requirement?
+The Wee Womper measures 14” x 32” x 36” and needs 5 GPM of water flow.
+
+Where can the Wee Womper be installed?
+It is listed for splash pads, aquatic play units and lazy rivers. The body is laser-cut 304 stainless steel with corrosion and chemical-resistant coatings, and the assembly hardware is 316 stainless steel with no sharp edges.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Puddle Juggle <span class="muted">/products/water-play-features/puddle-juggle/</span></summary>
+        <div class="faq"><p class="q">How does the Puddle Juggle work?</p><p class="a">A child pushes the light-up touch sensor button. Water flows from the top nozzle and makes the teeter-totter sway left and right.</p><p class="q">Where is the Puddle Juggle usually mounted?</p><p class="a">Typically on a wall away from the blaster zones, which keeps a safe space for little ones. It is listed for aquatic play units.</p><p class="q">How big is the Puddle Juggle and what flow does it need?</p><p class="a">It measures 54” x 34” x 8” and requires 5 GPM. The fill spout is 304 stainless steel and the assembly hardware is 316 stainless steel.</p></div>
+        <textarea class="src" hidden>How does the Puddle Juggle work?
+A child pushes the light-up touch sensor button. Water flows from the top nozzle and makes the teeter-totter sway left and right.
+
+Where is the Puddle Juggle usually mounted?
+Typically on a wall away from the blaster zones, which keeps a safe space for little ones. It is listed for aquatic play units.
+
+How big is the Puddle Juggle and what flow does it need?
+It measures 54” x 34” x 8” and requires 5 GPM. The fill spout is 304 stainless steel and the assembly hardware is 316 stainless steel.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Cannon <span class="muted">/products/water-play-features/water-play-features-cannon/</span></summary>
+        <div class="faq"><p class="q">How does the Cannon fire?</p><p class="a">A guest pulls the rope and a burst of air launches a wide blast of water. The Cannon then refills its reservoir, and a light bar shows the charging cycle, turning green when it is ready to fire again.</p><p class="q">What are the Cannon’s size and flow requirements?</p><p class="a">The Cannon measures 32” x 64” x 72” and requires 10 GPM.</p><p class="q">What does the Cannon need for installation?</p><p class="a">It requires an air compressor, which Interactive Play provides. The RGBW light bar is IP69K rated and bright enough to read in daylight, and the Cannon can go on splash pads, aquatic play units or lazy rivers.</p></div>
+        <textarea class="src" hidden>How does the Cannon fire?
+A guest pulls the rope and a burst of air launches a wide blast of water. The Cannon then refills its reservoir, and a light bar shows the charging cycle, turning green when it is ready to fire again.
+
+What are the Cannon’s size and flow requirements?
+The Cannon measures 32” x 64” x 72” and requires 10 GPM.
+
+What does the Cannon need for installation?
+It requires an air compressor, which Interactive Play provides. The RGBW light bar is IP69K rated and bright enough to read in daylight, and the Cannon can go on splash pads, aquatic play units or lazy rivers.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Jet Stream <span class="muted">/products/water-play-features/jet-stream/</span></summary>
+        <div class="faq"><p class="q">What does the Jet Stream do when a child presses the button?</p><p class="a">One button press sends five water jets straight down into the pool below.</p><p class="q">Can the Jet Stream’s water flow be adjusted?</p><p class="a">Yes. The water flow is fully customizable, so a facility can set the intensity it wants. The flow requirement is 10 GPM.</p><p class="q">How tall is the Jet Stream and where does it go?</p><p class="a">The Jet Stream measures 15” x 48” x 92” and is listed for splash pads and aquatic play units. Its push button is 304 stainless steel.</p></div>
+        <textarea class="src" hidden>What does the Jet Stream do when a child presses the button?
+One button press sends five water jets straight down into the pool below.
+
+Can the Jet Stream’s water flow be adjusted?
+Yes. The water flow is fully customizable, so a facility can set the intensity it wants. The flow requirement is 10 GPM.
+
+How tall is the Jet Stream and where does it go?
+The Jet Stream measures 15” x 48” x 92” and is listed for splash pads and aquatic play units. Its push button is 304 stainless steel.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Rain Maker <span class="muted">/products/water-play-features/water-play-features-rain-maker/</span></summary>
+        <div class="faq"><p class="q">How do kids activate the Rain Maker?</p><p class="a">They work together, rocking the handle back and forth like a see-saw. That pumps the air bellows underneath, and when it is fully charged a burst of air sends water up in a tall vertical plume.</p><p class="q">How can players tell when the Rain Maker is ready?</p><p class="a">A light bar shows the charging status. It is an RGBW light bar, IP69K rated, with high brightness for daytime visibility.</p><p class="q">What are the Rain Maker’s dimensions and requirements?</p><p class="a">It measures 64” x 40” x 112”, requires 10 GPM and needs an air compressor, which Interactive Play provides. It is listed for splash pads and aquatic play units.</p></div>
+        <textarea class="src" hidden>How do kids activate the Rain Maker?
+They work together, rocking the handle back and forth like a see-saw. That pumps the air bellows underneath, and when it is fully charged a burst of air sends water up in a tall vertical plume.
+
+How can players tell when the Rain Maker is ready?
+A light bar shows the charging status. It is an RGBW light bar, IP69K rated, with high brightness for daytime visibility.
+
+What are the Rain Maker’s dimensions and requirements?
+It measures 64” x 40” x 112”, requires 10 GPM and needs an air compressor, which Interactive Play provides. It is listed for splash pads and aquatic play units.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Fanatic <span class="muted">/products/water-play-features/fanatic/</span></summary>
+        <div class="faq"><p class="q">How wide is the Fanatic’s spray?</p><p class="a">The fan nozzle has a spray pattern of approximately 120 degrees, and the cascade extends several feet.</p><p class="q">How is the Fanatic activated?</p><p class="a">Kids pull a rope. Water moves through the sweeping pipe and out of the cast bronze fan nozzle.</p><p class="q">What size is the Fanatic and what flow does it require?</p><p class="a">The Fanatic measures 12” x 12” x 60” and requires 5 GPM. It is listed for splash pads and aquatic play units.</p></div>
+        <textarea class="src" hidden>How wide is the Fanatic’s spray?
+The fan nozzle has a spray pattern of approximately 120 degrees, and the cascade extends several feet.
+
+How is the Fanatic activated?
+Kids pull a rope. Water moves through the sweeping pipe and out of the cast bronze fan nozzle.
+
+What size is the Fanatic and what flow does it require?
+The Fanatic measures 12” x 12” x 60” and requires 5 GPM. It is listed for splash pads and aquatic play units.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Triple Buzz <span class="muted">/products/water-play-features/water-play-features-triple-buzz/</span></summary>
+        <div class="faq"><p class="q">How does the Triple Buzz sense a player?</p><p class="a">Each nozzle has its own digital proximity sensor on the front of the unit, with a range of about eight inches.</p><p class="q">Who controls when the Triple Buzz water starts and stops?</p><p class="a">The kids do. Moving a hand in front of a sensor starts the water, and the flow stops and starts under their control.</p><p class="q">What are the Triple Buzz specifications?</p><p class="a">It measures 26” x 12” x 35” and requires 10 GPM. The nozzles are 303 stainless steel and the body is laser-cut 304 stainless steel. It is listed for splash pads and aquatic play units.</p></div>
+        <textarea class="src" hidden>How does the Triple Buzz sense a player?
+Each nozzle has its own digital proximity sensor on the front of the unit, with a range of about eight inches.
+
+Who controls when the Triple Buzz water starts and stops?
+The kids do. Moving a hand in front of a sensor starts the water, and the flow stops and starts under their control.
+
+What are the Triple Buzz specifications?
+It measures 26” x 12” x 35” and requires 10 GPM. The nozzles are 303 stainless steel and the body is laser-cut 304 stainless steel. It is listed for splash pads and aquatic play units.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Three Tree <span class="muted">/products/water-play-features/three-tree/</span></summary>
+        <div class="faq"><p class="q">What water effects does the Three Tree have?</p><p class="a">Three arms, each with its own effect: Waterbender, Cloudburst and Spout About.</p><p class="q">How do kids turn on each arm of the Three Tree?</p><p class="a">By spinning a handwheel, in either direction. The wheel turns with very little resistance, and an internal sensor starts the matching arm.</p><p class="q">What size is the Three Tree and how much water does it use?</p><p class="a">The Three Tree measures 56” x 52” x 97” and requires 15 GPM. The handwheels are 304 stainless steel.</p></div>
+        <textarea class="src" hidden>What water effects does the Three Tree have?
+Three arms, each with its own effect: Waterbender, Cloudburst and Spout About.
+
+How do kids turn on each arm of the Three Tree?
+By spinning a handwheel, in either direction. The wheel turns with very little resistance, and an internal sensor starts the matching arm.
+
+What size is the Three Tree and how much water does it use?
+The Three Tree measures 56” x 52” x 97” and requires 15 GPM. The handwheels are 304 stainless steel.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Power Plunge <span class="muted">/products/water-play-features/water-play-features-powerplunge/</span></summary>
+        <div class="faq"><p class="q">How much water does the Power Plunge hold, and how tall is it?</p><p class="a">It holds 750 gallons and stands approximately 30 feet high. The published dimensions are 88” x 88” x 354”.</p><p class="q">What happens when the Power Plunge dumps?</p><p class="a">A steam whistle sounds first. Then an air-powered cylinder lifts the barrel shell and the water releases in a 360-degree spray.</p><p class="q">Can the fill rate and dump timing on the Power Plunge be adjusted?</p><p class="a">Yes. A throttle valve sets the fill rate and dump timing, and the whistle is adjusted from the PLC touchscreen. The Power Plunge requires 120 GPM and an air compressor provided by Interactive Play, and it can be fully customized with your own colors, design or branding.</p></div>
+        <textarea class="src" hidden>How much water does the Power Plunge hold, and how tall is it?
+It holds 750 gallons and stands approximately 30 feet high. The published dimensions are 88” x 88” x 354”.
+
+What happens when the Power Plunge dumps?
+A steam whistle sounds first. Then an air-powered cylinder lifts the barrel shell and the water releases in a 360-degree spray.
+
+Can the fill rate and dump timing on the Power Plunge be adjusted?
+Yes. A throttle valve sets the fill rate and dump timing, and the whistle is adjusted from the PLC touchscreen. The Power Plunge requires 120 GPM and an air compressor provided by Interactive Play, and it can be fully customized with your own colors, design or branding.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Beanstalk Blaster <span class="muted">/products/water-play-features/water-play-features-beanstalk-blaster/</span></summary>
+        <div class="faq"><p class="q">Where is the Beanstalk Blaster installed?</p><p class="a">It is designed for pool floor installation. It is usually placed to set up a battle zone between the pool floor and the blasters mounted on the play structure.</p><p class="q">Can kids aim the Beanstalk Blaster?</p><p class="a">Yes. They push the button for an air-powered stream, then change the handle’s height and pivot it side to side to aim.</p><p class="q">What are the Beanstalk Blaster specifications?</p><p class="a">It measures 29” x 29” x 96”, requires 5 GPM and needs an air compressor, which Interactive Play provides. It is listed for splash pads, aquatic play units and lazy rivers.</p></div>
+        <textarea class="src" hidden>Where is the Beanstalk Blaster installed?
+It is designed for pool floor installation. It is usually placed to set up a battle zone between the pool floor and the blasters mounted on the play structure.
+
+Can kids aim the Beanstalk Blaster?
+Yes. They push the button for an air-powered stream, then change the handle’s height and pivot it side to side to aim.
+
+What are the Beanstalk Blaster specifications?
+It measures 29” x 29” x 96”, requires 5 GPM and needs an air compressor, which Interactive Play provides. It is listed for splash pads, aquatic play units and lazy rivers.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Thump Pump <span class="muted">/products/water-play-features/water-play-features-thump-pump/</span></summary>
+        <div class="faq"><p class="q">How does the Thump Pump make a splash?</p><p class="a">A child pushes down on the T-handle plunger. A burst of air shoots up under the water through a drain grate in the pool floor and throws up a splash.</p><p class="q">Is the Thump Pump easy for young kids to use?</p><p class="a">Yes. The T-handle plunger is easy for kids of any age. It works inside a battle zone or as a stand-alone splash feature.</p><p class="q">What size is the Thump Pump and where can it go?</p><p class="a">The Thump Pump measures 13” x 10” x 29” and is listed for splash pads, aquatic play units and lazy rivers. It has an IP69K stainless steel sensor and 316 stainless steel assembly hardware.</p></div>
+        <textarea class="src" hidden>How does the Thump Pump make a splash?
+A child pushes down on the T-handle plunger. A burst of air shoots up under the water through a drain grate in the pool floor and throws up a splash.
+
+Is the Thump Pump easy for young kids to use?
+Yes. The T-handle plunger is easy for kids of any age. It works inside a battle zone or as a stand-alone splash feature.
+
+What size is the Thump Pump and where can it go?
+The Thump Pump measures 13” x 10” x 29” and is listed for splash pads, aquatic play units and lazy rivers. It has an IP69K stainless steel sensor and 316 stainless steel assembly hardware.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Pour Over <span class="muted">/products/water-play-features/water-play-features-pour-over/</span></summary>
+        <div class="faq"><p class="q">How much water does the Pour Over release?</p><p class="a">About 11 gallons. Pulling the rope fills the clear cylinder on top, and kids lift the lever to let it go.</p><p class="q">Where does the Pour Over work best?</p><p class="a">At waterslide endings and along lazy riverbanks. It is listed for splash pads, aquatic play units and lazy rivers.</p><p class="q">What are the Pour Over’s dimensions and materials?</p><p class="a">It measures 96” x 16” x 133” and requires 10 GPM. The water chamber is plexiglass and the frame is laser-cut 304 stainless steel.</p></div>
+        <textarea class="src" hidden>How much water does the Pour Over release?
+About 11 gallons. Pulling the rope fills the clear cylinder on top, and kids lift the lever to let it go.
+
+Where does the Pour Over work best?
+At waterslide endings and along lazy riverbanks. It is listed for splash pads, aquatic play units and lazy rivers.
+
+What are the Pour Over’s dimensions and materials?
+It measures 96” x 16” x 133” and requires 10 GPM. The water chamber is plexiglass and the frame is laser-cut 304 stainless steel.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>Oh Chute <span class="muted">/products/water-play-features/water-play-features-oh-chute/</span></summary>
+        <div class="faq"><p class="q">How does the Oh Chute water wheel work?</p><p class="a">Water from the fill spout spins the wheel, which sends water cascading down in a circular pattern.</p><p class="q">How is the Oh Chute mounted?</p><p class="a">It mounts to a fiberglass I-beam and is usually placed as high as possible so guests can see it from a distance.</p><p class="q">What are the Oh Chute’s specifications?</p><p class="a">It measures 58” x 40” x 72” and requires 10 GPM. It has fiberglass water cups, a 304 stainless steel fill spout and a UHMW plastic bearing, and is listed for splash pads and aquatic play units.</p></div>
+        <textarea class="src" hidden>How does the Oh Chute water wheel work?
+Water from the fill spout spins the wheel, which sends water cascading down in a circular pattern.
+
+How is the Oh Chute mounted?
+It mounts to a fiberglass I-beam and is usually placed as high as possible so guests can see it from a distance.
+
+What are the Oh Chute’s specifications?
+It measures 58” x 40” x 72” and requires 10 GPM. It has fiberglass water cups, a 304 stainless steel fill spout and a UHMW plastic bearing, and is listed for splash pads and aquatic play units.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+      <details>
+        <summary>WhiteWash <span class="muted">/products/water-play-features/water-play-features-white-wash/</span></summary>
+        <div class="faq"><p class="q">What kind of spray does the WhiteWash make?</p><p class="a">It sprays like a shower head turned upside down, so kids get the feel of being caught in a rain shower.</p><p class="q">How do kids start the WhiteWash?</p><p class="a">They pull a rope, which releases a surge of water through the nozzle. The rope is premium double-braided polyester.</p><p class="q">What size is the WhiteWash and what flow does it need?</p><p class="a">The WhiteWash measures 12” x 12” x 63” and requires 5 GPM. It is listed for splash pads and aquatic play units.</p></div>
+        <textarea class="src" hidden>What kind of spray does the WhiteWash make?
+It sprays like a shower head turned upside down, so kids get the feel of being caught in a rain shower.
+
+How do kids start the WhiteWash?
+They pull a rope, which releases a surge of water through the nozzle. The rope is premium double-braided polyester.
+
+What size is the WhiteWash and what flow does it need?
+The WhiteWash measures 12” x 12” x 63” and requires 5 GPM. It is listed for splash pads and aquatic play units.</textarea>
+        <button class="copy copyall" type="button">Copy all three</button>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ EASYREC ============ -->
+  <section id="easyrec">
+    <div class="kicker">new.easyrecreation.com</div>
+    <h2>EasyRec</h2>
+
+    <div class="item">
+      <h3><span class="n">&#10003;</span>Already done on the new build</h3>
+      <div class="time">Nothing to do. All of it shows in the page revisions under Doble AI.</div>
+      <ul class="done-list" style="padding-left:24px;">
+        <li><strong>Hidden from Google while it is being built.</strong> Settings &rarr; Reading, "Discourage search engines" is now ticked. Untick it on launch day.</li><li><strong>Yoast SEO installed</strong>, the same plugin the other two sites use. The sitemap now works at <code>/sitemap_index.xml</code>.</li><li><strong>Meta descriptions</strong> on Home, ADA Easy Stair, Easy Stack Bench and Contact Us.</li><li><strong>Easy Bus Cube moved</strong> from <code>/elementor-1343/</code> to <code>/easy-bus-cube/</code>, the same address it has on the current site, so launch needs no redirect for it.</li>
+      </ul>
+    </div>
+
+    <div class="item top">
+      <h3><span class="n">1</span>Replace the leftover template text</h3>
+      <div class="time">Depends on the copy</div>
+      <p>The page kit the build started from was for a landscaping studio, and some of its text is
+         still visible:</p>
+      <ul>
+        <li><strong>Easy Bus Cube</strong>: the whole body is still "Garden Design &amp; Layout"
+            copy.</li>
+        <li><strong>Contact Us</strong>: the heading reads "Discuss Your Landscape Vision and Garden
+            Design Needs," with "we here to help" above it.</li>
+        <li><strong>ADA Easy Stair and Easy Stack Bench</strong>: the breadcrumb reads
+            "Homepage &gt; Services &gt; Service Detail."</li>
+        <li><strong>Products In Action</strong>: the page is empty apart from its title.</li>
+      </ul>
+      <p>The Easy Bus Cube copy on the current easyrecreation.com is a starting point. Once those
+         two pages carry real copy, we will write their meta descriptions.</p>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">2</span>The old site</h3>
+      <div class="time">Nothing today</div>
+      <p>easyrecreation.com is being replaced, so time spent on it now is time lost. The list
+         picks it back up at launch, when the old addresses need to land on the new pages.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUESTIONS ============ -->
+  <section id="questions">
+    <div class="kicker">When you have a minute</div>
+    <h2>Four questions</h2>
+    <div class="item">
+      <ol>
+        <li><strong>Thump Pump flow.</strong> Its spec table lists a flow requirement of 0 GPM.
+            Is that right, or is a number missing? The FAQ above leaves flow out until we know.</li>
+        <li><strong>One spelling.</strong> The site says "Interactive Play" in its settings,
+            "InterActive Play" in the homepage title and "InterActive Play Waterparks" in its
+            company record. Which one should all three use?</li>
+        <li><strong>The measuring form.</strong> When we rebuild it on the new EasyRec site, where
+            should submissions go?</li>
+        <li><strong>A third administrator.</strong> The new EasyRec build has an admin account
+            named "Crystal Nova" on a Gmail address. Do you know whose it is?</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="foot">
+    Prepared by Doble AI, 15 September 2026. Checked live that morning. If anything here is wrong,
+    tell us and we will fix the page.
+  </div>
+</div>
+
+<script>
+  function copyText(t, btn) {
+    const done = () => { const o = btn.textContent; btn.textContent = 'Copied'; btn.classList.add('done');
+      setTimeout(() => { btn.textContent = o; btn.classList.remove('done'); }, 1500); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(t).then(done, () => fallback(t, done));
+    } else { fallback(t, done); }
+  }
+  function fallback(t, done) {
+    const ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed';
+    ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) {} document.body.removeChild(ta);
+  }
+  document.querySelectorAll('.copyline button.copy').forEach(b =>
+    b.addEventListener('click', () => copyText(b.parentElement.querySelector('.txt').textContent.trim(), b)));
+  document.querySelectorAll('button.copyall').forEach(b =>
+    b.addEventListener('click', () => copyText(b.parentElement.querySelector('textarea.src').value, b)));
+</script>
+</body>
+</html>
