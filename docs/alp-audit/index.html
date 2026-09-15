@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alpine Bistro Website Scorecard</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+:root{
+  --ground:#F2EEE4; --surface:#FFFDF8; --sunk:#E8E1D2; --ink:#231F1A; --muted:#6B6258; --rule:#D9CFBE;
+  --accent:#9A5B2E; --accent-soft:#F1E1D2;
+  --good:#2F7A4B; --good-soft:#DCEFE2; --warn:#A8620A; --warn-soft:#F8E8CC; --ask:#3E5C8A; --ask-soft:#E1E8F3;
+  --display:"Playfair Display", Georgia, "Times New Roman", serif;
+  --body:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+    --accent:#E0A06C; --accent-soft:#3A2717;
+    --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+  --accent:#E0A06C; --accent-soft:#3A2717;
+  --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0;padding:48px 20px 72px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+.wrap > *, section > * {min-width:0}
+h1,h2,h3{font-family:var(--display);line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,5vw,2.75rem)}
+h2{font-size:1.6rem}
+h3{font-size:1.05rem;font-family:var(--body);font-weight:600}
+p{margin:0;max-width:66ch}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.draft{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;align-self:flex-start}
+.num{font-variant-numeric:tabular-nums}
+header{display:flex;flex-direction:column;gap:14px}
+header .meta{color:var(--muted);font-size:.95rem}
+
+.score{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.big{font-family:var(--display);font-size:5rem;line-height:1;font-weight:700}
+.big small{font-size:1.5rem;color:var(--muted);font-weight:600}
+.score .lede{display:flex;flex-direction:column;gap:10px}
+.groups{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-top:1px solid var(--rule);padding-top:20px}
+.g{display:flex;flex-direction:column;gap:6px}
+.g .label{font-size:.85rem;font-weight:600}
+.g .pts{font-size:.85rem;color:var(--muted)}
+.bar{height:6px;background:var(--sunk);border-radius:3px;overflow:hidden;display:flex}
+.bar i{display:block;height:100%;background:var(--accent)}
+.bar i.pend{background:var(--ask);opacity:.45}
+@media (max-width:620px){.score{grid-template-columns:1fr}.groups{grid-template-columns:repeat(2,1fr)}}
+
+section{display:flex;flex-direction:column;gap:18px}
+.intro{color:var(--muted)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.how div{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+.how strong{font-size:.95rem}
+@media (max-width:620px){.how{grid-template-columns:1fr}}
+
+.then{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--surface)}
+.then .col{padding:20px;display:flex;flex-direction:column;gap:10px}
+.then .col+.col{border-left:1px solid var(--rule)}
+.then ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+@media (max-width:620px){.then{grid-template-columns:1fr}.then .col+.col{border-left:0;border-top:1px solid var(--rule)}}
+
+.group{background:var(--surface);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.group-head{background:var(--sunk);padding:20px 24px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.group-head .q{color:var(--muted);font-size:.95rem;margin-top:4px}
+.group-head .tally{font-family:var(--display);font-size:1.8rem;font-weight:700;white-space:nowrap}
+.group-head .tally small{font-size:1rem;color:var(--muted)}
+.group-body{padding:8px 24px 20px}
+.row{display:grid;grid-template-columns:28px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:start}
+.row:last-child{border-bottom:0}
+.mark{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:2px}
+.ok .mark{background:var(--good-soft);color:var(--good)}
+.todo .mark{background:var(--warn-soft);color:var(--warn)}
+.check .mark{background:var(--ask-soft);color:var(--ask)}
+.row .t{display:flex;flex-direction:column;gap:4px}
+.row .t b{font-weight:600}
+.row .t span{color:var(--muted);font-size:.92rem}
+.row .fix{color:var(--ink);font-size:.92rem;background:var(--ground);border-radius:8px;padding:8px 12px;margin-top:6px}
+.row .p{font-size:.9rem;font-weight:600;white-space:nowrap;text-align:right}
+.todo .p{color:var(--warn)} .ok .p{color:var(--good)} .check .p{color:var(--ask)}
+@media (max-width:620px){.row{grid-template-columns:24px minmax(0,1fr) auto;gap:10px}.row .p{white-space:normal;max-width:4.5em}}
+code{overflow-wrap:anywhere}
+
+.table-wrap{overflow-x:auto;max-width:100%;min-width:0;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+td.r{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;color:var(--warn);white-space:nowrap}
+td.r.a{color:var(--ask)}
+tfoot td{font-weight:700;background:var(--sunk)}
+.chip{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:1px 8px;border-radius:999px;background:var(--ask-soft);color:var(--ask);margin-left:6px;vertical-align:2px}
+
+.aside{background:var(--surface);border:1px dashed var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.aside ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.sources{font-size:.9rem;color:var(--muted)}
+.sources ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--rule);padding-top:18px}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;word-break:break-word}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="draft">Draft for review</span>
+  <div class="eyebrow">Website audit · alpinebistrony.com</div>
+  <h1>Alpine Bistro</h1>
+  <p class="meta">Checked on the live site the morning of 15 September 2026, after Grace's last round of changes. Prepared by Doble AI.</p>
+</header>
+
+<div class="score">
+  <div class="big num">8.7<small> / 10</small></div>
+  <div class="lede">
+    <p><strong>Every item on the September to-do list that can be seen from outside is done, and the hours now read the same on the website, in its data, on the coffee site and on the Google profile, all seven days.</strong></p>
+    <p class="intro">Seven fixes worth 9 points are left, and five of them take a few minutes in WordPress. Another 4 points are waiting on a Bing screenshot and a closer look at the hours and contact details on Facebook and Instagram. They aren't counted until someone checks, and they aren't counted against the site either.</p>
+  </div>
+  <div class="groups">
+    <div class="g"><span class="label">Consistent</span><div class="bar"><i style="width:84%"></i><i class="pend" style="width:4%"></i></div><span class="pts num">21 of 25 · 1 pending</span></div>
+    <div class="g"><span class="label">Working</span><div class="bar"><i style="width:90%"></i></div><span class="pts num">18 of 20</span></div>
+    <div class="g"><span class="label">Findable</span><div class="bar"><i style="width:85%"></i><i class="pend" style="width:7.5%"></i></div><span class="pts num">34 of 40 · 3 pending</span></div>
+    <div class="g"><span class="label">Complete</span><div class="bar"><i style="width:93%"></i></div><span class="pts num">14 of 15</span></div>
+  </div>
+</div>
+
+<section>
+  <h2>How this score works</h2>
+  <div class="how">
+    <div><strong>Only the website counts</strong><span>Every point is something the person running the site can change. Star ratings and review counts are not scored.</span></div>
+    <div><strong>100 points, four groups</strong><span>Is the information the same everywhere? Does everything work? Can people find it? Does the site tell the whole story?</span></div>
+    <div><strong>A 10 is reachable</strong><span>Each missing point is named with its fix. Finish the list and the site scores 10.</span></div>
+  </div>
+  <p class="intro">This is a new, website-only scorecard, so its number isn't directly comparable to the 7.0 in the 11 September progress update, which also weighed the Google profile and reviews.</p>
+</section>
+
+<section>
+  <h2>Where we started</h2>
+  <p class="intro">The July audit was re-checked on 24 August. Work on the site began on 9 September. This morning's check found everything on the right in place.</p>
+  <div class="then">
+    <div class="col">
+      <div class="eyebrow">24 August to 9 September</div>
+      <ul>
+        <li>The site loaded at three addresses (http, www and https) as separate copies</li>
+        <li>Two blocks of structured data disagreed about the hours</li>
+        <li>25.9 MB of images, 13.3 MB on the event page alone</li>
+        <li>Insecure image references, including the header logo</li>
+        <li>Pinch-to-zoom blocked on phones</li>
+        <li>The About questions weren't marked up, and vegan and gluten-free weren't answered anywhere</li>
+        <li>No share image on five of the six pages</li>
+        <li>Two main headings on the event page, and a paragraph repeated on it</li>
+        <li>Author pages publishing login names</li>
+        <li>The coffee site had the wrong hours on all seven days, an in-house roasting claim and a trips offer with no way to book</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="eyebrow">15 September</div>
+      <ul>
+        <li>One address: everything forwards to https://alpinebistrony.com</li>
+        <li>Hours agree in the footer, the data on every page, the coffee site and Google</li>
+        <li>3.5 MB of images, 1.6 MB on the event page</li>
+        <li>Zero insecure references</li>
+        <li>Zoom works on every page</li>
+        <li>Eleven About questions marked up, word for word, including vegan and gluten-free</li>
+        <li>A share image on all six pages</li>
+        <li>One main heading per page, and the event paragraph appears once</li>
+        <li>Author pages forward to the homepage</li>
+        <li>The coffee site's hours, roasting line and trips offer are all corrected, and its old second phone number is gone</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Consistent</h2><p class="q">Does everyone see the same address, phone, hours, email and links, wherever they look?</p></div>
+      <div class="tally num">21<small> / 25</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Address, phone and email match</b><span>16 Washington Street and (716) 993-2478 match on every page, in the business record, on the coffee site and on the Google profile. The email doesn't: the website uses hello@alpinebistrony.com, while the coffee site's Location &amp; Hours block, headed Alpine Bistro, shows info@ellicottvillecoffee.com.</span><div class="fix">Decide which address guests should use for Alpine, then change the other one. The coffee site's block is edited in Square › Website.</div></div><div class="p num">5 / 6</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Hours match everywhere</b><span>Sunday through Thursday 8 AM to 4 PM, Friday 8 AM to 8 PM, Saturday 8 AM to 9 PM, in the footer of all six pages, in the data on every page, on the coffee site and on the Google profile, checked a day at a time.</span></div><div class="p num">8 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>The business record lists the restaurant's profiles</b><span>The record names Alpine Bistro correctly and lists the Facebook page. It doesn't list Instagram, @alpinebistrony.</span><div class="fix">In Rank Math's social profile settings, add https://www.instagram.com/alpinebistrony/.</div></div><div class="p num">3 / 4</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Online ordering matches the website</b><span>Every price that appears on both the Square order page and the website matches: all 19 of them, from the Hikers Grilled Cheese at $11.75 to the Mocha at $5.25 to $6.00. Three things differ. Square sells a "Breakfast Sandwich" that the Menu page calls the Egg &amp; Cheese Sandwich. Square describes the Caprese Chicken Sandwich with garlic aioli, where the website says pesto and a balsamic glaze. And Square lists an Iced Coffee and a plain Macchiato that the coffee menu doesn't.</span><div class="fix">Decide which name and which Caprese recipe are current, update the other side to match, and add Iced Coffee and Macchiato to the coffee menu if they're regular drinks.</div></div><div class="p num">3 / 4</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Facebook and Instagram profiles match the website</b><span>Facebook shows the right name, 16 Washington Street and links to alpinebistrony.com and the coffee site. Instagram, @alpinebistrony, links to the Square order page and tags the coffee account.</span></div><div class="p num">2 / 2</div></div>
+      <div class="row check"><div class="mark">?</div><div class="t"><b>Hours and contact details on Facebook and Instagram</b><span>Facebook's Contact info section and the hours behind Instagram's "more" weren't in the screenshots.</span><div class="fix">Screenshots of Facebook's About › Contact info and the Instagram bio with "more" opened.</div></div><div class="p num">1 pending</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Working</h2><p class="q">Does every link, image and screen do what a visitor expects?</p></div>
+      <div class="tally num">18<small> / 20</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>No broken links or missing images</b><span>All 79 links and images on the six pages load. Nothing is broken.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Social and ordering links</b><span>The Order and Shop links go to the right Square pages. But no page links to Facebook or Instagram at all, so a visitor on the website has no way to reach either.</span><div class="fix">Add Facebook and Instagram icons to the footer, which shows on every page.</div></div><div class="p num">2 / 4</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Displays correctly on a phone</b><span>All six pages measured at iPhone width (390 pixels): nothing runs off the screen.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>The phone number taps to call</b><span>The number is a tap-to-call link on every page.</span></div><div class="p num">2 / 2</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Every page has a share image</b><span>All six pages carry a photo from that page, sized so WhatsApp shows it too.</span></div><div class="p num">2 / 2</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Findable</h2><p class="q">Can Google, Bing and AI assistants read what Alpine is, where it is, and what it serves?</p></div>
+      <div class="tally num">34<small> / 40</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Sitemap lists only real pages</b><span>Home, Event, About, Menu, Bar and Ellicottville Coffee, and nothing else. It loads for browsers, Google and Bing, and robots.txt points to it.</span></div><div class="p num">8 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Open to search engines, with full previews</b><span>Nothing blocks search engines. But the homepage alone tells Google to show no more than 17 characters of text in its search result, which is shorter than the restaurant's name and tagline. Every other page allows a full preview.</span><div class="fix">Edit the homepage, open Rank Math › Advanced, and set Max Snippet back to -1 (no limit), matching the other five pages.</div></div><div class="p num">1 / 3</div></div>
+      <div class="row check"><div class="mark">?</div><div class="t"><b>Verified with Bing</b><span>Grace connected the site to Bing through Search Console on 14 September. That method leaves no tag on the page, so it can't be confirmed from outside.</span><div class="fix">A screenshot of Bing Webmaster Tools showing alpinebistrony.com, with the sitemap listed as submitted.</div></div><div class="p num">3 pending</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Titles, descriptions and headings</b><span>All six pages have their own title and description, and exactly one main heading.</span></div><div class="p num">8 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Restaurant business record</b><span>Address, phone, hours, price range and menu link are on every page. On five pages, though, the page-level Restaurant record takes the page's title as the restaurant's name, so search engines read names like "Book an Event | Private Parties &amp; Catering" and "Bar &amp; Cocktail Menu | Alpine Roots Bourbon Bar."</span><div class="fix">In Rank Math's Schema tab on Home, Event, Menu, Bar and Ellicottville Coffee, set the Restaurant name to Alpine Bistro.</div></div><div class="p num">7 / 8</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>FAQ markup on the About page</b><span>All eleven questions are marked up and match the page word for word, including the new vegan and gluten-free answer.</span></div><div class="p num">5 / 5</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Menu markup</b><span>All 28 dishes on the Menu page are marked up, and every name matches the page.</span></div><div class="p num">3 / 3</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Photo descriptions</b><span>Every image on all six pages has a description.</span></div><div class="p num">2 / 2</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Complete</h2><p class="q">Does the site tell the whole story a customer is looking for?</p></div>
+      <div class="tally num">14<small> / 15</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Food, bar and coffee menus with prices</b><span>Breakfast and lunch, the Alpine Roots bar list and the coffee menu are all written out, with prices.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>The story and everyday questions</b><span>About runs to about 700 words with eleven answered questions, and the other five pages now carry about 400 to 600 words each.</span></div><div class="p num">4 / 4</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Events and catering</b><span>The event page explains private parties and catering, with a contact form.</span></div><div class="p num">3 / 3</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>The site looks current</b><span>The footer on every page still reads "2025 © Alpine Bistro."</span><div class="fix">Update the year in the Divi footer, or switch it to show the current year automatically.</div></div><div class="p num">1 / 2</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The path to 10</h2>
+  <p class="intro">Everything still open, in three lists.</p>
+
+  <h3>1. Fix with a WordPress login <span class="chip">+7</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Fix</th><th>Where</th><th style="text-align:right">Points</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Set the homepage's Max Snippet back to -1</td><td>Home › Rank Math › Advanced</td><td class="r">+2</td></tr>
+        <tr><td>2</td><td>Add Facebook and Instagram icons to the footer</td><td>Divi footer</td><td class="r">+2</td></tr>
+        <tr><td>3</td><td>Add Instagram to the business record</td><td>Rank Math social profiles</td><td class="r">+1</td></tr>
+        <tr><td>4</td><td>Name the Restaurant record Alpine Bistro on five pages</td><td>Rank Math Schema tab</td><td class="r">+1</td></tr>
+        <tr><td>5</td><td>Update the footer year</td><td>Divi footer</td><td class="r">+1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2. Waiting on a decision <span class="chip">+2</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Fix</th><th>What we need</th><th style="text-align:right">Points</th></tr></thead>
+      <tbody>
+        <tr><td>6</td><td>One email address for Alpine</td><td>Which address guests should use, hello@alpinebistrony.com or info@ellicottvillecoffee.com, then change the other in Square or on the website</td><td class="r">+1</td></tr>
+        <tr><td>7</td><td>Square and the website agree on names and descriptions</td><td>Breakfast Sandwich or Egg &amp; Cheese Sandwich; which Caprese recipe is current; whether Iced Coffee and Macchiato belong on the coffee menu</td><td class="r">+1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3. Still to verify <span class="chip">up to +4</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>What to check</th><th>What we need</th><th style="text-align:right">Points</th></tr></thead>
+      <tbody>
+        <tr><td>8</td><td>Bing verification and sitemap</td><td>Screenshot of Bing Webmaster Tools showing alpinebistrony.com and the sitemap as submitted</td><td class="r a">+3</td></tr>
+        <tr><td>9</td><td>Hours and contact details on Facebook and Instagram</td><td>Screenshots of Facebook's About › Contact info and the Instagram bio with "more" opened</td><td class="r a">+1</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="3">From 87 to 100, when all three lists are done</td><td class="r">+13</td></tr></tfoot>
+    </table>
+  </div>
+</section>
+
+<section class="aside">
+  <h2>Beyond the website</h2>
+  <p>These don't count toward the score. They are still worth doing.</p>
+  <ul>
+    <li><strong>Analytics:</strong> no Google Analytics tag is on any page, so there's no record of how many people visit or which pages they use. Setting it up takes a few minutes once there's a Google Analytics property to connect.</li>
+    <li><strong>Search Console access:</strong> our reporting account can't read Alpine's Search Console yet. Adding ga4-reader@doble-ai-analytics.iam.gserviceaccount.com with Full permission would let us confirm how Google indexes each page and whether the sitemap was accepted.</li>
+    <li><strong>Google profile:</strong> 4.6 stars from 74 reviews, listed as a Bistro with the right address, phone, website and all seven days of hours.</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <h3>How we checked</h3>
+  <ul>
+    <li>All six pages in the sitemap fetched the morning of 15 September 2026, and all 79 links and images on them checked; each page measured at iPhone width in a real browser</li>
+    <li>Sitemap, robots.txt, redirects and author pages checked as a browser, as Googlebot and as Bingbot; FAQ and menu markup compared item by item with the visible page</li>
+    <li>ellicottvillecoffee.com rendered in a real browser to read its hours, and its page source read for the phone number, the roasting line and the trips offer</li>
+    <li>Google profile read from Google Maps, signed out, the same morning; Rank Math settings read from the site</li>
+    <li>Facebook, Instagram and the Square order page from screenshots taken between 6:15 and 6:17 am Mountain on 15 September, with every Square price compared to the Menu and Ellicottville Coffee pages</li>
+  </ul>
+</section>
+
+<footer>Doble AI · Alpine Bistro website audit · 15 September 2026</footer>
+</div>
+<!-- sentinel: alp-audit-v2-2026-09-15-screenshots-8.7 -->
+</body>
+</html>
