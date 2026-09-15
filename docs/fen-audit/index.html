@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fenimore's Website Scorecard</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+:root{
+  --ground:#F2EEE4; --surface:#FFFDF8; --sunk:#E8E1D2; --ink:#231F1A; --muted:#6B6258; --rule:#D9CFBE;
+  --accent:#C4502B; --accent-soft:#F7DED3;
+  --good:#2F7A4B; --good-soft:#DCEFE2; --warn:#A8620A; --warn-soft:#F8E8CC; --ask:#3E5C8A; --ask-soft:#E1E8F3;
+  --display:"Playfair Display", Georgia, "Times New Roman", serif;
+  --body:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+    --accent:#EE8A63; --accent-soft:#3D2418;
+    --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+  --accent:#EE8A63; --accent-soft:#3D2418;
+  --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0;padding:48px 20px 72px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+.wrap > *, section > * {min-width:0}
+h1,h2,h3{font-family:var(--display);line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,5vw,2.75rem)}
+h2{font-size:1.6rem}
+h3{font-size:1.05rem;font-family:var(--body);font-weight:600}
+p{margin:0;max-width:66ch}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.draft{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;align-self:flex-start}
+.num{font-variant-numeric:tabular-nums}
+header{display:flex;flex-direction:column;gap:14px}
+header .meta{color:var(--muted);font-size:.95rem}
+
+.score{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.big{font-family:var(--display);font-size:5rem;line-height:1;font-weight:700}
+.big small{font-size:1.5rem;color:var(--muted);font-weight:600}
+.score .lede{display:flex;flex-direction:column;gap:10px}
+.groups{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-top:1px solid var(--rule);padding-top:20px}
+.g{display:flex;flex-direction:column;gap:6px}
+.g .label{font-size:.85rem;font-weight:600}
+.g .pts{font-size:.85rem;color:var(--muted)}
+.bar{height:6px;background:var(--sunk);border-radius:3px;overflow:hidden;display:flex}
+.bar i{display:block;height:100%;background:var(--accent)}
+.bar i.pend{background:var(--ask);opacity:.45}
+@media (max-width:620px){.score{grid-template-columns:1fr}.groups{grid-template-columns:repeat(2,1fr)}}
+
+section{display:flex;flex-direction:column;gap:18px}
+.intro{color:var(--muted)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.how div{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+.how strong{font-size:.95rem}
+@media (max-width:620px){.how{grid-template-columns:1fr}}
+
+.then{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--surface)}
+.then .col{padding:20px;display:flex;flex-direction:column;gap:10px}
+.then .col+.col{border-left:1px solid var(--rule)}
+.then ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+@media (max-width:620px){.then{grid-template-columns:1fr}.then .col+.col{border-left:0;border-top:1px solid var(--rule)}}
+
+.group{background:var(--surface);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.group-head{background:var(--sunk);padding:20px 24px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.group-head .q{color:var(--muted);font-size:.95rem;margin-top:4px}
+.group-head .tally{font-family:var(--display);font-size:1.8rem;font-weight:700;white-space:nowrap}
+.group-head .tally small{font-size:1rem;color:var(--muted)}
+.group-body{padding:8px 24px 20px}
+.row{display:grid;grid-template-columns:28px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:start}
+.row:last-child{border-bottom:0}
+.mark{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:2px}
+.ok .mark{background:var(--good-soft);color:var(--good)}
+.todo .mark{background:var(--warn-soft);color:var(--warn)}
+.check .mark{background:var(--ask-soft);color:var(--ask)}
+.row .t{display:flex;flex-direction:column;gap:4px}
+.row .t b{font-weight:600}
+.row .t span{color:var(--muted);font-size:.92rem}
+.row .fix{color:var(--ink);font-size:.92rem;background:var(--ground);border-radius:8px;padding:8px 12px;margin-top:6px}
+.row .p{font-size:.9rem;font-weight:600;white-space:nowrap;text-align:right}
+.todo .p{color:var(--warn)} .ok .p{color:var(--good)} .check .p{color:var(--ask)}
+@media (max-width:620px){.row{grid-template-columns:24px minmax(0,1fr) auto;gap:10px}.row .p{white-space:normal;max-width:4.5em}}
+code{overflow-wrap:anywhere}
+
+.table-wrap{overflow-x:auto;max-width:100%;min-width:0;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+td.r{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;color:var(--warn);white-space:nowrap}
+td.r.a{color:var(--ask)}
+tfoot td{font-weight:700;background:var(--sunk)}
+
+.aside{background:var(--surface);border:1px dashed var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.aside ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.sources{font-size:.9rem;color:var(--muted)}
+.sources ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--rule);padding-top:18px}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;word-break:break-word}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="draft">Draft for review</span>
+  <div class="eyebrow">Website audit · fenimorestable.com</div>
+  <h1>Fenimore's Table</h1>
+  <p class="meta">Checked on the live site the evening of 14 September 2026. Prepared by Doble AI.</p>
+</header>
+
+<div class="score">
+  <div class="big num">6.8<small> / 10</small></div>
+  <div class="lede">
+    <p><strong>In July, search engines couldn't read anything about this restaurant. Now every page states its hours and address, and all 85 dishes on the lunch, dinner and breakfast menus carry their prices in a form Google and AI assistants can quote.</strong></p>
+    <p class="intro">Eight fixes worth 17 points need only a WordPress login. Six more wait on the team, including Facebook and the Happy Hour post. Another 4 points are waiting on a Toast check and one answer from the kitchen. They aren't counted until someone checks, and they aren't counted against the site either.</p>
+  </div>
+  <div class="groups">
+    <div class="g"><span class="label">Consistent</span><div class="bar"><i style="width:52%"></i><i class="pend" style="width:16%"></i></div><span class="pts num">13 of 25 · 4 pending</span></div>
+    <div class="g"><span class="label">Working</span><div class="bar"><i style="width:75%"></i></div><span class="pts num">15 of 20</span></div>
+    <div class="g"><span class="label">Findable</span><div class="bar"><i style="width:80%"></i></div><span class="pts num">32 of 40</span></div>
+    <div class="g"><span class="label">Complete</span><div class="bar"><i style="width:53%"></i></div><span class="pts num">8 of 15</span></div>
+  </div>
+</div>
+
+<section>
+  <h2>How this score works</h2>
+  <div class="how">
+    <div><strong>Only the website counts</strong><span>Every point is something the person running the site can change. Star ratings and review counts are not scored.</span></div>
+    <div><strong>100 points, four groups</strong><span>Is the information the same everywhere? Does everything work? Can people find it? Does the site tell the whole story?</span></div>
+    <div><strong>A 10 is reachable</strong><span>Each missing point is named with its fix. Finish the list and the site scores 10.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Where we started</h2>
+  <p class="intro">Our July audit scored the whole online presence at 4.5, and it was re-checked unchanged on 24 August. Work on the site began on 9 September. Tonight's check found everything on the right fixed.</p>
+  <div class="then">
+    <div class="col">
+      <div class="eyebrow">24 August</div>
+      <ul>
+        <li>No page descriptions, and no information search engines read about the restaurant</li>
+        <li>No share cards, so links posted as a bare address</li>
+        <li>Seven of eight homepage photos with no description</li>
+        <li>Pinch-to-zoom blocked on every page, so nobody could enlarge the menu</li>
+        <li>The sitemap listed in robots.txt didn't load</li>
+        <li>Three main headings on the menu page</li>
+        <li>About 6 MB of PNG photos on the homepage</li>
+        <li>Homepage and Contact contradicting the footer on Tuesday and Wednesday hours</li>
+        <li>No private events page and no analytics</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="eyebrow">14 September</div>
+      <ul>
+        <li>Every page has its own title and description, plus a Restaurant record with address, phone and hours</li>
+        <li>Share cards with an image on five of the six pages</li>
+        <li>Every food photo on the homepage is described</li>
+        <li>Zoom works on every page</li>
+        <li>The sitemap loads and lists the six real pages</li>
+        <li>One main heading on the menu page</li>
+        <li>Homepage photos converted to WebP, a much lighter format</li>
+        <li>Hours agree across every page and the Google profile</li>
+        <li>Private events page live with nine questions marked up, and Google Analytics on every page</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Consistent</h2><p class="q">Does everyone see the same address, phone, hours, prices and links, wherever they look?</p></div>
+      <div class="tally num">13<small> / 25</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Address, phone and email match</b><span>The website, the Restaurant record and the Google profile all give 4874 State Highway 28, (607) 547-2767 and restaurant@cooperstownexperience.com.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Hours match everywhere, except one hidden record</b><span>Every page shows Tuesday and Wednesday 6:30 AM to 4 PM, Thursday to Monday 6:30 AM to 9 PM, and the site-wide Restaurant record says the same. Google agrees. But the homepage and the Breakfast page each carry a second Restaurant record, added in Rank Math, that says the restaurant opens at 9 AM and closes at 5 PM. A search engine or AI assistant reading those two pages gets both answers. Separately, the pinned post at the top of Instagram advertises Happy Hour Wednesday to Saturday, 4 to 6 PM, when the website and Google say the dining room closes at 4 PM on Wednesday.</span><div class="fix">Edit Home and Breakfast in WordPress, open Rank Math's Schema tab, and delete the Restaurant schema on each page. The site-wide record already has the right hours. Then confirm whether Happy Hour runs on Wednesday: if Wednesday still closes at 4 PM, change the pinned post; if the hours have changed, update the website and Google to match.</div></div><div class="p num">4 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>The business record names the restaurant correctly and lists its profiles</b><span>The record on every page gives the restaurant's legal name as "Admin-fenimore," which is the WordPress login name. It lists the Facebook page but not Instagram.</span><div class="fix">In Rank Math's Local SEO settings, replace "Admin-fenimore" with the restaurant's legal name, and add instagram.com/fenimorestable/ to the social profiles.</div></div><div class="p num">1 / 4</div></div>
+      <div class="row check"><div class="mark">?</div><div class="t"><b>Salad add-on prices</b><span>Under Lunch, adding protein to a salad costs Chicken $6, Salmon $8, Steak $9, matching the 9-8 lunch card. Under Dinner, it's Grilled Chicken $7, Grilled Steak $10, Grilled Salmon $10. If dinner is priced higher on purpose, this is fine as it stands.</span><div class="fix">Katie or Tammy to confirm the dinner add-on prices. If they should match lunch, change the dinner line.</div></div><div class="p num">3 pending</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Facebook matches the website</b><span>The phone, (607) 547-2767, the link to fenimorestable.com and the Instagram link all match. But the page lists no hours and no email, and no section shown gives a street address. The category is "Food &amp; Drink" rather than Restaurant, and the "Website" field under Contact info points to the Toast ordering page instead of the website.</span><div class="fix">In the Facebook page settings, add the hours (Tuesday and Wednesday 6:30 AM to 4 PM, Thursday to Monday 6:30 AM to 9 PM), add restaurant@cooperstownexperience.com, change the category to Restaurant, and set Website to fenimorestable.com. Toast can stay as the Order button.</div></div><div class="p num">1 / 2</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Instagram matches the website</b><span>Listed as a Restaurant in Cooperstown, NY, with the address 4874 NY-28. The pinned Happy Hour post is covered under hours above.</span></div><div class="p num">1 / 1</div></div>
+      <div class="row check"><div class="mark">?</div><div class="t"><b>Toast matches the website</b><span>Breakfast checked: Toast has the same address and the 6:30 AM opening, and all 11 breakfast prices we could compare match the Breakfast page. Two descriptions differ slightly: Toast's Southwest Sunrise has sun-dried tomato where the website says vine-ripened tomato, and Toast lists Home Fries ($4) and Eggs ($3), which the Breakfast page doesn't. Lunch and dinner weren't showing: the screenshots were taken after closing, when Toast shows only the next morning's menu.</span><div class="fix">Screenshots of the Toast lunch and dinner menus, taken after 11 AM Eastern for lunch and after 4 PM Thursday to Monday for dinner.</div></div><div class="p num">1 pending</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Working</h2><p class="q">Does every link, image and screen do what a visitor expects?</p></div>
+      <div class="tally num">15<small> / 20</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>No broken links or missing images</b><span>We checked all 31 links and images on the site, and one is broken. On the Contact page, the email address is linked to <code>mailto#</code> instead of the address itself. Tapping it opens a "page not found" instead of an email.</span><div class="fix">On the Contact page, change the link to <code>mailto:restaurant@cooperstownexperience.com</code>.</div></div><div class="p num">4 / 6</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Social, ordering and reservation links work</b><span>Facebook and Instagram open the right pages. Online Order and Reserve a Table go to Fenimore's own Toast pages, the same ones the Google profile uses.</span></div><div class="p num">4 / 4</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Displays correctly on a phone</b><span>All six pages measured at iPhone width (390 pixels): nothing runs off the screen.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>The phone number taps to call</b><span>On five of the six pages the phone number is plain text, so someone on a phone has to copy it. Only Private Events has a tap-to-call button.</span><div class="fix">In the Divi footer and on the Contact page, link the number to <code>tel:+16075472767</code>.</div></div><div class="p num">0 / 2</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Every page has a share image</b><span>Five pages do. A link to Private Events posts with no picture.</span><div class="fix">Set one of Bob's room photos as the Private Events share image when they arrive.</div></div><div class="p num">1 / 2</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Findable</h2><p class="q">Can Google, Bing and AI assistants read what the restaurant is, where it is, and what it serves?</p></div>
+      <div class="tally num">32<small> / 40</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Sitemap lists only real pages</b><span>Home, Menu, Breakfast, Drinks, Contact Us and Private Events, and nothing else. robots.txt points to it.</span></div><div class="p num">8 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Open to search engines, verified with Google and Bing</b><span>Nothing blocks search engines, and the Google Search Console verification tag is live. There's no Bing verification on the site. Bing's index feeds ChatGPT search, Copilot and DuckDuckGo.</span><div class="fix">Add the site to Bing Webmaster Tools. Once Search Console access is sorted, Bing can import it from there in one step. If it was already verified some other way, this row is done.</div></div><div class="p num">3 / 6</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Titles, descriptions and headings</b><span>All six pages have their own title and description, and five have exactly one main heading. Private Events has two: the page title and "Plan your event" near the bottom.</span><div class="fix">On Private Events, change "Plan your event" from a main heading to a section heading.</div></div><div class="p num">7 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Restaurant business record</b><span>Address, map location, hours and price band are on every page. Two things are off. The phone is written "1 (607) 547-2767," which isn't a format machines read reliably. And Menu, Drinks, Contact and Private Events are marked up as blog articles, with "Admin-fenimore" and "dobleai" as their authors.</span><div class="fix">In Rank Math, write the phone as +1-607-547-2767, and under Titles &amp; Meta › Pages set the schema type to None so pages stop presenting as articles.</div></div><div class="p num">6 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Questions guests actually ask</b><span>The nine questions on Private Events are marked up and match the page word for word. Nothing answers the everyday questions a diner or a tournament family asks before driving over: whether to reserve, parking, kids, gluten-free, big groups after a game. None of those words appear anywhere on the other five pages.</span><div class="fix">Add six to eight of those questions to the Contact page, with answers from the team, and mark them up the same way the Private Events questions are.</div></div><div class="p num">3 / 5</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Menu markup</b><span>48 lunch and dinner dishes on the Menu page and 37 breakfast items on the Breakfast page, every one matching the page.</span></div><div class="p num">3 / 3</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Photo descriptions</b><span>All six homepage food photos and the Private Events photo are described. Divi keeps its own description field on each image, separate from the Media Library, and these are now filled in on the page itself.</span></div><div class="p num">2 / 2</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Complete</h2><p class="q">Does the site tell the whole story a customer is looking for?</p></div>
+      <div class="tally num">8<small> / 15</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Menus, drinks, hours and contact</b><span>Breakfast, lunch, dinner, kids and dessert with prices, the drinks list, and hours for each service.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Private events</b><span>The page is live, with three packages, the Celebration Brunch and nine answered questions. It isn't in the main menu, so the only way in is the homepage button. It has no photos and no prices yet.</span><div class="fix">Add Private Events to the main menu now (Appearance › Menus). Add photos when Bob sends them, and "starting at" prices when Katie finishes costing.</div></div><div class="p num">2 / 5</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Weekly specials</b><span>The menu says specials change weekly. Bob's ads run Chicken Riggies on Thursday, Fish Fry on Friday and Prime Rib on Saturday, and none of them is named on the site.</span><div class="fix">Once Bob and Katie confirm them as standing specials, list each with its night and price on the Menu page.</div></div><div class="p num">0 / 2</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Sunday brunch</b><span>Bob's ads promote Sunday brunch, and a recent Google review calls it "a hit." The site never mentions brunch outside Private Events. Shelley says brunch is the breakfast menu for now.</span><div class="fix">Once the hours and drink prices are settled, add Sunday brunch to the Breakfast page, or give it a page of its own.</div></div><div class="p num">0 / 2</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The path to 10</h2>
+  <p class="intro">Everything still open, in three lists. The first needs only a WordPress login. The second waits on answers from the team. The third is what still has to be checked before the score is final.</p>
+
+  <h3>1. Fix now: needs only a WordPress login <span class="chip">+17</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Fix</th><th>Where</th><th style="text-align:right">Points</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Delete the page-level Restaurant record that says 9 AM to 5 PM</td><td>Rank Math Schema tab on Home and on Breakfast</td><td class="r">+3</td></tr>
+        <tr><td>2</td><td>Replace the legal name "Admin-fenimore" and add Instagram to the social profiles</td><td>Rank Math › Local SEO</td><td class="r">+3</td></tr>
+        <tr><td>3</td><td>Verify the site with Bing</td><td>Bing Webmaster Tools</td><td class="r">+3</td></tr>
+        <tr><td>4</td><td>Change the email link from <code>mailto#</code> to the real address</td><td>Contact page</td><td class="r">+2</td></tr>
+        <tr><td>5</td><td>Make the phone number tap to call</td><td>Divi footer and Contact page</td><td class="r">+2</td></tr>
+        <tr><td>6</td><td>Write the phone as +1-607-547-2767 and stop pages presenting as blog articles</td><td>Rank Math › Titles &amp; Meta</td><td class="r">+2</td></tr>
+        <tr><td>7</td><td>Change "Plan your event" to a section heading</td><td>Private Events</td><td class="r">+1</td></tr>
+        <tr><td>8</td><td>Add Private Events to the main menu</td><td>Appearance › Menus</td><td class="r">+1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2. Waiting on the team <span class="chip">up to +14</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Fix</th><th>What we need, and from whom</th><th style="text-align:right">Points</th></tr></thead>
+      <tbody>
+        <tr><td>9</td><td>Everyday questions and answers on the Contact page, with markup</td><td>Answers on reservations, parking, kids, gluten-free and big groups after a game. Bob or Shelley</td><td class="r">+2</td></tr>
+        <tr><td>10</td><td>Name the weekly specials on the Menu page</td><td>Confirm Chicken Riggies, Fish Fry and Prime Rib as standing specials, with nights and prices. Bob and Katie</td><td class="r">+2</td></tr>
+        <tr><td>11</td><td>Sunday brunch on the site</td><td>Brunch hours and the mimosa and Bloody Mary prices. Bob and Shelley</td><td class="r">+2</td></tr>
+        <tr><td>12</td><td>Room photos, "starting at" prices and a share image on Private Events</td><td>Six to ten photos of the room set for an event from Bob; package pricing from Katie</td><td class="r">+3</td></tr>
+        <tr><td>13</td><td>Dinner salad add-on prices</td><td>Whether $7, $10, $10 under Dinner is deliberate or should match lunch. Katie or Tammy</td><td class="r a">up to +3</td></tr>
+        <tr><td>14</td><td>Facebook: hours, email, category Restaurant, Website set to fenimorestable.com</td><td>Anyone with admin access to the Facebook page. Shelley, Katie, Brooks or Bob</td><td class="r">+1</td></tr>
+        <tr><td>15</td><td>Happy Hour and Wednesday hours agree</td><td>Whether Happy Hour runs Wednesday 4 to 6 PM when the dining room closes at 4. Then fix the pinned Instagram post, or the hours. Bob and Shelley</td><td class="r">+1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>3. Still to verify</h3>
+  <p class="intro">These can't be checked from outside, so they need screenshots or someone's login. Nothing here changes the site.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>What to check</th><th>What we need</th><th style="text-align:right">Points</th></tr></thead>
+      <tbody>
+        <tr><td>16</td><td>Toast lunch and dinner match the website</td><td>Screenshots of the Toast menu after 11 AM Eastern (lunch) and after 4 PM Thursday to Monday (dinner). Breakfast already matches</td><td class="r a">+1</td></tr>
+        <tr><td>17</td><td>Facebook address and map pin</td><td>Screenshot of the Facebook About › Details section scrolled down, so the address text under the map shows. The Facebook pin appears to sit in the village near the Hall of Fame, not on Route 28. Google's pin is correct</td><td class="r a">confirms fix 14</td></tr>
+        <tr><td>18</td><td>Google shows the right hours all week</td><td>Screenshot of the Google profile after clicking "See more hours" (the arrow beside Closed), plus the About tab to see whether outdoor seating is listed</td><td class="r a">confirms a scored row</td></tr>
+        <tr><td>19</td><td>Bing isn't already verified another way</td><td>Whoever has Bing Webmaster Tools checks whether fenimorestable.com is listed. If it is, fix 3 is done</td><td class="r a">confirms fix 3</td></tr>
+        <tr><td>20</td><td>Search Console access and analytics data</td><td>Grace confirms our reporting account is on Search Console at Full; we confirm Google Analytics is receiving visits</td><td class="r a">not scored</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="3">From 68 to 100, when all three lists are done</td><td class="r">+32</td></tr></tfoot>
+    </table>
+  </div>
+</section>
+
+<section class="aside">
+  <h2>Beyond the website</h2>
+  <p>These live on other platforms, so they don't count toward the score. They are still worth a look.</p>
+  <ul>
+    <li><strong>Google profile:</strong> 4.1 stars from 59 reviews, listed as a Restaurant with the right address, phone and website, and managed by the owner. The Monday and Tuesday hours Google shows match the site. The owner's post from three days ago promotes breakfast and online ordering.</li>
+    <li><strong>The patio:</strong> it's what takes an event from 95 guests to 140, and it's mentioned only on Private Events. If the Google profile doesn't list outdoor seating, it's worth adding.</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <h3>How we checked</h3>
+  <ul>
+    <li>All six pages in the sitemap fetched the evening of 14 September 2026, and all 31 links and images on them checked; each page measured at iPhone width in a real browser</li>
+    <li>Sitemap, robots.txt, redirects and page code read directly from the live site; menu and FAQ markup compared item by item with the visible page</li>
+    <li>Google profile read from Google Maps, signed out, the evening of 14 September</li>
+    <li>Facebook and Instagram from screenshots taken at 6:59 pm Mountain on 14 September; Toast breakfast menu at 7:00 pm and the Google profile at 7:02 pm, both after closing in Cooperstown; Toast lunch and dinner not yet checked</li>
+  </ul>
+</section>
+
+<footer>Doble AI · Fenimore's Table website audit · 14 September 2026</footer>
+</div>
+<!-- sentinel: fen-audit-v3-2026-09-14-ig-toast -->
+</body>
+</html>
