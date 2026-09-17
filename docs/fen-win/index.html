@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cooperstown Winter Plan</title>
+<meta name="description" content="Two objectives for Cooperstown this winter: send Clubhouse traffic to Fenimore's and its events, and get the Clubhouse ready for spring.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❄️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+:root{
+  --ground:#F2EEE4; --surface:#FFFDF8; --sunk:#E8E1D2; --ink:#231F1A; --muted:#6B6258; --rule:#D9CFBE;
+  --accent:#C4502B; --accent-soft:#F7DED3;
+  --good:#2F7A4B; --good-soft:#DCEFE2; --warn:#A8620A; --warn-soft:#F8E8CC; --ask:#3E5C8A; --ask-soft:#E1E8F3;
+  --display:"Playfair Display", Georgia, "Times New Roman", serif;
+  --body:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+    --accent:#EE8A63; --accent-soft:#3D2418;
+    --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+  --accent:#EE8A63; --accent-soft:#3D2418;
+  --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0;padding:48px 16px 72px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+.wrap > *, section > * {min-width:0}
+h1,h2,h3{font-family:var(--display);line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,5vw,2.75rem)}
+h2{font-size:1.6rem}
+h3{font-size:1.05rem;font-family:var(--body);font-weight:600}
+p{margin:0;max-width:66ch}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+header{display:flex;flex-direction:column;gap:14px}
+header .meta{color:var(--muted);font-size:.95rem}
+section{display:flex;flex-direction:column;gap:18px}
+.intro{color:var(--muted)}
+
+.lede{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--accent);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.lede p{font-size:1.05rem}
+
+.goals{display:flex;flex-direction:column;gap:14px;counter-reset:g}
+.goal{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:20px 22px 20px 64px;position:relative;display:flex;flex-direction:column;gap:8px}
+.goal::before{counter-increment:g;content:counter(g);position:absolute;left:20px;top:18px;width:30px;height:30px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center;font-size:.95rem}
+.goal .now{font-size:.92rem;color:var(--muted)}
+.goal .now b{color:var(--ink);font-weight:600}
+
+.phases{display:flex;flex-direction:column;border:1px solid var(--rule);border-radius:14px;overflow:hidden;background:var(--surface)}
+.phase{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid var(--rule)}
+.phase:last-child{border-bottom:0}
+.phase .when{background:var(--sunk);padding:18px 20px;display:flex;flex-direction:column;gap:4px}
+.phase .when b{font-family:var(--display);font-size:1.15rem}
+.phase .when span{font-size:.85rem;color:var(--muted)}
+.phase ul{margin:0;padding:18px 22px 18px 38px;display:flex;flex-direction:column;gap:8px;font-size:.95rem}
+.tag{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:1px 8px;border-radius:999px;margin-right:6px;vertical-align:1px;white-space:nowrap}
+.tag.site{background:var(--ask-soft);color:var(--ask)}
+.tag.goog{background:var(--good-soft);color:var(--good)}
+.tag.ops{background:var(--warn-soft);color:var(--warn)}
+.tag.us{background:var(--accent-soft);color:var(--accent)}
+@media (max-width:620px){.phase{grid-template-columns:1fr}.phase ul{padding-left:34px}}
+
+
+.then{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--surface)}
+.then .col{padding:20px;display:flex;flex-direction:column;gap:10px}
+.then .col+.col{border-left:1px solid var(--rule)}
+.then ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+@media (max-width:620px){.then{grid-template-columns:1fr}.then .col+.col{border-left:0;border-top:1px solid var(--rule)}}
+
+.table-wrap{overflow-x:auto;max-width:100%;min-width:0;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+@media (max-width:620px){table{min-width:0}th,td{padding:10px 12px}}
+
+details{background:var(--surface);border:1px solid var(--rule);border-radius:12px}
+details + details{margin-top:-6px}
+summary{cursor:pointer;padding:16px 20px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:700}
+details[open] summary::after{content:"−"}
+details .body{padding:0 20px 20px;display:flex;flex-direction:column;gap:12px}
+.label{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.copy{background:var(--ground);border-left:3px solid var(--accent);border-radius:6px;padding:12px 16px;font-size:.95rem;white-space:pre-line}
+.note{font-size:.88rem;color:var(--muted)}
+
+footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--rule);padding-top:18px}
+a{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Winter plan · Fenimore's Table and Cooperstown Clubhouse</div>
+  <h1>Cooperstown this winter: two objectives</h1>
+  <p class="meta">Prepared 17 September 2026 by Doble AI, from both websites as they read that morning. Nothing on either site has been changed yet.</p>
+</header>
+
+<div class="lede">
+  <p><strong>The Clubhouse has closed for the season, and Fenimore's is open all year. So for the next six months, the digital work in Cooperstown has two jobs: use the quiet months to get the Clubhouse ready for a strong spring opening, and, more important right now, send every search, click and call that still reaches the Clubhouse over to Fenimore's and its events.</strong></p>
+</div>
+
+<section>
+  <h2>Why this, and why right now</h2>
+  <div class="goals">
+    <div class="goal">
+      <h3>The Clubhouse still gets found while it's closed</h3>
+      <p>People keep searching for it, calling it and landing on its website over the winter. Right now all of that ends at a closed door with no next step. Fenimore's, also on Route 28, has the same owners, the same culinary director and the same inbox, so each of those people could become a Fenimore's guest instead.</p>
+    </div>
+    <div class="goal">
+      <h3>Fenimore's events push has just started, and holiday parties book in the fall</h3>
+      <p>The Private Events page and its inquiry form went live on 15 September. On the 14 September call the team said pre-booking for holiday parties is already running late. Group and team parties are what the Clubhouse is known for, so its audience is a good fit for Fenimore's events.</p>
+    </div>
+    <div class="goal">
+      <h3>The site says two different things</h3>
+      <p>The Clubhouse homepage says "Closed for the season", but the footer on every page still lists Monday to Sunday, 11:00 AM to 9:00 PM, and the Activities page says "Arcade Now Open!" A guest who believes the hours, drives out and finds it closed is the kind of guest who leaves a bad review, and that review stays on the listing into spring.</p>
+    </div>
+    <div class="goal">
+      <h3>A deadline in December</h3>
+      <p>The old <code>rookiescrafthouseny.com</code> domain expires on <b>19 December 2026</b>. The Clubhouse site still loads 21 of its images from it, and its "Order Online" and "Book Team Party" buttons point there. If it lapses, those images and links break mid-winter, when nobody is watching the site.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Objective 1 · Get the Clubhouse ready for spring</h2>
+  <p class="intro">What its website looks like today, checked 17 September, and what we'd fix over the winter so it opens strong. Winter is the one time these changes can't disrupt a busy season.</p>
+  <div class="then">
+    <div class="col">
+      <h3>Where it stands</h3>
+      <ul>
+        <li>Open hours in the footer while the homepage says closed</li>
+        <li>21 images and several buttons still depend on the old Rookie's domain, which expires 19 December</li>
+        <li>Leftover Rookie's Craft House wording on the Activities page, and a Contact page email icon that opens <code>rookies4850@gmail.com</code></li>
+        <li>The Contact page's tap-to-call dials Fenimore's number while showing the Clubhouse's</li>
+        <li>No description for Google on the homepage, no business details Google can read, and no Google Analytics tag in the page code</li>
+        <li>14 of 15 homepage images have no description for screen readers or Google, and the site blocks zooming on phones</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>What we'd do before spring</h3>
+      <ul>
+        <li>Renew the old domain, keep it forwarding, and move the 21 images onto the Clubhouse's own domain</li>
+        <li>Make every old Rookie's address forward to its matching Clubhouse page</li>
+        <li>Finish the Rookie's cleanup: wording, email icon, phone link</li>
+        <li>Add the restaurant's details in the format Google reads, as Fenimore's now has, plus page descriptions and image descriptions</li>
+        <li>Install analytics before reopening, so spring traffic can be measured from day one</li>
+        <li>Write a team-party questions-and-answers section for the Teams page, the questions coaches ask before booking</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Objective 2 · Send winter traffic to Fenimore's and its events</h2>
+  <p class="intro">This is the bigger of the two for the next few months. Fenimore's is open this winter and the Clubhouse isn't, so every place people still reach the Clubhouse should point them to Fenimore's.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Where people reach the Clubhouse</th><th>What it should do this winter</th></tr></thead>
+      <tbody>
+        <tr><td><b>Website</b></td><td>Homepage says closed until spring and has a "Visit Fenimore's Table" button. The Teams page and "Book Team Party" button go to Fenimore's Private Events page. The footer on every page carries Fenimore's address, phone and hours.</td></tr>
+        <tr><td><b>Google listing</b></td><td>One post pointing to Fenimore's, then mark the listing "Temporarily closed". Its reviews and photos stay, and it switches back in spring.</td></tr>
+        <tr><td><b>Phone, (607) 486-1483</b></td><td>Forward to Fenimore's if the carrier allows it. If not, a voicemail that gives Fenimore's number twice.</td></tr>
+        <tr><td><b>Email</b></td><td>An auto-reply that works for both restaurants, since Fenimore's guests and event inquiries use the same inbox.</td></tr>
+        <tr><td><b>Facebook and Instagram</b></td><td>A bio line and a pinned post pointing to Fenimore's. Share Fenimore's event posts here through the winter.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:8px">Is this a chance to promote events? Yes.</h3>
+  <p>The Clubhouse built its name on group and team parties, from 30 to 250 people. The people who look it up are often planning exactly the kind of gathering Fenimore's now wants to host, so the winter message should lead with events rather than only "we're closed":</p>
+  <div class="then">
+    <div class="col">
+      <h3>What to promote</h3>
+      <ul>
+        <li>Holiday parties, which book now</li>
+        <li>Team dinners and end-of-season banquets, which the Clubhouse Teams page already invites</li>
+        <li>Rehearsal dinners, showers, birthdays and work gatherings</li>
+        <li>One link for all of them: <a href="https://www.fenimorestable.com/private-events/">fenimorestable.com/private-events</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Limits to be honest about</h3>
+      <ul>
+        <li>Fenimore's seats 95 indoors. The Clubhouse's larger groups used the patio and the tent, so they won't fit in winter.</li>
+        <li>Package prices aren't final yet, so the message asks people to send an inquiry rather than quoting prices.</li>
+        <li>Whether a team can walk in after a game is still an open question, so the copy says "plan ahead" for now.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The timeline</h2>
+  <p class="intro">The reopening date isn't set yet, so everything here says "spring 2027" until it is.</p>
+  <div class="phases">
+    <div class="phase">
+      <div class="when"><b>This week</b><span>By 24 September</span></div>
+      <ul>
+        <li><span class="tag site">Website</span>Clubhouse homepage, footer, Teams and Activities wording; buttons pointed at Fenimore's.</li>
+        <li><span class="tag goog">Google</span>Clubhouse listing: post, then mark Temporarily closed. Write down its calls and clicks first.</li>
+        <li><span class="tag ops">Phone</span>Forward or voicemail. Email auto-reply.</li>
+        <li><span class="tag goog">Social</span>Clubhouse bio line and pinned post.</li>
+        <li><span class="tag us">Doble AI</span>Fenimore's footer line about its sister restaurant, then check every change on the live sites.</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="when"><b>October to November</b><span>Holiday party booking</span></div>
+      <ul>
+        <li><span class="tag goog">Social</span>Holiday parties and team banquets become the regular winter message on both restaurants' accounts, with real photos of the room.</li>
+        <li><span class="tag goog">Google</span>Holiday party post on Fenimore's own Google listing.</li>
+        <li><span class="tag goog">Listings</span>Yelp (last seen under the Rookie's Craft House name), Apple Maps and Bing: mark the Clubhouse closed for the season. Don't delete anything.</li>
+        <li><span class="tag site">Website</span>Old Rookie's addresses forward page by page.</li>
+        <li><span class="tag us">Doble AI</span>First monthly read on the numbers below.</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="when"><b>December</b><span>Before the 19th</span></div>
+      <ul>
+        <li><span class="tag ops">Owner</span>Renew <code>rookiescrafthouseny.com</code>.</li>
+        <li><span class="tag site">Website</span>Move the 21 images onto the Clubhouse domain.</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="when"><b>January to March</b><span>Quiet months</span></div>
+      <ul>
+        <li><span class="tag site">Website</span>The rest of the spring list: Rookie's cleanup, Google-readable business details, descriptions, analytics, team-party questions and answers.</li>
+        <li><span class="tag ops">Owner</span>Set the reopening date and spring hours.</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <div class="when"><b>Spring 2027</b><span>Reopening week</span></div>
+      <ul>
+        <li><span class="tag goog">Google</span>Mark the listing open, set spring hours, put the regular description back.</li>
+        <li><span class="tag site">Website</span>Replace every closed message, including Fenimore's footer line.</li>
+        <li><span class="tag ops">Phone</span>Remove the forward or voicemail, the auto-reply and the social bio lines.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>How we'll know it's working</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>What to watch</th><th>Where it shows</th><th>Starting point</th></tr></thead>
+      <tbody>
+        <tr><td>Private Events inquiries</td><td>Fenimore's website form, delivered to the restaurant inbox</td><td>Form live since 15 September</td></tr>
+        <tr><td>Visits to fenimorestable.com that came from the Clubhouse site</td><td>Fenimore's Google Analytics, which Doble AI can read</td><td>Zero, because the Clubhouse site doesn't link to Fenimore's today</td></tr>
+        <tr><td>Calls, website clicks and direction requests on the Clubhouse Google listing</td><td>Inside the Google listing, for whoever manages it</td><td>Worth writing down this week, before it's marked closed</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Still to decide</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>What it decides</th></tr></thead>
+      <tbody>
+        <tr><td><b>Who can edit cooperstownclubhouse.com?</b> Doble AI doesn't have a login.</td><td>Whether the website items are done by us or by someone on the team.</td></tr>
+        <tr><td>What is the reopening date?</td><td>Replaces "spring 2027" everywhere.</td></tr>
+        <tr><td>Will Fenimore's keep its current hours through the winter?</td><td>The Clubhouse footer repeats Fenimore's hours, so a change has to be made there too.</td></tr>
+        <tr><td>Can (607) 486-1483 forward to Fenimore's?</td><td>Forwarding reaches a person. Voicemail only reaches a message.</td></tr>
+        <tr><td>Can a team walk in at Fenimore's after a game, or should groups always book ahead?</td><td>Whether the winter message says "come by" or "plan ahead".</td></tr>
+        <tr><td>Which Clubhouse Facebook and Instagram accounts are active? Accounts under the old Rookie's Craft House name existed as of August.</td><td>Where the bio lines and pinned posts go.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>The wording, ready to paste</h2>
+  <p class="intro">No reopening date is invented anywhere below. When the date is set, replace "spring 2027".</p>
+
+  <details>
+    <summary>Clubhouse homepage</summary>
+    <div class="body">
+      <span class="label">Closed line (replaces "See you next year / Closed for the season")</span>
+      <div class="copy">Closed for the season. See you in spring 2027.</div>
+      <span class="label">Line under it</span>
+      <div class="copy">Hungry this winter? Our sister restaurant, Fenimore's Table, is open every day on Route 28.</div>
+      <span class="label">Button</span>
+      <div class="copy">Visit Fenimore's Table → https://www.fenimorestable.com/</div>
+      <span class="label">Team party block (replaces "Book Team Party")</span>
+      <div class="copy">Planning a team dinner or banquet this winter? Fenimore's Table hosts groups of up to 95 indoors.
+Button: Plan a Team Dinner → https://www.fenimorestable.com/private-events/</div>
+      <span class="label">Menu link "Order Online"</span>
+      <div class="copy">Order from Fenimore's → https://order.toasttab.com/online/fenimorestable</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>Clubhouse Teams page, winter banner</summary>
+    <div class="body">
+      <div class="copy">Team parties move indoors to Fenimore's Table this winter. Holiday parties, team dinners and end-of-season banquets for groups of up to 95.
+Button: Plan Your Event → https://www.fenimorestable.com/private-events/</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>Clubhouse footer (every page) and Activities page</summary>
+    <div class="body">
+      <span class="label">Footer</span>
+      <div class="copy">Cooperstown Clubhouse
+Closed for the season. Reopening spring 2027.
+4850 State Route 28, Cooperstown, NY 13326
+
+This winter, visit Fenimore's Table
+4874 State Highway 28, Cooperstown, NY 13326
+(607) 547-2767
+Tuesday and Wednesday 6:30 AM to 4 PM
+Thursday to Monday 6:30 AM to 9 PM
+fenimorestable.com</div>
+      <span class="label">Activities page (replaces "Arcade Now Open!" and the Rookies Craft House paragraph)</span>
+      <div class="copy">Wiffle ball, the arcade and cornhole are closed for the season and return in spring 2027.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>Fenimore's footer, sister restaurant line</summary>
+    <div class="body">
+      <div class="copy">Sister restaurant: Cooperstown Clubhouse, closed for the season until spring 2027.</div>
+      <p class="note">Keeps the existing link to cooperstownclubhouse.com.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Clubhouse Google listing: description and post</summary>
+    <div class="body">
+      <span class="label">Description (Google doesn't allow web addresses here; put the regular one back in spring)</span>
+      <div class="copy">Cooperstown Clubhouse is a team-party restaurant on Route 28 with wiffle ball, an arcade and cornhole, hosting teams and groups from 30 to 250. We are closed for the season and reopen in spring 2027. This winter, our sister restaurant Fenimore's Table on Route 28 is open every day for breakfast and lunch, with dinner Thursday to Monday.</div>
+      <span class="label">Post (button: Learn more → https://www.fenimorestable.com/)</span>
+      <div class="copy">We're closed for the season, and we'll see you in spring 2027. Until then, our sister restaurant Fenimore's Table is open every day on Route 28, with dinner Thursday to Monday and room for team dinners of up to 95 indoors.</div>
+      <p class="note">Publish the post first, then mark the listing Temporarily closed. Leave the phone number out of the post text; Google tends to reject posts that include one.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Fenimore's Google listing: holiday party post</summary>
+    <div class="body">
+      <span class="label">Post (button: Learn more → https://www.fenimorestable.com/private-events/)</span>
+      <div class="copy">Holiday parties at Fenimore's Table. Office parties, family gatherings and team dinners for up to 95 indoors. Tell us your date and group size, and we'll come back with the menu, the bar and the room in one proposal.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>Voicemail and email auto-reply</summary>
+    <div class="body">
+      <span class="label">Voicemail, about 20 seconds</span>
+      <div class="copy">Thanks for calling Cooperstown Clubhouse. We're closed for the season and reopen in spring 2027. This winter, our sister restaurant Fenimore's Table is open every day on Route 28. Call them at 607-547-2767. That's 607-547-2767, or visit fenimorestable.com. See you in the spring.</div>
+      <span class="label">Email auto-reply</span>
+      <div class="copy">Subject: Thanks for your email
+
+Thanks for writing to us. We'll get back to you soon.
+
+Cooperstown Clubhouse is closed for the season and reopens in spring 2027. Fenimore's Table is open every day at 4874 State Highway 28, (607) 547-2767. To plan a group or team dinner this winter, use the form at fenimorestable.com/private-events.</div>
+      <p class="note">Written for both restaurants on purpose: the same inbox receives Fenimore's guests and its Private Events inquiries, so a reply about the Clubhouse alone would confuse them.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Facebook and Instagram bio line</summary>
+    <div class="body">
+      <div class="copy">Closed for the season, back spring 2027. This winter: Fenimore's Table on Route 28.</div>
+    </div>
+  </details>
+</section>
+
+<footer>Doble AI · Cooperstown winter plan · 17 September 2026</footer>
+
+</div>
+</body>
+</html>
