@@ -81,6 +81,19 @@ th{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mu
 tr:last-child td{border-bottom:0}
 @media (max-width:620px){table{min-width:0}th,td{padding:10px 12px}}
 
+
+.fixgroup{background:var(--surface);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.fixgroup-head{background:var(--sunk);padding:18px 22px;display:flex;flex-direction:column;gap:4px}
+.fixgroup-head .q{color:var(--muted);font-size:.93rem}
+.fixgroup-body{padding:4px 22px 14px}
+.item{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.item:last-child{border-bottom:0}
+.item .n{width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:.85rem;display:grid;place-items:center;margin-top:1px}
+.item .t{display:flex;flex-direction:column;gap:5px}
+.item .t b{font-weight:600}
+.item .t span{color:var(--muted);font-size:.92rem}
+.item .fix{font-size:.92rem;background:var(--ground);border-radius:8px;padding:8px 12px;margin-top:4px}
+.item .fix strong{font-weight:600}
 details{background:var(--surface);border:1px solid var(--rule);border-radius:12px}
 details + details{margin-top:-6px}
 summary{cursor:pointer;padding:16px 20px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
@@ -128,7 +141,7 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
     </div>
     <div class="goal">
       <h3>A deadline in December, and no reason to wait for it</h3>
-      <p>The old <code>rookiescrafthouseny.com</code> domain expires on <b>19 December 2026</b>. The Clubhouse site still loads 21 of its images from it, and its "Order Online" and "Book Team Party" buttons point there. If it lapses, those images and links break mid-winter, when nobody is watching the site.</p>
+      <p>The old <code>rookiescrafthouseny.com</code> domain expires on <b>19 December 2026</b>. The Clubhouse site still loads 19 of its images from it, and its "Order Online" and "Book Team Party" buttons point there. If it lapses, those images and links break mid-winter, when nobody is watching the site.</p>
     </div>
   </div>
 </section>
@@ -141,7 +154,7 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
       <h3>Where it stands</h3>
       <ul>
         <li>Open hours in the footer while the homepage says closed</li>
-        <li>21 images and several buttons still depend on the old Rookie's domain, which expires 19 December</li>
+        <li>19 images and several buttons still depend on the old Rookie's domain, which expires 19 December</li>
         <li>Leftover Rookie's Craft House wording on the Activities page, and a Contact page email icon that opens <code>rookies4850@gmail.com</code></li>
         <li>The Contact page's tap-to-call dials Fenimore's number while showing the Clubhouse's</li>
         <li>No description for Google on the homepage, no business details Google can read, and no Google Analytics tag in the page code</li>
@@ -149,9 +162,9 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
       </ul>
     </div>
     <div class="col">
-      <h3>What to do by mid-October</h3>
+      <h3>What to do by mid-October (<a href="#fix-list">full list of 21</a>)</h3>
       <ul>
-        <li>Renew the old domain, keep it forwarding, and move the 21 images onto the Clubhouse's own domain</li>
+        <li>Renew the old domain, keep it forwarding, and move the 19 images onto the Clubhouse's own domain</li>
         <li>Make every old Rookie's address forward to its matching Clubhouse page</li>
         <li>Finish the Rookie's cleanup: wording, email icon, phone link</li>
         <li>Add the restaurant's details in the format Google reads, as Fenimore's now has, plus page descriptions and image descriptions</li>
@@ -208,7 +221,7 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
     <div class="phase">
       <div class="when"><b>This week</b><span>By Thursday 24 September</span></div>
       <ul>
-        <li><span class="tag site">Website</span>Clubhouse homepage, footer, Teams and Activities wording; buttons pointed at Fenimore's.</li>
+        <li><span class="tag site">Website</span>Fix list items 1 to 5: Clubhouse homepage, footer, Activities and Careers wording; buttons pointed at Fenimore's.</li>
         <li><span class="tag site">Website</span>Fenimore's footer: say its sister restaurant is closed until spring.</li>
         <li><span class="tag goog">Google</span>Write down the Clubhouse listing's calls and clicks, publish the post, then mark it Temporarily closed.</li>
         <li><span class="tag ops">Phone</span>Forward or voicemail. Email auto-reply.</li>
@@ -223,13 +236,13 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
         <li><span class="tag goog">Social</span>Holiday parties and team banquets become the regular message on both restaurants' accounts, with real photos of the room. This starts now and runs through the holiday season.</li>
         <li><span class="tag goog">Google</span>Holiday party post on Fenimore's own Google listing.</li>
         <li><span class="tag goog">Listings</span>Yelp (last seen under the Rookie's Craft House name), Apple Maps and Bing: mark the Clubhouse closed for the season. Don't delete anything.</li>
-        <li><span class="tag site">Website</span>Every old Rookie's address forwards to its matching Clubhouse page.</li>
+        <li><span class="tag site">Website</span>Fix list items 6 to 9: images moved off the old domain, Contact page links, Rookie's wording, old addresses forwarding page by page.</li>
       </ul>
     </div>
     <div class="phase">
       <div class="when"><b>By mid-October</b><span>Thursday 15 October</span></div>
       <ul>
-        <li><span class="tag site">Website</span>The Clubhouse spring list, done: the 21 images moved onto the Clubhouse domain, the Rookie's cleanup, Google-readable business details, page and image descriptions, analytics, phone zoom, and team-party questions and answers.</li>
+        <li><span class="tag site">Website</span>Fix list items 10 to 21 done: the Google listing merge request, social accounts, sitemap, titles and descriptions, business details, share image, headings, image descriptions, phone zoom, analytics, and team-party questions and answers.</li>
         <li><span class="tag us">Doble AI</span>Full sweep of the Clubhouse site to confirm it's ready for spring, and the first read on the numbers below. Then a monthly check through the winter.</li>
       </ul>
     </div>
@@ -241,6 +254,58 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
         <li><span class="tag ops">Phone</span>Remove the forward or voicemail, the auto-reply and the social bio lines.</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section id="fix-list">
+  <h2>The full Clubhouse website fix list</h2>
+  <p class="intro">Every item below was checked on the live site on 17 September 2026, except item 10, which is a Google listing last checked in August. Items 1 to 5 are this week's closed-for-the-season changes. The rest can be worked in one pass alongside them and finished by 15 October. For step-by-step instructions on items 4, 6, 7, 9, 10, 13 and 16 to 19, see the <a href="../clubhouse-domain-cleanup/">August cleanup sheet</a>. Those findings are still open.</p>
+  <div class="fixgroup">
+    <div class="fixgroup-head"><h3>Closed for the season</h3><span class="q">Do these this week.</span></div>
+    <div class="fixgroup-body">
+      <div class="item"><div class="n">1</div><div class="t"><b>The footer says the Clubhouse is open every day</b><span>Every page ends with "Hours: Monday to Sunday, 11:00 AM to 9:00 PM".</span><div class="fix"><strong>Fix:</strong> Replace it with the footer wording in the last section of this page. The footer appears on all seven pages, so look for it in the Divi Theme Builder footer template, the Divi Library, or each page's own footer section, whichever holds it.</div></div></div>
+      <div class="item"><div class="n">2</div><div class="t"><b>The homepage says closed, then asks people to book</b><span>Under "See you next year / Closed for the season" the homepage still says "best place for your team party" with a Book Team Party button. Nothing on the site mentions Fenimore's.</span><div class="fix"><strong>Fix:</strong> Use the homepage wording below: the closed line, a Visit Fenimore's Table button, and the winter team-dinner block.</div></div></div>
+      <div class="item"><div class="n">3</div><div class="t"><b>The Activities page says the arcade is open</b><span>It opens with "Arcade Now Open! Come check out our newly refreshed arcade area!" and says the courtyard is still being updated.</span><div class="fix"><strong>Fix:</strong> Replace it with the one-line winter note below.</div></div></div>
+      <div class="item"><div class="n">4</div><div class="t"><b>Menu links and buttons go to the old Rookie's website</b><span>ORDER ONLINE (in the menu on every page) goes to <code>rookiescrafthouseny.com/contact/</code>, a contact page with no ordering on it. Book Team Party and Book today go to <code>rookiescrafthouseny.com/teams/</code>, and Learn More goes to <code>rookiescrafthouseny.com/activities/</code>.</span><div class="fix"><strong>Fix:</strong> For the winter, point ORDER ONLINE at Fenimore's online ordering and the booking buttons at Fenimore's Private Events page. Before reopening, point them at the Clubhouse's own pages and whatever takes Clubhouse orders.</div></div></div>
+      <div class="item"><div class="n">5</div><div class="t"><b>The Careers page invites walk-in applications</b><span>"Come on down and fill out an application" while the restaurant is closed. It also lists pay of "$10 to $25" an hour.</span><div class="fix"><strong>Fix:</strong> Add a line saying hiring for the season starts in spring 2027. Separately, check the $10 figure against New York's current minimum wage, including the rate for tipped staff.</div></div></div>
+    </div>
+  </div>
+  <div class="fixgroup">
+    <div class="fixgroup-head"><h3>Leftovers from the Rookie's Craft House name</h3><span class="q">These make the spring opening cleaner, and the first one has a deadline.</span></div>
+    <div class="fixgroup-body">
+      <div class="item"><div class="n">6</div><div class="t"><b>19 images load from the old domain, which expires 19 December</b><span>Photos on the homepage, Menu, Bar Menu, Activities, Teams and Careers pages load from <code>rookiescrafthouseny.com</code>. If that domain lapses, they disappear. Two more image addresses, a template placeholder named <code>ramen-shop-11.jpg</code> on the Menu and Bar Menu pages, are already broken on both domains.</span><div class="fix"><strong>Fix:</strong> Renew <code>rookiescrafthouseny.com</code> this week and keep it. Then point the 19 images at the copies on the Clubhouse's own domain, where the same files already exist, and remove the two broken placeholders. A search-and-replace plugin can change every address in one pass. Also note that <code>cooperstownclubhouse.com</code> itself expires on 1 May 2027, around the reopening, so turn on auto-renew for both.</div></div></div>
+      <div class="item"><div class="n">7</div><div class="t"><b>The Contact page phone link dials a different number</b><span>The page shows (607) 486-1483, but tapping it dials 607-547-2767, which is now Fenimore's number. The envelope icon opens an email to <code>rookies4850@gmail.com</code> instead of the address printed below it.</span><div class="fix"><strong>Fix:</strong> Set the phone link to <code>tel:6074861483</code> and the envelope to <code>mailto:restaurant@cooperstownexperience.com</code>. In Divi the link can sit on the icon, the text and the column, so check all three. Over the winter the wrong link happens to reach Fenimore's, so fix it together with the phone forwarding.</div></div></div>
+      <div class="item"><div class="n">8</div><div class="t"><b>The Activities page still names Rookies Craft House</b><span>"What sets Rookies Craft House apart from other eateries..."</span><div class="fix"><strong>Fix:</strong> Rewrite the paragraph with the Clubhouse name.</div></div></div>
+      <div class="item"><div class="n">9</div><div class="t"><b>Old Rookie's addresses show pages instead of forwarding</b><span>The Rookie's homepage forwards to the Clubhouse. Inner addresses like <code>rookiescrafthouseny.com/activities/</code> still load a full copy of the page.</span><div class="fix"><strong>Fix:</strong> Forward every Rookie's address to its matching Clubhouse page. Set this on the Rookie's domain only, never as a server-wide rule, because other sites share this server.</div></div></div>
+      <div class="item"><div class="n">10</div><div class="t"><b>A "permanently closed" Rookie's listing sits at the same address on Google</b><span>Last checked 17 August: the Rookie's Craft House listing at 4850 NY-28 is marked permanently closed, with 3.5 stars and the phone number 607-547-2767, which is now Fenimore's.</span><div class="fix"><strong>Fix:</strong> Don't delete it. Ask Google Business Profile support to merge it into the Clubhouse listing so its review history carries over. The August cleanup sheet has the steps.</div></div></div>
+      <div class="item"><div class="n">11</div><div class="t"><b>Two sets of social accounts</b><span>The site links to <code>facebook.com/cooperstownclubhouse</code> and <code>instagram.com/cooperstownclubhouse</code>. Accounts under the Rookie's Craft House name still existed in August.</span><div class="fix"><strong>Fix:</strong> Keep the old accounts, but rename them or post a pinned note pointing to the Clubhouse accounts, so followers aren't split.</div></div></div>
+    </div>
+  </div>
+  <div class="fixgroup">
+    <div class="fixgroup-head"><h3>Getting found in the spring</h3><span class="q">None of these show on the page, but they decide how Google, Bing and AI assistants describe the Clubhouse.</span></div>
+    <div class="fixgroup-body">
+      <div class="item"><div class="n">12</div><div class="t"><b>The sitemap answers with a "not found" error</b><span><code>robots.txt</code> points search engines to <code>/wp-sitemap.xml</code>. The file's contents are there, but the server sends it, and the page list inside it, with a 404 "not found" status, so search engines may ignore it.</span><div class="fix"><strong>Fix:</strong> In WordPress, open Settings, then Permalinks, and click Save without changing anything. That rebuilds the rules behind the sitemap. Then check that the sitemap loads without an error, and submit it in Google Search Console and Bing Webmaster Tools.</div></div></div>
+      <div class="item"><div class="n">13</div><div class="t"><b>No page descriptions, and generic page titles</b><span>The homepage description tag is empty and the other pages have none, so Google writes its own snippet. Titles read "Menu | Clubhouse" and "Clubhouse – Cooperstown Clubhouse".</span><div class="fix"><strong>Fix:</strong> Install an SEO plugin (Fenimore's uses Rank Math) and write a title and description for each of the seven pages that names Cooperstown, team parties and what's on the page.</div></div></div>
+      <div class="item"><div class="n">14</div><div class="t"><b>No business details in a form Google can read</b><span>The site has no structured data, the behind-the-scenes code that tells Google a page belongs to a restaurant, with its address, phone, hours and menu. Fenimore's now has it on every page.</span><div class="fix"><strong>Fix:</strong> Add Restaurant details through the SEO plugin, with the seasonal hours set for spring.</div></div></div>
+      <div class="item"><div class="n">15</div><div class="t"><b>No share image</b><span>Links to the site shared on Facebook or in a text message show no preview picture.</span><div class="fix"><strong>Fix:</strong> Set a default share image in the SEO plugin, ideally a real photo of a team party.</div></div></div>
+      <div class="item"><div class="n">16</div><div class="t"><b>Headings are out of order</b><span>The homepage has five main headings (H1) and no subheadings (H2), including "CONTACT US" and "activities". Every other page except Careers has two H1s.</span><div class="fix"><strong>Fix:</strong> One H1 per page naming the page, and H2 for the sections under it. In Divi this is the Heading Level setting on each text or title module.</div></div></div>
+      <div class="item"><div class="n">17</div><div class="t"><b>Most images have no description</b><span>14 of 15 homepage images, 7 of 8 on Menu and 9 of 10 on Activities have no alt text, which screen readers and Google rely on to know what a photo shows.</span><div class="fix"><strong>Fix:</strong> Add a short, literal description to each image, such as "Team eating on the Clubhouse patio".</div></div></div>
+      <div class="item"><div class="n">18</div><div class="t"><b>Phones can't zoom in</b><span>The page code blocks pinch-to-zoom, which makes the menus hard to read on a phone and fails accessibility guidelines.</span><div class="fix"><strong>Fix:</strong> Remove the zoom block. Fenimore's had the same problem and it was fixed with a short code snippet.</div></div></div>
+      <div class="item"><div class="n">19</div><div class="t"><b>An empty scrolling banner is left in the hero</b><span>The hiring text is gone from the old scrolling banner, but the empty element is still in the page.</span><div class="fix"><strong>Fix:</strong> Delete the empty module.</div></div></div>
+      <div class="item"><div class="n">20</div><div class="t"><b>No analytics</b><span>There's no Google Analytics tag in the page code, and no Google or Bing verification tag. The site may be verified another way, but we can't see it.</span><div class="fix"><strong>Fix:</strong> Install Google Analytics and connect Search Console and Bing before reopening, so spring traffic is measured from day one. Adding Doble AI's reporting account as a viewer lets us include the Clubhouse in the monthly check.</div></div></div>
+      <div class="item"><div class="n">21</div><div class="t"><b>Nothing answers the questions coaches ask</b><span>The Teams page lists packages but not the questions coaches ask before booking: group size, patio and tent in bad weather, paying by family, arriving straight from a game.</span><div class="fix"><strong>Fix:</strong> Add a short questions-and-answers section to the Teams page, written from real booking questions. Answers like these are what AI assistants tend to quote.</div></div></div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>What we couldn't check from outside</th><th>How to check it</th></tr></thead>
+      <tbody>
+        <tr><td>Where the homepage contact form sends messages</td><td>Send a test message and see which inbox it arrives in.</td></tr>
+        <tr><td>Whether the Clubhouse's Google listing and the old Rookie's listing still read as they did in August</td><td>Sign in to the Google Business Profile account and look at both.</td></tr>
+        <tr><td>The Yelp listing's name, hours and status</td><td>Yelp blocks automated checks, so look at it in a browser.</td></tr>
+        <tr><td>Whether the homepage's "Mexican American cuisine" description still fits the menu, which describes "classic American favorites"</td><td>A menu decision for the team.</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -269,7 +334,7 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
         <tr><td>Will Fenimore's keep its current hours through the winter?</td><td>The Clubhouse footer repeats Fenimore's hours, so a change has to be made there too.</td></tr>
         <tr><td>Can (607) 486-1483 forward to Fenimore's?</td><td>Forwarding reaches a person. Voicemail only reaches a message.</td></tr>
         <tr><td>Can a team walk in at Fenimore's after a game, or should groups always book ahead?</td><td>Whether the winter message says "come by" or "plan ahead".</td></tr>
-        <tr><td>Which Clubhouse Facebook and Instagram accounts are active? Accounts under the old Rookie's Craft House name existed as of August.</td><td>Where the bio lines and pinned posts go.</td></tr>
+        <tr><td>Who manages the Clubhouse Facebook and Instagram accounts the site links to, and the old Rookie's accounts?</td><td>Who posts the bio lines and pinned posts, and handles fix list item 11.</td></tr>
       </tbody>
     </table>
   </div>
