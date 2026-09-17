@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jroundshp.github.io/doble-ai-deliverables/concrete-warrior-topsoil/">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Selling the Pile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* ── Palette inherited from the Concrete Warrior site, not invented here.
+      graphite / bone / scoria, with steel as the blue-biased neutral and
+      amber reserved for one job only: the road ban. ────────────────────── */
+:root {
+  --graphite:  #14161a;
+  --graphite-2:#1d2026;
+  --steel:     #6b7480;
+  --steel-dim: #8b939d;
+  --bone:      #f2efe9;
+  --scoria:    #b4432a;
+  --scoria-br: #d15334;
+  --amber:     #c2870c;
+
+  --ground:    var(--bone);
+  --surface:   #fbfaf7;
+  --ink:       var(--graphite);
+  --ink-soft:  #4b525c;
+  --ink-mute:  var(--steel);
+  --rule:      #d5cfc4;
+  --rule-soft: #e6e1d7;
+  --band-neutral: #c3bcb0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:    var(--graphite);
+    --surface:   var(--graphite-2);
+    --ink:       var(--bone);
+    --ink-soft:  #c2c7ce;
+    --ink-mute:  var(--steel-dim);
+    --rule:      #343a43;
+    --rule-soft: #262b32;
+    --scoria:    var(--scoria-br);
+    --amber:     #d99b17;
+    --band-neutral: #444b55;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground:    var(--graphite);
+  --surface:   var(--graphite-2);
+  --ink:       var(--bone);
+  --ink-soft:  #c2c7ce;
+  --ink-mute:  var(--steel-dim);
+  --rule:      #343a43;
+  --rule-soft: #262b32;
+  --scoria:    var(--scoria-br);
+  --amber:     #d99b17;
+  --band-neutral: #444b55;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16.5px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.1rem, 4vw, 2.5rem) 5rem;
+}
+
+.display {
+  font-family: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-family: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: var(--scoria);
+}
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Masthead ─────────────────────────────────────────────────────────── */
+header.mast { border-top: 3px solid var(--scoria); padding-top: 1.6rem; }
+.mast h1 { font-size: clamp(2.7rem, 7.5vw, 4.6rem); margin: 0.7rem 0 0; }
+
+.thesis {
+  font-size: clamp(1.12rem, 2.2vw, 1.34rem);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin: 1.35rem 0 0;
+  font-weight: 500;
+}
+
+.meta {
+  margin-top: 2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 2.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* ── Section rhythm ───────────────────────────────────────────────────── */
+section { margin-top: clamp(3.2rem, 7vw, 5rem); }
+h2.sec { font-size: clamp(1.6rem, 3.4vw, 2.15rem); margin: 0.55rem 0 1.1rem; }
+p { max-width: 68ch; }
+p + p { margin-top: 0.95rem; }
+
+/* ── The three doors ──────────────────────────────────────────────────── */
+.doors { display: grid; gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin-top: 1.8rem; }
+@media (min-width: 48rem) { .doors { grid-template-columns: repeat(3, 1fr); } }
+.door { background: var(--surface); padding: 1.25rem 1.3rem 1.4rem; }
+.door .n {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--scoria);
+  letter-spacing: 0.06em;
+}
+.door h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.22rem; line-height: 1.05; margin: 0.45rem 0 0.45rem; }
+.door p { font-size: 0.91rem; margin: 0; max-width: none; color: var(--ink-soft); }
+
+/* ── The year chart ───────────────────────────────────────────────────── */
+.chart-shell { margin-top: 1.8rem; overflow-x: auto; padding-bottom: 0.4rem; }
+.chart { min-width: 40rem; }
+
+.months { position: relative; height: 1.5rem; border-bottom: 1px solid var(--rule); }
+.months span { position: absolute; top: 0; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ink-mute); transform: translateX(0.28rem); }
+.tick { position: absolute; bottom: 0; width: 1px; height: 0.4rem; background: var(--rule); }
+
+.lane { position: relative; height: 2.9rem; border-bottom: 1px solid var(--rule-soft); }
+.lane:last-of-type { border-bottom: 1px solid var(--rule); }
+
+.band {
+  position: absolute; top: 0.62rem; height: 1.65rem; border-radius: 1px;
+  display: flex; align-items: center; padding: 0 0.6rem;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; white-space: nowrap; overflow: hidden;
+}
+.band--ban {
+  background-color: color-mix(in srgb, var(--amber) 17%, var(--ground));
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 7px,
+    color-mix(in srgb, var(--amber) 42%, transparent) 7px,
+    color-mix(in srgb, var(--amber) 42%, transparent) 14px);
+  border: 1px solid color-mix(in srgb, var(--amber) 62%, transparent);
+  color: var(--ink);
+}
+.band--blocked { background: transparent; border: 1px dashed var(--ink-mute); color: var(--ink-mute); }
+.band--open { background: var(--scoria); color: #fff; }
+.band--memo { background: var(--band-neutral); color: var(--ink); }
+
+.lane-label { font-size: 0.73rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--ink-mute); font-weight: 600; padding: 0.45rem 0 0.15rem; }
+
+.collide { position: absolute; top: -0.2rem; bottom: 1.05rem; border-left: 2px solid var(--scoria); border-right: 2px solid var(--scoria); background: color-mix(in srgb, var(--scoria) 13%, transparent); pointer-events: none; }
+.collide-note { position: absolute; top: 2.35rem; right: 0; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--scoria); font-weight: 700; white-space: nowrap; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin-top: 1.1rem; font-size: 0.76rem; color: var(--ink-mute); }
+.legend div { display: flex; align-items: center; gap: 0.5rem; }
+.swatch { width: 1.5rem; height: 0.75rem; flex: none; border-radius: 1px; }
+
+/* ── Known / unknown tables ───────────────────────────────────────────── */
+.tbl-shell { overflow-x: auto; margin-top: 1.6rem; }
+table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.93rem; }
+thead th {
+  text-align: left; font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  text-transform: uppercase; letter-spacing: 0.11em; font-size: 0.72rem;
+  color: var(--ink-mute); font-weight: 600; padding: 0 0.9rem 0.55rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+tbody td { padding: 0.85rem 0.9rem 0.85rem 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+tbody td:last-child, thead th:last-child { padding-right: 0; }
+tbody tr td:first-child { font-weight: 600; color: var(--ink); }
+
+.pill {
+  display: inline-block; font-size: 0.66rem; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 700; padding: 0.18rem 0.45rem;
+  border: 1px solid currentColor; border-radius: 1px; white-space: nowrap;
+}
+.pill--hard { color: var(--scoria); }
+.pill--soft { color: var(--amber); }
+.pill--easy { color: var(--ink-mute); }
+
+/* ── Gate blocks ──────────────────────────────────────────────────────── */
+.gate { margin-top: 2.2rem; border-left: 4px solid var(--rule); padding-left: 1.4rem; }
+.gate--ours { border-left-color: var(--ink-mute); }
+.gate--yours { border-left-color: var(--scoria); }
+.gate--none { border-left-color: var(--amber); }
+.gate h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.28rem; margin: 0 0 0.15rem; }
+.gate .who { font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-mute); margin: 0 0 0.9rem; }
+ol.qs { list-style: none; counter-reset: q; padding: 0; margin: 0; max-width: 62ch; }
+ol.qs li {
+  counter-increment: q; display: grid; grid-template-columns: 2.3rem 1fr;
+  gap: 0 0.7rem; padding: 0.72rem 0; border-bottom: 1px solid var(--rule-soft); align-items: baseline;
+}
+ol.qs li:last-child { border-bottom: 0; }
+ol.qs li::before { content: counter(q, decimal-leading-zero); font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--ink-mute); }
+/* .why is the third grid child, so it must be pinned to column 2 or
+   auto-placement drops it into the 2.3rem counter column. */
+ol.qs .why { grid-column: 2; display: block; font-size: 0.86rem; color: var(--ink-mute); margin-top: 0.18rem; }
+
+/* ── Options ──────────────────────────────────────────────────────────── */
+.opts { display: grid; gap: 1.4rem; margin-top: 1.8rem; }
+@media (min-width: 48rem) { .opts { grid-template-columns: repeat(3, 1fr); } }
+.opt { background: var(--surface); border: 1px solid var(--rule-soft); border-top: 3px solid var(--band-neutral); padding: 1.4rem 1.35rem 1.5rem; }
+.opt--yes { border-top-color: var(--scoria); }
+.opt--ask { border-top-color: var(--amber); }
+.opt .verdict { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--ink-mute); }
+.opt--yes .verdict { color: var(--scoria); }
+.opt--ask .verdict { color: var(--amber); }
+.opt h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.3rem; line-height: 1.05; margin: 0.5rem 0 0.2rem; }
+.opt .when { font-size: 0.8rem; color: var(--ink-mute); margin: 0 0 0.85rem; letter-spacing: 0.04em; }
+.opt p { font-size: 0.92rem; margin: 0; max-width: none; }
+.opt .risk { margin-top: 0.9rem; padding-top: 0.8rem; border-top: 1px solid var(--rule-soft); font-size: 0.86rem; color: var(--ink-mute); }
+.opt .risk b { color: var(--ink); font-weight: 600; }
+
+/* ── Caveat + footer ──────────────────────────────────────────────────── */
+.caveat { max-width: 76ch; margin-top: 2rem; border: 1px solid var(--rule); border-left: 4px solid var(--ink-mute); padding: 1.2rem 1.3rem; background: var(--surface); }
+.caveat p { font-size: 0.94rem; margin: 0; }
+.caveat .eyebrow { color: var(--ink-mute); display: block; margin-bottom: 0.5rem; }
+
+footer { margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--ink-mute); }
+footer ul { padding: 0; list-style: none; margin: 0.8rem 0 0; display: grid; gap: 0.42rem; }
+footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+footer a:hover, footer a:focus-visible { color: var(--scoria); border-bottom-color: var(--scoria); }
+:focus-visible { outline: 2px solid var(--scoria); outline-offset: 2px; }
+</style>
+
+<style>
+/* ── Additions for this brief: stat tiles and the call-order list ─────── */
+.stats { display: grid; gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin-top: 1.8rem; grid-template-columns: 1fr; }
+@media (min-width: 34rem) { .stats { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 56rem) { .stats { grid-template-columns: repeat(4, 1fr); } }
+.stat { background: var(--surface); padding: 1.15rem 1.2rem 1.25rem; }
+.stat .num { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; font-weight: 700; font-size: 2.3rem; line-height: 1; }
+.stat .lbl { font-size: 0.86rem; color: var(--ink-soft); margin: 0.45rem 0 0; max-width: none; }
+.stat--hot .num { color: var(--scoria); }
+
+.tier { margin-top: 2rem; border-left: 4px solid var(--rule); padding-left: 1.4rem; }
+.tier--now { border-left-color: var(--scoria); }
+.tier--next { border-left-color: var(--amber); }
+.tier--later { border-left-color: var(--ink-mute); }
+.tier--off { border-left-color: var(--rule); }
+.tier h3 { font-family: "Barlow Condensed", "Arial Narrow", sans-serif; text-transform: uppercase; font-weight: 700; font-size: 1.3rem; margin: 0 0 0.15rem; line-height: 1.1; }
+.tier .who { max-width: none; font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-mute); margin: 0 0 0.8rem; }
+.tier ul { margin: 0.8rem 0 0; padding-left: 1.1rem; max-width: 66ch; }
+.tier li + li { margin-top: 0.45rem; }
+.ids { font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; color: var(--ink-mute); }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">Concrete Warrior &middot; New Town, North Dakota</p>
+    <h1 class="display">Selling the Pile</h1>
+    <p class="thesis">A second pair of eyes on the topsoil workbook you sent today. The research found the leads. This page suggests an order to work them in, and a decision that comes before any of the selling.</p>
+    <div class="meta">
+      <span class="mono">16 September 2026</span>
+      <span>For Corey Hogan</span>
+      <span>A starting point for your strategy &middot; not a replacement for it</span>
+    </div>
+  </header>
+
+  <section>
+    <p class="eyebrow">What the workbook shows</p>
+    <h2 class="sec display">The yard makes dirt faster than any list can buy it</h2>
+    <p>Every figure in this section comes from your workbook, including its own Volume Plan tab. We have only rearranged them.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="num mono">35,000</div><p class="lbl">cubic yards on hand today</p></div>
+      <div class="stat"><div class="num mono">2,500</div><p class="lbl">cubic yards added per production day</p></div>
+      <div class="stat stat--hot"><div class="num mono">44</div><p class="lbl">loaded trucks a day to sell just the current pile by about 11 November</p></div>
+      <div class="stat stat--hot"><div class="num mono">169</div><p class="lbl">loaded trucks a day to sell the pile plus eight more weeks of screening</p></div>
+    </div>
+
+    <p style="margin-top:1.6rem">The workbook's own geometry example puts that in terms a buyer would recognise. A ten-acre site spread six inches deep takes about 8,000 yards. <strong>The pile on the ground today is roughly four of those jobs. The pile plus eight more weeks of production is roughly seventeen.</strong></p>
+    <p>Against that, the Bulk Buyers tab has 18 rows and, as the tab itself says, no confirmed orders. Two pairs are the same project reached through different contacts (the Minot park work, and the Ag Expo), and four rows are the competitors from the first tab approached as possible wholesale buyers. Once merged, that is 16 conversations to have, which is a good list and a short one.</p>
+
+    <div class="caveat">
+      <span class="eyebrow">One figure worth checking</span>
+      <p>At 2,500 a day over a five-day week, the yard makes 12,500 yards a week. Richard's daily log shows three full weeks of 6,300, 11,800 and 7,500, an average of about 8,500. If that is closer to the real pace, eight weeks adds nearer 68,000 yards than 100,000. The gap gets smaller. The conclusion stays the same.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Before the selling</p>
+    <h2 class="sec display">Screen what has been ordered</h2>
+    <p>The biggest lever on this page is not a sales call. It is how much more gets screened before the buyers show up.</p>
+    <p>A yard of screened topsoil with no buyer has already used its fuel, equipment hours and wear. Some costs, like the crew, run whether the screens do or not. The ones that follow the screens do not, and none of them comes back until the dirt is sold. The workbook raises the same idea near the bottom of its Volume Plan: match screening to booked shipments unless there is an obligation to clear the source. Stockpiled topsoil still has value. It is next spring's inventory, and it can be sold off the pile after the trommels stop in November. But it will not pay anybody in October.</p>
+    <p>So the question that decides this is operational rather than commercial: <strong>does the ground have to be cleared by a certain date?</strong> If it does, screening continues and the pile is a financing question to plan for now. If it does not, running the screens at the pace orders arrive saves that spending for dirt somebody has already agreed to buy.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Who to call, and in what order</p>
+    <h2 class="sec display">Start where one yes moves the most dirt</h2>
+    <p>The order below is our judgement, and it weighs three things: how many yards one agreement could move, how close the buyer is to New Town, and how soon they could take delivery. The row IDs match your workbook. Distances are straight-line miles from New Town, so road miles run longer.</p>
+
+    <div class="tier tier--now">
+      <h3>This week: the wholesale buyers</h3>
+      <p class="who">Storbakken &amp; Sons, Gravel Products, Ruach Resources <span class="ids">&middot; B16 B15 B18</span></p>
+      <p>These three already have customers, trucks and dispatchers, so a single agreement could move thousands of yards where a contractor call moves hundreds. Storbakken in Williston is about 53 miles away and Gravel Products in Minot about 58, so any job they serve near New Town is a haul that a New Town pile could shorten. Ruach in Tioga, about 35 miles out, sells dirt and hauls it already. The pitch is a closer source for jobs they already have, at a volume price for loads they collect themselves.</p>
+      <ul>
+        <li>Each of them is also a competitor. Quote from your own supply and price, and don't assume a reseller margin or any exclusivity.</li>
+        <li>Dakota Earthworks <span class="ids">B17</span> is the same kind of call, but Washburn is about 83 miles away. Worth one call to ask about jobs west of the river, not more than that.</li>
+      </ul>
+    </div>
+
+    <div class="tier tier--now">
+      <h3>This week: Fort Berthold, where being local counts most</h3>
+      <p class="who">MHA Construction Management, Fort Berthold Housing Authority, City of New Town, Mountrail County Road &amp; Bridge <span class="ids">&middot; B04 B05 B06 B07</span></p>
+      <p>For work in and around New Town, no competitor in the workbook sits closer than the yard. The county is more contested, because Gravel Products has a pit near Stanley. None of these offices is likely to place one large order, so the ask is to combine: several housing lots, final grading on a city site and the county's ditch restoration, under one delivery schedule. These are the doors for Richard to knock on in person. Ask each one which contractor is doing the final grading this fall, because that contractor usually places the order.</p>
+      <ul>
+        <li>The MHA Construction Management page was last updated in August 2024, so confirm who holds Forest Mandan's role before the visit.</li>
+        <li>The licensed contractors already building on Fort Berthold, who are on the sales tracker, belong in the same conversation.</li>
+      </ul>
+    </div>
+
+    <div class="tier tier--next">
+      <h3>Next: the state road work</h3>
+      <p class="who">Park Construction on US 85, with Apex Engineering as the route in <span class="ids">&middot; B01 B14</span></p>
+      <p>This is a real, named project about 45 miles away, and it runs to November 2027, so whatever does not happen this fall can happen next year. It may come with a gate the other calls don't, and the workbook flags it: source approval and testing for the soil. Ask Apex what US 85 requires before quoting, because if approval is needed, nothing else on this job moves until it's done.</p>
+    </div>
+
+    <div class="tier tier--later">
+      <h3>Later: Watford City referrals</h3>
+      <p class="who">McKenzie County Economic Development, FCI and the Ag Expo, the Chamber <span class="ids">&middot; B08 B11/B12 B13</span></p>
+      <p>These are useful introductions but slow ones. The Ag Expo landscaping may fall in 2027, and McKenzie County's $24 million in permits so far this year measures construction activity, not topsoil demand. One email each asking for names is enough for now.</p>
+    </div>
+
+    <div class="tier tier--off">
+      <h3>Set aside for this season</h3>
+      <p class="who">Mouse River work in Minot, and Baranko <span class="ids">&middot; B02/B03 B10</span></p>
+      <p>Minot is about 58 miles away and already has its own topsoil seller in Gravel Products, and the workbook notes the park restoration soil may already be supplied. Baranko was one of the five firms phoned on 16 September with no sale, and Dickinson is about 77 miles out. Neither is a bad lead. They just don't fit an eight-week window.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">The buyer this workbook leaves out</p>
+    <h2 class="sec display">Reclamation still matters most</h2>
+    <p>The workbook sets aside the oil-well reclamation list on purpose, which makes sense for a list of non-oil buyers. For the strategy as a whole, though, the timing matters. The state's native grass specification allows a dormant fall seeding <span class="mono">after October&nbsp;20</span>, so the one delivery season for reclamation topsoil opens in five weeks, inside your eight-week horizon. Production stops around mid-November, but the pile can keep delivering for a couple of weeks after that.</p>
+    <p>Chord's New Town field office got a purchasing voicemail on 16 September. That is worth a walk-in rather than a second voicemail. The operators themselves mostly buy through ISNetworld, Veriforce or Avetta, which Concrete Warrior is not yet registered on and which takes at least thirty days. The reclamation contractors who order dirt by the load are on the tracker already and can be called now.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">What buyers ask for before they order</p>
+    <h2 class="sec display">Have the paperwork ready before the calls</h2>
+    <p>The workbook found no certified stockpile in the immediate New Town area, and it is careful to add that a missing web listing doesn't prove there is none. If the paperwork below exists for this pile, it gives Concrete Warrior something to offer that no competitor in the workbook could be shown to have.</p>
+
+    <div class="tbl-shell">
+      <table>
+        <thead>
+          <tr><th style="width:24%">Buyer</th><th style="width:42%">What they will ask for</th><th style="width:34%">Where it stands</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Oil operators and reclamation contractors</td>
+            <td>Lab results showing the soil carries no brine damage: EC, SAR, pH and organic matter</td>
+            <td><span class="pill pill--soft">Question</span> Has the pile been tested?</td>
+          </tr>
+          <tr>
+            <td>Tribal, federal and public bids</td>
+            <td>North Dakota's weed-free certification for surface mining operations, under N.D.C.C. 4.1-47, inspected at the source by the county weed officer</td>
+            <td><span class="pill pill--soft">Question</span> Recent outreach calls the topsoil certified. Which certification is that?</td>
+          </tr>
+          <tr>
+            <td>State road contractors</td>
+            <td>Source approval and testing for the specific project</td>
+            <td><span class="pill pill--soft">Question</span> Ask Apex what US 85 requires</td>
+          </tr>
+          <tr>
+            <td>Operators, directly</td>
+            <td>ISNetworld, Veriforce or Avetta registration</td>
+            <td><span class="pill pill--hard">Not registered</span> 30 days or more</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Price</p>
+    <h2 class="sec display">Quote the price delivered</h2>
+    <p>A buyer compares what the dirt costs once it's on their site, not what it costs at the pit. The workbook already has the numbers for this. At its planning rates of $150 per truck-hour and 20 yards per load, <strong>each extra hour on a truck's round trip adds $7.50 a yard.</strong> These are the workbook's planning assumptions, not trucking quotes.</p>
+
+    <div class="tbl-shell">
+      <table>
+        <thead>
+          <tr><th>Round trip per load</th><th>Trucking per yard</th><th>Delivered, at $32 at the pit</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">2 hours</td><td class="mono">$15.00</td><td class="mono">$47.00</td></tr>
+          <tr><td class="mono">3 hours</td><td class="mono">$22.50</td><td class="mono">$54.50</td></tr>
+          <tr><td class="mono">4 hours</td><td class="mono">$30.00</td><td class="mono">$62.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:1.4rem">Our suggestion is to give buyers two numbers: the pit price for anyone who collects, and a delivered price by distance band from New Town. A volume price for the wholesale buyers who collect is the third number, and only you can set it.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Keeping score</p>
+    <h2 class="sec display">One comparison, every Friday</h2>
+    <p><strong>Yards ordered against yards screened.</strong> The calls are already being logged in Salesforce, so the yards each account has committed to can go on the same record. Our suggestion: if orders are not closing the gap by the end of September, that is the signal to slow the screens further. If they are, the screens can speed back up and the pile turns into cash.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">What only you can answer</p>
+    <h2 class="sec display">Four questions</h2>
+
+    <div class="gate gate--yours">
+      <h3>These shape the strategy more than any research</h3>
+      <p class="who">Corey, Richard and Jeff &middot; answer in a conversation</p>
+      <ol class="qs">
+        <li>How much topsoil has left the yard so far?
+          <span class="why">Richard's log recorded the first pile finished at 27,300 yards processed on 10 September. With 35,000 on hand today, the answer tells us whether the pile is growing or turning over.</span></li>
+        <li>Does the ground have to be cleared by a certain date?
+          <span class="why">This decides whether screening can follow orders or has to run regardless.</span></li>
+        <li>Has the pile been lab-tested or certified, and by whom?
+          <span class="why">Oil and public buyers will ask on the first call.</span></li>
+        <li>What is the lowest price you would take from a wholesale buyer who collects 5,000 yards or more?
+          <span class="why">The wholesale calls can't close without it.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <strong>Sources</strong>
+    <ul>
+      <li>Concrete_Warrior_Topsoil_Competition_and_Bulk_Buyers_2026-09-16.xlsx, all five tabs (inventory, production, leads, Volume Plan)</li>
+      <li>Richard's daily production log, 12 September workbook</li>
+      <li>ND Department of Trust Lands, Native Grass Seeding Specifications (the October 20 dormant seeding date)</li>
+      <li>N.D.C.C. chapter 4.1-47, weed-free certification of gravel, scoria, topsoil and sand operations</li>
+      <li>Earlier briefs: <a href="../concrete-warrior-sales/">Who Actually Buys This</a> &middot; <a href="../concrete-warrior-winter/">Winter at New Town</a></li>
+    </ul>
+    <p style="margin-top:1.2rem">Prepared by Doble AI. Distances are straight-line estimates. No calls or emails were made for this page.</p>
+  </footer>
+
+</div>
