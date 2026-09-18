@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Concrete Warrior Supply Print Files</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --ground:#E8E5DE; --surface:#F4F2ED; --surface2:#DCD8CF;
+  --ink:#1A1C1D; --ink2:#54595B; --ink3:#82878A;
+  --rule:#C9C4B9; --accent:#A63A28; --accent-deep:#7E2C1E; --accent-wash:#F1E0DA;
+  --flag:#8A6410; --flag-wash:#F3E7CD; --ok:#3B6B52; --ok-wash:#DDE8E0;
+  --shadow:0 1px 2px rgba(26,28,29,.06), 0 8px 24px -16px rgba(26,28,29,.30);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#16181A; --surface:#1E2124; --surface2:#282C2F;
+    --ink:#E9E5DD; --ink2:#A9AEB0; --ink3:#7D8285;
+    --rule:#34383B; --accent:#D4634B; --accent-deep:#E8836D; --accent-wash:#3A211B;
+    --flag:#C9962E; --flag-wash:#332812; --ok:#6EA687; --ok-wash:#1E2A23;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#16181A; --surface:#1E2124; --surface2:#282C2F;
+  --ink:#E9E5DD; --ink2:#A9AEB0; --ink3:#7D8285;
+  --rule:#34383B; --accent:#D4634B; --accent-deep:#E8836D; --accent-wash:#3A211B;
+  --flag:#C9962E; --flag-wash:#332812; --ok:#6EA687; --ok-wash:#1E2A23;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Barlow",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;padding:40px 16px 72px}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+h1,h2,h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:700;line-height:1.1;margin:0}
+h1{font-size:clamp(34px,6vw,52px);margin:8px 0 12px;letter-spacing:.005em}
+h2{font-size:30px;margin:56px 0 6px}
+h3{font-size:22px}
+p{margin:0 0 14px}
+.lede{font-size:19px;color:var(--ink2);max-width:62ch}
+a{color:var(--accent)}
+.versions{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.ver{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.ver .num{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:700;font-size:40px;line-height:1;margin:6px 0 10px}
+.ver p{font-size:16px;color:var(--ink2)}
+.tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;letter-spacing:.06em;
+  text-transform:uppercase;padding:3px 8px;border-radius:4px}
+.tag.ok{background:var(--ok-wash);color:var(--ok)}
+.tag.flag{background:var(--flag-wash);color:var(--flag)}
+.btn{display:inline-block;margin-top:auto;align-self:flex-start;background:var(--ink);color:var(--surface);text-decoration:none;
+  font-weight:600;font-size:15px;padding:11px 16px;border-radius:6px}
+.btn:hover{background:var(--accent)}
+.btn small{font-weight:400;opacity:.75;margin-left:6px}
+.items{display:grid;gap:14px;margin-top:18px}
+.item{display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:center;
+  background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px}
+.item img{width:100%;height:auto;display:block;border:1px solid var(--rule);border-radius:4px;background:#fff}
+.item .for{color:var(--ink2);font-size:15.5px;margin:4px 0 12px}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15px;align-items:baseline}
+.dl .lab{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:500;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em}
+.dl a{font-weight:600;text-decoration:none;margin-right:12px}
+.dl a:hover{text-decoration:underline}
+.notes{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:8px 22px}
+.notes li{margin:12px 0;padding-left:2px}
+.notes ul{padding-left:18px;margin:10px 0}
+.foot{margin-top:48px;color:var(--ink3);font-size:14px}
+@media (max-width:720px){
+  .versions{grid-template-columns:1fr}
+  .item{grid-template-columns:1fr}
+  .wrap{padding-top:28px}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="eyebrow">Concrete Warrior Supply · Print files · 18 September 2026</div>
+  <h1>Truck magnets and batch plant signs</h1>
+  <p class="lede">Every piece comes in two versions. The artwork is identical and only the phone number changes. Pick the number, then download that set.</p>
+
+  <div class="versions">
+    <div class="ver">
+      <span class="tag ok">Matches the website</span>
+      <div class="num">701-580-3207</div>
+      <p>Richard's cell. This is the number the website lists first, so it works today.</p>
+      <a class="btn" href="CWS-print-files-Richard-cell-701-580-3207.zip" download>Download all, Richard's cell <small>ZIP · 3 MB</small></a>
+    </div>
+    <div class="ver">
+      <span class="tag flag">Only if it forwards</span>
+      <div class="num">701-627-2200</div>
+      <p>The office line. Use this set only once calls to it forward to Richard's cell or yours.</p>
+      <a class="btn" href="CWS-print-files-office-line-701-627-2200.zip" download>Download all, office line <small>ZIP · 3 MB</small></a>
+    </div>
+  </div>
+
+  <h2>Truck magnets</h2>
+  <p>Only the website and phone number, so they can be read from a moving truck. Choose the color for each truck by whichever one stands out against the paint. The fleet doesn't need to match.</p>
+  <div class="items" id="magnets"></div>
+
+  <h2>Batch plant signs</h2>
+  <p>The full logo, the phone number and the highway address, 9702 ND-23, so a driver on ND-23 can match the number. The 8 × 4 ft size is for the road. The two smaller sizes are there if you need a sign in a tighter spot.</p>
+  <div class="items" id="signs"></div>
+
+  <h2>Before you order</h2>
+  <div class="notes">
+    <ul>
+      <li><strong>Send the printer the PDF.</strong> It's the exact print size with the bleed already in, and the text has been converted to shapes, so the printer's fonts can't change how it looks. The PNG is a backup copy of the same design.</li>
+      <li><strong>Magnets:</strong> 30 mil magnetic vinyl is the standard thickness for highway use, and thinner ones peel off. Check that the doors are steel, because magnets won't hold on aluminum or composite panels. If a truck has aluminum doors, the same file prints as a stick-on vinyl decal.</li>
+      <li><strong>No USDOT number on the magnets.</strong> This is on purpose, because nobody has confirmed which number belongs on these trucks. Patriot's 4232633 is registered to the Texas company. When the right number is confirmed, send it and I'll add the line.</li>
+      <li><strong>Signs:</strong> for outdoors, ask for aluminum composite (Dibond or similar) with a UV laminate. There's clear space around the edge for grommets at every size.</li>
+      <li><strong>Colors:</strong> ask for a proof before the full run. Watch the yellow most closely, because it's the color most likely to print green or orange. Charcoal <code>#1E272B</code>, yellow <code>#F2B532</code>, amber <code>#C2870C</code> for the ".com" on the cream versions, cream <code>#FAF7F3</code>.</li>
+    </ul>
+  </div>
+
+  <p class="foot">Prepared by John Rounds, Doble AI. If you need a size that isn't listed, just ask.</p>
+</main>
+<script>
+const MAG=[
+  ["24x12","24 × 12 in","Standard truck door","charcoal","Light-colored trucks. White lettering on charcoal."],
+  ["24x12","24 × 12 in","Standard truck door","cream","Dark trucks. Charcoal lettering on cream."],
+  ["30x15","30 × 15 in","Larger doors and box trucks","charcoal","Light-colored trucks. White lettering on charcoal."],
+  ["30x15","30 × 15 in","Larger doors and box trucks","cream","Dark trucks. Charcoal lettering on cream."]
+];
+const SGN=[
+  ["8x4ft","8 × 4 ft","Road sign at the batch plant","charcoal"],
+  ["8x4ft","8 × 4 ft","Road sign at the batch plant","cream"],
+  ["6x3ft","6 × 3 ft","Smaller sign","charcoal"],
+  ["6x3ft","6 × 3 ft","Smaller sign","cream"],
+  ["4x2ft","4 × 2 ft","Smallest sign","charcoal"],
+  ["4x2ft","4 × 2 ft","Smallest sign","cream"]
+];
+const cap=s=>s[0].toUpperCase()+s.slice(1);
+function card(base,title,sub,forTxt){
+  return `<div class="item">
+    <img src="preview/richard-cell-${base}.jpg" alt="${title}, ${sub}" loading="lazy">
+    <div><h3>${title}</h3><div class="for">${forTxt}</div>
+      <div class="dl">
+        <span class="lab">Richard's cell</span><span><a href="richard-cell/${base}.pdf" download>PDF</a><a href="richard-cell/${base}.png" download>PNG</a></span>
+        <span class="lab">Office line</span><span><a href="office-line/${base}.pdf" download>PDF</a><a href="office-line/${base}.png" download>PNG</a></span>
+      </div></div></div>`;
+}
+document.getElementById("magnets").innerHTML=MAG.map(([k,sz,use,c,t])=>
+  card(`truck-magnet-${k}-${c}`,`${sz} · ${cap(c)}`,use,`${use}. ${t}`)).join("");
+document.getElementById("signs").innerHTML=SGN.map(([k,sz,use,c])=>
+  card(`sign-${k}-${c}`,`${sz} · ${cap(c)}`,use,
+   `${use}. ${c==="charcoal"?"White and yellow on charcoal, yellow border.":"Charcoal on cream, charcoal border."}`)).join("");
+</script>
+</body>
+</html>
