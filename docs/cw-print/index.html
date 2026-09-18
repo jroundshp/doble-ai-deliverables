@@ -68,6 +68,8 @@ a{color:var(--accent)}
 .dl .lab{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:500;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em}
 .dl a{font-weight:600;text-decoration:none;margin-right:12px}
 .dl a:hover{text-decoration:underline}
+.item img.dark{background:#1E272B}
+.item img.logo{padding:14px;object-fit:contain;max-height:200px}
 .notes{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:8px 22px}
 .notes li{margin:12px 0;padding-left:2px}
 .notes ul{padding-left:18px;margin:10px 0}
@@ -82,7 +84,7 @@ a{color:var(--accent)}
 <body>
 <main class="wrap">
   <div class="eyebrow">Concrete Warrior Supply · Print files · 18 September 2026</div>
-  <h1>Truck magnets and batch plant signs</h1>
+  <h1>Truck magnets, batch plant signs and logo</h1>
   <p class="lede">Every piece comes in two versions. The artwork is identical and only the phone number changes. Pick the number, then download that set.</p>
   <p><a href="CWS-print-files-ALL.zip" download>Or download everything, both versions, in one ZIP (6 MB)</a></p>
 
@@ -108,6 +110,11 @@ a{color:var(--accent)}
   <h2>Batch plant signs</h2>
   <p>The full logo, the phone number and the highway address, 9702 ND-23, so a driver on ND-23 can match the number. The 8 × 4 ft size is for the road. The two smaller sizes are there if you need a sign in a tighter spot.</p>
   <div class="items" id="signs"></div>
+
+  <h2>Logo, vector files</h2>
+  <p>For the printer, a designer, or anything that needs the logo at a large size. The PDF and SVG versions are both vector, so they scale to any size without going blurry. If a printer asks for EPS or Illustrator, send the PDF, which opens directly in Illustrator. None of the files has a background, so whatever is behind the logo shows through.</p>
+  <p><a href="CWS-logo-vector.zip" download>Download all four logos in one ZIP (30 KB)</a></p>
+  <div class="items" id="logos"></div>
 
   <h2>Before you order</h2>
   <div class="notes">
@@ -152,6 +159,16 @@ document.getElementById("magnets").innerHTML=MAG.map(([k,sz,use,c,t])=>
 document.getElementById("signs").innerHTML=SGN.map(([k,sz,use,c])=>
   card(`sign-${k}-${c}`,`${sz} · ${cap(c)}`,use,
    `${use}. ${c==="charcoal"?"White and yellow on charcoal, yellow border.":"Charcoal on cream, charcoal border."}`)).join("");
+const LOGO=[
+  ["cws-logo-color","Full logo · Color","For white or light backgrounds.",""],
+  ["cws-logo-white","Full logo · White","For dark backgrounds and photos. It's white, so it's shown here on charcoal.","dark"],
+  ["cws-logo-square-color","Stacked square · Color","For social profiles and anywhere square.",""],
+  ["cws-icon-color","Plant icon only · Color","The machine without the name.",""]
+];
+document.getElementById("logos").innerHTML=LOGO.map(([b,t,f,cls])=>`<div class="item">
+    <img class="logo ${cls}" src="logo/${b}.svg" alt="${t}" loading="lazy">
+    <div><h3>${t}</h3><div class="for">${f}</div>
+      <div class="dl"><span class="lab">Vector</span><span><a href="logo/${b}.pdf" download>PDF</a><a href="logo/${b}.svg" download>SVG</a></span></div></div></div>`).join("");
 </script>
 </body>
 </html>
