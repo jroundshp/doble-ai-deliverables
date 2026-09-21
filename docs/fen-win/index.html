@@ -95,6 +95,7 @@ tr:last-child td{border-bottom:0}
 .item .fix{font-size:.92rem;background:var(--ground);border-radius:8px;padding:8px 12px;margin-top:4px}
 .item .fix strong{font-weight:600}
 .item.done .n{background:var(--good-soft);color:var(--good)}
+.item.part .n{background:var(--warn-soft);color:var(--warn)}
 .item .st{font-size:.85rem;font-weight:600;border-radius:8px;padding:6px 12px;margin-top:4px}
 .item .st.done{background:var(--good-soft);color:var(--good)}
 .item .st.part{background:var(--warn-soft);color:var(--warn)}
@@ -123,7 +124,7 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
 <header>
   <div class="eyebrow">Winter plan · Fenimore's Table and Cooperstown Clubhouse</div>
   <h1>Cooperstown this winter: two objectives</h1>
-  <p class="meta">Prepared 17 September 2026 by Doble AI, from both websites as they read that morning. Status updated 18 September 2026 after a full recheck of the live Clubhouse site: 17 of the 21 fix list items are done. The four still open are the Google listing, the social accounts, analytics and the team-party questions.</p>
+  <p class="meta">Prepared 17 September 2026 by Doble AI, from both websites as they read that morning. Status updated 21 September 2026 after a full recheck of the live Clubhouse site: 20 of the 22 fix list items are done. The Google listing merge is waiting on Google, and the team-party questions are still open.</p>
 </header>
 
 <div class="lede">
@@ -157,22 +158,24 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
   <p class="intro">Where the website stood on 17 September, what's been done since, and what's left before mid-October. With the restaurant closed, these changes can't disrupt a busy season.</p>
   <div class="then">
     <div class="col">
-      <h3>Done by 18 September</h3>
+      <h3>Done by 21 September</h3>
       <ul>
         <li>Closed-for-the-season wording on every page, with Fenimore's hours in the footer and buttons pointing to Fenimore's</li>
         <li>All photos moved off the old Rookie's domain onto the Clubhouse's own</li>
         <li>Google titles and descriptions on every page, business details Google can read, a share image and a working sitemap</li>
         <li>One main heading per page, descriptions on every photo, and zooming allowed on phones</li>
         <li>The Rookie's cleanup: Activities wording and buttons, Contact phone and email icons, the red strip, Careers wording, and old Rookie's addresses forwarding to the Clubhouse</li>
+        <li>Google Analytics and Search Console connected, and the footer phone and map links corrected on every page</li>
               </ul>
     </div>
     <div class="col">
       <h3>Still to do by mid-October (<a href="#fix-list">see the full fix list</a>)</h3>
       <ul>
-        <li>Renew the old domain before 19 December and keep it, so the old addresses keep forwarding</li>
-        <li>Merge the old Rookie's Google listing and point the old Rookie's social accounts to the Clubhouse</li>
-        <li>Install analytics and connect Search Console and Bing before reopening, so spring traffic is measured from day one</li>
+        <li>Keep both domains on auto-renew, so the old Rookie's addresses keep forwarding after 19 December</li>
+        <li>Finish the Google listing merge, which Google is reviewing</li>
+        <li>Submit the sitemap in Search Console</li>
         <li>Write a team-party questions-and-answers section for the Teams page, the questions coaches ask before booking</li>
+        <li>Before reopening: spring hours in Rank Math, current pay on Careers, and the reopening date in place of "spring 2027"</li>
       </ul>
     </div>
   </div>
@@ -265,7 +268,7 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
 
 <section id="fix-list">
   <h2>The full Clubhouse website fix list</h2>
-  <p class="intro">Every item below was checked on the live site on 17 September 2026, except item 10, which is a Google listing last checked in August. The colored line under each item shows where it stood when the site was rechecked on 18 September. Items 1 to 5 are this week's closed-for-the-season changes. The rest can be worked in one pass alongside them and finished by 15 October. For step-by-step instructions on items 4, 6, 7, 9, 10, 13 and 16 to 19, see the <a href="../clubhouse-domain-cleanup/">August cleanup sheet</a>. Those findings are still open.</p>
+  <p class="intro">Every item below was checked on the live site on 17 September 2026, except item 10, a Google listing last checked in August and again on 21 September. The colored line under each item shows where it stood when the site was rechecked on 21 September. Items 1 to 5 are this week's closed-for-the-season changes. The rest can be worked in one pass alongside them and finished by 15 October. For step-by-step instructions on items 4, 6, 7, 9, 10, 13 and 16 to 19, see the <a href="../clubhouse-domain-cleanup/">August cleanup sheet</a>. Those findings are still open.</p>
   <div class="fixgroup">
     <div class="fixgroup-head"><h3>Closed for the season</h3><span class="q">Do these this week.</span></div>
     <div class="fixgroup-body">
@@ -279,12 +282,12 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
   <div class="fixgroup">
     <div class="fixgroup-head"><h3>Leftovers from the Rookie's Craft House name</h3><span class="q">These make the spring opening cleaner, and the first one has a deadline.</span></div>
     <div class="fixgroup-body">
-      <div class="item done"><div class="n">6</div><div class="t"><b>19 images load from the old domain, which expires 19 December</b><span>Photos on the homepage, Menu, Bar Menu, Activities, Teams and Careers pages load from <code>rookiescrafthouseny.com</code>. If that domain lapses, they disappear. Two more image addresses, a template placeholder named <code>ramen-shop-11.jpg</code> on the Menu and Bar Menu pages, are already broken on both domains.</span><div class="fix"><strong>Fix:</strong> Renew <code>rookiescrafthouseny.com</code> this week and keep it. Then point the 19 images at the copies on the Clubhouse's own domain, where the same files already exist, and remove the two broken placeholders. A search-and-replace plugin can change every address in one pass. Also note that <code>cooperstownclubhouse.com</code> itself expires on 1 May 2027, around the reopening, so turn on auto-renew for both.</div><div class="st done">Images done 18 September by Doble AI: 20 photos and the job application PDF now load from the Clubhouse domain, and the broken placeholders are gone. Domain renewal not yet confirmed.</div></div></div>
+      <div class="item done"><div class="n">6</div><div class="t"><b>19 images load from the old domain, which expires 19 December</b><span>Photos on the homepage, Menu, Bar Menu, Activities, Teams and Careers pages load from <code>rookiescrafthouseny.com</code>. If that domain lapses, they disappear. Two more image addresses, a template placeholder named <code>ramen-shop-11.jpg</code> on the Menu and Bar Menu pages, are already broken on both domains.</span><div class="fix"><strong>Fix:</strong> Renew <code>rookiescrafthouseny.com</code> this week and keep it. Then point the 19 images at the copies on the Clubhouse's own domain, where the same files already exist, and remove the two broken placeholders. A search-and-replace plugin can change every address in one pass. Also note that <code>cooperstownclubhouse.com</code> itself expires on 1 May 2027, around the reopening, so turn on auto-renew for both.</div><div class="st done">Images done 18 September by Doble AI: 20 photos and the job application PDF now load from the Clubhouse domain, and the broken placeholders are gone. Grace confirmed on 21 September that auto-renew is on.</div></div></div>
       <div class="item done"><div class="n">7</div><div class="t"><b>The Contact page phone link dials a different number</b><span>The page shows (607) 486-1483, but tapping it dials 607-547-2767, which is now Fenimore's number. The envelope icon opens an email to <code>rookies4850@gmail.com</code> instead of the address printed below it.</span><div class="fix"><strong>Fix:</strong> Set the phone link to <code>tel:6074861483</code> and the envelope to <code>mailto:restaurant@cooperstownexperience.com</code>. In Divi the link can sit on the icon, the text and the column, so check all three. Over the winter the wrong link happens to reach Fenimore's, so fix it together with the phone forwarding.</div><div class="st done">Done 18 September by Doble AI. The phone icon and its box now dial (607) 486-1483, and the envelope emails restaurant@cooperstownexperience.com.</div></div></div>
       <div class="item done"><div class="n">8</div><div class="t"><b>The Activities page still names Rookies Craft House</b><span>"What sets Rookies Craft House apart from other eateries..."</span><div class="fix"><strong>Fix:</strong> Rewrite the paragraph with the Clubhouse name.</div><div class="st done">Done 18 September by Grace.</div></div></div>
       <div class="item done"><div class="n">9</div><div class="t"><b>Old Rookie's addresses show pages instead of forwarding</b><span>The Rookie's homepage forwards to the Clubhouse. Inner addresses like <code>rookiescrafthouseny.com/activities/</code> still load a full copy of the page.</span><div class="fix"><strong>Fix:</strong> Forward every Rookie's address to its matching Clubhouse page. Set this on the Rookie's domain only, never as a server-wide rule, because other sites share this server.</div><div class="st done">Done 18 September by Doble AI. Every old Rookie's address now forwards to its matching Clubhouse page. Keep the domain renewed so the forwarding keeps working.</div></div></div>
-      <div class="item"><div class="n">10</div><div class="t"><b>A "permanently closed" Rookie's listing sits at the same address on Google</b><span>Last checked 17 August: the Rookie's Craft House listing at 4850 NY-28 is marked permanently closed, with 3.5 stars and the phone number 607-547-2767, which is now Fenimore's.</span><div class="fix"><strong>Fix:</strong> Don't delete it. Ask Google Business Profile support to merge it into the Clubhouse listing so its review history carries over. The August cleanup sheet has the steps.</div><div class="st open">Not yet confirmed.</div></div></div>
-      <div class="item"><div class="n">11</div><div class="t"><b>Two sets of social accounts</b><span>The site links to <code>facebook.com/cooperstownclubhouse</code> and <code>instagram.com/cooperstownclubhouse</code>. Accounts under the Rookie's Craft House name still existed in August.</span><div class="fix"><strong>Fix:</strong> Keep the old accounts, but rename them or post a pinned note pointing to the Clubhouse accounts, so followers aren't split.</div><div class="st open">Not yet confirmed.</div></div></div>
+      <div class="item part"><div class="n">10</div><div class="t"><b>A "permanently closed" Rookie's listing sits at the same address on Google</b><span>Last checked 17 August: the Rookie's Craft House listing at 4850 NY-28 is marked permanently closed, with 3.5 stars and the phone number 607-547-2767, which is now Fenimore's.</span><div class="fix"><strong>Fix:</strong> Don't delete it. Ask Google Business Profile support to merge it into the Clubhouse listing so its review history carries over. The August cleanup sheet has the steps.</div><div class="st part">Merge requested by Grace; Google is reviewing it. On 21 September the Rookie's listing still showed as permanently closed, 3.5 stars from 158 reviews.</div></div></div>
+      <div class="item done"><div class="n">11</div><div class="t"><b>Two sets of social accounts</b><span>The site links to <code>facebook.com/cooperstownclubhouse</code> and <code>instagram.com/cooperstownclubhouse</code>. Accounts under the Rookie's Craft House name still existed in August.</span><div class="fix"><strong>Fix:</strong> Keep the old accounts, but rename them or post a pinned note pointing to the Clubhouse accounts, so followers aren't split.</div><div class="st done">Done. Grace confirmed on 21 September that the Rookie's Facebook and Instagram accounts became the Clubhouse accounts when the name changed, so there is one set. The old Rookie's handles no longer open a profile.</div></div></div>
     </div>
   </div>
   <div class="fixgroup">
@@ -298,8 +301,14 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
       <div class="item done"><div class="n">17</div><div class="t"><b>Most images have no description</b><span>14 of 15 homepage images, 7 of 8 on Menu and 9 of 10 on Activities have no alt text, which screen readers and Google rely on to know what a photo shows.</span><div class="fix"><strong>Fix:</strong> Add a short, literal description to each image, such as "Team eating on the Clubhouse patio".</div><div class="st done">Done 18 September by Doble AI: 22 photos described. The sketches and brush-stroke textures are decoration and correctly have none.</div></div></div>
       <div class="item done"><div class="n">18</div><div class="t"><b>Phones can't zoom in</b><span>The page code blocks pinch-to-zoom, which makes the menus hard to read on a phone and fails accessibility guidelines.</span><div class="fix"><strong>Fix:</strong> Remove the zoom block. Fenimore's had the same problem and it was fixed with a short code snippet.</div><div class="st done">Done 18 September by Doble AI.</div></div></div>
       <div class="item done"><div class="n">19</div><div class="t"><b>An empty scrolling banner is left in the hero</b><span>The hiring text is gone from the old scrolling banner, but the empty element is still in the page.</span><div class="fix"><strong>Fix:</strong> Delete the empty module.</div><div class="st done">Done 18 September by Doble AI.</div></div></div>
-      <div class="item"><div class="n">20</div><div class="t"><b>No analytics</b><span>There's no Google Analytics tag in the page code, and no Google or Bing verification tag. The site may be verified another way, but we can't see it.</span><div class="fix"><strong>Fix:</strong> Install Google Analytics and connect Search Console and Bing before reopening, so spring traffic is measured from day one. Adding Doble AI's reporting account as a viewer lets us include the Clubhouse in the monthly check.</div><div class="st open">Still open.</div></div></div>
+      <div class="item done"><div class="n">20</div><div class="t"><b>No analytics</b><span>There's no Google Analytics tag in the page code, and no Google or Bing verification tag. The site may be verified another way, but we can't see it.</span><div class="fix"><strong>Fix:</strong> Install Google Analytics and connect Search Console and Bing before reopening, so spring traffic is measured from day one. Adding Doble AI's reporting account as a viewer lets us include the Clubhouse in the monthly check.</div><div class="st done">Done 21 September by Grace. Google Analytics and Search Console are connected through Google's Site Kit plugin, and the tag is on every page. Bing is set up on Grace's side; it leaves no tag on the page, so we can't see it from outside. Next: submit the sitemap in Search Console.</div></div></div>
       <div class="item"><div class="n">21</div><div class="t"><b>Nothing answers the questions coaches ask</b><span>The Teams page lists packages but not the questions coaches ask before booking: group size, patio and tent in bad weather, paying by family, arriving straight from a game.</span><div class="fix"><strong>Fix:</strong> Add a short questions-and-answers section to the Teams page, written from real booking questions. Answers like these are what AI assistants tend to quote.</div><div class="st open">Still open.</div></div></div>
+    </div>
+  </div>
+  <div class="fixgroup">
+    <div class="fixgroup-head"><h3>Found on the 21 September recheck</h3><span class="q">Fixed the same morning.</span></div>
+    <div class="fixgroup-body">
+      <div class="item done"><div class="n">22</div><div class="t"><b>Footer links go to the wrong places</b><span>On every page, the footer shows Fenimore's number, (607) 547-2767, but tapping it dialed the closed Clubhouse line, (607) 486-1483. Tapping Fenimore's address opened an email instead of Fenimore's website. The Clubhouse address in the footer and the map pin and address on the Contact page opened the old "permanently closed" Rookie's Craft House listing on Google Maps.</span><div class="fix"><strong>Fix:</strong> Point the footer phone at Fenimore's number, the Fenimore's address at fenimorestable.com, and every map link at the Cooperstown Clubhouse listing.</div><div class="st done">Done 21 September by Doble AI on all seven pages.</div></div></div>
     </div>
   </div>
   <div class="table-wrap">
@@ -307,7 +316,6 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
       <thead><tr><th>What we couldn't check from outside</th><th>How to check it</th></tr></thead>
       <tbody>
         <tr><td>Where the homepage contact form sends messages</td><td>Send a test message and see which inbox it arrives in.</td></tr>
-        <tr><td>Whether the old Rookie's Craft House Google listing still reads as it did in August. The Clubhouse listing was checked on 17 September.</td><td>Search Google Maps for Rookie's Craft House Cooperstown.</td></tr>
         <tr><td>Whether an older Yelp listing under the Rookie's Craft House name still exists</td><td>Search Yelp for Rookie's Craft House Cooperstown.</td></tr>
         <tr><td>Whether the homepage's "Mexican American cuisine" description still fits the menu, which describes "classic American favorites"</td><td>A menu decision for the team.</td></tr>
       </tbody>
@@ -335,13 +343,13 @@ code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;ov
     <table>
       <thead><tr><th>Question</th><th>What it decides</th></tr></thead>
       <tbody>
-        <tr><td><b>Who on the team will make the Clubhouse website changes?</b></td><td>Answered 18 September: Grace made items 1 to 5 and 8, and Doble AI made items 6, 7, 9 and 12 to 19 and finished 2 and 5, at her request. Doble AI checks every change on the live site.</td></tr>
+        <tr><td><b>Who on the team will make the Clubhouse website changes?</b></td><td>Answered 18 September: Grace made items 1 to 5 and 8, and Doble AI made items 6, 7, 9 and 12 to 19 and finished 2 and 5, at her request. On 21 September Grace set up item 20 and Doble AI fixed item 22. Doble AI checks every change on the live site.</td></tr>
         <tr><td><b>Is there an email list from Fenimore's or the Clubhouse?</b> For example, guests who opted in through Toast online ordering, past team-party organizers, or Private Events inquiries. Is it shared between the two restaurants, and where is it kept?</td><td>Whether an events email can go out this fall, and to whom. It should only go to people who agreed to hear from the restaurants.</td></tr>
         <tr><td>What is the reopening date?</td><td>Replaces "spring 2027" everywhere.</td></tr>
         <tr><td>Will Fenimore's keep its current hours through the winter?</td><td>The Clubhouse footer repeats Fenimore's hours, so a change has to be made there too.</td></tr>
         <tr><td>Can (607) 486-1483 forward to Fenimore's?</td><td>Forwarding reaches a person. Voicemail only reaches a message.</td></tr>
         <tr><td>Can a team walk in at Fenimore's after a game, or should groups always book ahead?</td><td>Whether the winter message says "come by" or "plan ahead".</td></tr>
-        <tr><td>Who manages the Clubhouse Facebook and Instagram accounts the site links to, and the old Rookie's accounts?</td><td>Who posts the bio lines and pinned posts, and handles fix list item 11.</td></tr>
+        <tr><td>Who manages the Clubhouse Facebook and Instagram accounts?</td><td>Who updates the bio lines and posts the pinned winter note pointing to Fenimore's.</td></tr>
       </tbody>
     </table>
   </div>
@@ -445,7 +453,7 @@ Cooperstown Clubhouse is closed for the season and reopens in spring 2027. Fenim
   </details>
 </section>
 
-<footer>Doble AI · Cooperstown winter plan · 17 September 2026 · status updated 18 September 2026</footer>
+<footer>Doble AI · Cooperstown winter plan · 17 September 2026 · status updated 21 September 2026</footer>
 
 </div>
 </body>
