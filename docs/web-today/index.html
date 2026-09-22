@@ -109,13 +109,13 @@
     <p>Almost every part of a WordPress site has an equivalent in the newer approach. Mostly the names change, along with where each piece lives.</p>
     <div class="tablewrap">
       <table>
-        <tr><th>In WordPress</th><th>In the newer approach</th><th>What changes</th></tr>
+        <tr><th>In WordPress</th><th>Framework + content dashboard</th><th>What changes</th></tr>
         <tr><td>wp-admin</td><td>A content dashboard (Sanity, Payload, Storyblok)</td><td>It does the same job: log in and edit text, photos, products and data sheets. It sits apart from the site's code, so a content edit can't break the layout.</td></tr>
         <tr><td>Custom fields (ACF)</td><td>Content models</td><td>Fields like flow rate, dimensions or a data sheet link are designed into the dashboard from day one, with a field for each product spec.</td></tr>
         <tr><td>Theme</td><td>Components</td><td>A header or product card is built once and used everywhere. Change it once and every page updates.</td></tr>
         <tr><td>Plugins</td><td>Code libraries, added by the developer</td><td>A new feature is added to the code and tested on a preview before it goes live, instead of being switched on in the live admin.</td></tr>
         <tr><td>Yoast / Rank Math</td><td>Built into the site</td><td>Titles, descriptions and schema are generated from the same product data as the page, so the page and what Google reads can't drift apart.</td></tr>
-        <tr><td>Hosting and a caching layer</td><td>Vercel, Netlify or Cloudflare</td><td>Pages are built ahead of time and served from the location nearest the visitor. There's no cache to purge after an edit.</td></tr>
+        <tr><td>Hosting and a caching layer</td><td>Vercel, Netlify or Cloudflare</td><td>Pages are prepared before anyone asks for them and served from the location nearest the visitor. There's no cache to purge after an edit.</td></tr>
         <tr><td>Revisions and a backup plugin</td><td>Version history (Git)</td><td>Every change to the site is recorded with who made it and when. Each one gets its own preview link, and any of them can be undone in one step.</td></tr>
       </table>
     </div>
@@ -138,7 +138,7 @@
     <div class="item">
       <span class="tag">Assemble it</span>
       <h3>WordPress, with a theme and plugins</h3>
-      <p>The site lives in a database on a server, and each page is assembled when someone visits. Features come from plugins, each written by a different company. WordPress holds 58.8% of sites that use a known content system. Its share of all websites peaked at 43.6% in mid-2025 and has slipped to 40.2% since.</p>
+      <p>The site lives in a database on a server, and each page is assembled when someone visits. Features come from plugins, each written by a different company. WordPress holds 58.8% of sites that use a known content system. It ran 43.6% of all websites at the start of 2025 and 43.0% at the start of 2026, and it is at 40.2% now.</p>
       <div class="pc">
         <div><b>Strengths</b><ul><li>Huge ecosystem; a plugin exists for almost anything</li><li>Familiar dashboard, and WordPress help is easy to find</li><li>Good fit for large amounts of content edited by a team</li></ul></div>
         <div><b>Weaknesses</b><ul><li>Every plugin is another company's code running on your site</li><li>11,334 new security holes found in 2025, up 42%; 91% were in plugins</li><li>Constant updates, and plugins can conflict with each other</li><li>Speed depends on the theme, the plugins and the host</li></ul></div>
@@ -148,9 +148,9 @@
     <div class="item">
       <span class="tag">Build it</span>
       <h3>Modern frameworks: Next.js, Astro</h3>
-      <p>The site is written as code, built into finished pages ahead of time, and served from a global network. Next.js is the most widely used: 21.5% of developers in Stack Overflow's 2025 survey, and still rising. Astro is built specifically for content sites. Cloudflare bought the company behind it in January 2026 and kept it open source.</p>
+      <p>The site is written as code, turned into finished pages before visitors arrive, and served from a global network. Next.js is the most widely used: 21.5% of professional developers in Stack Overflow's 2025 survey, and still rising. Astro is built specifically for content sites. Cloudflare bought the company behind it in January 2026 and kept it open source.</p>
       <div class="pc">
-        <div><b>Strengths</b><ul><li>Fast by default</li><li>No database or plugins exposed to attack</li><li>Full control over design, schema and search setup</li><li>Standard code; it moves between hosts without a rewrite</li></ul></div>
+        <div><b>Strengths</b><ul><li>Fast by default</li><li>No WordPress-style admin, plugin stack or database sitting on the public site</li><li>Full control over design, schema and search setup</li><li>Standard code; it moves between hosts without a rewrite</li></ul></div>
         <div><b>Weaknesses</b><ul><li>Structural changes need a developer</li><li>No editing dashboard until you add one</li><li>Fewer off-the-shelf add-ons; features get built</li><li>The framework needs updates too (two serious security fixes in 2025)</li></ul></div>
       </div>
     </div>
@@ -173,7 +173,7 @@
       <li><span class="when">2003</span><span>WordPress launches and gives business owners a login. It's a big step forward, and it brings along a server, a database and plugins that all need looking after.</span></li>
       <li><span class="when">2004&ndash;2013</span><span>Hosted builders arrive: Squarespace, Wix, Shopify, then Webflow. Websites become a subscription, easy to start and hard to leave.</span></li>
       <li><span class="when">2013&ndash;2016</span><span>Facebook releases React; Next.js follows in 2016. Pages start being built ahead of time and served from global networks, and editing moves into separate dashboards.</span></li>
-      <li><span class="when">2020s</span><span>Frameworks become the default for professional builds. WordPress stays the biggest platform, but its share starts slipping after a mid-2025 peak.</span></li>
+      <li><span class="when">2020s</span><span>Frameworks become the default for professional builds. WordPress stays the biggest platform, but its share starts to slip, and most of the drop comes in 2026.</span></li>
       <li><span class="when">2025&ndash;2026</span><span>AI changes both ends. Developers build with AI assistants, and customers increasingly find businesses by asking ChatGPT, Google's AI Overviews or Perplexity.</span></li>
     </ul>
   </section>
@@ -181,11 +181,11 @@
   <section>
     <h2><span class="num">05</span>The techniques that define current practice</h2>
     <ul>
-      <li>Pages are built ahead of time. Nothing is assembled while the visitor waits, and every page comes from a server near them.</li>
+      <li>Pages are generated or cached before the visit. Nothing is assembled while the visitor waits, and every page comes from a server near them.</li>
       <li>A product card, spec table or quote form is built once as a component and reused, so a fix in one place is a fix everywhere.</li>
       <li>Content is kept apart from design. Staff change words and photos, developers change how things look and work, and neither can break the other's side.</li>
       <li>Each edit gets its own preview link before it goes live, and the full history stays with the site.</li>
-      <li>Photos are resized automatically for each screen. On a site we launched this month, turning this on cut the homepage from 6.3 MB to 0.9 MB and raised Google's mobile speed score from 67 to 96.</li>
+      <li>Photos are resized automatically for each screen. On a site we launched this month, turning this on cut the homepage from 6.3 MB to 0.9 MB and raised its mobile performance score in Google's Lighthouse test from 67 to 96 (our own before-and-after runs).</li>
       <li>One set of product specs feeds the page, the schema Google reads and the files AI tools read. A corrected figure is corrected everywhere at once.</li>
       <li>AI is now part of the job: 84% of developers use or plan to use AI tools (Stack Overflow, 2025). These tools work best on code-based sites, where the whole site sits in one readable place. On WordPress, the same information is spread across database settings, theme options and plugin screens.</li>
     </ul>
@@ -195,7 +195,7 @@
     <h2><span class="num">06</span>Where it's heading</h2>
     <p>The biggest change is where buyers start. More of them ask ChatGPT or Google's AI Overview before they ever click a link, and those tools lean on sites with clean structure and accurate product data. For a company that sells on specifications, that matters more than any design trend.</p>
     <p>The newer dashboards are also adding visual, edit-on-the-page tools, so editing a framework site is starting to feel like editing in WordPress. And the large infrastructure companies are putting money behind these frameworks: Vercel backs Next.js, and Cloudflare now owns Astro.</p>
-    <p>WordPress will be around for a long time. It's losing ground slowly, from 43.6% of the web to 40.2% in about fifteen months.</p>
+    <p>WordPress will be around for a long time. Its share held near 43% for several years, then fell to 40.2% over the first nine months of 2026.</p>
   </section>
 
   <section>
@@ -246,7 +246,7 @@
     <span>Prepared by Doble AI, 22 September 2026. Figures checked that day.</span>
     <ul>
       <li><a href="https://w3techs.com/technologies/overview/content_management">W3Techs, content management system usage</a> (platform shares)</li>
-      <li><a href="https://barn2.com/blog/wordpress-market-share/">Barn2, WordPress market share 2026</a> (mid-2025 peak)</li>
+      <li><a href="https://w3techs.com/technologies/history_overview/content_management/all/y">W3Techs, yearly history</a> (43.6% on 1 Jan 2025, 43.0% on 1 Jan 2026)</li>
       <li><a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/">Patchstack, State of WordPress Security in 2026</a></li>
       <li><a href="https://survey.stackoverflow.co/2025/technology">Stack Overflow Developer Survey 2025, technology</a> and <a href="https://survey.stackoverflow.co/2025/ai">AI</a></li>
       <li><a href="https://www.cloudflare.com/press/press-releases/2026/cloudflare-acquires-astro-to-accelerate-the-future-of-high-performance-web-development/">Cloudflare, acquisition of Astro</a> (January 2026)</li>
