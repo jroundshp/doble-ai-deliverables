@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Cooperstown Experience: New Website Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #F4F4EF; color: #1F2622;
+    -webkit-font-smoothing: antialiased; line-height: 1.6;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 100px; }
+
+  .hero { padding: 64px 0 40px; border-bottom: 1px solid rgba(16,45,80,0.18); }
+  .tag {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #102D50; margin-bottom: 20px; flex-wrap: wrap;
+  }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #C0242C; }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(34px, 5.5vw, 52px); font-weight: 500;
+    line-height: 1.08; margin-bottom: 18px;
+  }
+  .hero p { font-size: 19px; color: #46524C; line-height: 1.65; max-width: 700px; }
+  .hero p + p { margin-top: 14px; }
+
+  .purpose {
+    margin-top: 34px; background: #102D50; color: #fff; border-radius: 10px;
+    padding: 26px 30px; border-left: 5px solid #C0242C;
+  }
+  .purpose .lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #FCCD22; margin-bottom: 10px; }
+  .purpose p { font-family: 'Playfair Display', Georgia, serif; font-size: 23px; line-height: 1.4; color: #fff; }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px; font-weight: 500; margin: 64px 0 10px;
+  }
+  .lede { font-size: 17px; color: #46524C; max-width: 720px; margin-bottom: 14px; }
+  p.body { font-size: 16px; color: #33403A; max-width: 720px; }
+  p.body + p.body { margin-top: 12px; }
+
+  figure { margin: 22px 0 0; }
+  figure img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid rgba(31,38,34,0.1); }
+  figcaption { font-size: 13.5px; color: #7C8C84; margin-top: 8px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .grid3 figure img { aspect-ratio: 4 / 3; object-fit: cover; }
+  table.split td:first-child { font-weight: 400; width: 50%; }
+  @media (max-width: 680px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 15px; background: #fff; border-radius: 8px; overflow: hidden; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid rgba(31,38,34,0.08); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #7C8C84; font-weight: 600; background: #FAFAF7; }
+  td:first-child { font-weight: 600; width: 26%; }
+  @media (max-width: 640px) { table { display: block; overflow-x: auto; } }
+
+  .card {
+    background: #fff; border: 1px solid rgba(31,38,34,0.1); border-radius: 10px;
+    padding: 24px 26px; margin-top: 16px;
+  }
+  .card h3 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+  .card p { font-size: 15.5px; color: #33403A; }
+  .card p + p { margin-top: 8px; }
+  .card .n { font-family: 'Playfair Display', serif; color: #C0242C; font-size: 22px; margin-right: 8px; }
+  .pill { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; margin-left: 6px; vertical-align: 2px; }
+  .pill.open { background: #e7f5ee; color: #16794a; }
+  .pill.approved { background: #e8eef6; color: #102D50; }
+  .pill.plan { background: #fdf6ec; color: #8a6414; }
+
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .fact { background: #fff; border: 1px solid rgba(31,38,34,0.1); border-radius: 8px; padding: 16px; }
+  .fact .v { font-family: 'Playfair Display', serif; font-size: 26px; color: #102D50; line-height: 1.1; }
+  .fact .l { font-size: 13px; color: #5B6962; margin-top: 6px; }
+  @media (max-width: 680px) { .facts { grid-template-columns: 1fr 1fr; } }
+
+  ul.plain, ol.plain { margin: 10px 0 0 20px; font-size: 16px; color: #33403A; max-width: 720px; }
+  ul.plain li, ol.plain li { margin-bottom: 8px; }
+
+  .rec {
+    margin-top: 20px; background: #eef3f8; border: 1px solid #c9d6e6; border-left: 4px solid #102D50;
+    border-radius: 8px; padding: 22px 26px;
+  }
+  .rec h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+  .rec p { font-size: 16px; color: #33403A; }
+  .rec p + p { margin-top: 10px; }
+
+  .q { background: #fff; border: 1px solid rgba(31,38,34,0.1); border-radius: 8px; padding: 18px 22px; margin-top: 12px; }
+  .q strong { display: block; font-size: 16px; margin-bottom: 4px; }
+  .q span { font-size: 15px; color: #46524C; }
+
+  a { color: #102D50; }
+  .outro { margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(16,45,80,0.18); }
+  .outro p { font-size: 16px; color: #46524C; max-width: 700px; }
+  .outro p + p { margin-top: 14px; }
+  .sig { margin-top: 28px; font-size: 15px; color: #7C8C84; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="tag">Cooperstown Experience · Website Brief</div>
+    <h1>A new website that shows where Cooperstown Experience is going.</h1>
+    <p>The site at cooperstownexperience.com was built to book tournament teams, and it still reads as if a 2025 or 2026 season were about to open. The people who most need to see it now are banks weighing a loan, investors and possible joint-venture partners. They want the vision, the plan and proof that it's real, and today's site doesn't show them any of that.</p>
+    <p>This brief sets out what the new site is for, what it would say and show, and how we'd build it. It's for Corey, Bob, Jeff and Amanda to review. Nothing gets built until you've given us your feedback.</p>
+
+    <div class="purpose">
+      <div class="lbl">What the site is for</div>
+      <p>To give a lender, investor or partner a clear picture of the Cooperstown Experience in five minutes: what's already open, what's approved and being built, what the finished resort will be, and who to call.</p>
+    </div>
+  </div>
+
+  <h2>Who will read it, and what they're looking for</h2>
+  <p class="lede">Each of the three readers comes with a different question. The site has to answer all three without turning into a loan application.</p>
+  <table>
+    <tr><th>Reader</th><th>What they need to see</th></tr>
+    <tr><td>A bank</td><td>That the project is real and de-risked: the land, the approvals, the work already done, the businesses already earning, and experienced owners. They'll get the numbers from the project packet, not from the website.</td></tr>
+    <tr><td>An investor</td><td>The size of the opportunity: the Hall of Fame a few miles away, the drive-time market, what makes this complex different, and how the phases grow.</td></tr>
+    <tr><td>A joint-venture partner</td><td>Where they fit. The later phases (the family lodge, more fields, indoor entertainment) are natural places for a hotel, construction or sports partner.</td></tr>
+  </table>
+
+  <h2>The story the site tells</h2>
+  <p class="lede">It's your own vision, taken from the executive summary and business plan in the SBA package and cut down to what a first-time visitor can take in. The phases below follow the executive summary. The January 2026 pitch deck groups them differently, so question 1 asks which version is current.</p>
+
+  <figure>
+    <img src="img/render-fields.jpg" alt="Concept aerial rendering of the finished tournament campus with lit synthetic-turf ball fields, a central concession hub, parking and the family lodge in the background">
+    <figcaption>Concept rendering of the full build-out, from the business plan. It would lead the homepage, labeled as a concept.</figcaption>
+  </figure>
+
+  <p class="body" style="margin-top:22px"><strong>Dream. Play. Remember.</strong> A youth baseball and softball destination a few miles from the National Baseball Hall of Fame, with tournament fields, family lodging, dining and entertainment on one property. It's built in phases, and the first part is already open.</p>
+
+  <div class="facts">
+    <div class="fact"><div class="v">~140</div><div class="l">acres on Route 28, Town of Hartwick</div></div>
+    <div class="fact"><div class="v">3.5 mi</div><div class="l">to the National Baseball Hall of Fame</div></div>
+    <div class="fact"><div class="v">51M</div><div class="l">people within a five-hour drive</div></div>
+    <div class="fact"><div class="v">0.9 mi</div><div class="l">of river frontage</div></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="n">Open today</span><span class="pill open">Operating</span></h3>
+    <p>Fenimore's Table (open year-round), the Cooperstown Clubhouse (reopens spring 2027), a 20-game arcade, wiffle ball fields, lawn games and the courtyard pond deck. This is the part a lender can drive up to and see working.</p>
+  </div>
+  <div class="card">
+    <h3><span class="n">Phase 1</span><span class="pill approved">Approved, site work under way</span></h3>
+    <p>Three lit synthetic-turf tournament fields, concessions, a welcome center, parking and support buildings. The town's environmental review and the state health department's septic approval are in hand. Grading, septic and drainage are done, and the welcome center is being framed.</p>
+  </div>
+  <div class="card">
+    <h3><span class="n">Phase 2</span><span class="pill plan">Planned</span></h3>
+    <p>A 125-room family lodge with a family entertainment center, an arcade and dining.</p>
+  </div>
+  <div class="card">
+    <h3><span class="n">Phase 3</span><span class="pill plan">Planned</span></h3>
+    <p>Five more synthetic-turf fields, bringing the complex to eight, so it can host larger tournaments. Unlike the two established complexes nearby, the plan includes girls' softball and more age groups.</p>
+  </div>
+
+  <div class="grid2">
+    <figure>
+      <img src="img/render-lodge.jpg" alt="Concept aerial rendering of the family lodge beside a pond with fountains, an outdoor water park, entrance plazas and ball fields behind">
+      <figcaption>Concept rendering of the lodge and front entrance. It shows an outdoor water park, which the Phase 2 description doesn't list (see question 3).</figcaption>
+    </figure>
+    <figure>
+      <img src="img/master-plan.jpg" alt="MBL Engineering overall site master plan showing eight ball fields, hotel, indoor park, indoor training building, welcome center and parking">
+      <figcaption>Full build-out master plan, MBL Engineering, November 2022 (preliminary).</figcaption>
+    </figure>
+  </div>
+
+  <h2>Both restaurants get their own section</h2>
+  <p class="lede">The restaurants are the proof that people already come to this property to eat, drink and bring their teams. Each gets photos, a few lines and a link to its own website, so the new site supports both restaurant sites instead of competing with them.</p>
+  <div class="grid2">
+    <figure>
+      <img src="img/fenimores-exterior.jpg" alt="Fenimore's Table exterior, a dark board-and-batten building with a stamped patio and outdoor tables">
+      <figcaption><strong>Fenimore's Table</strong>: open year-round, private events and team dinners. Links to <a href="https://fenimorestable.com/">fenimorestable.com</a>.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/clubhouse-lawn.jpg" alt="Cooperstown Clubhouse red building with a lawn, cornhole boards and Adirondack chairs">
+      <figcaption><strong>Cooperstown Clubhouse</strong>: team parties, arcade, wiffle ball fields and parking for buses. Reopens spring 2027. Links to <a href="https://www.cooperstownclubhouse.com/">cooperstownclubhouse.com</a>.</figcaption>
+    </figure>
+  </div>
+
+  <h2>Proof it's real: progress and approvals</h2>
+  <p class="lede">A lender's first question is whether the project is really moving. Dated photos and a short list of approvals answer that better than any sentence can. Real construction photos from the package are below. A new photo and a one-line update each month will keep the page current.</p>
+  <div class="grid3">
+    <figure><img src="img/sitework-grading.jpg" alt="Graded and stripped field area seen from an excavator cab"><figcaption>Site grading</figcaption></figure>
+    <figure><img src="img/welcome-center-framing.jpg" alt="Welcome center interior being framed by two workers"><figcaption>Welcome center framing</figcaption></figure>
+    <figure><img src="img/arcade.jpg" alt="Finished arcade with driving games and skee-ball lanes"><figcaption>Arcade, complete</figcaption></figure>
+  </div>
+  <p class="body" style="margin-top:18px">The approvals list would read as a simple timeline: SHPO "no effect" finding (January 2021), NYSDOT acceptance of the traffic study (January 2022), the Town of Hartwick Planning Board's environmental finding (July 2022), NYSDOH septic approval (May 2025) and the Otsego County building permits for the existing buildings (January 2026). The documents themselves go in the project packet, not on the site.</p>
+
+  <h2>What goes on the site, and what stays private</h2>
+  <table class="split">
+    <tr><th>On the website</th><th>In the project packet, sent on request</th></tr>
+    <tr><td>The vision, the phases, renderings and the master plan, the restaurants, dated progress photos, the approvals timeline, who's behind it, and one named contact</td><td>The executive summary, the Victus Advisors feasibility study, the construction budget and investment summary, financial projections, the approval documents and the engineering drawings</td></tr>
+  </table>
+  <p class="body" style="margin-top:14px">No dollar figures on the public site. Every visitor would see them, and they date quickly. The site's call to action is "Request the project packet," which goes to whoever you name, and you decide who receives it. One caution: the 2025 appraisal restricts its own use in offering materials, so check with the appraiser before it goes to anyone other than a lender.</p>
+
+  <h2>The pages</h2>
+  <p class="lede">Five short pages. That's all these readers need.</p>
+  <ol class="plain">
+    <li><strong>Home.</strong> The hero rendering, the vision in two sentences, the four numbers above, and the "Request the project packet" button.</li>
+    <li><strong>The Project.</strong> The three phases, the master plan and renderings, the location map and what sets the complex apart.</li>
+    <li><strong>Open Today.</strong> Fenimore's Table, the Clubhouse and the arcade, each with photos and a link.</li>
+    <li><strong>Progress.</strong> Dated photos, the approvals timeline and a monthly update.</li>
+    <li><strong>Who We Are and Contact.</strong> Corey and Bob, their track record, and one contact for lenders, investors and partners. One line invites coaches to join the no-cost interest list, so the site doesn't lose teams in the meantime.</li>
+  </ol>
+  <p class="body" style="margin-top:12px">The tournament schedule, pricing and parent pages come off the site for now. They come back when an opening date is set.</p>
+
+  <h2>Rebuild or modify: our recommendation</h2>
+  <div class="rec">
+    <h3>Build a new site. Keep the address.</h3>
+    <p>SportsEngine is built for running leagues and registering teams, and it does that well. It isn't built to tell a development story. Its template puts "Page Search" as the main heading on every page, it gives little control over how the pages appear in Google, and the site's analytics are an old Google Analytics code that stopped collecting data in 2023. Reworking all 23 pages inside it would cost more time than building five new ones, and the result would still look like a tournament site.</p>
+    <p>We'd build the new site outside SportsEngine and show it to you on a private preview link first. Once you approve it, it goes live at cooperstownexperience.com, the same address everyone already has. The domain stays in your name. The SportsEngine account can stay on file, so when tournaments open, registration can run there and the new site links to it.</p>
+  </div>
+
+  <h2>What we need from you</h2>
+  <p class="lede">Your answers to these are what the build is waiting on. A short reply to each is enough.</p>
+  <div class="q"><strong>1. Which phase plan and timing should the site show?</strong><span>The executive summary has three phases and eight fields. The January 2026 pitch deck has more steps, nine fields and the Route 28 turn lane. Which one is current? And for timing: an opening season, a target year, or just "Phase 1 approved and under way"? Whatever you choose, we'll say it the same way on every page.</span></div>
+  <div class="q"><strong>2. Can the site name the Hall of Fame partnership?</strong><span>The executive summary describes it as a strategic partnership with championship games at Doubleday Field. If it's in writing and still in place, the site should lead with it. If not, we'll describe the location and leave the partnership out.</span></div>
+  <div class="q"><strong>3. Is the water park part of the vision?</strong><span>The lodge rendering shows an outdoor water park, but the Phase 2 description doesn't mention one. We'll show exactly what you want investors to expect.</span></div>
+  <div class="q"><strong>4. Who is the contact for lenders, investors and partners?</strong><span>One name, phone and email for the site, and the person who decides who receives the project packet. For Who We Are: is anyone besides Corey and Bob on the team page, such as the CFO named in the business plan?</span></div>
+  <div class="q"><strong>5. Recent photos.</strong><span>The newest construction photos in the package are from February 2026. A shared folder with anything newer, especially the field site, would let the Progress page show where things stand today. Drone shots are best.</span></div>
+  <div class="q"><strong>6. Logo files.</strong><span>The largest Cooperstown Experience logo on the current site is 600 pixels wide. A vector version (AI, EPS, SVG or a large PNG) will keep it sharp.</span></div>
+
+  <div class="outro">
+    <h2 style="margin-top:0">What happens next</h2>
+    <p>You review this and send your feedback and your answers to the questions above. We build the site on a private preview link, you go through it, and it goes live at cooperstownexperience.com only after you've signed off. Until then, the current site stays exactly as it is.</p>
+    <p>If this is the wrong direction, or only part of it is right, tell us and we'll rework the brief.</p>
+    <p class="sig">Prepared by Doble AI · John Rounds · September 22, 2026 · Sources: the Cooperstown Experience SBA loan package, the current website and both restaurant websites</p>
+  </div>
+
+</div>
+</body>
+</html>
