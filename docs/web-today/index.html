@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>How Websites Get Built</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600&display=swap">
+<style>
+  :root {
+    --ground:#F1F3F1; --surface:#FBFCFB; --sunken:#E7EAE8; --ink:#141817;
+    --muted:#5A6462; --hair:#CBD2CF; --accent:#14514E; --accent-soft:#DCE8E6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+      --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0F1413; --surface:#171D1C; --sunken:#1E2524; --ink:#E6EAE8;
+    --muted:#98A29F; --hair:#2E3836; --accent:#62B7AF; --accent-soft:#17322F;
+  }
+  * { box-sizing:border-box; }
+  body {
+    background:var(--ground); color:var(--ink);
+    font-family:"Source Serif 4", Georgia, serif;
+    font-size:17px; line-height:1.62; margin:0; padding:0 24px 96px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet { max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:44px; }
+  header { padding-top:64px; display:flex; flex-direction:column; gap:16px; }
+  .eyebrow {
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size:11px; font-weight:500; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--accent); margin:0;
+  }
+  h1 {
+    font-family:Archivo, "Helvetica Neue", Arial, sans-serif; font-weight:700;
+    font-size:clamp(30px,5.5vw,42px); line-height:1.05; letter-spacing:-.02em;
+    text-wrap:balance; margin:0;
+  }
+  .standfirst { font-size:19px; line-height:1.5; color:var(--muted); margin:0; max-width:58ch; }
+  section { display:flex; flex-direction:column; gap:16px; }
+  h2 {
+    font-family:Archivo, "Helvetica Neue", Arial, sans-serif; font-weight:600;
+    font-size:22px; letter-spacing:-.01em; margin:0;
+    border-top:1px solid var(--hair); padding-top:26px;
+  }
+  h2 .num { font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:13px; color:var(--accent); margin-right:10px; font-weight:500; }
+  p { margin:0; }
+  a { color:var(--accent); }
+  ul, ol { margin:0; padding-left:22px; display:flex; flex-direction:column; gap:8px; }
+  .note {
+    background:var(--accent-soft); border-radius:8px; padding:18px 20px;
+    font-size:16px; line-height:1.55;
+  }
+  .item { background:var(--surface); border:1px solid var(--hair); border-radius:10px; padding:22px 24px; display:flex; flex-direction:column; gap:10px; }
+  .item h3 { font-family:Archivo, Arial, sans-serif; font-weight:600; font-size:18px; margin:0; line-height:1.3; }
+  .tag { font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+  .pc { display:grid; grid-template-columns:1fr 1fr; gap:14px; font-size:15.5px; line-height:1.5; }
+  .pc b { font-family:Archivo, Arial, sans-serif; font-weight:600; font-size:13px; letter-spacing:.02em; display:block; margin-bottom:4px; color:var(--muted); }
+  .pc ul { gap:5px; padding-left:18px; }
+  .tablewrap { overflow-x:auto; border:1px solid var(--hair); border-radius:10px; background:var(--surface); }
+  table { border-collapse:collapse; width:100%; font-size:15px; line-height:1.45; }
+  td, th { text-align:left; padding:10px 12px; border-bottom:1px solid var(--hair); vertical-align:top; }
+  tr:last-child td { border-bottom:0; }
+  th { font-family:Archivo, Arial, sans-serif; font-weight:600; font-size:13px; color:var(--muted); background:var(--sunken); }
+  td:first-child { font-family:Archivo, Arial, sans-serif; font-weight:600; font-size:14px; }
+  .timeline { list-style:none; padding:0; gap:0; }
+  .timeline li { display:grid; grid-template-columns:118px 1fr; gap:16px; padding:12px 0; border-bottom:1px solid var(--hair); }
+  .timeline li:last-child { border-bottom:0; }
+  .timeline .when { font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:13px; color:var(--accent); padding-top:2px; }
+  .stat { font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace; font-size:13px; color:var(--muted); }
+  footer {
+    border-top:1px solid var(--hair); padding-top:20px;
+    font-family:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size:12px; line-height:1.7; color:var(--muted); display:flex; flex-direction:column; gap:10px;
+  }
+  footer ul { gap:4px; padding-left:16px; }
+  @media (max-width:560px){
+    body{padding:0 16px 72px;} .item{padding:18px;} table{font-size:13.5px;}
+    .pc { grid-template-columns:1fr; }
+    .timeline li { grid-template-columns:1fr; gap:4px; }
+  }
+  td, th { overflow-wrap:anywhere; }
+  td:first-child { overflow-wrap:normal; min-width:96px; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <p class="eyebrow">Doble AI &middot; For Amanda Acker &middot; September 2026</p>
+    <h1>How websites get built now</h1>
+    <p class="standfirst">A plain guide to where web development stands in 2026, how it got here, and how the newer approach compares with WordPress, Wix and Squarespace. You run WordPress sites every day, so it starts from what you already know.</p>
+  </header>
+
+  <section>
+    <h2><span class="num">01</span>The short version</h2>
+    <p>WordPress still runs about 40% of all websites, and it remains a reasonable choice for plenty of businesses. Professional developers starting a new site, though, have mostly moved to a different approach. The site is built with a framework such as Next.js or Astro, staff edit content in a separate dashboard, and finished pages are served from a worldwide network.</p>
+    <p>Built that way, a site loads faster and has far fewer parts to patch, and the business owns every piece of it outright. The catch is that the editing dashboard has to be set up on purpose. With WordPress it comes in the box.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span>If you know WordPress, you know most of this</h2>
+    <p>Almost every part of a WordPress site has an equivalent in the newer approach. Mostly the names change, along with where each piece lives.</p>
+    <div class="tablewrap">
+      <table>
+        <tr><th>In WordPress</th><th>In the newer approach</th><th>What changes</th></tr>
+        <tr><td>wp-admin</td><td>A content dashboard (Sanity, Payload, Storyblok)</td><td>It does the same job: log in and edit text, photos, products and data sheets. It sits apart from the site's code, so a content edit can't break the layout.</td></tr>
+        <tr><td>Custom fields (ACF)</td><td>Content models</td><td>Fields like flow rate, dimensions or a data sheet link are designed into the dashboard from day one, with a field for each product spec.</td></tr>
+        <tr><td>Theme</td><td>Components</td><td>A header or product card is built once and used everywhere. Change it once and every page updates.</td></tr>
+        <tr><td>Plugins</td><td>Code libraries, added by the developer</td><td>A new feature is added to the code and tested on a preview before it goes live, instead of being switched on in the live admin.</td></tr>
+        <tr><td>Yoast / Rank Math</td><td>Built into the site</td><td>Titles, descriptions and schema are generated from the same product data as the page, so the page and what Google reads can't drift apart.</td></tr>
+        <tr><td>Hosting and a caching layer</td><td>Vercel, Netlify or Cloudflare</td><td>Pages are built ahead of time and served from the location nearest the visitor. There's no cache to purge after an edit.</td></tr>
+        <tr><td>Revisions and a backup plugin</td><td>Version history (Git)</td><td>Every change to the site is recorded with who made it and when. Each one gets its own preview link, and any of them can be undone in one step.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span>The four ways sites get built today</h2>
+    <p class="stat">Share of all websites, W3Techs, 22 September 2026: WordPress 40.2% &middot; Shopify 5.4% &middot; Wix 4.2% &middot; Squarespace 2.4% &middot; Webflow 0.8% &middot; no tracked system 31.5%</p>
+
+    <div class="item">
+      <span class="tag">Rent it</span>
+      <h3>Website builders: Wix, Squarespace, Square Online, Webflow, Framer</h3>
+      <p>You pay a monthly fee and edit visually in the browser. Hosting, security and updates are the platform's job. Webflow and Framer are the builders designers currently prefer.</p>
+      <div class="pc">
+        <div><b>Strengths</b><ul><li>Easiest to start and to edit</li><li>Nothing to patch or host</li></ul></div>
+        <div><b>Weaknesses</b><ul><li>You rent the site; the design and features don't come with you if you leave</li><li>You get only the features the platform offers</li><li>Limited control over technical search setup</li></ul></div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="tag">Assemble it</span>
+      <h3>WordPress, with a theme and plugins</h3>
+      <p>The site lives in a database on a server, and each page is assembled when someone visits. Features come from plugins, each written by a different company. WordPress holds 58.8% of sites that use a known content system. Its share of all websites peaked at 43.6% in mid-2025 and has slipped to 40.2% since.</p>
+      <div class="pc">
+        <div><b>Strengths</b><ul><li>Huge ecosystem; a plugin exists for almost anything</li><li>Familiar dashboard, and WordPress help is easy to find</li><li>Good fit for large amounts of content edited by a team</li></ul></div>
+        <div><b>Weaknesses</b><ul><li>Every plugin is another company's code running on your site</li><li>11,334 new security holes found in 2025, up 42%; 91% were in plugins</li><li>Constant updates, and plugins can conflict with each other</li><li>Speed depends on the theme, the plugins and the host</li></ul></div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="tag">Build it</span>
+      <h3>Modern frameworks: Next.js, Astro</h3>
+      <p>The site is written as code, built into finished pages ahead of time, and served from a global network. Next.js is the most widely used: 21.5% of developers in Stack Overflow's 2025 survey, and still rising. Astro is built specifically for content sites. Cloudflare bought the company behind it in January 2026 and kept it open source.</p>
+      <div class="pc">
+        <div><b>Strengths</b><ul><li>Fast by default</li><li>No database or plugins exposed to attack</li><li>Full control over design, schema and search setup</li><li>Standard code; it moves between hosts without a rewrite</li></ul></div>
+        <div><b>Weaknesses</b><ul><li>Structural changes need a developer</li><li>No editing dashboard until you add one</li><li>Fewer off-the-shelf add-ons; features get built</li><li>The framework needs updates too (two serious security fixes in 2025)</li></ul></div>
+      </div>
+    </div>
+
+    <div class="item">
+      <span class="tag">Edit it</span>
+      <h3>Content dashboards: Sanity, Payload, Storyblok, Contentful</h3>
+      <p>This is the piece that gives a framework site its login. Your team edits products, pages and photos in a dashboard, and the site rebuilds itself with the change. The newer ones show a live preview of the page as you type.</p>
+      <div class="pc">
+        <div><b>Strengths</b><ul><li>WordPress-style editing, without WordPress running the site</li><li>Content can feed more than one place: website, printed catalog, AI tools</li></ul></div>
+        <div><b>Weaknesses</b><ul><li>One more account to own</li><li>Depending on team size, one more subscription</li><li>Has to be designed around your content at the start</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span>How we got here</h2>
+    <ul class="timeline">
+      <li><span class="when">Late 1990s</span><span>Hand-written pages. A developer edited files and uploaded them. There was no dashboard, no history and no undo. This is the real "old school," and it's what "built in code" can sound like from the outside.</span></li>
+      <li><span class="when">2003</span><span>WordPress launches and gives business owners a login. It's a big step forward, and it brings along a server, a database and plugins that all need looking after.</span></li>
+      <li><span class="when">2004&ndash;2013</span><span>Hosted builders arrive: Squarespace, Wix, Shopify, then Webflow. Websites become a subscription, easy to start and hard to leave.</span></li>
+      <li><span class="when">2013&ndash;2016</span><span>Facebook releases React; Next.js follows in 2016. Pages start being built ahead of time and served from global networks, and editing moves into separate dashboards.</span></li>
+      <li><span class="when">2020s</span><span>Frameworks become the default for professional builds. WordPress stays the biggest platform, but its share starts slipping after a mid-2025 peak.</span></li>
+      <li><span class="when">2025&ndash;2026</span><span>AI changes both ends. Developers build with AI assistants, and customers increasingly find businesses by asking ChatGPT, Google's AI Overviews or Perplexity.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span>The techniques that define current practice</h2>
+    <ul>
+      <li>Pages are built ahead of time. Nothing is assembled while the visitor waits, and every page comes from a server near them.</li>
+      <li>A product card, spec table or quote form is built once as a component and reused, so a fix in one place is a fix everywhere.</li>
+      <li>Content is kept apart from design. Staff change words and photos, developers change how things look and work, and neither can break the other's side.</li>
+      <li>Each edit gets its own preview link before it goes live, and the full history stays with the site.</li>
+      <li>Photos are resized automatically for each screen. On a site we launched this month, turning this on cut the homepage from 6.3 MB to 0.9 MB and raised Google's mobile speed score from 67 to 96.</li>
+      <li>One set of product specs feeds the page, the schema Google reads and the files AI tools read. A corrected figure is corrected everywhere at once.</li>
+      <li>AI is now part of the job: 84% of developers use or plan to use AI tools (Stack Overflow, 2025). These tools work best on code-based sites, where the whole site sits in one readable place. On WordPress, the same information is spread across database settings, theme options and plugin screens.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">06</span>Where it's heading</h2>
+    <p>The biggest change is where buyers start. More of them ask ChatGPT or Google's AI Overview before they ever click a link, and those tools lean on sites with clean structure and accurate product data. For a company that sells on specifications, that matters more than any design trend.</p>
+    <p>The newer dashboards are also adding visual, edit-on-the-page tools, so editing a framework site is starting to feel like editing in WordPress. And the large infrastructure companies are putting money behind these frameworks: Vercel backs Next.js, and Cloudflare now owns Astro.</p>
+    <p>WordPress will be around for a long time. It's losing ground slowly, from 43.6% of the web to 40.2% in about fifteen months.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">07</span>What if the person who built it isn't around?</h2>
+    <p>This question applies to every platform, WordPress included. The answer depends less on the technology than on two things: who holds the keys, and whether the setup is written down.</p>
+    <p>Whoever builds your site, us included, you should expect five things:</p>
+    <ol>
+      <li>The domain, registered in the company's own account.</li>
+      <li>The hosting account, owned by the company, with the builder added as a member.</li>
+      <li>The code, in a repository the company owns, with a plain-English guide to editing and publishing.</li>
+      <li>Dashboard logins for the people who edit content day to day.</li>
+      <li>A written list of every account and where its login is kept.</li>
+    </ol>
+    <p>With those in place, a framework site is one of the easier things to hand over. Next.js is one of the most common skills in web development. The entire site and its full history sit in one place. A new developer, or an AI assistant, can read the whole thing and work out how it fits together.</p>
+    <p>WordPress raises the same question in a different form: who holds the admin login, the hosting account, and the licenses for the paid theme and plugins. Those are often set up under whoever built the site, which is worth checking on any WordPress site you manage.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">08</span>The line between what you edit and what a developer edits</h2>
+    <p>Every setup has one. Having a login doesn't remove the need for a developer. It decides where the line falls.</p>
+    <div class="tablewrap">
+      <table>
+        <tr><th></th><th>You edit</th><th>A developer handles</th></tr>
+        <tr><td>WordPress with an agency</td><td>Pages, text, photos, product fields, SEO titles</td><td>Plugins, theme changes, schema, server and caching</td></tr>
+        <tr><td>Framework with a content dashboard</td><td>Pages, text, photos, product fields, SEO titles</td><td>Components, new features, integrations, schema</td></tr>
+        <tr><td>Website builder</td><td>Almost everything the platform allows</td><td>Nothing, but anything the platform doesn't offer can't be done</td></tr>
+      </table>
+    </div>
+    <p>InterActive Play works like the first row. You make content changes yourself and they go live right away, while the schema plugin and theme work go through the agency. A well-built framework site with a dashboard puts the line in the same place for your team. The differences show up on the developer's side: how fast a change can be made, how safely it can be tested first, and how easily someone new could pick it up.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">09</span>What leading developers recommend, and when</h2>
+    <div class="tablewrap">
+      <table>
+        <tr><th>Situation</th><th>Usual recommendation</th></tr>
+        <tr><td>New business site where speed, Google and AI visibility matter, with a developer relationship</td><td>A framework (Next.js or Astro) plus a content dashboard, on Vercel, Netlify or Cloudflare</td></tr>
+        <tr><td>Small team, no developer, wants to do everything visually</td><td>Webflow or Framer; Squarespace or Wix for the simplest sites</td></tr>
+        <tr><td>Large existing WordPress site, a team fluent in it, and real dependence on specific plugins</td><td>Stay on WordPress, keep plugins to a minimum, use a good host</td></tr>
+        <tr><td>Online store</td><td>Shopify</td></tr>
+      </table>
+    </div>
+    <p>Our view: for a new site, the framework approach wins on speed, security and search, and the dashboard closes most of the editing gap. For a big WordPress site that works and a team that knows it well, switching only makes sense when the plugin upkeep or the speed starts costing you something.</p>
+    <p class="note">If you keep one thing from this page, make it section 07. Whatever platform a site ends up on, those five items are what keep it from depending on any one person.</p>
+  </section>
+
+  <footer>
+    <span>Prepared by Doble AI, 22 September 2026. Figures checked that day.</span>
+    <ul>
+      <li><a href="https://w3techs.com/technologies/overview/content_management">W3Techs, content management system usage</a> (platform shares)</li>
+      <li><a href="https://barn2.com/blog/wordpress-market-share/">Barn2, WordPress market share 2026</a> (mid-2025 peak)</li>
+      <li><a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/">Patchstack, State of WordPress Security in 2026</a></li>
+      <li><a href="https://survey.stackoverflow.co/2025/technology">Stack Overflow Developer Survey 2025, technology</a> and <a href="https://survey.stackoverflow.co/2025/ai">AI</a></li>
+      <li><a href="https://www.cloudflare.com/press/press-releases/2026/cloudflare-acquires-astro-to-accelerate-the-future-of-high-performance-web-development/">Cloudflare, acquisition of Astro</a> (January 2026)</li>
+      <li><a href="https://vercel.com/changelog/cve-2025-55182">Vercel, December 2025 security advisory</a></li>
+    </ul>
+  </footer>
+
+</div>
+</body>
+</html>
