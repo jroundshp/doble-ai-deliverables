@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Winter Website Options · John Tyler Real Estate</title>
+<meta name="description" content="Two options for John Tyler Real Estate's website and social from October 15 to February 15, 2027: take ownership of the site, or keep it running with us at $1,500 a month.">
+</head>
+<body>
+<style>
+  :root {
+    --bg: #F7F8F6; --surface: #FFFFFF; --surface-2: #F1F3EF; --ink: #1A211D;
+    --muted: #5B665E; --faint: #838E85; --hair: #E1E5DF; --hair-strong: #CDD3CB;
+    --brand: #24463A; --brand-2: #2F5A49; --accent: #A8842C; --accent-ink: #7E6018;
+    --go: #2F6B4F; --go-bg: #EAF1EC; --caution: #9A6A12; --caution-bg: #F6EEDC;
+    --stop: #A6462F; --stop-bg: #F6E9E4;
+    --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+    --measure: 68ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12160F; --surface: #191E16; --surface-2: #1F251B; --ink: #E9ECE5;
+      --muted: #A2AC9C; --faint: #808A7B; --hair: #2A311F; --hair-strong: #384030;
+      --brand: #7FB39A; --brand-2: #92C2AB; --accent: #CBA351; --accent-ink: #D9B871;
+      --go: #6FBF93; --go-bg: #16241C; --caution: #D3A64F; --caution-bg: #2A2313;
+      --stop: #D98B72; --stop-bg: #2B1B15;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F7F8F6; --surface: #FFFFFF; --surface-2: #F1F3EF; --ink: #1A211D;
+    --muted: #5B665E; --faint: #838E85; --hair: #E1E5DF; --hair-strong: #CDD3CB;
+    --brand: #24463A; --brand-2: #2F5A49; --accent: #A8842C; --accent-ink: #7E6018;
+    --go: #2F6B4F; --go-bg: #EAF1EC; --caution: #9A6A12; --caution-bg: #F6EEDC;
+    --stop: #A6462F; --stop-bg: #F6E9E4;
+  }
+  :root[data-theme="dark"] {
+    --bg: #12160F; --surface: #191E16; --surface-2: #1F251B; --ink: #E9ECE5;
+    --muted: #A2AC9C; --faint: #808A7B; --hair: #2A311F; --hair-strong: #384030;
+    --brand: #7FB39A; --brand-2: #92C2AB; --accent: #CBA351; --accent-ink: #D9B871;
+    --go: #6FBF93; --go-bg: #16241C; --caution: #D3A64F; --caution-bg: #2A2313;
+    --stop: #D98B72; --stop-bg: #2B1B15;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  .flow > * + * { margin-top: 1.1em; }
+  a { color: var(--brand-2); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+  p { margin: 0; max-width: var(--measure); }
+  strong { font-weight: 650; }
+
+  .eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink); }
+
+  header.hero {
+    border-bottom: 1px solid var(--hair);
+    background: radial-gradient(120% 90% at 82% -10%, color-mix(in srgb, var(--brand) 12%, transparent), transparent 60%), var(--surface);
+  }
+  .hero-inner { padding: 68px 0 52px; }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 3.9rem); letter-spacing: -0.015em; margin-top: 18px; }
+  .hero .lede { font-size: clamp(1.1rem, 2.4vw, 1.35rem); color: var(--muted); margin-top: 20px; max-width: 50ch; font-family: var(--serif); font-style: italic; }
+  .meta-line { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--hair); display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 13.5px; color: var(--faint); }
+  .meta-line b { color: var(--muted); font-weight: 600; }
+
+  .note-band { background: var(--surface-2); border-bottom: 1px solid var(--hair); }
+  .note-band .wrap { padding: 18px 24px; display: flex; gap: 14px; align-items: flex-start; }
+  .note-band p { font-size: 14px; color: var(--muted); max-width: none; }
+  .note-band .mark { flex: none; font-weight: 700; color: var(--accent-ink); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 2px; }
+
+  section { padding: 54px 0; border-bottom: 1px solid var(--hair); }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+  .sec-num { font-family: var(--serif); font-size: 15px; color: var(--accent); font-variant-numeric: tabular-nums; flex: none; }
+  .sec-head h2 { font-size: clamp(1.5rem, 3.4vw, 2.05rem); }
+  section p + p { margin-top: 1.05em; }
+  .kicker { color: var(--brand-2); font-weight: 650; }
+
+  /* stat tiles */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 12px; overflow: hidden; margin: 26px 0 8px; }
+  .stat { background: var(--surface); padding: 20px 22px; }
+  .stat .v { font-family: var(--serif); font-size: 1.9rem; font-weight: 600; color: var(--brand-2); line-height: 1; font-variant-numeric: tabular-nums; }
+  .stat .l { font-size: 12.5px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+
+  /* path / track cards */
+  .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 26px 0 6px; }
+  @media (max-width: 620px){ .tracks { grid-template-columns: 1fr; } }
+  .track { border: 1px solid var(--hair); border-radius: 12px; padding: 22px; background: var(--surface); }
+  .track h4 { font-size: 1.2rem; margin: 4px 0 2px; }
+  .track .tag { font-size: 11.5px; font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase; }
+  .track .say { font-size: 14px; color: var(--muted); margin-top: 10px; }
+  .track.admin .tag { color: var(--faint); }
+  .track.mktg { border-color: color-mix(in srgb, var(--accent) 40%, var(--hair)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent) inset; }
+  .track.mktg .tag { color: var(--accent-ink); }
+  .track ul { margin: 12px 0 0; padding-left: 18px; }
+  .track li { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .track .vuln { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--hair); font-size: 13px; }
+  .track .vuln b { color: var(--stop); font-weight: 650; }
+  .track.mktg .vuln b { color: var(--go); }
+
+  /* comparison table */
+  .tbl-scroll { overflow-x: auto; margin: 22px 0 6px; border: 1px solid var(--hair); border-radius: 12px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 560px; }
+  thead th { background: var(--surface-2); text-align: left; font-family: var(--sans); font-weight: 650; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); padding: 12px 16px; border-bottom: 1px solid var(--hair); }
+  thead th.own { color: var(--brand-2); }
+  tbody td { padding: 13px 16px; border-bottom: 1px solid var(--hair); color: var(--ink); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody td:first-child { font-weight: 600; color: var(--muted); }
+  td.own { background: color-mix(in srgb, var(--brand) 5%, var(--surface)); font-weight: 600; }
+  .pill { display: inline-block; font-size: 11px; font-weight: 650; letter-spacing: 0.03em; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+  .pill.central { background: var(--go-bg); color: var(--go); }
+  .pill.thin { background: var(--stop-bg); color: var(--stop); }
+  .pill.mid { background: var(--caution-bg); color: var(--caution); }
+
+  /* agent / example cards */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0 6px; }
+  @media (max-width: 620px){ .cards { grid-template-columns: 1fr; } }
+  .card { border: 1px solid var(--hair); border-radius: 12px; padding: 20px 22px; background: var(--surface); }
+  .card.wide { grid-column: 1 / -1; }
+  .card h4 { font-size: 1.12rem; }
+  .card .sub { font-size: 12.5px; color: var(--faint); margin-top: 3px; margin-bottom: 12px; }
+  .card .row { display: flex; gap: 10px; font-size: 14px; padding: 6px 0; border-top: 1px solid var(--hair); }
+  .card .row:first-of-type { border-top: none; }
+  .card .row .k { flex: none; width: 96px; font-size: 11.5px; font-weight: 650; letter-spacing: 0.03em; text-transform: uppercase; color: var(--faint); padding-top: 2px; }
+  .card .row .val { color: var(--ink); }
+  .card .row .val.none { color: var(--stop); font-weight: 600; }
+  .card .row .val.yes { color: var(--go); font-weight: 600; }
+
+  .callout { border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 26px 0 6px; }
+  .callout p { max-width: none; }
+  .callout .lead { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); }
+
+  .takeaway { background: color-mix(in srgb, var(--brand) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--brand) 24%, var(--hair)); border-radius: 12px; padding: 22px 24px; margin: 24px 0 6px; }
+  .takeaway .eyebrow { color: var(--brand-2); }
+  .takeaway p { max-width: none; margin-top: 8px; }
+
+  ul.check { list-style: none; padding: 0; margin: 14px 0 0; }
+  ul.check li { position: relative; padding-left: 30px; margin-top: 10px; font-size: 15px; line-height: 1.5; }
+  ul.check li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--go); font-weight: 700; }
+  ul.check li b { font-weight: 650; }
+
+  ul.arrow { list-style: none; padding: 0; margin: 14px 0 0; }
+  ul.arrow li { position: relative; padding-left: 30px; margin-top: 10px; font-size: 15px; line-height: 1.5; }
+  ul.arrow li::before { content: "\2192"; position: absolute; left: 0; top: 0; color: var(--accent-ink); font-weight: 700; }
+  ul.arrow li b { font-weight: 650; }
+
+  ol.big { counter-reset: step; list-style: none; padding: 0; margin: 22px 0 0; }
+  ol.big li { position: relative; padding-left: 46px; margin-top: 18px; }
+  ol.big li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: -2px; width: 30px; height: 30px; border-radius: 50%; background: var(--brand); color: #fff; font-family: var(--serif); font-size: 15px; display: flex; align-items: center; justify-content: center; }
+  @media (prefers-color-scheme: dark){ ol.big li::before { color: #12160F; } }
+  ol.big li h4 { font-size: 1.1rem; margin-bottom: 3px; }
+  ol.big li p { font-size: 14.5px; color: var(--muted); }
+
+  footer.end { padding: 40px 0 64px; }
+  footer.end p { font-size: 13px; color: var(--faint); }
+  .src { font-size: 12.5px; color: var(--faint); margin-top: 10px; }
+  .src a { color: var(--brand-2); }
+
+  .theme-toggle { position: fixed; top: 16px; right: 16px; z-index: 10; background: var(--surface); border: 1px solid var(--hair-strong); color: var(--muted); border-radius: 999px; padding: 6px 14px; font-family: var(--sans); font-size: 12px; font-weight: 600; cursor: pointer; }
+</style>
+<style>
+  .hero-inner { padding: 52px 24px 40px; }
+  @media (max-width: 560px){ .wrap, .note-band .wrap { padding-left: 16px; padding-right: 16px; } .hero-inner { padding-top: 64px; } }
+  .hero h1 { font-size: clamp(2.1rem, 5.2vw, 3.2rem); }
+  section { padding: 40px 0; }
+  .opt-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
+  .price { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--brand-2); font-variant-numeric: tabular-nums; }
+  .price small { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--muted); }
+  .sub-h { font-family: var(--sans); font-size: 12px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin-top: 26px; }
+  .months { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0 4px; }
+  @media (max-width: 620px){ .months { grid-template-columns: 1fr; } }
+  .m { border: 1px solid var(--hair); border-radius: 12px; padding: 16px 18px; background: var(--surface); }
+  .m h4 { font-size: 1.04rem; margin-bottom: 4px; }
+  .m p { font-size: 14.5px; color: var(--muted); }
+  .m.wide { grid-column: 1 / -1; }
+  .reply { font-family: var(--serif); font-size: 1.2rem; }
+  @media print {
+    .theme-toggle { display: none; }
+    body { font-size: 14px; }
+    section { padding: 18px 0; }
+    .hero-inner { padding: 20px 24px 16px; }
+    .m, .track { break-inside: avoid; }
+  }
+</style>
+<button class="theme-toggle" onclick="(function(){var r=document.documentElement;var d=(r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))==='dark';r.setAttribute('data-theme',d?'light':'dark');})()">Light / Dark</button>
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">John Tyler Real Estate &middot; October 15 to February 15</div>
+    <h1>Your website this winter: two options</h1>
+    <p class="lede">You're putting your time into your database for the next few months. Here are two ways to handle the website and social while you do. Either one works.</p>
+    <div class="meta-line">
+      <span><b>Prepared for:</b> John Tyler</span>
+      <span><b>By:</b> Eagle River Base Camp / Doble AI</span>
+      <span><b>Date:</b> September 29, 2026</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>You take the keys</h2></div>
+    <p>We move everything into accounts in your name. You own and control it, and you decide what to do with it, if anything, until spring.</p>
+
+    <div class="tracks">
+      <div class="track">
+        <div class="tag">What you get</div>
+        <ul>
+          <li>The hosting account and the site's code, transferred to you</li>
+          <li>The domain, johntylerrealestate.com, set up to point at your hosting</li>
+          <li>Owner access to Google Analytics, Search Console and the contact form</li>
+          <li>A one-page guide listing every account, what it does and where it lives</li>
+        </ul>
+      </div>
+      <div class="track">
+        <div class="tag">What comes with it</div>
+        <ul>
+          <li>Hosting is billed to you. A paid Vercel plan runs about $20 a month</li>
+          <li>The site has no editing login. Changing text, listings or posts takes someone who is comfortable working in code</li>
+          <li>Our daily MLS check stops, so new listings, price changes and sales won't show up on the site unless someone updates them</li>
+          <li>The domain is up for renewal on March 30, 2027</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:18px">We keep paying for hosting and keep the site running through October 31 while the handoff happens. After that, you can still hire us for anything at $150 an hour.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="opt-head">
+      <div class="sec-head" style="margin-bottom:0"><span class="sec-num">02</span><h2>We keep it running</h2></div>
+      <div class="price">$1,500 <small>per month, October 15 to February 15</small></div>
+    </div>
+    <p style="margin-top:14px">The site stays where it is. We keep it current, keep it working and keep your social going, so it's ready for spring.</p>
+
+    <div class="sub-h">Every month</div>
+    <div class="months">
+      <div class="m">
+        <h4>Hosting and upkeep</h4>
+        <p>We pay for hosting and handle security updates and domain monitoring. You don't get a separate bill.</p>
+      </div>
+      <div class="m">
+        <h4>A monthly site check</h4>
+        <p>We test every page, link and form and fix anything that's broken or slow.</p>
+      </div>
+      <div class="m">
+        <h4>Listings that match</h4>
+        <p>We check your listings against the MLS every morning. New listings, price changes and sales go on the site within two business days, matching the MLS and the Slifer site.</p>
+      </div>
+      <div class="m">
+        <h4>Market report, every month</h4>
+        <p>We update the market report hub in English and Spanish. You also get a ready-to-send version for your email newsletter, so your database hears from you every month.</p>
+      </div>
+      <div class="m">
+        <h4>One blog post</h4>
+        <p>You pick the topic and we write it in English and Spanish. Nothing publishes until you've edited and approved it.</p>
+      </div>
+      <div class="m">
+        <h4>Social, twice a week</h4>
+        <p>We design and publish two posts a week on Instagram and Facebook.</p>
+      </div>
+      <div class="m">
+        <h4>Fresh content</h4>
+        <p>When a date or a seasonal detail goes stale on a post or page, we update it.</p>
+      </div>
+      <div class="m">
+        <h4>A short monthly note</h4>
+        <p>One paragraph each month: site traffic, market report sign-ups and what we did.</p>
+      </div>
+      <div class="m wide">
+        <h4>Two hours for whatever you need</h4>
+        <p>Up to two hours a month for other digital work: a flyer, an open-house card, a quick edit, a question about a tool. Unused hours don't carry over to the next month.</p>
+      </div>
+    </div>
+
+    <div class="sub-h">Also included</div>
+    <ul class="arrow">
+      <li><b>A planning session in February</b> to decide what spring looks like, so nothing has to start from scratch.</li>
+      <li><b>Anything beyond the monthly scope</b> is $150 an hour. For anything over about ten hours, we give you a fixed quote to approve before we start.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Side by side</h2></div>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th></th><th>1 &middot; You take the keys</th><th class="own">2 &middot; We keep it running</th></tr></thead>
+        <tbody>
+          <tr><td>Who controls the site</td><td>You</td><td class="own">We do, and you approve content</td></tr>
+          <tr><td>Monthly cost</td><td>Hosting, about $20</td><td class="own">$1,500, hosting included</td></tr>
+          <tr><td>Listings</td><td>Updated only when someone updates them</td><td class="own">Checked daily, updated within two business days</td></tr>
+          <tr><td>Market report, blog, social</td><td>Up to you</td><td class="own">Monthly report, one post a month, social twice a week</td></tr>
+          <tr><td>Extra help</td><td>$150 an hour</td><td class="own">Two hours included, then $150 an hour</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="takeaway">
+      <div class="eyebrow">Next step</div>
+      <p class="reply">Just reply "1" or "2." If you'd like something in between, tell us and we'll build it.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="end">
+  <div class="wrap">
+    <p>Prepared by Eagle River Base Camp / Doble AI for John Tyler Real Estate &middot; September 29, 2026. Hosting cost for Option 1 is Vercel's published Pro plan price and may change. Domain renewal date is from the public registry record.</p>
+  </div>
+</footer>
+</body>
+</html>
