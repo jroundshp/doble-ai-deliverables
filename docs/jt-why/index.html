@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>What the Website Is For · John Tyler Real Estate</title>
+<meta name="description" content="Why John Tyler Real Estate runs its own website and social alongside the brokerage site, what eleven weeks of traffic show, and what the platform should produce next.">
+</head>
+<body>
+<style>
+  :root {
+    --bg: #F7F8F6; --surface: #FFFFFF; --surface-2: #F1F3EF; --ink: #1A211D;
+    --muted: #5B665E; --faint: #838E85; --hair: #E1E5DF; --hair-strong: #CDD3CB;
+    --brand: #24463A; --brand-2: #2F5A49; --accent: #A8842C; --accent-ink: #7E6018;
+    --go: #2F6B4F; --go-bg: #EAF1EC; --caution: #9A6A12; --caution-bg: #F6EEDC;
+    --stop: #A6462F; --stop-bg: #F6E9E4;
+    --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+    --measure: 68ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12160F; --surface: #191E16; --surface-2: #1F251B; --ink: #E9ECE5;
+      --muted: #A2AC9C; --faint: #808A7B; --hair: #2A311F; --hair-strong: #384030;
+      --brand: #7FB39A; --brand-2: #92C2AB; --accent: #CBA351; --accent-ink: #D9B871;
+      --go: #6FBF93; --go-bg: #16241C; --caution: #D3A64F; --caution-bg: #2A2313;
+      --stop: #D98B72; --stop-bg: #2B1B15;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F7F8F6; --surface: #FFFFFF; --surface-2: #F1F3EF; --ink: #1A211D;
+    --muted: #5B665E; --faint: #838E85; --hair: #E1E5DF; --hair-strong: #CDD3CB;
+    --brand: #24463A; --brand-2: #2F5A49; --accent: #A8842C; --accent-ink: #7E6018;
+    --go: #2F6B4F; --go-bg: #EAF1EC; --caution: #9A6A12; --caution-bg: #F6EEDC;
+    --stop: #A6462F; --stop-bg: #F6E9E4;
+  }
+  :root[data-theme="dark"] {
+    --bg: #12160F; --surface: #191E16; --surface-2: #1F251B; --ink: #E9ECE5;
+    --muted: #A2AC9C; --faint: #808A7B; --hair: #2A311F; --hair-strong: #384030;
+    --brand: #7FB39A; --brand-2: #92C2AB; --accent: #CBA351; --accent-ink: #D9B871;
+    --go: #6FBF93; --go-bg: #16241C; --caution: #D3A64F; --caution-bg: #2A2313;
+    --stop: #D98B72; --stop-bg: #2B1B15;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  .flow > * + * { margin-top: 1.1em; }
+  a { color: var(--brand-2); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+  p { margin: 0; max-width: var(--measure); }
+  strong { font-weight: 650; }
+
+  .eyebrow { font-family: var(--sans); font-size: 12px; font-weight: 650; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink); }
+
+  header.hero {
+    border-bottom: 1px solid var(--hair);
+    background: radial-gradient(120% 90% at 82% -10%, color-mix(in srgb, var(--brand) 12%, transparent), transparent 60%), var(--surface);
+  }
+  .hero-inner { padding: 68px 0 52px; }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 3.9rem); letter-spacing: -0.015em; margin-top: 18px; }
+  .hero .lede { font-size: clamp(1.1rem, 2.4vw, 1.35rem); color: var(--muted); margin-top: 20px; max-width: 50ch; font-family: var(--serif); font-style: italic; }
+  .meta-line { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--hair); display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 13.5px; color: var(--faint); }
+  .meta-line b { color: var(--muted); font-weight: 600; }
+
+  .note-band { background: var(--surface-2); border-bottom: 1px solid var(--hair); }
+  .note-band .wrap { padding: 18px 24px; display: flex; gap: 14px; align-items: flex-start; }
+  .note-band p { font-size: 14px; color: var(--muted); max-width: none; }
+  .note-band .mark { flex: none; font-weight: 700; color: var(--accent-ink); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 2px; }
+
+  section { padding: 54px 0; border-bottom: 1px solid var(--hair); }
+  .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; }
+  .sec-num { font-family: var(--serif); font-size: 15px; color: var(--accent); font-variant-numeric: tabular-nums; flex: none; }
+  .sec-head h2 { font-size: clamp(1.5rem, 3.4vw, 2.05rem); }
+  section p + p { margin-top: 1.05em; }
+  .kicker { color: var(--brand-2); font-weight: 650; }
+
+  /* stat tiles */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 12px; overflow: hidden; margin: 26px 0 8px; }
+  .stat { background: var(--surface); padding: 20px 22px; }
+  .stat .v { font-family: var(--serif); font-size: 1.9rem; font-weight: 600; color: var(--brand-2); line-height: 1; font-variant-numeric: tabular-nums; }
+  .stat .l { font-size: 12.5px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+
+  /* path / track cards */
+  .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 26px 0 6px; }
+  @media (max-width: 620px){ .tracks { grid-template-columns: 1fr; } }
+  .track { border: 1px solid var(--hair); border-radius: 12px; padding: 22px; background: var(--surface); }
+  .track h4 { font-size: 1.2rem; margin: 4px 0 2px; }
+  .track .tag { font-size: 11.5px; font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase; }
+  .track .say { font-size: 14px; color: var(--muted); margin-top: 10px; }
+  .track.admin .tag { color: var(--faint); }
+  .track.mktg { border-color: color-mix(in srgb, var(--accent) 40%, var(--hair)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent) inset; }
+  .track.mktg .tag { color: var(--accent-ink); }
+  .track ul { margin: 12px 0 0; padding-left: 18px; }
+  .track li { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .track .vuln { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--hair); font-size: 13px; }
+  .track .vuln b { color: var(--stop); font-weight: 650; }
+  .track.mktg .vuln b { color: var(--go); }
+
+  /* comparison table */
+  .tbl-scroll { overflow-x: auto; margin: 22px 0 6px; border: 1px solid var(--hair); border-radius: 12px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 560px; }
+  thead th { background: var(--surface-2); text-align: left; font-family: var(--sans); font-weight: 650; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); padding: 12px 16px; border-bottom: 1px solid var(--hair); }
+  thead th.own { color: var(--brand-2); }
+  tbody td { padding: 13px 16px; border-bottom: 1px solid var(--hair); color: var(--ink); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody td:first-child { font-weight: 600; color: var(--muted); }
+  td.own { background: color-mix(in srgb, var(--brand) 5%, var(--surface)); font-weight: 600; }
+  .pill { display: inline-block; font-size: 11px; font-weight: 650; letter-spacing: 0.03em; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+  .pill.central { background: var(--go-bg); color: var(--go); }
+  .pill.thin { background: var(--stop-bg); color: var(--stop); }
+  .pill.mid { background: var(--caution-bg); color: var(--caution); }
+
+  /* agent / example cards */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0 6px; }
+  @media (max-width: 620px){ .cards { grid-template-columns: 1fr; } }
+  .card { border: 1px solid var(--hair); border-radius: 12px; padding: 20px 22px; background: var(--surface); }
+  .card.wide { grid-column: 1 / -1; }
+  .card h4 { font-size: 1.12rem; }
+  .card .sub { font-size: 12.5px; color: var(--faint); margin-top: 3px; margin-bottom: 12px; }
+  .card .row { display: flex; gap: 10px; font-size: 14px; padding: 6px 0; border-top: 1px solid var(--hair); }
+  .card .row:first-of-type { border-top: none; }
+  .card .row .k { flex: none; width: 96px; font-size: 11.5px; font-weight: 650; letter-spacing: 0.03em; text-transform: uppercase; color: var(--faint); padding-top: 2px; }
+  .card .row .val { color: var(--ink); }
+  .card .row .val.none { color: var(--stop); font-weight: 600; }
+  .card .row .val.yes { color: var(--go); font-weight: 600; }
+
+  .callout { border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 0 10px 10px 0; padding: 20px 24px; margin: 26px 0 6px; }
+  .callout p { max-width: none; }
+  .callout .lead { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); }
+
+  .takeaway { background: color-mix(in srgb, var(--brand) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--brand) 24%, var(--hair)); border-radius: 12px; padding: 22px 24px; margin: 24px 0 6px; }
+  .takeaway .eyebrow { color: var(--brand-2); }
+  .takeaway p { max-width: none; margin-top: 8px; }
+
+  ul.check { list-style: none; padding: 0; margin: 14px 0 0; }
+  ul.check li { position: relative; padding-left: 30px; margin-top: 10px; font-size: 15px; line-height: 1.5; }
+  ul.check li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--go); font-weight: 700; }
+  ul.check li b { font-weight: 650; }
+
+  ul.arrow { list-style: none; padding: 0; margin: 14px 0 0; }
+  ul.arrow li { position: relative; padding-left: 30px; margin-top: 10px; font-size: 15px; line-height: 1.5; }
+  ul.arrow li::before { content: "\2192"; position: absolute; left: 0; top: 0; color: var(--accent-ink); font-weight: 700; }
+  ul.arrow li b { font-weight: 650; }
+
+  ol.big { counter-reset: step; list-style: none; padding: 0; margin: 22px 0 0; }
+  ol.big li { position: relative; padding-left: 46px; margin-top: 18px; }
+  ol.big li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: -2px; width: 30px; height: 30px; border-radius: 50%; background: var(--brand); color: #fff; font-family: var(--serif); font-size: 15px; display: flex; align-items: center; justify-content: center; }
+  @media (prefers-color-scheme: dark){ ol.big li::before { color: #12160F; } }
+  ol.big li h4 { font-size: 1.1rem; margin-bottom: 3px; }
+  ol.big li p { font-size: 14.5px; color: var(--muted); }
+
+  footer.end { padding: 40px 0 64px; }
+  footer.end p { font-size: 13px; color: var(--faint); }
+  .src { font-size: 12.5px; color: var(--faint); margin-top: 10px; }
+  .src a { color: var(--brand-2); }
+
+  .theme-toggle { position: fixed; top: 16px; right: 16px; z-index: 10; background: var(--surface); border: 1px solid var(--hair-strong); color: var(--muted); border-radius: 999px; padding: 6px 14px; font-family: var(--sans); font-size: 12px; font-weight: 600; cursor: pointer; }
+</style>
+<style>
+  .hero-inner { padding: 56px 24px 44px; }
+  @media (max-width: 560px){ .wrap, .note-band .wrap { padding-left: 16px; padding-right: 16px; } .hero-inner { padding-top: 64px; } }
+  .hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.4rem); }
+  section { padding: 44px 0; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0 6px; }
+  @media (max-width: 620px){ .two { grid-template-columns: 1fr; } }
+  .plat { border: 1px solid var(--hair); border-radius: 12px; padding: 22px; background: var(--surface); }
+  .plat.own { border-color: color-mix(in srgb, var(--accent) 40%, var(--hair)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent) inset; }
+  .plat .tag { font-size: 11.5px; font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+  .plat.own .tag { color: var(--accent-ink); }
+  .plat h4 { font-size: 1.2rem; margin: 4px 0 10px; }
+  .plat ul { margin: 0; padding-left: 18px; }
+  .plat li { font-size: 14.5px; color: var(--muted); margin-top: 6px; }
+  .jobs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0 6px; }
+  @media (max-width: 620px){ .jobs { grid-template-columns: 1fr; } }
+  .job { border: 1px solid var(--hair); border-radius: 12px; padding: 18px 20px; background: var(--surface); }
+  .job .n { font-family: var(--serif); color: var(--accent); font-size: 14px; }
+  .job h4 { font-size: 1.08rem; margin: 2px 0 6px; }
+  .job p { font-size: 14.5px; color: var(--muted); }
+  .job.wide { grid-column: 1 / -1; }
+  .bars { margin: 22px 0 4px; border: 1px solid var(--hair); border-radius: 12px; background: var(--surface); padding: 18px 20px 14px; }
+  .bars h4 { font-family: var(--sans); font-size: 13px; font-weight: 650; color: var(--ink); margin-bottom: 12px; }
+  .bar { display: grid; grid-template-columns: minmax(0, 15rem) 1fr 2.6rem; gap: 12px; align-items: center; padding: 5px 0; font-size: 14px; }
+  .bar .lbl { color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bar .track2 { height: 12px; }
+  .bar .fill { height: 12px; background: var(--brand-2); border-radius: 0 4px 4px 0; }
+  .bar .val { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .bar:hover .fill { filter: brightness(1.12); }
+  @media (max-width: 560px){ .bar { grid-template-columns: 1fr 2.6rem; } .bar .track2 { grid-column: 1 / -1; order: 3; } }
+  .flowline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 24px 0 6px; counter-reset: f; }
+  @media (max-width: 620px){ .flowline { grid-template-columns: 1fr 1fr; } }
+  .step { position: relative; background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; padding: 16px 16px 14px; }
+  .step.goal { background: color-mix(in srgb, var(--brand) 9%, var(--surface)); border-color: color-mix(in srgb, var(--brand) 30%, var(--hair)); }
+  .step .k { font-size: 11px; font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); }
+  .step h4 { font-size: 1.02rem; margin: 4px 0 6px; }
+  .step p { font-size: 13.5px; color: var(--muted); }
+  @media print { .theme-toggle { display: none; } section { padding: 26px 0; } }
+</style>
+<button class="theme-toggle" onclick="(function(){var r=document.documentElement;var d=(r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))==='dark';r.setAttribute('data-theme',d?'light':'dark');})()">Light / Dark</button>
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">John Tyler Real Estate &middot; Website and social</div>
+    <h1>What the website is for</h1>
+    <p class="lede">A fair question came up on Monday: if the site isn't producing leads, what's the point? Here is the answer, and what we think it should produce from here.</p>
+    <div class="meta-line">
+      <span><b>Prepared for:</b> John Tyler</span>
+      <span><b>By:</b> Eagle River Base Camp / Doble AI</span>
+      <span><b>Date:</b> September 29, 2026</span>
+    </div>
+  </div>
+</header>
+<main>
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>The leaders run two platforms</h2></div>
+    <p>The top producers in Vail and Aspen don't pick between the brokerage and their own site. They run both, and each one does a different job.</p>
+    <div class="two">
+      <div class="plat">
+        <span class="tag">The brokerage site</span>
+        <h4>vailrealestate.com</h4>
+        <ul>
+          <li>Listings, IDX search and the firm's reach</li>
+          <li>The Slifer name and its reputation</li>
+          <li>The same template for every broker at the firm</li>
+          <li>Stays with the firm</li>
+        </ul>
+      </div>
+      <div class="plat own">
+        <span class="tag">The platform you own</span>
+        <h4>johntylerrealestate.com + social</h4>
+        <ul>
+          <li>Your voice, your writing, your point of view</li>
+          <li>Your analytics: who comes, from where, to read what</li>
+          <li>English and Spanish, on every page</li>
+          <li>Stays with you</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:20px;">This is the model at the top of both valleys. The Stockton Group (Compass, the #1 team in the Vail Valley by its own count) runs its own site with neighborhood pages and a live mountain camera. Tom Dunn at LIV Sotheby's, #5 in the valley in 2025, has his own site and newsletter. In Aspen, Saslove &amp; Warwick and Carrie Wells publish their own reports, blogs and guides under their own names. Tim Estin has published his own Aspen market report for twenty years. Each of them also sits inside a strong brokerage.</p>
+    <p class="src">Rankings and volumes are the agents' own published figures.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>What your own platform does that the brokerage site can't</h2></div>
+    <div class="jobs">
+      <div class="job">
+        <span class="n">1</span>
+        <h4>It sounds like you</h4>
+        <p>No template, no approval queue. The blog is where your judgment shows: the 1031 walkthrough, water rights on the Eagle River, what "membership available" really means at a private club. A buyer who reads three of those knows how you think before the first call.</p>
+      </div>
+      <div class="job">
+        <span class="n">2</span>
+        <h4>You own it</h4>
+        <p>The domain, the articles, the followers and the traffic history belong to John Tyler Real Estate. That keeps your options open, whatever the next twenty years bring. An agent page on the brokerage site stays with the brokerage.</p>
+      </div>
+      <div class="job">
+        <span class="n">3</span>
+        <h4>It shows you what the market wants</h4>
+        <p>Every visit is counted: where people came from, what they read, how long they stayed. That is market intelligence you can't get from the brokerage site, and it tells us what to write next (see below).</p>
+      </div>
+      <div class="job">
+        <span class="n">4</span>
+        <h4>It reaches people others don't</h4>
+        <p>Every page has a Spanish twin. As far as we can see, no other top producer in the valley has a full bilingual platform. Spanish-speaking buyers, sellers and families, here and in Mexico and Latin America, can read about the valley and about you in their own language.</p>
+      </div>
+      <div class="job">
+        <span class="n">5</span>
+        <h4>It earns trust before the first call</h4>
+        <p>Referrals look you up before they call, and so does anyone weighing a $3 million decision. What they find should confirm what they were told: a Branch Manager with $900M+ in career volume who knows this valley street by street.</p>
+      </div>
+      <div class="job">
+        <span class="n">6</span>
+        <h4>It reaches the next generation</h4>
+        <p>The son, daughter or grandchild of someone who bought through Carroll or Rick twenty or thirty years ago has never met you. They will search before they ask. The site, and the pages for Carroll and Rick, make sure the search ends with you.</p>
+      </div>
+      <div class="job">
+        <span class="n">7</span>
+        <h4>It gets you found in Google and AI answers</h4>
+        <p>More buyers now ask Google or ChatGPT "who knows the Vail market?" before they ask a friend. Those answers are built from specific, local, first-hand content, which is exactly what your articles are. A template page that looks like every other broker's gives them nothing to quote.</p>
+      </div>
+      <div class="job">
+        <span class="n">8</span>
+        <h4>It shows Slifer you're leading</h4>
+        <p>As a Branch Manager, you're showing the firm where the business is heading instead of waiting to be told. A bilingual platform, a monthly market report and a working content engine are things the firm can point to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>What eleven weeks of traffic tell us</h2></div>
+    <p>The site went live in July. From July 10 to September 28:</p>
+    <div class="stats">
+      <div class="stat"><div class="v">652</div><div class="l">people visited</div></div>
+      <div class="stat"><div class="v">1,832</div><div class="l">pages read</div></div>
+      <div class="stat"><div class="v">3m 10s</div><div class="l">average visit</div></div>
+      <div class="stat"><div class="v">1 in 4</div><div class="l">visits came from Facebook or Instagram</div></div>
+    </div>
+    <div class="bars" role="img" aria-label="Most-read articles, July 10 to September 28: market report 78 views, private clubs guide 36, the team 22, farmers markets 21, Epic Pass guide 18, 1031 exchange 17.">
+      <h4>Most-read articles, page views</h4>
+      <div class="bar" title="Vail Valley market report: 78 views"><span class="lbl">Vail Valley market report</span><span class="track2"><span class="fill" style="display:block;width:100%"></span></span><span class="val">78</span></div>
+      <div class="bar" title="Private clubs guide: 36 views"><span class="lbl">Private clubs guide</span><span class="track2"><span class="fill" style="display:block;width:46%"></span></span><span class="val">36</span></div>
+      <div class="bar" title="Four Brokers, One Valley (the team): 22 views"><span class="lbl">The team</span><span class="track2"><span class="fill" style="display:block;width:28%"></span></span><span class="val">22</span></div>
+      <div class="bar" title="Farmers markets: 21 views"><span class="lbl">Farmers markets</span><span class="track2"><span class="fill" style="display:block;width:27%"></span></span><span class="val">21</span></div>
+      <div class="bar" title="Epic Pass, local or day pass: 18 views"><span class="lbl">Epic Pass guide</span><span class="track2"><span class="fill" style="display:block;width:23%"></span></span><span class="val">18</span></div>
+      <div class="bar" title="The 1031 exchange: 17 views"><span class="lbl">The 1031 exchange</span><span class="track2"><span class="fill" style="display:block;width:22%"></span></span><span class="val">17</span></div>
+    </div>
+    <p style="margin-top:18px;">The market report is read more than twice as often as any other article, and the private clubs guide is second. People come to you for numbers and for insider knowledge. That's a clear steer: more market reporting, more of what only someone who grew up here would know.</p>
+    <p>One thing the numbers don't show: much of the value lands offline. When your July email went out, the visits it sent showed up as "direct" traffic with no label on them. A past client who reads the market report and calls you a month later looks like a phone call, not a website lead. Judging the site by form fills alone would miss most of what it does.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2>What it should produce from here: your email list</h2></div>
+    <p>The question on Monday was the right one. Leads are the right thing to measure, but for a referral business at your level, the lead that matters most is <span class="kicker">an email address from someone who wants to hear from you.</span> That list is the one marketing asset you own outright, and every piece of the platform should feed it.</p>
+    <div class="flowline">
+      <div class="step"><span class="k">Attention</span><h4>Social, QR, email</h4><p>Posts, business cards, open-house sign-in and the newsletter all point to one page you own.</p></div>
+      <div class="step"><span class="k">Proof</span><h4>The site</h4><p>The market report, the guides and the blog show them why you're the one to call.</p></div>
+      <div class="step goal"><span class="k">The goal</span><h4>An email address</h4><p>"Send me the market report every month." Now they're on your list, not the firm's.</p></div>
+      <div class="step"><span class="k">Result</span><h4>A conversation</h4><p>When they're ready to buy or sell, the first name they think of is yours.</p></div>
+    </div>
+    <p style="margin-top:20px;">So the measure going forward should be simple: <strong>how many people joined your list this month</strong>, alongside calls and inquiries. Building that sign-up into the site, the Connect page and every QR code is the next step, and it belongs on the agenda for the October 15 review.</p>
+    <div class="callout">
+      <p class="lead">The arithmetic is short.</p>
+      <p style="margin-top:10px;">Your average transaction is around $3 million. If the platform keeps one past-client family from drifting to another agent, or brings in one buyer who found you through it, it has paid for itself. Everything after that is return.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="end">
+  <div class="wrap">
+    <p>Prepared by Eagle River Base Camp / Doble AI for John Tyler Real Estate &middot; September 29, 2026. Traffic figures from Google Analytics for johntylerrealestate.com, July 10 to September 28, 2026; market report views combine its article page and the /market-report link. Agent rankings and volumes are self-published and not MLS-audited.</p>
+  </div>
+</footer>
+</body>
+</html>
