@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Seven Weeks Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#14161a; --steel:#6b7480; --steel-light:#9aa3ae; --bone:#f2efe9; --bone-2:#e6e1d8;
+    --scoria:#b4432a; --scoria-bright:#d15334; --amber:#c2870c;
+    --page:#e4e1da; --line:#d6d1c7; --note-bg:#fff8e6; --note-line:#e6cf94;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--graphite);font-family:Barlow,system-ui,sans-serif;line-height:1.5}
+  .wrap{max-width:640px;margin:0 auto;padding:20px 16px 56px}
+
+  .switch{display:flex;gap:6px;margin:0 0 22px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px}
+  .switch a{flex:1;text-align:center;text-decoration:none;color:var(--steel);font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.95rem;padding:9px 8px;border-radius:5px;line-height:1.15}
+  .switch a small{display:block;font-family:Barlow,sans-serif;font-weight:500;text-transform:none;letter-spacing:0;font-size:.78rem}
+  .switch a.on{background:var(--graphite);color:#fff}
+
+  .intro h1{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.9rem;line-height:1.1;margin:0 0 6px;text-transform:uppercase}
+  .intro p{margin:0 0 12px}
+  .meta{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:18px 0 22px;font-size:.92rem}
+  .meta div{display:flex;gap:10px;padding:4px 0}
+  .meta b{flex:0 0 92px;color:var(--steel);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+  .label{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);margin:0 0 8px}
+
+  /* the email */
+  .email{background:var(--bone);border-radius:6px;overflow:hidden;box-shadow:0 6px 24px rgba(20,22,26,.12);border-top:6px solid var(--scoria)}
+  .e-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 24px;border-bottom:1px solid var(--bone-2)}
+  .e-head img{width:170px;height:auto}
+  .e-head span{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);text-align:right}
+  .lead{padding:28px 24px 22px}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--scoria);margin:0 0 8px}
+  .lead h2{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:2.7rem;line-height:.98;margin:0 0 12px;text-transform:uppercase}
+  .lead h2 em{font-style:normal;color:var(--scoria)}
+  .lead p{margin:0;font-size:1.05rem;color:#3a3f46}
+
+  .sheet{background:#fff;margin:0 16px;border:1px solid var(--bone-2)}
+  .sheet-h{display:flex;justify-content:space-between;align-items:baseline;padding:12px 16px;border-bottom:2px solid var(--graphite)}
+  .sheet-h b{font-family:"Barlow Condensed",sans-serif;font-size:1.2rem;text-transform:uppercase;letter-spacing:.02em}
+  .sheet-h span{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--steel);text-transform:uppercase;letter-spacing:.06em}
+  .row{display:grid;grid-template-columns:118px 1fr;gap:14px;padding:14px 16px;border-bottom:1px solid var(--bone-2);align-items:start}
+  .row:last-child{border-bottom:0}
+  .row img{width:118px;height:88px;object-fit:cover;border-radius:3px;display:block}
+  .task{display:flex;gap:9px;align-items:baseline}
+  .box{flex:0 0 15px;height:15px;border:2px solid var(--graphite);border-radius:2px;transform:translateY(2px)}
+  .task b{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.25rem;text-transform:uppercase;line-height:1.1}
+  .what{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--scoria);text-transform:uppercase;letter-spacing:.05em;margin:4px 0 4px 24px}
+  .row p{margin:0 0 0 24px;font-size:.92rem;color:#3a3f46}
+
+  .plan{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:22px 16px 0;background:var(--graphite);color:#fff}
+  .plan > div{padding:18px}
+  .plan > div + div{border-left:1px solid #2c3038}
+  .plan h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.15rem;text-transform:uppercase;margin:0 0 6px;color:var(--scoria-bright)}
+  .plan p{margin:0;font-size:.9rem;color:#d1d5da}
+  .hours{font-family:"IBM Plex Mono",monospace;font-size:.8rem;line-height:1.7;color:#fff}
+
+  .quote{padding:24px 24px 26px}
+  .quote h3{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.7rem;text-transform:uppercase;margin:0 0 4px;line-height:1.05}
+  .quote > p{margin:0 0 14px;color:#3a3f46}
+  .four{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 18px}
+  .four div{background:#fff;border:1px solid var(--bone-2);border-top:3px solid var(--scoria);padding:10px 10px 12px}
+  .four span{display:block;font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--scoria)}
+  .four b{font-family:"Barlow Condensed",sans-serif;font-size:1.02rem;text-transform:uppercase;line-height:1.1}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center}
+  .btn{display:inline-block;background:var(--scoria);color:#fff;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:.04em;padding:12px 24px;border-radius:3px;text-decoration:none}
+  .phones{font-weight:600;font-size:.95rem;line-height:1.5}
+  .phones a{color:var(--graphite);text-decoration:none;display:block}
+  .foot{background:var(--graphite);color:var(--steel-light);text-align:center;font-size:.8rem;padding:16px 24px}
+
+  .note{background:var(--note-bg);border:1px dashed var(--note-line);color:#6b5413;font-size:.82rem;padding:8px 12px;margin:12px 16px 0;border-radius:4px}
+  .after{margin-top:26px}
+  .after h2{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.3rem;text-transform:uppercase;margin:0 0 8px}
+  .after ul{margin:0;padding-left:20px}
+  .after li{margin:0 0 8px}
+
+  @media (max-width:520px){
+    .lead h2{font-size:2.15rem}
+    .row{grid-template-columns:1fr}
+    .row img{width:100%;height:150px}
+    .plan{grid-template-columns:1fr}
+    .plan > div + div{border-left:0;border-top:1px solid #2c3038}
+    .four{grid-template-columns:1fr 1fr}
+    .e-head span{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="switch">
+    <a href="./">Option A<small>Seven weeks: the countdown</small></a>
+    <a href="b.html" class="on">Option B<small>Seven weeks: the close-out list</small></a>
+  </nav>
+
+  <section class="intro">
+    <p class="label">Concrete Warrior Supply · next email · option B</p>
+    <h1>Seven weeks left: the close-out list</h1>
+    <p>Same theme as option A, seven weeks left before the season closes, told a different way. A shows the calendar. This one shows the work. A contractor wrapping up a site this fall has a short list left: pour the pad, put down base, cover the ground, get rid of the old concrete. Concrete Warrior can do every item on that list from one yard, so the email is laid out as that list.</p>
+    <p>It's built from what's already on the website: the materials, the removal service, the yard hours, and the four things a quote needs. It leaves prices off and asks people to call, the same as the site does, so it doesn't have to wait on a price check.</p>
+  </section>
+
+  <div class="meta">
+    <div><b>Subject</b><span>7 weeks left: close out your job with one call</span></div>
+    <div><b>Alt subject</b><span>Seven weeks to finish. Concrete, base, topsoil and haul-off in New Town.</span></div>
+    <div><b>Preview</b><span>Everything on your fall punch list, from 9702 ND-23.</span></div>
+  </div>
+
+  <p class="label">How it would look in the inbox</p>
+
+  <div class="email">
+    <div class="e-head">
+      <img src="logo-color.png" alt="Concrete Warrior Supply">
+      <span>New Town, ND<br>Fall 2026</span>
+    </div>
+
+    <div class="lead">
+      <p class="eyebrow">About 7 weeks to Thanksgiving</p>
+      <h2>Seven weeks left.<br><em>Finish the job.</em></h2>
+      <p>Most jobs have a short list left before the ground freezes. We can handle every item on it from our yard in New Town, with one call.</p>
+    </div>
+
+    <div class="sheet">
+      <div class="sheet-h"><b>Your 7-week close-out</b><span>9702 ND-23</span></div>
+
+      <div class="row">
+        <img src="plant.jpg" alt="Batch plant at the New Town yard">
+        <div>
+          <div class="task"><i class="box"></i><b>Pour the pad or slab</b></div>
+          <div class="what">Ready-mix concrete</div>
+          <p>Foundations, slabs, flatwork, equipment pads and containment, batched at our New Town plant.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <img src="gravel.jpg" alt="Gravel stockpile at the New Town yard">
+        <div>
+          <div class="task"><i class="box"></i><b>Base the road or yard</b></div>
+          <div class="what">Class 5 · Class 13 · road gravel · scoria · washed rock</div>
+          <p>Base course and gravel for pads, access roads, backfill and drainage.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <img src="fleet.jpg" alt="Loaders and equipment at the New Town yard">
+        <div>
+          <div class="task"><i class="box"></i><b>Cover the ground</b></div>
+          <div class="what">Screened reclamation topsoil</div>
+          <p>Trommel-screened in New Town and delivered in the volumes a full site takes, not one truck at a time. Bring us your closure date.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <img src="removal.jpg" alt="Excavator loading demolition concrete">
+        <div>
+          <div class="task"><i class="box"></i><b>Clear the old concrete</b></div>
+          <div class="what">Concrete removal and haul-off</div>
+          <p>Taking out a slab, foundation or pavement? We'll haul the concrete back to New Town so it doesn't go to a landfill.</p>
+        </div>
+      </div>
+    </div>
+    <p class="note">For Amanda: check with Richard which aggregates are on hand right now and drop any that aren't. The topsoil row can use the pile photo from the Sep 21 send.</p>
+
+    <div class="plan">
+      <div>
+        <h3>Book the pour ahead</h3>
+        <p>Concrete has about a ninety-minute window from the plant to placement, so we schedule pours ahead of time, not the morning of. The calendar gets tight this time of year.</p>
+      </div>
+      <div>
+        <h3>Yard hours</h3>
+        <p class="hours">Mon to Fri &nbsp;8:00 to 5:00<br>Saturday &nbsp;&nbsp;8:00 to 12:00<br>Sunday &nbsp;&nbsp;&nbsp;&nbsp;Closed</p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <h3>Get a quote back fast</h3>
+      <p>Send us these four things and we can answer without calling you back.</p>
+      <div class="four">
+        <div><span>01</span><b>Material</b></div>
+        <div><span>02</span><b>Quantity</b></div>
+        <div><span>03</span><b>Delivery location</b></div>
+        <div><span>04</span><b>Date needed</b></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="mailto:quotes@concretewarriorsupply.com?subject=Quote%20request">Email the yard</a>
+        <div class="phones">
+          <a href="tel:+17015803207">Richard (701) 580-3207</a>
+          <a href="tel:+17015805973">Amanda (701) 580-5973</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">Concrete Warrior Supply · 9702 ND-23 · New Town, ND 58763 · concretewarriorsupply.com</div>
+  </div>
+
+  <section class="after">
+    <h2>Building it in Mailchimp</h2>
+    <ul>
+      <li>Every block is a standard Mailchimp block: logo, text, image-and-text rows, a two-column box and a button. Nothing needs to be a custom image.</li>
+      <li>All the photos are from the New Town yard and already on the website.</li>
+      <li>"Seven weeks" is right for a send this week. If it goes out after October 12, change it to six.</li>
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>

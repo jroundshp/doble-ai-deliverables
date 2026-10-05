@@ -17,6 +17,10 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--page);color:var(--graphite);font-family:Barlow,system-ui,sans-serif;line-height:1.5}
   .wrap{max-width:640px;margin:0 auto;padding:28px 16px 56px}
+  .switch{display:flex;gap:6px;margin:0 0 22px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px}
+  .switch a{flex:1;text-align:center;text-decoration:none;color:var(--steel);font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.95rem;padding:9px 8px;border-radius:5px;line-height:1.15}
+  .switch a small{display:block;font-family:Barlow,sans-serif;font-weight:500;text-transform:none;letter-spacing:0;font-size:.78rem}
+  .switch a.on{background:var(--graphite);color:#fff}
   .intro h1{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.9rem;line-height:1.1;margin:0 0 6px;text-transform:uppercase;letter-spacing:.01em}
   .intro p{margin:0 0 12px;font-size:1rem}
   .meta{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:18px 0 22px;font-size:.92rem}
@@ -92,9 +96,14 @@
 </head>
 <body>
 <div class="wrap">
+  <nav class="switch">
+    <a href="./" class="on">Option A<small>Seven weeks: the countdown</small></a>
+    <a href="b.html">Option B<small>Seven weeks: the close-out list</small></a>
+  </nav>
+
 
   <section class="intro">
-    <p class="label">Concrete Warrior Supply · next email concept · draft</p>
+    <p class="label">Concrete Warrior Supply · next email · option A</p>
     <h1>Seven weeks left in the season</h1>
     <p>The idea: everyone on the list is heading into the last stretch before the weather shuts work down. Between now and Thanksgiving they need to get pours done and topsoil down. This email tells them we have both, we're in New Town, and we can get them on the schedule.</p>
   </section>
