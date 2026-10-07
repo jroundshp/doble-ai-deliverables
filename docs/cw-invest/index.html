@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Concrete Warrior 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --graphite:#14161a;--graphite-2:#1d2026;--steel:#6b7480;--steel-dim:#8b939d;--bone:#f2efe9;
+  --scoria:#b4432a;--scoria-br:#d15334;--amber:#9a6a06;
+  --ground:var(--bone);--surface:#fbfaf7;--ink:var(--graphite);--ink-soft:#4b525c;--ink-mute:#5f6772;
+  --rule:#d5cfc4;--rule-soft:#e6e1d7;--bar:#b4432a;--bar-2:#c9a99c;--pend:#efe6d2;--pend-ink:#6b4f12;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:var(--graphite);--surface:var(--graphite-2);--ink:var(--bone);--ink-soft:#c2c7ce;--ink-mute:var(--steel-dim);
+  --rule:#343a43;--rule-soft:#262b32;--scoria:var(--scoria-br);--amber:#d99b17;--bar:#d15334;--bar-2:#6e4a40;--pend:#2c2a22;--pend-ink:#e3c77a;}}
+:root[data-theme="dark"]{
+  --ground:var(--graphite);--surface:var(--graphite-2);--ink:var(--bone);--ink-soft:#c2c7ce;--ink-mute:var(--steel-dim);
+  --rule:#343a43;--rule-soft:#262b32;--scoria:var(--scoria-br);--amber:#d99b17;--bar:#d15334;--bar-2:#6e4a40;--pend:#2c2a22;--pend-ink:#e3c77a;}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:62rem;margin:0 auto;padding:clamp(1.5rem,5vw,4rem) 16px 5rem}
+@media(min-width:700px){.wrap{padding-left:2.5rem;padding-right:2.5rem}}
+.display,h2{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-weight:700;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
+.eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:var(--scoria)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+.draft{background:var(--pend);color:var(--pend-ink);border:1px solid var(--rule);border-radius:6px;padding:.75rem 1rem;font-size:.92rem;margin-bottom:1.6rem}
+.draft b{font-weight:600}
+header.mast{border-top:3px solid var(--scoria);padding-top:1.4rem}
+.mast h1{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(2.5rem,7vw,4.3rem);line-height:.95;margin:.6rem 0 0}
+.thesis{font-size:clamp(1.1rem,2.2vw,1.3rem);line-height:1.45;color:var(--ink-soft);max-width:52ch;margin:1.2rem 0 0;font-weight:500}
+.meta{margin-top:1.6rem;padding-top:.8rem;border-top:1px solid var(--rule);font-size:.86rem;color:var(--ink-mute);display:flex;flex-wrap:wrap;gap:.4rem 1.4rem}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:2.2rem 0 0}
+.tile{background:var(--surface);padding:1rem 1.1rem}
+.tile .v{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:2.1rem;line-height:1}
+.tile .k{font-size:.88rem;color:var(--ink-soft);margin-top:.35rem;line-height:1.35}
+section{margin-top:3.4rem}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);margin:.3rem 0 .8rem;line-height:1}
+h3{font-size:1.08rem;margin:1.6rem 0 .4rem}
+p{max-width:68ch}
+.lede{font-size:1.08rem;color:var(--ink-soft)}
+.pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--rule);border-radius:99px;padding:.05rem .5rem;vertical-align:.12em;color:var(--ink-mute);white-space:nowrap}
+.pill.src{border-color:var(--scoria);color:var(--scoria)}
+.pill.co{border-color:var(--amber);color:var(--amber)}
+.pill.est{border-style:dashed}
+.tbl-shell{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--surface);margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{padding:.5rem .75rem;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+th{font-weight:600;color:var(--ink-soft);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.note{font-size:.88rem;color:var(--ink-mute);max-width:72ch}
+.box{border-left:3px solid var(--scoria);background:var(--surface);padding:.9rem 1.1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.box p{margin:.3rem 0}
+.pending{border:1px dashed var(--rule);border-radius:6px;padding:1rem 1.1rem;background:var(--pend);color:var(--pend-ink)}
+ul.clean{padding-left:1.1rem}ul.clean li{margin:.35rem 0}
+.chart{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:1rem .8rem .6rem;margin:1rem 0;position:relative}
+.chart svg{display:block;width:100%;height:auto}
+.chart .ax{fill:var(--ink-mute);font-family:"IBM Plex Mono",monospace;font-size:11px}
+.chart .grid{stroke:var(--rule-soft);stroke-width:1}
+.chart .lbl{fill:var(--ink-soft);font-family:"IBM Plex Mono",monospace;font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--ground);font-size:.8rem;padding:.3rem .55rem;border-radius:4px;white-space:nowrap;opacity:0;transition:opacity .1s}
+.legend{display:flex;gap:1.2rem;font-size:.85rem;color:var(--ink-soft);margin:.2rem 0 .4rem .3rem;flex-wrap:wrap}
+.legend i{display:inline-block;width:.8rem;height:.8rem;border-radius:2px;margin-right:.35rem;vertical-align:-.08em}
+details{margin:.4rem 0 0}summary{cursor:pointer;font-size:.86rem;color:var(--ink-mute)}
+.log li{font-size:.9rem}
+footer{margin-top:4rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--ink-mute)}
+a{color:var(--scoria)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="draft"><b>Working draft, updated 7 October 2026.</b> This page fills in as the research lands; sections marked <em>in progress</em> are not finished. It is a concept for discussion, not an offer to sell securities. Figures marked <span class="pill co">company</span> come from Concrete Warrior and have not been independently checked; figures marked <span class="pill src">sourced</span> link to a public source at the bottom.</div>
+
+<header class="mast">
+  <div class="eyebrow">Concrete Warrior Supply · New Town, North Dakota</div>
+  <h1>The 2027 case</h1>
+  <p class="thesis">A batch plant, a pit and a topsoil operation already standing on the Fort Berthold Reservation, with one competing plant in town and the next ones 80 to 90 miles away. 2027 is planned as a $20 million revenue year. The near-term constraint is delivery trucks.</p>
+  <div class="meta"><span>Prepared by Doble AI for Concrete Warrior</span><span>Draft v0.1</span><span>Yard: 9702 ND-23, New Town</span></div>
+</header>
+
+<div class="tiles">
+  <div class="tile"><div class="v mono">1.86M yd</div><div class="k">Concrete poured in North Dakota in 2025, mid estimate from cement shipments <span class="pill src">sourced</span></div></div>
+  <div class="tile"><div class="v mono">+20.5%</div><div class="k">Cement shipped into North Dakota, Jan–May 2026 vs the same months of 2025 <span class="pill src">sourced</span></div></div>
+  <div class="tile"><div class="v mono">450</div><div class="k">New well permits within ~50 miles of the yard in the last 12 months, about half the state <span class="pill src">sourced</span></div></div>
+  <div class="tile"><div class="v mono">80–90 mi</div><div class="k">To the next ready-mix plants (Minot, Williston, Dickinson); one competitor in town <span class="pill co">company</span></div></div>
+</div>
+
+<section id="built">
+  <div class="eyebrow">01 · What is already in place</div>
+  <h2>Built, not planned</h2>
+  <p class="lede">The investment ask is for trucks and working capital. The production side is already on the ground.</p>
+  <ul class="clean">
+    <li><b>Batch plant, erected in New Town,</b> rated at 250 cubic yards an hour <span class="pill co">company</span>. At that rate plant capacity is not the limit on 2027 volume; delivery trucks are.</li>
+    <li><b>Own sand and rock</b> from the company's pit, so the plant is not buying aggregate from a competitor.</li>
+    <li><b>Screened topsoil operation</b> with trommels on site and roughly 50,000 cubic yards on hand <span class="pill co">company</span>, plus access to topsoil from a large landowner north of Williston, in the drilling area <span class="pill co">company</span>.</li>
+    <li><b>Crushing and screening equipment</b> from the affiliated Texas operation, Patriot Stone Supply, which runs north in season and south in winter.</li>
+    <li><b>Licensed to work on the reservation:</b> Concrete Warrior LLC is in good standing with the North Dakota Secretary of State, and holds an MHA Nation TERO license <span class="pill co">company</span>.</li>
+    <li><b>Findable and selling:</b> live website and Google Business Profile, and a sales team working from a shared Salesforce account.</li>
+  </ul>
+  <p class="note">In progress: plant photos and drone footage; equipment list for the ND site specifically (the current list is the Texas fleet).</p>
+</section>
+
+<section id="market">
+  <div class="eyebrow">02 · How much concrete the area uses</div>
+  <h2>The market, by month and by distance</h2>
+  <p>North Dakota has no cement plant, so every ton is shipped in, and the U.S. Geological Survey publishes those shipments by state, by month. That gives a solid statewide number. It does not go below the state, so the local figure has to be estimated.</p>
+
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Year</th><th class="n">Cement shipped to ND (metric t)</th><th class="n">Concrete equivalent (yd³)</th></tr></thead>
+    <tbody>
+      <tr><td>2023</td><td class="n">521,650</td><td class="n">1.44M – 1.84M</td></tr>
+      <tr><td>2024</td><td class="n">562,868</td><td class="n">1.55M – 1.98M</td></tr>
+      <tr><td>2025</td><td class="n">605,693</td><td class="n">1.67M – 2.13M</td></tr>
+      <tr><td>2026, Jan–May (preliminary)</td><td class="n">135,350</td><td class="n">+20.5% on Jan–May 2025</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Conversion: 70–75% of cement goes to ready-mix (USGS national split, 72% in 2023), at 470–560 lb of cement per cubic yard. North Dakota uses 0.76 t of cement per resident against a U.S. average of 0.30, so oilfield work is already inside the state total.</p>
+
+  <h3>Share of the year's cement, by month (2023–2025 average)</h3>
+  <div class="chart" id="season">
+    <div class="tip" id="tip1"></div>
+    <svg viewBox="0 0 640 240" role="img" aria-label="Bar chart: share of North Dakota's annual cement shipped each month, 2023 to 2025 average. Peaks in September at 15.7 percent; January to April each under 4 percent."></svg>
+  </div>
+  <details><summary>Table view</summary>
+    <div class="tbl-shell"><table><thead><tr><th>Month</th><th class="n">Share of year</th><th class="n">2025 tonnes</th></tr></thead><tbody id="seasonTbl"></tbody></table></div>
+  </details>
+  <p>May through October carries 77% of the year. September is the peak. For a plant that shuts for deep winter, the season it is open for is most of the market.</p>
+
+  <h3>The area around the yard</h3>
+  <p>Estimated from the area's share of the state's population (2020 Census blocks), then doubled to allow for oilfield and reservation work, which runs heavier here than the state average. The doubling is our judgment, not a published figure. Distances by road are much longer than on the map because of Lake Sakakawea: Parshall is 19 road miles, Mandaree 31, Stanley 32, Watford City and Tioga about 50.</p>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Radius from New Town</th><th class="n">Population</th><th class="n">Population share</th><th class="n">With oilfield allowance (×2)</th></tr></thead>
+    <tbody>
+      <tr><td>About 25 road miles</td><td class="n">7,547</td><td class="n">16k – 21k yd³/yr</td><td class="n">32k – 41k yd³/yr</td></tr>
+      <tr><td>About 50 road miles</td><td class="n">20,637 – 26,734</td><td class="n">44k – 73k yd³/yr</td><td class="n">88k – 146k yd³/yr</td></tr>
+    </tbody>
+  </table></div>
+  <div class="box">
+    <p><b>What this means for the plan.</b> The steady local market inside 50 road miles is on the order of 90,000 to 150,000 cubic yards a year. Large single projects (a gas plant, a highway job, a tribal building program) sit on top of that and cannot be seen by a population estimate, which is why sections 04 and 05 list the projects themselves.</p>
+  </div>
+</section>
+
+<section id="oil">
+  <div class="eyebrow">03 · The oilfield around the yard</div>
+  <h2>Half the state's permits are inside 50 miles</h2>
+  <p>Every new well permit in the state is published daily. Placing the last twelve months of them by location:</p>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Band</th><th class="n">Permits, Oct 2025 – Sep 2026</th><th>Most active operators</th></tr></thead>
+    <tbody>
+      <tr><td>Within 25 miles</td><td class="n">119</td><td>Hess, Spotted Hawk, EOG, XTO, Hunt, Continental</td></tr>
+      <tr><td>25 to 50 miles</td><td class="n">331</td><td>XTO, Burlington (ConocoPhillips), Chord</td></tr>
+      <tr><td>North Dakota</td><td class="n">912</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p>On 7 October, 4 of the state's 33 drilling rigs were within 25 miles and another 12 within 50. Drilling runs all year: statewide permits never fell below 54 a month, even in February, while building construction drops to a few percent of the year. Oil traded at $102.54 in the state's September report, against $57 assumed in the state budget.</p>
+  <p><b>What a well uses in ready-mix is not published.</b> The best available figures put it at roughly 10 to 35 cubic yards a well (conductor and cellar), or 40 to 200 per multi-well pad. Compressor stations and gas plants elsewhere have taken 2,400 to 5,000+ yards each. On that basis, wells alone within 50 miles support perhaps 70 to 250 yards a week. The oilfield is a steady base load, not the main volume. Downhole well cement is a separate product supplied by service companies and is not counted here.</p>
+  <p class="note">The nearest active construction is the MHA Nation's Thunder Butte crude pipeline, Makoti to Stanley, approved by the Public Service Commission in May 2025 and about 60% built as of May 2026. No gas plant or compressor station within 50 miles has a 2024–2026 siting filing.</p>
+</section>
+
+<section id="mha">
+  <div class="eyebrow">04 · The MHA Nation</div>
+  <h2>The largest single buyer</h2>
+  <div class="pending"><b>In progress.</b> Research is under way on what the MHA Nation has approved, funded or put out to bid within 50 miles: roads, housing, lodging, public buildings, water, the Thunder Butte project, the tribe's capital capacity, and how it buys (TERO preference, bid postings). Each project will be listed with its value, timing, the material it needs, and a dated source.</div>
+</section>
+
+<section id="projects">
+  <div class="eyebrow">05 · Filed public projects</div>
+  <h2>Work already on the books</h2>
+  <div class="pending"><b>In progress.</b> State highway program (NDDOT STIP and bid lettings), tribal transportation program, water and wastewater loans, county and city capital plans, and federal contract notices within 50 miles, with bid dates for 2027.</div>
+</section>
+
+<section id="competition">
+  <div class="eyebrow">06 · Competition</div>
+  <h2>One plant in town, then a long drive</h2>
+  <ul class="clean">
+    <li><b>Knife River</b> (NYSE: KNF) runs the only other ready-mix plant in New Town. Concrete Warrior reports it is booked into next summer, with its large customers under contract <span class="pill co">company</span>.</li>
+    <li><b>The next plants</b> are in Minot, Williston and Dickinson, 80 to 90 miles and about an hour and a half away. Ready-mix has to be placed within about 90 minutes of batching, so a plant that far out cannot reliably serve New Town.</li>
+    <li><b>The former New Town ready-mix plant</b> (West Dakota Ready Mix) is permanently closed.</li>
+    <li><b>Price benchmark:</b> Knife River's 2025 average ready-mix price was $217.81 a yard across its Central segment (which includes North Dakota, Minnesota, Iowa, South Dakota and Texas), and $289.88 in its West segment <span class="pill src">sourced</span>. Its 10-K credits North Dakota contracting with $109.5 million of revenue growth in 2025.</li>
+  </ul>
+</section>
+
+<section id="plan">
+  <div class="eyebrow">07 · The 2027 plan</div>
+  <h2>What $20 million takes</h2>
+  <p>One illustrative mix that reaches $20 million, set against the market estimates above. The volumes and prices are placeholders for Concrete Warrior to replace with its own.</p>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Line</th><th class="n">Volume</th><th class="n">Price</th><th class="n">Revenue</th><th>Against the market</th></tr></thead>
+    <tbody>
+      <tr><td>Ready-mix concrete</td><td class="n">40,000 yd³</td><td class="n">$285/yd³</td><td class="n">$11.4M</td><td>About 27–45% of the steady 50-road-mile market, before large projects</td></tr>
+      <tr><td>Screened topsoil</td><td class="n">150,000 yd³</td><td class="n">$30/yd³</td><td class="n">$4.5M</td><td>Market size not yet measured</td></tr>
+      <tr><td>Rock and gravel</td><td class="n">140,000 t</td><td class="n">$30/t</td><td class="n">$4.2M</td><td>Market size not yet measured</td></tr>
+      <tr><td><b>Total</b></td><td></td><td></td><td class="n"><b>$20.1M</b></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Concrete at $285 is the price Concrete Warrior published in September 2026. The plan assumes a six-month pour season with 20 working days a month. Topsoil and gravel market sizing is the next research item.</p>
+</section>
+
+<section id="funds">
+  <div class="eyebrow">08 · Use of funds</div>
+  <h2>Trucks first</h2>
+  <p>From Concrete Warrior's working plan. Unit prices are new-truck estimates; used and dealer-financed units have been quoted lower and the final mix is open.</p>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Item</th><th class="n">Qty</th><th class="n">Unit</th><th class="n">Total</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Ready-mix trucks (rear discharge)</td><td class="n">15</td><td class="n">$250K new</td><td class="n">$3.75M</td><td>Used units quoted near $110K. Front-load trucks do not clear the plant.</td></tr>
+      <tr><td>Tractor-trailers</td><td class="n">5</td><td class="n">$250K</td><td class="n">$1.25M</td><td>Topsoil and aggregate haul</td></tr>
+      <tr><td>Dump trucks</td><td class="n">5</td><td class="n">$150K</td><td class="n">$0.75M</td><td></td></tr>
+      <tr><td><b>Fleet subtotal</b></td><td></td><td></td><td class="n"><b>$5.75M</b></td><td>With used mixers: about $3.65M</td></tr>
+      <tr><td>Working capital</td><td></td><td></td><td class="n">TBD</td><td>Public and tribal work pays on 30–90 day cycles</td></tr>
+      <tr><td>Insurance and safety-program qualification</td><td></td><td></td><td class="n">TBD</td><td>Operators require ISNetworld, with $10M liability cover</td></tr>
+      <tr><td>Second plant</td><td></td><td></td><td class="n">TBD</td><td>The plan names two plants; scope and location open</td></tr>
+    </tbody>
+  </table></div>
+  <p>Fifteen mixers at six loads a day, ten yards a load, deliver about 17,000 yards a month. The 40,000-yard illustration above needs roughly six to eight running trucks for the season.</p>
+</section>
+
+<section id="open">
+  <div class="eyebrow">09 · Working list</div>
+  <h2>Open items</h2>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Item</th><th>Owner</th></tr></thead>
+    <tbody>
+      <tr><td>MHA Nation approved projects, capital capacity, how it buys</td><td>Doble AI, in progress</td></tr>
+      <tr><td>Filed public projects within 50 miles, with 2027 bid dates</td><td>Doble AI, in progress</td></tr>
+      <tr><td>Topsoil and gravel market size</td><td>Doble AI</td></tr>
+      <tr><td>2027 volumes and prices by line (replace the illustration in 07)</td><td>Concrete Warrior</td></tr>
+      <tr><td>Truck quotes: new vs used, rear discharge, delivery</td><td>Concrete Warrior</td></tr>
+      <tr><td>Second plant: location, cost, timing</td><td>Concrete Warrior</td></tr>
+      <tr><td>Gross margin by line, and what it already includes (labor, trucks, fuel)</td><td>Concrete Warrior</td></tr>
+      <tr><td>Ownership and structure an investor would be buying into</td><td>Concrete Warrior with counsel</td></tr>
+      <tr><td>Check Knife River figures against the 10-K table</td><td>Doble AI</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="sources">
+  <div class="eyebrow">10 · Sources and method</div>
+  <h2>Where the numbers come from</h2>
+  <ul class="clean note">
+    <li>USGS Mineral Industry Surveys, cement, monthly shipments by destination state: <a href="https://www.usgs.gov/centers/national-minerals-information-center/cement-statistics-and-information">cement statistics</a> (issues Dec 2024, Dec 2025, May 2026). USGS Minerals Yearbook 2023, cement, Tables 9 and 14.</li>
+    <li>U.S. Census Bureau, 2020 redistricting block data (PL 94-171) and 2024 county estimates.</li>
+    <li>North Dakota DMR: <a href="https://www.dmr.nd.gov/oilgas/riglist.asp">active rig list</a> (7 Oct 2026), daily activity reports Oct 2025 – Oct 2026, <a href="https://www.dmr.nd.gov/oilgas/stats/2026monthlystats.pdf">2026 monthly statistics</a>, Director's Cut 21 Sep 2026.</li>
+    <li>North Dakota Public Service Commission case PU-24-086 (Thunder Butte Pipeline).</li>
+    <li>Knife River Corporation, <a href="https://www.sec.gov/Archives/edgar/data/1955520/000195552026000003/knf-20251231.htm">Form 10-K for 2025</a>.</li>
+    <li>Per-well concrete: no published Bakken figure exists; range inferred from conductor and cellar specifications and published compressor-station pours. Treat as an estimate.</li>
+  </ul>
+</section>
+
+<section id="log">
+  <div class="eyebrow">Change log</div>
+  <ul class="clean log">
+    <li><span class="mono">7 Oct 2026</span> · v0.1. Market, oilfield, competition, plan and use-of-funds sections drafted. MHA Nation and filed-projects sections in progress.</li>
+  </ul>
+</section>
+
+<footer>Prepared by Doble AI · Working draft for Concrete Warrior Supply, New Town, North Dakota · Not an offer to sell or a solicitation to buy any security.</footer>
+</div>
+
+<script>
+(function(){
+  var M=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var S=[2.4,2.6,3.0,3.7,8.7,12.2,13.3,14.4,15.7,13.3,7.7,3.0];
+  var T=[12458,14141,18813,20849,46020,74255,87458,78588,92439,86492,55637,18541];
+  var tb=document.getElementById("seasonTbl");
+  M.forEach(function(m,i){var r=document.createElement("tr");r.innerHTML="<td>"+m+"</td><td class='n'>"+S[i].toFixed(1)+"%</td><td class='n'>"+T[i].toLocaleString()+"</td>";tb.appendChild(r);});
+  var box=document.getElementById("season"),svg=box.querySelector("svg"),tip=document.getElementById("tip1");
+  var W=640,H=240,L=36,R=8,TOP=14,B=26,max=18,ns="http://www.w3.org/2000/svg";
+  function el(n,a){var e=document.createElementNS(ns,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  [0,5,10,15].forEach(function(v){var y=TOP+(H-TOP-B)*(1-v/max);svg.appendChild(el("line",{x1:L,x2:W-R,y1:y,y2:y,class:"grid"}));var t=el("text",{x:L-6,y:y+4,"text-anchor":"end",class:"ax"});t.textContent=v+"%";svg.appendChild(t);});
+  var bw=(W-L-R)/12;
+  S.forEach(function(v,i){
+    var h=(H-TOP-B)*v/max,x=L+i*bw+bw*0.18,w=bw*0.64,y=H-B-h;
+    var r=Math.min(4,w/2);
+    var d="M"+x+","+(H-B)+"V"+(y+r)+"Q"+x+","+y+" "+(x+r)+","+y+"H"+(x+w-r)+"Q"+(x+w)+","+y+" "+(x+w)+","+(y+r)+"V"+(H-B)+"Z";
+    svg.appendChild(el("path",{d:d,fill:"var(--bar)"}));
+    var lb=el("text",{x:x+w/2,y:H-8,"text-anchor":"middle",class:"ax"});lb.textContent=M[i];svg.appendChild(lb);
+    if(i===8){var t=el("text",{x:x+w/2,y:y-4,"text-anchor":"middle",class:"lbl"});t.textContent=v+"%";svg.appendChild(t);}
+    var hit=el("rect",{x:L+i*bw,y:TOP,width:bw,height:H-TOP-B,fill:"transparent"});
+    hit.addEventListener("mousemove",function(e){var b=box.getBoundingClientRect();tip.textContent=M[i]+": "+v+"% of year · 2025: "+T[i].toLocaleString()+" t";tip.style.left=Math.min(e.clientX-b.left+10,b.width-190)+"px";tip.style.top=(e.clientY-b.top-34)+"px";tip.style.opacity=1;});
+    hit.addEventListener("mouseleave",function(){tip.style.opacity=0;});
+    svg.appendChild(hit);
+  });
+})();
+</script>
+</body>
+</html>
