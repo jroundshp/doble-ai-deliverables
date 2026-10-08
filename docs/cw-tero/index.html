@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TERO Expo Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --graphite:#14161a;--graphite-2:#1d2026;--steel:#6b7480;--steel-dim:#8b939d;--bone:#f2efe9;
+  --scoria:#b4432a;--scoria-br:#d15334;--amber:#9a6a06;
+  --ground:var(--bone);--surface:#fbfaf7;--ink:var(--graphite);--ink-soft:#4b525c;--ink-mute:#5f6772;
+  --rule:#d5cfc4;--rule-soft:#e6e1d7;--bar:#b4432a;--bar-2:#c9a99c;--pend:#efe6d2;--pend-ink:#6b4f12;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:var(--graphite);--surface:var(--graphite-2);--ink:var(--bone);--ink-soft:#c2c7ce;--ink-mute:var(--steel-dim);
+  --rule:#343a43;--rule-soft:#262b32;--scoria:var(--scoria-br);--amber:#d99b17;--bar:#d15334;--bar-2:#6e4a40;--pend:#2c2a22;--pend-ink:#e3c77a;}}
+:root[data-theme="dark"]{
+  --ground:var(--graphite);--surface:var(--graphite-2);--ink:var(--bone);--ink-soft:#c2c7ce;--ink-mute:var(--steel-dim);
+  --rule:#343a43;--rule-soft:#262b32;--scoria:var(--scoria-br);--amber:#d99b17;--bar:#d15334;--bar-2:#6e4a40;--pend:#2c2a22;--pend-ink:#e3c77a;}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:62rem;margin:0 auto;padding:clamp(1.5rem,5vw,4rem) 16px 5rem}
+@media(min-width:700px){.wrap{padding-left:2.5rem;padding-right:2.5rem}}
+.display,h2{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-weight:700;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
+.eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:var(--scoria)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+.draft{background:var(--pend);color:var(--pend-ink);border:1px solid var(--rule);border-radius:6px;padding:.75rem 1rem;font-size:.92rem;margin-bottom:1.6rem}
+.draft b{font-weight:600}
+header.mast{border-top:3px solid var(--scoria);padding-top:1.4rem}
+.mast h1{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(2.5rem,7vw,4.3rem);line-height:.95;margin:.6rem 0 0}
+.thesis{font-size:clamp(1.1rem,2.2vw,1.3rem);line-height:1.45;color:var(--ink-soft);max-width:52ch;margin:1.2rem 0 0;font-weight:500}
+.meta{margin-top:1.6rem;padding-top:.8rem;border-top:1px solid var(--rule);font-size:.86rem;color:var(--ink-mute);display:flex;flex-wrap:wrap;gap:.4rem 1.4rem}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:2.2rem 0 0}
+.tile{background:var(--surface);padding:1rem 1.1rem}
+.tile .v{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:2.1rem;line-height:1}
+.tile .k{font-size:.88rem;color:var(--ink-soft);margin-top:.35rem;line-height:1.35}
+section{margin-top:3.4rem}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);margin:.3rem 0 .8rem;line-height:1}
+h3{font-size:1.08rem;margin:1.6rem 0 .4rem}
+p{max-width:68ch}
+.lede{font-size:1.08rem;color:var(--ink-soft)}
+.pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--rule);border-radius:99px;padding:.05rem .5rem;vertical-align:.12em;color:var(--ink-mute);white-space:nowrap}
+.pill.src{border-color:var(--scoria);color:var(--scoria)}
+.pill.co{border-color:var(--amber);color:var(--amber)}
+.pill.est{border-style:dashed}
+.pill.need{border-style:dashed;border-color:var(--pend-ink);color:var(--pend-ink);background:var(--pend)}
+.tbl-shell{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--surface);margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{padding:.5rem .75rem;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+th{font-weight:600;color:var(--ink-soft);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.note{font-size:.88rem;color:var(--ink-mute);max-width:72ch}
+.box{border-left:3px solid var(--scoria);background:var(--surface);padding:.9rem 1.1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.box p{margin:.3rem 0}
+.pending{border:1px dashed var(--rule);border-radius:6px;padding:1rem 1.1rem;background:var(--pend);color:var(--pend-ink)}
+ul.clean{padding-left:1.1rem}ul.clean li{margin:.35rem 0}
+.chart{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:1rem .8rem .6rem;margin:1rem 0;position:relative}
+.chart svg{display:block;width:100%;height:auto}
+.chart .ax{fill:var(--ink-mute);font-family:"IBM Plex Mono",monospace;font-size:11px}
+.chart .grid{stroke:var(--rule-soft);stroke-width:1}
+.chart .lbl{fill:var(--ink-soft);font-family:"IBM Plex Mono",monospace;font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--ground);font-size:.8rem;padding:.3rem .55rem;border-radius:4px;white-space:nowrap;opacity:0;transition:opacity .1s}
+.legend{display:flex;gap:1.2rem;font-size:.85rem;color:var(--ink-soft);margin:.2rem 0 .4rem .3rem;flex-wrap:wrap}
+.legend i{display:inline-block;width:.8rem;height:.8rem;border-radius:2px;margin-right:.35rem;vertical-align:-.08em}
+details{margin:.4rem 0 0}summary{cursor:pointer;font-size:.86rem;color:var(--ink-mute)}
+.log li{font-size:.9rem}
+footer{margin-top:4rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--ink-mute)}
+a{color:var(--scoria)}
+</style>
+<style>
+.pill.ok{border-color:#2f7a4a;color:#2f7a4a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pill.ok{border-color:#6cc28d;color:#6cc28d}}
+:root[data-theme="dark"] .pill.ok{border-color:#6cc28d;color:#6cc28d}
+.pill.lk{border-color:var(--amber);color:var(--amber)}
+.pill.un{border-style:dashed}
+td.who{min-width:12rem}
+ol.steps li,ul.clean li{max-width:70ch}
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1rem 0}
+.days>div{background:var(--surface);padding:.9rem 1rem}
+.days b{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.needlist li{margin:.3rem 0}
+@media print{.draft{border:1px solid #999}section{break-inside:auto}tr{break-inside:avoid}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<div class="draft"><b>Draft only. Prepared 8 October 2026. Nothing has been sent or booked; Corey makes every contact.</b> Labels: <span class="pill ok">confirmed</span> = checked against a public source; <span class="pill lk">likely</span> = strong inference, not confirmed; <span class="pill un">unverified</span> = not checked; <span class="pill need">need from Corey</span> = only Corey's team can fill it.</div>
+
+<header class="mast">
+  <div class="eyebrow">Concrete Warrior Supply · VPC Fiberglass</div>
+  <h1>MHA TERO Expo 2026</h1>
+  <p class="thesis">Three days in New Town with the TERO office, the tribe's construction department and the contractors working on Fort Berthold. Call TERO first, then use the expo to meet the people building the Four Bears water plant.</p>
+  <div class="meta"><span>19 to 21 Oct 2026</span><span>4 Bears Casino &amp; Lodge Event Center, New Town ND</span><span>Prepared by Doble AI</span></div>
+</header>
+
+<div class="tiles">
+  <div class="tile"><div class="v mono">Thu 8 / Fri 9</div><div class="k">Call the TERO office before anything else</div></div>
+  <div class="tile"><div class="v mono">$750</div><div class="k">Per registrant; 5th free with 4</div></div>
+  <div class="tile"><div class="v mono">18 × $500</div><div class="k">10x10 booths, first come; bring table and chairs</div></div>
+  <div class="tile"><div class="v mono">28 Oct</div><div class="k">Every follow-up sent and logged in Salesforce</div></div>
+</div>
+
+<section id="what">
+  <div class="eyebrow">01 · The event</div>
+  <h2>What it is</h2>
+  <div class="tbl-shell"><table><tbody>
+    <tr><td>When and where</td><td>Mon to Wed, 19 to 21 Oct 2026. 4 Bears Casino &amp; Lodge Event Center, 202 Frontage Rd, New Town ND. Registration 7:00 to 8:30 AM daily; sessions start 9:00. Room block available.</td></tr>
+    <tr><td>Cost</td><td>$750 per registrant (5th free with 4). 10x10 booth $500 (18 booths, first come; bring table and chairs). Banners $500 or $750. Brochure ads $150 to $500.</td></tr>
+    <tr><td>Register</td><td>Email the form to TeroCommission@gmail.com. Pay by check to MHA Tero Commission, PO Box 488, New Town, or by card through TERO at 701-627-3634. No deadline printed.</td></tr>
+    <tr><td>Agenda</td><td>Only two items posted: "Update on TERO Regulations" and "TERO 101 certification available to all TERO licensed companies." No speakers, sessions, exhibitors or sponsors posted.</td></tr>
+    <tr><td>Host and contacts</td><td>MHA TERO Commission. Questions and booths 701-421-8735. Banners 701-421-2786. Sponsorships 701-898-1492. TERO is closed Mon 12 Oct.</td></tr>
+    <tr><td>Not found</td><td>Past expos, news coverage, exhibitor list, whether a booth includes registration.</td></tr>
+  </tbody></table></div>
+</section>
+
+<section id="who">
+  <div class="eyebrow">02 · Know before you go</div>
+  <h2>Who is attending</h2>
+  <p class="lede">No exhibitor or speaker list is public. Only the host is confirmed. Entries that matter to both companies come first.</p>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Who</th><th>Status and evidence</th><th>Matters to</th><th>Public contact</th></tr></thead>
+    <tbody>
+<tr><td><b>TERO Office</b>: Frank Sillitti (Exec. Dir.), Dewey Hosie (Deputy), Desiree Conklin (licensing)</td><td><span class="pill ok">confirmed</span> host</td><td>Both</td><td>Main 701-627-3634. Sillitti 701-627-6275 <span class="pill src">corrected</span>. Hosie 701-627-6271. Conklin 701-627-6268.</td></tr>
+<tr><td><b>Fort Berthold Rural Water (FBRW)</b>: Joseph Silveria, Public Works Administrator</td><td><span class="pill lk">likely</span> tribal utility, new Four Bears plant</td><td>Both</td><td>701-627-8181 (FBRW main 701-627-8185)</td></tr>
+<tr><td><b>Dark Horse General Contracting</b></td><td><span class="pill lk">likely</span> built the FBRW shop (opened 31 Jul 2026); bid the FBRW intake (Jan 2026). Native-, minority- and veteran-owned, Brooklyn Park MN <span class="pill ok">confirmed</span></td><td>Both</td><td>LinkedIn</td></tr>
+<tr><td><b>Storms Construction</b></td><td><span class="pill lk">likely</span> apparent low bidder, $3.07M, scattered-site sanitation (8 Apr 2026)</td><td>Both</td><td>Mandan ND, 701-663-5565 (directory listing) <span class="pill src">corrected</span></td></tr>
+<tr><td><b>MHA Construction Management</b>: Forest Mandan, Preston Meanus</td><td><span class="pill lk">likely</span> tribal department</td><td>Both</td><td>Office 701-627-4529. Mandan (Construction Engineer) 701-421-7272. Meanus (Building Official) 701-421-2382</td></tr>
+<tr><td><b>Rolac</b> (EMHC housing, $10.1M); <b>Consolidated</b> (Parshall clinic CM); <b>1st AAA</b> (New Town; 26-231 pending)</td><td><span class="pill lk">likely</span> active tribal contracts</td><td>CWS</td><td>Rolac: Jason Sanders, 701-839-6525. 1st AAA: Edurado Castaneda, 970-623-4355. Both <span class="pill un">unverified</span></td></tr>
+<tr><td><b>Fort Berthold Housing Authority</b></td><td><span class="pill lk">likely</span> posts concrete bids (two on 15 Sep 2026, White Shield)</td><td>CWS</td><td>Main 701-627-4731. Nicole Nadeau (exec. assistant); Amy Kogel (contract officer) <span class="pill src">corrected</span></td></tr>
+<tr><td><b>Bartlett &amp; West</b></td><td><span class="pill lk">likely</span> FBRW's engineer since the early 2000s. TERO license 27-8759, to Mar 2027 <span class="pill ok">confirmed</span></td><td>VPC</td><td>Jared Huibregtse, 701-221-8402 (named on the Four Bears request) <span class="pill src">corrected</span>. Daniel Berges PE, 785-272-2252, and Jack Fletcher, 701-221-8404 <span class="pill un">unverified</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="competitors">
+  <div class="eyebrow">03 · Competitors</div>
+  <h2>Who else is selling</h2>
+  <h3>Concrete Warrior Supply</h3>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Firm</th><th>Sells</th><th>Threat</th><th>At expo?</th></tr></thead>
+    <tbody>
+<tr><td><b>Strata (Knife River)</b>, New Town</td><td>Ready-mix, aggregate</td><td>Only other New Town plant. No record of a Strata low bid on an ND 23 job; the ND 23 chip seal near Four Bears bids 9 Apr 2027. Knife River is <b>not</b> on any current TERO list (3 Sep 2026) <span class="pill src">corrected</span></td><td>Likely</td></tr>
+<tr><td><b>Knife River / Strata</b>, Watford City (42 mi)</td><td>Ready-mix</td><td>Closer than Killdeer or Tioga; serves the south side of the lake</td><td>Likely</td></tr>
+<tr><td><b>Dickinson Ready Mix</b>, Killdeer (53 mi)</td><td>Concrete products</td><td>On the Approved Oilfield Vendor list (27-9162, to Jun 2027; current list dated 3 Sep 2026). CWS is not. <span class="pill ok">confirmed</span></td><td>Likely</td></tr>
+<tr><td><b>Ruach Resources</b>, Tioga (56 mi)</td><td>Ready-mix, aggregates; pours year-round <span class="pill ok">confirmed</span></td><td>Not on any current TERO list; the 25-5798 license appears to have lapsed <span class="pill src">corrected</span></td><td>Likely</td></tr>
+<tr><td><b>Sundre Sand &amp; Gravel</b> (Minot)</td><td>Crushed stone, sand, <b>topsoil</b>, crushed concrete</td><td>TERO-licensed (27-8926, to Apr 2027). A topsoil rival <span class="pill src">corrected</span></td><td>Possible</td></tr>
+<tr><td><b>Yellowstone Valley Concrete &amp; Construction</b> (Sidney MT)</td><td>Concrete, electrical</td><td>Approved Oilfield Vendor (26-8553), expires 29 Oct 2026 <span class="pill ok">confirmed</span>. The Sidney ready-mix plant is Sidney Red-E-Mix.</td><td>Possible</td></tr>
+<tr><td><b>Baranko Bros.</b> (Dickinson)</td><td>Earthwork, heavy highway, hauling</td><td>TERO-licensed (27-9031). Sells no gravel or concrete: more likely a <b>buyer</b> than a rival <span class="pill src">corrected</span></td><td>Possible</td></tr>
+<tr><td><b>Indian-owned firms</b></td><td>Aggregates, topsoil</td><td><b>Triple C Oilfield Services</b> (Class 5 and 13, sand, rip rap, clay, <b>topsoil</b>) and <b>TEK Energy Services</b> (Class 13 modified, sand, rip rap) hold Level 1 "Aggregates Supply - Pit" (list of 6 Oct 2026) <span class="pill src">corrected</span>. White Horse Construction and Hidatco Construction are certified Tier 1; what they sell is <span class="pill un">unverified</span>. Also partner candidates.</td><td>Likely</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Topsoil rivals: Triple C (Level 1) and Sundre. <b>No concrete or ready-mix category exists on any TERO preference level.</b> License numbers are from the TERO lists dated 3 Sep 2026 unless noted. Source: mhatero.com/contractor-lists.</p>
+  <h3>VPC Fiberglass</h3>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Firm</th><th>Sells</th><th>Threat</th><th>At expo?</th></tr></thead>
+    <tbody>
+<tr><td><b>Shelter Works</b> (St. Louis MO); <b>Warminster Fiberglass</b> (Jacksonville TX)</td><td>FRP shelters for lift and pump stations, chemical rooms</td><td>Head-on rivals on VPC's biggest line. Neither site names valve enclosures.</td><td>Unlikely</td></tr>
+<tr><td><b>Tracom</b> (Jasper GA)</td><td>Flumes, metering manholes, FRP wet wells</td><td>Manholes and flumes</td><td>Unlikely</td></tr>
+<tr><td><b>LF Manufacturing</b> (Giddings TX; plant in Laurel MT; owned by NOV)</td><td>FRP wet wells and basins</td><td>Lift stations. Delivers with its own drivers. Does not list flumes or metering manholes <span class="pill src">corrected</span></td><td>Unlikely</td></tr>
+<tr><td><b>FRP Mocoat</b> (Asquith SK and Calgary)</td><td>FRP valve enclosures</td><td>Close by; serves SK, AB and MB</td><td>Unlikely</td></tr>
+<tr><td><b>Skaw ND Precast</b> (Minot)</td><td>Precast septic and holding tanks, manhole risers, lift stations</td><td>Concrete alternative, local to the septic work. (Gillespie Precast removed: it serves the Mid-Atlantic) <span class="pill src">corrected</span></td><td>Possible</td></tr>
+<tr><td><b>Baynum Amusement Solutions</b> (KY)</td><td>Restores and installs aquatic play units</td><td>Not a maker, and not on a current TERO list <span class="pill src">corrected</span>. Possible installer partner, not a rival.</td><td>Unlikely</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Sources: firm websites; TERO lists. No regional reps found publicly.</p>
+</section>
+
+<section id="prospects">
+  <div class="eyebrow">04 · Prospects</div>
+  <h2>Where the work is</h2>
+
+  <h3>Both companies</h3>
+  <ul class="clean">
+    <li><b>New Four Bears water plant (FBRW).</b> About $30M plant ($36M total with raw-water line and intake); state cost-share request for 2027 to 2029 is $27M <span class="pill ok">confirmed</span>. South side of ND 23, 2.5 miles west of the old plant, at the new FBRW office/shop, near the CWS yard. Still proposed; pre-construction cost share approved 2024 and 2025. Tribal resolution 26-179 (8 Jul 2026) directs counsel to file condemnation for the raw-water line easement <span class="pill src">corrected</span>. Engineer Bartlett &amp; West <span class="pill ok">confirmed</span> (they filed the state request). <i>Fit:</i> CWS structural concrete and bedding; VPC shelters, flumes, manholes.</li>
+    <li><b>Scattered-site sanitation.</b> Owner Three Affiliated Tribes (IHS role <span class="pill un">unverified</span>); Storms, $3.07M apparent low bid, opened 8 Apr 2026 (Hanson's $3.10M, Meyer $6.71M). <i>Fit:</i> VPC basins and lift stations; CWS gravel.</li>
+    <li><b>New Town water plant reverse-osmosis upgrade.</b> $33.4M, 2028, upgrade to the existing plant for manganese <span class="pill src">corrected</span>. Engineer <span class="pill lk">likely</span> AE2S (the state list names none). <i>Fit:</i> concrete; shelters and flumes.</li>
+    <li><b>New Town sewer rehabilitation.</b> $9.88M (2027) plus $10.95M (2028). Engineer AE2S <span class="pill ok">confirmed</span> (2026 clean-water loan list). <i>Fit:</i> manholes and metering manholes; bedding.</li>
+    <li><b>Watford City 2027 street and utility.</b> $3.05M (amended 2026 drinking-water list) <span class="pill ok">confirmed</span>; engineer not public; off-reservation.</li>
+  </ul>
+  <h3>CWS only</h3>
+  <ul class="clean">
+    <li>EMHC staff quarters housing (Rolac), $10.1M, approved 23 Sep 2026 <span class="pill ok">confirmed</span>.</li>
+    <li>Parshall clinic (Consolidated): contract up to $12M within a $14M budget <span class="pill src">corrected</span>.</li>
+    <li>1st AAA and McKenzie Electric West housing (pending legal review) <span class="pill un">unverified</span>.</li>
+    <li>FBHA concrete bids.</li>
+    <li>Sand Hill water tower, owned by the <b>City of New Town</b> <span class="pill src">corrected</span>, state share $3.68M. AE2S (Deon Stockert, 701-221-0530) <span class="pill ok">confirmed</span>; completion due 1 Oct 2027. Bidders reported as Gerard Tank &amp; Steel and Phoenix Fabricators <span class="pill un">unverified</span>. Ask about the foundation.</li>
+  </ul>
+  <h3>VPC only</h3>
+  <ul class="clean">
+    <li>Bruce A. Fox plant, Mandaree (opened 19 Aug 2026, Bartlett &amp; West) <span class="pill ok">confirmed</span>: a reference, not a lead.</li>
+    <li>Water play: community centers. The Chairman's Dec 2025 quote ("planned and being developed in New Town, Four Bears and Mandaree") could not be found <span class="pill un">unverified</span>. What is on record: Brunton Architects approved for the Mandaree (West Segment) community center, May 2026; Parshall community center opened 2 Oct 2026. Ackerman-Estvold designed the 4Bears Waterpark and the Malcolm Wolf Community Park indoor splash pad (Ryan Anderson; firm main line 701-837-8737).</li>
+  </ul>
+  <div class="box"><p><b>Right room for VPC?</b> Partly. The main path is a spec review with Bartlett &amp; West and AE2S. Use the expo for TERO supplier status and FBRW.</p></div>
+
+</section>
+
+<section id="prep">
+  <div class="eyebrow">05 · Preparation</div>
+  <h2>How to get the most out of it</h2>
+
+  <h3>1. Call the TERO office first (Thu 8 or Fri 9 Oct)</h3>
+  <p>Out of respect for Indian preference, TERO hears from us before anyone else does. Ask:</p>
+  <ul class="clean">
+<li>Status of CWS's license (type, number, expiry)? CWS is not on any TERO list posted today, and TERO 101 is for licensed firms only. The vendor/supplier license (10-J) is $2,500; card payments carry a 3% fee.</li>
+<li>How does CWS get on the Approved Oilfield Vendor list?</li>
+<li>Does a booth include registration?</li>
+<li>Does VPC need a supplier license? TERO keeps a "Suppliers (Non Native)" list.</li>
+<li>Can TERO introduce us to certified Indian contractors?</li>
+<li><b>New:</b> no certified firm supplies concrete at any preference level. Will TERO confirm that buyers may open concrete bids to non-certified suppliers under Regs §3.1B and §3.2(g)?</li>
+<li><b>New:</b> if an owner is an enrolled MHA member, what does certification require, and how long does it take?</li>
+  </ul>
+  <p class="note">Licensing is in person, Mon to Thu, owners present.</p>
+
+
+  <h3>2. Partnering path for CWS</h3>
+  <p>Competitive tribal bids are limited to certified Indian contractors. A certified Tier 1 firm within 2% of the low bid wins, at any contract size. (The regulations' 10% figure for projects under $1M is a test of price against the buyer's own estimate, not a bid margin.) If CWS is not Indian-owned:</p>
+  <ol class="steps">
+    <li><b>Sell where no certified firm competes.</b> There is no concrete or ready-mix category at any preference level. When no certified firm offers a service, the regulations let the buyer open the bid to others (§3.1B with TERO director approval; §3.2(g)).</li>
+    <li><b>Sell to GCs as a supplier.</b></li>
+    <li><b>Sign a Mentorship Agreement</b> with a certified firm (gives that firm Preference Level 2). A firm may hold at most four, and an agreement cannot cover a service the certified firm performs itself. TERO began auditing these in Feb 2026.</li>
+    <li><b>Form a joint venture</b> with an MHA member, with counsel.</li>
+  </ol>
+
+
+  <h3>3. Pre-expo outreach</h3>
+  <p>Corey calls tribal and local firms first; engineers get email or LinkedIn.</p>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Day</th><th>Prospect (person)</th><th>Why now</th><th>Ask</th><th>Opener</th></tr></thead>
+    <tbody>
+<tr><td>Fri 9</td><td>Expo line, 701-421-8735</td><td>18 booths</td><td>Booth or attend; exhibitor list</td><td>"We batch ready-mix on ND 23 and want to support the Expo. Is a booth open?"</td></tr>
+<tr><td>Tue 13</td><td>Dark Horse (both)</td><td>~10,000 yd order; Four Bears plant</td><td>Where the order stands; 15 min at the expo</td><td>"Calling about your order and the Four Bears plant. What do you need from us to firm up 2027?" <span class="pill src">corrected</span></td></tr>
+<tr><td>Tue 13</td><td>Rolac, Jason Sanders (CWS)</td><td>$10.1M housing approved 23 Sep</td><td>Prequalification packet</td><td>"Congratulations on the EMHC housing. We're 8 miles from New Town and would like to quote foundations and flatwork."</td></tr>
+<tr><td>Wed 14</td><td>FBRW, Joseph Silveria (both)</td><td>Four Bears plant in design</td><td>15 min at the expo</td><td>"We supply local concrete, and our sister company makes fiberglass valve shelters and manholes. What will the new plant need?"</td></tr>
+<tr><td>Wed 14</td><td>Storms Construction (both), 701-663-5565</td><td>Three Affiliated Tribes sanitation job, low bid $3.07M</td><td>Quote</td><td>"We can supply bedding gravel and fiberglass lift-station basins for the sanitation sites."</td></tr>
+<tr><td>Thu 15</td><td>Bartlett &amp; West, Jared Huibregtse or Daniel Berges (VPC)</td><td>Four Bears design</td><td>Spec review</td><td>"VPC makes FRP shelters, flumes and manholes. Could we review your specs before Four Bears goes out?"</td></tr>
+<tr><td>Thu 15</td><td>AE2S, Deon Stockert (both)</td><td>New Town sewer 2027; RO plant</td><td>Spec review</td><td>"Ahead of New Town's sewer and RO work, can we walk through FRP manholes and shelters?"</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>4. Send ahead: a one-page sheet for each company</h3>
+  <ul class="clean">
+<li><b>CWS:</b> pit, crusher, batch plant and topsoil on one site at 9702 ND 23; TERO license number (once issued); insurance; ISNetworld; 2027 capacity.</li>
+<li><b>VPC:</b> product lines; American Iron and Steel / Build America, Buy America compliance (SRF-funded jobs require it); ND references.</li>
+  </ul>
+
+  <h3>5. On site</h3>
+  <div class="days">
+    <div><b>Day 1 · Mon 19</b><br>Arrive by 8:30. Attend the regulation update and TERO 101, then visit the TERO licensing desk.</div>
+    <div><b>Day 2 · Tue 20</b><br>GCs, Construction Management, FBRW and FBHA.</div>
+    <div><b>Day 3 · Wed 21</b><br>Catch anyone missed. Book site visits.</div>
+  </div>
+
+  <h3>6. Seven-day follow-up (by 28 Oct)</h3>
+  <p>Thank-you, the one-page sheet and one dated next step per contact, logged in Salesforce.</p>
+
+  <h3>Risks</h3>
+  <ul class="clean">
+<li>Preference rules can shut a non-certified firm out of tribal bids.</li>
+<li>Fees: the 2022 TERO Ordinance charges 2.5% on construction contracts of $1,000 or more. Whether materials-only sales count is not stated; ask. The 2026 regulations list 0.5% of quarterly payroll for a business based on the reservation, while the Ordinance says 2.5%; confirm which applies.</li>
+<li>Contractor vehicles: the brief says they must be registered with MHA DOT. We could not find that rule; TERO says its vehicle-marking regulation is being revised. Ask.</li>
+<li>Watford City and Stanley are off-reservation, so no TERO there.</li>
+  </ul>
+</section>
+
+<section id="need">
+  <div class="eyebrow">06 · Open items</div>
+  <h2>Need from Corey</h2>
+  <div class="pending"><ul class="clean needlist">
+<li>TERO license type, number and expiry (none appears on TERO's posted lists). <span class="pill need">need from Corey</span></li>
+<li>CWS ownership, and whether any owner is an enrolled MHA member. <span class="pill need">need from Corey</span></li>
+<li>ISNetworld status and insurance limits. <span class="pill need">need from Corey</span></li>
+<li>2027 prices and capacity. <span class="pill need">need from Corey</span></li>
+<li>Status of the Dark Horse order. <span class="pill need">need from Corey</span></li>
+<li>Who attends for each company. <span class="pill need">need from Corey</span></li>
+<li>VPC's ND references and its ND rep. <span class="pill need">need from Corey</span></li>
+<li>Booth budget. <span class="pill need">need from Corey</span></li>
+  </ul></div>
+</section>
+
+<footer>
+  <p><b>Sources.</b> mhatero.com home, staff and contractor-lists pages; Expo registration form (1 Oct 2026), advertising and booths sheet, Expo flyer (18 Sep 2026); TERO Regulations, corrected, approved 12 Aug 2026; TERO Ordinance (rev. 2022); TERO lists dated 17 Jun, 3 Sep and 6 Oct 2026; ND Legislative Council 27.9270.01000 app. D; northdakotabids.com 14692148; ND clean-water and drinking-water loan lists 2026; firm websites.</p>
+  <p>Checked against primary sources on 8 Oct 2026. Items marked <span class="pill src">corrected</span> differ from the first draft of this brief.</p>
+  <p>Prepared by Doble AI for Concrete Warrior Supply and VPC. Draft, 8 October 2026.</p>
+</footer>
+</div>
+</body>
+</html>
