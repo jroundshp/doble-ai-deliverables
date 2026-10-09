@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Trucks, Capital, Knife River</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --graphite:#14161a;--graphite-2:#1d2026;--steel:#6b7480;--steel-dim:#8b939d;--bone:#f2efe9;
+  --scoria:#b4432a;--scoria-br:#d15334;--amber:#9a6a06;
+  --ground:var(--bone);--surface:#fbfaf7;--ink:var(--graphite);--ink-soft:#4b525c;--ink-mute:#5f6772;
+  --rule:#d5cfc4;--rule-soft:#e6e1d7;--bar:#b4432a;--bar-2:#c9a99c;--pend:#efe6d2;--pend-ink:#6b4f12;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:var(--graphite);--surface:var(--graphite-2);--ink:var(--bone);--ink-soft:#c2c7ce;--ink-mute:var(--steel-dim);
+  --rule:#343a43;--rule-soft:#262b32;--scoria:var(--scoria-br);--amber:#d99b17;--bar:#d15334;--bar-2:#6e4a40;--pend:#2c2a22;--pend-ink:#e3c77a;}}
+:root[data-theme="dark"]{
+  --ground:var(--graphite);--surface:var(--graphite-2);--ink:var(--bone);--ink-soft:#c2c7ce;--ink-mute:var(--steel-dim);
+  --rule:#343a43;--rule-soft:#262b32;--scoria:var(--scoria-br);--amber:#d99b17;--bar:#d15334;--bar-2:#6e4a40;--pend:#2c2a22;--pend-ink:#e3c77a;}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:62rem;margin:0 auto;padding:clamp(1.5rem,5vw,4rem) 16px 5rem}
+@media(min-width:700px){.wrap{padding-left:2.5rem;padding-right:2.5rem}}
+.display,h2{font-family:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;font-weight:700;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
+.eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:var(--scoria)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+.draft{background:var(--pend);color:var(--pend-ink);border:1px solid var(--rule);border-radius:6px;padding:.75rem 1rem;font-size:.92rem;margin-bottom:1.6rem}
+.draft b{font-weight:600}
+header.mast{border-top:3px solid var(--scoria);padding-top:1.4rem}
+.mast h1{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(2.5rem,7vw,4.3rem);line-height:.95;margin:.6rem 0 0}
+.thesis{font-size:clamp(1.1rem,2.2vw,1.3rem);line-height:1.45;color:var(--ink-soft);max-width:52ch;margin:1.2rem 0 0;font-weight:500}
+.meta{margin-top:1.6rem;padding-top:.8rem;border-top:1px solid var(--rule);font-size:.86rem;color:var(--ink-mute);display:flex;flex-wrap:wrap;gap:.4rem 1.4rem}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:2.2rem 0 0}
+.tile{background:var(--surface);padding:1rem 1.1rem}
+.tile .v{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:2.1rem;line-height:1}
+.tile .k{font-size:.88rem;color:var(--ink-soft);margin-top:.35rem;line-height:1.35}
+section{margin-top:3.4rem}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);margin:.3rem 0 .8rem;line-height:1}
+h3{font-size:1.08rem;margin:1.6rem 0 .4rem}
+p{max-width:68ch}
+.lede{font-size:1.08rem;color:var(--ink-soft)}
+.pill{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--rule);border-radius:99px;padding:.05rem .5rem;vertical-align:.12em;color:var(--ink-mute);white-space:nowrap}
+.pill.src{border-color:var(--scoria);color:var(--scoria)}
+.pill.co{border-color:var(--amber);color:var(--amber)}
+.pill.est{border-style:dashed}
+.pill.need{border-style:dashed;border-color:var(--pend-ink);color:var(--pend-ink);background:var(--pend)}
+.tbl-shell{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;background:var(--surface);margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{padding:.5rem .75rem;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+th{font-weight:600;color:var(--ink-soft);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.note{font-size:.88rem;color:var(--ink-mute);max-width:72ch}
+.box{border-left:3px solid var(--scoria);background:var(--surface);padding:.9rem 1.1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.box p{margin:.3rem 0}
+.pending{border:1px dashed var(--rule);border-radius:6px;padding:1rem 1.1rem;background:var(--pend);color:var(--pend-ink)}
+ul.clean{padding-left:1.1rem}ul.clean li{margin:.35rem 0}
+.chart{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:1rem .8rem .6rem;margin:1rem 0;position:relative}
+.chart svg{display:block;width:100%;height:auto}
+.chart .ax{fill:var(--ink-mute);font-family:"IBM Plex Mono",monospace;font-size:11px}
+.chart .grid{stroke:var(--rule-soft);stroke-width:1}
+.chart .lbl{fill:var(--ink-soft);font-family:"IBM Plex Mono",monospace;font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--ground);font-size:.8rem;padding:.3rem .55rem;border-radius:4px;white-space:nowrap;opacity:0;transition:opacity .1s}
+.legend{display:flex;gap:1.2rem;font-size:.85rem;color:var(--ink-soft);margin:.2rem 0 .4rem .3rem;flex-wrap:wrap}
+.legend i{display:inline-block;width:.8rem;height:.8rem;border-radius:2px;margin-right:.35rem;vertical-align:-.08em}
+details{margin:.4rem 0 0}summary{cursor:pointer;font-size:.86rem;color:var(--ink-mute)}
+.log li{font-size:.9rem}
+footer{margin-top:4rem;padding-top:1rem;border-top:1px solid var(--rule);font-size:.85rem;color:var(--ink-mute)}
+a{color:var(--scoria)}
+</style>
+<style>
+.pill.ok{border-color:#2f7a4a;color:#2f7a4a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pill.ok{border-color:#6cc28d;color:#6cc28d}}
+:root[data-theme="dark"] .pill.ok{border-color:#6cc28d;color:#6cc28d}
+.pill.lk{border-color:var(--amber);color:var(--amber)}
+.pill.un{border-style:dashed}
+td.who{min-width:12rem}
+ol.steps li,ul.clean li{max-width:70ch}
+.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1rem 0}
+.days>div{background:var(--surface);padding:.9rem 1rem}
+.days b{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.needlist li{margin:.3rem 0}
+.dl{display:inline-block;margin-top:1.1rem;background:var(--scoria);color:#fff;text-decoration:none;font-weight:600;padding:.55rem 1rem;border-radius:6px;font-size:.95rem}
+.dl:hover{filter:brightness(1.08)}
+@media print{.dl{display:none}.tbl-shell{overflow:visible}body{font-size:13px}.wrap{padding:0 8px}section{margin-top:1.6rem;break-inside:auto}tr,.box,.tile{break-inside:avoid}h2,h3,.eyebrow{break-after:avoid}.tiles{grid-template-columns:repeat(4,1fr)}.tile .v{font-size:1.55rem}section{break-before:auto}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<div class="draft"><b>For discussion with Corey. Prepared 9 October 2026. Nothing has been sent to anyone named here.</b> Program terms are quoted from the sources at the bottom; confirm each with the office before relying on it. Labels: <span class="pill ok">confirmed</span> = read in the primary source; <span class="pill un">unverified</span> = not checked; <span class="pill need">ask</span> = a question only the office or Concrete Warrior can answer.</div>
+
+<header class="mast">
+  <div class="eyebrow">Concrete Warrior Supply · options for discussion</div>
+  <h1>Trucks, capital and Knife River</h1>
+  <p class="thesis">Knife River is worth a conversation, but as a customer and partner, not as an owner. A subsidiary or joint venture would cost Concrete Warrior the tribal preference that makes it worth partnering with in the first place. The trucks can be financed through programs written for Native-owned businesses.</p>
+  <div class="meta"><span>9 Oct 2026</span><span>Prepared by Doble AI</span></div>
+</header>
+
+<div class="tiles">
+  <div class="tile"><div class="v mono">100%</div><div class="k">MHA ownership the 2026 TERO rules require for the top preference level</div></div>
+  <div class="tile"><div class="v mono">90%</div><div class="k">BIA loan guarantee for businesses at least 51% Indian-owned</div></div>
+  <div class="tile"><div class="v mono">2%</div><div class="k">Fixed rate on the ND Development Fund's rural loan, equipment eligible</div></div>
+  <div class="tile"><div class="v mono">$3.72M</div><div class="k">Treasury collateral support approved for the Three Affiliated Tribes</div></div>
+</div>
+
+<section id="tero">
+  <div class="eyebrow">01 · Settle this first</div>
+  <h2>What preference Concrete Warrior actually gets</h2>
+  <p class="lede">Every option below depends on one answer from the TERO office, and the rules changed this summer.</p>
+  <p>The TERO Ordinance (2022) gives preference to firms that are more than 50% Indian-owned. The Regulations the TERO Commission approved on 12 August 2026 go further. They rank certified firms in tiers. Tier 1 is a firm owned by an MHA member, and inside Tier 1 the top level, <b>Self-Performer</b>, requires that the firm be <b>"100% owned and controlled by enrolled members of the Three Affiliated Tribes"</b> (§4.2(A)) <span class="pill ok">confirmed</span>.</p>
+  <p>Three other tests in the same section matter for any partnership:</p>
+  <ul class="clean">
+    <li><b>Profits.</b> "The Indian owner(s) will receive all profits." Any provision giving a non-Indian owner a greater share, "such as through management fees, equipment rental fees, or bonuses tied to profits," means certification is denied (§4.2(A)(3)) <span class="pill ok">confirmed</span>.</li>
+    <li><b>Management.</b> An Indian owner must be "substantially involved, as a senior level official, in the day-to-day management of the firm as his or her primary employment activity" (§4.2(B)) <span class="pill ok">confirmed</span>.</li>
+    <li><b>Equipment.</b> On any preference contract the certified firm "must own the equipment," or be buying it with financing or a capital lease "from a disinterested third-party entity" at market terms (§3.2(B)). Equipment leases, financing, staff sharing, revenue sharing and similar agreements with another company "may require submission to and approval by TERO" (§3.2(C)) <span class="pill ok">confirmed</span>.</li>
+  </ul>
+  <p>The Regulations also define a <b>front</b>: "an enrolled Tribal member that, for a fee, uses Indian Preference on behalf of a non-Indian entity." Their integrity test asks whether the firm "would have been structured in the manner it is ... if there were no Indian preference program," and looks hard at a non-Indian partner so much larger that it has no reason to take a junior role (§4.1, §4.2(C)) <span class="pill ok">confirmed</span>.</p>
+  <div class="box">
+    <p><b>The question to put to TERO in writing:</b> at Concrete Warrior's current ownership, which tier and preference level does it qualify for, and does TERO treat ready-mix as manufacturing (which brings in SBA 8(a) standards under §4.2(D))? <span class="pill need">ask</span></p>
+    <p>The answer decides how much the preference is worth, and so how much bargaining power Concrete Warrior has with Knife River or anyone else. The TERO Expo, 19 to 21 October in New Town, opens with an "Update on TERO Regulations" session.</p>
+  </div>
+  <p class="note">Separate federal rules apply on BIA and IHS work. The Buy Indian Act test is 51% Indian ownership, 51% of the earnings on each contract and Indian control of daily operations, held from bid through the end of the contract <span class="pill ok">confirmed</span>. That is easier to meet than TERO's top level.</p>
+</section>
+
+<section id="kr">
+  <div class="eyebrow">02 · The other side of the table</div>
+  <h2>What Knife River is, and what it would want</h2>
+  <ul class="clean">
+    <li><b>It buys whole companies.</b> Its 10-K says it has "acquired and integrated over 90 complementary businesses" since 1992. It bought four companies for $119.0M in 2024 and five for $622.2M in 2025, $454M of that for Strata. No filing shows a minority stake or a joint venture <span class="pill ok">confirmed</span>.</li>
+    <li><b>It is already licensed on Fort Berthold.</b> Strata, its division, is on TERO's 3 September 2026 list as a non-Native Prime General contractor, licence 27-9089, valid to 29 April 2027, covering construction, reclamation and material supply <span class="pill ok">confirmed</span>. Knife River does not need Concrete Warrior to work on the reservation.</li>
+    <li><b>Trucks and drivers are its constraint too.</b> The 10-K names "truck, railcar or barge shortages, including shortages of truck drivers" as a risk <span class="pill ok">confirmed</span>.</li>
+    <li><b>Demand is rising.</b> The 10-K quotes NDDOT's estimate of $745M to $810M in 2026 lettings, against $345M in 2025 <span class="pill ok">confirmed</span>.</li>
+    <li><b>Decisions are made in the region.</b> Its CFO said on the Q3 2025 call that deal diligence is "done at the local regional level" <span class="pill ok">confirmed</span>. The ND ready-mix association lists Troy Coleman as Strata's Regional Manager for Minot and New Town; the listing is undated <span class="pill un">unverified</span>.</li>
+    <li><b>One loose end.</b> When it closed on Strata, Knife River sold four Strata ready-mix plants for $14.5M to a buyer its filings do not name <span class="pill ok">confirmed</span>. Which plants were sold is not public. Worth knowing before any meeting.</li>
+  </ul>
+  <p>Read together: Knife River has no record of taking minority positions and no need for a reservation licence. What it could use from Concrete Warrior is material, haul capacity and a certified local partner on jobs where preference decides the award. It would not want anything that could be called a front, because the reputational and legal cost lands on the big company. In 2015 a large waterworks supplier, HD Supply Waterworks, paid $4.945M to settle claims that a Native-owned DBE passed its invoices through <span class="pill ok">confirmed</span>.</p>
+</section>
+
+<section id="options">
+  <div class="eyebrow">03 · The options</div>
+  <h2>Five ways to work with Knife River</h2>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Structure</th><th>What it means</th><th>Keeps the preference?</th><th>Gets trucks?</th><th>Our read</th></tr></thead>
+    <tbody>
+      <tr><td><b>Subsidiary or sale</b></td><td>Knife River owns Concrete Warrior, in whole or in majority.</td><td>No. Majority Native ownership ends, and with it TERO preference and the BIA guarantee.</td><td>Yes, Knife River's.</td><td>An exit, not a fix. It is Knife River's normal deal type, but the price today reflects one season. Revisit after a full year of record if selling is the goal.</td></tr>
+      <tr><td><b>Joint venture</b></td><td>A new company owned by both, bidding together.</td><td>Unlikely. TERO certifies joint ventures only "in exceptional circumstances" where the Indian firm can manage the project (§4.1).</td><td>Possibly.</td><td>The size gap is exactly what the integrity test looks for. Expect a denial.</td></tr>
+      <tr><td><b>SBA Mentor-Protégé</b></td><td>A federal program. A large firm mentors a small one and can take up to 40% equity, lend money and provide equipment without being treated as affiliated. Agreements run up to six years; a mentor may have up to three protégés (13 CFR 125.9).</td><td>For federal set-asides, yes. On the reservation, TERO's profit and equipment rules still apply.</td><td>Possibly, through loans or equipment.</td><td>The cleanest federal structure, but it is built for federal contracts, and any Knife River equity would have to come from the non-MHA share. More than 70% of revenue from one firm can create affiliation on its own (13 CFR 121.103).</td></tr>
+      <tr><td><b>TERO Mentorship Agreement</b></td><td>A TERO-approved agreement where a partner trains the certified firm in a service it "cannot currently perform by itself." Exclusive, one year plus two option years, maximum four per firm.</td><td>Gives Level 2, below Self-Performer.</td><td>No.</td><td>Cannot cover a service Concrete Warrior already performs, so not ready-mix. Only useful for a new service line.</td></tr>
+      <tr><td><b>Commercial agreements</b></td><td>Concrete Warrior sells aggregate or topsoil to Knife River, hauls overflow, or bids as a certified sub on jobs Strata primes.</td><td>Yes, if at market prices, Concrete Warrior does its own work, and TERO approves where §3.2(C) requires it.</td><td>No, but it brings revenue that a lender will count.</td><td><b>The one to open with.</b> It is what Knife River can say yes to, and it leaves ownership alone.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">The closest working model we found is Arizona's Salt River Materials Group, owned by the Salt River Pima-Maricopa Indian Community, which hosts batch plants run by Martin Marietta and Cemex on its sites: a supply relationship, not shared ownership. Conti Federal and Cherokee Nation's construction company formed an SBA mentor-protégé joint venture in 2022 for federal work.</p>
+</section>
+
+<section id="money">
+  <div class="eyebrow">04 · The trucks</div>
+  <h2>Paying for trucks without giving up ownership</h2>
+  <p class="lede">Several programs are written for Native-owned firms, and they can be combined on one purchase.</p>
+  <div class="tbl-shell"><table>
+    <thead><tr><th>Route</th><th>Terms</th><th>Fit</th></tr></thead>
+    <tbody>
+      <tr><td><b>BIA Indian Loan Guarantee</b> (25 CFR 103)</td><td>Guarantees up to 90% of a bank loan. Borrower at least 51% owned by Indians; about 20% equity in the project. Equipment is eligible. Interest subsidy available in some cases <span class="pill ok">confirmed</span>.</td><td>Built for this ownership. Slow, with no published decision time. If Indian ownership drops below 51%, the guarantee can become invalid, which rules out selling equity to anyone. Native American Bank closed a 90% BIA-guaranteed loan to MHA Nation's Midi Enterprises in February 2026, so start there.</td></tr>
+      <tr><td><b>Three Affiliated Tribes Collateral Support Program</b> (federal SSBCI)</td><td>Treasury approved the tribe for up to $3,722,005, aimed at small businesses in "government contracting, construction, energy, transportation, and agriculture" <span class="pill ok">confirmed</span>.</td><td>Covers the collateral gap a bank will see on a young company. No public contact or application process found <span class="pill need">ask MHA Finance</span>.</td></tr>
+      <tr><td><b>ND Development Fund, Non-Primary Sector loan</b></td><td>$25,000 to $1,000,000, up to 40% of the project, "Fixed at 2%," up to 5 years. Needs a lead lender at 60% or more and 10% borrower equity; project in a town under 10,000 or 5+ miles outside city limits. Equipment eligible. Apply by email to brlopp@nd.gov <span class="pill ok">confirmed</span>.</td><td>Strong. Published terms, state-run, cheap money behind a bank loan.</td></tr>
+      <tr><td><b>Bank of ND Beginning Entrepreneur guarantee</b></td><td>85% on loans to $150K, 75% to $300K, 50% to $500K, up to 5 years. Borrower net worth under $500,000 <span class="pill ok">confirmed</span>.</td><td>Layers on a local bank loan. Whose net worth is tested is not stated <span class="pill need">ask</span>.</td></tr>
+      <tr><td><b>MHA Nation Business Loan</b></td><td>Enrolled members; up to $100,000, 7-year maximum term on equipment, 4 to 12 weeks to process; the tribe takes first lien. <span class="pill ok">confirmed</span>. The tribe's page gives two rates, Prime + 1% and a fixed 4.25%; confirm which applies. Loan officer Symbria Bell, 701-421-5444.</td><td>Fast. Enough for one truck or the equity on the others, if tribal rules allow that use <span class="pill need">ask</span>.</td></tr>
+      <tr><td><b>SBA 7(a)</b></td><td>Up to 75% guarantee; anyone owning 20% or more guarantees personally <span class="pill ok">confirmed</span>.</td><td>The fallback. Widely available, but both owners sign.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What a stack could look like</h3>
+  <p>Five used rear-discharge mixers at about $110,000 each is roughly $550,000 (the figure is the dealer quote already on file; Concrete Warrior should confirm current quotes). One version: a bank lends 60% ($330,000) with a BIA or Bank of ND guarantee behind it, the Development Fund lends 30% ($165,000) at 2%, and Concrete Warrior puts in 10% ($55,000). The BIA route needs closer to 20% equity, which the MHA loan could help cover. This is an illustration of how the pieces fit, not a quote.</p>
+  <h3>Three details a lender will raise</h3>
+  <ul class="clean">
+    <li><b>Winter.</b> Ready-mix stops for about three months. Ask every lender for seasonal or skip payments; PNC Equipment Finance advertises both for mixers <span class="pill ok">confirmed</span>.</li>
+    <li><b>Title.</b> To satisfy TERO's §3.2(B), the trucks should be titled to Concrete Warrior and financed by an unrelated lender at market terms, not leased from a partner or affiliate.</li>
+    <li><b>Tax.</b> Property acquired after 19 January 2025, used trucks included, qualifies for 100% bonus depreciation <span class="pill ok">confirmed</span>. The older reservation-specific depreciation and employment credits expired after 2021.</li>
+  </ul>
+</section>
+
+<section id="next">
+  <div class="eyebrow">05 · Recommended order</div>
+  <h2>What to do, in this order</h2>
+  <ol class="steps">
+    <li><b>Get TERO's answer in writing</b> on Concrete Warrior's tier and preference level (section 01). TERO's main line is 701-627-3634. Use the Expo if the call doesn't settle it.</li>
+    <li><b>Have the paperwork a lender or partner will check ready:</b> ownership and operating agreement, equipment titles, and signed agreements for the material sites.</li>
+    <li><b>Start the truck financing now</b> so the trucks arrive before the 2027 season. Call Native American Bank about a BIA-guaranteed equipment loan. Email the Development Fund. Ask MHA Finance about the business loan and the collateral support program.</li>
+    <li><b>Then open Knife River with a commercial offer:</b> aggregate or topsoil supply, overflow hauling, or teaming as the certified local sub on tribal jobs. Go to the regional manager, not Bismarck.</li>
+    <li><b>Leave a sale for later.</b> If selling to Knife River is the long-term goal, it is worth far more after a full season on record than today.</li>
+  </ol>
+</section>
+
+<section id="open">
+  <div class="eyebrow">06 · Still open</div>
+  <h2>What we don't know yet</h2>
+  <ul class="clean">
+    <li>Concrete Warrior's TERO tier and level, and whether ready-mix counts as manufacturing.</li>
+    <li>Which four Strata plants Knife River sold in 2025, and to whom.</li>
+    <li>Which BIA office handles North Dakota guarantees now, and how long approval is taking.</li>
+    <li>How to apply to the tribe's collateral support program.</li>
+    <li>Current truck quotes, and how many trucks the 2027 plan needs in phase one.</li>
+  </ul>
+</section>
+
+<footer>
+  <p><b>Sources.</b> <a href="https://mhatero.com/wp-content/uploads/2026/08/TERO-Regulations-corrected-approved-08.12.2026-posted-08.27.2026.pdf">TERO Regulations (approved 12 Aug 2026)</a> · <a href="https://mhatero.com/wp-content/uploads/2025/03/TERO-Ordinance-Rev.-2022-11_15_22.pdf">TERO Ordinance (rev. 2022)</a> · <a href="https://mhatero.com/wp-content/uploads/2026/09/Prime-General-09.03.2026.pdf">TERO Prime General list, 3 Sep 2026</a> · <a href="https://www.sec.gov/Archives/edgar/data/1955520/000195552026000003/knf-20251231.htm">Knife River 10-K 2025</a> · <a href="https://www.sec.gov/Archives/edgar/data/1955520/000162828026052748/knf-20260630.htm">Knife River 10-Q, Q2 2026</a> · <a href="https://s202.q4cdn.com/946701843/files/doc_financials/2025/q3/KNF-3Q2025-Transcript.pdf">Knife River Q3 2025 call</a> · <a href="https://ndconcrete.com/directory-active_membe/listing/strata-corporation-ready-mix-concrete-division/">ND ready-mix association listing</a> · <a href="https://www.ecfr.gov/current/title-13/section-125.9">13 CFR 125.9</a> · <a href="https://www.ecfr.gov/current/title-13/section-121.103">13 CFR 121.103</a> · <a href="https://www.ecfr.gov/current/title-48/part-1480">48 CFR 1480 (Buy Indian)</a> · <a href="https://www.bia.gov/service/loans/ilgp">BIA Indian Loan Guarantee Program</a> · <a href="https://www.law.cornell.edu/cfr/text/25/103.25">25 CFR 103.25</a> · <a href="https://www.minotdailynews.com/news/local-news/2026/02/funding-to-support-mha-nations-midi-enterprises/">Minot Daily News, Feb 2026</a> · <a href="https://home.treasury.gov/node/983486">Treasury SSBCI tribal allocations</a> · <a href="https://www.commerce.nd.gov/economic-development-finance/development-fund/north-dakota-development-fund/nddf-non-primary-sector">ND Development Fund, Non-Primary Sector</a> · <a href="https://bnd.nd.gov/business/beginning-entrepreneur-loan-guarantee/">BND Beginning Entrepreneur guarantee</a> · <a href="https://www.mhanation.com/finance/">MHA Nation Finance</a> · <a href="https://www.sba.gov/partners/lenders/7a-loan-program/terms-conditions-eligibility">SBA 7(a) terms</a> · <a href="https://www.pnc.com/en/corporate-and-institutional/financing/lending-options/pnc-equipment-finance/vendor-finance/transportation-finance.html">PNC transportation finance</a> · <a href="https://www.law.cornell.edu/uscode/text/26/168">26 USC 168</a> · <a href="https://www.justice.gov/usao-ndny/pr/hd-supply-waterworks-pay-nearly-5-million-resolve-grant-fraud-allegations">DOJ, HD Supply Waterworks, 2015</a> · <a href="https://srmaterials.com/products/onsite-ready-mix-partners/">Salt River Materials Group</a> · <a href="https://www.contifederal.com/conti-federal-partners-with-cherokee-federal-in-joint-venture-supporting-mission-critical-federal-construction-projects/">Conti Federal, 2022</a>.</p>
+  <p>This is research, not legal or financial advice. Have counsel review any agreement with Knife River, and confirm program terms with each office.</p>
+  <p>Prepared by Doble AI for Concrete Warrior Supply. Draft, 9 October 2026.</p>
+</footer>
+</div>
+</body>
+</html>
