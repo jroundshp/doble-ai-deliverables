@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>VPC, InterActive Play and EasyRec: where the sites stand</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #F4F4EF; color: #1F2622;
+         -webkit-font-smoothing: antialiased; line-height: 1.6; }
+  .page { max-width: 860px; margin: 0 auto; padding: 0 20px 100px; }
+
+  .hero { padding: 58px 0 34px; border-bottom: 1px solid rgba(47,111,106,0.2); }
+  .tag { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600;
+         letter-spacing: 0.2em; text-transform: uppercase; color: #2F6F6A; margin-bottom: 20px; }
+  .tag::before { content: ''; display: block; width: 24px; height: 1px; background: #2F6F6A; }
+  .hero h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(32px, 5.2vw, 50px);
+             font-weight: 500; line-height: 1.07; margin-bottom: 18px; }
+  .hero p { font-size: 19px; color: #46524C; max-width: 660px; }
+  .hero p + p { margin-top: 13px; }
+
+  .toc { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .toc a { font-size: 14px; text-decoration: none; color: #2F6F6A; border: 1px solid rgba(47,111,106,0.3);
+           border-radius: 40px; padding: 6px 15px; }
+  .toc a:hover { background: #2F6F6A; color: #fff; }
+
+  section { padding-top: 60px; }
+  h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 500;
+       margin-bottom: 8px; line-height: 1.15; }
+  .kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+            color: #7C8C84; margin-bottom: 10px; }
+  p.body { font-size: 17px; color: #33413A; max-width: 680px; margin-bottom: 15px; }
+  p.body strong { font-weight: 600; }
+  a { color: #2F6F6A; }
+
+  .item { background: #fff; border: 1px solid rgba(47,111,106,0.22); border-radius: 10px;
+          padding: 24px 24px 20px; margin-top: 20px; }
+  .item h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; display: flex; gap: 12px;
+             align-items: baseline; }
+  .item h3 .n { font-family: 'Playfair Display', Georgia, serif; color: #2F6F6A; font-weight: 500;
+                font-size: 22px; min-width: 22px; }
+  .time { font-size: 13px; color: #7C8C84; margin: 0 0 12px 34px; }
+  .item .lbl { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+               color: #7C8C84; margin: 14px 0 6px; }
+  .item p, .item li { font-size: 16px; color: #33413A; }
+  .item p + p { margin-top: 8px; }
+  .item ol, .item ul { padding-left: 22px; }
+  .item li { margin-bottom: 6px; }
+  .top { border-left: 3px solid #C77B3C; }
+
+  pre { margin-top: 8px; background: #1F2622; color: #E8E6DE; padding: 14px 16px; border-radius: 6px;
+        font-size: 13px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+  code { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 0.92em; }
+  p code, li code { background: #EEF0EA; padding: 1px 5px; border-radius: 4px; word-break: break-word; }
+
+  .row { border-top: 1px solid rgba(47,111,106,0.14); padding: 12px 0; }
+  .row:first-of-type { border-top: 0; }
+  .where { font-size: 13px; word-break: break-all; margin-bottom: 4px; }
+  .copyline { display: flex; gap: 12px; align-items: flex-start; }
+  .copyline .txt { font-size: 15px; color: #1F2622; flex: 1; }
+  button.copy { font: 600 13px 'Inter', sans-serif; color: #2F6F6A; background: #fff; cursor: pointer;
+                border: 1px solid rgba(47,111,106,0.4); border-radius: 30px; padding: 4px 13px;
+                flex-shrink: 0; }
+  button.copy:hover { background: #2F6F6A; color: #fff; }
+  button.copy.done { background: #2F6F6A; color: #fff; }
+
+  details { margin-top: 10px; border: 1px solid rgba(47,111,106,0.18); border-radius: 8px;
+            padding: 12px 16px; background: #FBFBF8; }
+  summary { cursor: pointer; font-weight: 600; font-size: 15px; }
+  .muted { font-weight: 400; color: #7C8C84; font-size: 13px; word-break: break-all; }
+  .faq { margin: 12px 0 10px; }
+  .faq .q { font-weight: 600; margin-top: 10px; font-size: 15px; }
+  .faq .a { font-size: 15px; color: #33413A; }
+
+  .done-list li { list-style: none; position: relative; padding-left: 4px; }
+  .done-list li::before { content: '\2713'; color: #2F6F6A; font-weight: 700; position: absolute; left: -20px; }
+
+  .foot { margin-top: 70px; padding-top: 22px; border-top: 1px solid rgba(47,111,106,0.2);
+          font-size: 14px; color: #7C8C84; }
+  @media (max-width: 560px) {
+    .item { padding: 20px 16px 16px; }
+    .time { margin-left: 0; }
+    .copyline { flex-direction: column; gap: 6px; }
+  }
+</style>
+<style>
+  .grid { margin-top: 28px; display: grid; gap: 14px; }
+  .site { background: #fff; border: 1px solid rgba(47,111,106,0.22); border-radius: 10px; padding: 18px 20px; }
+  .site .name { font-weight: 600; font-size: 17px; }
+  .site .dom { font-size: 13px; color: #7C8C84; }
+  .site .score { float: right; font-family: 'Playfair Display', Georgia, serif; font-size: 26px; color: #2F6F6A; line-height: 1; }
+  .site .score small { font-family: 'Inter', sans-serif; font-size: 12px; color: #7C8C84; display: block; text-align: right; }
+  .site p { font-size: 15px; color: #33413A; margin-top: 8px; clear: both; }
+  .who { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+         border-radius: 30px; padding: 2px 10px; margin-left: 34px; margin-bottom: 10px; }
+  .who.you { background: #F3E6DA; color: #8A4E1F; }
+  .who.ds { background: #E4ECF4; color: #2E4F73; }
+  .who.us { background: #E1EEEC; color: #2F6F6A; }
+  .who.corey { background: #ECE6F2; color: #5B3F7A; }
+  .ask { border-left: 3px solid #C77B3C; }
+  @media (max-width: 560px) { .who { margin-left: 0; } .site .score { float: none; margin-bottom: 6px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="tag">VPC &middot; InterActive Play &middot; EasyRec</div>
+    <h1>Where the sites stand</h1>
+    <p>Everything on this page was checked on the live sites on 9 October. It covers what is done,
+       what is left, and who each remaining item sits with.</p>
+    <div class="toc">
+      <a href="#main">VPC main site</a>
+      <a href="#ip">InterActive Play</a>
+      <a href="#easyrec">EasyRec</a>
+      <a href="#catalog">Product catalog</a>
+      <a href="#pages">Earlier pages</a>
+    </div>
+
+    <div class="grid">
+      <div class="site">
+        <span class="score">10<small>out of 10</small></span>
+        <div class="name">EasyRec</div><div class="dom">easyrecreation.com</div>
+        <p>Done. We can read the visitor numbers and all six forms are counted. Two optional items left.</p>
+      </div>
+      <div class="site">
+        <span class="score">9.3<small>out of 10</small></span>
+        <div class="name">InterActive Play</div><div class="dom">interactivewaterparks.com</div>
+        <p>The sitemap works again, which moved it up from 9.0. Left: the old spelling on 14 pages,
+           one FAQ block, and a heavy homepage video.</p>
+      </div>
+      <div class="site">
+        <span class="score">&ndash;<small>not scored yet</small></span>
+        <div class="name">VPC main site</div><div class="dom">vpcfiberglass.com</div>
+        <p>In good shape. The one gap that matters: we can't read its visitor numbers yet, so we
+           can't score it. Plus a few small fixes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MAIN ============ -->
+  <section id="main">
+    <div class="kicker">vpcfiberglass.com</div>
+    <h2>VPC main site</h2>
+    <p class="body">Done since the list on 15 September: <code>/locations/</code> now goes to the
+       Contact page, every case study except one has a description, and every page carries a
+       share card for social posts.</p>
+
+    <div class="item ask">
+      <h3><span class="n">1</span>Let us read the visitor numbers</h3>
+      <span class="who you">You</span>
+      <p>Google Analytics is installed and recording on every page (G-TL8ZVPTZ66), but we can't
+         see the numbers from our end. This is the same step you did for EasyRec this morning.
+         Once it is in, we can score the site and report traffic and quote requests each month,
+         the same as the other two.</p>
+      <div class="lbl">In Google Analytics, on the VPC property</div>
+      <p>Admin &rarr; Property access management &rarr; the blue + button &rarr; Add users. Add
+         the address below as a <strong>Viewer</strong> and untick "Notify new users by email,"
+         since it can't receive mail.</p>
+      <div class="copyline"><span class="txt">ga4-reader@doble-ai-analytics.iam.gserviceaccount.com</span><button class="copy">Copy</button></div>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">2</span>A broken link on Why Fiberglass</h3>
+      <span class="who you">You</span>
+      <div class="time">5 minutes</div>
+      <p>In the paragraph that starts "Fiberglass offers numerous advantages over more traditional
+         steel, wood, concrete," the word <strong>concrete</strong> links to
+         <code>/fiberglass-vs-concrete/</code>, which returns "page not found." Remove the link,
+         or point it at a page that compares the two materials.</p>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">3</span>The last case study description</h3>
+      <span class="who you">You</span>
+      <div class="time">2 minutes</div>
+      <p>The Enduro case study is still the only one without a description. In the Yoast box on
+         <code>/vpc-case-studies/enduro-standard-equipment-enclosure-5/</code>:</p>
+      <div class="copyline"><span class="txt">How VPC Fiberglass built twenty-six custom Enduro shelters for the Canal Road Water Treatment Plant in Somerset, NJ, delivered on time and on budget.</span><button class="copy">Copy</button></div>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">4</span>Two links that take an extra hop</h3>
+      <span class="who you">You</span>
+      <div class="time">10 minutes</div>
+      <p>Both still work, because the old addresses forward on. Pointing them straight at the
+         page saves visitors and Google a step.</p>
+      <ul>
+        <li>The link <strong>Fiberglass Buildings &amp; Shelters &ndash; Equipment Protection</strong>,
+            which appears on 37 pages, points at <code>/fiberglass-buildings-shelters-equipment-protection/</code>.
+            Change it to <code>/resources/fiberglass-buildings-shelters-equipment-protection/</code>.</li>
+        <li>The Resources page links to <code>/blog/</code> twice, on the "Blog &amp; News" tile.
+            Point both at <code>/resources/case-studies/</code>.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">5</span>One company record on the homepage, not three</h3>
+      <span class="who you">With your support team</span>
+      <p>Still open from the 15 September list, where you passed it to your support team. The
+         homepage still describes the company to search engines three times: two Organization
+         records with no address or phone, and one LocalBusiness record with the Ridge Road address
+         and 585-735-9668. The extra hand-added Organization is the one to remove. The steps are on
+         <a href="../vpc-list/#main">the earlier list</a>, item 3.</p>
+    </div>
+  </section>
+
+  <!-- ============ IP ============ -->
+  <section id="ip">
+    <div class="kicker">interactivewaterparks.com</div>
+    <h2>InterActive Play</h2>
+    <p class="body">Done since the 9.0 score on 23 September: all four sitemap files load again,
+       the homepage dropped from 7.4 MB to 5.8 MB, and the server errors we saw then didn't happen
+       in six test loads today. The full scorecard is <a href="../ip-audit/">here</a>.</p>
+
+    <div class="item">
+      <h3><span class="n">1</span>The old spelling on 14 pages</h3>
+      <span class="who you">You</span>
+      <div class="time">About 30 minutes</div>
+      <p>These still say "Interactive Play" with a small A:</p>
+      <ul>
+        <li><strong>Six titles:</strong> Waterfall Model 100, 200, 300 and 400, Misty Island 100 and 200.
+            The corrected titles are on the scorecard, <a href="../ip-audit/#titles">ready to paste</a>.</li>
+        <li><strong>Eight descriptions:</strong> the homepage, About, Process, Projects, Brochures,
+            Lazy Rivers, Play Structures and Privacy Policy. Most of these lines came from us. The
+            corrected versions are <a href="../ip-audit/#descriptions">ready to paste</a>.</li>
+        <li><strong>The About page title</strong> reads "About Interactive Play Waterparks." We'd suggest
+            "About InterActive Play."</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">2</span>The Fanatic FAQ block</h3>
+      <span class="who ds">Digital Silk</span>
+      <div class="time">One plugin upload</div>
+      <p>23 of the 24 product pages now carry their FAQ for Google. Fanatic is the one missing,
+         because the site runs plugin version 1.3, and 1.3.1 adds it. It's on
+         <a href="../ip-pack/">the plugin page</a>, ready for Jo&atilde;o to upload in place of 1.3.</p>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">3</span>A lighter homepage video</h3>
+      <span class="who ds">Digital Silk</span>
+      <p>The homepage loads 5.8 MB, against about 1 MB for a product page. Almost all of the
+         difference is the hero video, <code>new-hero-home_opt.mp4</code>, at 4.4 MB. A shorter or
+         more compressed cut, or a still image in its place on phones, would bring the page close
+         to the others.</p>
+    </div>
+  </section>
+
+  <!-- ============ EASYREC ============ -->
+  <section id="easyrec">
+    <div class="kicker">easyrecreation.com</div>
+    <h2>EasyRec</h2>
+    <p class="body">10 out of 10. As of today we can read the visitor numbers, and every form
+       on the site is counted: Get in Touch, Contact, the stair quote, the pool measuring guide,
+       the bench design and order form, and the bus cube quote. Nothing here is required. Two
+       items would help:</p>
+
+    <div class="item">
+      <h3><span class="n">1</span>A smaller product catalog PDF</h3>
+      <span class="who you">You</span>
+      <p>The catalog linked from all eight pages is 4.9 MB. On a phone at the pool that's a long
+         wait. Compressing it the way the measuring guide went from 15 MB to about 200 KB
+         would fix it.</p>
+    </div>
+
+    <div class="item">
+      <h3><span class="n">2</span>More on Products In Action</h3>
+      <span class="who you">You</span>
+      <p>The page has about 230 words. A sentence or two under each photo saying where it is and
+         what was installed would give Google something to show for searches like "ADA pool stairs
+         at a high school."</p>
+    </div>
+  </section>
+
+  <!-- ============ CATALOG ============ -->
+  <section id="catalog">
+    <div class="kicker">products.vpcfiberglass.com</div>
+    <h2>The product catalog</h2>
+    <p class="body">This is the larger piece, and it isn't a list item. The catalog still runs on
+       ThomasNet and still tells Google nothing about the products in a form it can read. On the
+       9 September call the plan was to bring the product data back onto the VPC site. That one
+       is a scope decision for Corey, so we'll take it up with him directly.</p>
+    <span class="who corey" style="margin-left:0">With Corey</span>
+  </section>
+
+  <!-- ============ PAGES ============ -->
+  <section id="pages">
+    <div class="kicker">For reference</div>
+    <h2>Earlier pages</h2>
+    <ul class="body" style="padding-left:22px;font-size:16px;color:#33413A">
+      <li><a href="../ip-audit/">InterActive Play scorecard</a>, with the paste-ready titles and descriptions</li>
+      <li><a href="../ip-pack/">InterActive Play plugin</a>, version 1.3.1 for Digital Silk</li>
+      <li><a href="../vpc-list/">The list for the three sites</a>, 15 September</li>
+      <li><a href="../easyrec-build/">EasyRec: what changed on the new site</a>, 11 September</li>
+    </ul>
+  </section>
+
+  <div class="foot">
+    Prepared by Doble AI, 9 October 2026. Checked live that day. If anything here is wrong,
+    tell us and we will fix the page.
+  </div>
+</div>
+<script>
+  function copyText(t, btn) {
+    const done = () => { const o = btn.textContent; btn.textContent = 'Copied'; btn.classList.add('done');
+      setTimeout(() => { btn.textContent = o; btn.classList.remove('done'); }, 1500); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(t).then(done, () => fallback(t, done));
+    } else { fallback(t, done); }
+  }
+  function fallback(t, done) {
+    const ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed';
+    ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch (e) {} document.body.removeChild(ta);
+  }
+  document.querySelectorAll('.copyline button.copy').forEach(b =>
+    b.addEventListener('click', () => copyText(b.parentElement.querySelector('.txt').textContent.trim(), b)));
+  document.querySelectorAll('button.copyall').forEach(b =>
+    b.addEventListener('click', () => copyText(b.parentElement.querySelector('textarea.src').value, b)));
+</script>
+</body>
+</html>
