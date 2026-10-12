@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emmanuel's Cooking Club · Propuesta</title>
+<meta name="description" content="Propuesta: Google, página web bilingüe, membresía de clases y lista de contactos, lista para noviembre.">
+<style>
+  :root {
+    --bg: #F6F2EC; --surface: #FFFFFF; --surface-2: #EFE9E0; --ink: #1E1A16;
+    --muted: #625A51; --faint: #8C8379; --hair: #E3DBD0;
+    --brand: #2A2420; --accent: #B5562E; --accent-ink: #8F3F1E; --accent-bg: #F6E6DC;
+    --go: #2F6B4F; --go-bg: #E6F0EA; --stop: #A6462F; --stop-bg: #F6E4DD;
+    --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15120F; --surface: #1D1915; --surface-2: #25201B; --ink: #EEE8E0;
+      --muted: #B3A99D; --faint: #8C8379; --hair: #332C25;
+      --brand: #EEE8E0; --accent: #E08A5E; --accent-ink: #E9A37E; --accent-bg: #33221A;
+      --go: #74C197; --go-bg: #17261D; --stop: #E3917A; --stop-bg: #2E1C16;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  .eyebrow { font-size: 12px; font-weight: 650; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); }
+
+  header { background: var(--brand); color: #F6F2EC; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) header { background: #0E0C0A; } }
+  header .eyebrow { color: #E9A37E; }
+  .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 36px; align-items: center; padding: 52px 0 46px; }
+  .hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.4rem); margin-top: 14px; letter-spacing: -.01em; }
+  .hero .lede { margin-top: 16px; font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: #D9CFC3; max-width: 44ch; }
+  .hero figure { margin: 0; }
+  .hero img { width: 100%; max-height: 360px; object-fit: cover; object-position: top; border-radius: 10px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+  .hero figcaption { font-size: 12px; color: #B3A99D; margin-top: 8px; }
+  @media (max-width: 720px) { .hero { grid-template-columns: 1fr; padding-top: 40px; } }
+
+  section { padding: 40px 0; border-bottom: 1px solid var(--hair); }
+  h2 { font-size: clamp(1.45rem, 3vw, 1.9rem); margin: 8px 0 18px; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .stat { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 16px 18px; }
+  .stat .v { font-family: var(--serif); font-size: 1.75rem; font-weight: 600; line-height: 1; }
+  .stat .l { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .stat.bad { background: var(--stop-bg); border-color: transparent; }
+  .stat.bad .v { color: var(--stop); }
+  .stat.good .v { color: var(--go); }
+
+  .goals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: g; }
+  @media (max-width: 820px) { .goals { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .goals { grid-template-columns: 1fr; } }
+  .goal { background: var(--surface); border: 1px solid var(--hair); border-top: 3px solid var(--accent); border-radius: 10px; padding: 16px 18px; }
+  .goal h3 { font-size: 1.1rem; }
+  .goal h3::before { counter-increment: g; content: counter(g) "  "; color: var(--accent); }
+  .goal p { font-size: 14px; color: var(--muted); margin-top: 8px; }
+
+  .flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; align-items: stretch; gap: 8px; }
+  .node { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 14px; font-size: 14px; }
+  .node b { display: block; font-family: var(--serif); font-size: 1.05rem; margin-bottom: 6px; }
+  .node span { color: var(--muted); font-size: 13px; }
+  .node.end { background: var(--accent-bg); border-color: transparent; }
+  .arrow { align-self: center; color: var(--accent); font-size: 22px; }
+  @media (max-width: 820px) { .flow { grid-template-columns: 1fr; } .arrow { transform: rotate(90deg); justify-self: center; } }
+
+  .phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 820px) { .phases { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .phases { grid-template-columns: 1fr; } }
+  .phase { background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 16px 18px; }
+  .phase .eyebrow { font-size: 11px; }
+  .phase h3 { font-size: 1.1rem; margin-top: 6px; }
+  .phase ul { margin: 10px 0 0; padding-left: 18px; font-size: 14px; color: var(--muted); }
+  .phase li + li { margin-top: 4px; }
+
+  .tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .tool { display: flex; gap: 12px; align-items: flex-start; background: var(--surface); border: 1px solid var(--hair); border-radius: 10px; padding: 12px 14px; font-size: 14px; }
+  .tool .ic { flex: none; width: 32px; height: 32px; border-radius: 8px; background: var(--accent-bg); color: var(--accent-ink); display: grid; place-items: center; font-weight: 700; font-size: 14px; }
+  .tool b { display: block; }
+  .tool span { color: var(--muted); font-size: 13px; }
+
+  .personal { background: var(--surface-2); border-radius: 12px; padding: 22px 24px; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+  .personal .q { font-family: var(--serif); font-size: 3rem; line-height: 1; color: var(--accent); }
+  .personal p { font-size: 15px; color: var(--muted); max-width: 70ch; }
+  .personal p b { color: var(--ink); }
+
+  .next { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .next div { border: 1px dashed var(--hair); border-radius: 10px; padding: 12px 14px; font-size: 14px; color: var(--muted); }
+  .next b { color: var(--ink); display: block; }
+
+  footer { padding: 28px 0 48px; font-size: 13px; color: var(--faint); }
+  @media (max-width: 560px) { .wrap { padding: 0 16px; } }
+  @media print { section { padding: 20px 0; } header { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+
+  .tbl { border: 1px solid var(--hair); border-radius: 12px; overflow: hidden; background: var(--surface); }
+  .tbl .row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 18px; border-bottom: 1px solid var(--hair); }
+  .tbl .row:last-child { border-bottom: none; }
+  .tbl .row span { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+  .tbl .amt { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; white-space: nowrap; }
+  .tbl .total { background: var(--accent-bg); }
+  .personal .q { font-size: 2.4rem; }
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow">Propuesta · Doble AI</p>
+      <h1>Emmanuel's Cooking Club</h1>
+      <p class="lede">Listo para cuando lleguen tus clientes en noviembre: Google, página, membresía y lista, en cuatro semanas.</p>
+    </div>
+    <figure>
+      <img src="../emmanuel/concepto.jpg" alt="Boceto de la página Emmanuel's Cooking Club">
+      <figcaption>Tu boceto: el punto de partida.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Lo que nos contaste</p>
+    <h2>Tu cocina ya tiene comunidad. Ahora la llevamos a donde estén.</h2>
+    <div class="stats">
+      <div class="stat good"><div class="v">8 años</div><div class="l">cocinando en la ribera de Chapala</div></div>
+      <div class="stat good"><div class="v">80–100</div><div class="l">clientes constantes de noviembre a abril</div></div>
+      <div class="stat good"><div class="v">98%</div><div class="l">canadienses y estadounidenses, en su mayoría retirados</div></div>
+      <div class="stat"><div class="v">20</div><div class="l">lugares en tu cocina por sesión</div></div>
+      <div class="stat bad"><div class="v">Efectivo</div><div class="l">hoy todo se cobra en efectivo; no hay cobro en línea</div></div>
+    </div>
+    <p style="margin-top:18px;color:var(--muted);max-width:72ch">Tus clientes te lo pidieron: cuando regresan a casa, extrañan tus clases. La membresía es la forma de seguir con ellos los seis meses que no están aquí, y de que te paguen cada mes sin que tengas que cobrar uno por uno.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">El calendario</p>
+    <h2>Cuatro semanas de trabajo y lanzamiento la semana del 9 de noviembre</h2>
+    <div class="phases">
+      <div class="phase"><p class="eyebrow">Semana 1 · 13–16 oct</p><h3>Bases</h3>
+        <ul><li>Reabrir y optimizar tu perfil de Google</li><li>Definir el nombre de la marca y comprar el dominio</li><li>Abrir la plataforma de membresía y tu cuenta de cobro</li><li>Google Analytics desde el primer día</li></ul></div>
+      <div class="phase"><p class="eyebrow">Semana 2 · 19–23 oct</p><h3>Diseño y página</h3>
+        <ul><li>Diseño limpio y minimalista, en español e inglés</li><li>Cocina, clases, cenas, viajes y reservaciones</li><li>Registro a tu lista en cada página</li><li>Tú grabas las primeras clases</li></ul></div>
+      <div class="phase"><p class="eyebrow">Semana 3 · 26–30 oct</p><h3>Membresía</h3>
+        <ul><li>Biblioteca por categorías, con receta descargable</li><li>Cobro mensual automático, probado de punta a punta</li><li>Tu base de contactos ordenada en la herramienta de correo</li><li>Códigos QR para tu cocina</li></ul></div>
+      <div class="phase"><p class="eyebrow">Semana 4 · 2–6 nov</p><h3>Revisión y lanzamiento</h3>
+        <ul><li>Revisamos todo contigo y ajustamos</li><li>Correo de bienvenida para tus clientes</li><li>Guía sencilla para explicar cómo suscribirse</li><li>Lanzamiento con tus clientes en tu cocina, semana del 9 de noviembre</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Membresía</p>
+    <h2>Cómo funcionaría</h2>
+    <div class="goals">
+      <div class="goal"><h3>Solo para miembros</h3><p>Las clases completas, recetas, tips y secretos quedan detrás de la membresía. Al público le mostramos solo una probadita para que quiera entrar.</p></div>
+      <div class="goal"><h3>Cobro automático</h3><p>Tus clientes pagan con tarjeta, Apple Pay o Google Pay, en dólares estadounidenses, canadienses o pesos. El cobro se repite cada mes y el dinero llega en pesos a tu cuenta en México.</p></div>
+      <div class="goal"><h3>Tú subes el contenido</h3><p>Te dejamos todo listo para que subas videos y recetas tú mismo, sin depender de nadie.</p></div>
+      <div class="goal"><h3>Precio de miembro</h3><p>Los miembros pueden tener un precio especial en tus clases y cenas presenciales, para premiar a quien se queda.</p></div>
+    </div>
+    <div class="personal" style="margin-top:22px">
+      <div class="q" aria-hidden="true">50</div>
+      <p><b>Primera meta: 50 miembros.</b> A 9 dólares al mes, eso son 450 dólares mensuales que llegan solos, todo el año, también en los meses en que tus clientes están fuera. La siguiente meta es 100. El precio final lo definimos juntos.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Inversión</p>
+    <h2>Por etapas, para que avances con confianza</h2>
+    <div class="tbl">
+      <div class="row"><div><b>1. Google y bases</b><span>Perfil de Google reabierto y optimizado, dominio, Analytics, cuenta de cobro</span></div><div class="amt">5,000 MXN</div></div>
+      <div class="row"><div><b>2. Página web</b><span>Diseño a la medida, bilingüe, con registro a tu lista y conexión a Facebook y Google</span></div><div class="amt">30,000 MXN</div></div>
+      <div class="row"><div><b>3. Membresía y lanzamiento</b><span>Biblioteca, cobro automático, tu lista de contactos, códigos QR y lanzamiento</span></div><div class="amt">18,000 MXN</div></div>
+      <div class="row"><div><b>Soporte mensual (opcional)</b><span>Después del lanzamiento: ayuda a tus miembros, ajustes, correos a tu lista y cambios a la página</span></div><div class="amt">2,500 MXN/mes</div></div>
+      <div class="row total"><div><b>Total del proyecto</b><span>50% al iniciar (26,500 MXN), 50% en el lanzamiento (26,500 MXN). No incluye el soporte mensual.</span></div><div class="amt">53,000 MXN</div></div>
+    </div>
+    <p style="margin-top:16px;color:var(--muted);font-size:14px;max-width:72ch">Costos que pagas tú directamente: el dominio (unos cientos de pesos al año), el almacenamiento de tus videos (unos pocos dólares al mes) y la comisión de cobro, que es un porcentaje de cada pago, sin mensualidad fija mientras creces. La página no tiene costo mensual de hospedaje. Todas las cuentas quedan a tu nombre.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Trabajo en equipo</p>
+    <h2>Lo que necesitamos de ti para llegar a noviembre</h2>
+    <div class="next">
+      <div><b>Esta semana</b>El nombre de la marca, tus precios actuales y acceso a tu perfil de Google</div>
+      <div><b>Fotos</b>De tu cocina, tus platillos y de ti, o una sesión que organizamos juntos</div>
+      <div><b>Clases grabadas</b>Al menos 8 para el lanzamiento, y después una nueva cada semana</div>
+      <div><b>Para cobrar en línea</b>Tu RFC con actividad empresarial y tu cuenta bancaria (CLABE). Es lo primero que conviene revisar, con tu contador si hace falta</div>
+      <div><b>Tu lista</b>Los teléfonos y correos de tus clientes, en el formato que los tengas</div>
+      <div><b>Páginas que te gustan</b>Dos o tres, para entender tu estilo</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Preparado por Doble AI · John Rounds y Gisella Grados · Octubre de 2026.</p>
+    <p style="margin-top:8px"><a href="https://dobleai.com/es" style="color:var(--accent-ink)">dobleai.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
