@@ -104,6 +104,17 @@
   .tbl .amt { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; white-space: nowrap; }
   .tbl .total { background: var(--accent-bg); }
   .personal .q { font-size: 2.4rem; }
+
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 720px) { .opts { grid-template-columns: 1fr; } }
+  .opt { background: var(--surface); border: 1px solid var(--hair); border-radius: 12px; padding: 20px 22px; }
+  .opt h3 { font-size: 1.25rem; margin-top: 6px; }
+  .opt .sub { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .opt dl { margin: 14px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; font-size: 14px; }
+  .opt dt { font-weight: 650; color: var(--ink); }
+  .opt dd { margin: 0; color: var(--muted); }
+  .opt .best { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--hair); font-size: 14px; }
+  .opt .best b { color: var(--accent-ink); }
 </style>
 
 </head>
@@ -174,6 +185,38 @@
 
 <section>
   <div class="wrap">
+    <p class="eyebrow">Dos formas de construirlo</p>
+    <h2>Tú eliges según cómo quieras manejarlo después</h2>
+    <p style="color:var(--muted);max-width:72ch;margin-bottom:20px">En las dos opciones la página se ve igual, la membresía funciona igual, tú subes tus videos y recetas, y todo queda a tu nombre. La diferencia está en lo que pasa después del lanzamiento. El precio del proyecto es el mismo.</p>
+    <div class="opts">
+      <div class="opt"><p class="eyebrow">Opción A</p><h3>Página a la medida</h3>
+        <p class="sub">Construida por nosotros con herramientas modernas, sin plantillas.</p>
+        <dl>
+          <dt>Hospedaje</dt><dd>Sin costo mensual</dd>
+          <dt>Mantenimiento</dt><dd>Muy poco. No hay plugins ni actualizaciones de seguridad que hacer cada mes</dd>
+          <dt>Subir contenido</dt><dd>Un panel sencillo, hecho a tu medida, desde la computadora o el celular</dd>
+          <dt>Velocidad</dt><dd>La más rápida, y el diseño más libre</dd>
+          <dt>Si quieres cambios</dt><dd>Se necesita un desarrollador web moderno, o nos contratas por proyecto</dd>
+        </dl>
+        <p class="best"><b>Conviene si</b> quieres el menor costo mensual y casi nada de mantenimiento.</p>
+      </div>
+      <div class="opt"><p class="eyebrow">Opción B</p><h3>WordPress</h3>
+        <p class="sub">La plataforma más usada del mundo, con un plugin de membresías.</p>
+        <dl>
+          <dt>Hospedaje</dt><dd>Un costo bajo, aproximadamente 100 a 300 MXN al mes</dd>
+          <dt>Mantenimiento</dt><dd>Actualizaciones de plugins y seguridad, unas cuantas veces al año</dd>
+          <dt>Subir contenido</dt><dd>El editor de WordPress, que muchos ya conocen</dd>
+          <dt>Velocidad</dt><dd>Buena</dd>
+          <dt>Si quieres cambios</dt><dd>Casi cualquier desarrollador en México conoce WordPress, así que es fácil encontrar quién te ayude</dd>
+        </dl>
+        <p class="best"><b>Conviene si</b> prefieres contratar a alguien local para cambios y mantenimiento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <p class="eyebrow">Inversión</p>
     <h2>Por etapas, para que avances con confianza</h2>
     <div class="tbl">
@@ -183,7 +226,7 @@
       <div class="row"><div><b>Soporte mensual (opcional)</b><span>El manejo diario es tuyo. Si quieres ayuda: atención a miembros, ajustes y correos a tu lista. O nos contratas solo para proyectos especiales</span></div><div class="amt">2,500 MXN/mes</div></div>
       <div class="row total"><div><b>Total del proyecto</b><span>50% al iniciar (26,500 MXN) y 50% al terminar el proyecto (26,500 MXN). No incluye el soporte mensual.</span></div><div class="amt">53,000 MXN</div></div>
     </div>
-    <p style="margin-top:16px;color:var(--muted);font-size:14px;max-width:72ch">Costos que pagas tú directamente: el dominio (unos cientos de pesos al año), el almacenamiento de tus videos (unos pocos dólares al mes) y la comisión de cobro, que es un porcentaje de cada pago, sin mensualidad fija mientras creces. La página no tiene costo mensual de hospedaje. Al terminar, todo queda a tu nombre y bajo tu control: el dominio, la página, tus videos, los cobros y tu lista.</p>
+    <p style="margin-top:16px;color:var(--muted);font-size:14px;max-width:72ch">Costos que pagas tú directamente: el dominio (unos cientos de pesos al año), el almacenamiento de tus videos (unos pocos dólares al mes) y la comisión de cobro, que es un porcentaje de cada pago, sin mensualidad fija mientras creces. En la opción A no hay costo de hospedaje; en la opción B, el hospedaje de WordPress. Al terminar, todo queda a tu nombre y bajo tu control: el dominio, la página, tus videos, los cobros y tu lista.</p>
   </div>
 </section>
 
