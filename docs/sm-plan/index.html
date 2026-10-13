@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sales and Marketing Plan</title>
+<meta name="description" content="Our sales and marketing plan for four properties in Cooperstown and Ellicottville, 1 November 2026 to 31 March 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+:root{
+  --ground:#F2EEE4; --surface:#FFFDF8; --sunk:#E8E1D2; --ink:#231F1A; --muted:#6B6258; --rule:#D9CFBE;
+  --accent:#C4502B; --accent-soft:#F7DED3;
+  --coop:#2F5E7A; --coop-soft:#DDE8EF; --evl:#2F7A4B; --evl-soft:#DCEFE2;
+  --ask:#3E5C8A; --ask-soft:#E1E8F3;
+  --display:"Playfair Display", Georgia, "Times New Roman", serif;
+  --body:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+    --accent:#EE8A63; --accent-soft:#3D2418;
+    --coop:#8DB8D3; --coop-soft:#1C2B36; --evl:#7CC99A; --evl-soft:#1D3325;
+    --ask:#9DB7E0; --ask-soft:#1D2A3D;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+  --accent:#EE8A63; --accent-soft:#3D2418;
+  --coop:#8DB8D3; --coop-soft:#1C2B36; --evl:#7CC99A; --evl-soft:#1D3325;
+  --ask:#9DB7E0; --ask-soft:#1D2A3D;
+}
+*{box-sizing:border-box}
+html{scroll-snap-type:y proximity;scroll-behavior:smooth}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;margin:0}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.6rem,3.6vw,2.4rem)}
+h3{font-family:var(--body);font-size:1rem;font-weight:700}
+p{margin:0}
+ul{margin:0;padding-left:1.15em}
+li{margin:.2em 0}
+.slide{min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;padding:56px 16px;border-bottom:1px solid var(--rule)}
+.inner{width:100%;max-width:1080px;display:flex;flex-direction:column;gap:22px}
+.inner > *{min-width:0}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.eyebrow b{color:var(--accent)}
+.lede{font-size:1.1rem;color:var(--muted);max-width:70ch}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr))}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.card.coop{border-top:4px solid var(--coop)}
+.card.evl{border-top:4px solid var(--evl)}
+.card.accent{border-left:4px solid var(--accent)}
+.town{display:inline-block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:99px;align-self:flex-start}
+.town.coop{background:var(--coop-soft);color:var(--coop)}
+.town.evl{background:var(--evl-soft);color:var(--evl)}
+.small{font-size:.88rem;color:var(--muted)}
+.tbl{width:100%;overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;white-space:nowrap}
+.wrapcell td:first-child{white-space:normal}
+/* title slide */
+.title .inner{gap:28px}
+.title h1{font-size:clamp(2.6rem,7vw,5rem)}
+.title .sub{font-family:var(--display);font-size:clamp(1.3rem,3vw,2rem);color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:var(--surface);border:1px solid var(--rule);border-radius:99px;padding:8px 14px;font-weight:600;font-size:.95rem}
+.chip i{font-style:normal;font-weight:500;color:var(--muted);font-size:.8rem;margin-left:6px}
+.hint{font-size:.85rem;color:var(--muted)}
+/* objectives */
+ol.obj{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px}
+ol.obj li::marker{color:var(--accent);font-weight:700}
+.goal{font-family:var(--display);font-size:1.25rem;line-height:1.25}
+/* section divider */
+.divider{background:var(--ink);color:var(--ground)}
+.divider .eyebrow{color:var(--ground);opacity:.7}
+.divider h2{font-size:clamp(2.2rem,6vw,4rem)}
+.divider .lede{color:var(--ground);opacity:.8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .divider{background:var(--sunk);color:var(--ink)} :root:not([data-theme="light"]) .divider .eyebrow,:root:not([data-theme="light"]) .divider .lede{color:var(--ink)}}
+:root[data-theme="dark"] .divider{background:var(--sunk);color:var(--ink)}
+/* timeline */
+.steps{display:flex;flex-direction:column;gap:0;background:var(--surface);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.step{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:12px 16px;border-bottom:1px solid var(--rule)}
+.step:last-child{border-bottom:0}
+.step b{color:var(--accent)}
+@media (max-width:560px){.step{grid-template-columns:1fr;gap:2px}}
+.ask{background:var(--ask-soft);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.ask strong{color:var(--ask)}
+.pager{position:fixed;right:16px;bottom:14px;font-size:.78rem;color:var(--muted);background:var(--surface);border:1px solid var(--rule);border-radius:99px;padding:5px 11px;font-variant-numeric:tabular-nums}
+footer.note{font-size:.8rem;color:var(--muted)}
+@media (max-width:640px){
+  table.stack thead{display:none}
+  table.stack, table.stack tbody, table.stack tr, table.stack td{display:block;width:100%}
+  table.stack tr{padding:10px 12px;border-bottom:1px solid var(--rule)}
+  table.stack tr:last-child{border-bottom:0}
+  table.stack td{border:0;padding:3px 0;white-space:normal}
+  table.stack td:first-child{font-size:1rem;padding-bottom:6px}
+  table.stack td:not(:first-child)::before{content:attr(data-label);display:block;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+}
+@media print{
+  html{scroll-snap-type:none}
+  .slide{min-height:auto;page-break-after:always;border:0;padding:24px}
+  .pager{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide title">
+  <div class="inner">
+    <p class="eyebrow">1 November 2026 to 31 March 2027</p>
+    <h1>Our Sales and Marketing Plan</h1>
+    <p class="sub">Four Properties, Cooperstown and Ellicottville</p>
+    <div class="chips">
+      <span class="chip">Fenimore's Table<i>Cooperstown</i></span>
+      <span class="chip">Cooperstown Clubhouse<i>Cooperstown</i></span>
+      <span class="chip">Alpine Bistro<i>Ellicottville</i></span>
+      <span class="chip">Ellicottville Bake Shop<i>Ellicottville</i></span>
+    </div>
+    <p class="small">Prepared by Doble AI for Corey Hogan and the team, 13 October 2026. A draft for the team to review, change and then run.</p>
+    <p class="hint">Scroll, or use the arrow keys.</p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>01</b> · The winter at a glance</p>
+    <h2>Two towns, four properties, one plan</h2>
+    <p class="lede">In each town the properties work as a team. Cooperstown has one door open all winter, so everything points to Fenimore's. In Ellicottville, the Bake Shop and Alpine Bistro hand guests to each other through the day, and the new hotel breakfast adds a third door.</p>
+    <div class="grid two">
+      <div class="card coop">
+        <span class="town coop">Cooperstown</span>
+        <h3>One open door</h3>
+        <p>The Clubhouse is closed until spring 2027. Everyone who finds it on Google, follows it on Facebook or calls it gets sent to Fenimore's Table, which is open all winter and booking events now. Summer 2027 team parties book through the Clubhouse.</p>
+      </div>
+      <div class="card evl">
+        <span class="town evl">Ellicottville</span>
+        <h3>Three doors through the day</h3>
+        <p>The Bake Shop opens at 7:30 and owns the morning. Alpine Bistro is open the longest, pours the drinks and has the rooms for groups. Breakfast at the hotel on Mill Street, run by the Bake Shop, reaches guests who are in town for days.</p>
+      </div>
+    </div>
+    <p class="small">Every property runs the same six channels, carrying the same message in the same week: the website, the Google Business Profile, email, social media, in-store signs and staff.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>02</b> · Business objectives, November to March</p>
+    <h2>What each property is working toward</h2>
+    <div class="grid">
+      <div class="card coop">
+        <span class="town coop">Cooperstown</span>
+        <h3>Fenimore's Table</h3>
+        <ol class="obj">
+          <li>Breakfast, lunch and dinner</li>
+          <li>The bar</li>
+          <li>Football on nine big screens, college and NFL: a major part of every week's promotion</li>
+          <li>Events and group bookings</li>
+          <li>Catering</li>
+        </ol>
+      </div>
+      <div class="card coop">
+        <span class="town coop">Cooperstown</span>
+        <h3>Cooperstown Clubhouse</h3>
+        <ol class="obj">
+          <li>Drive as much traffic as possible to Fenimore's</li>
+          <li>Help promote Fenimore's events, groups and catering</li>
+          <li>Book group parties for the Clubhouse, summer 2027</li>
+        </ol>
+      </div>
+      <div class="card evl">
+        <span class="town evl">Ellicottville</span>
+        <h3>Alpine Bistro</h3>
+        <ol class="obj">
+          <li>Morning breakfast and coffee</li>
+          <li>The lunch program</li>
+          <li>Drinks: coffee cocktails, beer, wine, Friday and Saturday evenings</li>
+          <li>The main hub for Ellicottville events, group bookings and catering</li>
+          <li>Cross-promote the Bake Shop</li>
+        </ol>
+      </div>
+      <div class="card evl">
+        <span class="town evl">Ellicottville</span>
+        <h3>Ellicottville Bake Shop</h3>
+        <ol class="obj">
+          <li>Baked goods</li>
+          <li>Coffee</li>
+          <li>The lunch program</li>
+          <li>Promote the Bistro for every hour the Bake Shop is closed</li>
+          <li>Promote what the Bistro offers that the Bake Shop doesn't</li>
+          <li>Help promote events, groups and catering</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide divider">
+  <div class="inner">
+    <p class="eyebrow">Part one</p>
+    <h2>Sales</h2>
+    <p class="lede">What we're selling this winter, who takes the booking, and how an inquiry turns into a date on the calendar.</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>03</b> · What we're selling</p>
+    <h2>The offers, property by property</h2>
+    <div class="tbl">
+      <table class="wrapcell">
+        <thead><tr><th>Offer</th><th>Where</th><th>When it sells</th><th>Who takes it</th></tr></thead>
+        <tbody>
+          <tr><td>Holiday parties</td><td>Fenimore's (up to 95 guests) · Alpine (the Cafe holds 50, the Cocktail Room 15)</td><td>November to Dec 20</td><td>Christine, with Bob in Cooperstown</td></tr>
+          <tr><td>Private events, groups and catering</td><td>Cooperstown: Fenimore's · Ellicottville: Alpine is the hub, with Bake Shop baking on the catering menu</td><td>All winter, for any date</td><td>Christine, with Bob in Cooperstown</td></tr>
+          <tr><td>Wedding weekends</td><td>Fenimore's: welcome party, rehearsal dinner, farewell brunch, with the Hampton Inn next door</td><td>Engagement season, late December on</td><td>Christine and Bob</td></tr>
+          <tr><td>Daytime meetings and corporate meals</td><td>Fenimore's, Tuesday and Wednesday</td><td>All winter</td><td>Christine and Bob</td></tr>
+          <tr><td>Summer 2027 team parties</td><td>Clubhouse: taco bar, wiffle ball fields, arcade, room for buses</td><td>Booking now; the push starts Jan 4</td><td>Bob</td></tr>
+          <tr><td>Gift cards</td><td>Fenimore's · Alpine · Bake Shop</td><td>Black Friday to Christmas Eve</td><td>Every register</td></tr>
+          <tr><td>Holiday baking</td><td>Bake Shop</td><td>Thanksgiving, Christmas, Valentine's, Easter</td><td>Matt</td></tr>
+          <tr><td>Weekend evenings</td><td>Alpine, Friday and Saturday</td><td>All winter, strongest once the lifts open</td><td>The floor</td></tr>
+          <tr><td>Coffee cocktails, beer to go</td><td>Alpine</td><td>Every open hour</td><td>The floor</td></tr>
+          <tr><td>Football on nine screens</td><td>Fenimore's: college Saturdays, NFL Sundays, Monday and Thursday nights</td><td>Every week to the Super Bowl, Feb 14</td><td>The floor</td></tr>
+          <tr><td>Breakfast, lunch and dinner</td><td>Fenimore's · Alpine (breakfast and lunch, dinner Fri and Sat) · Bake Shop (breakfast and lunch)</td><td>Every open day</td><td>The floor</td></tr>
+          <tr><td>Lent Fish Fry</td><td>Fenimore's</td><td>Fridays, Feb 12 to Mar 26</td><td>The floor</td></tr>
+          <tr><td>Hotel breakfast</td><td>The hotel on Mill Street, by the Bake Shop</td><td>From launch</td><td>Matt</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>04</b> · Events and groups</p>
+    <h2>How an inquiry becomes a booking</h2>
+    <p class="lede">Christine leads events and group sales at all four properties. The marketing work brings inquiries to her, and every channel points to one form per town.</p>
+    <div class="grid">
+      <div class="card accent">
+        <h3>1 · Where inquiries come in</h3>
+        <ul>
+          <li>Cooperstown: one "Plan Your Gathering" button on both the Fenimore's and Clubhouse sites, going to the Fenimore's inquiry form (live since Oct 8)</li>
+          <li>Ellicottville: Alpine is the hub. Its events page and form take every event, group and catering inquiry, and the Bake Shop points there too</li>
+          <li>The phone, the counter and the hotel front desk</li>
+        </ul>
+      </div>
+      <div class="card accent">
+        <h3>2 · What staff write down</h3>
+        <ul>
+          <li>Name, phone or email, date, how many guests</li>
+          <li>Handed to Christine (or Bob, in Cooperstown) the same day</li>
+          <li>No price quoted that isn't on the packages</li>
+        </ul>
+      </div>
+      <div class="card accent">
+        <h3>3 · What we track</h3>
+        <ul>
+          <li>Inquiries per month, by property and by source</li>
+          <li>Events booked, against last winter</li>
+          <li>An email opt-in on every inquiry, so each one also grows the list</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Who we're selling to this winter</h3>
+      <p>Holiday parties (offices, teams, families) in November and December. Couples planning 2027 Cooperstown weddings. Businesses and hospitals that need a daytime meeting room with screens. Motor coach and travel groups. Coaches planning their summer 2027 Cooperstown week. In Ellicottville: ski groups, families renting houses, and anyone staying at the hotel.</p>
+      <p class="small">Christine's catering menu goes on both Ellicottville websites and both registers as soon as its pricing is final.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="slide divider">
+  <div class="inner">
+    <p class="eyebrow">Part two</p>
+    <h2>Marketing</h2>
+    <p class="lede">Six channels at every property, one message a month, with the key posts built and scheduled a month ahead.</p>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>05</b> · The six channels</p>
+    <h2>Same message, same week, everywhere a guest looks</h2>
+    <p class="lede">Each property has its own objectives and its own plan. Within each plan, all six channels move together.</p>
+    <div class="grid">
+      <div class="card"><h3>Website</h3><p>Each month's offer goes on the site the week it starts: holiday party sections, order-by dates, gift card links, holiday hours. Doble AI leads the changes with each team.</p></div>
+      <div class="card"><h3>Google Business Profile</h3><p>For many guests this is the first and only thing they see. Hours match the site, holiday hours are set ahead, one update a week goes out, new photos are added monthly and every review gets an answer.</p></div>
+      <div class="card"><h3>Email</h3><p>Alpine's list (roughly 7,000 to 10,000 people, to confirm) goes out about twice a month, with a Bake Shop block in every send. Fenimore's and the Clubhouse start collecting from Nov 1 toward a first 500 addresses.</p></div>
+      <div class="card"><h3>Social media</h3><p>Facebook and Instagram on a weekly rhythm, plus dated posts for every holiday, event and big game. Key posts are scheduled from one hub a month ahead.</p></div>
+      <div class="card"><h3>Printed materials and QR codes</h3><p>Signs, table tents, counter cards, flyers and the hotel brochure carry the month's message. Every QR code goes straight to the page that books or buys, never just the home page. Every piece has a date to go up and a date to come down.</p></div>
+      <div class="card"><h3>Staff</h3><p>Everyone knows their own property and its sister properties: what each sells and when each is open. A 20-minute kickoff the week of Oct 26, a 10-minute refresh each month, and a one-page card at every register.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>06</b> · One message a month</p>
+    <h2>What every channel says, month by month</h2>
+    <div class="tbl">
+      <table class="wrapcell">
+        <thead><tr><th>Month</th><th>Fenimore's</th><th>Clubhouse</th><th>Alpine</th><th>Bake Shop</th></tr></thead>
+        <tbody>
+          <tr><td>November</td><td>Book your holiday party</td><td>This winter at Fenimore's; summer 2027 here</td><td>Holiday parties, and Friday and Saturday evenings</td><td>Order your holiday baking</td></tr>
+          <tr><td>December</td><td>Gift cards and holiday gatherings</td><td>Holiday parties and gift cards at Fenimore's</td><td>The lifts are open: après at Alpine</td><td>Holiday trays, cookies and gift cards</td></tr>
+          <tr><td>January</td><td>Playoff football, and book spring events</td><td>Summer 2027 teams: book your party now</td><td>Winter Blues Weekend and coffee cocktails</td><td>First chair starts here</td></tr>
+          <tr><td>February</td><td>Lent Fish Fry, Valentine's, Winter Carnival</td><td>Your Cooperstown week is set: book the party</td><td>Valentine's, Music Jam, Presidents' week</td><td>Fat Tuesday, Valentine's, Presidents' week</td></tr>
+          <tr><td>March</td><td>Fish Fry Fridays, and summer is booking</td><td>Reopening date, and summer is filling</td><td>Mardi Gras Weekend and spring groups</td><td>Easter orders and spring skiing</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 9b in sync -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>07</b> · What "in sync" looks like</p>
+    <h2>November, at every property, on every channel</h2>
+    <div class="tbl">
+      <table class="wrapcell">
+        <thead><tr><th>Channel</th><th>Fenimore's</th><th>Clubhouse</th><th>Alpine</th><th>Bake Shop</th></tr></thead>
+        <tbody>
+          <tr><td>Website</td><td>Holiday party section with a book-by date; football on the screens</td><td>Two booking paths: this winter at Fenimore's, summer 2027 teams here</td><td>Holiday parties and catering on the events page; evenings on the home page</td><td>Holiday orders with order-by dates; "after 2:30, Alpine is open"</td></tr>
+          <tr><td>Google profile</td><td>Holiday hours; weekly update on parties and game days</td><td>Closed for winter, booking at Fenimore's and for summer 2027</td><td>Thursday update: this weekend's evenings and events</td><td>Thanksgiving order-by update; Alpine line in the description</td></tr>
+          <tr><td>Social</td><td>College Saturdays, NFL Sundays; Tuesday events and catering post</td><td>Shares of Fenimore's posts; a summer 2027 team post every other week</td><td>Wednesday groups and events post; Friday and Saturday evenings</td><td>The case at 7:15, the hand-off to Alpine at 2:15; Thanksgiving orders</td></tr>
+          <tr><td>Email</td><td>Sign-ups start: site, events form, table QR card</td><td>Opt-in on the Teams form</td><td>Sends Nov 5 and Nov 19</td><td>A Bake Shop block in each Alpine send</td></tr>
+          <tr><td>Print and QR</td><td>Host stand: "Book your holiday party", QR to the events form; game-day signs at the bar</td><td>Door sign, QR to Fenimore's and the Teams page</td><td>Register card: holiday parties, QR to the events form; sidewalk sign Fri and Sat</td><td>Holiday order poster, QR to the order form; door: "after 2:30, Alpine"</td></tr>
+          <tr><td>Staff</td><td>"Have you booked your holiday party yet? We take up to 95."</td><td>Fenimore's staff answer for the Clubhouse</td><td>"Planning a holiday party? We hold 50."</td><td>"Have you ordered for Thanksgiving?" From 2 PM: "Alpine's open till 4."</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">The same grid exists for every month, November to March, in each property's detailed plan.</p>
+  </div>
+</section>
+
+<!-- 10 Fenimore's -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><span class="town coop">Cooperstown</span></p>
+    <h2>Fenimore's Table: breakfast, lunch, dinner, the bar and nine screens</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>The weekly rhythm</h3>
+        <div class="tbl" style="border:0">
+          <table>
+            <tbody>
+              <tr><td>Monday</td><td>Breakfast; Monday Night Football on the screens tonight</td></tr>
+              <tr><td>Tuesday</td><td>Events, groups and catering, booking now for any date</td></tr>
+              <tr><td>Wednesday</td><td>Lunch, and tomorrow's dinner special</td></tr>
+              <tr><td>Thursday</td><td>Tonight's special, the bar, Thursday Night Football</td></tr>
+              <tr><td>Friday</td><td>Fish Fry tonight (two posts a Friday in Lent)</td></tr>
+              <tr><td>Saturday</td><td>College football all day on nine screens; dinner special tonight</td></tr>
+              <tr><td>Sunday</td><td>NFL game day: every game on the screens</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small">Plus takeout every other Monday, and a Clubhouse collab post every other Wednesday.</p>
+      </div>
+      <div class="card">
+        <h3>The big moves</h3>
+        <ul>
+          <li><b>By Oct 31:</b> a holiday party section on Private Events, with a book-by date</li>
+          <li><b>November:</b> wedding weekends and Tuesday and Wednesday daytime meetings added to Private Events</li>
+          <li><b>Nov 20:</b> gift cards on the site and at the register, if sold</li>
+          <li><b>From Nov 1:</b> email sign-ups on the site, the events form and a QR card on every table</li>
+          <li><b>Football all season:</b> the week's games on the site, the Google profile, a game-day sign at the bar and door, and a post for every big game</li>
+          <li><b>Late Dec to Jan 25:</b> bowl games and the College Football Playoff; NFL playoffs from Jan 16; the Super Bowl on Feb 14</li>
+          <li><b>Catering:</b> on the Private Events page and in the Tuesday post, once Christine's menu and pricing are final</li>
+          <li><b>Feb 12 to Mar 26:</b> Lent Fish Fry, the biggest Friday stretch of the year</li>
+        </ul>
+        <p class="small">Posted hours (read 13 Oct): Mon 7:30 AM to 9 PM · Tue and Wed 7:30 AM to 4 PM · Thu and Fri 7:30 AM to 9 PM · Sat and Sun 8 AM to 9 PM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 Clubhouse -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><span class="town coop">Cooperstown</span></p>
+    <h2>Cooperstown Clubhouse: closed, and still working</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Two booking paths from Nov 1</h3>
+        <ul>
+          <li><b>This winter:</b> parties, team dinners and events go to Fenimore's, which is booking now</li>
+          <li><b>Summer 2027:</b> teams and groups send an inquiry on the Clubhouse Teams page</li>
+        </ul>
+        <h3>What people see</h3>
+        <ul>
+          <li>Website and Google: closed for the season, reopening spring 2027, with both paths</li>
+          <li>Door sign pointing to Fenimore's, 4874 State Highway 28</li>
+          <li>A "bringing a team this summer?" card at the Fenimore's register from Jan 4</li>
+          <li>Fenimore's staff answer for the Clubhouse and take team inquiries for Bob</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Social: two or three posts a week</h3>
+        <div class="tbl" style="border:0">
+          <table>
+            <tbody>
+              <tr><td>About 60%</td><td>Fenimore's: events, holiday parties, football, specials</td></tr>
+              <tr><td>About 30%</td><td>Summer 2027 teams and groups</td></tr>
+              <tr><td>About 10%</td><td>Clubhouse news, and the reopening date</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Team posts go every other Tuesday from Nov 3, then every week from Jan 5, when coaches plan their Cooperstown week. Its Facebook audience (about 1,400 followers) becomes a Fenimore's audience all winter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 Alpine -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><span class="town evl">Ellicottville</span></p>
+    <h2>Alpine Bistro: breakfast to evenings, and the events hub</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>The weekly rhythm</h3>
+        <div class="tbl" style="border:0">
+          <table>
+            <tbody>
+              <tr><td>Monday</td><td>The lunch program</td></tr>
+              <tr><td>Tuesday</td><td>A coffee cocktail, any hour we're open</td></tr>
+              <tr><td>Wednesday</td><td>Events, groups and catering (holiday parties in Nov and Dec)</td></tr>
+              <tr><td>Thursday</td><td>This weekend: open till 8 Friday, 9 Saturday</td></tr>
+              <tr><td>Friday</td><td>Après starts now</td></tr>
+              <tr><td>Saturday</td><td>Weekend breakfast before the slopes; open till 9 tonight</td></tr>
+              <tr><td>Sunday</td><td>Sunday breakfast, and beans or beer to take home</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small">Every afternoon it reshares the Bake Shop's 2:15 story: "We close at 2:30, Alpine's open."</p>
+      </div>
+      <div class="card">
+        <h3>The big moves</h3>
+        <ul>
+          <li><b>By Oct 31:</b> the events page becomes the Ellicottville hub for events, groups and catering, with holiday parties first; a Friday and Saturday evenings section on the home page</li>
+          <li><b>Mornings:</b> breakfast and coffee every day from 8, and a "the Bake Shop opens at 7:30" line for early risers</li>
+          <li><b>Nov 5:</b> first of about two emails a month, each with a Bake Shop block</li>
+          <li><b>Sidewalk sign</b> Fridays and Saturdays from 3:30: "Open till 8 tonight"</li>
+          <li><b>Every coffee after noon:</b> "Want to make that a coffee cocktail?"</li>
+          <li><b>Holiday gifts:</b> gift cards and whole-bean coffee, Small Business Saturday to Christmas</li>
+          <li><b>March:</b> summer events (weddings, rehearsal dinners, reunions) on the events page</li>
+        </ul>
+        <p class="small">Posted hours: Sun to Thu 8 AM to 4 PM · Fri 8 AM to 8 PM · Sat 8 AM to 9 PM. If evening hours change, every evening post and sign changes with them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 Bake Shop -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><span class="town evl">Ellicottville</span></p>
+    <h2>Ellicottville Bake Shop: make every open hour count</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>Open daily, 7:30 AM to 2:30 PM</h3>
+        <ul>
+          <li><b>Baked goods and coffee:</b> the case every morning; order-ahead for weekend pickup at the top of the site from January</li>
+          <li><b>The lunch program</b> gets its own weekly post and a line on the counter card</li>
+          <li><b>Holiday orders</b> with order-by dates: Thanksgiving, Christmas, Valentine's, Easter (Mar 28)</li>
+          <li><b>Events, groups and catering:</b> the Wednesday post and the counter card point to Alpine, the Ellicottville hub</li>
+          <li><b>Two stories a day:</b> the case at 7:15, and the hand-off to Alpine at 2:15</li>
+        </ul>
+        <h3>Promoting the Bistro</h3>
+        <p>For every hour the Bake Shop is closed, and for everything the Bistro offers that the Bake Shop doesn't: drinks, Friday and Saturday evenings, the rooms for groups. From 2 PM, every customer hears that Alpine is open till 4 (8 Friday, 9 Saturday). The same line goes on the door, the register card, the website and the Google profile.</p>
+      </div>
+      <div class="card">
+        <h3>The hotel breakfast: the third location</h3>
+        <p>The Bake Shop runs breakfast at the hotel on Mill Street, a block away. The hotel's guests are in town for days, and most check in mid-afternoon, when Alpine is the only door open.</p>
+        <ul>
+          <li>An in-room brochure with a QR code to one guest page: breakfast hours, the Bake Shop, Alpine and a walking map</li>
+          <li>A front desk card: "Alpine Bistro is open till 4 today"</li>
+          <li>Table tents at breakfast: "Tonight at Alpine"</li>
+          <li>A group card for Christine at the front desk</li>
+          <li>Posts ride on the Bake Shop and Alpine accounts; no new accounts needed</li>
+        </ul>
+        <p class="small">Start date, hours and the name on the breakfast are still to confirm. The hotel's spring 2027 relaunch is the next big moment to get the breakfast named.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 EVL hour by hour -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>08</b> · Ellicottville, hour by hour</p>
+    <h2>Who's open, and where each door sends people next</h2>
+    <div class="tbl">
+      <table class="wrapcell">
+        <thead><tr><th>When</th><th>Open</th><th>Where we send people</th></tr></thead>
+        <tbody>
+          <tr><td>7:30 to 8 AM</td><td>Bake Shop · hotel breakfast</td><td>Hotel guests who'd rather walk go to the Bake Shop</td></tr>
+          <tr><td>8 AM to 2 PM</td><td>All three</td><td>Bake Shop sends sit-down meals, lunch, drinks and groups to Alpine. Alpine sends early risers and big orders to the Bake Shop</td></tr>
+          <tr><td>2 to 2:30 PM</td><td>Bake Shop's last half hour</td><td>Every customer hears Alpine is open till 4 (8 Friday, 9 Saturday)</td></tr>
+          <tr><td>2:30 to 4 PM</td><td>Alpine only</td><td>Hotel check-ins and the after-ski crowd go to Alpine</td></tr>
+          <tr><td>3:30 to 4 PM, Sun to Thu</td><td>Alpine's last half hour</td><td>"The Bake Shop opens at 7:30 tomorrow, we open at 8"</td></tr>
+          <tr><td>4 to 8 or 9 PM, Fri and Sat</td><td>Alpine evenings</td><td>Hotel guests, renters and day visitors come for après and dinner</td></tr>
+          <tr><td>Overnight</td><td>The hotel</td><td>Guests plan tomorrow from the in-room brochure</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 15 Key dates -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>09</b> · Key dates</p>
+    <h2>Each town has its own calendar</h2>
+    <p class="lede">National holidays go on both. Football is a Fenimore's draw; Alpine gets the occasional "Go Bills" and nothing more.</p>
+    <div class="grid two">
+      <div class="card coop">
+        <span class="town coop">Cooperstown</span>
+        <div class="tbl" style="border:0"><table><tbody>
+          <tr><td>Weekends</td><td>College Saturdays, NFL Sundays at Fenimore's</td></tr>
+          <tr><td>Nov 26</td><td>Thanksgiving, with a night game</td></tr>
+          <tr><td>Nov 27 to 28</td><td>Black Friday and Small Business Saturday: gift cards start</td></tr>
+          <tr><td>Dec 12</td><td>Candlelight Evening (date to confirm)</td></tr>
+          <tr><td>Dec 27</td><td>Engagement season: 2027 wedding weekends</td></tr>
+          <tr><td>Jan 4</td><td>Summer 2027 team push begins</td></tr>
+          <tr><td>Late Dec to Jan 25</td><td>Bowl games and the College Football Playoff</td></tr>
+          <tr><td>Jan 16 to 18</td><td>NFL Wild Card weekend and MLK Day</td></tr>
+          <tr><td>Jan 25</td><td>College football national championship</td></tr>
+          <tr><td>Feb 4 to 7</td><td>Cooperstown Winter Carnival</td></tr>
+          <tr><td>Feb 12</td><td>Lent Fish Fry starts, through Mar 26</td></tr>
+          <tr><td>Feb 14</td><td>Valentine's Day and the Super Bowl, same Sunday</td></tr>
+          <tr><td>Mar 28</td><td>Easter</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="card evl">
+        <span class="town evl">Ellicottville</span>
+        <div class="tbl" style="border:0"><table><tbody>
+          <tr><td>Nov 6 to 8</td><td>Beer and Wine Festival</td></tr>
+          <tr><td>Nov 27 to 29</td><td>Christmas in Ellicottville (dates to confirm)</td></tr>
+          <tr><td>Nov 28</td><td>Small Business Saturday</td></tr>
+          <tr><td>Early Dec</td><td>Holiday Valley opens (last season, Dec 5)</td></tr>
+          <tr><td>Dec 12</td><td>A Christmas Stroll</td></tr>
+          <tr><td>Dec 24 to Jan 1</td><td>Holiday week, Buffalo schools out</td></tr>
+          <tr><td>Jan 15 to 18</td><td>Winter Blues Weekend and MLK Day</td></tr>
+          <tr><td>Feb 9</td><td>Fat Tuesday</td></tr>
+          <tr><td>Feb 12 to 14</td><td>Winter Music Jam</td></tr>
+          <tr><td>Feb 13 to 21</td><td>Presidents' week, the busiest week of the winter</td></tr>
+          <tr><td>Mar 12 to 14</td><td>Mardi Gras Weekend</td></tr>
+          <tr><td>Mar 28</td><td>Easter</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 How the work gets done -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>10</b> · How the work gets done</p>
+    <h2>Built a month ahead, added to from the floor</h2>
+    <div class="grid two">
+      <div class="card">
+        <h3>One hub, a month at a time</h3>
+        <p>About 90% of the posts for all four properties are built, approved by the team and scheduled from one hub before each month starts. The calendar runs whether or not anyone has time that week.</p>
+        <p>One or two people at each property add live posts on top: the room filling up, a special coming out of the kitchen, a party in full swing.</p>
+        <p class="small">This builds on what's already running: the October calendars for Alpine and Fenimore's, Christine's 90-day Fenimore's calendar and Bob's weekly rhythm.</p>
+      </div>
+      <div class="card">
+        <h3>The weekly steps, two weeks ahead</h3>
+        <div class="tbl" style="border:0"><table><tbody>
+          <tr><td>Monday</td><td>Confirm the next 14 days; flag missing photos, prices or approvals</td></tr>
+          <tr><td>Tuesday</td><td>Creative is due</td></tr>
+          <tr><td>Wednesday</td><td>Operations confirms menus, hours and offers</td></tr>
+          <tr><td>Thursday</td><td>Posts are approved</td></tr>
+          <tr><td>Friday</td><td>Posts are scheduled</td></tr>
+        </tbody></table></div>
+        <p class="small">Each property also has a shared photo folder the team drops into any time, and spends 10 to 15 minutes, three times a week, engaging with other local accounts. The weekly steps and outbound engagement come from Christine's calendar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 Measuring -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>11</b> · How we'll know it's working</p>
+    <h2>Every offer gets counted</h2>
+    <div class="card accent">
+      <p class="goal">If an offer doesn't have its own button on the register, we can't tell whether it worked.</p>
+      <p>So every offer in this plan gets its own item or discount button in Toast or Square before it's promoted: each flyer offer, each special, beer to go, the coffee cocktails, the hotel breakfast. No lump-sum entries at the end of the day.</p>
+    </div>
+    <div class="grid">
+      <div class="card coop"><h3>Fenimore's</h3><ul><li>Event inquiries and parties booked</li><li>Covers Thursday to Sunday</li><li>Gift cards, Black Friday to Christmas Eve</li><li>Email sign-ups toward 500</li></ul></div>
+      <div class="card coop"><h3>Clubhouse</h3><ul><li>Summer 2027 team inquiries per month</li><li>Team parties booked, deposits taken</li><li>Clicks from the Clubhouse site to Fenimore's</li></ul></div>
+      <div class="card evl"><h3>Alpine</h3><ul><li>Friday and Saturday sales after 4 PM</li><li>Coffee cocktails and beer to go per week</li><li>Event inquiries and bookings</li><li>Email opens and clicks</li></ul></div>
+      <div class="card evl"><h3>Bake Shop</h3><ul><li>Orders per open day</li><li>Holiday and catering pre-orders</li><li>Online orders for weekend pickup</li><li>Hotel breakfast covers against occupancy</li></ul></div>
+    </div>
+    <p class="small">One short report on the first Monday of each month, against the same month last winter.</p>
+  </div>
+</section>
+
+<!-- 18 Timeline -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>12</b> · Between now and November 1</p>
+    <h2>Eighteen days to the first post</h2>
+    <div class="steps">
+      <div class="step"><b>This week</b><span>The team reviews this plan and sends changes. Anything missing, wrong or already planned goes in.</span></div>
+      <div class="step"><b>By Oct 23</b><span>Plan approved; the Marketing Team and the floor people at each property named.</span></div>
+      <div class="step"><b>Week of Oct 26</b><span>20-minute staff kickoff at each property, with the register cards.</span></div>
+      <div class="step"><b>By Oct 28</b><span>Holiday party offers and book-by dates, holiday baking list, Google profile access, Alpine email list confirmed.</span></div>
+      <div class="step"><b>By Oct 31</b><span>Websites and Google profiles updated, signs printed and up, November posts scheduled.</span></div>
+      <div class="step"><b>Nov 1</b><span>The plan goes live at all four properties.</span></div>
+      <div class="step"><b>Nov 5</b><span>First Alpine email.</span></div>
+      <div class="step"><b>By Nov 10</b><span>Holiday hours set at all three open properties, on the sites and on Google the same day.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 Decisions -->
+<section class="slide">
+  <div class="inner">
+    <p class="eyebrow"><b>13</b> · What we need to start</p>
+    <h2>The decisions that hold up the most work</h2>
+    <div class="grid two">
+      <div class="ask"><strong>Who is on the Marketing Team</strong><span>Corey and John, once the plan is approved.</span></div>
+      <div class="ask"><strong>One or two floor posters per property</strong><span>Corey. The key posts come from the hub; these people add the live ones.</span></div>
+      <div class="ask"><strong>Holiday party offers and book-by dates</strong><span>Christine, with Bob for Fenimore's and Matt for Alpine. By Oct 28.</span></div>
+      <div class="ask"><strong>Holiday baking list and order-by dates</strong><span>Matt, by Oct 28.</span></div>
+      <div class="ask"><strong>Alpine's email list</strong><span>How big, which tool, how people signed up. Whoever manages it today, by Oct 28.</span></div>
+      <div class="ask"><strong>Google profile manager access</strong><span>Whoever owns each profile today, by Oct 28.</span></div>
+      <div class="ask"><strong>Hotel breakfast start date, hours and name</strong><span>Corey and Matt.</span></div>
+      <div class="ask"><strong>Paid ads: yes or no, and how much</strong><span>Corey. Holiday parties and wedding weekends are the first candidates.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 Close -->
+<section class="slide title">
+  <div class="inner">
+    <p class="eyebrow">Next step</p>
+    <h2 style="font-size:clamp(2rem,5vw,3.4rem)">A starting point for the team</h2>
+    <p class="lede">This plan pulls together the work already under way at each property. Read it, mark what's wrong or missing, and we'll fold it in before Nov 1. Once it's approved, the detailed calendar for each property, with dated posts, signs and staff cards, is ready to schedule.</p>
+    <footer class="note">Prepared by Doble AI, 13 October 2026. Hours were read from each property's website on 13 October 2026. Event dates come from the organizer or an official calendar where marked confirmed; the rest are for someone local to confirm. Nothing in this plan has been scheduled, printed or changed on any website yet.</footer>
+  </div>
+</section>
+
+<div class="pager" aria-hidden="true"><span id="pg">1</span> / <span id="pt"></span></div>
+<script>
+(function(){
+  [].forEach.call(document.querySelectorAll('table'),function(t){
+    var h=t.querySelectorAll('thead th'); if(!h.length)return; t.classList.add('stack');
+    [].forEach.call(t.querySelectorAll('tbody tr'),function(r){[].forEach.call(r.children,function(c,i){if(h[i])c.setAttribute('data-label',h[i].textContent)})});
+  });
+})();
+(function(){
+  var s=[].slice.call(document.querySelectorAll('.slide'));
+  var pg=document.getElementById('pg'); document.getElementById('pt').textContent=s.length;
+  function cur(){var y=window.scrollY+window.innerHeight/3,i=0;s.forEach(function(e,k){if(e.offsetTop<=y)i=k});return i}
+  window.addEventListener('scroll',function(){pg.textContent=cur()+1},{passive:true});
+  document.addEventListener('keydown',function(e){
+    var k=e.key,i=cur();
+    if(k==='ArrowRight'||k==='PageDown'||k===' '){e.preventDefault();if(s[i+1])s[i+1].scrollIntoView()}
+    else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();if(s[i-1])s[i-1].scrollIntoView()}
+  });
+})();
+</script>
+</body>
+</html>
