@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant Website Scorecards</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+
+:root{
+  --ground:#F2EEE4; --surface:#FFFDF8; --sunk:#E8E1D2; --ink:#231F1A; --muted:#6B6258; --rule:#D9CFBE;
+  --accent:#9A5B2E; --accent-soft:#F1E1D2;
+  --good:#2F7A4B; --good-soft:#DCEFE2; --warn:#A8620A; --warn-soft:#F8E8CC; --ask:#3E5C8A; --ask-soft:#E1E8F3;
+  --display:"Playfair Display", Georgia, "Times New Roman", serif;
+  --body:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+    --accent:#E0A06C; --accent-soft:#3A2717;
+    --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+  --accent:#E0A06C; --accent-soft:#3A2717;
+  --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0;padding:48px 20px 72px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+.wrap > *, section > * {min-width:0}
+h1,h2,h3{font-family:var(--display);line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,5vw,2.75rem)}
+h2{font-size:1.6rem}
+h3{font-size:1.05rem;font-family:var(--body);font-weight:600}
+p{margin:0;max-width:66ch}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.draft{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;align-self:flex-start}
+.num{font-variant-numeric:tabular-nums}
+header{display:flex;flex-direction:column;gap:14px}
+header .meta{color:var(--muted);font-size:.95rem}
+
+
+.wrap{max-width:980px;gap:40px}
+.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.legend div{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;font-size:.92rem;display:flex;flex-direction:column;gap:4px}
+.legend strong{font-size:.95rem}
+.legend span{color:var(--muted)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.card-head{background:var(--sunk);padding:20px 22px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.card-head .where{color:var(--muted);font-size:.85rem;margin-top:4px}
+.card-head h2{font-size:1.4rem}
+.sc{font-family:var(--display);font-size:2.6rem;font-weight:700;line-height:1;white-space:nowrap;text-align:right}
+.sc small{font-size:1rem;color:var(--muted);font-weight:600}
+.sc .was{display:block;font-family:var(--body);font-size:.75rem;font-weight:600;color:var(--muted);margin-top:6px;letter-spacing:.02em}
+.card-body{padding:18px 22px 22px;display:flex;flex-direction:column;gap:14px;flex:1}
+.status{font-size:.95rem}
+.card h3{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;font-family:var(--body)}
+.card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-size:.92rem}
+.done li::marker{color:var(--good)}
+.open li::marker{color:var(--warn)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.75rem;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--good-soft);color:var(--good)}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+.tag.ask{background:var(--ask-soft);color:var(--ask)}
+.btn{margin-top:auto;align-self:flex-start;display:inline-block;background:var(--accent);color:var(--surface);text-decoration:none;font-weight:600;font-size:.92rem;padding:10px 16px;border-radius:8px}
+.btn:hover{filter:brightness(1.08)}
+.note{background:var(--surface);border:1px dashed var(--rule);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;font-size:.93rem}
+.note p{max-width:none}
+footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--rule);padding-top:18px}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:760px){.cards{grid-template-columns:1fr}.legend{grid-template-columns:1fr}}
+@media (max-width:420px){body{padding:32px 16px 56px}.card-head{padding:18px 16px}.card-body{padding:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Website scorecards · 14 October 2026</div>
+  <h1>Four restaurant websites, where they stand today</h1>
+  <p class="meta">Each site was checked live on 14 October. Every card shows today's score, what was fixed since the first audit, and what's still open. Open a card for the full scorecard, with every point and how to earn it. Prepared by Doble AI.</p>
+</header>
+
+<div class="legend">
+  <div><strong>Only the website counts</strong><span>Star ratings and reviews aren't scored. Every point is something the person running the site can change.</span></div>
+  <div><strong>100 points, four groups</strong><span>Consistent, Working, Findable and Complete. The same scorecard on all four sites.</span></div>
+  <div><strong>A 10 is reachable</strong><span>Every missing point is listed with its fix in the full scorecard.</span></div>
+</div>
+
+<div class="cards">
+
+  <article class="card">
+    <div class="card-head">
+      <div><div class="eyebrow">Ellicottville</div><h2>Alpine Bistro</h2><div class="where">alpinebistrony.com · with ellicottvillecoffee.com</div></div>
+      <div class="sc num">9.9<small> / 10</small><span class="was">checked 14 Oct</span></div>
+    </div>
+    <div class="card-body">
+      <p class="status">One point from 10. Everything fixed in September still holds.</p>
+      <div class="tags"><span class="tag">Analytics on</span><span class="tag">Bing verified</span></div>
+      <h3>Found and fixed</h3>
+      <ul class="done">
+        <li>The site loaded as three separate copies; now one address</li>
+        <li>Hours disagreed in the site's data; now they match on every page and on the coffee site</li>
+        <li>Images cut from 25.9 MB to 3.5 MB, and zoom works on phones</li>
+        <li>12 About questions and all 28 dishes marked up so Google and AI assistants can quote them</li>
+        <li>A share image on every page</li>
+        <li>The coffee site's hours, contact email and outdated claims corrected</li>
+        <li>Google Analytics now counting visits on every page</li>
+      </ul>
+      <h3>Still open</h3>
+      <ul class="open">
+        <li>The Caprese Chicken is described three ways (homepage, Menu page, Square), and two other new dishes don't quite match Square</li>
+      </ul>
+      <a class="btn" href="../alp-audit/">Open the Alpine Bistro scorecard →</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-head">
+      <div><div class="eyebrow">Ellicottville</div><h2>Ellicottville Bake Shop</h2><div class="where">ellicottvillebakeshop.com</div></div>
+      <div class="sc num">9.5<small> / 10</small><span class="was">checked 14 Oct</span></div>
+    </div>
+    <div class="card-body">
+      <p class="status">Every September fix holds. Two small, recent changes account for most of the missing points.</p>
+      <div class="tags"><span class="tag">Analytics on</span><span class="tag">Bing verified</span></div>
+      <h3>Found and fixed</h3>
+      <ul class="done">
+        <li>The sitemap sent Google 16 theme pages and left the real ones out; now it lists the 13 real pages</li>
+        <li>No address, phone or hours for search engines; now a Bakery record on every page</li>
+        <li>FAQ on About, and all 25 dishes marked up with prices</li>
+        <li>robots.txt opened up, and the site verified with Bing</li>
+        <li>Headings fixed, the dead logo and broken Facebook link gone</li>
+        <li>Google Analytics now counting visits on every page</li>
+      </ul>
+      <h3>Still open</h3>
+      <ul class="open">
+        <li>The Events page still leads with the Fall Festival, which ended 11 October</li>
+        <li>Chicken Salad is $11.00 on Toast and $10.50 on the Menu page</li>
+        <li>Two lunch sandwiches described differently on Toast and the site</li>
+      </ul>
+      <a class="btn" href="../bs-audit/">Open the Bake Shop scorecard →</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-head">
+      <div><div class="eyebrow">Cooperstown</div><h2>Fenimore's Table</h2><div class="where">fenimorestable.com</div></div>
+      <div class="sc num">9.1<small> / 10</small><span class="was">checked 14 Oct</span></div>
+    </div>
+    <div class="card-body">
+      <p class="status">The new 7:30 opening hours are on most of the site. Three places still say 6:30, and three items wait on answers from the team.</p>
+      <div class="tags"><span class="tag">Analytics on</span><span class="tag">Bing verified</span></div>
+      <h3>Found and fixed</h3>
+      <ul class="done">
+        <li>Search engines couldn't read anything about the restaurant; now every page has a title, a description and a Restaurant record with address, phone and hours</li>
+        <li>All 88 lunch, dinner and breakfast items marked up with prices</li>
+        <li>The sitemap didn't load; now it does, and the site is verified with Google and Bing</li>
+        <li>Zoom works, the phone taps to call, and the Contact email link is fixed</li>
+        <li>A Private Events page with photos, a form and nine questions answered</li>
+        <li>Share cards, photo descriptions and Google Analytics</li>
+      </ul>
+      <h3>Still open</h3>
+      <ul class="open">
+        <li>The Drinks page footer, a Private Events line and the homepage search description still say 6:30</li>
+        <li>Everyday questions on Contact, Sunday brunch, and "starting at" prices for private events</li>
+      </ul>
+      <a class="btn" href="../fen-audit/">Open the Fenimore's scorecard →</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-head">
+      <div><div class="eyebrow">Cooperstown · closed for the season</div><h2>Cooperstown Clubhouse</h2><div class="where">cooperstownclubhouse.com</div></div>
+      <div class="sc num">7.7<small> / 10</small><span class="was">up to 8.7 after checks</span></div>
+    </div>
+    <div class="card-body">
+      <p class="status">First scored on this scorecard on 14 October. Most of what's left is best finished before the spring reopening.</p>
+      <div class="tags"><span class="tag">Analytics on</span><span class="tag ask">Bing to check</span></div>
+      <h3>Found and fixed</h3>
+      <ul class="done">
+        <li>No page descriptions; now every page has its own title and description</li>
+        <li>Nothing for search engines to read; now a Restaurant record and ten Teams questions marked up</li>
+        <li>Five main headings and a scrolling marquee on the homepage; now one heading and no marquee</li>
+        <li>14 of 15 homepage photos undescribed; now every photo is described, and zoom works</li>
+        <li>Menu links sent visitors to the old Rookie's domain; now that domain forwards to the Clubhouse</li>
+        <li>Closed-for-season banner and footer, with winter visitors sent to Fenimore's</li>
+      </ul>
+      <h3>Still open</h3>
+      <ul class="open">
+        <li>Menu markup, and map coordinates, price range and cuisine in the business record</li>
+        <li>Group size and notice period disagree between pages; Bar Menu has no prices</li>
+        <li>Reopening date and team party deposit not yet on the site</li>
+      </ul>
+      <a class="btn" href="../cb-audit/">Open the Clubhouse scorecard →</a>
+    </div>
+  </article>
+
+</div>
+
+<div class="note">
+  <p><strong>Who did the work.</strong> The fixes on these sites were made by the teams who run them and by Doble AI, and every one listed here holds on the live site as of 14 October. Today's check covered the websites themselves; Google, Facebook, Instagram and Bing were confirmed earlier, and each scorecard says when.</p>
+  <p><strong>About the numbers.</strong> These are website-only scores. The July and August audits scored each business's whole online presence, including Google reviews and social media, so their numbers measure something different and aren't compared here.</p>
+</div>
+
+<footer>Doble AI · Restaurant website scorecards · 14 October 2026</footer>
+</div>
+<!-- sentinel: hogan-websites-v1-2026-10-14 -->
+</body>
+</html>

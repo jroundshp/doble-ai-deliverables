@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clubhouse Website Scorecard</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+:root{
+  --ground:#F2EEE4; --surface:#FFFDF8; --sunk:#E8E1D2; --ink:#231F1A; --muted:#6B6258; --rule:#D9CFBE;
+  --accent:#9A5B2E; --accent-soft:#F1E1D2;
+  --good:#2F7A4B; --good-soft:#DCEFE2; --warn:#A8620A; --warn-soft:#F8E8CC; --ask:#3E5C8A; --ask-soft:#E1E8F3;
+  --display:"Playfair Display", Georgia, "Times New Roman", serif;
+  --body:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+    --accent:#E0A06C; --accent-soft:#3A2717;
+    --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#17140F; --surface:#211C16; --sunk:#2B251D; --ink:#EFE7DA; --muted:#AFA395; --rule:#3A3228;
+  --accent:#E0A06C; --accent-soft:#3A2717;
+  --good:#7CC99A; --good-soft:#1D3325; --warn:#E9B35E; --warn-soft:#3A2A12; --ask:#9DB7E0; --ask-soft:#1D2A3D;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0;padding:48px 20px 72px}
+.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+.wrap > *, section > * {min-width:0}
+h1,h2,h3{font-family:var(--display);line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,5vw,2.75rem)}
+h2{font-size:1.6rem}
+h3{font-size:1.05rem;font-family:var(--body);font-weight:600}
+p{margin:0;max-width:66ch}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.draft{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;align-self:flex-start}
+.num{font-variant-numeric:tabular-nums}
+header{display:flex;flex-direction:column;gap:14px}
+header .meta{color:var(--muted);font-size:.95rem}
+
+.score{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.big{font-family:var(--display);font-size:5rem;line-height:1;font-weight:700}
+.big small{font-size:1.5rem;color:var(--muted);font-weight:600}
+.score .lede{display:flex;flex-direction:column;gap:10px}
+.groups{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-top:1px solid var(--rule);padding-top:20px}
+.g{display:flex;flex-direction:column;gap:6px}
+.g .label{font-size:.85rem;font-weight:600}
+.g .pts{font-size:.85rem;color:var(--muted)}
+.bar{height:6px;background:var(--sunk);border-radius:3px;overflow:hidden;display:flex}
+.bar i{display:block;height:100%;background:var(--accent)}
+.bar i.pend{background:var(--ask);opacity:.45}
+@media (max-width:620px){.score{grid-template-columns:1fr}.groups{grid-template-columns:repeat(2,1fr)}}
+
+section{display:flex;flex-direction:column;gap:18px}
+.intro{color:var(--muted)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.how div{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+.how strong{font-size:.95rem}
+@media (max-width:620px){.how{grid-template-columns:1fr}}
+
+.then{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--surface)}
+.then .col{padding:20px;display:flex;flex-direction:column;gap:10px}
+.then .col+.col{border-left:1px solid var(--rule)}
+.then ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+@media (max-width:620px){.then{grid-template-columns:1fr}.then .col+.col{border-left:0;border-top:1px solid var(--rule)}}
+
+.group{background:var(--surface);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.group-head{background:var(--sunk);padding:20px 24px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.group-head .q{color:var(--muted);font-size:.95rem;margin-top:4px}
+.group-head .tally{font-family:var(--display);font-size:1.8rem;font-weight:700;white-space:nowrap}
+.group-head .tally small{font-size:1rem;color:var(--muted)}
+.group-body{padding:8px 24px 20px}
+.row{display:grid;grid-template-columns:28px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:start}
+.row:last-child{border-bottom:0}
+.mark{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:700;margin-top:2px}
+.ok .mark{background:var(--good-soft);color:var(--good)}
+.todo .mark{background:var(--warn-soft);color:var(--warn)}
+.check .mark{background:var(--ask-soft);color:var(--ask)}
+.row .t{display:flex;flex-direction:column;gap:4px}
+.row .t b{font-weight:600}
+.row .t span{color:var(--muted);font-size:.92rem}
+.row .fix{color:var(--ink);font-size:.92rem;background:var(--ground);border-radius:8px;padding:8px 12px;margin-top:6px}
+.row .p{font-size:.9rem;font-weight:600;white-space:nowrap;text-align:right}
+.todo .p{color:var(--warn)} .ok .p{color:var(--good)} .check .p{color:var(--ask)}
+@media (max-width:620px){.row{grid-template-columns:24px minmax(0,1fr) auto;gap:10px}.row .p{white-space:normal;max-width:4.5em}}
+code{overflow-wrap:anywhere}
+
+.table-wrap{overflow-x:auto;max-width:100%;min-width:0;border:1px solid var(--rule);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93rem}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--sunk)}
+tr:last-child td{border-bottom:0}
+td.r{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;color:var(--warn);white-space:nowrap}
+td.r.a{color:var(--ask)}
+tfoot td{font-weight:700;background:var(--sunk)}
+.chip{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:1px 8px;border-radius:999px;background:var(--ask-soft);color:var(--ask);margin-left:6px;vertical-align:2px}
+
+.aside{background:var(--surface);border:1px dashed var(--rule);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.aside ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px}
+.sources{font-size:.9rem;color:var(--muted)}
+.sources ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--rule);padding-top:18px}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code{font-size:.88em;background:var(--sunk);padding:1px 5px;border-radius:4px;word-break:break-word}
+</style>
+</head><body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Website audit · cooperstownclubhouse.com</div>
+  <h1>Cooperstown Clubhouse</h1>
+  <p class="meta">Checked on the live site on 14 October 2026, while the restaurant is closed for the season. Prepared by Doble AI.</p>
+</header>
+
+<div class="score">
+  <div class="big num">7.7<small> / 10</small></div>
+  <div class="lede">
+    <p><strong>The site went from giving search engines almost nothing to read in August to a clean, described, marked-up site with the closed-for-season message on every page.</strong></p>
+    <p class="intro">Every page now has its own title and description, one main heading and a share image. Photos are described, zoom works, and the old Rookie's domain forwards page by page instead of pulling visitors away mid-visit. Ten points wait on checks we can't make from outside the site, so the score could reach 8.7 before anything else changes. The rest of the path to 10 is listed below, and most of it is best finished before the spring reopening.</p>
+  </div>
+  <div class="groups">
+    <div class="g"><span class="label">Consistent</span><div class="bar"><i style="width:72%"></i><i class="pend" style="width:20%"></i></div><span class="pts num">18 of 25</span></div>
+    <div class="g"><span class="label">Working</span><div class="bar"><i style="width:95%"></i><i class="pend" style="width:5%"></i></div><span class="pts num">19 of 20</span></div>
+    <div class="g"><span class="label">Findable</span><div class="bar"><i style="width:77.5%"></i><i class="pend" style="width:7.5%"></i></div><span class="pts num">31 of 40</span></div>
+    <div class="g"><span class="label">Complete</span><div class="bar"><i style="width:60%"></i><i class="pend" style="width:6.7%"></i></div><span class="pts num">9 of 15</span></div>
+  </div>
+</div>
+
+<section>
+  <h2>How this score works</h2>
+  <div class="how">
+    <div><strong>Only the website counts</strong><span>Every point is something the person running the site can change. Star ratings and review counts are not scored.</span></div>
+    <div><strong>100 points, four groups</strong><span>Is the information the same everywhere? Does everything work? Can people find it? Does the site tell the whole story?</span></div>
+    <div><strong>A 10 is reachable</strong><span>Each missing point is named with its fix. Finish the list and the site scores 10.</span></div>
+  </div>
+  <p class="intro">This is the same website-only scorecard used for the other restaurant sites. It replaces the July digital presence audit, which scored 4.1 on 24 August and also weighed the Google profile, reviews and social media, so the two numbers measure different things. Points shown in blue are waiting on a check, not lost.</p>
+</section>
+
+<section>
+  <h2>Where we started</h2>
+  <p class="intro">The July audit was re-checked on 24 August and found none of its website items fixed yet. The 14 October check found everything on the right in place.</p>
+  <div class="then">
+    <div class="col">
+      <div class="eyebrow">24 August</div>
+      <ul>
+        <li>No page descriptions anywhere</li>
+        <li>No information search engines read about the restaurant</li>
+        <li>No share cards, so links posted as a bare address</li>
+        <li>Five main headings on the homepage and no section headings</li>
+        <li>14 of 15 homepage images with no description</li>
+        <li>A scrolling marquee across the top of the homepage</li>
+        <li>Pinch-to-zoom blocked on phones</li>
+        <li>Three homepage menu links sent visitors to rookiescrafthouseny.com mid-visit</li>
+        <li>The footer map link opened the closed Rookie's listing</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="eyebrow">14 October</div>
+      <ul>
+        <li>Every page has its own title and description</li>
+        <li>A Restaurant record on the site with address, phone, Facebook and Instagram, plus ten Teams questions marked up</li>
+        <li>A share image on all seven pages</li>
+        <li>One main heading on the homepage, with four section headings under it</li>
+        <li>Every photo described; only two decorative texture strips are left blank, which is correct</li>
+        <li>The marquee is gone</li>
+        <li>Zoom works on every page</li>
+        <li>No page links to the old domain, and rookiescrafthouseny.com forwards each page to its Clubhouse match</li>
+        <li>The map link opens the Clubhouse address, and a sitemap of the seven real pages is published</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Consistent</h2><p class="q">Does everyone see the same address, phone, hours and details, wherever they look?</p></div>
+      <div class="tally num">18<small> / 25</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Address and phone</b><span>4850 NY-28 and (607) 486-1483 appear on Contact and in the restaurant's business record. For the winter, the footer on every page sends callers to Fenimore's at (607) 547-2767, with its current hours. That is a deliberate seasonal choice, so it isn't counted against the site. Switch the footer back when the Clubhouse reopens.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row check"><div class="mark">?</div><div class="t"><b>Season and hours agree everywhere</b><span>The site says closed for the season on every page, and the business record makes no claim about opening hours, so the two agree. The Google profile and Yelp were not checked on 14 October.</span><div class="fix">Confirm the Google profile shows the restaurant as closed for the season (or temporarily closed), not open daily.</div></div><div class="p num">6 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>The pages agree with each other</b><span>The homepage says the Clubhouse hosts groups of 30 to 250. The Teams questions say 30 to 50, or 80 catered. The Teams questions ask for one day's notice for the taco bar; the booking form asks for one week.</span><div class="fix">Settle one group size and one notice period, then use them on the homepage, the Teams questions and the booking form.</div></div><div class="p num">2 / 4</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>The business record lists the restaurant's profiles</b><span>The record on every page names Cooperstown Clubhouse and lists its Facebook page and Instagram.</span></div><div class="p num">4 / 4</div></div>
+      <div class="row check"><div class="mark">?</div><div class="t"><b>Facebook and Instagram match the website</b><span>Not checked on 14 October.</span><div class="fix">A screenshot of each profile's About or bio, showing name, address, phone, website link and the closed-for-season status.</div></div><div class="p num">0 / 3</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Working</h2><p class="q">Does every link, image and screen do what a visitor expects?</p></div>
+      <div class="tally num">19<small> / 20</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>No broken links or missing images</b><span>Every link and image on the seven pages loads.</span></div><div class="p num">6 / 6</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Social and ordering links work</b><span>The ordering link points to the Clubhouse page on Toast, and the Facebook and Instagram links open the Clubhouse profiles.</span></div><div class="p num">4 / 4</div></div>
+      <div class="row check"><div class="mark">?</div><div class="t"><b>Displays correctly on a phone</b><span>Nothing runs off the screen at small-tablet width. iPhone width (390 pixels) has not been measured yet.</span><div class="fix">Measure all seven pages at 390 pixels.</div></div><div class="p num">5 / 6</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>The phone number taps to call</b><span>On every page.</span></div><div class="p num">2 / 2</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Every page has a share image</b><span>All seven pages.</span></div><div class="p num">2 / 2</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Findable</h2><p class="q">Can Google, Bing and AI assistants read what the Clubhouse is, where it is, and what it serves?</p></div>
+      <div class="tally num">31<small> / 40</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Sitemap lists only real pages</b><span>Seven pages, and nothing else.</span></div><div class="p num">8 / 8</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Open to search engines, with full previews</b><span>Nothing blocks search engines, and Google Search Console is verified on the site.</span></div><div class="p num">3 / 3</div></div>
+      <div class="row check"><div class="mark">?</div><div class="t"><b>Verified with Bing</b><span>Bing feeds ChatGPT search and Copilot. Bing can be verified without a tag on the page, so this needs a look inside Bing Webmaster Tools.</span><div class="fix">A screenshot of Bing Webmaster Tools showing the site and its sitemap submitted.</div></div><div class="p num">0 / 3</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Titles, descriptions and headings</b><span>All seven pages have their own title and description. The Bar Menu and Activities pages each carry one main heading for desktop and one for phones, which is correct.</span></div><div class="p num">8 / 8</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Restaurant business record</b><span>Name, address, phone, Facebook and Instagram are in place. Map coordinates, price range and cuisine are missing.</span><div class="fix">Add map coordinates, price range and cuisine (Mexican American) in Rank Math. Add opening hours when spring hours are set.</div></div><div class="p num">5 / 8</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>FAQ markup on the Teams page</b><span>Ten questions are marked up. When the group size is settled (see Consistent), update the answer in the markup too.</span></div><div class="p num">5 / 5</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Menu markup</b><span>The Menu page lists 33 prices, and none of them are marked up, so search engines and AI assistants can't quote the menu.</span><div class="fix">Add menu markup for the Menu page, matching each dish name and price.</div></div><div class="p num">0 / 3</div></div>
+      <div class="row ok"><div class="mark">✓</div><div class="t"><b>Photo descriptions</b><span>Every photo is described.</span></div><div class="p num">2 / 2</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="group">
+    <div class="group-head">
+      <div><h2>Complete</h2><p class="q">Does the site tell the whole story a team or a family is looking for?</p></div>
+      <div class="tally num">9<small> / 15</small></div>
+    </div>
+    <div class="group-body">
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Food and bar menus with prices</b><span>The food menu is written out with prices. The Bar Menu lists drinks with no prices.</span><div class="fix">Add prices to the Bar Menu.</div></div><div class="p num">4 / 6</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>The story and everyday questions</b><span>The Activities page mentions one wiffle ball field; the complex has two.</span><div class="fix">Change the Activities line to two wiffle ball fields.</div></div><div class="p num">3 / 4</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>Team parties</b><span>Teams explains the party and has a booking form. The deposit amount isn't stated, and where the form's messages arrive hasn't been confirmed.</span><div class="fix">State the deposit, and send one test booking to confirm who receives it.</div></div><div class="p num">1 / 3</div></div>
+      <div class="row todo"><div class="mark">!</div><div class="t"><b>The site looks current</b><span>A red "Closed for the season. See you in spring 2027" banner is on Home, Menu and Teams, and every footer says the same. There is no reopening date yet.</span><div class="fix">Add the reopening date and spring hours once they're set.</div></div><div class="p num">1 / 2</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The path to 10</h2>
+  <p class="intro">Everything still open, in two lists. The first is site work. The second only needs someone to look and send a screenshot; nothing on the site changes.</p>
+
+  <h3>1. Site work <span class="chip">+13</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Fix</th><th>Where</th><th style="text-align:right">Points</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Add menu markup for the Menu page</td><td>Rank Math Schema tab, Menu page</td><td class="r">+3</td></tr>
+        <tr><td>2</td><td>Add map coordinates, price range and cuisine to the business record</td><td>Rank Math business settings</td><td class="r">+3</td></tr>
+        <tr><td>3</td><td>Settle one group size and one notice period across the homepage, Teams and the booking form</td><td>Home and Teams pages</td><td class="r">+2</td></tr>
+        <tr><td>4</td><td>Add Bar Menu prices</td><td>Bar Menu page</td><td class="r">+2</td></tr>
+        <tr><td>5</td><td>State the team party deposit</td><td>Teams page</td><td class="r">+1</td></tr>
+        <tr><td>6</td><td>Add the reopening date and spring hours</td><td>Banner, footer and business record</td><td class="r">+1</td></tr>
+        <tr><td>7</td><td>Change "a wiffle ball field" to two fields</td><td>Activities page</td><td class="r">+1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2. Still to check <span class="chip">+10</span></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>What to check</th><th>What we need</th><th style="text-align:right">Points</th></tr></thead>
+      <tbody>
+        <tr><td>8</td><td>Bing verification</td><td>Bing Webmaster Tools screenshot</td><td class="r a">+3</td></tr>
+        <tr><td>9</td><td>Facebook and Instagram details</td><td>Screenshots of each About or bio</td><td class="r a">+3</td></tr>
+        <tr><td>10</td><td>Google profile shows closed for the season</td><td>Screenshot, or a look from someone signed in</td><td class="r a">+2</td></tr>
+        <tr><td>11</td><td>Seven pages at iPhone width</td><td>We can measure this</td><td class="r a">+1</td></tr>
+        <tr><td>12</td><td>Where team booking messages arrive</td><td>One test booking</td><td class="r a">+1</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="3">From 77 to 100</td><td class="r">+23</td></tr></tfoot>
+    </table>
+  </div>
+</section>
+
+<section class="aside">
+  <h2>Beyond the website</h2>
+  <p>These don't count toward the score. They are still worth doing.</p>
+  <h3>Small fixes</h3>
+  <ul>
+    <li><strong>Careers:</strong> the page says hiring resumes in spring 2027, but its "Apply now" button still opens the job application. Hide the button until hiring opens.</li>
+    <li><strong>Banner on two pages:</strong> Bar Menu and Careers have the closed-for-season note in the footer but not the red banner at the top.</li>
+    <li><strong>Contact:</strong> the typo "at at" in the page copy.</li>
+  </ul>
+  <h3>Already in place</h3>
+  <ul>
+    <li><strong>Analytics:</strong> Google Analytics is on all seven pages, so visits are being counted through the winter.</li>
+    <li><strong>Winter routing:</strong> five links on the site send visitors to Fenimore's for the winter, each tagged so Google Analytics can count the visits they send.</li>
+  </ul>
+</section>
+
+<section class="sources">
+  <h3>How we checked</h3>
+  <ul>
+    <li>All seven pages in the sitemap fetched and rendered in a real browser on 14 October 2026; every link and image checked; page layouts measured at small-tablet width</li>
+    <li>Titles, descriptions, headings, photo descriptions, share images and the business record read on every page; the Teams FAQ markup compared with the visible questions</li>
+    <li>rookiescrafthouseny.com pages followed to where they land; the Google Analytics tag confirmed in the rendered page</li>
+    <li>Not checked on 14 October: Facebook, Instagram, the Google profile, Yelp and Bing Webmaster Tools</li>
+  </ul>
+</section>
+
+<footer>Doble AI · Cooperstown Clubhouse website audit · 14 October 2026 · <a href="../cooperstown-clubhouse/">July digital presence audit</a></footer>
+</div>
+<!-- sentinel: cb-audit-v1-2026-10-14-7.7 -->
+</body>
+</html>
